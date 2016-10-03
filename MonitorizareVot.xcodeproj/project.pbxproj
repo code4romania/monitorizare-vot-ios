@@ -1,0 +1,686 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF1D982B1DA18EA600A73FA7 /* QuestionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1D98291DA18EA600A73FA7 /* QuestionCollectionViewCell.m */; };
+		EF1D982C1DA18EA600A73FA7 /* QuestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1D982A1DA18EA600A73FA7 /* QuestionCollectionViewCell.xib */; };
+		EF4BD3861D9D08DE0042BEC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3851D9D08DE0042BEC7 /* main.m */; };
+		EF4BD3891D9D08DE0042BEC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3881D9D08DE0042BEC7 /* AppDelegate.m */; };
+		EF4BD38C1D9D08DE0042BEC7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD38B1D9D08DE0042BEC7 /* LoginViewController.m */; };
+		EF4BD38F1D9D08DE0042BEC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF4BD38D1D9D08DE0042BEC7 /* Main.storyboard */; };
+		EF4BD3921D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3901D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld */; };
+		EF4BD3941D9D08DE0042BEC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF4BD3931D9D08DE0042BEC7 /* Assets.xcassets */; };
+		EF4BD3A21D9D08DE0042BEC7 /* MonitorizareVotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3A11D9D08DE0042BEC7 /* MonitorizareVotTests.m */; };
+		EF4BD3AD1D9D08DE0042BEC7 /* MonitorizareVotUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3AC1D9D08DE0042BEC7 /* MonitorizareVotUITests.m */; };
+		EF4BD3E71D9E7BA60042BEC7 /* SectieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3E61D9E7BA60042BEC7 /* SectieViewController.m */; };
+		EF4BD3EC1D9E7C610042BEC7 /* AlegeFormularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3EB1D9E7C610042BEC7 /* AlegeFormularViewController.m */; };
+		EF4BD3F01D9E821A0042BEC7 /* FormularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3EF1D9E821A0042BEC7 /* FormularViewController.m */; };
+		EF903E2E1DA24A6400D5BC9C /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF903E2D1DA24A6400D5BC9C /* QuestionViewController.m */; };
+		EF903E321DA24BB800D5BC9C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF903E311DA24BB800D5BC9C /* BaseViewController.m */; };
+		EF903E351DA25E3100D5BC9C /* Judete.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF903E341DA25E3100D5BC9C /* Judete.plist */; };
+		EF903E391DA2617F00D5BC9C /* CustomDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF903E381DA2617F00D5BC9C /* CustomDropdownView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF4BD39E1D9D08DE0042BEC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF4BD3791D9D08DE0042BEC7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF4BD3801D9D08DE0042BEC7;
+			remoteInfo = MonitorizareVot;
+		};
+		EF4BD3A91D9D08DE0042BEC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF4BD3791D9D08DE0042BEC7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF4BD3801D9D08DE0042BEC7;
+			remoteInfo = MonitorizareVot;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EF1D98281DA18EA600A73FA7 /* QuestionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionCollectionViewCell.h; path = CustomViews/QuestionCollectionViewCell.h; sourceTree = "<group>"; };
+		EF1D98291DA18EA600A73FA7 /* QuestionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionCollectionViewCell.m; path = CustomViews/QuestionCollectionViewCell.m; sourceTree = "<group>"; };
+		EF1D982A1DA18EA600A73FA7 /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuestionCollectionViewCell.xib; path = CustomViews/QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
+		EF4BD3811D9D08DE0042BEC7 /* MonitorizareVot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonitorizareVot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4BD3851D9D08DE0042BEC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EF4BD3871D9D08DE0042BEC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EF4BD3881D9D08DE0042BEC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EF4BD38A1D9D08DE0042BEC7 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		EF4BD38B1D9D08DE0042BEC7 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		EF4BD38E1D9D08DE0042BEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF4BD3911D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonitorizareVot.xcdatamodel; sourceTree = "<group>"; };
+		EF4BD3931D9D08DE0042BEC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF4BD3981D9D08DE0042BEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF4BD39D1D9D08DE0042BEC7 /* MonitorizareVotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitorizareVotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4BD3A11D9D08DE0042BEC7 /* MonitorizareVotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorizareVotTests.m; sourceTree = "<group>"; };
+		EF4BD3A31D9D08DE0042BEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF4BD3A81D9D08DE0042BEC7 /* MonitorizareVotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitorizareVotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4BD3AC1D9D08DE0042BEC7 /* MonitorizareVotUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorizareVotUITests.m; sourceTree = "<group>"; };
+		EF4BD3AE1D9D08DE0042BEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF4BD3E51D9E7BA60042BEC7 /* SectieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectieViewController.h; path = ViewControllers/SectieViewController.h; sourceTree = "<group>"; };
+		EF4BD3E61D9E7BA60042BEC7 /* SectieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectieViewController.m; path = ViewControllers/SectieViewController.m; sourceTree = "<group>"; };
+		EF4BD3EA1D9E7C610042BEC7 /* AlegeFormularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlegeFormularViewController.h; path = ViewControllers/AlegeFormularViewController.h; sourceTree = "<group>"; };
+		EF4BD3EB1D9E7C610042BEC7 /* AlegeFormularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlegeFormularViewController.m; path = ViewControllers/AlegeFormularViewController.m; sourceTree = "<group>"; };
+		EF4BD3EE1D9E821A0042BEC7 /* FormularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormularViewController.h; path = ViewControllers/FormularViewController.h; sourceTree = "<group>"; };
+		EF4BD3EF1D9E821A0042BEC7 /* FormularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormularViewController.m; path = ViewControllers/FormularViewController.m; sourceTree = "<group>"; };
+		EF903E2C1DA24A6400D5BC9C /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionViewController.h; path = ViewControllers/QuestionViewController.h; sourceTree = "<group>"; };
+		EF903E2D1DA24A6400D5BC9C /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionViewController.m; path = ViewControllers/QuestionViewController.m; sourceTree = "<group>"; };
+		EF903E301DA24BB800D5BC9C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = ViewControllers/BaseViewController.h; sourceTree = "<group>"; };
+		EF903E311DA24BB800D5BC9C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = ViewControllers/BaseViewController.m; sourceTree = "<group>"; };
+		EF903E341DA25E3100D5BC9C /* Judete.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Judete.plist; path = Resources/Judete.plist; sourceTree = "<group>"; };
+		EF903E371DA2617F00D5BC9C /* CustomDropdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomDropdownView.h; path = CustomViews/CustomDropdownView.h; sourceTree = "<group>"; };
+		EF903E381DA2617F00D5BC9C /* CustomDropdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomDropdownView.m; path = CustomViews/CustomDropdownView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF4BD37E1D9D08DE0042BEC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4BD39A1D9D08DE0042BEC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4BD3A51D9D08DE0042BEC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF1D982E1DA1915F00A73FA7 /* QuestionCell */ = {
+			isa = PBXGroup;
+			children = (
+				EF1D98281DA18EA600A73FA7 /* QuestionCollectionViewCell.h */,
+				EF1D98291DA18EA600A73FA7 /* QuestionCollectionViewCell.m */,
+				EF1D982A1DA18EA600A73FA7 /* QuestionCollectionViewCell.xib */,
+			);
+			name = QuestionCell;
+			sourceTree = "<group>";
+		};
+		EF4BD3781D9D08DE0042BEC7 = {
+			isa = PBXGroup;
+			children = (
+				EF4BD3831D9D08DE0042BEC7 /* MonitorizareVot */,
+				EF4BD3A01D9D08DE0042BEC7 /* MonitorizareVotTests */,
+				EF4BD3AB1D9D08DE0042BEC7 /* MonitorizareVotUITests */,
+				EF4BD3821D9D08DE0042BEC7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EF4BD3821D9D08DE0042BEC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BD3811D9D08DE0042BEC7 /* MonitorizareVot.app */,
+				EF4BD39D1D9D08DE0042BEC7 /* MonitorizareVotTests.xctest */,
+				EF4BD3A81D9D08DE0042BEC7 /* MonitorizareVotUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF4BD3831D9D08DE0042BEC7 /* MonitorizareVot */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BD3DD1D9E644F0042BEC7 /* AppDelegate */,
+				EF4BD3DE1D9E64720042BEC7 /* ViewControllers */,
+				EF4BD38D1D9D08DE0042BEC7 /* Main.storyboard */,
+				EF4BD3981D9D08DE0042BEC7 /* Info.plist */,
+				EF4BD3901D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld */,
+				EF4BD3841D9D08DE0042BEC7 /* Supporting Files */,
+				EF903E361DA25E3800D5BC9C /* Resources */,
+			);
+			path = MonitorizareVot;
+			sourceTree = "<group>";
+		};
+		EF4BD3841D9D08DE0042BEC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BD3851D9D08DE0042BEC7 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF4BD3A01D9D08DE0042BEC7 /* MonitorizareVotTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BD3A11D9D08DE0042BEC7 /* MonitorizareVotTests.m */,
+				EF4BD3A31D9D08DE0042BEC7 /* Info.plist */,
+			);
+			path = MonitorizareVotTests;
+			sourceTree = "<group>";
+		};
+		EF4BD3AB1D9D08DE0042BEC7 /* MonitorizareVotUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BD3AC1D9D08DE0042BEC7 /* MonitorizareVotUITests.m */,
+				EF4BD3AE1D9D08DE0042BEC7 /* Info.plist */,
+			);
+			path = MonitorizareVotUITests;
+			sourceTree = "<group>";
+		};
+		EF4BD3DD1D9E644F0042BEC7 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BD3871D9D08DE0042BEC7 /* AppDelegate.h */,
+				EF4BD3881D9D08DE0042BEC7 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		EF4BD3DE1D9E64720042BEC7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BD3E21D9E64F30042BEC7 /* CustomViews */,
+				EF903E331DA24BC500D5BC9C /* BaseVC */,
+				EF4BD3E81D9E7BB10042BEC7 /* LoginVC */,
+				EF4BD3E91D9E7BBC0042BEC7 /* SectieVC */,
+				EF4BD3ED1D9E7C6D0042BEC7 /* AlegeFormularVC */,
+				EF4BD3F11D9E82230042BEC7 /* FormularVC */,
+				EF903E2F1DA24A6B00D5BC9C /* QuestionVC */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EF4BD3E21D9E64F30042BEC7 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				EF903E3A1DA2618800D5BC9C /* Dropdown */,
+				EF1D982E1DA1915F00A73FA7 /* QuestionCell */,
+			);
+			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		EF4BD3E81D9E7BB10042BEC7 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BD38A1D9D08DE0042BEC7 /* LoginViewController.h */,
+				EF4BD38B1D9D08DE0042BEC7 /* LoginViewController.m */,
+			);
+			name = LoginVC;
+			sourceTree = "<group>";
+		};
+		EF4BD3E91D9E7BBC0042BEC7 /* SectieVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BD3E51D9E7BA60042BEC7 /* SectieViewController.h */,
+				EF4BD3E61D9E7BA60042BEC7 /* SectieViewController.m */,
+			);
+			name = SectieVC;
+			sourceTree = "<group>";
+		};
+		EF4BD3ED1D9E7C6D0042BEC7 /* AlegeFormularVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BD3EA1D9E7C610042BEC7 /* AlegeFormularViewController.h */,
+				EF4BD3EB1D9E7C610042BEC7 /* AlegeFormularViewController.m */,
+			);
+			name = AlegeFormularVC;
+			sourceTree = "<group>";
+		};
+		EF4BD3F11D9E82230042BEC7 /* FormularVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BD3EE1D9E821A0042BEC7 /* FormularViewController.h */,
+				EF4BD3EF1D9E821A0042BEC7 /* FormularViewController.m */,
+			);
+			name = FormularVC;
+			sourceTree = "<group>";
+		};
+		EF903E2F1DA24A6B00D5BC9C /* QuestionVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF903E2C1DA24A6400D5BC9C /* QuestionViewController.h */,
+				EF903E2D1DA24A6400D5BC9C /* QuestionViewController.m */,
+			);
+			name = QuestionVC;
+			sourceTree = "<group>";
+		};
+		EF903E331DA24BC500D5BC9C /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF903E301DA24BB800D5BC9C /* BaseViewController.h */,
+				EF903E311DA24BB800D5BC9C /* BaseViewController.m */,
+			);
+			name = BaseVC;
+			sourceTree = "<group>";
+		};
+		EF903E361DA25E3800D5BC9C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EF4BD3931D9D08DE0042BEC7 /* Assets.xcassets */,
+				EF903E341DA25E3100D5BC9C /* Judete.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EF903E3A1DA2618800D5BC9C /* Dropdown */ = {
+			isa = PBXGroup;
+			children = (
+				EF903E371DA2617F00D5BC9C /* CustomDropdownView.h */,
+				EF903E381DA2617F00D5BC9C /* CustomDropdownView.m */,
+			);
+			name = Dropdown;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF4BD3801D9D08DE0042BEC7 /* MonitorizareVot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF4BD3B11D9D08DE0042BEC7 /* Build configuration list for PBXNativeTarget "MonitorizareVot" */;
+			buildPhases = (
+				EF4BD37D1D9D08DE0042BEC7 /* Sources */,
+				EF4BD37E1D9D08DE0042BEC7 /* Frameworks */,
+				EF4BD37F1D9D08DE0042BEC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MonitorizareVot;
+			productName = MonitorizareVot;
+			productReference = EF4BD3811D9D08DE0042BEC7 /* MonitorizareVot.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EF4BD39C1D9D08DE0042BEC7 /* MonitorizareVotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF4BD3B41D9D08DE0042BEC7 /* Build configuration list for PBXNativeTarget "MonitorizareVotTests" */;
+			buildPhases = (
+				EF4BD3991D9D08DE0042BEC7 /* Sources */,
+				EF4BD39A1D9D08DE0042BEC7 /* Frameworks */,
+				EF4BD39B1D9D08DE0042BEC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF4BD39F1D9D08DE0042BEC7 /* PBXTargetDependency */,
+			);
+			name = MonitorizareVotTests;
+			productName = MonitorizareVotTests;
+			productReference = EF4BD39D1D9D08DE0042BEC7 /* MonitorizareVotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EF4BD3A71D9D08DE0042BEC7 /* MonitorizareVotUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF4BD3B71D9D08DE0042BEC7 /* Build configuration list for PBXNativeTarget "MonitorizareVotUITests" */;
+			buildPhases = (
+				EF4BD3A41D9D08DE0042BEC7 /* Sources */,
+				EF4BD3A51D9D08DE0042BEC7 /* Frameworks */,
+				EF4BD3A61D9D08DE0042BEC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF4BD3AA1D9D08DE0042BEC7 /* PBXTargetDependency */,
+			);
+			name = MonitorizareVotUITests;
+			productName = MonitorizareVotUITests;
+			productReference = EF4BD3A81D9D08DE0042BEC7 /* MonitorizareVotUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF4BD3791D9D08DE0042BEC7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = Code4Ro;
+				TargetAttributes = {
+					EF4BD3801D9D08DE0042BEC7 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					EF4BD39C1D9D08DE0042BEC7 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EF4BD3801D9D08DE0042BEC7;
+					};
+					EF4BD3A71D9D08DE0042BEC7 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EF4BD3801D9D08DE0042BEC7;
+					};
+				};
+			};
+			buildConfigurationList = EF4BD37C1D9D08DE0042BEC7 /* Build configuration list for PBXProject "MonitorizareVot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF4BD3781D9D08DE0042BEC7;
+			productRefGroup = EF4BD3821D9D08DE0042BEC7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF4BD3801D9D08DE0042BEC7 /* MonitorizareVot */,
+				EF4BD39C1D9D08DE0042BEC7 /* MonitorizareVotTests */,
+				EF4BD3A71D9D08DE0042BEC7 /* MonitorizareVotUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF4BD37F1D9D08DE0042BEC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4BD3941D9D08DE0042BEC7 /* Assets.xcassets in Resources */,
+				EF1D982C1DA18EA600A73FA7 /* QuestionCollectionViewCell.xib in Resources */,
+				EF4BD38F1D9D08DE0042BEC7 /* Main.storyboard in Resources */,
+				EF903E351DA25E3100D5BC9C /* Judete.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4BD39B1D9D08DE0042BEC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4BD3A61D9D08DE0042BEC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF4BD37D1D9D08DE0042BEC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4BD3921D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld in Sources */,
+				EF1D982B1DA18EA600A73FA7 /* QuestionCollectionViewCell.m in Sources */,
+				EF903E321DA24BB800D5BC9C /* BaseViewController.m in Sources */,
+				EF903E391DA2617F00D5BC9C /* CustomDropdownView.m in Sources */,
+				EF4BD3EC1D9E7C610042BEC7 /* AlegeFormularViewController.m in Sources */,
+				EF4BD3F01D9E821A0042BEC7 /* FormularViewController.m in Sources */,
+				EF4BD38C1D9D08DE0042BEC7 /* LoginViewController.m in Sources */,
+				EF4BD3891D9D08DE0042BEC7 /* AppDelegate.m in Sources */,
+				EF903E2E1DA24A6400D5BC9C /* QuestionViewController.m in Sources */,
+				EF4BD3861D9D08DE0042BEC7 /* main.m in Sources */,
+				EF4BD3E71D9E7BA60042BEC7 /* SectieViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4BD3991D9D08DE0042BEC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4BD3A21D9D08DE0042BEC7 /* MonitorizareVotTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF4BD3A41D9D08DE0042BEC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4BD3AD1D9D08DE0042BEC7 /* MonitorizareVotUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF4BD39F1D9D08DE0042BEC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF4BD3801D9D08DE0042BEC7 /* MonitorizareVot */;
+			targetProxy = EF4BD39E1D9D08DE0042BEC7 /* PBXContainerItemProxy */;
+		};
+		EF4BD3AA1D9D08DE0042BEC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF4BD3801D9D08DE0042BEC7 /* MonitorizareVot */;
+			targetProxy = EF4BD3A91D9D08DE0042BEC7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EF4BD38D1D9D08DE0042BEC7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF4BD38E1D9D08DE0042BEC7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF4BD3AF1D9D08DE0042BEC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF4BD3B01D9D08DE0042BEC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF4BD3B21D9D08DE0042BEC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = MonitorizareVot/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EF4BD3B31D9D08DE0042BEC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = MonitorizareVot/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EF4BD3B51D9D08DE0042BEC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MonitorizareVotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonitorizareVot.app/MonitorizareVot";
+			};
+			name = Debug;
+		};
+		EF4BD3B61D9D08DE0042BEC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MonitorizareVotTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonitorizareVot.app/MonitorizareVot";
+			};
+			name = Release;
+		};
+		EF4BD3B81D9D08DE0042BEC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MonitorizareVotUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MonitorizareVot;
+			};
+			name = Debug;
+		};
+		EF4BD3B91D9D08DE0042BEC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MonitorizareVotUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MonitorizareVot;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF4BD37C1D9D08DE0042BEC7 /* Build configuration list for PBXProject "MonitorizareVot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF4BD3AF1D9D08DE0042BEC7 /* Debug */,
+				EF4BD3B01D9D08DE0042BEC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF4BD3B11D9D08DE0042BEC7 /* Build configuration list for PBXNativeTarget "MonitorizareVot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF4BD3B21D9D08DE0042BEC7 /* Debug */,
+				EF4BD3B31D9D08DE0042BEC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF4BD3B41D9D08DE0042BEC7 /* Build configuration list for PBXNativeTarget "MonitorizareVotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF4BD3B51D9D08DE0042BEC7 /* Debug */,
+				EF4BD3B61D9D08DE0042BEC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF4BD3B71D9D08DE0042BEC7 /* Build configuration list for PBXNativeTarget "MonitorizareVotUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF4BD3B81D9D08DE0042BEC7 /* Debug */,
+				EF4BD3B91D9D08DE0042BEC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EF4BD3901D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EF4BD3911D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodel */,
+			);
+			currentVersion = EF4BD3911D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodel */;
+			path = MonitorizareVot.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EF4BD3791D9D08DE0042BEC7 /* Project object */;
+}
