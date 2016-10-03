@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>AB</string>
+	<string>AR</string>
+	<string>AG</string>
+	<string>BC</string>
+	<string>BH</string>
+	<string>BN</string>
+	<string>BT</string>
+	<string>BR</string>
+	<string>BV</string>
+	<string>BZ</string>
+	<string>CL</string>
+	<string>CS</string>
+	<string>CJ</string>
+	<string>CT</string>
+	<string>CV</string>
+	<string>DB</string>
+	<string>DJ</string>
+	<string>GL</string>
+	<string>GR</string>
+	<string>GJ</string>
+	<string>HR</string>
+	<string>HD</string>
+	<string>IL</string>
+	<string>IS</string>
+	<string>IF</string>
+	<string>MM</string>
+	<string>MH</string>
+	<string>MS</string>
+	<string>NT</string>
+	<string>OT</string>
+	<string>PH</string>
+	<string>SJ</string>
+	<string>SM</string>
+	<string>SB</string>
+	<string>SV</string>
+	<string>TR</string>
+	<string>TM</string>
+	<string>TL</string>
+	<string>VL</string>
+	<string>VS</string>
+	<string>VN</string>
+	<string>B</string>
+</array>
+</plist>
