@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EF1D982B1DA18EA600A73FA7 /* QuestionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1D98291DA18EA600A73FA7 /* QuestionCollectionViewCell.m */; };
-		EF1D982C1DA18EA600A73FA7 /* QuestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1D982A1DA18EA600A73FA7 /* QuestionCollectionViewCell.xib */; };
+		EF13D1421DCF23DD00349B43 /* AlegeFormularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1411DCF23DD00349B43 /* AlegeFormularViewController.m */; };
+		EF13D1451DCF23EA00349B43 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1441DCF23EA00349B43 /* BaseViewController.m */; };
+		EF13D1481DCF23F900349B43 /* FormularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1471DCF23F900349B43 /* FormularViewController.m */; };
+		EF13D14B1DCF240D00349B43 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D14A1DCF240D00349B43 /* QuestionViewController.m */; };
+		EF13D14E1DCF241900349B43 /* SectieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D14D1DCF241900349B43 /* SectieViewController.m */; };
+		EF13D1521DCF244100349B43 /* EsteFemeieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1511DCF244100349B43 /* EsteFemeieViewController.m */; };
+		EF13D1551DCF245400349B43 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1541DCF245400349B43 /* LoginViewController.m */; };
+		EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1561DCF24A800349B43 /* Assets.xcassets */; };
+		EF13D1591DCF24D400349B43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1581DCF24D400349B43 /* Main.storyboard */; };
 		EF4BD3861D9D08DE0042BEC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3851D9D08DE0042BEC7 /* main.m */; };
 		EF4BD3891D9D08DE0042BEC7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3881D9D08DE0042BEC7 /* AppDelegate.m */; };
-		EF4BD38C1D9D08DE0042BEC7 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD38B1D9D08DE0042BEC7 /* LoginViewController.m */; };
-		EF4BD38F1D9D08DE0042BEC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF4BD38D1D9D08DE0042BEC7 /* Main.storyboard */; };
 		EF4BD3921D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3901D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld */; };
-		EF4BD3941D9D08DE0042BEC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF4BD3931D9D08DE0042BEC7 /* Assets.xcassets */; };
 		EF4BD3A21D9D08DE0042BEC7 /* MonitorizareVotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3A11D9D08DE0042BEC7 /* MonitorizareVotTests.m */; };
 		EF4BD3AD1D9D08DE0042BEC7 /* MonitorizareVotUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3AC1D9D08DE0042BEC7 /* MonitorizareVotUITests.m */; };
-		EF4BD3E71D9E7BA60042BEC7 /* SectieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3E61D9E7BA60042BEC7 /* SectieViewController.m */; };
-		EF4BD3EC1D9E7C610042BEC7 /* AlegeFormularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3EB1D9E7C610042BEC7 /* AlegeFormularViewController.m */; };
-		EF4BD3F01D9E821A0042BEC7 /* FormularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3EF1D9E821A0042BEC7 /* FormularViewController.m */; };
-		EF903E2E1DA24A6400D5BC9C /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF903E2D1DA24A6400D5BC9C /* QuestionViewController.m */; };
-		EF903E321DA24BB800D5BC9C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF903E311DA24BB800D5BC9C /* BaseViewController.m */; };
 		EF903E351DA25E3100D5BC9C /* Judete.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF903E341DA25E3100D5BC9C /* Judete.plist */; };
-		EF903E391DA2617F00D5BC9C /* CustomDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF903E381DA2617F00D5BC9C /* CustomDropdownView.m */; };
+		EFEC82031DCF25B800610D79 /* QuestionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEC82011DCF25B800610D79 /* QuestionCollectionViewCell.m */; };
+		EFEC82041DCF25B800610D79 /* QuestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,18 +44,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EF1D98281DA18EA600A73FA7 /* QuestionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionCollectionViewCell.h; path = CustomViews/QuestionCollectionViewCell.h; sourceTree = "<group>"; };
-		EF1D98291DA18EA600A73FA7 /* QuestionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionCollectionViewCell.m; path = CustomViews/QuestionCollectionViewCell.m; sourceTree = "<group>"; };
-		EF1D982A1DA18EA600A73FA7 /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QuestionCollectionViewCell.xib; path = CustomViews/QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
+		EF13D1401DCF23DD00349B43 /* AlegeFormularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlegeFormularViewController.h; sourceTree = "<group>"; };
+		EF13D1411DCF23DD00349B43 /* AlegeFormularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlegeFormularViewController.m; sourceTree = "<group>"; };
+		EF13D1431DCF23EA00349B43 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		EF13D1441DCF23EA00349B43 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		EF13D1461DCF23F900349B43 /* FormularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormularViewController.h; sourceTree = "<group>"; };
+		EF13D1471DCF23F900349B43 /* FormularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormularViewController.m; sourceTree = "<group>"; };
+		EF13D1491DCF240D00349B43 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		EF13D14A1DCF240D00349B43 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
+		EF13D14C1DCF241900349B43 /* SectieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectieViewController.h; sourceTree = "<group>"; };
+		EF13D14D1DCF241900349B43 /* SectieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectieViewController.m; sourceTree = "<group>"; };
+		EF13D1501DCF244100349B43 /* EsteFemeieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EsteFemeieViewController.h; sourceTree = "<group>"; };
+		EF13D1511DCF244100349B43 /* EsteFemeieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EsteFemeieViewController.m; sourceTree = "<group>"; };
+		EF13D1531DCF245400349B43 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		EF13D1541DCF245400349B43 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		EF13D1561DCF24A800349B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EF13D1581DCF24D400349B43 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EF4BD3811D9D08DE0042BEC7 /* MonitorizareVot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonitorizareVot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4BD3851D9D08DE0042BEC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EF4BD3871D9D08DE0042BEC7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EF4BD3881D9D08DE0042BEC7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EF4BD38A1D9D08DE0042BEC7 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		EF4BD38B1D9D08DE0042BEC7 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		EF4BD38E1D9D08DE0042BEC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF4BD3911D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonitorizareVot.xcdatamodel; sourceTree = "<group>"; };
-		EF4BD3931D9D08DE0042BEC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF4BD3981D9D08DE0042BEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF4BD39D1D9D08DE0042BEC7 /* MonitorizareVotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitorizareVotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4BD3A11D9D08DE0042BEC7 /* MonitorizareVotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorizareVotTests.m; sourceTree = "<group>"; };
@@ -63,19 +72,10 @@
 		EF4BD3A81D9D08DE0042BEC7 /* MonitorizareVotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitorizareVotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4BD3AC1D9D08DE0042BEC7 /* MonitorizareVotUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorizareVotUITests.m; sourceTree = "<group>"; };
 		EF4BD3AE1D9D08DE0042BEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF4BD3E51D9E7BA60042BEC7 /* SectieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SectieViewController.h; path = ViewControllers/SectieViewController.h; sourceTree = "<group>"; };
-		EF4BD3E61D9E7BA60042BEC7 /* SectieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectieViewController.m; path = ViewControllers/SectieViewController.m; sourceTree = "<group>"; };
-		EF4BD3EA1D9E7C610042BEC7 /* AlegeFormularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlegeFormularViewController.h; path = ViewControllers/AlegeFormularViewController.h; sourceTree = "<group>"; };
-		EF4BD3EB1D9E7C610042BEC7 /* AlegeFormularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlegeFormularViewController.m; path = ViewControllers/AlegeFormularViewController.m; sourceTree = "<group>"; };
-		EF4BD3EE1D9E821A0042BEC7 /* FormularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormularViewController.h; path = ViewControllers/FormularViewController.h; sourceTree = "<group>"; };
-		EF4BD3EF1D9E821A0042BEC7 /* FormularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormularViewController.m; path = ViewControllers/FormularViewController.m; sourceTree = "<group>"; };
-		EF903E2C1DA24A6400D5BC9C /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionViewController.h; path = ViewControllers/QuestionViewController.h; sourceTree = "<group>"; };
-		EF903E2D1DA24A6400D5BC9C /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionViewController.m; path = ViewControllers/QuestionViewController.m; sourceTree = "<group>"; };
-		EF903E301DA24BB800D5BC9C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = ViewControllers/BaseViewController.h; sourceTree = "<group>"; };
-		EF903E311DA24BB800D5BC9C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = ViewControllers/BaseViewController.m; sourceTree = "<group>"; };
 		EF903E341DA25E3100D5BC9C /* Judete.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Judete.plist; path = Resources/Judete.plist; sourceTree = "<group>"; };
-		EF903E371DA2617F00D5BC9C /* CustomDropdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomDropdownView.h; path = CustomViews/CustomDropdownView.h; sourceTree = "<group>"; };
-		EF903E381DA2617F00D5BC9C /* CustomDropdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomDropdownView.m; path = CustomViews/CustomDropdownView.m; sourceTree = "<group>"; };
+		EFEC82001DCF25B800610D79 /* QuestionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionCollectionViewCell.h; sourceTree = "<group>"; };
+		EFEC82011DCF25B800610D79 /* QuestionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionCollectionViewCell.m; sourceTree = "<group>"; };
+		EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +103,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF13D14F1DCF243300349B43 /* EsteFemeieVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF13D1501DCF244100349B43 /* EsteFemeieViewController.h */,
+				EF13D1511DCF244100349B43 /* EsteFemeieViewController.m */,
+			);
+			name = EsteFemeieVC;
+			sourceTree = "<group>";
+		};
 		EF1D982E1DA1915F00A73FA7 /* QuestionCell */ = {
 			isa = PBXGroup;
 			children = (
-				EF1D98281DA18EA600A73FA7 /* QuestionCollectionViewCell.h */,
-				EF1D98291DA18EA600A73FA7 /* QuestionCollectionViewCell.m */,
-				EF1D982A1DA18EA600A73FA7 /* QuestionCollectionViewCell.xib */,
+				EFEC82001DCF25B800610D79 /* QuestionCollectionViewCell.h */,
+				EFEC82011DCF25B800610D79 /* QuestionCollectionViewCell.m */,
+				EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */,
 			);
 			name = QuestionCell;
 			sourceTree = "<group>";
@@ -138,7 +147,7 @@
 			children = (
 				EF4BD3DD1D9E644F0042BEC7 /* AppDelegate */,
 				EF4BD3DE1D9E64720042BEC7 /* ViewControllers */,
-				EF4BD38D1D9D08DE0042BEC7 /* Main.storyboard */,
+				EF13D1581DCF24D400349B43 /* Main.storyboard */,
 				EF4BD3981D9D08DE0042BEC7 /* Info.plist */,
 				EF4BD3901D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld */,
 				EF4BD3841D9D08DE0042BEC7 /* Supporting Files */,
@@ -189,6 +198,7 @@
 				EF903E331DA24BC500D5BC9C /* BaseVC */,
 				EF4BD3E81D9E7BB10042BEC7 /* LoginVC */,
 				EF4BD3E91D9E7BBC0042BEC7 /* SectieVC */,
+				EF13D14F1DCF243300349B43 /* EsteFemeieVC */,
 				EF4BD3ED1D9E7C6D0042BEC7 /* AlegeFormularVC */,
 				EF4BD3F11D9E82230042BEC7 /* FormularVC */,
 				EF903E2F1DA24A6B00D5BC9C /* QuestionVC */,
@@ -199,7 +209,6 @@
 		EF4BD3E21D9E64F30042BEC7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				EF903E3A1DA2618800D5BC9C /* Dropdown */,
 				EF1D982E1DA1915F00A73FA7 /* QuestionCell */,
 			);
 			name = CustomViews;
@@ -208,8 +217,8 @@
 		EF4BD3E81D9E7BB10042BEC7 /* LoginVC */ = {
 			isa = PBXGroup;
 			children = (
-				EF4BD38A1D9D08DE0042BEC7 /* LoginViewController.h */,
-				EF4BD38B1D9D08DE0042BEC7 /* LoginViewController.m */,
+				EF13D1531DCF245400349B43 /* LoginViewController.h */,
+				EF13D1541DCF245400349B43 /* LoginViewController.m */,
 			);
 			name = LoginVC;
 			sourceTree = "<group>";
@@ -217,8 +226,8 @@
 		EF4BD3E91D9E7BBC0042BEC7 /* SectieVC */ = {
 			isa = PBXGroup;
 			children = (
-				EF4BD3E51D9E7BA60042BEC7 /* SectieViewController.h */,
-				EF4BD3E61D9E7BA60042BEC7 /* SectieViewController.m */,
+				EF13D14C1DCF241900349B43 /* SectieViewController.h */,
+				EF13D14D1DCF241900349B43 /* SectieViewController.m */,
 			);
 			name = SectieVC;
 			sourceTree = "<group>";
@@ -226,8 +235,8 @@
 		EF4BD3ED1D9E7C6D0042BEC7 /* AlegeFormularVC */ = {
 			isa = PBXGroup;
 			children = (
-				EF4BD3EA1D9E7C610042BEC7 /* AlegeFormularViewController.h */,
-				EF4BD3EB1D9E7C610042BEC7 /* AlegeFormularViewController.m */,
+				EF13D1401DCF23DD00349B43 /* AlegeFormularViewController.h */,
+				EF13D1411DCF23DD00349B43 /* AlegeFormularViewController.m */,
 			);
 			name = AlegeFormularVC;
 			sourceTree = "<group>";
@@ -235,8 +244,8 @@
 		EF4BD3F11D9E82230042BEC7 /* FormularVC */ = {
 			isa = PBXGroup;
 			children = (
-				EF4BD3EE1D9E821A0042BEC7 /* FormularViewController.h */,
-				EF4BD3EF1D9E821A0042BEC7 /* FormularViewController.m */,
+				EF13D1461DCF23F900349B43 /* FormularViewController.h */,
+				EF13D1471DCF23F900349B43 /* FormularViewController.m */,
 			);
 			name = FormularVC;
 			sourceTree = "<group>";
@@ -244,8 +253,8 @@
 		EF903E2F1DA24A6B00D5BC9C /* QuestionVC */ = {
 			isa = PBXGroup;
 			children = (
-				EF903E2C1DA24A6400D5BC9C /* QuestionViewController.h */,
-				EF903E2D1DA24A6400D5BC9C /* QuestionViewController.m */,
+				EF13D1491DCF240D00349B43 /* QuestionViewController.h */,
+				EF13D14A1DCF240D00349B43 /* QuestionViewController.m */,
 			);
 			name = QuestionVC;
 			sourceTree = "<group>";
@@ -253,8 +262,8 @@
 		EF903E331DA24BC500D5BC9C /* BaseVC */ = {
 			isa = PBXGroup;
 			children = (
-				EF903E301DA24BB800D5BC9C /* BaseViewController.h */,
-				EF903E311DA24BB800D5BC9C /* BaseViewController.m */,
+				EF13D1431DCF23EA00349B43 /* BaseViewController.h */,
+				EF13D1441DCF23EA00349B43 /* BaseViewController.m */,
 			);
 			name = BaseVC;
 			sourceTree = "<group>";
@@ -262,19 +271,10 @@
 		EF903E361DA25E3800D5BC9C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EF4BD3931D9D08DE0042BEC7 /* Assets.xcassets */,
+				EF13D1561DCF24A800349B43 /* Assets.xcassets */,
 				EF903E341DA25E3100D5BC9C /* Judete.plist */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		EF903E3A1DA2618800D5BC9C /* Dropdown */ = {
-			isa = PBXGroup;
-			children = (
-				EF903E371DA2617F00D5BC9C /* CustomDropdownView.h */,
-				EF903E381DA2617F00D5BC9C /* CustomDropdownView.m */,
-			);
-			name = Dropdown;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,9 +383,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF4BD3941D9D08DE0042BEC7 /* Assets.xcassets in Resources */,
-				EF1D982C1DA18EA600A73FA7 /* QuestionCollectionViewCell.xib in Resources */,
-				EF4BD38F1D9D08DE0042BEC7 /* Main.storyboard in Resources */,
+				EF13D1591DCF24D400349B43 /* Main.storyboard in Resources */,
+				EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */,
+				EFEC82041DCF25B800610D79 /* QuestionCollectionViewCell.xib in Resources */,
 				EF903E351DA25E3100D5BC9C /* Judete.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,16 +412,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF4BD3921D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld in Sources */,
-				EF1D982B1DA18EA600A73FA7 /* QuestionCollectionViewCell.m in Sources */,
-				EF903E321DA24BB800D5BC9C /* BaseViewController.m in Sources */,
-				EF903E391DA2617F00D5BC9C /* CustomDropdownView.m in Sources */,
-				EF4BD3EC1D9E7C610042BEC7 /* AlegeFormularViewController.m in Sources */,
-				EF4BD3F01D9E821A0042BEC7 /* FormularViewController.m in Sources */,
-				EF4BD38C1D9D08DE0042BEC7 /* LoginViewController.m in Sources */,
+				EF13D1451DCF23EA00349B43 /* BaseViewController.m in Sources */,
+				EF13D1421DCF23DD00349B43 /* AlegeFormularViewController.m in Sources */,
+				EFEC82031DCF25B800610D79 /* QuestionCollectionViewCell.m in Sources */,
+				EF13D1521DCF244100349B43 /* EsteFemeieViewController.m in Sources */,
+				EF13D1551DCF245400349B43 /* LoginViewController.m in Sources */,
+				EF13D14B1DCF240D00349B43 /* QuestionViewController.m in Sources */,
 				EF4BD3891D9D08DE0042BEC7 /* AppDelegate.m in Sources */,
-				EF903E2E1DA24A6400D5BC9C /* QuestionViewController.m in Sources */,
+				EF13D14E1DCF241900349B43 /* SectieViewController.m in Sources */,
+				EF13D1481DCF23F900349B43 /* FormularViewController.m in Sources */,
 				EF4BD3861D9D08DE0042BEC7 /* main.m in Sources */,
-				EF4BD3E71D9E7BA60042BEC7 /* SectieViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,17 +455,6 @@
 			targetProxy = EF4BD3A91D9D08DE0042BEC7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		EF4BD38D1D9D08DE0042BEC7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EF4BD38E1D9D08DE0042BEC7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EF4BD3AF1D9D08DE0042BEC7 /* Debug */ = {

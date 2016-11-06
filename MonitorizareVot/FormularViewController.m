@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"FORMULAR X";
+
     [self.questionsCollectionView registerNib:[UINib nibWithNibName:@"QuestionCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"questionCell"];
     // Do any additional setup after loading the view.
 }

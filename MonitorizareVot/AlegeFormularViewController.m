@@ -10,15 +10,34 @@
 
 @interface AlegeFormularViewController ()
 
+@property (strong, nonatomic) IBOutlet UIView *fDeschidereView;
+@property (strong, nonatomic) IBOutlet UIView *fVotareView;
+@property (strong, nonatomic) IBOutlet UIView *fInchidereView;
+@property (strong, nonatomic) IBOutlet UIView *fNotaView;
+
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *formulareViewsArray;
+
 @end
 
 @implementation AlegeFormularViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.navigationItem.title = @"INFOSECTIE";
+    [self setupFormulareViews];
+    
     // Do any additional setup after loading the view.
+}
+
+-(void)setupFormulareViews {
+    for(UIView *aView in self.formulareViewsArray) {
+        aView.layer.cornerRadius = 4;
+        aView.layer.borderWidth = 1;
+        aView.layer.borderColor = [UIColor colorWithRed:172.0/255.0 green:180.0/255.0 blue:190.0/255.0 alpha:1].CGColor;
+        aView.layer.shadowColor = [UIColor blackColor].CGColor;
+        aView.layer.shadowRadius = 4;
+        aView.layer.shadowOffset = CGSizeMake(0.0f, 2.0f);
+        aView.layer.shadowOpacity = 0.07;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
