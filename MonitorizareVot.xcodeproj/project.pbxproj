@@ -14,12 +14,14 @@
 		E7E1F2BF1DDB57C400CE52FC /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */; };
 		E7E1F2C11DDB580B00CE52FC /* LoginAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2C01DDB580B00CE52FC /* LoginAPIRequest.swift */; };
 		E7E1F2C41DDB586800CE52FC /* APIURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2C31DDB586800CE52FC /* APIURLs.swift */; };
+		E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB481DDB63E1009EBE01 /* SectionInformationsViewController.swift */; };
+		E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */; };
+		E7E8EB4D1DDB7C8F009EBE01 /* PresidingOfficer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4C1DDB7C8F009EBE01 /* PresidingOfficer.swift */; };
 		EF13D1421DCF23DD00349B43 /* AlegeFormularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1411DCF23DD00349B43 /* AlegeFormularViewController.m */; };
 		EF13D1451DCF23EA00349B43 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1441DCF23EA00349B43 /* BaseViewController.m */; };
 		EF13D1481DCF23F900349B43 /* FormularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1471DCF23F900349B43 /* FormularViewController.m */; };
 		EF13D14B1DCF240D00349B43 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D14A1DCF240D00349B43 /* QuestionViewController.m */; };
 		EF13D14E1DCF241900349B43 /* SectieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D14D1DCF241900349B43 /* SectieViewController.m */; };
-		EF13D1521DCF244100349B43 /* EsteFemeieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1511DCF244100349B43 /* EsteFemeieViewController.m */; };
 		EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1561DCF24A800349B43 /* Assets.xcassets */; };
 		EF13D1591DCF24D400349B43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1581DCF24D400349B43 /* Main.storyboard */; };
 		EF4BD3861D9D08DE0042BEC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3851D9D08DE0042BEC7 /* main.m */; };
@@ -63,6 +65,9 @@
 		E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		E7E1F2C01DDB580B00CE52FC /* LoginAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAPIRequest.swift; sourceTree = "<group>"; };
 		E7E1F2C31DDB586800CE52FC /* APIURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIURLs.swift; sourceTree = "<group>"; };
+		E7E8EB481DDB63E1009EBE01 /* SectionInformationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInformationsViewController.swift; sourceTree = "<group>"; };
+		E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVColors.swift; sourceTree = "<group>"; };
+		E7E8EB4C1DDB7C8F009EBE01 /* PresidingOfficer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresidingOfficer.swift; sourceTree = "<group>"; };
 		EF13D1401DCF23DD00349B43 /* AlegeFormularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlegeFormularViewController.h; sourceTree = "<group>"; };
 		EF13D1411DCF23DD00349B43 /* AlegeFormularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlegeFormularViewController.m; sourceTree = "<group>"; };
 		EF13D1431DCF23EA00349B43 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -73,8 +78,6 @@
 		EF13D14A1DCF240D00349B43 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		EF13D14C1DCF241900349B43 /* SectieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectieViewController.h; sourceTree = "<group>"; };
 		EF13D14D1DCF241900349B43 /* SectieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectieViewController.m; sourceTree = "<group>"; };
-		EF13D1501DCF244100349B43 /* EsteFemeieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EsteFemeieViewController.h; sourceTree = "<group>"; };
-		EF13D1511DCF244100349B43 /* EsteFemeieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EsteFemeieViewController.m; sourceTree = "<group>"; };
 		EF13D1561DCF24A800349B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF13D1581DCF24D400349B43 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EF4BD3811D9D08DE0042BEC7 /* MonitorizareVot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonitorizareVot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				E7E1F2C51DDB59C800CE52FC /* API */,
+				E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -171,13 +175,13 @@
 			name = API;
 			sourceTree = "<group>";
 		};
-		EF13D14F1DCF243300349B43 /* EsteFemeieVC */ = {
+		EF13D14F1DCF243300349B43 /* SectionInformationsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				EF13D1501DCF244100349B43 /* EsteFemeieViewController.h */,
-				EF13D1511DCF244100349B43 /* EsteFemeieViewController.m */,
+				E7E8EB481DDB63E1009EBE01 /* SectionInformationsViewController.swift */,
+				E7E8EB4C1DDB7C8F009EBE01 /* PresidingOfficer.swift */,
 			);
-			name = EsteFemeieVC;
+			name = SectionInformationsViewController;
 			sourceTree = "<group>";
 		};
 		EF1D982E1DA1915F00A73FA7 /* QuestionCell */ = {
@@ -271,7 +275,7 @@
 				EF903E331DA24BC500D5BC9C /* BaseVC */,
 				EF4BD3E81D9E7BB10042BEC7 /* LoginVC */,
 				EF4BD3E91D9E7BBC0042BEC7 /* SectieVC */,
-				EF13D14F1DCF243300349B43 /* EsteFemeieVC */,
+				EF13D14F1DCF243300349B43 /* SectionInformationsViewController */,
 				EF4BD3ED1D9E7C6D0042BEC7 /* AlegeFormularVC */,
 				EF4BD3F11D9E82230042BEC7 /* FormularVC */,
 				EF903E2F1DA24A6B00D5BC9C /* QuestionVC */,
@@ -638,8 +642,9 @@
 				EF13D1451DCF23EA00349B43 /* BaseViewController.m in Sources */,
 				EF13D1421DCF23DD00349B43 /* AlegeFormularViewController.m in Sources */,
 				EFEC82031DCF25B800610D79 /* QuestionCollectionViewCell.m in Sources */,
+				E7E8EB4D1DDB7C8F009EBE01 /* PresidingOfficer.swift in Sources */,
 				E7E1F2C41DDB586800CE52FC /* APIURLs.swift in Sources */,
-				EF13D1521DCF244100349B43 /* EsteFemeieViewController.m in Sources */,
+				E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */,
 				EF13D14B1DCF240D00349B43 /* QuestionViewController.m in Sources */,
 				EF4BD3891D9D08DE0042BEC7 /* AppDelegate.m in Sources */,
 				EF13D14E1DCF241900349B43 /* SectieViewController.m in Sources */,
@@ -647,6 +652,7 @@
 				EF4BD3861D9D08DE0042BEC7 /* main.m in Sources */,
 				E7E1F2BF1DDB57C400CE52FC /* APIRequest.swift in Sources */,
 				E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */,
+				E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */,
 				E7E1F2C11DDB580B00CE52FC /* LoginAPIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

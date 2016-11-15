@@ -12,7 +12,7 @@ import UIKit
 struct LoginAPIRequest: APIRequest {
     
     func perform(informations: Any, url: NSURL, completion: APIRequestCompletion) {
-        
+   
     }
     
 }
