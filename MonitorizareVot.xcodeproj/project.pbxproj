@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55A0F006987479F41A76966C /* Pods_MonitorizareVot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */; };
+		64726B5FB8079F4FDA2D91E0 /* Pods_MonitorizareVotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */; };
+		C79A3041BFF1FED83C00E5F3 /* Pods_MonitorizareVotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */; };
+		E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2BB1DDB4FCE00CE52FC /* LoginViewController.swift */; };
+		E7E1F2BF1DDB57C400CE52FC /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */; };
+		E7E1F2C11DDB580B00CE52FC /* LoginAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2C01DDB580B00CE52FC /* LoginAPIRequest.swift */; };
+		E7E1F2C41DDB586800CE52FC /* APIURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2C31DDB586800CE52FC /* APIURLs.swift */; };
 		EF13D1421DCF23DD00349B43 /* AlegeFormularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1411DCF23DD00349B43 /* AlegeFormularViewController.m */; };
 		EF13D1451DCF23EA00349B43 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1441DCF23EA00349B43 /* BaseViewController.m */; };
 		EF13D1481DCF23F900349B43 /* FormularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1471DCF23F900349B43 /* FormularViewController.m */; };
 		EF13D14B1DCF240D00349B43 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D14A1DCF240D00349B43 /* QuestionViewController.m */; };
 		EF13D14E1DCF241900349B43 /* SectieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D14D1DCF241900349B43 /* SectieViewController.m */; };
 		EF13D1521DCF244100349B43 /* EsteFemeieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1511DCF244100349B43 /* EsteFemeieViewController.m */; };
-		EF13D1551DCF245400349B43 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D1541DCF245400349B43 /* LoginViewController.m */; };
 		EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1561DCF24A800349B43 /* Assets.xcassets */; };
 		EF13D1591DCF24D400349B43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1581DCF24D400349B43 /* Main.storyboard */; };
 		EF4BD3861D9D08DE0042BEC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3851D9D08DE0042BEC7 /* main.m */; };
@@ -44,6 +50,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C95EF7A92703E67898E5413 /* Pods-MonitorizareVotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests.release.xcconfig"; sourceTree = "<group>"; };
+		3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6141F9F392CCD91B6DE2B780 /* Pods-MonitorizareVot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVot.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot.release.xcconfig"; sourceTree = "<group>"; };
+		626B7494E0E905A8AEF30B00 /* Pods-MonitorizareVotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7F4B4D98801626552C357D41 /* Pods-MonitorizareVotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		90CF95CA02DCD8E741C5686D /* Pods-MonitorizareVot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot.debug.xcconfig"; sourceTree = "<group>"; };
+		DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7E1F2BA1DDB4FCE00CE52FC /* MonitorizareVot-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MonitorizareVot-Bridging-Header.h"; sourceTree = "<group>"; };
+		E7E1F2BB1DDB4FCE00CE52FC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		E7E1F2C01DDB580B00CE52FC /* LoginAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAPIRequest.swift; sourceTree = "<group>"; };
+		E7E1F2C31DDB586800CE52FC /* APIURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIURLs.swift; sourceTree = "<group>"; };
 		EF13D1401DCF23DD00349B43 /* AlegeFormularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlegeFormularViewController.h; sourceTree = "<group>"; };
 		EF13D1411DCF23DD00349B43 /* AlegeFormularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlegeFormularViewController.m; sourceTree = "<group>"; };
 		EF13D1431DCF23EA00349B43 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -56,8 +75,6 @@
 		EF13D14D1DCF241900349B43 /* SectieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectieViewController.m; sourceTree = "<group>"; };
 		EF13D1501DCF244100349B43 /* EsteFemeieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EsteFemeieViewController.h; sourceTree = "<group>"; };
 		EF13D1511DCF244100349B43 /* EsteFemeieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EsteFemeieViewController.m; sourceTree = "<group>"; };
-		EF13D1531DCF245400349B43 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		EF13D1541DCF245400349B43 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		EF13D1561DCF24A800349B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF13D1581DCF24D400349B43 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EF4BD3811D9D08DE0042BEC7 /* MonitorizareVot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonitorizareVot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +93,7 @@
 		EFEC82001DCF25B800610D79 /* QuestionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionCollectionViewCell.h; sourceTree = "<group>"; };
 		EFEC82011DCF25B800610D79 /* QuestionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionCollectionViewCell.m; sourceTree = "<group>"; };
 		EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
+		F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A0F006987479F41A76966C /* Pods_MonitorizareVot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C79A3041BFF1FED83C00E5F3 /* Pods_MonitorizareVotTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,12 +117,60 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64726B5FB8079F4FDA2D91E0 /* Pods_MonitorizareVotUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EFC16FC3E4279B722E76656 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90CF95CA02DCD8E741C5686D /* Pods-MonitorizareVot.debug.xcconfig */,
+				6141F9F392CCD91B6DE2B780 /* Pods-MonitorizareVot.release.xcconfig */,
+				626B7494E0E905A8AEF30B00 /* Pods-MonitorizareVotTests.debug.xcconfig */,
+				2C95EF7A92703E67898E5413 /* Pods-MonitorizareVotTests.release.xcconfig */,
+				7F4B4D98801626552C357D41 /* Pods-MonitorizareVotUITests.debug.xcconfig */,
+				F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		73D320017882699B296EB213 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */,
+				3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */,
+				DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7E1F2BD1DDB57BB00CE52FC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		E7E1F2C21DDB586100CE52FC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E7E1F2C51DDB59C800CE52FC /* API */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		E7E1F2C51DDB59C800CE52FC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E7E1F2C31DDB586800CE52FC /* APIURLs.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		EF13D14F1DCF243300349B43 /* EsteFemeieVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +197,8 @@
 				EF4BD3A01D9D08DE0042BEC7 /* MonitorizareVotTests */,
 				EF4BD3AB1D9D08DE0042BEC7 /* MonitorizareVotUITests */,
 				EF4BD3821D9D08DE0042BEC7 /* Products */,
+				0EFC16FC3E4279B722E76656 /* Pods */,
+				73D320017882699B296EB213 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +219,7 @@
 				EF4BD3DE1D9E64720042BEC7 /* ViewControllers */,
 				EF13D1581DCF24D400349B43 /* Main.storyboard */,
 				EF4BD3981D9D08DE0042BEC7 /* Info.plist */,
+				E7E1F2BA1DDB4FCE00CE52FC /* MonitorizareVot-Bridging-Header.h */,
 				EF4BD3901D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld */,
 				EF4BD3841D9D08DE0042BEC7 /* Supporting Files */,
 				EF903E361DA25E3800D5BC9C /* Resources */,
@@ -194,6 +265,8 @@
 		EF4BD3DE1D9E64720042BEC7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E7E1F2C21DDB586100CE52FC /* Utils */,
+				E7E1F2BD1DDB57BB00CE52FC /* Protocols */,
 				EF4BD3E21D9E64F30042BEC7 /* CustomViews */,
 				EF903E331DA24BC500D5BC9C /* BaseVC */,
 				EF4BD3E81D9E7BB10042BEC7 /* LoginVC */,
@@ -217,8 +290,8 @@
 		EF4BD3E81D9E7BB10042BEC7 /* LoginVC */ = {
 			isa = PBXGroup;
 			children = (
-				EF13D1531DCF245400349B43 /* LoginViewController.h */,
-				EF13D1541DCF245400349B43 /* LoginViewController.m */,
+				E7E1F2BB1DDB4FCE00CE52FC /* LoginViewController.swift */,
+				E7E1F2C01DDB580B00CE52FC /* LoginAPIRequest.swift */,
 			);
 			name = LoginVC;
 			sourceTree = "<group>";
@@ -284,9 +357,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF4BD3B11D9D08DE0042BEC7 /* Build configuration list for PBXNativeTarget "MonitorizareVot" */;
 			buildPhases = (
+				EDB2BAFC529132A9DFC6BA45 /* [CP] Check Pods Manifest.lock */,
 				EF4BD37D1D9D08DE0042BEC7 /* Sources */,
 				EF4BD37E1D9D08DE0042BEC7 /* Frameworks */,
 				EF4BD37F1D9D08DE0042BEC7 /* Resources */,
+				4A1AB3AFB208747115F13B4C /* [CP] Embed Pods Frameworks */,
+				1938CE754F35828F8D6D69BF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,9 +377,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF4BD3B41D9D08DE0042BEC7 /* Build configuration list for PBXNativeTarget "MonitorizareVotTests" */;
 			buildPhases = (
+				F4AFE020C500785E48EB747C /* [CP] Check Pods Manifest.lock */,
 				EF4BD3991D9D08DE0042BEC7 /* Sources */,
 				EF4BD39A1D9D08DE0042BEC7 /* Frameworks */,
 				EF4BD39B1D9D08DE0042BEC7 /* Resources */,
+				DB3ECF7275E17AEDF1D2EFE7 /* [CP] Embed Pods Frameworks */,
+				DC07670AF420BBCFF6CD2F07 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,9 +398,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF4BD3B71D9D08DE0042BEC7 /* Build configuration list for PBXNativeTarget "MonitorizareVotUITests" */;
 			buildPhases = (
+				E0BFE4299848365AAD3B668F /* [CP] Check Pods Manifest.lock */,
 				EF4BD3A41D9D08DE0042BEC7 /* Sources */,
 				EF4BD3A51D9D08DE0042BEC7 /* Frameworks */,
 				EF4BD3A61D9D08DE0042BEC7 /* Resources */,
+				847DF2757D6F9D95AC23B152 /* [CP] Embed Pods Frameworks */,
+				A711B1FA80C8CD5E44CDE01B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -344,15 +426,18 @@
 				TargetAttributes = {
 					EF4BD3801D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					EF4BD39C1D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						TestTargetID = EF4BD3801D9D08DE0042BEC7;
 					};
 					EF4BD3A71D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 						TestTargetID = EF4BD3801D9D08DE0042BEC7;
 					};
@@ -406,6 +491,144 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1938CE754F35828F8D6D69BF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A1AB3AFB208747115F13B4C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		847DF2757D6F9D95AC23B152 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A711B1FA80C8CD5E44CDE01B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB3ECF7275E17AEDF1D2EFE7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC07670AF420BBCFF6CD2F07 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0BFE4299848365AAD3B668F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EDB2BAFC529132A9DFC6BA45 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F4AFE020C500785E48EB747C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EF4BD37D1D9D08DE0042BEC7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -415,13 +638,16 @@
 				EF13D1451DCF23EA00349B43 /* BaseViewController.m in Sources */,
 				EF13D1421DCF23DD00349B43 /* AlegeFormularViewController.m in Sources */,
 				EFEC82031DCF25B800610D79 /* QuestionCollectionViewCell.m in Sources */,
+				E7E1F2C41DDB586800CE52FC /* APIURLs.swift in Sources */,
 				EF13D1521DCF244100349B43 /* EsteFemeieViewController.m in Sources */,
-				EF13D1551DCF245400349B43 /* LoginViewController.m in Sources */,
 				EF13D14B1DCF240D00349B43 /* QuestionViewController.m in Sources */,
 				EF4BD3891D9D08DE0042BEC7 /* AppDelegate.m in Sources */,
 				EF13D14E1DCF241900349B43 /* SectieViewController.m in Sources */,
 				EF13D1481DCF23F900349B43 /* FormularViewController.m in Sources */,
 				EF4BD3861D9D08DE0042BEC7 /* main.m in Sources */,
+				E7E1F2BF1DDB57C400CE52FC /* APIRequest.swift in Sources */,
+				E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */,
+				E7E1F2C11DDB580B00CE52FC /* LoginAPIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,70 +775,93 @@
 		};
 		EF4BD3B21D9D08DE0042BEC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90CF95CA02DCD8E741C5686D /* Pods-MonitorizareVot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MonitorizareVot/MonitorizareVot-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		EF4BD3B31D9D08DE0042BEC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6141F9F392CCD91B6DE2B780 /* Pods-MonitorizareVot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MonitorizareVot/MonitorizareVot-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		EF4BD3B51D9D08DE0042BEC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 626B7494E0E905A8AEF30B00 /* Pods-MonitorizareVotTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MonitorizareVotTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonitorizareVot.app/MonitorizareVot";
 			};
 			name = Debug;
 		};
 		EF4BD3B61D9D08DE0042BEC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C95EF7A92703E67898E5413 /* Pods-MonitorizareVotTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MonitorizareVotTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonitorizareVot.app/MonitorizareVot";
 			};
 			name = Release;
 		};
 		EF4BD3B81D9D08DE0042BEC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F4B4D98801626552C357D41 /* Pods-MonitorizareVotUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = MonitorizareVotUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MonitorizareVot;
 			};
 			name = Debug;
 		};
 		EF4BD3B91D9D08DE0042BEC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = MonitorizareVotUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MonitorizareVot;
 			};
 			name = Release;
