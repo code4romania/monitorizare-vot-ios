@@ -12,11 +12,7 @@ import Alamofire
 class FormsFetcher: FormFetcherDelegate {
     
     private var formsPersistor: FormsPersistor
-    private var formsInformationsFetchers = [FormFetcher]() {
-        didSet {
-            print(formsInformationsFetchers.count)
-        }
-    }
+    private var formsInformationsFetchers = [FormFetcher]()
     
     init(formsPersistor: FormsPersistor) {
         self.formsPersistor = formsPersistor

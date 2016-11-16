@@ -43,7 +43,7 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     QuestionViewController *questionVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"questionVC"];
-    [self.navigationController presentViewController:questionVC animated:YES completion:nil];
+    [self.navigationController pushViewController:questionVC animated:true];
 }
 
 - (void)didReceiveMemoryWarning {
