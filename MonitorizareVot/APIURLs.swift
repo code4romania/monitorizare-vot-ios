@@ -10,12 +10,18 @@ import Foundation
 
 enum APIURLs {
     case Login
-    
-    var url: NSURL {
+    case FormsVersions
+    case Form
+
+    var url: String {
         get {
             switch self {
             case .Login:
-                return NSURL(string: "")!
+                return ""
+            case .FormsVersions:
+                return "https://viuat.azurewebsites.net/api/v1/formular/versiune"
+            case .Form:
+                return "https://viuat.azurewebsites.net/api/v1/formular"
             }
         }
     }
