@@ -12,11 +12,11 @@ import UIKit
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - iVars
-    @IBOutlet weak var phoneNumberTextField: UITextField!
-    @IBOutlet weak var codeTextField: UITextField!
-    @IBOutlet weak var buttonHeight: NSLayoutConstraint!
-    @IBOutlet weak var formViewBottomConstraint: NSLayoutConstraint!
     private var tapGestureRecognizer: UITapGestureRecognizer?
+    @IBOutlet private weak var phoneNumberTextField: UITextField!
+    @IBOutlet private weak var codeTextField: UITextField!
+    @IBOutlet private weak var buttonHeight: NSLayoutConstraint!
+    @IBOutlet private weak var formViewBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Life cycle
     override func viewDidLoad() {

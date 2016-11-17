@@ -12,13 +12,21 @@ import UIKit
 class PickFormViewController: UIViewController {
     
     // MARK: - iVars
+    var presidingOfficer: PresidingOfficer?
+    var topLabelText: String?
     private var localFormProvider = LocalFormProvider()
-    @IBOutlet var buttonsBackgroundViews: [UIView]!
+    @IBOutlet private var buttonsBackgroundViews: [UIView]!
+    @IBOutlet private weak var topButton: UIButton!
+    @IBOutlet private weak var topLabel: UILabel!
+    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        
+        setupOutlets()
+        if let topLabelText = self.topLabelText {
+            self.navigationItem.set(title: topLabelText, subtitle: "Alege formular")
+        }
     }
     
     // MARK: - IBActions
@@ -38,16 +46,27 @@ class PickFormViewController: UIViewController {
         
     }
     
+    @IBAction func topRightButtonPressed(_ sender: UIButton) {
+        if let childs = self.navigationController?.childViewControllers {
+            for aChild in childs {
+                if aChild is SectieViewController {
+                    self.navigationController?.popToViewController(aChild, animated: true)
+                }
+            }
+        }
+    }
+    
     // MARK: - Utils
     private func layout() {
         for aView in buttonsBackgroundViews {
-            aView.layer.cornerRadius = 4
-            aView.layer.borderWidth = 1
-            aView.layer.borderColor = UIColor(colorLiteralRed: 172.0/255.0, green:180.0/255.0, blue:190.0/255.0, alpha:1).cgColor
-            aView.layer.shadowColor = UIColor.black.cgColor
-            aView.layer.shadowRadius = 4
-            aView.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-            aView.layer.shadowOpacity = 0.07
+            aView.layer.dropDefaultShadow()
+        }
+        topButton.layer.defaultCornerRadius(borderColor: UIColor.gray.cgColor)
+    }
+    
+    private func setupOutlets() {
+        if let topLabelText = self.topLabelText {
+            topLabel.text = topLabelText
         }
     }
     

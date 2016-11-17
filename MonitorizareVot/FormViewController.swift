@@ -17,9 +17,9 @@ class FormViewController: UIViewController, UICollectionViewDataSource, UICollec
     var topTitle: String?
     private let cellSpacer = 16
     private let numberOfCellsOnEachRow = 2
+    private var configurator = QuestionCollectionViewCellConfigurator()
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var topLabel: UILabel!
-    private var configurator = QuestionCollectionViewCellConfigurator()
     
     override func viewDidLoad() {
         super.viewDidLoad()

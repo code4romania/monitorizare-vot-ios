@@ -9,81 +9,80 @@
 import Foundation
 import UIKit
 
-enum PickerViewSelection {
-    case Sosire
-    case Plecare
-}
-
-class SectionInformationsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SectionInformationsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     // MARK: - iVars
-    var presidingOfficer = PresidingOfficer()
-    @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet var formsButtons: [UIButton]!
-    @IBOutlet weak var topButton: UIButton!
-    @IBOutlet weak var firstButton: UIButton!
-    @IBOutlet weak var secondButton: UIButton!
-    @IBOutlet weak var thirdButton: UIButton!
-    @IBOutlet weak var fourthButton: UIButton!
-    @IBOutlet weak var fifthButton: UIButton!
-    @IBOutlet weak var sixthButton: UIButton!
-    @IBOutlet weak var pickerContainer: UIView!
-    @IBOutlet weak var pickerView: UIPickerView!
+    var presidingOfficer: PresidingOfficer?
+    var topLabelText: String?
     private var pickerViewSelection: PickerViewSelection?
+    @IBOutlet private var formsButtons: [UIButton]!
+    @IBOutlet private weak var topLabel: UILabel!
+    @IBOutlet private weak var topButton: UIButton!
+    @IBOutlet private weak var firstButton: UIButton!
+    @IBOutlet private weak var secondButton: UIButton!
+    @IBOutlet private weak var thirdButton: UIButton!
+    @IBOutlet private weak var fourthButton: UIButton!
+    @IBOutlet private weak var fifthButton: UIButton!
+    @IBOutlet private weak var sixthButton: UIButton!
+    @IBOutlet private weak var pickerContainer: UIView!
+    @IBOutlet private weak var pickerView: UIPickerView!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
+        setupOutlets()
         pickerContainer.isHidden = true
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        if let topLabelText = self.topLabelText {
+            self.navigationItem.set(title: topLabelText, subtitle: "Informații despre secție")
+        }
     }
     
     // MARK: - IBActions
     @IBAction func topRightButtonPressed(_ sender: UIButton) {
-
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func firstButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: secondButton, selected: false)
-        presidingOfficer.medium = "urban"
+        presidingOfficer?.medium = "urban"
     }
 
     @IBAction func secondButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: firstButton, selected: false)
-        presidingOfficer.medium = "rural"
+        presidingOfficer?.medium = "rural"
     }
     
     @IBAction func thirdButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: fourthButton, selected: false)
-        presidingOfficer.genre = "masculin"
+        presidingOfficer?.genre = "masculin"
     }
     
     @IBAction func fourthButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: thirdButton, selected: false)
-        presidingOfficer.genre = "feminin"
+        presidingOfficer?.genre = "feminin"
     }
     
     @IBAction func fifthButtonTapped(_ sender: UIButton) {
-        pickerViewSelection = .Sosire
+        pickerViewSelection = .sosire
         pickerContainer.isHidden = false
     }
     
     @IBAction func sixthButtonTapped(_ sender: UIButton) {
-        pickerViewSelection = .Plecare
+        pickerViewSelection = .plecare
         pickerContainer.isHidden = false
     }
     
     @IBAction func bottomButtonTapped(_ sender: UIButton) {
-        
+        if let pickFormViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PickFormViewController") as? PickFormViewController, let presidingOfficer = self.presidingOfficer {
+            pickFormViewController.presidingOfficer = presidingOfficer
+            pickFormViewController.topLabelText = presidingOfficer.judet! + " " + presidingOfficer.sectie!
+            self.navigationController?.pushViewController(pickFormViewController, animated: true)
+        }
     }
     
     @IBAction func pickerButton(_ sender: UIButton) {
@@ -103,55 +102,27 @@ class SectionInformationsViewController: UIViewController, UIPickerViewDelegate,
     
     private func layout() {
         for aButton in formsButtons {
-            aButton.layer.cornerRadius = 5
-            aButton.layer.borderColor = UIColor.lightGray.cgColor
-            aButton.layer.borderWidth = 1.0
+            aButton.layer.defaultCornerRadius(borderColor: UIColor.lightGray.cgColor)
         }
-        
-        topButton.layer.cornerRadius = 5
-        topButton.layer.borderColor = UIColor.gray.cgColor
-        topButton.layer.borderWidth = 1.0
+        topButton.layer.defaultCornerRadius(borderColor: UIColor.gray.cgColor)
+    }
+    
+    private func setupOutlets() {
+        if let topLabelText = self.topLabelText {
+            topLabel.text = topLabelText
+        }
     }
     
     private func setupButtonsWithPickerValues() {
-        var arriveHour = "00"
-        var arriveMinute = "00"
-        var leftHour = "00"
-        var leftMinute = "00"
-        
-        if let arriveSavedHour = presidingOfficer.arriveHour {
-            if arriveSavedHour < 10 {
-                arriveHour = "0" + String(arriveSavedHour)
-            } else {
-                arriveHour = String(arriveSavedHour)
-            }
+        if let presidingOfficer = self.presidingOfficer {
+            let arriveHour = presidingOfficer.arriveHour
+            let arriveMinute =  presidingOfficer.arriveMinute
+            fifthButton.setTitle(arriveHour + ":" + arriveMinute, for: .normal)
+            
+            let leftHour = presidingOfficer.leftHour
+            let leftMinute = presidingOfficer.leftMinute
+            sixthButton.setTitle(leftHour + ":" + leftMinute, for: .normal)
         }
-        
-        if let arriveSavedMinute = presidingOfficer.arriveMinute {
-            if arriveSavedMinute < 10 {
-                arriveMinute = "0" + String(arriveSavedMinute)
-            } else {
-                arriveMinute = String(arriveSavedMinute)
-            }
-        }
-        fifthButton.setTitle(arriveHour + ":" + arriveMinute, for: .normal)
-        
-        if let leftSavedHour = presidingOfficer.leftHour {
-            if leftSavedHour < 10 {
-                leftHour = "0" + String(leftSavedHour)
-            } else {
-                leftHour = String(leftSavedHour)
-            }
-        }
-        
-        if let leftSavedMinute = presidingOfficer.leftMinute {
-            if leftSavedMinute < 10 {
-                leftMinute = "0" + String(leftSavedMinute)
-            } else {
-                leftMinute = String(leftSavedMinute)
-            }
-        }
-        sixthButton.setTitle(leftHour + ":" + leftMinute, for: .normal)
     }
     
     // MARK: - UIPickerViewDataSource
@@ -177,18 +148,20 @@ class SectionInformationsViewController: UIViewController, UIPickerViewDelegate,
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if let pickerViewSelection = self.pickerViewSelection {
             switch pickerViewSelection {
-            case .Sosire:
+            case .sosire:
                 if component == 0 {
-                    presidingOfficer.arriveHour = row
+                    row < 10 ? (presidingOfficer?.arriveHour = "0" + String(row)) : (presidingOfficer?.arriveHour = String(row))
                 } else if component == 1 {
-                    presidingOfficer.arriveMinute = row
+                    row < 10 ? (presidingOfficer?.arriveMinute = "0" + String(row)) : (presidingOfficer?.arriveMinute = String(row))
                 }
-            case .Plecare:
+            case .plecare:
                 if component == 0 {
-                    presidingOfficer.leftHour = row
+                    row < 10 ? (presidingOfficer?.leftHour = "0" + String(row)) : (presidingOfficer?.leftHour = String(row))
                 } else if component == 1 {
-                    presidingOfficer.leftMinute = row
+                    row < 10 ? (presidingOfficer?.leftMinute = "0" + String(row)) : (presidingOfficer?.leftMinute = String(row))
                 }
+            default:
+                break
             }
             setupButtonsWithPickerValues()
         }

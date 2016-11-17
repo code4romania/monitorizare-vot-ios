@@ -12,6 +12,9 @@
 		C79A3041BFF1FED83C00E5F3 /* Pods_MonitorizareVotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */; };
 		E739B9731DDD9F280002604C /* QuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739B9721DDD9F280002604C /* QuestionCollectionViewCell.swift */; };
 		E739B9751DDDA2B80002604C /* QuestionCollectionViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739B9741DDDA2B70002604C /* QuestionCollectionViewCellConfigurator.swift */; };
+		E739B9771DDDD8510002604C /* SectieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739B9761DDDD8510002604C /* SectieViewController.swift */; };
+		E73A5B3F1DDDDF7F00E41490 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A5B3E1DDDDF7F00E41490 /* CALayerExtensions.swift */; };
+		E73A5B411DDDE55A00E41490 /* PickerViewSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A5B401DDDE55A00E41490 /* PickerViewSelection.swift */; };
 		E74087201DDC8CAE00D9332F /* FormsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E740871F1DDC8CAE00D9332F /* FormsFetcher.swift */; };
 		E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74087231DDC90E800D9332F /* AppDelegate.swift */; };
 		E74087261DDC924F00D9332F /* FormsPersistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74087251DDC924F00D9332F /* FormsPersistor.swift */; };
@@ -25,6 +28,7 @@
 		E74087371DDCA9FA00D9332F /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74087361DDCA9FA00D9332F /* Form.swift */; };
 		E749080F1DDCB8E300878F0A /* PickFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749080E1DDCB8E200878F0A /* PickFormViewController.swift */; };
 		E74908111DDCBB5800878F0A /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74908101DDCBB5800878F0A /* FormViewController.swift */; };
+		E7CC39F31DDDFF760010688D /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */; };
 		E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2BB1DDB4FCE00CE52FC /* LoginViewController.swift */; };
 		E7E1F2BF1DDB57C400CE52FC /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */; };
 		E7E1F2C11DDB580B00CE52FC /* LoginAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2C01DDB580B00CE52FC /* LoginAPIRequest.swift */; };
@@ -32,7 +36,6 @@
 		E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB481DDB63E1009EBE01 /* SectionInformationsViewController.swift */; };
 		E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */; };
 		E7E8EB4D1DDB7C8F009EBE01 /* PresidingOfficer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4C1DDB7C8F009EBE01 /* PresidingOfficer.swift */; };
-		EF13D14E1DCF241900349B43 /* SectieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF13D14D1DCF241900349B43 /* SectieViewController.m */; };
 		EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1561DCF24A800349B43 /* Assets.xcassets */; };
 		EF13D1591DCF24D400349B43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1581DCF24D400349B43 /* Main.storyboard */; };
 		EF4BD3921D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3901D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld */; };
@@ -70,6 +73,9 @@
 		DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E739B9721DDD9F280002604C /* QuestionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		E739B9741DDDA2B70002604C /* QuestionCollectionViewCellConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCollectionViewCellConfigurator.swift; sourceTree = "<group>"; };
+		E739B9761DDDD8510002604C /* SectieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectieViewController.swift; sourceTree = "<group>"; };
+		E73A5B3E1DDDDF7F00E41490 /* CALayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
+		E73A5B401DDDE55A00E41490 /* PickerViewSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewSelection.swift; sourceTree = "<group>"; };
 		E740871F1DDC8CAE00D9332F /* FormsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormsFetcher.swift; sourceTree = "<group>"; };
 		E74087231DDC90E800D9332F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E74087251DDC924F00D9332F /* FormsPersistor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormsPersistor.swift; sourceTree = "<group>"; };
@@ -83,6 +89,7 @@
 		E74087361DDCA9FA00D9332F /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		E749080E1DDCB8E200878F0A /* PickFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickFormViewController.swift; sourceTree = "<group>"; };
 		E74908101DDCBB5800878F0A /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
 		E7E1F2BB1DDB4FCE00CE52FC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		E7E1F2C01DDB580B00CE52FC /* LoginAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAPIRequest.swift; sourceTree = "<group>"; };
@@ -90,8 +97,6 @@
 		E7E8EB481DDB63E1009EBE01 /* SectionInformationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInformationsViewController.swift; sourceTree = "<group>"; };
 		E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVColors.swift; sourceTree = "<group>"; };
 		E7E8EB4C1DDB7C8F009EBE01 /* PresidingOfficer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresidingOfficer.swift; sourceTree = "<group>"; };
-		EF13D14C1DCF241900349B43 /* SectieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectieViewController.h; sourceTree = "<group>"; };
-		EF13D14D1DCF241900349B43 /* SectieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectieViewController.m; sourceTree = "<group>"; };
 		EF13D1561DCF24A800349B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF13D1581DCF24D400349B43 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EF4BD3811D9D08DE0042BEC7 /* MonitorizareVot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonitorizareVot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +212,9 @@
 				E7E8EB4C1DDB7C8F009EBE01 /* PresidingOfficer.swift */,
 				E7E1F2C51DDB59C800CE52FC /* API */,
 				E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */,
+				E73A5B3E1DDDDF7F00E41490 /* CALayerExtensions.swift */,
+				E73A5B401DDDE55A00E41490 /* PickerViewSelection.swift */,
+				E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -313,7 +321,7 @@
 			children = (
 				EF4BD3E21D9E64F30042BEC7 /* CustomViews */,
 				EF4BD3E81D9E7BB10042BEC7 /* LoginViewController */,
-				EF4BD3E91D9E7BBC0042BEC7 /* SectieVC */,
+				EF4BD3E91D9E7BBC0042BEC7 /* SectieViewController */,
 				EF13D14F1DCF243300349B43 /* SectionInformationsViewController */,
 				EF4BD3ED1D9E7C6D0042BEC7 /* PickFormViewController */,
 				EF4BD3F11D9E82230042BEC7 /* FormularVC */,
@@ -338,13 +346,12 @@
 			name = LoginViewController;
 			sourceTree = "<group>";
 		};
-		EF4BD3E91D9E7BBC0042BEC7 /* SectieVC */ = {
+		EF4BD3E91D9E7BBC0042BEC7 /* SectieViewController */ = {
 			isa = PBXGroup;
 			children = (
-				EF13D14C1DCF241900349B43 /* SectieViewController.h */,
-				EF13D14D1DCF241900349B43 /* SectieViewController.m */,
+				E739B9761DDDD8510002604C /* SectieViewController.swift */,
 			);
-			name = SectieVC;
+			name = SectieViewController;
 			sourceTree = "<group>";
 		};
 		EF4BD3ED1D9E7C6D0042BEC7 /* PickFormViewController */ = {
@@ -443,7 +450,7 @@
 		EF4BD3791D9D08DE0042BEC7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Code4Ro;
 				TargetAttributes = {
 					EF4BD3801D9D08DE0042BEC7 = {
@@ -657,8 +664,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF4BD3921D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld in Sources */,
+				E73A5B3F1DDDDF7F00E41490 /* CALayerExtensions.swift in Sources */,
 				E74087201DDC8CAE00D9332F /* FormsFetcher.swift in Sources */,
 				E74087351DDCA83600D9332F /* LocalFormProvider.swift in Sources */,
+				E7CC39F31DDDFF760010688D /* UINavigationControllerExtensions.swift in Sources */,
+				E73A5B411DDDE55A00E41490 /* PickerViewSelection.swift in Sources */,
 				E739B9731DDD9F280002604C /* QuestionCollectionViewCell.swift in Sources */,
 				E740872F1DDCA70A00D9332F /* Section.swift in Sources */,
 				E74087371DDCA9FA00D9332F /* Form.swift in Sources */,
@@ -669,7 +679,7 @@
 				E74087311DDCA74D00D9332F /* Question.swift in Sources */,
 				E74908111DDCBB5800878F0A /* FormViewController.swift in Sources */,
 				E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */,
-				EF13D14E1DCF241900349B43 /* SectieViewController.m in Sources */,
+				E739B9771DDDD8510002604C /* SectieViewController.swift in Sources */,
 				E749080F1DDCB8E300878F0A /* PickFormViewController.swift in Sources */,
 				E740872D1DDCA6E800D9332F /* FormProvider.swift in Sources */,
 				E7E1F2BF1DDB57C400CE52FC /* APIRequest.swift in Sources */,
@@ -733,6 +743,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -781,6 +792,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -800,6 +812,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -817,7 +830,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MonitorizareVot/MonitorizareVot-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -835,7 +848,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MonitorizareVot/MonitorizareVot-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
