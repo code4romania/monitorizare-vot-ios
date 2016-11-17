@@ -300,10 +300,10 @@
             </objects>
             <point key="canvasLocation" x="2287" y="806"/>
         </scene>
-        <!--Formular View Controller-->
+        <!--Form View Controller-->
         <scene sceneID="Pe7-Xh-UQg">
             <objects>
-                <viewController storyboardIdentifier="forumlarVC" id="hHg-kn-Ydc" customClass="FormularViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FormViewController" id="hHg-kn-Ydc" customClass="FormViewController" customModule="MonitorizareVot" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tUo-E2-07y"/>
                         <viewControllerLayoutGuide type="bottom" id="dQn-O5-hZb"/>
@@ -313,7 +313,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-kr-mUN">
-                                <rect key="frame" x="16" y="151" width="343" height="452"/>
+                                <rect key="frame" x="16" y="81" width="343" height="522"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="jMD-ig-KRd">
                                     <size key="itemSize" width="160" height="160"/>
@@ -334,8 +334,8 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="hHg-kn-Ydc" id="FMv-Eu-TL8"/>
-                                    <outlet property="delegate" destination="hHg-kn-Ydc" id="qbm-ZW-Oby"/>
+                                    <outlet property="dataSource" destination="hHg-kn-Ydc" id="beW-R9-qGW"/>
+                                    <outlet property="delegate" destination="hHg-kn-Ydc" id="uj4-M6-Rhu"/>
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B. TITLUL SECTIUNII CORESPUNZATOARE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZD-Io-xSh">
@@ -351,39 +351,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dQn-O5-hZb" firstAttribute="top" secondItem="4Ui-kr-mUN" secondAttribute="bottom" id="5bG-o1-CrA"/>
+                            <constraint firstItem="4Ui-kr-mUN" firstAttribute="leading" secondItem="hgu-zN-gNr" secondAttribute="leading" constant="16" id="DON-az-uNq"/>
                             <constraint firstItem="GZD-Io-xSh" firstAttribute="top" secondItem="tUo-E2-07y" secondAttribute="bottom" constant="8" id="Ih5-Hb-N4N"/>
-                            <constraint firstItem="4Ui-kr-mUN" firstAttribute="top" secondItem="GZD-Io-xSh" secondAttribute="bottom" constant="100" id="MtX-8r-uYU"/>
+                            <constraint firstItem="4Ui-kr-mUN" firstAttribute="top" secondItem="GZD-Io-xSh" secondAttribute="bottom" constant="30" id="MtX-8r-uYU"/>
                             <constraint firstItem="GZD-Io-xSh" firstAttribute="leading" secondItem="hgu-zN-gNr" secondAttribute="leadingMargin" constant="20" id="WJA-pB-1Bx"/>
-                            <constraint firstItem="4Ui-kr-mUN" firstAttribute="leading" secondItem="hgu-zN-gNr" secondAttribute="leadingMargin" id="WJj-zO-CDL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GZD-Io-xSh" secondAttribute="trailing" constant="20" id="bJg-Ve-YlE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4Ui-kr-mUN" secondAttribute="trailing" id="kcH-Xb-Mpm"/>
+                            <constraint firstAttribute="trailing" secondItem="4Ui-kr-mUN" secondAttribute="trailing" constant="16" id="j8g-Ke-t4n"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="questionsCollectionView" destination="4Ui-kr-mUN" id="9zf-N9-JSH"/>
+                        <outlet property="collectionView" destination="4Ui-kr-mUN" id="ogN-sg-mee"/>
+                        <outlet property="topLabel" destination="GZD-Io-xSh" id="b5c-fW-lay"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eC2-7M-RvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4502" y="215"/>
-        </scene>
-        <!--Question View Controller-->
-        <scene sceneID="gVx-ZE-cpc">
-            <objects>
-                <viewController storyboardIdentifier="questionVC" id="BU4-5d-VKE" customClass="QuestionViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5Ll-47-9ug"/>
-                        <viewControllerLayoutGuide type="bottom" id="JOA-98-zLk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4p8-nO-tqr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qEi-to-0q0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5294" y="215"/>
+            <point key="canvasLocation" x="4501.6000000000004" y="214.54272863568218"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mNc-3Z-FcI">
@@ -765,10 +748,10 @@
             </objects>
             <point key="canvasLocation" x="2973.5999999999999" y="805.54722638680664"/>
         </scene>
-        <!--Alege Formular View Controller-->
+        <!--Pick Form View Controller-->
         <scene sceneID="NXG-Qc-ge0">
             <objects>
-                <viewController storyboardIdentifier="alegeFormularVC" id="Tg6-rW-DvP" customClass="AlegeFormularViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PickFormViewController" id="Tg6-rW-DvP" customClass="PickFormViewController" customModule="MonitorizareVot" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9XG-xx-WxR"/>
                         <viewControllerLayoutGuide type="bottom" id="2Rd-FF-gAe"/>
@@ -837,7 +820,7 @@
                                             <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="hHg-kn-Ydc" kind="show" id="12D-KF-BNT"/>
+                                            <action selector="firstButtonPressed:" destination="Tg6-rW-DvP" eventType="touchUpInside" id="HjO-QX-MmM"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLO-Ho-aFI">
@@ -879,7 +862,7 @@
                                             <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="hHg-kn-Ydc" kind="show" id="669-Ta-qL8"/>
+                                            <action selector="secondButtonPressed:" destination="Tg6-rW-DvP" eventType="touchUpInside" id="U8a-RH-tWc"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Formular votare" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiy-bM-104">
@@ -919,7 +902,7 @@
                                             <color key="titleColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="hHg-kn-Ydc" kind="show" id="gZX-EP-6GH"/>
+                                            <action selector="thirdButtonPressed:" destination="Tg6-rW-DvP" eventType="touchUpInside" id="cYw-rz-RpJ"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXz-vs-JRP">
@@ -955,7 +938,7 @@
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBP-Mn-w1d">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                         <connections>
-                                            <segue destination="hSp-yr-ABX" kind="show" id="PsD-uw-C9s"/>
+                                            <action selector="fourthButtonPressed:" destination="Tg6-rW-DvP" eventType="touchUpInside" id="WNY-UT-AUj"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Adauga nota" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojb-IK-tvG">
@@ -1008,37 +991,16 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fDeschidereView" destination="RXC-6V-ujy" id="HBA-IE-CkX"/>
-                        <outlet property="fInchidereView" destination="E4D-o8-hGL" id="8Zu-7y-aBk"/>
-                        <outlet property="fNotaView" destination="EFU-Iu-6Md" id="cqB-IG-X3J"/>
-                        <outlet property="fVotareView" destination="XRi-dS-DTU" id="3bN-gc-mYl"/>
-                        <outletCollection property="formulareViewsArray" destination="RXC-6V-ujy" id="HUX-Ay-NfF"/>
-                        <outletCollection property="formulareViewsArray" destination="XRi-dS-DTU" id="IJe-vb-G1E"/>
-                        <outletCollection property="formulareViewsArray" destination="E4D-o8-hGL" id="O3F-gc-Suf"/>
-                        <outletCollection property="formulareViewsArray" destination="EFU-Iu-6Md" id="3fV-US-TYa"/>
+                        <outletCollection property="buttonsBackgroundViews" destination="RXC-6V-ujy" collectionClass="NSMutableArray" id="Pzd-8d-u74"/>
+                        <outletCollection property="buttonsBackgroundViews" destination="XRi-dS-DTU" collectionClass="NSMutableArray" id="au2-MD-cqt"/>
+                        <outletCollection property="buttonsBackgroundViews" destination="E4D-o8-hGL" collectionClass="NSMutableArray" id="I3T-9J-XPc"/>
+                        <outletCollection property="buttonsBackgroundViews" destination="EFU-Iu-6Md" collectionClass="NSMutableArray" id="Jka-cr-QA1"/>
+                        <segue destination="hHg-kn-Ydc" kind="show" id="UDZ-c7-64T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gE9-LY-jPi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3680.8000000000002" y="805.54722638680664"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="HaN-n3-aQ3">
-            <objects>
-                <viewController id="hSp-yr-ABX" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hJP-2b-5Zm"/>
-                        <viewControllerLayoutGuide type="bottom" id="cWB-vs-cVk"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="SYi-0W-NLT">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hkp-KW-4D5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4502" y="981"/>
         </scene>
     </scenes>
     <resources>
@@ -1047,8 +1009,5 @@
         <image name="notaIcon" width="67" height="67"/>
         <image name="sectieIcon" width="30" height="27"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="gZX-EP-6GH"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

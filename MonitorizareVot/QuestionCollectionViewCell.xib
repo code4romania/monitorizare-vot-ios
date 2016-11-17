@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="QuestionCollectionViewCell">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="QuestionCollectionViewCell" id="gTV-IL-0wX" customClass="QuestionCollectionViewCell" customModule="MonitorizareVot" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="158" height="148"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -19,18 +19,18 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYO-Hk-2dr" userLabel="upperView">
-                        <rect key="frame" x="0.0" y="0.0" width="158" height="40"/>
+                        <rect key="frame" x="0.0" y="0.0" width="158" height="32"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B. x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8L-fI-EtD">
-                                <rect key="frame" x="65.5" y="10" width="28.5" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8L-fI-EtD">
+                                <rect key="frame" x="63" y="8" width="33" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="o8L-fI-EtD" firstAttribute="centerX" secondItem="KYO-Hk-2dr" secondAttribute="centerX" id="UYL-Ul-5pV"/>
-                            <constraint firstAttribute="height" constant="40" id="YHf-i1-5d9"/>
+                            <constraint firstAttribute="height" constant="32" id="YHf-i1-5d9"/>
                             <constraint firstItem="o8L-fI-EtD" firstAttribute="centerY" secondItem="KYO-Hk-2dr" secondAttribute="centerY" id="YTm-AX-6DX"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -39,25 +39,22 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9i-GE-mcd" userLabel="question">
-                        <rect key="frame" x="8" y="65" width="142" height="57.5"/>
-                        <string key="text">Preşedintele BESV a consemnat numărul semnăturilor din liste în procesul verbal (b1- b4)
-
-D9 Suma semnăturilor din liste şi a buletinelor de vot nefolosite este egală cu numărul buletinelor de vot primite la</string>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70S-Lv-HHz" userLabel="separator">
+                        <rect key="frame" x="8" y="113" width="142" height="2"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="Gqg-kM-lT0"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf9-IC-7PP" userLabel="status">
+                        <rect key="frame" x="0.0" y="115" width="158" height="33"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70S-Lv-HHz" userLabel="separator">
-                        <rect key="frame" x="8" y="130" width="142" height="1"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="Gqg-kM-lT0"/>
-                        </constraints>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf9-IC-7PP" userLabel="status">
-                        <rect key="frame" x="0.0" y="131" width="158" height="17"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVQ-C3-rba">
+                        <rect key="frame" x="8" y="48" width="142" height="57"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -65,19 +62,26 @@ D9 Suma semnăturilor din liste şi a buletinelor de vot nefolosite este egală 
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="xf9-IC-7PP" firstAttribute="top" secondItem="70S-Lv-HHz" secondAttribute="bottom" id="2xT-de-G70"/>
+                <constraint firstItem="70S-Lv-HHz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="2Bm-zC-ZWb"/>
+                <constraint firstItem="FVQ-C3-rba" firstAttribute="top" secondItem="KYO-Hk-2dr" secondAttribute="bottom" constant="16" id="2Cv-Ww-kQz"/>
                 <constraint firstAttribute="trailing" secondItem="KYO-Hk-2dr" secondAttribute="trailing" id="7Yx-GY-qPF"/>
-                <constraint firstItem="xf9-IC-7PP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="D87-Tg-CSH"/>
-                <constraint firstItem="R9i-GE-mcd" firstAttribute="top" secondItem="KYO-Hk-2dr" secondAttribute="bottom" constant="25" id="RQa-yT-OBU"/>
+                <constraint firstAttribute="bottom" secondItem="xf9-IC-7PP" secondAttribute="bottom" id="9Hv-dh-l74"/>
+                <constraint firstAttribute="trailing" secondItem="70S-Lv-HHz" secondAttribute="trailing" constant="8" id="HO7-TC-rLv"/>
+                <constraint firstAttribute="trailing" secondItem="xf9-IC-7PP" secondAttribute="trailing" id="MvV-NO-oGw"/>
                 <constraint firstItem="KYO-Hk-2dr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="XH4-LA-3Bx"/>
-                <constraint firstAttribute="trailing" secondItem="xf9-IC-7PP" secondAttribute="trailing" id="XHT-r4-gMb"/>
-                <constraint firstItem="R9i-GE-mcd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="fQ5-gS-yaY"/>
-                <constraint firstAttribute="bottom" secondItem="xf9-IC-7PP" secondAttribute="bottom" id="j2f-cn-rPT"/>
-                <constraint firstItem="70S-Lv-HHz" firstAttribute="leading" secondItem="R9i-GE-mcd" secondAttribute="leading" id="jQM-EJ-tJr"/>
-                <constraint firstItem="70S-Lv-HHz" firstAttribute="trailing" secondItem="R9i-GE-mcd" secondAttribute="trailing" id="nPi-Di-sIY"/>
-                <constraint firstAttribute="trailing" secondItem="R9i-GE-mcd" secondAttribute="trailing" constant="8" id="yKk-6f-hnU"/>
+                <constraint firstItem="xf9-IC-7PP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cyx-XH-ekf"/>
+                <constraint firstItem="FVQ-C3-rba" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="gGm-y6-Rsy"/>
+                <constraint firstAttribute="bottom" secondItem="70S-Lv-HHz" secondAttribute="bottom" constant="33" id="hJ2-ej-EUj"/>
+                <constraint firstItem="70S-Lv-HHz" firstAttribute="top" secondItem="FVQ-C3-rba" secondAttribute="bottom" constant="8" id="hZJ-ab-lUt"/>
+                <constraint firstItem="xf9-IC-7PP" firstAttribute="top" secondItem="70S-Lv-HHz" secondAttribute="bottom" id="jgb-Jo-ClO"/>
+                <constraint firstAttribute="trailing" secondItem="FVQ-C3-rba" secondAttribute="trailing" constant="8" id="m7y-CY-lfV"/>
                 <constraint firstItem="KYO-Hk-2dr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yoN-lA-gbZ"/>
             </constraints>
+            <connections>
+                <outlet property="body" destination="FVQ-C3-rba" id="wFO-jE-Htw"/>
+                <outlet property="bottomLabel" destination="xf9-IC-7PP" id="Bw3-Uu-CjD"/>
+                <outlet property="topLabel" destination="o8L-fI-EtD" id="lbk-Vz-TBG"/>
+            </connections>
             <point key="canvasLocation" x="33" y="53"/>
         </collectionViewCell>
     </objects>

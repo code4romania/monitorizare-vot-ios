@@ -7,14 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 class LocalFormProvider: FormProvider {
     
-    private var formsPersistor: FormsPersistor
-    
-    init(formsPersistor: FormsPersistor) {
-        self.formsPersistor = formsPersistor
-    }
+    private var formsPersistor = LocalFormsPersistor()
     
     func getForm(named: String) -> Form? {
         if let formSections = formsPersistor.getInformations(forForm: named) {
@@ -25,7 +22,7 @@ class LocalFormProvider: FormProvider {
     
     
     private func createForm(informations: [[String: AnyObject]], named: String) -> Form {
-        return Form(id: named, sections: createSection(informations: informations))
+        return Form(id: named, title: "Procedurile ...", sections: createSection(informations: informations))
     }
     
     private func createSection(informations: [[String: AnyObject]]) -> [Section] {
@@ -49,7 +46,10 @@ class LocalFormProvider: FormProvider {
             let text = aQuestion["textIntrebare"] as! String
             let type = aQuestion["idTipIntrebare"] as! Int
             let answers = createAnswers(informations: aQuestion["raspunsuriDisponibile"] as! [[String: AnyObject]])
-            let newQuestion = Question(id: id, text: text, type: type, answers: answers)
+            let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 11.0), NSForegroundColorAttributeName: MVColors.Grey.color]
+            let answered = NSAttributedString(string: "Necompletat", attributes: attributes)
+    
+            let newQuestion = Question(id: id, text: text, type: type, answered: answered,  answers: answers)
             questions.append(newQuestion)
         }
         return questions
