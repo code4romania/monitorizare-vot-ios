@@ -12,9 +12,9 @@ import UIKit
 class QuestionCollectionViewCell: UICollectionViewCell {
     
     // MARK: - iVars
-    @IBOutlet private weak var topLabel: UILabel!
-    @IBOutlet private weak var body: UILabel!
-    @IBOutlet private weak var bottomLabel: UILabel!
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var body: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
     
     // MARK: - Life cycle
     override func awakeFromNib() {

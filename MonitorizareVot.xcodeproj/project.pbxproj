@@ -29,6 +29,11 @@
 		E749080F1DDCB8E300878F0A /* PickFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749080E1DDCB8E200878F0A /* PickFormViewController.swift */; };
 		E74908111DDCBB5800878F0A /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74908101DDCBB5800878F0A /* FormViewController.swift */; };
 		E7CC39F31DDDFF760010688D /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */; };
+		E7CC39F81DDF25530010688D /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39F71DDF25530010688D /* AddNoteViewController.swift */; };
+		E7CC39FA1DDF255B0010688D /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39F91DDF255B0010688D /* Note.swift */; };
+		E7CC39FC1DDF2B2E0010688D /* NoteSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39FB1DDF2B2E0010688D /* NoteSaver.swift */; };
+		E7CC39FE1DDF2C100010688D /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39FD1DDF2C100010688D /* UIViewControllerExtensions.swift */; };
+		E7CC3A001DDF30AF0010688D /* MVUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39FF1DDF30AF0010688D /* MVUITextView.swift */; };
 		E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2BB1DDB4FCE00CE52FC /* LoginViewController.swift */; };
 		E7E1F2BF1DDB57C400CE52FC /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */; };
 		E7E1F2C11DDB580B00CE52FC /* LoginAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2C01DDB580B00CE52FC /* LoginAPIRequest.swift */; };
@@ -90,6 +95,11 @@
 		E749080E1DDCB8E200878F0A /* PickFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickFormViewController.swift; sourceTree = "<group>"; };
 		E74908101DDCBB5800878F0A /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
+		E7CC39F71DDF25530010688D /* AddNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		E7CC39F91DDF255B0010688D /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		E7CC39FB1DDF2B2E0010688D /* NoteSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteSaver.swift; sourceTree = "<group>"; };
+		E7CC39FD1DDF2C100010688D /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		E7CC39FF1DDF30AF0010688D /* MVUITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVUITextView.swift; sourceTree = "<group>"; };
 		E7E1F2BB1DDB4FCE00CE52FC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		E7E1F2C01DDB580B00CE52FC /* LoginAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAPIRequest.swift; sourceTree = "<group>"; };
@@ -167,6 +177,7 @@
 		E74087211DDC8D6000D9332F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E7CC39FB1DDF2B2E0010688D /* NoteSaver.swift */,
 				E740871F1DDC8CAE00D9332F /* FormsFetcher.swift */,
 				E74087291DDC987C00D9332F /* FormFetcher.swift */,
 			);
@@ -194,6 +205,16 @@
 			name = Forms;
 			sourceTree = "<group>";
 		};
+		E7CC39F61DDF253E0010688D /* NoteViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7CC39FF1DDF30AF0010688D /* MVUITextView.swift */,
+				E7CC39F71DDF25530010688D /* AddNoteViewController.swift */,
+				E7CC39F91DDF255B0010688D /* Note.swift */,
+			);
+			name = NoteViewController;
+			sourceTree = "<group>";
+		};
 		E7E1F2BD1DDB57BB00CE52FC /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +236,7 @@
 				E73A5B3E1DDDDF7F00E41490 /* CALayerExtensions.swift */,
 				E73A5B401DDDE55A00E41490 /* PickerViewSelection.swift */,
 				E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */,
+				E7CC39FD1DDF2C100010688D /* UIViewControllerExtensions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -320,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				EF4BD3E21D9E64F30042BEC7 /* CustomViews */,
+				E7CC39F61DDF253E0010688D /* NoteViewController */,
 				EF4BD3E81D9E7BB10042BEC7 /* LoginViewController */,
 				EF4BD3E91D9E7BBC0042BEC7 /* SectieViewController */,
 				EF13D14F1DCF243300349B43 /* SectionInformationsViewController */,
@@ -663,6 +686,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7CC39F81DDF25530010688D /* AddNoteViewController.swift in Sources */,
 				EF4BD3921D9D08DE0042BEC7 /* MonitorizareVot.xcdatamodeld in Sources */,
 				E73A5B3F1DDDDF7F00E41490 /* CALayerExtensions.swift in Sources */,
 				E74087201DDC8CAE00D9332F /* FormsFetcher.swift in Sources */,
@@ -673,6 +697,7 @@
 				E740872F1DDCA70A00D9332F /* Section.swift in Sources */,
 				E74087371DDCA9FA00D9332F /* Form.swift in Sources */,
 				E7E8EB4D1DDB7C8F009EBE01 /* PresidingOfficer.swift in Sources */,
+				E7CC3A001DDF30AF0010688D /* MVUITextView.swift in Sources */,
 				E74087261DDC924F00D9332F /* FormsPersistor.swift in Sources */,
 				E7E1F2C41DDB586800CE52FC /* APIURLs.swift in Sources */,
 				E74087331DDCA79000D9332F /* Answer.swift in Sources */,
@@ -680,8 +705,10 @@
 				E74908111DDCBB5800878F0A /* FormViewController.swift in Sources */,
 				E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */,
 				E739B9771DDDD8510002604C /* SectieViewController.swift in Sources */,
+				E7CC39FA1DDF255B0010688D /* Note.swift in Sources */,
 				E749080F1DDCB8E300878F0A /* PickFormViewController.swift in Sources */,
 				E740872D1DDCA6E800D9332F /* FormProvider.swift in Sources */,
+				E7CC39FE1DDF2C100010688D /* UIViewControllerExtensions.swift in Sources */,
 				E7E1F2BF1DDB57C400CE52FC /* APIRequest.swift in Sources */,
 				E74087281DDC92CA00D9332F /* LocalFormsPersistor.swift in Sources */,
 				E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */,
@@ -690,6 +717,7 @@
 				E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */,
 				E7E1F2C11DDB580B00CE52FC /* LoginAPIRequest.swift in Sources */,
 				E740872A1DDC987C00D9332F /* FormFetcher.swift in Sources */,
+				E7CC39FC1DDF2B2E0010688D /* NoteSaver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

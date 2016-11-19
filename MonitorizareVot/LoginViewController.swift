@@ -82,9 +82,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    private func performKeyboardAnimation() {
-        UIView.animate(withDuration: 0.35, animations: {
-            self.view.layoutIfNeeded()
-        })
-    }
 }

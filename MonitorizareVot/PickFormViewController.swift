@@ -43,7 +43,9 @@ class PickFormViewController: UIViewController {
     }
     
     @IBAction func fourthButtonPressed(_ sender: UIButton) {
-        
+        let addNoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNoteViewController") as! AddNoteViewController
+        addNoteViewController.presidingOfficer = presidingOfficer
+        self.navigationController?.pushViewController(addNoteViewController, animated: true)
     }
     
     @IBAction func topRightButtonPressed(_ sender: UIButton) {

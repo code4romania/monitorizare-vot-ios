@@ -132,12 +132,6 @@ class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         judete = NSArray(contentsOfFile: path!) as! [String]
     }
     
-    private func performKeyboardAnimation() {
-        UIView.animate(withDuration: 0.35, animations: {
-            self.view.layoutIfNeeded()
-        })
-    }
-    
     // MARK: - UIPickerViewDataSource
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
