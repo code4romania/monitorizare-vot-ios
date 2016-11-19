@@ -44,6 +44,8 @@ class MVUITextView: UITextView, UITextViewDelegate {
         self.textColor = UIColor.gray
         self.text = placeholder
         isEmpty = true
+        
+        self.selectedTextRange = self.textRange(from: self.beginningOfDocument, to: self.beginningOfDocument)
     }
 
     private func notEmptyTextFieldLayout() {
@@ -65,8 +67,7 @@ class MVUITextView: UITextView, UITextViewDelegate {
         if text == "\n" && isEmpty {
             return false
         }
-        
-
+    
         if (textView.text.characters.count <= 1 || isEmpty) && text == "" {
             self.emptyTextFieldLayout()
             self.isEmpty = true

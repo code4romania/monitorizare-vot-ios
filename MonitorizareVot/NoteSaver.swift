@@ -11,6 +11,12 @@ import Alamofire
 
 struct NoteSaver {
     func save(note: Note) {
-        
+        connectionState { (connected) in
+            if connected {
+                
+            } else {
+                
+            }
+        }
     }
 }

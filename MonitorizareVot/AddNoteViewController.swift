@@ -8,17 +8,22 @@
 
 import Foundation
 import UIKit
+import Photos
 
-class AddNoteViewController: UIViewController, UITextViewDelegate, MVUITextViewDelegate {
+class AddNoteViewController: UIViewController, UITextViewDelegate, MVUITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     // MARK: - iVars
     var presidingOfficer: PresidingOfficer?
     private var note: Note?
     private var noteSaver = NoteSaver()
+    private var tapGestureRecognizer: UITapGestureRecognizer?
+    private var cameraPicker: UIImagePickerController?
     @IBOutlet weak var bottomButtonHeight: NSLayoutConstraint!
     @IBOutlet weak var bottomRightButton: UIButton!
+    @IBOutlet weak var bottomLeftLabel: UILabel!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var bodyTextView: MVUITextView!
+    @IBOutlet weak var textViewBackgroundView: UIView!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -29,6 +34,7 @@ class AddNoteViewController: UIViewController, UITextViewDelegate, MVUITextViewD
             note = Note(presidingOfficer: presidingOfficer)
         }
         layout()
+        setTapGestureRecognizer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,27 +63,72 @@ class AddNoteViewController: UIViewController, UITextViewDelegate, MVUITextViewD
     func keyboardIsHidden() {
         bottomConstraint?.constant = 0
         performKeyboardAnimation()
+        bodyTextView.resignFirstResponder()
     }
     
     private func layout() {
-        bottomRightButton.layer.defaultCornerRadius(borderColor: UIColor.darkGray.cgColor)
-        bodyTextView.inputView?.layer.defaultCornerRadius(borderColor: UIColor.darkGray.cgColor)
+        textViewBackgroundView.layer.defaultCornerRadius(borderColor: UIColor.lightGray.cgColor)
+        bottomRightButton.layer.defaultCornerRadius(borderColor: UIColor.lightGray.cgColor)
+    }
+    
+    private func setTapGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddNoteViewController.keyboardIsHidden))
+        self.tapGestureRecognizer = tapGestureRecognizer
+        self.view.addGestureRecognizer(tapGestureRecognizer)
     }
     
     // MARK: - IBActions
     @IBAction func sendButtonTapped(_ sender: UIButton) {
+        bodyTextView.resignFirstResponder()
         if let note = self.note {
             noteSaver.save(note: note)
         }
     }
     
     @IBAction func bottomRightButtonTapped(_ sender: UIButton) {
-        
+        bodyTextView.resignFirstResponder()
+        if note?.image == nil {
+            switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
+            case .authorized, .notDetermined:
+                let cameraPicker = UIImagePickerController()
+                cameraPicker.delegate = self
+                self.cameraPicker = cameraPicker
+                navigationController?.present(cameraPicker, animated: true, completion: nil)
+            case .denied, .restricted:
+                let appSettings = UIAlertAction(title: "Setări", style: .default) { (action) in
+                    UIApplication.shared.openURL(NSURL(string: UIApplicationOpenSettingsURLString)! as URL)
+                }
+                let cancel = UIAlertAction(title: "Închide", style: .cancel, handler: nil)
+                
+                let alertController = UIAlertController(title: "Accessul este restricționat", message: "Te rugăm să accesezi setările și să ne oferi permisiuni de acces la librăria de poze.", preferredStyle: .alert)
+                alertController.addAction(appSettings)
+                alertController.addAction(cancel)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        } else {
+            note?.image = nil
+            bottomLeftLabel.text = "Adaugă o fotografie"
+            bottomRightButton.setImage(UIImage(named: "camera")!, for: .normal)
+        }
     }
     
     // MARK: - MVUITextViewDelegate
     func textView(textView: MVUITextView, didChangeText text: String) {
         note?.body = text
+    }
+    
+    // MARK: - UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: false, completion: nil)
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            note?.image = image
+            bottomLeftLabel.text = "Șterge"
+            bottomRightButton.setImage(UIImage(named: "trash")!, for: .normal)
+        }
     }
     
 }

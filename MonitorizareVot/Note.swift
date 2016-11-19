@@ -13,6 +13,7 @@ class Note {
     var presidingOfficer: PresidingOfficer
     var body: String?
     var image: UIImage?
+    var synced: Bool = false
     
     init(presidingOfficer: PresidingOfficer) {
         self.presidingOfficer = presidingOfficer
