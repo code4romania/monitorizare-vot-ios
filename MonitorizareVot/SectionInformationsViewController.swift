@@ -26,7 +26,7 @@ class SectionInformationsViewController: UIViewController, UIPickerViewDelegate,
     @IBOutlet private weak var sixthButton: UIButton!
     @IBOutlet private weak var pickerContainer: UIView!
     @IBOutlet private weak var pickerView: UIPickerView!
-    
+    @IBOutlet private weak var pickerButton: UIButton!
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,8 @@ class SectionInformationsViewController: UIViewController, UIPickerViewDelegate,
         if let topLabelText = self.topLabelText {
             self.navigationItem.set(title: topLabelText, subtitle: "Informații despre secție")
         }
+        self.pickerButton.layer.dropDefaultShadow()
+        self.pickerButton.layer.defaultCornerRadius(borderColor: UIColor .black.cgColor)
     }
     
     // MARK: - IBActions

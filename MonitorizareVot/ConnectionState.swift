@@ -11,7 +11,7 @@ import Foundation
 typealias ConnectionStateCompletion = (_ available: Bool) -> Void
 
 func connectionState(_ completion: @escaping ConnectionStateCompletion) {
-    let url: URL = URL(string: "http://google.com/")!
+    let url: URL = URL(string: "https://google.com/")!
     let request = NSMutableURLRequest(url: url as URL)
     request.httpMethod = "HEAD"
     request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData

@@ -22,6 +22,7 @@ class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet private weak var pickerContainer: UIView!
     @IBOutlet private weak var firstLabel: UILabel!
     @IBOutlet private weak var firstButton: UIButton!
+    @IBOutlet private weak var pickerButton: UIButton!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -32,6 +33,8 @@ class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         setTapGestureRecognizer()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.hidesBackButton = true
+        self.pickerButton.layer.dropDefaultShadow()
+        self.pickerButton.layer.defaultCornerRadius(borderColor: UIColor .black.cgColor)
     }
     
     override func viewWillAppear(_ animated: Bool) {
