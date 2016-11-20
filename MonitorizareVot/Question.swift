@@ -8,10 +8,17 @@
 
 import Foundation
 
+enum QuestionType {
+    case MultipleAnswer
+    case SingleAnswer
+    case SingleAnswerWithText
+    case MultipleAnswerWithText
+}
+
 struct Question {
     var id: Int
     var text: String
-    var type: Int
+    var type: QuestionType
     var answered: NSAttributedString
     var answers: [Answer]
 }

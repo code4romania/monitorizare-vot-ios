@@ -13,6 +13,7 @@ import UIKit
 class FormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var questions: [Question]?
+    var presidingOfficer: PresidingOfficer?
     var form: String?
     var topTitle: String?
     private let cellSpacer = 16
@@ -57,6 +58,10 @@ class FormViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // MARK: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let questions = self.questions, let questionViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuestionViewController") as? QuestionViewController {
+            questionViewController.question = questions[indexPath.row]
+            questionViewController.presidingOfficer = presidingOfficer
+            self.navigationController?.pushViewController(questionViewController, animated: true)
+        }
     }
 }

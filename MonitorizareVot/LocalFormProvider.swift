@@ -44,11 +44,22 @@ class LocalFormProvider: FormProvider {
         for aQuestion in informations {
             let id = aQuestion["idIntrebare"] as! Int
             let text = aQuestion["textIntrebare"] as! String
-            let type = aQuestion["idTipIntrebare"] as! Int
+            let questionID = aQuestion["idTipIntrebare"] as! Int
             let answers = createAnswers(informations: aQuestion["raspunsuriDisponibile"] as! [[String: AnyObject]])
-            let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 11.0), NSForegroundColorAttributeName: MVColors.Grey.color]
+            let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 11.0), NSForegroundColorAttributeName: MVColors.grey.color]
             let answered = NSAttributedString(string: "Necompletat", attributes: attributes)
-    
+            var type: QuestionType = .SingleAnswer
+            
+            if questionID == 0 {
+                type = .MultipleAnswer
+            } else if questionID == 1 {
+                type = .SingleAnswer
+            } else if questionID == 2 {
+                type = .SingleAnswerWithText
+            } else if questionID == 3 {
+                type = .MultipleAnswerWithText
+            }
+            
             let newQuestion = Question(id: id, text: text, type: type, answered: answered,  answers: answers)
             questions.append(newQuestion)
         }
@@ -61,7 +72,7 @@ class LocalFormProvider: FormProvider {
             let id = aAnswer["idOptiune"] as! Int
             let text = aAnswer["textOptiune"] as! String
             let inputAvailable = aAnswer["seIntroduceText"] as! Bool
-            let newAnswer = Answer(id: id, text: text, inputAvailable: inputAvailable)
+            let newAnswer = Answer(id: id, text: text, selected: false, inputAvailable: inputAvailable, inputText: nil)
             answers.append(newAnswer)
         }
         return answers

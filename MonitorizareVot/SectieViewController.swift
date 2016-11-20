@@ -126,7 +126,7 @@ class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     private func setDefaultValues() {
-        let attributedText = NSAttributedString(string: "Alege", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.Grey.color])
+        let attributedText = NSAttributedString(string: "Alege", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.grey.color])
         firstLabel.attributedText = attributedText
     }
     

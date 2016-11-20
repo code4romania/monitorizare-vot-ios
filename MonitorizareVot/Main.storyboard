@@ -451,6 +451,7 @@
                             <constraint firstAttribute="trailing" secondItem="4Ui-kr-mUN" secondAttribute="trailing" constant="16" id="j8g-Ke-t4n"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="oHf-OJ-elT"/>
                     <connections>
                         <outlet property="collectionView" destination="4Ui-kr-mUN" id="ogN-sg-mee"/>
                         <outlet property="topLabel" destination="GZD-Io-xSh" id="b5c-fW-lay"/>
@@ -459,6 +460,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eC2-7M-RvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3825" y="488"/>
+        </scene>
+        <!--Question View Controller-->
+        <scene sceneID="mIB-jl-Td7">
+            <objects>
+                <viewController storyboardIdentifier="QuestionViewController" id="W8r-q8-B00" customClass="QuestionViewController" customModule="MonitorizareVot" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JYd-0l-OOv"/>
+                        <viewControllerLayoutGuide type="bottom" id="myq-oA-NUI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wdT-5J-io3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1jh-0y-L3Z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="W8r-q8-B00" id="Pz8-lH-0Tv"/>
+                                    <outlet property="delegate" destination="W8r-q8-B00" id="tMU-ah-JR9"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCo-wS-pQ0">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ecW-G5-Z14"/>
+                                </constraints>
+                                <state key="normal" title="Trimite">
+                                    <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="W8r-q8-B00" eventType="touchUpInside" id="P61-S7-9Ii"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cCo-wS-pQ0" secondAttribute="trailing" id="Ay8-Tw-URN"/>
+                            <constraint firstItem="1jh-0y-L3Z" firstAttribute="leading" secondItem="wdT-5J-io3" secondAttribute="leading" id="CBd-pz-y35"/>
+                            <constraint firstItem="1jh-0y-L3Z" firstAttribute="top" secondItem="wdT-5J-io3" secondAttribute="top" id="MfY-P9-dcF"/>
+                            <constraint firstItem="cCo-wS-pQ0" firstAttribute="top" secondItem="1jh-0y-L3Z" secondAttribute="bottom" id="RTD-G8-u5y"/>
+                            <constraint firstItem="cCo-wS-pQ0" firstAttribute="leading" secondItem="wdT-5J-io3" secondAttribute="leading" id="UR0-2y-wIv"/>
+                            <constraint firstItem="myq-oA-NUI" firstAttribute="top" secondItem="cCo-wS-pQ0" secondAttribute="bottom" id="gJB-4M-eCA"/>
+                            <constraint firstAttribute="trailing" secondItem="1jh-0y-L3Z" secondAttribute="trailing" id="tc1-do-VBC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="RTD-G8-u5y" id="WaI-Cl-iTV"/>
+                        <outlet property="buttonHeight" destination="ecW-G5-Z14" id="shO-DX-4fy"/>
+                        <outlet property="tableView" destination="1jh-0y-L3Z" id="KEC-7d-i8h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhw-CV-8Bn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4508" y="486.20689655172418"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mNc-3Z-FcI">
@@ -472,7 +528,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CKw-je-q5U"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1jH-Kl-J8O"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TBt-TO-GwU" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,5 +11,7 @@ import Foundation
 struct Answer {
     var id: Int
     var text: String
+    var selected: Bool
     var inputAvailable: Bool
+    var inputText: String?
 }

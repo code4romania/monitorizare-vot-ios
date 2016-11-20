@@ -57,8 +57,10 @@ class MVUITextView: UITextView, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if textView.text.characters.count == 0 && isEmpty {
             emptyTextFieldLayout()
+            customDelegate?.textView(textView: self, didChangeText: "")
         } else {
             notEmptyTextFieldLayout()
+            customDelegate?.textView(textView: self, didChangeText: textView.text)
         }
     }
     
@@ -81,6 +83,8 @@ class MVUITextView: UITextView, UITextViewDelegate {
         }
         return true
     }
+    
+    
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if isEmpty {

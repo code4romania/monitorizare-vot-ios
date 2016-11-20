@@ -96,7 +96,7 @@ class SectionInformationsViewController: UIViewController, UIPickerViewDelegate,
     // MARK: - Utils
     private func adjustButton(button: UIButton, selected: Bool) {
         if selected {
-            button.backgroundColor = MVColors.Yellow.color
+            button.backgroundColor = MVColors.yellow.color
         } else {
             button.backgroundColor = UIColor.white
         }
