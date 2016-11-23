@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SectionInformationsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class SectionInformationsViewController: RootViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     // MARK: - iVars
     var presidingOfficer: PresidingOfficer?
@@ -26,23 +26,25 @@ class SectionInformationsViewController: UIViewController, UIPickerViewDelegate,
     @IBOutlet private weak var sixthButton: UIButton!
     @IBOutlet private weak var pickerContainer: UIView!
     @IBOutlet private weak var pickerView: UIPickerView!
-    @IBOutlet private weak var pickerButton: UIButton!
+
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
         setupOutlets()
+        presidingOfficer?.resetSectionInformations()
         pickerContainer.isHidden = true
+        fifthButton.setTitle("Alege...", with: MVColors.lightGray.color, for: .normal)
+        sixthButton.setTitle("Alege...", with: MVColors.lightGray.color, for: .normal)
+        
         if let topLabelText = self.topLabelText {
             self.navigationItem.set(title: topLabelText, subtitle: "Informații despre secție")
         }
-        self.pickerButton.layer.dropDefaultShadow()
-        self.pickerButton.layer.defaultCornerRadius(borderColor: UIColor .black.cgColor)
     }
     
     // MARK: - IBActions
     @IBAction func topRightButtonPressed(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func firstButtonTapped(_ sender: UIButton) {
@@ -98,15 +100,15 @@ class SectionInformationsViewController: UIViewController, UIPickerViewDelegate,
         if selected {
             button.backgroundColor = MVColors.yellow.color
         } else {
-            button.backgroundColor = UIColor.white
+            button.backgroundColor = MVColors.white.color
         }
     }
     
     private func layout() {
         for aButton in formsButtons {
-            aButton.layer.defaultCornerRadius(borderColor: UIColor.lightGray.cgColor)
+            aButton.layer.defaultCornerRadius(borderColor: MVColors.lightGray.cgColor)
         }
-        topButton.layer.defaultCornerRadius(borderColor: UIColor.gray.cgColor)
+        topButton.layer.defaultCornerRadius(borderColor: MVColors.gray.cgColor)
     }
     
     private func setupOutlets() {
@@ -119,11 +121,11 @@ class SectionInformationsViewController: UIViewController, UIPickerViewDelegate,
         if let presidingOfficer = self.presidingOfficer {
             let arriveHour = presidingOfficer.arriveHour
             let arriveMinute =  presidingOfficer.arriveMinute
-            fifthButton.setTitle(arriveHour + ":" + arriveMinute, for: .normal)
+            fifthButton.setTitle(arriveHour + ":" + arriveMinute, with: MVColors.black.color, for: .normal)
             
             let leftHour = presidingOfficer.leftHour
             let leftMinute = presidingOfficer.leftMinute
-            sixthButton.setTitle(leftHour + ":" + leftMinute, for: .normal)
+            sixthButton.setTitle(leftHour + ":" + leftMinute, with: MVColors.black.color, for: .normal)
         }
     }
     

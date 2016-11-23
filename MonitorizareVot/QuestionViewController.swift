@@ -9,14 +9,20 @@
 import Foundation
 import UIKit
 
-class QuestionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AnswerTableViewCellDelegate {
+protocol QuestionViewControllerDelegate: class {
+    func showNextQuestion(currentQuestion: Question)
+}
+
+class QuestionViewController: RootViewController, UITableViewDataSource, UITableViewDelegate, AnswerTableViewCellDelegate {
     
     // MARK: - iVars
+    weak var delegate: QuestionViewControllerDelegate?
     var question: Question?
     var presidingOfficer: PresidingOfficer?
     private let answerWithTextTableViewCellConfigurator = AnswerWithTextTableViewCellConfigurator()
     private let basicAnswerTableViewCellConfigurator = BasicAnswerTableViewCellConfigurator()
     private var tapGestureRecognizer: UITapGestureRecognizer?
+    private var answeredFormSaver = AnsweredFormSaver()
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var buttonHeight: NSLayoutConstraint!
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
@@ -123,7 +129,9 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: - IBActions
     @IBAction func buttonPressed(_ sender: UIButton) {
         let answeredForm = AnsweredForm(question: question!, presidingOfficer: presidingOfficer!)
-        print(answeredForm)
+        answeredFormSaver.save(answeredForm: answeredForm) {
+            self.delegate?.showNextQuestion(currentQuestion: answeredForm.question)
+        }
     }
     
     // MARK: - AnswerTableViewCellDelegate
@@ -144,7 +152,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
                     answers.append(newAnswer)
                 }
             }
-            let questionUpdated = Question(id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers)
+            let questionUpdated = Question(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false)
             self.question = questionUpdated
             tableView.reloadData()
         }
@@ -162,7 +170,7 @@ class QuestionViewController: UIViewController, UITableViewDataSource, UITableVi
                     answers.append(newAnswer)
                 }
             }
-            let questionUpdated = Question(id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers)
+            let questionUpdated = Question(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false)
             self.question = questionUpdated
         }
     }

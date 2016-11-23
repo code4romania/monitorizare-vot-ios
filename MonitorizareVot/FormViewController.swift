@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class FormViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class FormViewController: RootViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var questions: [Question]?
     var presidingOfficer: PresidingOfficer?

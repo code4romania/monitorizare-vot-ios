@@ -31,7 +31,7 @@ class LocalFormProvider: FormProvider {
         for aSection in informations {
             let code = aSection["codSectiune"] as! String
             let description = aSection["descriere"] as! String
-            let questions = createQuestions(informations: aSection["intrebari"] as! [[String: AnyObject]])
+            let questions = createQuestions(informations: aSection["intrebari"] as! [[String: AnyObject]], sectionCode: code)
             let newSection = Section(sectionCode: code, description: description, questions: questions)
             sections.append(newSection)
         }
@@ -39,14 +39,14 @@ class LocalFormProvider: FormProvider {
         return sections
     }
     
-    private func createQuestions(informations: [[String: AnyObject]]) -> [Question] {
+    private func createQuestions(informations: [[String: AnyObject]], sectionCode: String) -> [Question] {
         var questions = [Question]()
         for aQuestion in informations {
             let id = aQuestion["idIntrebare"] as! Int
             let text = aQuestion["textIntrebare"] as! String
             let questionID = aQuestion["idTipIntrebare"] as! Int
             let answers = createAnswers(informations: aQuestion["raspunsuriDisponibile"] as! [[String: AnyObject]])
-            let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 11.0), NSForegroundColorAttributeName: MVColors.grey.color]
+            let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 11.0), NSForegroundColorAttributeName: MVColors.gray.color]
             let answered = NSAttributedString(string: "Necompletat", attributes: attributes)
             var type: QuestionType = .SingleAnswer
             
@@ -60,7 +60,7 @@ class LocalFormProvider: FormProvider {
                 type = .MultipleAnswerWithText
             }
             
-            let newQuestion = Question(id: id, text: text, type: type, answered: answered,  answers: answers)
+            let newQuestion = Question(form: sectionCode, id: id, text: text, type: type, answered: answered, answers: answers, synced: false)
             questions.append(newQuestion)
         }
         return questions

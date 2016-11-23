@@ -16,9 +16,11 @@ enum QuestionType {
 }
 
 struct Question {
+    var form: String
     var id: Int
     var text: String
     var type: QuestionType
     var answered: NSAttributedString
     var answers: [Answer]
+    var synced: Bool
 }

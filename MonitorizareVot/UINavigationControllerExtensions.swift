@@ -13,15 +13,15 @@ extension UINavigationItem {
     func set(title:String, subtitle:String) {
         let titleLabel = UILabel(frame: CGRect(x: 0, y: -5, width: 0, height: 0))
         
-        titleLabel.backgroundColor = UIColor.clear
-        titleLabel.textColor = UIColor.black
+        titleLabel.backgroundColor = MVColors.clear.color
+        titleLabel.textColor = MVColors.black.color
         titleLabel.font = UIFont.boldSystemFont(ofSize: 15)
         titleLabel.text = title
         titleLabel.sizeToFit()
         
         let subtitleLabel = UILabel(frame: CGRect(x: 0, y: 18, width: 0, height: 0))
-        subtitleLabel.backgroundColor = UIColor.clear
-        subtitleLabel.textColor = UIColor.black
+        subtitleLabel.backgroundColor = MVColors.clear.color
+        subtitleLabel.textColor = MVColors.black.color
         subtitleLabel.font = UIFont.systemFont(ofSize: 11)
         subtitleLabel.text = subtitle
         subtitleLabel.sizeToFit()

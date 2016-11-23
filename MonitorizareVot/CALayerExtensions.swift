@@ -16,7 +16,7 @@ extension CALayer {
         self.borderWidth = 1
         self.borderColor = UIColor(colorLiteralRed:172.0/255.0, green:180.0/255.0, blue:190.0/255.0, alpha:1).cgColor
         self.masksToBounds = false
-        self.shadowColor = UIColor.black.cgColor
+        self.shadowColor = MVColors.black.cgColor
         self.shadowRadius = 4.0
         self.shadowOffset = CGSize(width: 0.0, height: 2.0)
         self.shadowOpacity = 0.07

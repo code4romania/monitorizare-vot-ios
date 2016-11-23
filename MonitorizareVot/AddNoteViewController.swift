@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Photos
 
-class AddNoteViewController: UIViewController, UITextViewDelegate, MVUITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     // MARK: - iVars
     var presidingOfficer: PresidingOfficer?
@@ -24,6 +24,7 @@ class AddNoteViewController: UIViewController, UITextViewDelegate, MVUITextViewD
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var bodyTextView: MVUITextView!
     @IBOutlet weak var textViewBackgroundView: UIView!
+    @IBOutlet weak var loadingView: UIView!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -67,8 +68,8 @@ class AddNoteViewController: UIViewController, UITextViewDelegate, MVUITextViewD
     }
     
     private func layout() {
-        textViewBackgroundView.layer.defaultCornerRadius(borderColor: UIColor.lightGray.cgColor)
-        bottomRightButton.layer.defaultCornerRadius(borderColor: UIColor.lightGray.cgColor)
+        textViewBackgroundView.layer.defaultCornerRadius(borderColor: MVColors.lightGray.cgColor)
+        bottomRightButton.layer.defaultCornerRadius(borderColor: MVColors.lightGray.cgColor)
     }
     
     private func setTapGestureRecognizer() {
@@ -81,7 +82,10 @@ class AddNoteViewController: UIViewController, UITextViewDelegate, MVUITextViewD
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         bodyTextView.resignFirstResponder()
         if let note = self.note {
-            noteSaver.save(note: note)
+            loadingView.isHidden = false
+            noteSaver.save(note: note, completion: { 
+                let _ = self.navigationController?.popViewController(animated: true)
+            })
         }
     }
     

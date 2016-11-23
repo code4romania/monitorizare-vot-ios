@@ -22,7 +22,7 @@ class AnswerWithTextTableViewCell: UITableViewCell, AnswerTableViewCell, MVUITex
         super.awakeFromNib()
         textView.placeholder = "Mai multe detalii ..."
         textView.customDelegate = self
-        textViewBackground.layer.defaultCornerRadius(borderColor: MVColors.grey.color.cgColor)
+        textViewBackground.layer.defaultCornerRadius(borderColor: MVColors.gray.color.cgColor)
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {

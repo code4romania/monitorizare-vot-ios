@@ -12,7 +12,9 @@ enum APIURLs {
     case Login
     case FormsVersions
     case Form
-
+    case Note
+    case Question
+    
     var url: String {
         get {
             switch self {
@@ -22,6 +24,10 @@ enum APIURLs {
                 return "https://viuat.azurewebsites.net/api/v1/formular/versiune"
             case .Form:
                 return "https://viuat.azurewebsites.net/api/v1/formular"
+            case .Note:
+                return "https://viuat.azurewebsites.net/api/v1/note/ataseaza"
+            case .Question:
+                return "https://viuat.azurewebsites.net/api/v1/raspuns"
             }
         }
     }

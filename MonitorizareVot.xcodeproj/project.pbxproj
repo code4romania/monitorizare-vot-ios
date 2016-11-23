@@ -28,12 +28,14 @@
 		E74087371DDCA9FA00D9332F /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74087361DDCA9FA00D9332F /* Form.swift */; };
 		E749080F1DDCB8E300878F0A /* PickFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749080E1DDCB8E200878F0A /* PickFormViewController.swift */; };
 		E74908111DDCBB5800878F0A /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74908101DDCBB5800878F0A /* FormViewController.swift */; };
+		E753C4321DE5FA6800B6B7C9 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */; };
 		E7CC39F31DDDFF760010688D /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */; };
 		E7CC39F81DDF25530010688D /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39F71DDF25530010688D /* AddNoteViewController.swift */; };
 		E7CC39FA1DDF255B0010688D /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39F91DDF255B0010688D /* Note.swift */; };
 		E7CC39FC1DDF2B2E0010688D /* NoteSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39FB1DDF2B2E0010688D /* NoteSaver.swift */; };
 		E7CC39FE1DDF2C100010688D /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39FD1DDF2C100010688D /* UIViewControllerExtensions.swift */; };
 		E7CC3A001DDF30AF0010688D /* MVUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39FF1DDF30AF0010688D /* MVUITextView.swift */; };
+		E7D5CC101DE32B7600393FFF /* AnsweredFormSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D5CC0F1DE32B7600393FFF /* AnsweredFormSaver.swift */; };
 		E7DEDFFA1DE0BBF200CD8371 /* AnsweredForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEDFF91DE0BBF200CD8371 /* AnsweredForm.swift */; };
 		E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2BB1DDB4FCE00CE52FC /* LoginViewController.swift */; };
 		E7E1F2BF1DDB57C400CE52FC /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */; };
@@ -46,6 +48,8 @@
 		E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB481DDB63E1009EBE01 /* SectionInformationsViewController.swift */; };
 		E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */; };
 		E7E8EB4D1DDB7C8F009EBE01 /* PresidingOfficer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4C1DDB7C8F009EBE01 /* PresidingOfficer.swift */; };
+		E7EB673F1DE5F03A00260CC1 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EB673E1DE5F03A00260CC1 /* RootViewController.swift */; };
+		E7EB67421DE5F3CA00260CC1 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EB67411DE5F3CA00260CC1 /* GuideViewController.swift */; };
 		E7FEC2BE1DE09E6300F2F04D /* BasicAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FEC2BC1DE09E6300F2F04D /* BasicAnswerTableViewCell.swift */; };
 		E7FEC2BF1DE09E6300F2F04D /* BasicAnswerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7FEC2BD1DE09E6300F2F04D /* BasicAnswerTableViewCell.xib */; };
 		E7FEC2C11DE09E7000F2F04D /* BasicAnswerTableViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FEC2C01DE09E7000F2F04D /* BasicAnswerTableViewCellConfigurator.swift */; };
@@ -108,12 +112,14 @@
 		E74087361DDCA9FA00D9332F /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
 		E749080E1DDCB8E200878F0A /* PickFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickFormViewController.swift; sourceTree = "<group>"; };
 		E74908101DDCBB5800878F0A /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
 		E7CC39F71DDF25530010688D /* AddNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		E7CC39F91DDF255B0010688D /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		E7CC39FB1DDF2B2E0010688D /* NoteSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteSaver.swift; sourceTree = "<group>"; };
 		E7CC39FD1DDF2C100010688D /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		E7CC39FF1DDF30AF0010688D /* MVUITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVUITextView.swift; sourceTree = "<group>"; };
+		E7D5CC0F1DE32B7600393FFF /* AnsweredFormSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnsweredFormSaver.swift; sourceTree = "<group>"; };
 		E7DEDFF91DE0BBF200CD8371 /* AnsweredForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnsweredForm.swift; sourceTree = "<group>"; };
 		E7E1F2BB1DDB4FCE00CE52FC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
@@ -126,6 +132,8 @@
 		E7E8EB481DDB63E1009EBE01 /* SectionInformationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInformationsViewController.swift; sourceTree = "<group>"; };
 		E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVColors.swift; sourceTree = "<group>"; };
 		E7E8EB4C1DDB7C8F009EBE01 /* PresidingOfficer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresidingOfficer.swift; sourceTree = "<group>"; };
+		E7EB673E1DE5F03A00260CC1 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		E7EB67411DE5F3CA00260CC1 /* GuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		E7FEC2BC1DE09E6300F2F04D /* BasicAnswerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAnswerTableViewCell.swift; sourceTree = "<group>"; };
 		E7FEC2BD1DE09E6300F2F04D /* BasicAnswerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicAnswerTableViewCell.xib; sourceTree = "<group>"; };
 		E7FEC2C01DE09E7000F2F04D /* BasicAnswerTableViewCellConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicAnswerTableViewCellConfigurator.swift; sourceTree = "<group>"; };
@@ -209,6 +217,7 @@
 				E740871F1DDC8CAE00D9332F /* FormsFetcher.swift */,
 				E74087291DDC987C00D9332F /* FormFetcher.swift */,
 				E7E407551DE076D30021B402 /* ConnectionState.swift */,
+				E7D5CC0F1DE32B7600393FFF /* AnsweredFormSaver.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -268,6 +277,7 @@
 				E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */,
 				E7CC39FD1DDF2C100010688D /* UIViewControllerExtensions.swift */,
 				E7E407571DE080850021B402 /* InfoPlist.strings */,
+				E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -287,6 +297,22 @@
 				E7E5B80B1DE1D33F00A05E56 /* QuestionBodyTableViewCell.xib */,
 			);
 			name = QuestionBodyCell;
+			sourceTree = "<group>";
+		};
+		E7EB673D1DE5F02200260CC1 /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7EB673E1DE5F03A00260CC1 /* RootViewController.swift */,
+			);
+			name = RootViewController;
+			sourceTree = "<group>";
+		};
+		E7EB67401DE5F3BF00260CC1 /* GuildeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7EB67411DE5F3CA00260CC1 /* GuideViewController.swift */,
+			);
+			name = GuildeViewController;
 			sourceTree = "<group>";
 		};
 		E7FEC2B91DE09E2300F2F04D /* AnswerCells */ = {
@@ -420,6 +446,8 @@
 		EF4BD3DE1D9E64720042BEC7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E7EB67401DE5F3BF00260CC1 /* GuildeViewController */,
+				E7EB673D1DE5F02200260CC1 /* RootViewController */,
 				EF4BD3E21D9E64F30042BEC7 /* CustomViews */,
 				E7FEC2CC1DE0A3AF00F2F04D /* QuestionViewController */,
 				E7CC39F61DDF253E0010688D /* NoteViewController */,
@@ -787,15 +815,18 @@
 				E74087371DDCA9FA00D9332F /* Form.swift in Sources */,
 				E7E8EB4D1DDB7C8F009EBE01 /* PresidingOfficer.swift in Sources */,
 				E7FEC2CE1DE0A3BF00F2F04D /* QuestionViewController.swift in Sources */,
+				E7EB673F1DE5F03A00260CC1 /* RootViewController.swift in Sources */,
 				E7CC3A001DDF30AF0010688D /* MVUITextView.swift in Sources */,
 				E74087261DDC924F00D9332F /* FormsPersistor.swift in Sources */,
 				E7E1F2C41DDB586800CE52FC /* APIURLs.swift in Sources */,
 				E74087331DDCA79000D9332F /* Answer.swift in Sources */,
 				E74087311DDCA74D00D9332F /* Question.swift in Sources */,
 				E7FEC2C41DE09E8700F2F04D /* AnswerWithTextTableViewCell.swift in Sources */,
+				E7D5CC101DE32B7600393FFF /* AnsweredFormSaver.swift in Sources */,
 				E74908111DDCBB5800878F0A /* FormViewController.swift in Sources */,
 				E7FEC2C91DE0A0E300F2F04D /* AnswerTableViewCell.swift in Sources */,
 				E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */,
+				E753C4321DE5FA6800B6B7C9 /* UIButtonExtensions.swift in Sources */,
 				E739B9771DDDD8510002604C /* SectieViewController.swift in Sources */,
 				E7FEC2C11DE09E7000F2F04D /* BasicAnswerTableViewCellConfigurator.swift in Sources */,
 				E7CC39FA1DDF255B0010688D /* Note.swift in Sources */,
@@ -808,6 +839,7 @@
 				E7DEDFFA1DE0BBF200CD8371 /* AnsweredForm.swift in Sources */,
 				E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */,
 				E7E407561DE076D30021B402 /* ConnectionState.swift in Sources */,
+				E7EB67421DE5F3CA00260CC1 /* GuideViewController.swift in Sources */,
 				E739B9751DDDA2B80002604C /* QuestionCollectionViewCellConfigurator.swift in Sources */,
 				E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */,
 				E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */,

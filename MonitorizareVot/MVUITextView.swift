@@ -41,7 +41,7 @@ class MVUITextView: UITextView, UITextViewDelegate {
     
     private func emptyTextFieldLayout() {
         self.font = UIFont.systemFont(ofSize: 17.0)
-        self.textColor = UIColor.gray
+        self.textColor = MVColors.gray.color
         self.text = placeholder
         isEmpty = true
         
@@ -49,7 +49,7 @@ class MVUITextView: UITextView, UITextViewDelegate {
     }
 
     private func notEmptyTextFieldLayout() {
-        self.textColor = UIColor.black
+        self.textColor = MVColors.black.color
         isEmpty = false
     }
     

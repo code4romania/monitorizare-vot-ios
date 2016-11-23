@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PickFormViewController: UIViewController {
+class PickFormViewController: RootViewController {
     
     // MARK: - iVars
     var presidingOfficer: PresidingOfficer?
@@ -52,7 +52,7 @@ class PickFormViewController: UIViewController {
         if let childs = self.navigationController?.childViewControllers {
             for aChild in childs {
                 if aChild is SectieViewController {
-                    self.navigationController?.popToViewController(aChild, animated: true)
+                    let _ = self.navigationController?.popToViewController(aChild, animated: true)
                 }
             }
         }
@@ -63,7 +63,7 @@ class PickFormViewController: UIViewController {
         for aView in buttonsBackgroundViews {
             aView.layer.dropDefaultShadow()
         }
-        topButton.layer.defaultCornerRadius(borderColor: UIColor.gray.cgColor)
+        topButton.layer.defaultCornerRadius(borderColor: MVColors.gray.cgColor)
     }
     
     private func setupOutlets() {

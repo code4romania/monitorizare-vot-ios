@@ -11,6 +11,7 @@ import UIKit
 
 class Note {
     var presidingOfficer: PresidingOfficer
+    var questionID: String?
     var body: String?
     var image: UIImage?
     var synced: Bool = false

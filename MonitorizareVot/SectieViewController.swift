@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - iVars
     private var presidingOfficer = PresidingOfficer()
@@ -21,20 +21,16 @@ class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet private weak var pickerView: UIPickerView!
     @IBOutlet private weak var pickerContainer: UIView!
     @IBOutlet private weak var firstLabel: UILabel!
-    @IBOutlet private weak var firstButton: UIButton!
-    @IBOutlet private weak var pickerButton: UIButton!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationItem.hidesBackButton = true
         layout()
         setDefaultValues()
         loadData()
         setTapGestureRecognizer()
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationItem.hidesBackButton = true
-        self.pickerButton.layer.dropDefaultShadow()
-        self.pickerButton.layer.defaultCornerRadius(borderColor: UIColor .black.cgColor)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,15 +49,16 @@ class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func firstButtonTapped(_ sender: UIButton) {
         pickerViewSelection = .judete
         pickerView.reloadAllComponents()
-        pickerContainer.isHidden = false
+        pickerContainer.isHidden = !pickerContainer.isHidden
+        bottomTextField.resignFirstResponder()
+        if presidingOfficer.judet == nil, let judet = judete.first {
+            presidingOfficer.judet = judet
+            firstLabel.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
+        }
     }
     
     @IBAction func closePickerButtonTapped(_ sender: UIButton) {
         pickerContainer.isHidden = true
-        if presidingOfficer.judet == nil, let judet = judete.first {
-            presidingOfficer.judet = judet
-            firstLabel.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: UIColor.black])
-        }
     }
     
     @IBAction func bottomButtonPressed(_ sender: UIButton) {
@@ -72,8 +69,13 @@ class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
+    @IBAction func textFieldDidEndEditing(_ sender: UITextField) {
+        presidingOfficer.sectie = sender.text
+    }
+    
     // MARK: - Utils
     func keyboardDidShow(notification: Notification) {
+        pickerContainer.isHidden = true
         if let userInfo = notification.userInfo, let frame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
             bottomConstraint.constant = frame.size.height
             performKeyboardAnimation()
@@ -85,6 +87,7 @@ class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func keyboardIsHidden() {
+        pickerContainer.isHidden = true
         bottomConstraint?.constant = 0
         performKeyboardAnimation()
         bottomTextField.resignFirstResponder()
@@ -94,11 +97,11 @@ class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let alertButton = UIAlertAction(title: "Am înțeles", style: .cancel, handler: nil)
         
         if presidingOfficer.judet == nil {
-            let alertController = UIAlertController(title: "Selecteaza județ", message: "Alege un județ pentru a putea trece la urmatorul pas", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Selectează județ", message: "Alege un județ pentru a putea trece la următorul pas.", preferredStyle: .alert)
             alertController.addAction(alertButton)
             self.present(alertController, animated: true, completion: nil)
         } else if presidingOfficer.sectie == nil {
-            let alertController = UIAlertController(title: "Inserează codul secției", message: "Este nevoie să precizezi codul secției pentru a putea trece la urmatorul pas", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Introdu codul secției", message: "Este nevoie să precizezi codul secției pentru a putea trece la următorul pas.", preferredStyle: .alert)
             alertController.addAction(alertButton)
             self.present(alertController, animated: true, completion: nil)
         }
@@ -126,7 +129,7 @@ class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     private func setDefaultValues() {
-        let attributedText = NSAttributedString(string: "Alege", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.grey.color])
+        let attributedText = NSAttributedString(string: "Alege", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.gray.color])
         firstLabel.attributedText = attributedText
     }
     
@@ -163,7 +166,7 @@ class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             case .judete:
                 let judet = judete[row]
                 presidingOfficer.judet = judet
-                firstLabel.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: UIColor.black])
+                firstLabel.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
             default:
                 break
             }
@@ -176,8 +179,4 @@ class SectieViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         return true
     }
     
-    @IBAction func textFieldDidEndEditing(_ sender: UITextField) {
-        presidingOfficer.sectie = sender.text
-    }
-
 }

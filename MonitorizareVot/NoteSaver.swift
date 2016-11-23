@@ -9,14 +9,51 @@
 import Foundation
 import Alamofire
 
-struct NoteSaver {
-    func save(note: Note) {
+typealias NoteSaverCompletion = () -> Void
+
+class NoteSaver {
+    
+    private var note: Note?
+    private var completion: NoteSaverCompletion?
+    
+    func save(note: Note, completion: @escaping NoteSaverCompletion) {
+        self.note = note
+        self.completion = completion
         connectionState { (connected) in
             if connected {
-                
+                let url = APIURLs.Note.url
+                let headers = ["Content-Type": "multipart/form-data"]
+                var imageData = Data()
+                if let image = note.image  {
+                    imageData = UIImagePNGRepresentation(image)!
+                }
+                let parameters: [String : Any] = ["image": imageData,
+                                "CodJudet": self.note!.presidingOfficer.judet ?? "",
+                                "NumarSectie": self.note!.presidingOfficer.sectie ?? "",
+                                "IdIntrebare": self.note!.questionID ?? "",
+                                "nota": self.note!.body ?? ""]
+                Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { (response:DataResponse<Any>) in
+                    switch response.result {
+                    case .success(_):
+                        self.localSave(note: note, synced: true)
+                        break
+                    default:
+                        self.localSave(note: note, synced: false)
+                    }
+                }
             } else {
-                
+                self.localSave(note: note, synced: false)
             }
         }
     }
+    
+    private func localSave(note: Note, synced: Bool) {
+        var noteToSave = note
+        noteToSave.synced = synced
+        // to do:
+        // save it locally
+        // then call the completion
+        completion?()
+    }
+    
 }

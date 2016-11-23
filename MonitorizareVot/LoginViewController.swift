@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: RootViewController, UITextFieldDelegate {
     
     // MARK: - iVars
     private var tapGestureRecognizer: UITapGestureRecognizer?
@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationButtons()
         layout()
         setTapGestureRecognizer()
     }
@@ -80,6 +81,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     private func layout() {
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    private func setupNavigationButtons() {
+    
     }
     
 }

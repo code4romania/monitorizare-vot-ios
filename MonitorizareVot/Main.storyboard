@@ -10,6 +10,69 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Guide View Controller-->
+        <scene sceneID="ew6-Kn-hLA">
+            <objects>
+                <viewController storyboardIdentifier="GuideViewController" id="gef-Yy-2te" customClass="GuideViewController" customModule="MonitorizareVot" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ACD-cK-TpT"/>
+                        <viewControllerLayoutGuide type="bottom" id="vRB-zr-zOV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GbO-KR-zBQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guide" translatesAutoresizingMaskIntoConstraints="NO" id="yYv-hx-f9I">
+                                <rect key="frame" x="159.5" y="45" width="55" height="46"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ghidul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsD-hD-Ze8">
+                                <rect key="frame" x="146.5" y="100" width="81" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observatorului" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsb-Us-yJ5">
+                                <rect key="frame" x="131" y="139.5" width="112.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-u8-Kkv">
+                                <rect key="frame" x="25" y="185.5" width="325" height="456.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">
+Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
+
+1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
+
+2.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
+	
+	2.1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
+
+		2.1.1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yYv-hx-f9I" firstAttribute="top" secondItem="GbO-KR-zBQ" secondAttribute="topMargin" constant="45" id="QUz-YT-8jk"/>
+                            <constraint firstItem="wsb-Us-yJ5" firstAttribute="top" secondItem="zsD-hD-Ze8" secondAttribute="bottom" constant="6" id="UrN-DU-w6P"/>
+                            <constraint firstItem="zsD-hD-Ze8" firstAttribute="centerX" secondItem="GbO-KR-zBQ" secondAttribute="centerX" id="Vbo-ZK-lqH"/>
+                            <constraint firstItem="yYv-hx-f9I" firstAttribute="centerX" secondItem="GbO-KR-zBQ" secondAttribute="centerX" id="Vgv-LU-su1"/>
+                            <constraint firstItem="lpe-u8-Kkv" firstAttribute="top" secondItem="wsb-Us-yJ5" secondAttribute="bottom" constant="25" id="WLi-tL-MQ3"/>
+                            <constraint firstItem="vRB-zr-zOV" firstAttribute="top" secondItem="lpe-u8-Kkv" secondAttribute="bottom" constant="25" id="bEj-8v-E0M"/>
+                            <constraint firstItem="lpe-u8-Kkv" firstAttribute="leading" secondItem="GbO-KR-zBQ" secondAttribute="leading" constant="25" id="cBY-zg-6BR"/>
+                            <constraint firstAttribute="trailing" secondItem="lpe-u8-Kkv" secondAttribute="trailing" constant="25" id="f8T-Yk-AOe"/>
+                            <constraint firstItem="zsD-hD-Ze8" firstAttribute="top" secondItem="yYv-hx-f9I" secondAttribute="bottom" constant="9" id="hev-T6-r0j"/>
+                            <constraint firstItem="wsb-Us-yJ5" firstAttribute="centerX" secondItem="GbO-KR-zBQ" secondAttribute="centerX" id="ofh-eI-lQi"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Nu-6m-5o3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="949.60000000000002" y="150.67466266866569"/>
+        </scene>
         <!-- -->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -47,7 +110,7 @@
                                     <constraint firstAttribute="height" constant="60" id="SSx-1T-flV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" title="Logare"/>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rZz-ex-NAC"/>
                                 </connections>
@@ -144,9 +207,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="B3x-gz-w2p" secondAttribute="bottom" id="nqm-kz-VDb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title=" " id="w3V-ww-bj6">
-                        <barButtonItem key="backBarButtonItem" title=" " id="ymO-53-j7W"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title=" " id="w3V-ww-bj6"/>
                     <connections>
                         <outlet property="buttonHeight" destination="SSx-1T-flV" id="gyp-HC-J76"/>
                         <outlet property="codeTextField" destination="UKC-Kc-Qmh" id="vfP-GO-A4d"/>
@@ -176,7 +237,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="yU7-6h-6tt"/>
                                 </constraints>
-                                <state key="normal" title="Continua">
+                                <state key="normal" title="Continuă">
                                     <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -195,14 +256,14 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sectieIcon" translatesAutoresizingMaskIntoConstraints="NO" id="IDU-Iv-OOD">
                                                         <rect key="frame" x="173" y="45" width="30" height="27"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Alege sectia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-OQ-npY">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Alege secția" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-OQ-npY">
                                                         <rect key="frame" x="112" y="82" width="152" height="33.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in care te afli." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkI-OV-lJb">
-                                                        <rect key="frame" x="138" y="115.5" width="100" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="în care te afli" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkI-OV-lJb">
+                                                        <rect key="frame" x="140.5" y="115.5" width="95.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -323,14 +384,15 @@
                                 </constraints>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rW-wM-j2E">
-                                <rect key="frame" x="0.0" y="387" width="375" height="280"/>
+                                <rect key="frame" x="0.0" y="437" width="375" height="230"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOC-i5-MOc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="KzG-JJ-a9U"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Închide">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -339,10 +401,10 @@
                                         </connections>
                                     </button>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yaU-3A-C6C">
-                                        <rect key="frame" x="0.0" y="30" width="375" height="250"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="frame" x="0.0" y="30" width="375" height="200"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="uki-a0-c4k"/>
+                                            <constraint firstAttribute="height" constant="200" id="uki-a0-c4k"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dataSource" destination="ilR-YR-mPM" id="6EL-6J-bZm"/>
@@ -380,9 +442,7 @@
                     <connections>
                         <outlet property="bottomConstraint" destination="wVZ-LK-KwZ" id="0Cq-rf-9eb"/>
                         <outlet property="bottomTextField" destination="6ZQ-Wy-huI" id="lan-rV-MLR"/>
-                        <outlet property="firstButton" destination="fgU-PK-aFj" id="zXi-b4-ge8"/>
                         <outlet property="firstLabel" destination="5YO-e7-3ky" id="oBn-p1-BdV"/>
-                        <outlet property="pickerButton" destination="nOC-i5-MOc" id="Hpe-I1-Kfk"/>
                         <outlet property="pickerContainer" destination="1rW-wM-j2E" id="lA2-tJ-4HM"/>
                         <outlet property="pickerView" destination="yaU-3A-C6C" id="a6Q-ve-g4L"/>
                         <outletCollection property="buttons" destination="fgU-PK-aFj" collectionClass="NSMutableArray" id="FKT-AM-Ca3"/>
@@ -487,7 +547,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ecW-G5-Z14"/>
                                 </constraints>
-                                <state key="normal" title="Trimite">
+                                <state key="normal" title="Următoarea întrebare">
                                     <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -569,7 +629,7 @@
                                             <constraint firstAttribute="width" constant="120" id="M7m-iQ-u2t"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Schimba sectie">
+                                        <state key="normal" title="Schimbă secție">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -807,7 +867,7 @@
                                     <constraint firstAttribute="height" constant="60" id="WNZ-I9-CrN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Continua catre formulare">
+                                <state key="normal" title="Continuă către formulare">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -815,14 +875,15 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMK-G0-uE8">
-                                <rect key="frame" x="0.0" y="387" width="375" height="280"/>
+                                <rect key="frame" x="0.0" y="437" width="375" height="230"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gc-OI-4d5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                                        <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="EvE-Rg-14R"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Închide">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -831,10 +892,10 @@
                                         </connections>
                                     </button>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uC-JU-aiN">
-                                        <rect key="frame" x="0.0" y="30" width="375" height="250"/>
+                                        <rect key="frame" x="0.0" y="30" width="375" height="200"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="qkp-3z-2T5"/>
+                                            <constraint firstAttribute="height" constant="200" id="qkp-3z-2T5"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dataSource" destination="joA-Sk-w7W" id="JsG-rI-qeQ"/>
@@ -877,7 +938,6 @@
                         <outlet property="fifthButton" destination="UGo-n6-FHg" id="HX8-tk-Ehw"/>
                         <outlet property="firstButton" destination="l9o-eh-SuW" id="HZW-ta-AVD"/>
                         <outlet property="fourthButton" destination="hvj-xv-hGq" id="TqX-Em-MB2"/>
-                        <outlet property="pickerButton" destination="9gc-OI-4d5" id="mae-Z7-9nV"/>
                         <outlet property="pickerContainer" destination="xMK-G0-uE8" id="62D-z1-spH"/>
                         <outlet property="pickerView" destination="9uC-JU-aiN" id="uSb-fd-PaV"/>
                         <outlet property="secondButton" destination="Mkw-fc-RdK" id="1QB-H5-Rq4"/>
@@ -931,7 +991,7 @@
                                             <constraint firstAttribute="width" constant="120" id="2Uf-RF-jjP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Schimba sectie">
+                                        <state key="normal" title="Schimbă secție">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -1289,16 +1349,33 @@
                                     <constraint firstAttribute="bottom" secondItem="AQX-Vf-6eR" secondAttribute="bottom" id="vP9-cr-JXt"/>
                                 </constraints>
                             </scrollView>
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qi7-bg-sup">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="l9L-Gt-JLc">
+                                        <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="l9L-Gt-JLc" firstAttribute="centerX" secondItem="Qi7-bg-sup" secondAttribute="centerX" id="iCx-DV-WWw"/>
+                                    <constraint firstItem="l9L-Gt-JLc" firstAttribute="centerY" secondItem="Qi7-bg-sup" secondAttribute="centerY" id="wVh-an-tfq"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="B74-pf-kpx" firstAttribute="width" secondItem="83c-dK-hPz" secondAttribute="width" id="FKw-c2-BNC"/>
+                            <constraint firstItem="Zgz-e9-IlO" firstAttribute="top" secondItem="Qi7-bg-sup" secondAttribute="bottom" id="HoS-R9-YuY"/>
                             <constraint firstAttribute="trailing" secondItem="wfJ-s5-DBX" secondAttribute="trailing" id="OyL-LI-kFN"/>
                             <constraint firstItem="B74-pf-kpx" firstAttribute="top" secondItem="YwS-1k-oH2" secondAttribute="bottom" id="RCg-19-S0o"/>
+                            <constraint firstAttribute="trailing" secondItem="Qi7-bg-sup" secondAttribute="trailing" id="cgI-S0-gmr"/>
+                            <constraint firstItem="Qi7-bg-sup" firstAttribute="top" secondItem="83c-dK-hPz" secondAttribute="top" id="h6L-Ob-Jor"/>
                             <constraint firstItem="wfJ-s5-DBX" firstAttribute="leading" secondItem="83c-dK-hPz" secondAttribute="leading" id="hCy-RS-WtY"/>
                             <constraint firstAttribute="trailing" secondItem="B74-pf-kpx" secondAttribute="trailing" id="iIv-zo-e0d"/>
                             <constraint firstItem="Zgz-e9-IlO" firstAttribute="top" secondItem="wfJ-s5-DBX" secondAttribute="bottom" id="iiz-aM-kDw"/>
                             <constraint firstItem="wfJ-s5-DBX" firstAttribute="top" secondItem="B74-pf-kpx" secondAttribute="bottom" id="pgo-VQ-f52"/>
+                            <constraint firstItem="Qi7-bg-sup" firstAttribute="leading" secondItem="83c-dK-hPz" secondAttribute="leading" id="tnl-Oa-AAU"/>
                             <constraint firstItem="B74-pf-kpx" firstAttribute="leading" secondItem="83c-dK-hPz" secondAttribute="leading" id="u1A-hX-S6i"/>
                         </constraints>
                     </view>
@@ -1309,18 +1386,20 @@
                         <outlet property="bottomConstraint" destination="pgo-VQ-f52" id="cY0-Jk-xjg"/>
                         <outlet property="bottomLeftLabel" destination="c7r-Rx-j74" id="aRA-7w-MfO"/>
                         <outlet property="bottomRightButton" destination="caO-7K-Y0p" id="tNw-pM-p0f"/>
+                        <outlet property="loadingView" destination="Qi7-bg-sup" id="ae9-E9-akx"/>
                         <outlet property="textViewBackgroundView" destination="kB1-hh-oaD" id="pWQ-TT-YO3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lr1-qg-2jy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3825" y="1184"/>
+            <point key="canvasLocation" x="3824.8000000000002" y="1183.3583208395803"/>
         </scene>
     </scenes>
     <resources>
         <image name="background" width="375" height="661"/>
         <image name="camera" width="28" height="22"/>
         <image name="downArrow" width="22" height="13"/>
+        <image name="guide" width="55" height="46"/>
         <image name="logo" width="156" height="156"/>
         <image name="notaIcon" width="67" height="67"/>
         <image name="sectieIcon" width="30" height="27"/>
