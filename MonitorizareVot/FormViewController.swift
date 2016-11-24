@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class FormViewController: RootViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class FormViewController: RootViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, QuestionViewControllerDelegate {
     
     var questions: [Question]?
     var presidingOfficer: PresidingOfficer?
@@ -21,12 +21,18 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
     private var configurator = QuestionCollectionViewCellConfigurator()
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var topLabel: UILabel!
+    private var pushAnimated = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "QuestionCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "QuestionCollectionViewCell")
         topLabel.text = topTitle
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pushAnimated = true
     }
     
     // MARK: - UICollectionViewDataSource
@@ -61,7 +67,25 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
         if let questions = self.questions, let questionViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuestionViewController") as? QuestionViewController {
             questionViewController.question = questions[indexPath.row]
             questionViewController.presidingOfficer = presidingOfficer
-            self.navigationController?.pushViewController(questionViewController, animated: true)
+            questionViewController.delegate = self
+            self.navigationController?.pushViewController(questionViewController, animated: pushAnimated)
         }
+    }
+    
+    // MARK: - QuestionViewControllerDelegate
+    func showNextQuestion(currentQuestion: Question) {
+        if let index = questions?.index(where: { (aQuestion) -> Bool in
+            return aQuestion.id == currentQuestion.id
+        }) {
+            if let questions = self.questions, index < questions.count - 1 {
+                pushAnimated = false
+                let _ = self.navigationController?.popViewController(animated: false)
+                let indexPath = IndexPath(row: index + 1, section: 0)
+                self.collectionView(self.collectionView, didSelectItemAt: indexPath)
+            } else {
+                let _ = self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
     }
 }
