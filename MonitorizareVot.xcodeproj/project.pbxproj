@@ -66,6 +66,7 @@
 		EF4BD3A21D9D08DE0042BEC7 /* MonitorizareVotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3A11D9D08DE0042BEC7 /* MonitorizareVotTests.m */; };
 		EF4BD3AD1D9D08DE0042BEC7 /* MonitorizareVotUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3AC1D9D08DE0042BEC7 /* MonitorizareVotUITests.m */; };
 		EF903E351DA25E3100D5BC9C /* Judete.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF903E341DA25E3100D5BC9C /* Judete.plist */; };
+		EFB9AD1A1DE9FDE0008C1035 /* DBSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */; };
 		EFEC82041DCF25B800610D79 /* QuestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +158,7 @@
 		EF4BD3AC1D9D08DE0042BEC7 /* MonitorizareVotUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorizareVotUITests.m; sourceTree = "<group>"; };
 		EF4BD3AE1D9D08DE0042BEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF903E341DA25E3100D5BC9C /* Judete.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Judete.plist; path = Resources/Judete.plist; sourceTree = "<group>"; };
+		EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBSyncer.swift; sourceTree = "<group>"; };
 		EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
 		F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -268,11 +270,12 @@
 		E7E1F2C21DDB586100CE52FC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E740872B1DDCA63300D9332F /* Form */,
-				E74087221DDC8D7B00D9332F /* Persistors */,
-				E74087211DDC8D6000D9332F /* Network */,
-				E7E8EB4C1DDB7C8F009EBE01 /* PresidingOfficer.swift */,
 				E7E1F2C51DDB59C800CE52FC /* API */,
+				EFB9AD1B1DEA1039008C1035 /* DBHandlers */,
+				E740872B1DDCA63300D9332F /* Form */,
+				E74087211DDC8D6000D9332F /* Network */,
+				E74087221DDC8D7B00D9332F /* Persistors */,
+				E7E8EB4C1DDB7C8F009EBE01 /* PresidingOfficer.swift */,
 				E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */,
 				E73A5B3E1DDDDF7F00E41490 /* CALayerExtensions.swift */,
 				E73A5B401DDDE55A00E41490 /* PickerViewSelection.swift */,
@@ -280,7 +283,6 @@
 				E7CC39FD1DDF2C100010688D /* UIViewControllerExtensions.swift */,
 				E7E407571DE080850021B402 /* InfoPlist.strings */,
 				E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */,
-				EF3DC3941DE9DB02006F9D73 /* CoreDataInitialiser.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -513,6 +515,15 @@
 				EF903E341DA25E3100D5BC9C /* Judete.plist */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		EFB9AD1B1DEA1039008C1035 /* DBHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				EF3DC3941DE9DB02006F9D73 /* CoreDataInitialiser.swift */,
+				EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */,
+			);
+			name = DBHandlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -843,6 +854,7 @@
 				E7DEDFFA1DE0BBF200CD8371 /* AnsweredQuestion.swift in Sources */,
 				E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */,
 				E7E407561DE076D30021B402 /* ConnectionState.swift in Sources */,
+				EFB9AD1A1DE9FDE0008C1035 /* DBSyncer.swift in Sources */,
 				E7EB67421DE5F3CA00260CC1 /* GuideViewController.swift in Sources */,
 				E739B9751DDDA2B80002604C /* QuestionCollectionViewCellConfigurator.swift in Sources */,
 				E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */,
