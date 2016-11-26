@@ -70,7 +70,9 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func textFieldDidEndEditing(_ sender: UITextField) {
-        presidingOfficer.sectie = sender.text
+        if let text = sender.text {
+            presidingOfficer.sectie = text
+        }
     }
     
     // MARK: - Utils
@@ -111,7 +113,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     private func showNextScreen() {
         if let sectieInfosViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SectionInformationsViewController") as? SectionInformationsViewController {
             sectieInfosViewController.presidingOfficer = presidingOfficer
-            sectieInfosViewController.topLabelText = presidingOfficer.judet! + " " + presidingOfficer.sectie!
+            sectieInfosViewController.topLabelText = presidingOfficer.judet! + " " + String(presidingOfficer.sectie!)
             self.navigationController?.pushViewController(sectieInfosViewController, animated: true)
         }
     }

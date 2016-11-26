@@ -22,25 +22,36 @@ class NoteSaver {
         connectionState { (connected) in
             if connected {
                 let url = APIURLs.Note.url
-                let headers = ["Content-Type": "multipart/form-data"]
                 var imageData = Data()
-                if let image = note.image  {
+                if let image = note.image {
                     imageData = UIImagePNGRepresentation(image)!
                 }
-                let parameters: [String : Any] = ["image": imageData,
-                                "CodJudet": self.note!.presidingOfficer.judet ?? "",
-                                "NumarSectie": self.note!.presidingOfficer.sectie ?? "",
+                
+                let parameters: [String : String] = ["CodJudet": self.note!.presidingOfficer.judet ?? "",
+                                "NumarSectie": self.note!.presidingOfficer.sectie ?? "-1",
                                 "IdIntrebare": self.note!.questionID ?? "",
-                                "nota": self.note!.body ?? ""]
-                Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { (response:DataResponse<Any>) in
-                    switch response.result {
-                    case .success(_):
-                        self.localSave(note: note, synced: true)
-                        break
-                    default:
+                                "TextNota": self.note!.body ?? ""]
+                
+                Alamofire.upload(multipartFormData: { (multipart) in
+                    for (aKey, aValue) in parameters {
+                        multipart.append(aValue.data(using: String.Encoding.utf8)!, withName: aKey)
+                    }
+                    multipart.append(imageData, withName: "file", fileName: "newImage.png", mimeType: "image/png")
+                    
+                }, to: url, encodingCompletion: { (encodingResult) in
+                    switch encodingResult {
+                    case .success(request: let request, streamingFromDisk: _, streamFileURL: _):
+                        request.responseJSON(completionHandler: { (response) in
+                            if response.result.isSuccess {
+                                self.localSave(note: note, synced: true)
+                            }
+                            self.localSave(note: note, synced: false)
+                        })
+                        
+                    case .failure(_):
                         self.localSave(note: note, synced: false)
                     }
-                }
+                })
             } else {
                 self.localSave(note: note, synced: false)
             }
@@ -48,7 +59,7 @@ class NoteSaver {
     }
     
     private func localSave(note: Note, synced: Bool) {
-        var noteToSave = note
+        let noteToSave = note
         noteToSave.synced = synced
         // to do:
         // save it locally

@@ -1,5 +1,5 @@
 //
-//  AnsweredForm.swift
+//  AnsweredQuestion.swift
 //  MonitorizareVot
 //
 //  Created by Andrei Nastasiu on 11/19/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AnsweredForm {
+class AnsweredQuestion {
     var question: Question
     var presidingOfficer: PresidingOfficer
     

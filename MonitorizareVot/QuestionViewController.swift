@@ -22,7 +22,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     private let answerWithTextTableViewCellConfigurator = AnswerWithTextTableViewCellConfigurator()
     private let basicAnswerTableViewCellConfigurator = BasicAnswerTableViewCellConfigurator()
     private var tapGestureRecognizer: UITapGestureRecognizer?
-    private var answeredFormSaver = AnsweredFormSaver()
+    private var answeredQuestionSaver = AnsweredQuestionSaver()
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var buttonHeight: NSLayoutConstraint!
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
@@ -128,9 +128,9 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
 
     // MARK: - IBActions
     @IBAction func buttonPressed(_ sender: UIButton) {
-        let answeredForm = AnsweredForm(question: question!, presidingOfficer: presidingOfficer!)
-        answeredFormSaver.save(answeredForm: answeredForm) {
-            self.delegate?.showNextQuestion(currentQuestion: answeredForm.question)
+        let answeredQuestion = AnsweredQuestion(question: question!, presidingOfficer: presidingOfficer!)
+        answeredQuestionSaver.save(answeredQuestion: answeredQuestion) {
+            self.delegate?.showNextQuestion(currentQuestion: answeredQuestion.question)
         }
     }
     

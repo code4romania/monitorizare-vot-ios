@@ -15,7 +15,7 @@ func connectionState(_ completion: @escaping ConnectionStateCompletion) {
     let request = NSMutableURLRequest(url: url as URL)
     request.httpMethod = "HEAD"
     request.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
-    request.timeoutInterval = 2.0
+    request.timeoutInterval = 5.0
     
     URLSession(configuration: .default).dataTask(with: request as URLRequest, completionHandler: { (data, urlResponse, error) in
         DispatchQueue.main.async {

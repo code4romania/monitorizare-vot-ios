@@ -10,39 +10,39 @@ import Foundation
 import Alamofire
 import UIKit
 
-typealias AnsweredFormSaverCompletion = () -> Void
+typealias AnsweredQuestionSaverCompletion = () -> Void
 
-class AnsweredFormSaver {
-    private var completion: AnsweredFormSaverCompletion?
+class AnsweredQuestionSaver {
+    private var completion: AnsweredQuestionSaverCompletion?
     
-    func save(answeredForm: AnsweredForm, completion: @escaping AnsweredFormSaverCompletion) {
+    func save(answeredQuestion: AnsweredQuestion, completion: @escaping AnsweredQuestionSaverCompletion) {
         self.completion = completion
         connectionState { (connected) in
             if connected {
                 let url = APIURLs.Question.url
                 let headers = ["Content-Type": "multipart/form-data"]
                 var options = [[String: Any]]()
-                for aAnswer in answeredForm.question.answers {
+                for aAnswer in answeredQuestion.question.answers {
                     let option: [String: Any] = ["idOptiune" : aAnswer.id,
                                                     "selectata": aAnswer.selected,
                                                     "value": aAnswer.inputText ?? ""]
                     options.append(option)
                 }
-                let parameters: [String : Any] = ["idIntrebare": answeredForm.question.id,
-                                                "codJudet": answeredForm.presidingOfficer.judet ?? "",
-                                                "numarSectie": Int(answeredForm.presidingOfficer.sectie!) ?? -1,
-                                                "codFormular": answeredForm.question.form,
+                let parameters: [String : Any] = ["idIntrebare": answeredQuestion.question.id,
+                                                "codJudet": answeredQuestion.presidingOfficer.judet ?? "",
+                                                "numarSectie": answeredQuestion.presidingOfficer.sectie ?? -1,
+                                                "codFormular": answeredQuestion.question.form,
                                                 "optiuni": options]
                 Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseJSON { (response:DataResponse<Any>) in
                     switch response.result {
                     case .success(_):
-                        self.localSave(presidingOfficer: answeredForm.presidingOfficer, question: answeredForm.question, synced: true)
+                        self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: true)
                     default:
-                        self.localSave(presidingOfficer: answeredForm.presidingOfficer, question: answeredForm.question, synced: false)
+                        self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false)
                     }
                 }
             } else {
-                self.localSave(presidingOfficer: answeredForm.presidingOfficer, question: answeredForm.question, synced: false)
+                self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false)
             }
         }
     }

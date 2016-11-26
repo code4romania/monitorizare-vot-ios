@@ -11,7 +11,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+        
     var window: UIWindow?
     private let formsVersionsFetcher = FormsFetcher(formsPersistor: LocalFormsPersistor())
     

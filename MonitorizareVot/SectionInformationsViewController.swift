@@ -6,6 +6,13 @@
 //  Copyright © 2016 Code4Ro. All rights reserved.
 //
 
+/*
+ var questionID: String?
+ var body: String?
+ var image: UIImage?
+ var synced: Bool = false
+ */
+
 import Foundation
 import UIKit
 
@@ -84,7 +91,7 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     @IBAction func bottomButtonTapped(_ sender: UIButton) {
         if let pickFormViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PickFormViewController") as? PickFormViewController, let presidingOfficer = self.presidingOfficer {
             pickFormViewController.presidingOfficer = presidingOfficer
-            pickFormViewController.topLabelText = presidingOfficer.judet! + " " + presidingOfficer.sectie!
+            pickFormViewController.topLabelText = presidingOfficer.judet! + " " + String(presidingOfficer.sectie!)
             self.navigationController?.pushViewController(pickFormViewController, animated: true)
         }
     }
