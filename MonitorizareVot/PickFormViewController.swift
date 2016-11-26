@@ -81,7 +81,6 @@ class PickFormViewController: RootViewController {
             }
             formViewController.questions = questions
             formViewController.form = type
-            formViewController.topTitle = type + "." + form.title
             formViewController.presidingOfficer = presidingOfficer
             self.navigationController?.pushViewController(formViewController, animated: true)
         }

@@ -40,7 +40,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-u8-Kkv">
                                 <rect key="frame" x="25" y="185.5" width="325" height="456.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">
+                                <string key="text">
 Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
 
 1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
@@ -49,7 +49,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
 	
 	2.1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
 
-		2.1.1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+		2.1.1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -465,7 +465,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-kr-mUN">
-                                <rect key="frame" x="16" y="101" width="343" height="566"/>
+                                <rect key="frame" x="16" y="40" width="343" height="627"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="jMD-ig-KRd">
                                     <size key="itemSize" width="160" height="160"/>
@@ -490,31 +490,18 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <outlet property="delegate" destination="hHg-kn-Ydc" id="uj4-M6-Rhu"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B. TITLUL SECTIUNII CORESPUNZATOARE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZD-Io-xSh">
-                                <rect key="frame" x="36" y="28" width="303" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="0Ys-gP-JoR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dQn-O5-hZb" firstAttribute="top" secondItem="4Ui-kr-mUN" secondAttribute="bottom" id="5bG-o1-CrA"/>
                             <constraint firstItem="4Ui-kr-mUN" firstAttribute="leading" secondItem="hgu-zN-gNr" secondAttribute="leading" constant="16" id="DON-az-uNq"/>
-                            <constraint firstItem="GZD-Io-xSh" firstAttribute="top" secondItem="tUo-E2-07y" secondAttribute="bottom" constant="8" id="Ih5-Hb-N4N"/>
-                            <constraint firstItem="4Ui-kr-mUN" firstAttribute="top" secondItem="GZD-Io-xSh" secondAttribute="bottom" constant="30" id="MtX-8r-uYU"/>
-                            <constraint firstItem="GZD-Io-xSh" firstAttribute="leading" secondItem="hgu-zN-gNr" secondAttribute="leadingMargin" constant="20" id="WJA-pB-1Bx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GZD-Io-xSh" secondAttribute="trailing" constant="20" id="bJg-Ve-YlE"/>
+                            <constraint firstItem="4Ui-kr-mUN" firstAttribute="top" secondItem="tUo-E2-07y" secondAttribute="bottom" constant="20" id="Jhx-kX-dUa"/>
                             <constraint firstAttribute="trailing" secondItem="4Ui-kr-mUN" secondAttribute="trailing" constant="16" id="j8g-Ke-t4n"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oHf-OJ-elT"/>
                     <connections>
                         <outlet property="collectionView" destination="4Ui-kr-mUN" id="ogN-sg-mee"/>
-                        <outlet property="topLabel" destination="GZD-Io-xSh" id="b5c-fW-lay"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eC2-7M-RvT" userLabel="First Responder" sceneMemberID="firstResponder"/>

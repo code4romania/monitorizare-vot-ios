@@ -22,24 +22,23 @@ class LocalFormProvider: FormProvider {
     
     
     private func createForm(informations: [[String: AnyObject]], named: String) -> Form {
-        return Form(id: named, title: "Procedurile ...", sections: createSection(informations: informations))
+        return Form(id: named, title: "Procedurile ...", sections: createSection(informations: informations, named: named))
     }
     
-    private func createSection(informations: [[String: AnyObject]]) -> [Section] {
+    private func createSection(informations: [[String: AnyObject]], named: String) -> [Section] {
         var sections = [Section]()
         
         for aSection in informations {
-            let code = aSection["codSectiune"] as! String
             let description = aSection["descriere"] as! String
-            let questions = createQuestions(informations: aSection["intrebari"] as! [[String: AnyObject]], sectionCode: code)
-            let newSection = Section(sectionCode: code, description: description, questions: questions)
+            let questions = createQuestions(informations: aSection["intrebari"] as! [[String: AnyObject]], named: named)
+            let newSection = Section(sectionCode: named, description: description, questions: questions)
             sections.append(newSection)
         }
         
         return sections
     }
     
-    private func createQuestions(informations: [[String: AnyObject]], sectionCode: String) -> [Question] {
+    private func createQuestions(informations: [[String: AnyObject]], named: String) -> [Question] {
         var questions = [Question]()
         for aQuestion in informations {
             let id = aQuestion["idIntrebare"] as! Int
@@ -60,7 +59,7 @@ class LocalFormProvider: FormProvider {
                 type = .MultipleAnswerWithText
             }
             
-            let newQuestion = Question(form: sectionCode, id: id, text: text, type: type, answered: answered, answers: answers, synced: false)
+            let newQuestion = Question(form: named, id: id, text: text, type: type, answered: answered, answers: answers, synced: false)
             questions.append(newQuestion)
         }
         return questions

@@ -15,19 +15,16 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
     var questions: [Question]?
     var presidingOfficer: PresidingOfficer?
     var form: String?
-    var topTitle: String?
     private let cellSpacer = 16
     private let numberOfCellsOnEachRow = 2
     private var configurator = QuestionCollectionViewCellConfigurator()
     @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var topLabel: UILabel!
     private var pushAnimated = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "QuestionCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "QuestionCollectionViewCell")
-        topLabel.text = topTitle
     }
     
     override func viewWillAppear(_ animated: Bool) {

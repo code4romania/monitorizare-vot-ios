@@ -13,12 +13,15 @@ import CoreData
 typealias NoteSaverCompletion = () -> Void
 
 class NoteSaver {
-    
-    private var note: Note?
+
     private var completion: NoteSaverCompletion?
+    func save(notes: [Note]) {
+        for aNote in notes {
+            save(note: aNote, completion: nil)
+        }
+    }
     
-    func save(note: Note, completion: @escaping NoteSaverCompletion) {
-        self.note = note
+    func save(note: Note, completion: NoteSaverCompletion?) {
         self.completion = completion
         connectionState { (connected) in
             if connected {
@@ -28,10 +31,10 @@ class NoteSaver {
                     imageData = UIImagePNGRepresentation(image)!
                 }
                 
-                let parameters: [String : String] = ["CodJudet": self.note!.presidingOfficer.judet ?? "",
-                                "NumarSectie": self.note!.presidingOfficer.sectie ?? "-1",
-                                "IdIntrebare": self.note!.questionID ?? "",
-                                "TextNota": self.note!.body ?? ""]
+                let parameters: [String : String] = ["CodJudet": note.presidingOfficer.judet ?? "",
+                                "NumarSectie": note.presidingOfficer.sectie ?? "-1",
+                                "IdIntrebare": note.questionID ?? "",
+                                "TextNota": note.body ?? ""]
                 
                 Alamofire.upload(multipartFormData: { (multipart) in
                     for (aKey, aValue) in parameters {
@@ -44,7 +47,9 @@ class NoteSaver {
                     case .success(request: let request, streamingFromDisk: _, streamFileURL: _):
                         request.responseJSON(completionHandler: { (response) in
                             if response.result.isSuccess {
-                                self.localSave(note: note, synced: true)
+                                if note.questionID != nil {
+                                    self.localSave(note: note, synced: true)
+                                }
                             }
                             self.localSave(note: note, synced: false)
                         })
