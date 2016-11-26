@@ -1,10 +1,4 @@
-//
-//  AppDelegate.swift
-//  MonitorizareVot
-//
-//  Created by Andrei Nastasiu on 11/16/16.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
+//   2016 Code4Ro
 
 import Foundation
 import UIKit
@@ -14,10 +8,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     var window: UIWindow?
     private let formsVersionsFetcher = FormsFetcher(formsPersistor: LocalFormsPersistor())
+    private let syncer = DBSyncer()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         CoreData.containerName = "s"
         formsVersionsFetcher.fetch()
+        syncer.fetchNotes()
+        syncer.fetchAnswers()
         return true
     }
     

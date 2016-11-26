@@ -37,7 +37,7 @@
     </entity>
     <elements>
         <element name="Answer" positionX="-54" positionY="72" width="128" height="135"/>
-        <element name="Note" positionX="315" positionY="314" width="128" height="118"/>
+        <element name="Note" positionX="315" positionY="314" width="128" height="120"/>
         <element name="PresidingOfficer" positionX="-56" positionY="252" width="128" height="178"/>
         <element name="Question" positionX="151" positionY="99" width="128" height="150"/>
     </elements>
