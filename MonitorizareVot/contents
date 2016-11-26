@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Nota" representedClassName="Nota" syncable="YES" codeGenerationType="class">
+        <attribute name="codJudet" attributeType="String" syncable="YES"/>
+        <attribute name="file" attributeType="Binary" syncable="YES"/>
+        <attribute name="idIntrebare" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="numarSectie" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="synced" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Nota" positionX="-63" positionY="-18" width="128" height="120"/>
+    </elements>
+</model>
