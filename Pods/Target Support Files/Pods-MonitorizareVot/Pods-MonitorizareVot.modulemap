@@ -1,0 +1,6 @@
+framework module Pods_MonitorizareVot {
+  umbrella header "Pods-MonitorizareVot-umbrella.h"
+
+  export *
+  module * { export * }
+}

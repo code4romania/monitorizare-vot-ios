@@ -8,12 +8,12 @@
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Answer" inverseName="question" inverseEntity="Answer" syncable="YES"/>
     </entity>
-    <entity name="Nota" representedClassName="Nota" versionHashModifier="1" syncable="YES" codeGenerationType="class">
+    <entity name="Note" representedClassName="Note" versionHashModifier="1" syncable="YES" codeGenerationType="class">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="file" attributeType="Binary" syncable="YES"/>
-        <attribute name="id" attributeType="String" syncable="YES"/>
-        <attribute name="synced" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="presidingOfficer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PresidingOfficer" syncable="YES"/>
+        <attribute name="file" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="questionID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="synced" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="presidingOfficer" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PresidingOfficer" inverseName="note" inverseEntity="PresidingOfficer" syncable="YES"/>
     </entity>
     <entity name="PresidingOfficer" representedClassName="PresidingOfficer" syncable="YES" codeGenerationType="class">
         <attribute name="arriveHour" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,6 +24,7 @@
         <attribute name="leftMinute" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="medium" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sectie" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="presidingOfficer" inverseEntity="Note" syncable="YES"/>
     </entity>
     <entity name="Question" representedClassName="Question" syncable="YES" codeGenerationType="class">
         <attribute name="answered" optional="YES" attributeType="String" syncable="YES"/>
@@ -35,9 +36,9 @@
         <relationship name="answers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Question" inverseName="answers" inverseEntity="Question" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Question" positionX="-45" positionY="72" width="128" height="150"/>
-        <element name="Nota" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="PresidingOfficer" positionX="-63" positionY="18" width="128" height="165"/>
         <element name="Answer" positionX="-54" positionY="72" width="128" height="135"/>
+        <element name="Note" positionX="315" positionY="314" width="128" height="118"/>
+        <element name="PresidingOfficer" positionX="-56" positionY="252" width="128" height="178"/>
+        <element name="Question" positionX="151" positionY="99" width="128" height="150"/>
     </elements>
 </model>

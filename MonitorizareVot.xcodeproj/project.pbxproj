@@ -61,6 +61,7 @@
 		E7FEC2CE1DE0A3BF00F2F04D /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FEC2CD1DE0A3BF00F2F04D /* QuestionViewController.swift */; };
 		EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1561DCF24A800349B43 /* Assets.xcassets */; };
 		EF13D1591DCF24D400349B43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1581DCF24D400349B43 /* Main.storyboard */; };
+		EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3DC3941DE9DB02006F9D73 /* CoreDataInitialiser.swift */; };
 		EF4BD3921D9D08DE0042BEC7 /* s.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3901D9D08DE0042BEC7 /* s.xcdatamodeld */; };
 		EF4BD3A21D9D08DE0042BEC7 /* MonitorizareVotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3A11D9D08DE0042BEC7 /* MonitorizareVotTests.m */; };
 		EF4BD3AD1D9D08DE0042BEC7 /* MonitorizareVotUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3AC1D9D08DE0042BEC7 /* MonitorizareVotUITests.m */; };
@@ -145,6 +146,7 @@
 		E7FEC2CD1DE0A3BF00F2F04D /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		EF13D1561DCF24A800349B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF13D1581DCF24D400349B43 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EF3DC3941DE9DB02006F9D73 /* CoreDataInitialiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInitialiser.swift; sourceTree = "<group>"; };
 		EF4BD3811D9D08DE0042BEC7 /* MonitorizareVot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonitorizareVot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4BD3911D9D08DE0042BEC7 /* s.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = s.xcdatamodel; sourceTree = "<group>"; };
 		EF4BD3981D9D08DE0042BEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				E7CC39FD1DDF2C100010688D /* UIViewControllerExtensions.swift */,
 				E7E407571DE080850021B402 /* InfoPlist.strings */,
 				E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */,
+				EF3DC3941DE9DB02006F9D73 /* CoreDataInitialiser.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -397,9 +400,9 @@
 		EF4BD3831D9D08DE0042BEC7 /* MonitorizareVot */ = {
 			isa = PBXGroup;
 			children = (
+				EF4BD3DD1D9E644F0042BEC7 /* AppDelegate */,
 				E7E1F2BD1DDB57BB00CE52FC /* Protocols */,
 				E7E1F2C21DDB586100CE52FC /* Utils */,
-				EF4BD3DD1D9E644F0042BEC7 /* AppDelegate */,
 				EF4BD3DE1D9E64720042BEC7 /* ViewControllers */,
 				EF13D1581DCF24D400349B43 /* Main.storyboard */,
 				EF4BD3981D9D08DE0042BEC7 /* Info.plist */,
@@ -819,6 +822,7 @@
 				E7CC3A001DDF30AF0010688D /* MVUITextView.swift in Sources */,
 				E74087261DDC924F00D9332F /* FormsPersistor.swift in Sources */,
 				E7E1F2C41DDB586800CE52FC /* APIURLs.swift in Sources */,
+				EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */,
 				E74087331DDCA79000D9332F /* Answer.swift in Sources */,
 				E74087311DDCA74D00D9332F /* Question.swift in Sources */,
 				E7FEC2C41DE09E8700F2F04D /* AnswerWithTextTableViewCell.swift in Sources */,
