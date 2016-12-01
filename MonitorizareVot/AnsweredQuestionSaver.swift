@@ -78,8 +78,6 @@ class AnsweredQuestionSaver {
             answers.add(answerToSave)
         }
         
-//        aQuestionToSave.setValue(answersArray, forKey: "answers")
-        
         completion?()
     }
     
