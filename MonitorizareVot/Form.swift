@@ -11,5 +11,5 @@ import Foundation
 struct Form {
     var id: String
     var title: String
-    var sections: [Section]
+    var sections: [MVSection]
 }

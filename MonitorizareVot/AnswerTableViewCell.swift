@@ -9,5 +9,5 @@
 import Foundation
 
 protocol AnswerTableViewCell {
-    var answer: Answer? { get set }
+    var answer: MVAnswer? { get set }
 }

@@ -11,7 +11,7 @@ import UIKit
 
 class BasicAnswerTableViewCellConfigurator {
     
-    func configure(cell: BasicAnswerTableViewCell, answer: Answer, delegate: AnswerTableViewCellDelegate, selected: Bool) -> UITableViewCell {
+    func configure(cell: BasicAnswerTableViewCell, answer: MVAnswer, delegate: AnswerTableViewCellDelegate, selected: Bool) -> UITableViewCell {
         cell.delegate = delegate
         cell.button.setTitle(answer.text, for: .normal)
         cell.button.setTitleColor(MVColors.black.color, for: .normal)

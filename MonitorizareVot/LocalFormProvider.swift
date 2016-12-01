@@ -25,21 +25,21 @@ class LocalFormProvider: FormProvider {
         return Form(id: named, title: "Procedurile ...", sections: createSection(informations: informations, named: named))
     }
     
-    private func createSection(informations: [[String: AnyObject]], named: String) -> [Section] {
-        var sections = [Section]()
+    private func createSection(informations: [[String: AnyObject]], named: String) -> [MVSection] {
+        var sections = [MVSection]()
         
         for aSection in informations {
             let description = aSection["descriere"] as! String
             let questions = createQuestions(informations: aSection["intrebari"] as! [[String: AnyObject]], named: named)
-            let newSection = Section(sectionCode: named, description: description, questions: questions)
+            let newSection = MVSection(sectionCode: named, description: description, questions: questions)
             sections.append(newSection)
         }
         
         return sections
     }
     
-    private func createQuestions(informations: [[String: AnyObject]], named: String) -> [Question] {
-        var questions = [Question]()
+    private func createQuestions(informations: [[String: AnyObject]], named: String) -> [MVQuestion] {
+        var questions = [MVQuestion]()
         for aQuestion in informations {
             let id = aQuestion["idIntrebare"] as! Int
             let text = aQuestion["textIntrebare"] as! String
@@ -59,19 +59,19 @@ class LocalFormProvider: FormProvider {
                 type = .MultipleAnswerWithText
             }
             
-            let newQuestion = Question(form: named, id: id, text: text, type: type, answered: answered, answers: answers, synced: false)
+            let newQuestion = MVQuestion(form: named, id: id, text: text, type: type, answered: answered, answers: answers, synced: false)
             questions.append(newQuestion)
         }
         return questions
     }
     
-    private func createAnswers(informations: [[String: AnyObject]]) -> [Answer] {
-        var answers = [Answer]()
+    private func createAnswers(informations: [[String: AnyObject]]) -> [MVAnswer] {
+        var answers = [MVAnswer]()
         for aAnswer in informations {
             let id = aAnswer["idOptiune"] as! Int
             let text = aAnswer["textOptiune"] as! String
             let inputAvailable = aAnswer["seIntroduceText"] as! Bool
-            let newAnswer = Answer(id: id, text: text, selected: false, inputAvailable: inputAvailable, inputText: nil)
+            let newAnswer = MVAnswer(id: id, text: text, selected: false, inputAvailable: inputAvailable, inputText: nil)
             answers.append(newAnswer)
         }
         return answers

@@ -9,10 +9,10 @@
 import Foundation
 
 class AnsweredQuestion {
-    var question: Question
-    var presidingOfficer: PresidingOfficer
+    var question: MVQuestion
+    var presidingOfficer: MVPresidingOfficer
     
-    init(question: Question, presidingOfficer: PresidingOfficer) {
+    init(question: MVQuestion, presidingOfficer: MVPresidingOfficer) {
         self.question = question
         self.presidingOfficer = presidingOfficer
     }

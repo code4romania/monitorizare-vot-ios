@@ -11,7 +11,7 @@ import UIKit
 class BasicAnswerTableViewCell: UITableViewCell, AnswerTableViewCell {
     
     @IBOutlet weak var button: UIButton!
-    var answer: Answer?
+    var answer: MVAnswer?
     weak var delegate: AnswerTableViewCellDelegate?
     
     @IBAction func buttonTapped(_ sender: UIButton) {

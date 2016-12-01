@@ -11,7 +11,7 @@ import UIKit
 class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - iVars
-    private var presidingOfficer = PresidingOfficer()
+    private var presidingOfficer = MVPresidingOfficer()
     private var judete = [String]()
     private var pickerViewSelection: PickerViewSelection?
     private var tapGestureRecognizer: UITapGestureRecognizer?

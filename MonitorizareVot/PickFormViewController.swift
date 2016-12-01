@@ -12,7 +12,7 @@ import UIKit
 class PickFormViewController: RootViewController {
     
     // MARK: - iVars
-    var presidingOfficer: PresidingOfficer?
+    var presidingOfficer: MVPresidingOfficer?
     var topLabelText: String?
     private var localFormProvider = LocalFormProvider()
     @IBOutlet private var buttonsBackgroundViews: [UIView]!
@@ -75,7 +75,7 @@ class PickFormViewController: RootViewController {
     private func pushFormViewController(type: String) {
         let formViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FormViewController") as! FormViewController
         if let form = localFormProvider.getForm(named: type) {
-            var questions = [Question]()
+            var questions = [MVQuestion]()
             for aSection in form.sections {
                 questions.append(contentsOf: aSection.questions)
             }

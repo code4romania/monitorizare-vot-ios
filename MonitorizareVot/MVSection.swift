@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Section {
+struct MVSection {
     var sectionCode: String
     var description: String
-    var questions: [Question]
+    var questions: [MVQuestion]
 }

@@ -13,14 +13,29 @@ enum QuestionType {
     case SingleAnswer
     case SingleAnswerWithText
     case MultipleAnswerWithText
+
+    func raw()-> Int {
+        switch self {
+        case .MultipleAnswer:
+            return 0
+        case .SingleAnswer:
+            return 1
+        case .SingleAnswerWithText:
+            return 2
+        case .MultipleAnswerWithText:
+            return 3
+        }
+    }
+
 }
 
-struct Question {
+struct MVQuestion {
     var form: String
     var id: Int
     var text: String
     var type: QuestionType
     var answered: NSAttributedString
-    var answers: [Answer]
+    var answers: [MVAnswer]
     var synced: Bool
 }
+

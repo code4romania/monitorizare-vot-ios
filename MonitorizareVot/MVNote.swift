@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-class Note {
-    var presidingOfficer: PresidingOfficer
+class MVNote {
+    var presidingOfficer: MVPresidingOfficer
     var questionID: String?
     var body: String?
     var image: UIImage?
     var synced: Bool = false
     
-    init(presidingOfficer: PresidingOfficer) {
+    init(presidingOfficer: MVPresidingOfficer) {
         self.presidingOfficer = presidingOfficer
     }
 }

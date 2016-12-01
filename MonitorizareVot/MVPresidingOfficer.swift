@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PresidingOfficer {
+class MVPresidingOfficer {
     var judet: String?
     var sectie: String?
     var medium: String?

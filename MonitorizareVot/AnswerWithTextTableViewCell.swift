@@ -15,7 +15,7 @@ class AnswerWithTextTableViewCell: UITableViewCell, AnswerTableViewCell, MVUITex
     @IBOutlet weak var textViewBackground: UIView!
     @IBOutlet weak var textViewHeight: NSLayoutConstraint!
 
-    var answer: Answer?
+    var answer: MVAnswer?
     weak var delegate: AnswerTableViewCellDelegate?
     
     override func awakeFromNib() {
