@@ -13,8 +13,8 @@ import Photos
 class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     // MARK: - iVars
-    var presidingOfficer: PresidingOfficer?
-    private var note: Note?
+    var presidingOfficer: MVPresidingOfficer?
+    private var note: MVNote?
     private var noteSaver = NoteSaver()
     private var tapGestureRecognizer: UITapGestureRecognizer?
     private var cameraPicker: UIImagePickerController?
@@ -32,7 +32,7 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
         bodyTextView.customDelegate = self
         bodyTextView.placeholder = "Scrie aici ..."
         if let presidingOfficer = self.presidingOfficer {
-            note = Note(presidingOfficer: presidingOfficer)
+            note = MVNote(presidingOfficer: presidingOfficer)
         }
         layout()
         setTapGestureRecognizer()

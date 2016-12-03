@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Answer {
+struct MVAnswer {
     var id: Int
     var text: String
     var selected: Bool

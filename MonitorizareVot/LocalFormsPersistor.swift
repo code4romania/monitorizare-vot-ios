@@ -10,8 +10,9 @@ import Foundation
 
 class LocalFormsPersistor: FormsPersistor {
     
-    func save(version: Int, name: String, data: [[String : AnyObject]]) {
+    func save(version: Int, name: String, informations: [[String : AnyObject]]) {
         UserDefaults.standard.set(version, forKey: name + "version")
+        let data = NSKeyedArchiver.archivedData(withRootObject: informations)
         UserDefaults.standard.set(data, forKey: name + "informations")
     }
 
@@ -23,8 +24,10 @@ class LocalFormsPersistor: FormsPersistor {
     }
 
     func getInformations(forForm: String) -> [[String :AnyObject]]? {
-        if let informations = UserDefaults.standard.value(forKey: forForm + "informations") as? [[String :AnyObject]]  {
-            return informations
+        if let data = UserDefaults.standard.value(forKey: forForm + "informations") as? Data {
+            if let informations = NSKeyedUnarchiver.unarchiveObject(with: data) as? [[String: AnyObject]] {
+                return informations
+            }
         }
         return nil
     }

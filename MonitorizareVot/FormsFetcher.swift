@@ -52,7 +52,7 @@ class FormsFetcher: FormFetcherDelegate {
     func didFinishRequest(fetcher: FormFetcher) {
         if let index = formsInformationsFetchers.index(where : { $0 == fetcher}) {
             if let informations = fetcher.informations {
-                formsPersistor.save(version: fetcher.version, name: fetcher.formName, data: informations)
+                formsPersistor.save(version: fetcher.version, name: fetcher.formName, informations: informations)
             }
             print(index)
             formsInformationsFetchers.remove(at: index)

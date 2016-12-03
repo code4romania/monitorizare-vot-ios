@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 protocol QuestionViewControllerDelegate: class {
-    func showNextQuestion(currentQuestion: Question)
+    func showNextQuestion(currentQuestion: MVQuestion)
 }
 
 class QuestionViewController: RootViewController, UITableViewDataSource, UITableViewDelegate, AnswerTableViewCellDelegate {
     
     // MARK: - iVars
     weak var delegate: QuestionViewControllerDelegate?
-    var question: Question?
-    var presidingOfficer: PresidingOfficer?
+    var question: MVQuestion?
+    var presidingOfficer: MVPresidingOfficer?
     private let answerWithTextTableViewCellConfigurator = AnswerWithTextTableViewCellConfigurator()
     private let basicAnswerTableViewCellConfigurator = BasicAnswerTableViewCellConfigurator()
     private var tapGestureRecognizer: UITapGestureRecognizer?
@@ -135,33 +135,33 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     }
     
     // MARK: - AnswerTableViewCellDelegate
-    func didTapOnButton(answer: Answer) {
-        let newAnswer = Answer(id: answer.id, text: answer.text, selected: !answer.selected, inputAvailable: answer.inputAvailable, inputText: answer.inputText)
+    func didTapOnButton(answer: MVAnswer) {
+        let newAnswer = MVAnswer(id: answer.id, text: answer.text, selected: !answer.selected, inputAvailable: answer.inputAvailable, inputText: answer.inputText)
         
-        var answers = [Answer]()
+        var answers = [MVAnswer]()
         if let question = self.question {
             for aAnswer in question.answers {
                 if aAnswer.id != newAnswer.id {
                     if question.type == .MultipleAnswer || question.type == .MultipleAnswerWithText {
                         answers.append(aAnswer)
                     } else {
-                        let newAnswer = Answer(id: aAnswer.id, text: aAnswer.text, selected: false, inputAvailable: aAnswer.inputAvailable, inputText: aAnswer.inputText)
+                        let newAnswer = MVAnswer(id: aAnswer.id, text: aAnswer.text, selected: false, inputAvailable: aAnswer.inputAvailable, inputText: aAnswer.inputText)
                         answers.append(newAnswer)   
                     }
                 } else {
                     answers.append(newAnswer)
                 }
             }
-            let questionUpdated = Question(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false)
+            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false)
             self.question = questionUpdated
             tableView.reloadData()
         }
     }
     
-    func didChangeText(answer: Answer, text: String) {
-        let newAnswer = Answer(id: answer.id, text: answer.text, selected: answer.selected, inputAvailable: answer.inputAvailable, inputText: text)
+    func didChangeText(answer: MVAnswer, text: String) {
+        let newAnswer = MVAnswer(id: answer.id, text: answer.text, selected: answer.selected, inputAvailable: answer.inputAvailable, inputText: text)
         
-        var answers = [Answer]()
+        var answers = [MVAnswer]()
         if let question = self.question {
             for aAnswer in question.answers {
                 if aAnswer.id != newAnswer.id {
@@ -170,7 +170,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
                     answers.append(newAnswer)
                 }
             }
-            let questionUpdated = Question(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false)
+            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false)
             self.question = questionUpdated
         }
     }

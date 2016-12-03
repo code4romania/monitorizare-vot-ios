@@ -17,7 +17,7 @@ enum SectieErrorType {
 class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - iVars
-    private var presidingOfficer = PresidingOfficer()
+    private var presidingOfficer = MVPresidingOfficer()
     private var judete = [[String: AnyObject]]()
     private var pickerViewSelection: PickerViewSelection?
     private var tapGestureRecognizer: UITapGestureRecognizer?

@@ -12,8 +12,8 @@ import UIKit
 
 class FormViewController: RootViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, QuestionViewControllerDelegate {
     
-    var questions: [Question]?
-    var presidingOfficer: PresidingOfficer?
+    var questions: [MVQuestion]?
+    var presidingOfficer: MVPresidingOfficer?
     var form: String?
     private let cellSpacer = 16
     private let numberOfCellsOnEachRow = 2
@@ -70,7 +70,7 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
     }
     
     // MARK: - QuestionViewControllerDelegate
-    func showNextQuestion(currentQuestion: Question) {
+    func showNextQuestion(currentQuestion: MVQuestion) {
         if let index = questions?.index(where: { (aQuestion) -> Bool in
             return aQuestion.id == currentQuestion.id
         }) {

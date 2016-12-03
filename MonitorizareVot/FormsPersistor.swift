@@ -9,7 +9,7 @@
 import Foundation
 
 protocol FormsPersistor {
-    func save(version: Int, name: String, data: [[String :AnyObject]])
+    func save(version: Int, name: String, informations: [[String :AnyObject]])
     
     func getVersion(forForm: String) -> Int
     func getInformations(forForm: String) -> [[String :AnyObject]]?

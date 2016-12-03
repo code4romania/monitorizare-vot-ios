@@ -9,6 +9,6 @@
 import Foundation
 
 protocol AnswerTableViewCellDelegate: class {
-    func didTapOnButton(answer: Answer)
-    func didChangeText(answer: Answer, text: String)
+    func didTapOnButton(answer: MVAnswer)
+    func didChangeText(answer: MVAnswer, text: String)
 }

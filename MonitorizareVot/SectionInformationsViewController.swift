@@ -19,7 +19,7 @@ import UIKit
 class SectionInformationsViewController: RootViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     // MARK: - iVars
-    var presidingOfficer: PresidingOfficer?
+    var presidingOfficer: MVPresidingOfficer?
     var topLabelText: String?
     private var pickerViewSelection: PickerViewSelection?
     @IBOutlet private var formsButtons: [UIButton]!

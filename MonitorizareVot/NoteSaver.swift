@@ -15,13 +15,13 @@ typealias NoteSaverCompletion = () -> Void
 class NoteSaver {
 
     private var completion: NoteSaverCompletion?
-    func save(notes: [Note]) {
+    func save(notes: [MVNote]) {
         for aNote in notes {
             save(note: aNote, completion: nil)
         }
     }
     
-    func save(note: Note, completion: NoteSaverCompletion?) {
+    func save(note: MVNote, completion: NoteSaverCompletion?) {
         self.completion = completion
         connectionState { (connected) in
             if connected {
@@ -64,7 +64,7 @@ class NoteSaver {
         }
     }
     
-    private func savePresidingOfficer(presidingOfficer: PresidingOfficer) -> NSManagedObject {
+    private func savePresidingOfficer(presidingOfficer: MVPresidingOfficer) -> NSManagedObject {
         let presidingOfficerToSave = NSEntityDescription.insertNewObject(forEntityName: "PresidingOfficer", into: CoreData.context)
         presidingOfficerToSave.setValue(presidingOfficer.arriveHour, forKey: "arriveHour")
         presidingOfficerToSave.setValue(presidingOfficer.arriveMinute, forKey: "arriveMinute")
@@ -76,7 +76,7 @@ class NoteSaver {
         return presidingOfficerToSave
     }
     
-    private func localSave(note: Note, synced: Bool) {
+    private func localSave(note: MVNote, synced: Bool) {
         let noteToSave = NSEntityDescription.insertNewObject(forEntityName: "Note", into: CoreData.context);
         noteToSave .setValue(synced, forKey: "synced")
         noteToSave.setValue(note.questionID, forKey: "questionID")
