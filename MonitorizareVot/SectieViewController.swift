@@ -8,11 +8,17 @@
 
 import UIKit
 
+enum SectieErrorType {
+    case judetNotSet
+    case sectieNotSet
+    case sectieInvalid
+}
+
 class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - iVars
     private var presidingOfficer = PresidingOfficer()
-    private var judete = [String]()
+    private var judete = [[String: AnyObject]]()
     private var pickerViewSelection: PickerViewSelection?
     private var tapGestureRecognizer: UITapGestureRecognizer?
     @IBOutlet private var buttons: [UIButton]!
@@ -51,7 +57,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         pickerView.reloadAllComponents()
         pickerContainer.isHidden = !pickerContainer.isHidden
         bottomTextField.resignFirstResponder()
-        if presidingOfficer.judet == nil, let judet = judete.first {
+        if presidingOfficer.judet == nil, let judet = judete.first?.keys.first {
             presidingOfficer.judet = judet
             firstLabel.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
         }
@@ -62,10 +68,23 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func bottomButtonPressed(_ sender: UIButton) {
-        if presidingOfficer.judet == nil || presidingOfficer.sectie == nil {
-           showAlertController()
+        
+        if presidingOfficer.judet == nil {
+            showAlertController(errorType: .judetNotSet)
+        } else if presidingOfficer.sectie == nil {
+            showAlertController(errorType: .sectieNotSet)
         } else {
-            showNextScreen()
+            for judet in judete {
+                if judet.keys.first == presidingOfficer.judet {
+                    if let sectieMaximum = judet.values.first as? Int, let sectie = Int(presidingOfficer.sectie!) {
+                        if sectie < 1 || sectie > sectieMaximum {
+                            showAlertController(errorType: .sectieInvalid)
+                        } else {
+                            showNextScreen()
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -95,19 +114,23 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         bottomTextField.resignFirstResponder()
     }
     
-    private func showAlertController() {
+    private func showAlertController(errorType: SectieErrorType) {
         let alertButton = UIAlertAction(title: "Am înțeles", style: .cancel, handler: nil)
         
-        if presidingOfficer.judet == nil {
+        switch errorType {
+        case .judetNotSet:
             let alertController = UIAlertController(title: "Selectează județ", message: "Alege un județ pentru a putea trece la următorul pas.", preferredStyle: .alert)
             alertController.addAction(alertButton)
             self.present(alertController, animated: true, completion: nil)
-        } else if presidingOfficer.sectie == nil {
+        case .sectieNotSet:
             let alertController = UIAlertController(title: "Introdu codul secției", message: "Este nevoie să precizezi codul secției pentru a putea trece la următorul pas.", preferredStyle: .alert)
             alertController.addAction(alertButton)
             self.present(alertController, animated: true, completion: nil)
+        case .sectieInvalid:
+            let alertController = UIAlertController(title: "Codul secției este invalid", message: "Nu a fost gasită nici o secție care sa aibă acest număr.", preferredStyle: .alert)
+            alertController.addAction(alertButton)
+            self.present(alertController, animated: true, completion: nil)
         }
-        
     }
     
     private func showNextScreen() {
@@ -136,8 +159,9 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     private func loadData() {
-        let path = Bundle.main.path(forResource: "Judete", ofType: "plist")
-        judete = NSArray(contentsOfFile: path!) as! [String]
+        if let path = Bundle.main.path(forResource: "Judete", ofType: "plist"), let plistContent = NSArray(contentsOfFile: path) as? [[String: AnyObject]] {
+            judete = plistContent
+        }
     }
     
     // MARK: - UIPickerViewDataSource
@@ -155,7 +179,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if let pickerViewSelection = self.pickerViewSelection {
             if pickerViewSelection == .judete {
-                return judete[row]
+                return  judete[row].keys.first
             }
         }
         return nil
@@ -166,9 +190,10 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         if let pickerViewSelection = self.pickerViewSelection {
             switch pickerViewSelection {
             case .judete:
-                let judet = judete[row]
-                presidingOfficer.judet = judet
-                firstLabel.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
+                if let judet = judete[row].keys.first {
+                    presidingOfficer.judet = judet
+                    firstLabel.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
+                }
             default:
                 break
             }
