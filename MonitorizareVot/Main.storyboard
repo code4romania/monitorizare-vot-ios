@@ -110,7 +110,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <constraint firstAttribute="height" constant="60" id="SSx-1T-flV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Logare"/>
+                                <state key="normal" title="Autentificare"/>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rZz-ex-NAC"/>
                                 </connections>
@@ -185,9 +185,23 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <constraint firstItem="7bu-ZJ-S5i" firstAttribute="leading" secondItem="exT-h3-7d7" secondAttribute="leading" constant="21" id="yV1-ZN-gqL"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSd-p9-QdY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="emo-Lm-NBX">
+                                        <rect key="frame" x="169" y="283" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="emo-Lm-NBX" firstAttribute="centerX" secondItem="dSd-p9-QdY" secondAttribute="centerX" id="7BF-hB-m8c"/>
+                                    <constraint firstItem="emo-Lm-NBX" firstAttribute="centerY" secondItem="dSd-p9-QdY" secondAttribute="centerY" id="fJa-Z7-oXb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dSd-p9-QdY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9aP-EW-Ocb"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oEB-20-ESH" secondAttribute="bottom" id="B2r-Bh-tbZ"/>
                             <constraint firstItem="oEB-20-ESH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DUB-fY-JQF"/>
                             <constraint firstItem="VBX-Ln-slK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FPz-Aj-Zz2"/>
@@ -202,9 +216,12 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                             <constraint firstAttribute="trailing" secondItem="B3x-gz-w2p" secondAttribute="trailing" id="clJ-nV-0Jf"/>
                             <constraint firstAttribute="trailing" secondItem="oEB-20-ESH" secondAttribute="trailing" id="dEs-AI-adD"/>
                             <constraint firstAttribute="trailing" secondItem="VBX-Ln-slK" secondAttribute="trailing" id="dbi-Se-VxK"/>
+                            <constraint firstItem="dSd-p9-QdY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gcu-q1-Lam"/>
+                            <constraint firstAttribute="trailing" secondItem="dSd-p9-QdY" secondAttribute="trailing" id="ifP-f7-SZI"/>
                             <constraint firstItem="B3x-gz-w2p" firstAttribute="top" secondItem="exT-h3-7d7" secondAttribute="bottom" id="jsU-9y-DKU"/>
                             <constraint firstItem="B3x-gz-w2p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="n2w-bC-W2L"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="B3x-gz-w2p" secondAttribute="bottom" id="nqm-kz-VDb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dSd-p9-QdY" secondAttribute="bottom" id="ucT-TO-sKT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title=" " id="w3V-ww-bj6"/>
@@ -212,12 +229,13 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <outlet property="buttonHeight" destination="SSx-1T-flV" id="gyp-HC-J76"/>
                         <outlet property="codeTextField" destination="UKC-Kc-Qmh" id="vfP-GO-A4d"/>
                         <outlet property="formViewBottomConstraint" destination="jsU-9y-DKU" id="Uwy-x6-NK1"/>
+                        <outlet property="loadingView" destination="dSd-p9-QdY" id="a8S-jU-5F6"/>
                         <outlet property="phoneNumberTextField" destination="0A7-JF-Sdj" id="qky-2o-jQD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="951" y="824"/>
+            <point key="canvasLocation" x="949.60000000000002" y="823.53823088455783"/>
         </scene>
         <!--Sectie View Controller-->
         <scene sceneID="HcK-bG-81H">
@@ -388,7 +406,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOC-i5-MOc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="KzG-JJ-a9U"/>
                                         </constraints>
@@ -866,7 +884,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gc-OI-4d5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="EvE-Rg-14R"/>
                                         </constraints>
@@ -1336,14 +1354,14 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <constraint firstAttribute="bottom" secondItem="AQX-Vf-6eR" secondAttribute="bottom" id="vP9-cr-JXt"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qi7-bg-sup">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qi7-bg-sup">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="l9L-Gt-JLc">
                                         <rect key="frame" x="169" y="315" width="37" height="37"/>
                                     </activityIndicatorView>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="l9L-Gt-JLc" firstAttribute="centerX" secondItem="Qi7-bg-sup" secondAttribute="centerX" id="iCx-DV-WWw"/>
                                     <constraint firstItem="l9L-Gt-JLc" firstAttribute="centerY" secondItem="Qi7-bg-sup" secondAttribute="centerY" id="wVh-an-tfq"/>

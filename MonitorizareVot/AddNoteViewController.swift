@@ -1,10 +1,4 @@
-//
-//  AddNoteViewController.swift
-//  MonitorizareVot
-//
-//  Created by Andrei Nastasiu on 11/18/16.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
+//  Created by Code4Romania
 
 import Foundation
 import UIKit
@@ -83,8 +77,12 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
         bodyTextView.resignFirstResponder()
         if let note = self.note {
             loadingView.isHidden = false
-            noteSaver.save(note: note, completion: { 
-                let _ = self.navigationController?.popViewController(animated: true)
+            noteSaver.save(note: note, completion: { (tokenExpired) in
+                if tokenExpired {
+                    let _ = self.navigationController?.popToRootViewController(animated: false)
+                } else {
+                    let _ = self.navigationController?.popViewController(animated: true)
+                }
             })
         }
     }

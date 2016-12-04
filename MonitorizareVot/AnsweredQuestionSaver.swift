@@ -1,17 +1,12 @@
-//
-//  AnsweredFormSaver.swift
-//  MonitorizareVot
-//
-//  Created by Andrei Nastasiu on 11/21/16.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
+//  Created by Code4Romania
 
 import Foundation
 import Alamofire
 import UIKit
 import CoreData
+import SwiftKeychainWrapper
 
-typealias AnsweredQuestionSaverCompletion = () -> Void
+typealias AnsweredQuestionSaverCompletion = (_ tokenExpired: Bool) -> Void
 
 class AnsweredQuestionSaver {
     private var completion: AnsweredQuestionSaverCompletion?
@@ -26,38 +21,42 @@ class AnsweredQuestionSaver {
         self.completion = completion
         connectionState { (connected) in
             if connected {
-                let url = APIURLs.AnsweredQuestion.url
-                let headers = ["Content-Type": "application/json"]
-                var options = [[String: Any]]()
-                for aAnswer in answeredQuestion.question.answers {
-                    if aAnswer.selected {
-                        let option: [String: Any] = ["idOptiune" : aAnswer.id,
-                                                        "value": aAnswer.inputText ?? ""]
-                        options.append(option)
+                let url = APIURLs.answeredQuestion.url
+                if let token = KeychainWrapper.standard.string(forKey: "token") {
+                    let headers = ["Content-Type": "application/json",
+                                   "Authorization" :"Bearer " + token]
+                    var options = [[String: Any]]()
+                    for aAnswer in answeredQuestion.question.answers {
+                        if aAnswer.selected {
+                            let option: [String: Any] = ["idOptiune" : aAnswer.id,
+                                                            "value": aAnswer.inputText ?? ""]
+                            options.append(option)
+                        }
                     }
-                }
-                
-                let raspuns: [String : Any] = ["idIntrebare": answeredQuestion.question.id,
-                                                "codJudet": answeredQuestion.presidingOfficer.judet ?? "",
-                                                "numarSectie": answeredQuestion.presidingOfficer.sectie ?? "-1",
-                                                "codFormular": answeredQuestion.question.form,
-                                                "optiuni": options]
+                    
+                    let raspuns: [String : Any] = ["idIntrebare": answeredQuestion.question.id,
+                                                    "codJudet": answeredQuestion.presidingOfficer.judet ?? "",
+                                                    "numarSectie": answeredQuestion.presidingOfficer.sectie ?? "-1",
+                                                    "codFormular": answeredQuestion.question.form,
+                                                    "optiuni": options]
 
-                Alamofire.request(url, method: .post, parameters: ["raspuns": [raspuns]], encoding: JSONEncoding.default, headers: headers).responseJSON { (response:DataResponse<Any>) in
-                    switch response.result {
-                    case .success(_):
-                        self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: true)
-                    default:
-                        self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false)
-                    }
+                    Alamofire.request(url, method: .post, parameters: ["raspuns": [raspuns]], encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: {[weak self] (response) in
+                        if let statusCode = response.response?.statusCode, statusCode == 200 {
+                            self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: true, tokenExpired: false)
+                        } else {
+                            self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: true)
+                        }
+                    })
+                } else {
+                   self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: true)
                 }
             } else {
-                self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false)
+                self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: false)
             }
         }
     }
     
-    private func localSave(presidingOfficer: MVPresidingOfficer, question: MVQuestion, synced: Bool) {
+    private func localSave(presidingOfficer: MVPresidingOfficer, question: MVQuestion, synced: Bool, tokenExpired: Bool) {
         var questionToSave = question
         questionToSave.synced = synced
         let aQuestionToSave = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context)
@@ -77,8 +76,7 @@ class AnsweredQuestionSaver {
             let answers = aQuestionToSave.mutableSetValue(forKeyPath: "answers")
             answers.add(answerToSave)
         }
-        
-        completion?()
+        completion?(false)
     }
     
 }

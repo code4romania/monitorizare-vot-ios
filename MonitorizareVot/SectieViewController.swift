@@ -1,10 +1,4 @@
-//
-//  SectieViewController.swift
-//  MonitorizareVot
-//
-//  Created by Andrei Nastasiu on 11/17/16.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
+//  Created by Code4Romania
 
 import UIKit
 
@@ -27,12 +21,20 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet private weak var pickerView: UIPickerView!
     @IBOutlet private weak var pickerContainer: UIView!
     @IBOutlet private weak var firstLabel: UILabel!
-    
+    private let formsVersionsFetcher = FormsFetcher(formsPersistor: LocalFormsPersistor())
+    private let syncer = DBSyncer()
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = false
         self.navigationItem.hidesBackButton = true
+        formsVersionsFetcher.fetch {[weak self] (tokenExpired) in
+            if tokenExpired {
+                let _ = self?.navigationController?.popToRootViewController(animated: false)
+            }
+        }
+        syncer.fetchNotes()
+        syncer.fetchAnswers()
         layout()
         setDefaultValues()
         loadData()

@@ -1,32 +1,26 @@
-//
-//  APIURLs.swift
-//  MonitorizareVot
-//
-//  Created by Andrei Nastasiu on 11/15/16.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
+//  Created by Code4Romania
 
 import Foundation
 
 enum APIURLs {
-    case Login
-    case FormsVersions
-    case Form
-    case Note
-    case AnsweredQuestion
+    case login
+    case formsVersions
+    case form
+    case note
+    case answeredQuestion
     
     var url: String {
         get {
             switch self {
-            case .Login:
-                return ""
-            case .FormsVersions:
+            case .login:
+                return "https://viuat.azurewebsites.net/api/v1/access/token"
+            case .formsVersions:
                 return "https://viuat.azurewebsites.net/api/v1/formular/versiune"
-            case .Form:
+            case .form:
                 return "https://viuat.azurewebsites.net/api/v1/formular"
-            case .Note:
+            case .note:
                 return "https://viuat.azurewebsites.net/api/v1/note/ataseaza"
-            case .AnsweredQuestion:
+            case .answeredQuestion:
                 return "https://viuat.azurewebsites.net/api/v1/raspuns"
             }
         }

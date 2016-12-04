@@ -1,10 +1,4 @@
-//
-//  AnswerViewController.swift
-//  MonitorizareVot
-//
-//  Created by Andrei Nastasiu on 11/19/16.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
+//  Created by Code4Romania
 
 import Foundation
 import UIKit
@@ -129,8 +123,12 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     // MARK: - IBActions
     @IBAction func buttonPressed(_ sender: UIButton) {
         let answeredQuestion = AnsweredQuestion(question: question!, presidingOfficer: presidingOfficer!)
-        answeredQuestionSaver.save(answeredQuestion: answeredQuestion) {
-            self.delegate?.showNextQuestion(currentQuestion: answeredQuestion.question)
+        answeredQuestionSaver.save(answeredQuestion: answeredQuestion) {[weak self] (tokenExpired) in
+            if tokenExpired {
+                let _ = self?.navigationController?.popToRootViewController(animated: false)
+            } else {
+                self?.delegate?.showNextQuestion(currentQuestion: answeredQuestion.question)
+            }
         }
     }
     

@@ -1,10 +1,4 @@
-//
-//  MVColors.swift
-//  MonitorizareVot
-//
-//  Created by Andrei Nastasiu on 11/15/16.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
+//  Created by Code4Romania
 
 import Foundation
 import UIKit
@@ -22,7 +16,7 @@ enum MVColors {
         get {
             switch self {
             case .yellow:
-                return UIColor(colorLiteralRed: 255.0/255.0, green: 204.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+                return UIColor(colorLiteralRed: 255.0/255.0, green: 205.0/255.0, blue: 0.0/255.0, alpha: 1.0)
             case .gray:
                 return UIColor(colorLiteralRed: 172.0/255.0, green: 180.0/255.0, blue: 190.0/255.0, alpha: 1.0)
             case .green:

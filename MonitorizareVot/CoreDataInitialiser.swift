@@ -1,10 +1,4 @@
-//
-//  CoreDataInitialiser.swift
-//  MonitorizareVot
-//
-//  Created by Ilinca Ispas on 26/11/2016.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
+//  Created by Code4Romania
 
 import Foundation
 import CoreData

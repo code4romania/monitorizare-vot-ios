@@ -1,17 +1,14 @@
-//
-//  FormFetcher.swift
-//  MonitorizareVot
-//
-//  Created by Andrei Nastasiu on 11/16/16.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
+//  Created by Code4Romania
 
 import Foundation
 import Alamofire
+import SwiftKeychainWrapper
 
 protocol FormFetcherDelegate: class {
     func didFinishRequest(fetcher: FormFetcher)
 }
+
+typealias FormFetcherCompletion = (_ tokenExpired: Bool) -> Void
 
 class FormFetcher {
     
@@ -25,20 +22,25 @@ class FormFetcher {
         version = newVersion
     }
     
-    func fetch() {
-        let url = APIURLs.Form.url
-        let headers = ["Content-Type": "application/x-www-form-urlencoded"]
-        Alamofire.request(url, method: .get, parameters: ["idformular": formName], headers: headers).responseJSON { (response:DataResponse<Any>) in
-            switch response.result {
-            case .success(_):
-                if let data = response.result.value as? [[String :AnyObject]] {
-                    self.informations = data
+    func fetch(completion: FormFetcherCompletion) {
+        let url = APIURLs.form.url
+        if let token = KeychainWrapper.standard.string(forKey: "token") {
+            let headers = ["Content-Type": "application/x-www-form-urlencoded",
+                           "Authorization" :"Bearer " + token]
+            Alamofire.request(url, method: .get, parameters: ["idformular": formName], headers: headers).responseJSON { (response:DataResponse<Any>) in
+                switch response.result {
+                case .success(_):
+                    if let data = response.result.value as? [[String :AnyObject]] {
+                        self.informations = data
+                    }
+                    break
+                default:
+                    break
                 }
-                break
-            default:
-                break
+                self.delegate?.didFinishRequest(fetcher: self)
             }
-            self.delegate?.didFinishRequest(fetcher: self)
+        } else {
+            completion(true)
         }
     }
 }

@@ -1,10 +1,4 @@
-//
-//  PresidingOfficer.swift
-//  MonitorizareVot
-//
-//  Created by Andrei Nastasiu on 11/15/16.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
+//  Created by Code4Romania
 
 import Foundation
 

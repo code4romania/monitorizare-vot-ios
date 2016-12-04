@@ -1,10 +1,4 @@
-//
-//  MonitorizareVotTests.m
-//  MonitorizareVotTests
-//
-//  Created by Ilinca Ispas on 29/09/2016.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
+//  Created by Code4Romania
 
 #import <XCTest/XCTest.h>
 

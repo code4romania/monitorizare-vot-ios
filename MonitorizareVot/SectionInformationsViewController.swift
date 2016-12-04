@@ -1,17 +1,4 @@
-//
-//  SecondFormViewController.swift
-//  MonitorizareVot
-//
-//  Created by Andrei Nastasiu on 11/15/16.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
-
-/*
- var questionID: String?
- var body: String?
- var image: UIImage?
- var synced: Bool = false
- */
+//  Created by Code4Romania
 
 import Foundation
 import UIKit

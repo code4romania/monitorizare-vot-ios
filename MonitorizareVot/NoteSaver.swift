@@ -1,16 +1,11 @@
-//
-//  NoteSaver.swift
-//  MonitorizareVot
-//
-//  Created by Andrei Nastasiu on 11/18/16.
-//  Copyright © 2016 Code4Ro. All rights reserved.
-//
+//  Created by Code4Romania
 
 import Foundation
 import Alamofire
 import CoreData
+import SwiftKeychainWrapper
 
-typealias NoteSaverCompletion = () -> Void
+typealias NoteSaverCompletion = (_ tokenExpired: Bool) -> Void
 
 class NoteSaver {
 
@@ -25,41 +20,44 @@ class NoteSaver {
         self.completion = completion
         connectionState { (connected) in
             if connected {
-                let url = APIURLs.Note.url
+                let url = APIURLs.note.url
                 var imageData = Data()
                 if let image = note.image {
                     imageData = UIImagePNGRepresentation(image)!
                 }
                 
-                let parameters: [String : String] = ["CodJudet": note.presidingOfficer.judet ?? "",
+                let parameters: [String: String] = ["CodJudet": note.presidingOfficer.judet ?? "",
                                 "NumarSectie": note.presidingOfficer.sectie ?? "-1",
                                 "IdIntrebare": note.questionID ?? "",
                                 "TextNota": note.body ?? ""]
                 
-                Alamofire.upload(multipartFormData: { (multipart) in
-                    for (aKey, aValue) in parameters {
-                        multipart.append(aValue.data(using: String.Encoding.utf8)!, withName: aKey)
-                    }
-                    multipart.append(imageData, withName: "file", fileName: "newImage.png", mimeType: "image/png")
+                if let token = KeychainWrapper.standard.string(forKey: "token") {
+                    let headers = ["Authorization" :"Bearer " + token]
                     
-                }, to: url, encodingCompletion: { (encodingResult) in
-                    switch encodingResult {
-                    case .success(request: let request, streamingFromDisk: _, streamFileURL: _):
-                        request.responseJSON(completionHandler: { (response) in
-                            if response.result.isSuccess {
-                                if note.questionID != nil {
-                                    self.localSave(note: note, synced: true)
+                    Alamofire.upload(multipartFormData: { (multipart) in
+                        for (aKey, aValue) in parameters {
+                            multipart.append(aValue.data(using: String.Encoding.utf8)!, withName: aKey)
+                        }
+                        multipart.append(imageData, withName: "file", fileName: "newImage.png", mimeType: "image/png")
+                    }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers, encodingCompletion: { (encodingResult) in
+                        switch encodingResult {
+                        case .success(request: let request, streamingFromDisk: _, streamFileURL: _):
+                            request.responseString(completionHandler: {[weak self] (response) in
+                                if let statusCode = response.response?.statusCode, statusCode == 200 {
+                                    self?.localSave(note: note, synced: true, tokenExpired: false)
+                                } else {
+                                    self?.localSave(note: note, synced: false, tokenExpired: true)
                                 }
-                            }
-                            self.localSave(note: note, synced: false)
-                        })
-                        
-                    case .failure(_):
-                        self.localSave(note: note, synced: false)
-                    }
-                })
+                            })
+                        case .failure(_):
+                            self.localSave(note: note, synced: false, tokenExpired: false)
+                        }
+                    })
+                } else {
+                    self.localSave(note: note, synced: false, tokenExpired: true)
+                }
             } else {
-                self.localSave(note: note, synced: false)
+                self.localSave(note: note, synced: false, tokenExpired: false)
             }
         }
     }
@@ -76,7 +74,7 @@ class NoteSaver {
         return presidingOfficerToSave
     }
     
-    private func localSave(note: MVNote, synced: Bool) {
+    private func localSave(note: MVNote, synced: Bool, tokenExpired: Bool) {
         let noteToSave = NSEntityDescription.insertNewObject(forEntityName: "Note", into: CoreData.context);
         noteToSave .setValue(synced, forKey: "synced")
         noteToSave.setValue(note.questionID, forKey: "questionID")
@@ -86,7 +84,7 @@ class NoteSaver {
             noteToSave.setValue(imageData, forKey: "file")
         }
         try! CoreData.save()
-        completion?()
+        completion?(tokenExpired)
     }
     
 }

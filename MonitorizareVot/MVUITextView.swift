@@ -1,10 +1,4 @@
-//
-//  MVUITextView.swift
-//
-//
-//  Created by Andrei Nastasiu on 24/06/16.
-//  Copyright © 2016 Andrei Nastasiu. All rights reserved.
-//
+//  Created by Code4Romania
 
 import Foundation
 import UIKit

@@ -1,4 +1,4 @@
-//   2016 Code4Ro
+//  Created by Code4Romania
 
 import Foundation
 import UIKit
@@ -7,14 +7,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
         
     var window: UIWindow?
-    private let formsVersionsFetcher = FormsFetcher(formsPersistor: LocalFormsPersistor())
-    private let syncer = DBSyncer()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         CoreData.containerName = "s"
-        formsVersionsFetcher.fetch()
-        syncer.fetchNotes()
-        syncer.fetchAnswers()
         return true
     }
     

@@ -38,7 +38,6 @@
 		E7D5CC101DE32B7600393FFF /* AnsweredQuestionSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D5CC0F1DE32B7600393FFF /* AnsweredQuestionSaver.swift */; };
 		E7DEDFFA1DE0BBF200CD8371 /* AnsweredQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEDFF91DE0BBF200CD8371 /* AnsweredQuestion.swift */; };
 		E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2BB1DDB4FCE00CE52FC /* LoginViewController.swift */; };
-		E7E1F2BF1DDB57C400CE52FC /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */; };
 		E7E1F2C11DDB580B00CE52FC /* LoginAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2C01DDB580B00CE52FC /* LoginAPIRequest.swift */; };
 		E7E1F2C41DDB586800CE52FC /* APIURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F2C31DDB586800CE52FC /* APIURLs.swift */; };
 		E7E407561DE076D30021B402 /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E407551DE076D30021B402 /* ConnectionState.swift */; };
@@ -124,7 +123,6 @@
 		E7D5CC0F1DE32B7600393FFF /* AnsweredQuestionSaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnsweredQuestionSaver.swift; sourceTree = "<group>"; };
 		E7DEDFF91DE0BBF200CD8371 /* AnsweredQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnsweredQuestion.swift; sourceTree = "<group>"; };
 		E7E1F2BB1DDB4FCE00CE52FC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		E7E1F2C01DDB580B00CE52FC /* LoginAPIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginAPIRequest.swift; sourceTree = "<group>"; };
 		E7E1F2C31DDB586800CE52FC /* APIURLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIURLs.swift; sourceTree = "<group>"; };
 		E7E407551DE076D30021B402 /* ConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 		E7E1F2BD1DDB57BB00CE52FC /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				E7E1F2BE1DDB57C400CE52FC /* APIRequest.swift */,
 				E74087251DDC924F00D9332F /* FormsPersistor.swift */,
 			);
 			name = Protocols;
@@ -849,7 +846,6 @@
 				E740872D1DDCA6E800D9332F /* FormProvider.swift in Sources */,
 				E7FEC2BE1DE09E6300F2F04D /* BasicAnswerTableViewCell.swift in Sources */,
 				E7CC39FE1DDF2C100010688D /* UIViewControllerExtensions.swift in Sources */,
-				E7E1F2BF1DDB57C400CE52FC /* APIRequest.swift in Sources */,
 				E74087281DDC92CA00D9332F /* LocalFormsPersistor.swift in Sources */,
 				E7DEDFFA1DE0BBF200CD8371 /* AnsweredQuestion.swift in Sources */,
 				E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */,
