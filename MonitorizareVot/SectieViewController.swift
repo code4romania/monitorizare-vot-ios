@@ -43,6 +43,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        checkLocalStorage()
         NotificationCenter.default.addObserver(self, selector: #selector(SectieViewController.keyboardDidShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(SectieViewController.keyboardDidHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -82,6 +83,8 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
                         if sectie < 1 || sectie > sectieMaximum {
                             showAlertController(errorType: .sectieInvalid)
                         } else {
+                            UserDefaults.standard.set(presidingOfficer.judet!, forKey: "judet")
+                            UserDefaults.standard.set(presidingOfficer.sectie!, forKey: "sectie")
                             showNextScreen()
                         }
                     }
@@ -163,6 +166,18 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     private func loadData() {
         if let path = Bundle.main.path(forResource: "Judete", ofType: "plist"), let plistContent = NSArray(contentsOfFile: path) as? [[String: AnyObject]] {
             judete = plistContent
+        }
+    }
+    
+    private func checkLocalStorage() {
+        if let judet = UserDefaults.standard.string(forKey: "judet") {
+            presidingOfficer.judet = judet
+            firstLabel.text = judet
+        }
+        
+        if let sectie = UserDefaults.standard.string(forKey: "sectie") {
+            presidingOfficer.sectie = sectie
+            bottomTextField.text = sectie
         }
     }
     

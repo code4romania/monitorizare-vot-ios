@@ -8,6 +8,7 @@ enum APIURLs {
     case form
     case note
     case answeredQuestion
+    case section
     
     var url: String {
         get {
@@ -22,6 +23,8 @@ enum APIURLs {
                 return "https://viuat.azurewebsites.net/api/v1/note/ataseaza"
             case .answeredQuestion:
                 return "https://viuat.azurewebsites.net/api/v1/raspuns"
+            case .section:
+                return "https://viuat.azurewebsites.net/api/v1/sectie"
             }
         }
     }

@@ -20,6 +20,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var buttonHeight: NSLayoutConstraint!
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var loadingView: UIView!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -122,8 +123,10 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
 
     // MARK: - IBActions
     @IBAction func buttonPressed(_ sender: UIButton) {
+        loadingView.isHidden = false
         let answeredQuestion = AnsweredQuestion(question: question!, presidingOfficer: presidingOfficer!)
         answeredQuestionSaver.save(answeredQuestion: answeredQuestion) {[weak self] (tokenExpired) in
+            self?.loadingView.isHidden = true
             if tokenExpired {
                 let _ = self?.navigationController?.popToRootViewController(animated: false)
             } else {

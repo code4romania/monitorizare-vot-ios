@@ -38,7 +38,7 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         loadingView.isHidden = false
         
-        var udid = (UIDevice.current.identifierForVendor?.uuidString)!
+        var udid = NSUUID().uuidString
     
         if let savedUdid = KeychainWrapper.standard.string(forKey: "udid") {
             udid = savedUdid
