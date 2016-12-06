@@ -39,7 +39,7 @@ class DBSyncer: NSObject {
         
     }
     
-    func fetchQuestionsStatus() -> [Any] {
+    func fetchQuestions() -> [MVQuestion] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Question")
         request.predicate = NSPredicate(format: "answered == true")
         let questionsToSync = CoreData.fetch(request)
@@ -91,8 +91,13 @@ class DBSyncer: NSObject {
             } else {
                 answered = ""
             }
+            var answers : [MVAnswer] = []
+            if let qAnswers = aQuestion.value(forKey: "answers") as? [NSManagedObject] {
+                answers = parseAnswers(answersToParse: qAnswers)
+            }
             if let answered = answered, let id = id {
-                let q = MVQuestion(form: "", id: id, text: "", type: QuestionType.SingleAnswer, answered: NSAttributedString(string: answered, attributes: nil), answers: [], synced: false)
+                var q = MVQuestion(form: "", id: id, text: "", type: QuestionType.SingleAnswer, answered: NSAttributedString(string: answered, attributes: nil), answers: [], synced: false)
+                q.answers = answers
                 qArray.append(q)
             }
         }
