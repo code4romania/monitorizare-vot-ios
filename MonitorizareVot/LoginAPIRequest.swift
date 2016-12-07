@@ -34,10 +34,15 @@ class LoginAPIRequest {
                             completion(false, nil)
                         }
                     } else {
-                        completion(false, nil)
+                        let cancel = UIAlertAction(title: "Închide", style: .cancel, handler: nil)
+                        
+                        let alertController = UIAlertController(title: "Autentificarea a eșuat", message: "Datele introduse pentru autentificare nu sunt valide.", preferredStyle: .alert)
+                        alertController.addAction(cancel)
+                       self.parentView?.present(alertController, animated: true, completion: nil)
                     }
                 })
             } else {
+                completion(false, nil)
                 let cancel = UIAlertAction(title: "Închide", style: .cancel, handler: nil)
                 
                 let alertController = UIAlertController(title: "Eroare de conexiune", message: "Conectează-te la internet pentru a putea efectua autentificarea", preferredStyle: .alert)

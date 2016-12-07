@@ -19,19 +19,30 @@ class SectionSaver {
                 if let token = KeychainWrapper.standard.string(forKey: "token") {
                     let headers = ["Content-Type": "application/json",
                                    "Authorization" :"Bearer " + token]
+                    var medium = ""
+                    if let selectedMedium = presidingOfficer.medium {
+                        medium = selectedMedium
+                    }
                     
+                    var genre = ""
+                    if let selectedGenre = presidingOfficer.genre {
+                        genre = selectedGenre
+                    }
+                        
                     let params: [String : Any] = ["codJudet": presidingOfficer.judet!,
                                                    "numarSectie": presidingOfficer.sectie!,
                                                    "oraSosirii": presidingOfficer.arriveHour + ":" + presidingOfficer.arriveMinute,
                                                    "oraPlecarii": presidingOfficer.leftHour + ":" + presidingOfficer.leftMinute,
-                                                   "esteZonaUrbana": presidingOfficer.medium! == "urban" ? true : false,
-                                                   "presedinteBesvesteFemeie": presidingOfficer.genre! == "feminin" ? true : false ]
+                                                   "esteZonaUrbana": medium == "urban" ? true : false,
+                                                   "presedinteBesvesteFemeie": genre == "feminin" ? true : false ]
                     
                     Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: { (response) in
                         if let statusCode = response.response?.statusCode, statusCode == 200 {
                             completion?(false)
                         }
                     })
+                } else {
+                    completion?(true)
                 }
             }
         }

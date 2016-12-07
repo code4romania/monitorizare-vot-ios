@@ -54,13 +54,7 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
             if let token = response as? String, success {
                 KeychainWrapper.standard.set(token, forKey: "token")
                 self?.appFeaturesUnlocked()
-            } else {
-                let cancel = UIAlertAction(title: "Închide", style: .cancel, handler: nil)
-                
-                let alertController = UIAlertController(title: "Autentificarea a eșuat", message: "Datele introduse pentru autentificare nu sunt valide.", preferredStyle: .alert)
-                alertController.addAction(cancel)
-                self?.present(alertController, animated: true, completion: nil)
-            }
+            } 
         }
     }
     
