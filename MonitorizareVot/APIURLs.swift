@@ -2,6 +2,8 @@
 
 import Foundation
 
+let baseUrlQA = "https://viuat.azurewebsites.net/api/v1"
+
 enum APIURLs {
     case login
     case formsVersions
@@ -13,15 +15,15 @@ enum APIURLs {
         get {
             switch self {
             case .login:
-                return "https://viuat.azurewebsites.net/api/v1/access/token"
+                return baseUrlQA + "/access/token"
             case .formsVersions:
-                return "https://viuat.azurewebsites.net/api/v1/formular/versiune"
+                return baseUrlQA + "/formular/versiune"
             case .form:
-                return "https://viuat.azurewebsites.net/api/v1/formular"
+                return baseUrlQA + "/formular"
             case .note:
-                return "https://viuat.azurewebsites.net/api/v1/note/ataseaza"
+                return baseUrlQA + "/note/ataseaza"
             case .answeredQuestion:
-                return "https://viuat.azurewebsites.net/api/v1/raspuns"
+                return baseUrlQA + "/raspuns"
             }
         }
     }
