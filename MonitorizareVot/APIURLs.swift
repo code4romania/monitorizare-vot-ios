@@ -2,7 +2,7 @@
 
 import Foundation
 
-let baseUrlQA = "https://viuat.azurewebsites.net/api/v1"
+let baseUrlQA = "https://mobileqa.azurewebsites.net/api/v1"
 
 enum APIURLs {
     case login

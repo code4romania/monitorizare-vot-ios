@@ -18,30 +18,40 @@ class DBSyncer: NSObject {
         }
     }
     
-    func fetchAnswers() {
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
-        let entityDescription = NSEntityDescription.entity(forEntityName: "Note", in: CoreData.context)
-        fetchRequest.entity = entityDescription
-        do {
-            let result = try CoreData.context.fetch(fetchRequest)
-            print(result)
-            
-        } catch {
-            let fetchError = error as NSError
-            print(fetchError)
+    func  fetchPresidingOfficers() -> [MVPresidingOfficer] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PresidingOfficer")
+        let presidingOfficersArray = CoreData.fetch(request)
+        var finalArray : [MVPresidingOfficer] = []
+        for aPresdingOfficer in presidingOfficersArray {
+            let finalOfficer = parsePresidingOfficer(presidingOfficer: aPresdingOfficer) as MVPresidingOfficer
+            finalArray.append(finalOfficer)
         }
-//        request.predicate = NSPredicate(format: "synced == %@", NSNumber(booleanLiteral: false))
-//        let answersToSyncArray = CoreData.fetch(request)
-//        let parsedAnswers = parseAnswers(answersToParse: answersToSyncArray)
+        return finalArray
+    }
+    
+    func fetchAnswers() -> [MVAnswer] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Answer")
+        let answersToSyncArray = CoreData.fetch(request)
+        let parsedAnswers = parseAnswers(answersToParse: answersToSyncArray)
         
         //POST answers & update synced value  
         
+        
+        return parsedAnswers
+    }
+    
+    func updateAnswersToServer() {
+        var answeredQuestionSaver = AnsweredQuestionSaver()
+        var questionsToSend = fetchQuestions()
+        var informatiiSectie = fetchPresidingOfficers()
+        for sectie in informatiiSectie {
+            
+        }
     }
     
     func fetchQuestions() -> [MVQuestion] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Question")
-        request.predicate = NSPredicate(format: "answered == true")
+        request.predicate = NSPredicate(format: "answered == true  && synced == false" )
         let questionsToSync = CoreData.fetch(request)
         let qustionsForUI = parseQuestions(questionsToParse: questionsToSync)
         return qustionsForUI
@@ -104,7 +114,7 @@ class DBSyncer: NSObject {
         return qArray
     }
     
-    private func parsePresidingOfficer(presidingOfficer: NSManagedObject) -> MVPresidingOfficer {
+    public func parsePresidingOfficer(presidingOfficer: NSManagedObject) -> MVPresidingOfficer {
         let aPresidingOfficer = MVPresidingOfficer()
         if let arriveHour = presidingOfficer.value(forKey: "arriveHour") as? String {
             aPresidingOfficer.arriveHour = arriveHour
@@ -145,6 +155,9 @@ class DBSyncer: NSObject {
             aPresidingOfficer.arriveHour = arriveHour
         } else {
             aPresidingOfficer.arriveHour = "00"
+        }
+        if let questionsArray = presidingOfficer.value(forKey: "questions") as? [NSManagedObject] {
+            aPresidingOfficer.questions = parseQuestions(questionsToParse: questionsArray)
         }
         return aPresidingOfficer
     }

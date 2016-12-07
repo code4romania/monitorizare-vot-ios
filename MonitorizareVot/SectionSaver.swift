@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftKeychainWrapper
+import CoreData
 
 class SectionSaver {
     
@@ -38,6 +39,12 @@ class SectionSaver {
                     
                     Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: { (response) in
                         if let statusCode = response.response?.statusCode, statusCode == 200 {
+                            self.localUpdateSectie(presidingOfficer: presidingOfficer, synced: true)
+                            completion?(false)
+                        } else if let statusCode = response.response?.statusCode, statusCode == 401 {
+                            
+                        } else {
+                            self.localUpdateSectie(presidingOfficer: presidingOfficer, synced: false)
                             completion?(false)
                         }
                     })
@@ -45,6 +52,31 @@ class SectionSaver {
                     completion?(true)
                 }
             }
+        }
+    }
+
+    private func localSaveSectie(presidingOfficer: MVPresidingOfficer, synced: Bool) {
+        let infoSectie = NSEntityDescription.insertNewObject(forEntityName: "PresidingOfficer", into: CoreData.context)
+        infoSectie.setValue(presidingOfficer.judet, forKey: "judet")
+        infoSectie.setValue(presidingOfficer.sectie, forKey: "sectie")
+        infoSectie.setValue(presidingOfficer.arriveHour, forKey: "arriveHour")
+        infoSectie.setValue(presidingOfficer.arriveMinute, forKey: "arriveMinute")
+        infoSectie.setValue(presidingOfficer.leftHour, forKey: "leftHour")
+        infoSectie.setValue(presidingOfficer.leftMinute, forKey: "leftMinute")
+        infoSectie.setValue(presidingOfficer.genre, forKey: "genre")
+        infoSectie.setValue(presidingOfficer.medium, forKey: "medium")
+        try! CoreData.save()
+    }
+    
+    func localUpdateSectie(presidingOfficer: MVPresidingOfficer, synced: Bool) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PresidingOfficer")
+        if let judet = presidingOfficer.judet, let sectie = presidingOfficer.sectie {
+            request.predicate = NSPredicate(format: "judet == %@ && sectie == %@", judet, sectie)
+        }
+        let results = CoreData.fetch(request)
+        if results.count > 0 {
+            let dbSyncer = DBSyncer()
+            localSaveSectie(presidingOfficer: dbSyncer.parsePresidingOfficer(presidingOfficer: results[0]), synced: synced)
         }
     }
 

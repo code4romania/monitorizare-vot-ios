@@ -11,6 +11,8 @@ class MVPresidingOfficer {
     var arriveMinute: String = "00"
     var leftHour: String = "00"
     var leftMinute: String = "00"
+    var questions : [MVQuestion] = []
+    var synced : Bool = false
     
     func resetSectionInformations() {
         medium = nil

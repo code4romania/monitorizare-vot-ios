@@ -1,6 +1,7 @@
 //  Created by Code4Romania
 
 import UIKit
+import CoreData
 
 enum SectieErrorType {
     case judetNotSet
@@ -52,7 +53,6 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
     }
-    
     
     // MARK: - IBActions
     @IBAction func firstButtonTapped(_ sender: UIButton) {

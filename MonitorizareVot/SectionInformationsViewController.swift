@@ -2,6 +2,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class SectionInformationsViewController: RootViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
@@ -40,6 +41,7 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        resetHourButtons()
         checkLocalStorage()
     }
     
@@ -109,6 +111,12 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     }
     
     // MARK: - Utils
+    
+    private func resetHourButtons() {
+        sixthButton.setTitle("00:00", for:.normal)
+        fifthButton.setTitle("00:00", for:.normal)
+    }
+    
     private func checkLocalStorage() {
         if let medium = UserDefaults.standard.value(forKey: "medium") as? String {
             if medium == "urban" {

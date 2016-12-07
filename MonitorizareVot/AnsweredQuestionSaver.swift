@@ -56,6 +56,10 @@ class AnsweredQuestionSaver {
         }
     }
     
+    private func savePresidingOfficerLocally() {
+        
+    }
+    
     private func localSave(presidingOfficer: MVPresidingOfficer, question: MVQuestion, synced: Bool, tokenExpired: Bool) {
         var questionToSave = question
         questionToSave.synced = synced
@@ -76,6 +80,7 @@ class AnsweredQuestionSaver {
             let answers = aQuestionToSave.mutableSetValue(forKeyPath: "answers")
             answers.add(answerToSave)
         }
+        try! CoreData.save()
         completion?(false)
     }
     
