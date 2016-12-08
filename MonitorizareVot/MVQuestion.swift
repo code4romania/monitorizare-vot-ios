@@ -34,7 +34,7 @@ enum QuestionType {
 
 struct MVQuestion {
     var form: String
-    var id: Int
+    var id: Int16
     var text: String
     var type: QuestionType
     var answered: Bool

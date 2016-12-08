@@ -10,20 +10,22 @@ class AnsweredQuestionSaver {
     private var completion: Completion?
     private var noteSaver = NoteSaver()
     
-    private let shouldTryToSaveLocallyIfFails: Bool
-    
-    init(shouldTryToSaveLocallyIfFails: Bool = true) {
-        self.shouldTryToSaveLocallyIfFails = shouldTryToSaveLocallyIfFails
-    }
-    
-    func save(answeredQuestion: [AnsweredQuestion]) {
-        for aAnsweredQuestion in answeredQuestion {
-            save(answeredQuestion: aAnsweredQuestion, completion: nil)
-        }
-    }
+    var persistedSectionInfo: SectionInfo?
+    var persistedQuestion: Question?
     
     func save(answeredQuestion: AnsweredQuestion, completion: Completion?) {
         self.completion = completion
+        
+        var localPersistedQuestion: Question
+        if let persistedQuestion = persistedQuestion {
+            localPersistedQuestion = persistedQuestion
+        }
+        else {
+            let persistedQuestion = localSave(sectionInfo: persistedSectionInfo, existingQuestion:nil, question: answeredQuestion.question, synced: false)
+            self.persistedQuestion = persistedQuestion
+            localPersistedQuestion = persistedQuestion
+        }
+        noteSaver.noteContainer = localPersistedQuestion
         connectionState {[weak self] (connected) in
             if connected {
                 if let note = answeredQuestion.question.note {
@@ -33,8 +35,9 @@ class AnsweredQuestionSaver {
                 } else {
                     self?.save(answeredQuestion: answeredQuestion, tokenExpired: false)
                 }
-            } else {
-                self?.localSave(sectionInfo: answeredQuestion.sectionInfo, question: answeredQuestion.question, synced: false, tokenExpired: false)
+            }
+            else {
+                self?.completion?(true, false)
             }
         }
     }
@@ -61,43 +64,42 @@ class AnsweredQuestionSaver {
             
             Alamofire.request(url, method: .post, parameters: ["raspuns": [raspuns]], encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: {[weak self] (response) in
                 if let statusCode = response.response?.statusCode, statusCode == 200 {
-                    self?.localSave(sectionInfo: answeredQuestion.sectionInfo, question: answeredQuestion.question, synced: true, tokenExpired: (tokenExpired || false))
+                    if let question = self?.persistedQuestion {
+                        self?.updateAsSynced(question: question)
+                    }
+                    self?.completion?(true, (tokenExpired || false))
                 } else {
-                    self?.localSave(sectionInfo: answeredQuestion.sectionInfo, question: answeredQuestion.question, synced: false, tokenExpired: true)
+                    self?.completion?(true, true)
                 }
             })
         } else {
-            self.localSave(sectionInfo: answeredQuestion.sectionInfo, question: answeredQuestion.question, synced: false, tokenExpired: true)
+            self.completion?(true, true)
         }
     }
     
     
-    private func localSave(sectionInfo: MVSectionInfo, question: MVQuestion, synced: Bool, tokenExpired: Bool) {
+    private func localSave(sectionInfo: SectionInfo?, existingQuestion: Question?, question: MVQuestion, synced: Bool) -> Question {
         var questionToSave = question
         questionToSave.synced = synced
-        let sectionInfoToSave = NSEntityDescription.insertNewObject(forEntityName: "SectionInfo", into: CoreData.context)
-        sectionInfoToSave.setValue(sectionInfo.arriveHour, forKey: "arriveHour")
-        sectionInfoToSave.setValue(sectionInfo.arriveMinute, forKey: "arriveMinute")
-        sectionInfoToSave.setValue(sectionInfo.genre, forKey: "genre")
-        sectionInfoToSave.setValue(sectionInfo.judet, forKey: "judet")
-        sectionInfoToSave.setValue(sectionInfo.sectie, forKey: "sectie")
-        sectionInfoToSave.setValue(sectionInfo.synced, forKey: "synced")
-        sectionInfoToSave.setValue(sectionInfo.leftHour, forKey: "leftHour")
-        sectionInfoToSave.setValue(sectionInfo.leftMinute, forKey: "leftMinute")
-        sectionInfoToSave.setValue(sectionInfo.medium, forKey: "medium")
         
-        let aQuestionToSave = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context)
+        var aQuestionToSave: Question
+        if let existingQuestion = existingQuestion {
+            aQuestionToSave = existingQuestion
+        }
+        else {
+            aQuestionToSave = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context) as! Question
+        }
         aQuestionToSave.setValue(question.id, forKey: "id")
         aQuestionToSave.setValue(question.answered, forKey: "answered")
         aQuestionToSave.setValue(question.form, forKey: "form")
         aQuestionToSave.setValue(synced, forKey: "synced")
         aQuestionToSave.setValue(question.text, forKey: "text")
         aQuestionToSave.setValue(question.type.raw(), forKey: "type")
-        aQuestionToSave.setValue(sectionInfoToSave, forKey: "sectionInfo")
+        aQuestionToSave.setValue(sectionInfo, forKey: "sectionInfo")
         
-        let questions = sectionInfoToSave.mutableSetValue(forKeyPath: "questions")
-        questions.add(aQuestionToSave)
+        sectionInfo?.addToQuestions([aQuestionToSave])
         
+        let answersMutableSet = NSMutableSet()
         for answer in question.answers {
             let answerToSave = NSEntityDescription.insertNewObject(forEntityName: "Answer", into: CoreData.context)
             answerToSave.setValue(answer.id, forKey: "id")
@@ -106,11 +108,16 @@ class AnsweredQuestionSaver {
             answerToSave.setValue(answer.selected, forKey: "selected")
             answerToSave.setValue(answer.text, forKey: "text")
             answerToSave.setValue(aQuestionToSave, forKey: "question")
-            let answers = aQuestionToSave.mutableSetValue(forKeyPath: "answers")
-            answers.add(answerToSave)
+            answersMutableSet.add(answerToSave)
         }
+        aQuestionToSave.answers = answersMutableSet.copy() as? NSSet
         try! CoreData.save()
-        completion?(true, false)
+        return aQuestionToSave
+    }
+    
+    private func updateAsSynced(question: Question) {
+        question.synced = true
+        try! CoreData.save()
     }
     
 }

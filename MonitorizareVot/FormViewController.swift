@@ -8,6 +8,7 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
     
     var questions: [MVQuestion]?
     var sectionInfo: MVSectionInfo?
+    var persistedSectionInfo: SectionInfo?
     var form: String?
     private let cellSpacer = 16
     private let numberOfCellsOnEachRow = 2
@@ -58,6 +59,7 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
         if let questions = self.questions, let questionViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuestionViewController") as? QuestionViewController {
             questionViewController.question = questions[indexPath.row]
             questionViewController.sectionInfo = sectionInfo
+            questionViewController.persistedSectionInfo = persistedSectionInfo
             questionViewController.delegate = self
             self.navigationController?.pushViewController(questionViewController, animated: pushAnimated)
         }

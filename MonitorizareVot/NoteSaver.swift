@@ -9,6 +9,8 @@ typealias Completion = (_ success: Bool, _ tokenExpired: Bool) -> Void
 
 class NoteSaver {
 
+    var noteContainer: NoteContainer?
+    
     private var completion: Completion?
     func save(notes: [MVNote]) {
         for aNote in notes {
@@ -67,34 +69,17 @@ class NoteSaver {
         }
     }
     
-    private func saveSectionInfo(sectionInfo: MVSectionInfo) -> NSManagedObject {
-        let sectionInfoToSave = NSEntityDescription.insertNewObject(forEntityName: "SectionInfo", into: CoreData.context)
-        sectionInfoToSave.setValue(sectionInfo.arriveHour, forKey: "arriveHour")
-        sectionInfoToSave.setValue(sectionInfo.arriveMinute, forKey: "arriveMinute")
-        sectionInfoToSave.setValue(sectionInfo.genre, forKey: "genre")
-        sectionInfoToSave.setValue(sectionInfo.judet, forKey: "judet")
-        sectionInfoToSave.setValue(sectionInfo.sectie, forKey: "sectie")
-        sectionInfoToSave.setValue(sectionInfo.synced, forKey: "synced")
-        sectionInfoToSave.setValue(sectionInfo.leftHour, forKey: "leftHour")
-        sectionInfoToSave.setValue(sectionInfo.leftMinute, forKey: "leftMinute")
-        sectionInfoToSave.setValue(sectionInfo.medium, forKey: "medium")
-        return sectionInfoToSave
-    }
-    
     private func localSave(note: MVNote, synced: Bool, tokenExpired: Bool) {
-        let noteToSave = NSEntityDescription.insertNewObject(forEntityName: "Note", into: CoreData.context)
-        var questionID = "-1"
-        if let id = note.questionID {
-            questionID = String(id)
+        let noteToSave = NSEntityDescription.insertNewObject(forEntityName: "Note", into: CoreData.context) as! Note
+        if let questionID = note.questionID {
+            noteToSave.questionID = questionID//NSNumber(integerLiteral: Int(questionID))
         }
-        noteToSave .setValue(synced, forKey: "synced")
-        noteToSave.setValue(questionID, forKey: "questionID")
-        noteToSave.setValue(saveSectionInfo(sectionInfo: note.sectionInfo), forKey: "sectionInfo")
-        noteToSave.setValue(note.body, forKey: "body")
-        if let image = note.image, let imageData = UIImagePNGRepresentation(image) {
-            noteToSave.setValue(imageData, forKey: "file")
+        noteToSave.synced = synced
+        noteToSave.body = note.body
+        if let image = note.image, let imageNSData = UIImagePNGRepresentation(image) {
+            noteToSave.file = NSData(data: imageNSData)
         }
-        try! CoreData.save()
+        noteContainer?.persist(note: noteToSave, in: CoreData.context)
         completion?(true, tokenExpired)
     }
     

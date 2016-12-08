@@ -100,6 +100,7 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     @IBAction func bottomButtonTapped(_ sender: UIButton) {
         if let pickFormViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PickFormViewController") as? PickFormViewController, let sectionInfo = self.sectionInfo {
             pickFormViewController.sectionInfo = sectionInfo
+            pickFormViewController.persistedSectionInfo = persistedSectionInfo
             pickFormViewController.topLabelText = sectionInfo.judet! + " " + String(sectionInfo.sectie!)
             loadingDataView.isHidden = false
             sectionSaver.save(sectionInfo: sectionInfo, completion: {[weak self] (success, tokenExpired) in

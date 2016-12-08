@@ -70,14 +70,15 @@
 		EF903E351DA25E3100D5BC9C /* Judete.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF903E341DA25E3100D5BC9C /* Judete.plist */; };
 		EFB9AD1A1DE9FDE0008C1035 /* DBSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */; };
 		EFEC82041DCF25B800610D79 /* QuestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */; };
-		F553E3A71DF9BA68000D0902 /* SectionInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E39F1DF9BA68000D0902 /* SectionInfo+CoreDataClass.swift */; };
-		F553E3A81DF9BA68000D0902 /* SectionInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3A01DF9BA68000D0902 /* SectionInfo+CoreDataProperties.swift */; };
-		F553E3A91DF9BA68000D0902 /* Answer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3A11DF9BA68000D0902 /* Answer+CoreDataClass.swift */; };
-		F553E3AA1DF9BA68000D0902 /* Answer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3A21DF9BA68000D0902 /* Answer+CoreDataProperties.swift */; };
-		F553E3AB1DF9BA68000D0902 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3A31DF9BA68000D0902 /* Note+CoreDataClass.swift */; };
-		F553E3AC1DF9BA68000D0902 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3A41DF9BA68000D0902 /* Note+CoreDataProperties.swift */; };
-		F553E3AD1DF9BA68000D0902 /* Question+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3A51DF9BA68000D0902 /* Question+CoreDataClass.swift */; };
-		F553E3AE1DF9BA68000D0902 /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3A61DF9BA68000D0902 /* Question+CoreDataProperties.swift */; };
+		F553E3B01DF9C675000D0902 /* NoteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3AF1DF9C675000D0902 /* NoteContainer.swift */; };
+		F553E3B91DF9D67A000D0902 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3B11DF9D67A000D0902 /* Note+CoreDataClass.swift */; };
+		F553E3BA1DF9D67A000D0902 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3B21DF9D67A000D0902 /* Note+CoreDataProperties.swift */; };
+		F553E3BB1DF9D67A000D0902 /* Question+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3B31DF9D67A000D0902 /* Question+CoreDataClass.swift */; };
+		F553E3BC1DF9D67A000D0902 /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3B41DF9D67A000D0902 /* Question+CoreDataProperties.swift */; };
+		F553E3BD1DF9D67A000D0902 /* Answer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3B51DF9D67A000D0902 /* Answer+CoreDataClass.swift */; };
+		F553E3BE1DF9D67A000D0902 /* Answer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3B61DF9D67A000D0902 /* Answer+CoreDataProperties.swift */; };
+		F553E3BF1DF9D67A000D0902 /* SectionInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3B71DF9D67A000D0902 /* SectionInfo+CoreDataClass.swift */; };
+		F553E3C01DF9D67A000D0902 /* SectionInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3B81DF9D67A000D0902 /* SectionInfo+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,14 +174,15 @@
 		EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBSyncer.swift; sourceTree = "<group>"; };
 		EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
 		F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests.release.xcconfig"; sourceTree = "<group>"; };
-		F553E39F1DF9BA68000D0902 /* SectionInfo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SectionInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F553E3A01DF9BA68000D0902 /* SectionInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SectionInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F553E3A11DF9BA68000D0902 /* Answer+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Answer+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F553E3A21DF9BA68000D0902 /* Answer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Answer+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F553E3A31DF9BA68000D0902 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F553E3A41DF9BA68000D0902 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		F553E3A51DF9BA68000D0902 /* Question+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F553E3A61DF9BA68000D0902 /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F553E3AF1DF9C675000D0902 /* NoteContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteContainer.swift; sourceTree = "<group>"; };
+		F553E3B11DF9D67A000D0902 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F553E3B21DF9D67A000D0902 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F553E3B31DF9D67A000D0902 /* Question+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F553E3B41DF9D67A000D0902 /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F553E3B51DF9D67A000D0902 /* Answer+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Answer+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F553E3B61DF9D67A000D0902 /* Answer+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Answer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F553E3B71DF9D67A000D0902 /* SectionInfo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SectionInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F553E3B81DF9D67A000D0902 /* SectionInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SectionInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -552,14 +554,15 @@
 		F553E3751DF9A54D000D0902 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				F553E39F1DF9BA68000D0902 /* SectionInfo+CoreDataClass.swift */,
-				F553E3A01DF9BA68000D0902 /* SectionInfo+CoreDataProperties.swift */,
-				F553E3A11DF9BA68000D0902 /* Answer+CoreDataClass.swift */,
-				F553E3A21DF9BA68000D0902 /* Answer+CoreDataProperties.swift */,
-				F553E3A31DF9BA68000D0902 /* Note+CoreDataClass.swift */,
-				F553E3A41DF9BA68000D0902 /* Note+CoreDataProperties.swift */,
-				F553E3A51DF9BA68000D0902 /* Question+CoreDataClass.swift */,
-				F553E3A61DF9BA68000D0902 /* Question+CoreDataProperties.swift */,
+				F553E3B11DF9D67A000D0902 /* Note+CoreDataClass.swift */,
+				F553E3B21DF9D67A000D0902 /* Note+CoreDataProperties.swift */,
+				F553E3B31DF9D67A000D0902 /* Question+CoreDataClass.swift */,
+				F553E3B41DF9D67A000D0902 /* Question+CoreDataProperties.swift */,
+				F553E3B51DF9D67A000D0902 /* Answer+CoreDataClass.swift */,
+				F553E3B61DF9D67A000D0902 /* Answer+CoreDataProperties.swift */,
+				F553E3B71DF9D67A000D0902 /* SectionInfo+CoreDataClass.swift */,
+				F553E3B81DF9D67A000D0902 /* SectionInfo+CoreDataProperties.swift */,
+				F553E3AF1DF9C675000D0902 /* NoteContainer.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -868,14 +871,14 @@
 				E7FEC2C71DE09EC500F2F04D /* AnswerWithTextTableViewCellConfigurator.swift in Sources */,
 				E74087371DDCA9FA00D9332F /* Form.swift in Sources */,
 				E7E8EB4D1DDB7C8F009EBE01 /* MVSectionInfo.swift in Sources */,
+				F553E3BC1DF9D67A000D0902 /* Question+CoreDataProperties.swift in Sources */,
 				E7FEC2CE1DE0A3BF00F2F04D /* QuestionViewController.swift in Sources */,
 				E7EB673F1DE5F03A00260CC1 /* RootViewController.swift in Sources */,
 				E7CC3A001DDF30AF0010688D /* MVUITextView.swift in Sources */,
-				F553E3AE1DF9BA68000D0902 /* Question+CoreDataProperties.swift in Sources */,
-				F553E3A81DF9BA68000D0902 /* SectionInfo+CoreDataProperties.swift in Sources */,
 				E74087261DDC924F00D9332F /* FormsPersistor.swift in Sources */,
 				E7E1F2C41DDB586800CE52FC /* APIURLs.swift in Sources */,
 				EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */,
+				F553E3BB1DF9D67A000D0902 /* Question+CoreDataClass.swift in Sources */,
 				E74087331DDCA79000D9332F /* MVAnswer.swift in Sources */,
 				E74087311DDCA74D00D9332F /* MVQuestion.swift in Sources */,
 				E7FEC2C41DE09E8700F2F04D /* AnswerWithTextTableViewCell.swift in Sources */,
@@ -885,9 +888,11 @@
 				E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */,
 				E753C4321DE5FA6800B6B7C9 /* UIButtonExtensions.swift in Sources */,
 				E739B9771DDDD8510002604C /* SectieViewController.swift in Sources */,
-				F553E3AA1DF9BA68000D0902 /* Answer+CoreDataProperties.swift in Sources */,
-				F553E3A91DF9BA68000D0902 /* Answer+CoreDataClass.swift in Sources */,
 				E7FEC2C11DE09E7000F2F04D /* BasicAnswerTableViewCellConfigurator.swift in Sources */,
+				F553E3BA1DF9D67A000D0902 /* Note+CoreDataProperties.swift in Sources */,
+				F553E3B01DF9C675000D0902 /* NoteContainer.swift in Sources */,
+				F553E3B91DF9D67A000D0902 /* Note+CoreDataClass.swift in Sources */,
+				F553E3BF1DF9D67A000D0902 /* SectionInfo+CoreDataClass.swift in Sources */,
 				E7CC39FA1DDF255B0010688D /* MVNote.swift in Sources */,
 				E749080F1DDCB8E300878F0A /* PickFormViewController.swift in Sources */,
 				E740872D1DDCA6E800D9332F /* FormProvider.swift in Sources */,
@@ -897,19 +902,18 @@
 				E7DC77541DF772940020FA96 /* SectionSaver.swift in Sources */,
 				E7DEDFFA1DE0BBF200CD8371 /* AnsweredQuestion.swift in Sources */,
 				E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */,
+				F553E3BD1DF9D67A000D0902 /* Answer+CoreDataClass.swift in Sources */,
 				E7702ED01DF966F200B3E1F2 /* ButtonHandler.swift in Sources */,
-				F553E3A71DF9BA68000D0902 /* SectionInfo+CoreDataClass.swift in Sources */,
 				E7E407561DE076D30021B402 /* ConnectionState.swift in Sources */,
-				F553E3AC1DF9BA68000D0902 /* Note+CoreDataProperties.swift in Sources */,
+				F553E3C01DF9D67A000D0902 /* SectionInfo+CoreDataProperties.swift in Sources */,
 				EFB9AD1A1DE9FDE0008C1035 /* DBSyncer.swift in Sources */,
 				E7EB67421DE5F3CA00260CC1 /* GuideViewController.swift in Sources */,
 				E739B9751DDDA2B80002604C /* QuestionCollectionViewCellConfigurator.swift in Sources */,
 				E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */,
 				E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */,
 				E7E1F2C11DDB580B00CE52FC /* LoginAPIRequest.swift in Sources */,
-				F553E3AD1DF9BA68000D0902 /* Question+CoreDataClass.swift in Sources */,
 				E740872A1DDC987C00D9332F /* FormFetcher.swift in Sources */,
-				F553E3AB1DF9BA68000D0902 /* Note+CoreDataClass.swift in Sources */,
+				F553E3BE1DF9D67A000D0902 /* Answer+CoreDataProperties.swift in Sources */,
 				E7FEC2CB1DE0A11900F2F04D /* AnswerTableViewCellDelegate.swift in Sources */,
 				E7CC39FC1DDF2B2E0010688D /* NoteSaver.swift in Sources */,
 			);

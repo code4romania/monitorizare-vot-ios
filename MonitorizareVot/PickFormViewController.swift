@@ -7,6 +7,7 @@ class PickFormViewController: RootViewController {
     
     // MARK: - iVars
     var sectionInfo: MVSectionInfo?
+    var persistedSectionInfo: SectionInfo?
     var topLabelText: String?
     private var localFormProvider = LocalFormProvider()
     @IBOutlet private var buttonsBackgroundViews: [UIView]!
@@ -39,6 +40,7 @@ class PickFormViewController: RootViewController {
     @IBAction func fourthButtonPressed(_ sender: UIButton) {
         let addNoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNoteViewController") as! AddNoteViewController
         addNoteViewController.sectionInfo = sectionInfo
+        addNoteViewController.noteContainer = persistedSectionInfo
         self.navigationController?.pushViewController(addNoteViewController, animated: true)
     }
     
@@ -71,11 +73,31 @@ class PickFormViewController: RootViewController {
         if let form = localFormProvider.getForm(named: type) {
             var questions = [MVQuestion]()
             for aSection in form.sections {
-                questions.append(contentsOf: aSection.questions)
+                if let persistedQuestions = persistedSectionInfo?.questions as? Set<Question> {
+                    let persistedQuestionsArray = Array(persistedQuestions)
+                    for questionToAdd in aSection.questions {
+                        let indexOfPersistedQuestionInSection = persistedQuestionsArray.index { (persistedQuestion: Question) -> Bool in
+                            return persistedQuestion.id == questionToAdd.id
+                        }
+                        if let indexOfPersistedQuestionInSection = indexOfPersistedQuestionInSection {
+                            let dbSyncer = DBSyncer()
+                            let persistedQuestion = persistedQuestionsArray[indexOfPersistedQuestionInSection]
+                            let parsedQuestions = dbSyncer.parseQuestions(questionsToParse: [persistedQuestion])
+                            questions.append(parsedQuestions.first!)
+                        }
+                        else {
+                            questions.append(questionToAdd)
+                        }
+                    }
+                }
+                else {
+                    questions.append(contentsOf: aSection.questions)
+                }
             }
             formViewController.questions = questions
             formViewController.form = type
             formViewController.sectionInfo = sectionInfo
+            formViewController.persistedSectionInfo = persistedSectionInfo
             self.navigationController?.pushViewController(formViewController, animated: true)
         }
     }

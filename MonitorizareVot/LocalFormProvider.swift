@@ -35,7 +35,7 @@ class LocalFormProvider: FormProvider {
     private func createQuestions(informations: [[String: AnyObject]], named: String) -> [MVQuestion] {
         var questions = [MVQuestion]()
         for aQuestion in informations {
-            let id = aQuestion["idIntrebare"] as! Int
+            let id = aQuestion["idIntrebare"] as! Int16
             let text = aQuestion["textIntrebare"] as! String
             let questionID = aQuestion["idTipIntrebare"] as! Int
             let answers = createAnswers(informations: aQuestion["raspunsuriDisponibile"] as! [[String: AnyObject]])

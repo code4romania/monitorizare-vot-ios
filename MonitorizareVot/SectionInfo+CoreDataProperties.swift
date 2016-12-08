@@ -25,25 +25,25 @@ extension SectionInfo {
     @NSManaged public var medium: String?
     @NSManaged public var sectie: String?
     @NSManaged public var synced: Bool
-    @NSManaged public var note: NSSet?
+    @NSManaged public var notes: NSSet?
     @NSManaged public var questions: NSSet?
 
 }
 
-// MARK: Generated accessors for note
+// MARK: Generated accessors for notes
 extension SectionInfo {
 
-    @objc(addNoteObject:)
-    @NSManaged public func addToNote(_ value: Note)
+    @objc(addNotesObject:)
+    @NSManaged public func addToNotes(_ value: Note)
 
-    @objc(removeNoteObject:)
-    @NSManaged public func removeFromNote(_ value: Note)
+    @objc(removeNotesObject:)
+    @NSManaged public func removeFromNotes(_ value: Note)
 
-    @objc(addNote:)
-    @NSManaged public func addToNote(_ values: NSSet)
+    @objc(addNotes:)
+    @NSManaged public func addToNotes(_ values: NSSet)
 
-    @objc(removeNote:)
-    @NSManaged public func removeFromNote(_ values: NSSet)
+    @objc(removeNotes:)
+    @NSManaged public func removeFromNotes(_ values: NSSet)
 
 }
 

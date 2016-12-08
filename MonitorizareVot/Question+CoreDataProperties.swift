@@ -24,6 +24,7 @@ extension Question {
     @NSManaged public var type: Int16
     @NSManaged public var answers: NSSet?
     @NSManaged public var sectionInfo: SectionInfo?
+    @NSManaged public var note: Note?
 
 }
 

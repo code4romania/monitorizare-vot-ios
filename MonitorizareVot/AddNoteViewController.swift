@@ -12,8 +12,13 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
     
     // MARK: - iVars
     var sectionInfo: MVSectionInfo?
+    var noteContainer: NoteContainer? {
+        didSet {
+            noteSaver.noteContainer = noteContainer
+        }
+    }
     var note: MVNote?
-    var questionID: Int?
+    var questionID: Int16?
     private var noteSaver = NoteSaver()
     private var tapGestureRecognizer: UITapGestureRecognizer?
     private var cameraPicker: UIImagePickerController?

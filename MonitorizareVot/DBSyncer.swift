@@ -6,7 +6,7 @@ import CoreData
 class DBSyncer: NSObject {
     
     private let noteSaver = NoteSaver()
-    private var answeredQuestionSaver: AnsweredQuestionSaver?
+    private var answeredQuestionSavers = NSMapTable<NSNumber, AnsweredQuestionSaver>.strongToStrongObjects()
 
     func fetchNotes() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
@@ -38,14 +38,16 @@ class DBSyncer: NSObject {
     }
     
     func updateAnswersToServer() {
-        answeredQuestionSaver = AnsweredQuestionSaver(shouldTryToSaveLocallyIfFails: false)
         let answeredDBQuestions = fetchQuestions()
-        var answeredQuestionsToSave = [AnsweredQuestion]()
         for answeredDBQuestion in answeredDBQuestions {
             let questionToSync = AnsweredQuestion(question: answeredDBQuestion, sectionInfo: answeredDBQuestion.sectionInfo!)
-            answeredQuestionsToSave.append(questionToSync)
+            let questionID = NSNumber(integerLiteral: Int(questionToSync.question.id))
+            let answeredQuestionSaver = AnsweredQuestionSaver()
+            answeredQuestionSavers.setObject(answeredQuestionSaver, forKey: questionID)
+            answeredQuestionSaver.save(answeredQuestion: questionToSync, completion: {[weak self] (success, tokenExpired) in
+                self?.answeredQuestionSavers.removeObject(forKey: questionID)
+            })
         }
-        answeredQuestionSaver?.save(answeredQuestion: answeredQuestionsToSave)
     }
     
     private func fetchQuestions() -> [MVQuestion] {
@@ -53,12 +55,6 @@ class DBSyncer: NSObject {
         request.predicate = NSPredicate(format: "synced == false")
         let questionsToSync = CoreData.fetch(request)
         let qustionsForUI = parseQuestions(questionsToParse: questionsToSync)
-        for questionMO in questionsToSync {
-            CoreData.context.delete(questionMO)
-        }
-        if questionsToSync.count > 0 {
-            try! CoreData.context.save()
-        }
         return qustionsForUI
     }
     
@@ -68,7 +64,7 @@ class DBSyncer: NSObject {
         }
     }
     
-    private func parseAnswers(answersToParse: Set<NSManagedObject>) -> [MVAnswer] {
+    func parseAnswers(answersToParse: Set<NSManagedObject>) -> [MVAnswer] {
         var answersArray : [MVAnswer] = []
         for anAnswer in answersToParse {
             var id : Int?
@@ -97,12 +93,12 @@ class DBSyncer: NSObject {
         return answersArray
     }
     
-    private func parseQuestions(questionsToParse: [NSManagedObject]) -> [MVQuestion] {
+    func parseQuestions(questionsToParse: [NSManagedObject]) -> [MVQuestion] {
         var qArray : [MVQuestion] = []
         for aQuestion in questionsToParse {
 
-            var id: Int?
-            if let questionId = aQuestion.value(forKey: "id") as? Int {
+            var id: Int16?
+            if let questionId = aQuestion.value(forKey: "id") as? Int16 {
                 id = questionId
             } else {
                 id = 0
@@ -202,7 +198,7 @@ class DBSyncer: NSObject {
         return aSectionInfo
     }
     
-    private func parseNotesFromDB(notesToParse: [NSManagedObject]) -> [MVNote] {
+    func parseNotesFromDB(notesToParse: [NSManagedObject]) -> [MVNote] {
         var notes = [MVNote]()
         for  i in 0...notesToParse.count-1 {
             if let aNote = notesToParse[i] as? NSManagedObject {
@@ -218,7 +214,7 @@ class DBSyncer: NSObject {
                     let image = UIImage(data: file)
                     note.image = image
                 }
-                if let questionID = aNote.value(forKey: "questionID") as? Int {
+                if let questionID = aNote.value(forKey: "questionID") as? Int16 {
                     note.questionID = questionID
                 } else {
                     note.questionID = -1

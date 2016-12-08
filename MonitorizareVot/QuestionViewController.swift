@@ -12,6 +12,11 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     // MARK: - iVars
     var question: MVQuestion?
     var sectionInfo: MVSectionInfo?
+    var persistedSectionInfo: SectionInfo? {
+        didSet {
+            answeredQuestionSaver.persistedSectionInfo = persistedSectionInfo
+        }
+    }
     private let answerWithTextTableViewCellConfigurator = AnswerWithTextTableViewCellConfigurator()
     private let basicAnswerTableViewCellConfigurator = BasicAnswerTableViewCellConfigurator()
     private var tapGestureRecognizer: UITapGestureRecognizer?
@@ -167,7 +172,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
                     answers.append(newAnswer)
                 }
             }
-            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false, sectionInfo: nil, note: question.note)
+            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: true, answers: answers, synced: false, sectionInfo: nil, note: question.note)
             self.question = questionUpdated
             tableView.reloadData()
         }
