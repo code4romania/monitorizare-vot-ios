@@ -59,28 +59,32 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
         adjustButton(button: sender, selected: true)
         adjustButton(button: secondButton, selected: false)
         sectionInfo?.medium = "urban"
-        UserDefaults.standard.set("urban", forKey: "medium")
+        persistedSectionInfo?.medium = "urban"
+        try! CoreData.save()
     }
 
     @IBAction func secondButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: firstButton, selected: false)
         sectionInfo?.medium = "rural"
-        UserDefaults.standard.set("rural", forKey: "medium")
+        persistedSectionInfo?.medium = "rural"
+        try! CoreData.save()
     }
     
     @IBAction func thirdButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: fourthButton, selected: false)
         sectionInfo?.genre = "masculin"
-        UserDefaults.standard.set("masculin", forKey: "genre")
+        persistedSectionInfo?.genre = "masculin"
+        try! CoreData.save()
     }
     
     @IBAction func fourthButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: thirdButton, selected: false)
         sectionInfo?.genre = "feminin"
-        UserDefaults.standard.set("feminin", forKey: "genre")
+        persistedSectionInfo?.genre = "feminin"
+        try! CoreData.save()
     }
     
     @IBAction func fifthButtonTapped(_ sender: UIButton) {
@@ -122,47 +126,41 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     }
     
     private func checkLocalStorage() {
-        if let medium = UserDefaults.standard.value(forKey: "medium") as? String {
+        if let medium = persistedSectionInfo?.medium {
             sectionInfo?.medium = medium
             adjustButton(button: firstButton, selected: (medium == "urban") ? true : false)
             adjustButton(button: secondButton, selected: (medium == "rural") ? true : false)
         }
         
-        if let genre = UserDefaults.standard.value(forKey: "genre") as? String {
+        if let genre = persistedSectionInfo?.genre {
             sectionInfo?.genre = genre
             adjustButton(button: thirdButton, selected: (genre == "masculin") ? true : false)
             adjustButton(button: fourthButton, selected: (genre == "feminin") ? true : false)
         }
         
-        let arriveHour = UserDefaults.standard.value(forKey: "arriveHour")
-        let arriveMinute = UserDefaults.standard.value(forKey: "arriveMinute")
-        
         var firstButtonTitle = "00:00"
-        if let arriveHourString = arriveHour as? String, let arriveMinuteString = arriveMinute as? String {
+        if let arriveHourString = persistedSectionInfo?.arriveHour, let arriveMinuteString = persistedSectionInfo?.arriveMinute {
             firstButtonTitle = arriveHourString + ":" + arriveMinuteString
             sectionInfo?.arriveHour = arriveHourString
             sectionInfo?.arriveMinute = arriveMinuteString
-        } else if let arriveHourString = arriveHour as? String {
+        } else if let arriveHourString = persistedSectionInfo?.arriveHour {
             firstButtonTitle = arriveHourString + ":00"
             sectionInfo?.arriveHour = arriveHourString
-        } else if let arriveMinuteString = arriveMinute as? String {
+        } else if let arriveMinuteString = persistedSectionInfo?.arriveMinute {
             firstButtonTitle =  "00:" + arriveMinuteString
             sectionInfo?.arriveMinute = arriveMinuteString
         }
         fifthButton.setTitle(firstButtonTitle, with: MVColors.black.color, for: .normal)
         
-        let leftHour = UserDefaults.standard.value(forKey: "leftHour")
-        let leftMinute = UserDefaults.standard.value(forKey: "leftMinute")
-        
         var secondButtonTitle = "00:00"
-        if let leftHourString = leftHour as? String, let leftMinuteString = leftMinute as? String {
+        if let leftHourString = persistedSectionInfo?.leftHour, let leftMinuteString = persistedSectionInfo?.leftMinute {
             secondButtonTitle = leftHourString + ":" + leftMinuteString
             sectionInfo?.leftHour = leftHourString
             sectionInfo?.leftMinute = leftMinuteString
-        } else if let leftHourString = leftHour as? String {
+        } else if let leftHourString = persistedSectionInfo?.leftHour {
             secondButtonTitle = leftHourString + ":00"
             sectionInfo?.leftHour = leftHourString
-        } else if let leftMinuteString = leftMinute as? String {
+        } else if let leftMinuteString = persistedSectionInfo?.leftMinute {
             secondButtonTitle =  "00:" + leftMinuteString
             sectionInfo?.leftMinute = leftMinuteString
         }
@@ -228,18 +226,22 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
             case .sosire:
                 if component == 0 {
                     row < 10 ? (sectionInfo?.arriveHour = "0" + String(row)) : (sectionInfo?.arriveHour = String(row))
-                    UserDefaults.standard.set(sectionInfo?.arriveHour, forKey: "arriveHour")
+                    persistedSectionInfo?.arriveHour = sectionInfo?.arriveHour
+                    try! CoreData.save()
                 } else if component == 1 {
                     row < 10 ? (sectionInfo?.arriveMinute = "0" + String(row)) : (sectionInfo?.arriveMinute = String(row))
-                    UserDefaults.standard.set(sectionInfo?.arriveMinute, forKey: "arriveMinute")
+                    persistedSectionInfo?.arriveMinute = sectionInfo?.arriveMinute
+                    try! CoreData.save()
                 }
             case .plecare:
                 if component == 0 {
                     row < 10 ? (sectionInfo?.leftHour = "0" + String(row)) : (sectionInfo?.leftHour = String(row))
-                    UserDefaults.standard.set(sectionInfo?.leftHour, forKey: "leftHour")
+                    persistedSectionInfo?.leftHour = sectionInfo?.leftHour
+                    try! CoreData.save()
                 } else if component == 1 {
                     row < 10 ? (sectionInfo?.leftMinute = "0" + String(row)) : (sectionInfo?.leftMinute = String(row))
-                    UserDefaults.standard.set(sectionInfo?.leftMinute, forKey: "leftMinute")
+                    persistedSectionInfo?.leftMinute = sectionInfo?.leftMinute
+                    try! CoreData.save()
                 }
             default:
                 break
