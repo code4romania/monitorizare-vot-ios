@@ -8,18 +8,18 @@ import SwiftKeychainWrapper
 typealias Completion = (_ success: Bool, _ tokenExpired: Bool) -> Void
 
 class NoteSaver {
-
-    var noteContainer: NoteContainer?
     
+    var noteToSave: Note?
+    var noteContainer: NoteContainer?
     private var completion: Completion?
-    func save(notes: [MVNote]) {
-        for aNote in notes {
-            save(note: aNote, completion: nil)
-        }
-    }
     
     func save(note: MVNote, completion: Completion?) {
         self.completion = completion
+        
+        if noteToSave == nil {
+            noteToSave = unsyncedLocalNote(note: note)
+        }
+        
         connectionState { (connected) in
             if connected {
                 let url = APIURLs.note.url
@@ -51,36 +51,44 @@ class NoteSaver {
                         case .success(request: let request, streamingFromDisk: _, streamFileURL: _):
                             request.responseString(completionHandler: {[weak self] (response) in
                                 if let statusCode = response.response?.statusCode, statusCode == 200 {
-                                    self?.localSave(note: note, synced: true, tokenExpired: false)
+                                    self?.updateToSynced(note: self?.noteToSave)
+                                    completion?(true, false)
                                 } else {
-                                    self?.localSave(note: note, synced: false, tokenExpired: true)
+                                    completion?(true, true)
                                 }
                             })
                         case .failure(_):
-                            self.localSave(note: note, synced: false, tokenExpired: false)
+                            completion?(true, false)
                         }
                     })
                 } else {
-                    self.localSave(note: note, synced: false, tokenExpired: true)
+                    completion?(true, true)
                 }
             } else {
-                self.localSave(note: note, synced: false, tokenExpired: false)
+                completion?(true, false)
             }
         }
     }
     
-    private func localSave(note: MVNote, synced: Bool, tokenExpired: Bool) {
+    private func unsyncedLocalNote(note: MVNote) -> Note {
         let noteToSave = NSEntityDescription.insertNewObject(forEntityName: "Note", into: CoreData.context) as! Note
         if let questionID = note.questionID {
-            noteToSave.questionID = questionID//NSNumber(integerLiteral: Int(questionID))
+            noteToSave.questionID = questionID
         }
-        noteToSave.synced = synced
+        noteToSave.synced = false
         noteToSave.body = note.body
         if let image = note.image, let imageNSData = UIImageJPEGRepresentation(image, 0.8) {
             noteToSave.file = NSData(data: imageNSData)
         }
         noteContainer?.persist(note: noteToSave, in: CoreData.context)
-        completion?(true, tokenExpired)
+        return noteToSave
+    }
+    
+    private func updateToSynced(note: Note?) {
+        if let note = note {
+            note.synced = true
+            try! CoreData.save()
+        }
     }
     
 }

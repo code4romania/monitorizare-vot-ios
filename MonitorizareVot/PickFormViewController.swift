@@ -13,6 +13,7 @@ class PickFormViewController: RootViewController {
     @IBOutlet private var buttonsBackgroundViews: [UIView]!
     @IBOutlet private weak var topButton: UIButton!
     @IBOutlet private weak var topLabel: UILabel!
+    private let dbSyncer = DBSyncer()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -42,6 +43,10 @@ class PickFormViewController: RootViewController {
         addNoteViewController.sectionInfo = sectionInfo
         addNoteViewController.noteContainer = persistedSectionInfo
         self.navigationController?.pushViewController(addNoteViewController, animated: true)
+    }
+    
+    @IBAction func syncData(_ button: UIButton) {
+        dbSyncer.syncUnsyncedData()
     }
     
     @IBAction func topRightButtonPressed(_ sender: UIButton) {

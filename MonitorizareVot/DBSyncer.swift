@@ -5,17 +5,42 @@ import CoreData
 
 class DBSyncer: NSObject {
     
-    private let noteSaver = NoteSaver()
+    private var noteSavers = NSMapTable<NSNumber, NoteSaver>.strongToStrongObjects()
     private var answeredQuestionSavers = NSMapTable<NSNumber, AnsweredQuestionSaver>.strongToStrongObjects()
-
-    func fetchNotes() {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
-        request.predicate = NSPredicate(format: "synced == false")
-        let notesToSyncArray = CoreData.fetch(request)
-        if notesToSyncArray.count >  0 {
-            let notesForSaver = parseNotesFromDB(notesToParse: notesToSyncArray)
-            noteSaver.save(notes: notesForSaver)
-            self.deleteSyncedNotes(notesToDelete:notesToSyncArray)
+    
+    func syncUnsyncedData() {
+        syncUnsyncedNotes()
+        syncUnsyncedQuestions()
+    }
+    
+    private func syncUnsyncedNotes() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "SectionInfo")
+        let allSectionInfo = CoreData.fetch(request) as! [SectionInfo]
+        var notesToSyncArray = [Note]()
+        for sectionInfo in allSectionInfo {
+            if let notes = sectionInfo.notes?.allObjects {
+                let unsyncedNotes = notes.filter({ (note: Any) -> Bool in
+                    if let note = note as? Note {
+                        return note.synced == false
+                    }
+                    else {
+                        return false
+                    }
+                }) as! [Note]
+                notesToSyncArray.append(contentsOf: unsyncedNotes)
+            }
+        }
+        for noteIndex in 0 ..< notesToSyncArray.count {
+            let noteToSave = notesToSyncArray[noteIndex]
+            let sectionInfo = parseSectionInfo(sectionInfo: noteToSave.sectionInfo!, withoutQuestions: true)
+            let noteForServer = parseNotesFromDB(notesToParse: [noteToSave], sectionInfo: sectionInfo).first!
+            let noteSaver = NoteSaver()
+            noteSaver.noteToSave = noteToSave
+            let noteSaverKey = NSNumber(integerLiteral: noteIndex)
+            noteSavers.setObject(noteSaver, forKey: noteSaverKey)
+            noteSaver.save(note: noteForServer, completion: {[weak self] (success, tokenExpired) in
+                self?.noteSavers.removeObject(forKey: noteSaverKey)
+            })
         }
     }
     
@@ -37,7 +62,7 @@ class DBSyncer: NSObject {
         }
     }
     
-    func updateAnswersToServer() {
+    private func syncUnsyncedQuestions() {
         let answeredDBQuestions = fetchQuestions()
         for answeredDBQuestion in answeredDBQuestions {
             let questionToSync = AnsweredQuestion(question: answeredDBQuestion, sectionInfo: answeredDBQuestion.sectionInfo!)
@@ -53,7 +78,7 @@ class DBSyncer: NSObject {
     private func fetchQuestions() -> [MVQuestion] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Question")
         request.predicate = NSPredicate(format: "synced == false")
-        let questionsToSync = CoreData.fetch(request)
+        let questionsToSync = CoreData.fetch(request) as! [Question]
         let qustionsForUI = parseQuestions(questionsToParse: questionsToSync)
         return qustionsForUI
     }
@@ -93,7 +118,7 @@ class DBSyncer: NSObject {
         return answersArray
     }
     
-    func parseQuestions(questionsToParse: [NSManagedObject]) -> [MVQuestion] {
+    func parseQuestions(questionsToParse: [Question]) -> [MVQuestion] {
         var qArray : [MVQuestion] = []
         for aQuestion in questionsToParse {
 
@@ -143,6 +168,10 @@ class DBSyncer: NSObject {
                         q.type = QuestionType(dbValue: type)
                     }
                     q.answers = answers
+                    if let note = aQuestion.note {
+                        let parsedNote = parseNotesFromDB(notesToParse: [note], sectionInfo: sectionInfo).first!
+                        q.note = parsedNote
+                    }
                     qArray.append(q)
                 }
             }
@@ -192,41 +221,37 @@ class DBSyncer: NSObject {
         } else {
             aSectionInfo.leftMinute = "00"
         }
-        if let questions = sectionInfo.value(forKey: "questions") as? [NSManagedObject], !withoutQuestions {
+        if let questions = sectionInfo.value(forKey: "questions") as? [Question], !withoutQuestions {
             aSectionInfo.questions = parseQuestions(questionsToParse: questions)
         }
         return aSectionInfo
     }
     
-    func parseNotesFromDB(notesToParse: [NSManagedObject]) -> [MVNote] {
+    func parseNotesFromDB(notesToParse: [Note], sectionInfo: MVSectionInfo) -> [MVNote] {
         var notes = [MVNote]()
-        for  i in 0...notesToParse.count-1 {
-            if let aNote = notesToParse[i] as? NSManagedObject {
-//                var aSectionInfo = MVSectionInfo()
-                if let sectionInfo = aNote.value(forKey: "sectionInfo") as? NSManagedObject{
-                    let note = MVNote(sectionInfo: parseSectionInfo(sectionInfo: sectionInfo, withoutQuestions: false))
-                if let body = aNote.value(forKey: "body") as? String {
-                    note.body = body
-                } else {
-                    note.body = ""
-                }
-                if let file = aNote.value(forKey: "file") as? Data {
-                    let image = UIImage(data: file)
-                    note.image = image
-                }
-                if let questionID = aNote.value(forKey: "questionID") as? Int16 {
-                    note.questionID = questionID
-                } else {
-                    note.questionID = -1
-                }
-                if let synced = aNote.value(forKey: "synced") as? Bool {
-                    note.synced = synced
-                } else {
-                    note.synced = false
-                }
-                notes.append(note)
-                }
+        for  i in 0 ..< notesToParse.count {
+            let aNote = notesToParse[i]
+            let note = MVNote(sectionInfo: sectionInfo)
+            if let body = aNote.value(forKey: "body") as? String {
+                note.body = body
+            } else {
+                note.body = ""
             }
+            if let file = aNote.value(forKey: "file") as? Data {
+                let image = UIImage(data: file)
+                note.image = image
+            }
+            if let questionID = aNote.value(forKey: "questionID") as? Int16 {
+                note.questionID = questionID
+            } else {
+                note.questionID = -1
+            }
+            if let synced = aNote.value(forKey: "synced") as? Bool {
+                note.synced = synced
+            } else {
+                note.synced = false
+            }
+            notes.append(note)
         }
         return notes
     }

@@ -37,7 +37,13 @@ class AnsweredQuestionSaver {
                 }
             }
             else {
-                self?.completion?(true, false)
+                if let note = answeredQuestion.question.note {
+                    self?.noteSaver.save(note: note, completion: { (success, tokenExpired) in
+                        self?.completion?(true, false)
+                    })
+                } else {
+                    self?.completion?(true, false)
+                }
             }
         }
     }

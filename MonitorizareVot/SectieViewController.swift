@@ -34,8 +34,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
                 let _ = self?.navigationController?.popToRootViewController(animated: false)
             }
         }
-        syncer.fetchNotes()
-        syncer.updateAnswersToServer()
+        syncer.syncUnsyncedData()
         layout()
         setDefaultValues()
         loadData()
