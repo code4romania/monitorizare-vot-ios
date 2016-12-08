@@ -73,6 +73,8 @@ class NoteSaver {
         presidingOfficerToSave.setValue(presidingOfficer.arriveMinute, forKey: "arriveMinute")
         presidingOfficerToSave.setValue(presidingOfficer.genre, forKey: "genre")
         presidingOfficerToSave.setValue(presidingOfficer.judet, forKey: "judet")
+        presidingOfficerToSave.setValue(presidingOfficer.sectie, forKey: "sectie")
+        presidingOfficerToSave.setValue(presidingOfficer.synced, forKey: "synced")
         presidingOfficerToSave.setValue(presidingOfficer.leftHour, forKey: "leftHour")
         presidingOfficerToSave.setValue(presidingOfficer.leftMinute, forKey: "leftMinute")
         presidingOfficerToSave.setValue(presidingOfficer.medium, forKey: "medium")

@@ -61,6 +61,7 @@ class SectionSaver {
         infoSectie.setValue(presidingOfficer.leftMinute, forKey: "leftMinute")
         infoSectie.setValue(presidingOfficer.genre, forKey: "genre")
         infoSectie.setValue(presidingOfficer.medium, forKey: "medium")
+        infoSectie.setValue(synced, forKey: "synced")
         try! CoreData.save()
     }
     
@@ -72,7 +73,7 @@ class SectionSaver {
         let results = CoreData.fetch(request)
         if results.count > 0 {
             let dbSyncer = DBSyncer()
-            localSaveSectie(presidingOfficer: dbSyncer.parsePresidingOfficer(presidingOfficer: results[0]), synced: synced)
+            localSaveSectie(presidingOfficer: dbSyncer.parsePresidingOfficer(presidingOfficer: results[0], withoutQuestions: false), synced: synced)
         }
     }
 

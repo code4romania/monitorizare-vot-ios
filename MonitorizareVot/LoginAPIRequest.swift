@@ -34,6 +34,7 @@ class LoginAPIRequest {
                             completion(false, nil)
                         }
                     } else {
+                        completion(false, nil)
                         let cancel = UIAlertAction(title: "Închide", style: .cancel, handler: nil)
                         
                         let alertController = UIAlertController(title: "Autentificarea a eșuat", message: "Datele introduse pentru autentificare nu sunt valide.", preferredStyle: .alert)
