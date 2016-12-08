@@ -34,7 +34,7 @@ class AnsweredQuestionSaver {
                     self?.save(answeredQuestion: answeredQuestion, tokenExpired: false)
                 }
             } else {
-                self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: false)
+                self?.localSave(sectionInfo: answeredQuestion.sectionInfo, question: answeredQuestion.question, synced: false, tokenExpired: false)
             }
         }
     }
@@ -54,37 +54,37 @@ class AnsweredQuestionSaver {
             }
             
             let raspuns: [String : Any] = ["idIntrebare": answeredQuestion.question.id,
-                                           "codJudet": answeredQuestion.presidingOfficer.judet ?? "",
-                                           "numarSectie": answeredQuestion.presidingOfficer.sectie ?? "-1",
+                                           "codJudet": answeredQuestion.sectionInfo.judet ?? "",
+                                           "numarSectie": answeredQuestion.sectionInfo.sectie ?? "-1",
                                            "codFormular": answeredQuestion.question.form,
                                            "optiuni": options]
             
             Alamofire.request(url, method: .post, parameters: ["raspuns": [raspuns]], encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: {[weak self] (response) in
                 if let statusCode = response.response?.statusCode, statusCode == 200 {
-                    self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: true, tokenExpired: (tokenExpired || false))
+                    self?.localSave(sectionInfo: answeredQuestion.sectionInfo, question: answeredQuestion.question, synced: true, tokenExpired: (tokenExpired || false))
                 } else {
-                    self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: true)
+                    self?.localSave(sectionInfo: answeredQuestion.sectionInfo, question: answeredQuestion.question, synced: false, tokenExpired: true)
                 }
             })
         } else {
-            self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: true)
+            self.localSave(sectionInfo: answeredQuestion.sectionInfo, question: answeredQuestion.question, synced: false, tokenExpired: true)
         }
     }
     
     
-    private func localSave(presidingOfficer: MVPresidingOfficer, question: MVQuestion, synced: Bool, tokenExpired: Bool) {
+    private func localSave(sectionInfo: MVSectionInfo, question: MVQuestion, synced: Bool, tokenExpired: Bool) {
         var questionToSave = question
         questionToSave.synced = synced
-        let presidingOfficerToSave = NSEntityDescription.insertNewObject(forEntityName: "PresidingOfficer", into: CoreData.context)
-        presidingOfficerToSave.setValue(presidingOfficer.arriveHour, forKey: "arriveHour")
-        presidingOfficerToSave.setValue(presidingOfficer.arriveMinute, forKey: "arriveMinute")
-        presidingOfficerToSave.setValue(presidingOfficer.genre, forKey: "genre")
-        presidingOfficerToSave.setValue(presidingOfficer.judet, forKey: "judet")
-        presidingOfficerToSave.setValue(presidingOfficer.sectie, forKey: "sectie")
-        presidingOfficerToSave.setValue(presidingOfficer.synced, forKey: "synced")
-        presidingOfficerToSave.setValue(presidingOfficer.leftHour, forKey: "leftHour")
-        presidingOfficerToSave.setValue(presidingOfficer.leftMinute, forKey: "leftMinute")
-        presidingOfficerToSave.setValue(presidingOfficer.medium, forKey: "medium")
+        let sectionInfoToSave = NSEntityDescription.insertNewObject(forEntityName: "SectionInfo", into: CoreData.context)
+        sectionInfoToSave.setValue(sectionInfo.arriveHour, forKey: "arriveHour")
+        sectionInfoToSave.setValue(sectionInfo.arriveMinute, forKey: "arriveMinute")
+        sectionInfoToSave.setValue(sectionInfo.genre, forKey: "genre")
+        sectionInfoToSave.setValue(sectionInfo.judet, forKey: "judet")
+        sectionInfoToSave.setValue(sectionInfo.sectie, forKey: "sectie")
+        sectionInfoToSave.setValue(sectionInfo.synced, forKey: "synced")
+        sectionInfoToSave.setValue(sectionInfo.leftHour, forKey: "leftHour")
+        sectionInfoToSave.setValue(sectionInfo.leftMinute, forKey: "leftMinute")
+        sectionInfoToSave.setValue(sectionInfo.medium, forKey: "medium")
         
         let aQuestionToSave = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context)
         aQuestionToSave.setValue(question.id, forKey: "id")
@@ -93,9 +93,9 @@ class AnsweredQuestionSaver {
         aQuestionToSave.setValue(synced, forKey: "synced")
         aQuestionToSave.setValue(question.text, forKey: "text")
         aQuestionToSave.setValue(question.type.raw(), forKey: "type")
-        aQuestionToSave.setValue(presidingOfficerToSave, forKey: "presidingOfficer")
+        aQuestionToSave.setValue(sectionInfoToSave, forKey: "sectionInfo")
         
-        let questions = presidingOfficerToSave.mutableSetValue(forKeyPath: "questions")
+        let questions = sectionInfoToSave.mutableSetValue(forKeyPath: "questions")
         questions.add(aQuestionToSave)
         
         for answer in question.answers {

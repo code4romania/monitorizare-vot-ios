@@ -12,7 +12,7 @@ enum SectieErrorType {
 class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - iVars
-    private var presidingOfficer = MVPresidingOfficer()
+    private var sectionInfo = MVSectionInfo()
     private var judete = [[String: AnyObject]]()
     private var pickerViewSelection: PickerViewSelection?
     private var tapGestureRecognizer: UITapGestureRecognizer?
@@ -60,8 +60,8 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         pickerView.reloadAllComponents()
         pickerContainer.isHidden = !pickerContainer.isHidden
         bottomTextField.resignFirstResponder()
-        if presidingOfficer.judet == nil, let judet = judete.first?.keys.first {
-            presidingOfficer.judet = judet
+        if sectionInfo.judet == nil, let judet = judete.first?.keys.first {
+            sectionInfo.judet = judet
             firstLabel.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
         }
     }
@@ -72,19 +72,19 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func bottomButtonPressed(_ sender: UIButton) {
         
-        if presidingOfficer.judet == nil {
+        if sectionInfo.judet == nil {
             showAlertController(errorType: .judetNotSet)
-        } else if presidingOfficer.sectie == nil {
+        } else if sectionInfo.sectie == nil {
             showAlertController(errorType: .sectieNotSet)
         } else {
             for judet in judete {
-                if judet.keys.first == presidingOfficer.judet {
-                    if let sectieMaximum = judet.values.first as? Int, let sectie = Int(presidingOfficer.sectie!) {
+                if judet.keys.first == sectionInfo.judet {
+                    if let sectieMaximum = judet.values.first as? Int, let sectie = Int(sectionInfo.sectie!) {
                         if sectie < 1 || sectie > sectieMaximum {
                             showAlertController(errorType: .sectieInvalid)
                         } else {
-                            UserDefaults.standard.set(presidingOfficer.judet!, forKey: "judet")
-                            UserDefaults.standard.set(presidingOfficer.sectie!, forKey: "sectie")
+                            UserDefaults.standard.set(sectionInfo.judet!, forKey: "judet")
+                            UserDefaults.standard.set(sectionInfo.sectie!, forKey: "sectie")
                             showNextScreen()
                         }
                     }
@@ -95,7 +95,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func textFieldDidEndEditing(_ sender: UITextField) {
         if let text = sender.text {
-            presidingOfficer.sectie = text
+            sectionInfo.sectie = text
         }
     }
     
@@ -140,8 +140,8 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     
     private func showNextScreen() {
         if let sectieInfosViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SectionInformationsViewController") as? SectionInformationsViewController {
-            sectieInfosViewController.presidingOfficer = presidingOfficer
-            sectieInfosViewController.topLabelText = presidingOfficer.judet! + " " + String(presidingOfficer.sectie!)
+            sectieInfosViewController.sectionInfo = sectionInfo
+            sectieInfosViewController.topLabelText = sectionInfo.judet! + " " + String(sectionInfo.sectie!)
             self.navigationController?.pushViewController(sectieInfosViewController, animated: true)
         }
     }
@@ -171,12 +171,12 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     
     private func checkLocalStorage() {
         if let judet = UserDefaults.standard.string(forKey: "judet") {
-            presidingOfficer.judet = judet
+            sectionInfo.judet = judet
             firstLabel.text = judet
         }
         
         if let sectie = UserDefaults.standard.string(forKey: "sectie") {
-            presidingOfficer.sectie = sectie
+            sectionInfo.sectie = sectie
             bottomTextField.text = sectie
         }
     }
@@ -208,7 +208,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
             switch pickerViewSelection {
             case .judete:
                 if let judet = judete[row].keys.first {
-                    presidingOfficer.judet = judet
+                    sectionInfo.judet = judet
                     firstLabel.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
                 }
             default:

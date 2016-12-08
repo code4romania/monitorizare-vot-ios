@@ -4,10 +4,10 @@ import Foundation
 
 class AnsweredQuestion {
     var question: MVQuestion
-    var presidingOfficer: MVPresidingOfficer
+    var sectionInfo: MVSectionInfo
     
-    init(question: MVQuestion, presidingOfficer: MVPresidingOfficer) {
+    init(question: MVQuestion, sectionInfo: MVSectionInfo) {
         self.question = question
-        self.presidingOfficer = presidingOfficer
+        self.sectionInfo = sectionInfo
     }
 }

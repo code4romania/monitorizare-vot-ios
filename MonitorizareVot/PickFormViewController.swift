@@ -6,7 +6,7 @@ import UIKit
 class PickFormViewController: RootViewController {
     
     // MARK: - iVars
-    var presidingOfficer: MVPresidingOfficer?
+    var sectionInfo: MVSectionInfo?
     var topLabelText: String?
     private var localFormProvider = LocalFormProvider()
     @IBOutlet private var buttonsBackgroundViews: [UIView]!
@@ -38,7 +38,7 @@ class PickFormViewController: RootViewController {
     
     @IBAction func fourthButtonPressed(_ sender: UIButton) {
         let addNoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNoteViewController") as! AddNoteViewController
-        addNoteViewController.presidingOfficer = presidingOfficer
+        addNoteViewController.sectionInfo = sectionInfo
         self.navigationController?.pushViewController(addNoteViewController, animated: true)
     }
     
@@ -75,7 +75,7 @@ class PickFormViewController: RootViewController {
             }
             formViewController.questions = questions
             formViewController.form = type
-            formViewController.presidingOfficer = presidingOfficer
+            formViewController.sectionInfo = sectionInfo
             self.navigationController?.pushViewController(formViewController, animated: true)
         }
     }

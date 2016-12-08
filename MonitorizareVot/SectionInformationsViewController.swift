@@ -7,7 +7,7 @@ import CoreData
 class SectionInformationsViewController: RootViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     // MARK: - iVars
-    var presidingOfficer: MVPresidingOfficer?
+    var sectionInfo: MVSectionInfo?
     var topLabelText: String?
     private var pickerViewSelection: PickerViewSelection?
     private var sectionSaver = SectionSaver()
@@ -29,7 +29,7 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
         super.viewDidLoad()
         layout()
         setupOutlets()
-        presidingOfficer?.resetSectionInformations()
+        sectionInfo?.resetSectionInformations()
         pickerContainer.isHidden = true
         fifthButton.setTitle("Alege...", with: MVColors.lightGray.color, for: .normal)
         sixthButton.setTitle("Alege...", with: MVColors.lightGray.color, for: .normal)
@@ -37,6 +37,7 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
         if let topLabelText = self.topLabelText {
             self.navigationItem.set(title: topLabelText, subtitle: "Informații despre secție")
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,28 +54,28 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     @IBAction func firstButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: secondButton, selected: false)
-        presidingOfficer?.medium = "urban"
+        sectionInfo?.medium = "urban"
         UserDefaults.standard.set("urban", forKey: "medium")
     }
 
     @IBAction func secondButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: firstButton, selected: false)
-        presidingOfficer?.medium = "rural"
+        sectionInfo?.medium = "rural"
         UserDefaults.standard.set("rural", forKey: "medium")
     }
     
     @IBAction func thirdButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: fourthButton, selected: false)
-        presidingOfficer?.genre = "masculin"
+        sectionInfo?.genre = "masculin"
         UserDefaults.standard.set("masculin", forKey: "genre")
     }
     
     @IBAction func fourthButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: thirdButton, selected: false)
-        presidingOfficer?.genre = "feminin"
+        sectionInfo?.genre = "feminin"
         UserDefaults.standard.set("feminin", forKey: "genre")
     }
     
@@ -89,11 +90,11 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     }
     
     @IBAction func bottomButtonTapped(_ sender: UIButton) {
-        if let pickFormViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PickFormViewController") as? PickFormViewController, let presidingOfficer = self.presidingOfficer {
-            pickFormViewController.presidingOfficer = presidingOfficer
-            pickFormViewController.topLabelText = presidingOfficer.judet! + " " + String(presidingOfficer.sectie!)
+        if let pickFormViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PickFormViewController") as? PickFormViewController, let sectionInfo = self.sectionInfo {
+            pickFormViewController.sectionInfo = sectionInfo
+            pickFormViewController.topLabelText = sectionInfo.judet! + " " + String(sectionInfo.sectie!)
             loadingDataView.isHidden = false
-            sectionSaver.save(presidingOfficer: presidingOfficer, completion: {[weak self] (success, tokenExpired) in
+            sectionSaver.save(sectionInfo: sectionInfo, completion: {[weak self] (success, tokenExpired) in
                 self?.loadingDataView.isHidden = true
                 if tokenExpired {
                     let _ = self?.navigationController?.popToRootViewController(animated: false)
@@ -118,13 +119,13 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     
     private func checkLocalStorage() {
         if let medium = UserDefaults.standard.value(forKey: "medium") as? String {
-            presidingOfficer?.medium = medium
+            sectionInfo?.medium = medium
             adjustButton(button: firstButton, selected: (medium == "urban") ? true : false)
             adjustButton(button: secondButton, selected: (medium == "rural") ? true : false)
         }
         
         if let genre = UserDefaults.standard.value(forKey: "genre") as? String {
-            presidingOfficer?.genre = genre
+            sectionInfo?.genre = genre
             adjustButton(button: thirdButton, selected: (genre == "masculin") ? true : false)
             adjustButton(button: fourthButton, selected: (genre == "feminin") ? true : false)
         }
@@ -135,14 +136,14 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
         var firstButtonTitle = "00:00"
         if let arriveHourString = arriveHour as? String, let arriveMinuteString = arriveMinute as? String {
             firstButtonTitle = arriveHourString + ":" + arriveMinuteString
-            presidingOfficer?.arriveHour = arriveHourString
-            presidingOfficer?.arriveMinute = arriveMinuteString
+            sectionInfo?.arriveHour = arriveHourString
+            sectionInfo?.arriveMinute = arriveMinuteString
         } else if let arriveHourString = arriveHour as? String {
             firstButtonTitle = arriveHourString + ":00"
-            presidingOfficer?.arriveHour = arriveHourString
+            sectionInfo?.arriveHour = arriveHourString
         } else if let arriveMinuteString = arriveMinute as? String {
             firstButtonTitle =  "00:" + arriveMinuteString
-            presidingOfficer?.arriveMinute = arriveMinuteString
+            sectionInfo?.arriveMinute = arriveMinuteString
         }
         fifthButton.setTitle(firstButtonTitle, with: MVColors.black.color, for: .normal)
         
@@ -152,14 +153,14 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
         var secondButtonTitle = "00:00"
         if let leftHourString = leftHour as? String, let leftMinuteString = leftMinute as? String {
             secondButtonTitle = leftHourString + ":" + leftMinuteString
-            presidingOfficer?.leftHour = leftHourString
-            presidingOfficer?.leftMinute = leftMinuteString
+            sectionInfo?.leftHour = leftHourString
+            sectionInfo?.leftMinute = leftMinuteString
         } else if let leftHourString = leftHour as? String {
             secondButtonTitle = leftHourString + ":00"
-            presidingOfficer?.leftHour = leftHourString
+            sectionInfo?.leftHour = leftHourString
         } else if let leftMinuteString = leftMinute as? String {
             secondButtonTitle =  "00:" + leftMinuteString
-            presidingOfficer?.leftMinute = leftMinuteString
+            sectionInfo?.leftMinute = leftMinuteString
         }
         sixthButton.setTitle(secondButtonTitle, with: MVColors.black.color, for: .normal)
     }
@@ -186,13 +187,13 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     }
     
     private func setupButtonsWithPickerValues() {
-        if let presidingOfficer = self.presidingOfficer {
-            let arriveHour = presidingOfficer.arriveHour
-            let arriveMinute =  presidingOfficer.arriveMinute
+        if let sectionInfo = self.sectionInfo {
+            let arriveHour = sectionInfo.arriveHour
+            let arriveMinute =  sectionInfo.arriveMinute
             fifthButton.setTitle(arriveHour + ":" + arriveMinute, with: MVColors.black.color, for: .normal)
             
-            let leftHour = presidingOfficer.leftHour
-            let leftMinute = presidingOfficer.leftMinute
+            let leftHour = sectionInfo.leftHour
+            let leftMinute = sectionInfo.leftMinute
             sixthButton.setTitle(leftHour + ":" + leftMinute, with: MVColors.black.color, for: .normal)
         }
     }
@@ -222,19 +223,19 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
             switch pickerViewSelection {
             case .sosire:
                 if component == 0 {
-                    row < 10 ? (presidingOfficer?.arriveHour = "0" + String(row)) : (presidingOfficer?.arriveHour = String(row))
-                    UserDefaults.standard.set(presidingOfficer?.arriveHour, forKey: "arriveHour")
+                    row < 10 ? (sectionInfo?.arriveHour = "0" + String(row)) : (sectionInfo?.arriveHour = String(row))
+                    UserDefaults.standard.set(sectionInfo?.arriveHour, forKey: "arriveHour")
                 } else if component == 1 {
-                    row < 10 ? (presidingOfficer?.arriveMinute = "0" + String(row)) : (presidingOfficer?.arriveMinute = String(row))
-                    UserDefaults.standard.set(presidingOfficer?.arriveMinute, forKey: "arriveMinute")
+                    row < 10 ? (sectionInfo?.arriveMinute = "0" + String(row)) : (sectionInfo?.arriveMinute = String(row))
+                    UserDefaults.standard.set(sectionInfo?.arriveMinute, forKey: "arriveMinute")
                 }
             case .plecare:
                 if component == 0 {
-                    row < 10 ? (presidingOfficer?.leftHour = "0" + String(row)) : (presidingOfficer?.leftHour = String(row))
-                    UserDefaults.standard.set(presidingOfficer?.leftHour, forKey: "leftHour")
+                    row < 10 ? (sectionInfo?.leftHour = "0" + String(row)) : (sectionInfo?.leftHour = String(row))
+                    UserDefaults.standard.set(sectionInfo?.leftHour, forKey: "leftHour")
                 } else if component == 1 {
-                    row < 10 ? (presidingOfficer?.leftMinute = "0" + String(row)) : (presidingOfficer?.leftMinute = String(row))
-                    UserDefaults.standard.set(presidingOfficer?.leftMinute, forKey: "leftMinute")
+                    row < 10 ? (sectionInfo?.leftMinute = "0" + String(row)) : (sectionInfo?.leftMinute = String(row))
+                    UserDefaults.standard.set(sectionInfo?.leftMinute, forKey: "leftMinute")
                 }
             default:
                 break

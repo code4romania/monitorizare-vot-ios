@@ -7,7 +7,7 @@ import CoreData
 
 class SectionSaver {
     
-    func save(presidingOfficer: MVPresidingOfficer, completion: Completion?) {
+    func save(sectionInfo: MVSectionInfo, completion: Completion?) {
         connectionState { (connected) in
             if connected {
                 let url = APIURLs.section.url
@@ -15,30 +15,30 @@ class SectionSaver {
                     let headers = ["Content-Type": "application/json",
                                    "Authorization" :"Bearer " + token]
                     var medium = ""
-                    if let selectedMedium = presidingOfficer.medium {
+                    if let selectedMedium = sectionInfo.medium {
                         medium = selectedMedium
                     }
                     
                     var genre = ""
-                    if let selectedGenre = presidingOfficer.genre {
+                    if let selectedGenre = sectionInfo.genre {
                         genre = selectedGenre
                     }
                         
-                    let params: [String : Any] = ["codJudet": presidingOfficer.judet!,
-                                                   "numarSectie": presidingOfficer.sectie!,
-                                                   "oraSosirii": presidingOfficer.arriveHour + ":" + presidingOfficer.arriveMinute,
-                                                   "oraPlecarii": presidingOfficer.leftHour + ":" + presidingOfficer.leftMinute,
+                    let params: [String : Any] = ["codJudet": sectionInfo.judet!,
+                                                   "numarSectie": sectionInfo.sectie!,
+                                                   "oraSosirii": sectionInfo.arriveHour + ":" + sectionInfo.arriveMinute,
+                                                   "oraPlecarii": sectionInfo.leftHour + ":" + sectionInfo.leftMinute,
                                                    "esteZonaUrbana": medium == "urban" ? true : false,
                                                    "presedinteBesvesteFemeie": genre == "feminin" ? true : false ]
                     
                     Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: { (response) in
                         if let statusCode = response.response?.statusCode, statusCode == 200 {
-                            self.localUpdateSectie(presidingOfficer: presidingOfficer, synced: true)
+                            self.localUpdateSectie(sectionInfo: sectionInfo, synced: true)
                             completion?(true, false)
                         } else if let statusCode = response.response?.statusCode, statusCode == 401 {
                             
                         } else {
-                            self.localUpdateSectie(presidingOfficer: presidingOfficer, synced: false)
+                            self.localUpdateSectie(sectionInfo: sectionInfo, synced: false)
                             completion?(true, false)
                         }
                     })
@@ -51,29 +51,29 @@ class SectionSaver {
         }
     }
 
-    private func localSaveSectie(presidingOfficer: MVPresidingOfficer, synced: Bool) {
-        let infoSectie = NSEntityDescription.insertNewObject(forEntityName: "PresidingOfficer", into: CoreData.context)
-        infoSectie.setValue(presidingOfficer.judet, forKey: "judet")
-        infoSectie.setValue(presidingOfficer.sectie, forKey: "sectie")
-        infoSectie.setValue(presidingOfficer.arriveHour, forKey: "arriveHour")
-        infoSectie.setValue(presidingOfficer.arriveMinute, forKey: "arriveMinute")
-        infoSectie.setValue(presidingOfficer.leftHour, forKey: "leftHour")
-        infoSectie.setValue(presidingOfficer.leftMinute, forKey: "leftMinute")
-        infoSectie.setValue(presidingOfficer.genre, forKey: "genre")
-        infoSectie.setValue(presidingOfficer.medium, forKey: "medium")
+    private func localSaveSectie(sectionInfo: MVSectionInfo, synced: Bool) {
+        let infoSectie = NSEntityDescription.insertNewObject(forEntityName: "SectionInfo", into: CoreData.context)
+        infoSectie.setValue(sectionInfo.judet, forKey: "judet")
+        infoSectie.setValue(sectionInfo.sectie, forKey: "sectie")
+        infoSectie.setValue(sectionInfo.arriveHour, forKey: "arriveHour")
+        infoSectie.setValue(sectionInfo.arriveMinute, forKey: "arriveMinute")
+        infoSectie.setValue(sectionInfo.leftHour, forKey: "leftHour")
+        infoSectie.setValue(sectionInfo.leftMinute, forKey: "leftMinute")
+        infoSectie.setValue(sectionInfo.genre, forKey: "genre")
+        infoSectie.setValue(sectionInfo.medium, forKey: "medium")
         infoSectie.setValue(synced, forKey: "synced")
         try! CoreData.save()
     }
     
-    func localUpdateSectie(presidingOfficer: MVPresidingOfficer, synced: Bool) {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PresidingOfficer")
-        if let judet = presidingOfficer.judet, let sectie = presidingOfficer.sectie {
+    func localUpdateSectie(sectionInfo: MVSectionInfo, synced: Bool) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "SectionInfo")
+        if let judet = sectionInfo.judet, let sectie = sectionInfo.sectie {
             request.predicate = NSPredicate(format: "judet == %@ && sectie == %@", judet, sectie)
         }
         let results = CoreData.fetch(request)
         if results.count > 0 {
             let dbSyncer = DBSyncer()
-            localSaveSectie(presidingOfficer: dbSyncer.parsePresidingOfficer(presidingOfficer: results[0], withoutQuestions: false), synced: synced)
+            localSaveSectie(sectionInfo: dbSyncer.parseSectionInfo(sectionInfo: results[0], withoutQuestions: false), synced: synced)
         }
     }
 

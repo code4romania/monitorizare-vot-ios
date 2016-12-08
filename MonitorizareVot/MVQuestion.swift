@@ -40,7 +40,7 @@ struct MVQuestion {
     var answered: Bool
     var answers: [MVAnswer]
     var synced: Bool
-    var presidingOfficer: MVPresidingOfficer? = nil
+    var sectionInfo: MVSectionInfo? = nil
     var note: MVNote?
 }
 

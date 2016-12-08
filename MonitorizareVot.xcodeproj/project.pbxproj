@@ -526,10 +526,18 @@
 		EFB9AD1B1DEA1039008C1035 /* DBHandlers */ = {
 			isa = PBXGroup;
 			children = (
+				F553E3751DF9A54D000D0902 /* Entities */,
 				EF3DC3941DE9DB02006F9D73 /* CoreDataInitialiser.swift */,
 				EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */,
 			);
 			name = DBHandlers;
+			sourceTree = "<group>";
+		};
+		F553E3751DF9A54D000D0902 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
