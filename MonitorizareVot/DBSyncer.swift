@@ -19,10 +19,22 @@ class DBSyncer: NSObject {
         }
     }
     
-    func sectionInfo(for judet: String, sectie:String) {
+    func sectionInfo(for judet: String, sectie:String) -> SectionInfo {
         let requestForExistingSectionInfo = NSFetchRequest<NSFetchRequestResult>(entityName: "SectionInfo")
-        requestForExistingSectionInfo.predicate = NSPredicate(format: "judet == %@ && sectie == &@", judet, sectie)
+        requestForExistingSectionInfo.predicate = NSPredicate(format: "judet == %@ && sectie == %@", judet, sectie)
         let sectionInfoArray = CoreData.fetch(requestForExistingSectionInfo)
+        if let sectionInfo = sectionInfoArray.first as? SectionInfo {
+            return sectionInfo
+        }
+        else {
+            let sectionInfoEntityDescription = NSEntityDescription.entity(forEntityName: "SectionInfo", in: CoreData.context)
+            let newSectioInfo = SectionInfo(entity: sectionInfoEntityDescription!, insertInto: CoreData.context)
+            newSectioInfo.judet = judet
+            newSectioInfo.sectie = sectie
+            newSectioInfo.synced = false
+            try! CoreData.context.save()
+            return newSectioInfo
+        }
     }
     
     func updateAnswersToServer() {
@@ -44,7 +56,9 @@ class DBSyncer: NSObject {
         for questionMO in questionsToSync {
             CoreData.context.delete(questionMO)
         }
-        try! CoreData.context.save()
+        if questionsToSync.count > 0 {
+            try! CoreData.context.save()
+        }
         return qustionsForUI
     }
     

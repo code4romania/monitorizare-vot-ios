@@ -23,6 +23,9 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     @IBOutlet private weak var pickerContainer: UIView!
     @IBOutlet private weak var pickerView: UIPickerView!
     @IBOutlet weak var loadingDataView: UIView!
+    
+    private let dbSyncer = DBSyncer()
+    private var persistedSectionInfo: SectionInfo?
 
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -38,6 +41,7 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
             self.navigationItem.set(title: topLabelText, subtitle: "Informații despre secție")
         }
         
+        persistedSectionInfo = dbSyncer.sectionInfo(for: sectionInfo!.judet!, sectie: sectionInfo!.sectie!)
     }
     
     override func viewWillAppear(_ animated: Bool) {

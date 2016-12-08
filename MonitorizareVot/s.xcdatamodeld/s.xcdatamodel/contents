@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <entity name="Answer" representedClassName="Answer" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Answer" representedClassName="Answer" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="inputAvailable" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="inputText" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,14 +8,14 @@
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answers" inverseEntity="Question" syncable="YES"/>
     </entity>
-    <entity name="Note" representedClassName="Note" versionHashModifier="1" syncable="YES" codeGenerationType="class">
+    <entity name="Note" representedClassName="Note" versionHashModifier="1" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="file" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="questionID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="synced" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="sectionInfo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SectionInfo" inverseName="note" inverseEntity="SectionInfo" syncable="YES"/>
     </entity>
-    <entity name="Question" representedClassName="Question" syncable="YES" codeGenerationType="class">
+    <entity name="Question" representedClassName="Question" syncable="YES">
         <attribute name="answered" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="form" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -25,7 +25,7 @@
         <relationship name="answers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Answer" inverseName="question" inverseEntity="Answer" syncable="YES"/>
         <relationship name="sectionInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SectionInfo" inverseName="questions" inverseEntity="SectionInfo" syncable="YES"/>
     </entity>
-    <entity name="SectionInfo" representedClassName="SectionInfo" syncable="YES" codeGenerationType="class">
+    <entity name="SectionInfo" representedClassName="SectionInfo" syncable="YES">
         <attribute name="arriveHour" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="arriveMinute" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="genre" optional="YES" attributeType="String" syncable="YES"/>
@@ -39,9 +39,9 @@
         <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="sectionInfo" inverseEntity="Question" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Answer" positionX="376" positionY="459" width="128" height="135"/>
+        <element name="Answer" positionX="376" positionY="459" width="128" height="133"/>
         <element name="Note" positionX="198" positionY="288" width="128" height="118"/>
-        <element name="SectionInfo" positionX="-11" positionY="252" width="128" height="208"/>
         <element name="Question" positionX="178" positionY="447" width="128" height="163"/>
+        <element name="SectionInfo" positionX="-11" positionY="252" width="128" height="208"/>
     </elements>
 </model>
