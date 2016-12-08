@@ -85,6 +85,15 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
         tableView.register(nib, forCellReuseIdentifier: identifier)
     }
     
+    private func hasAtLeastOneAnswer(answers: [MVAnswer]) -> Bool {
+        for aAnswer in answers {
+            if aAnswer.selected == true {
+                return true
+            }
+        }
+        return false
+    }
+    
     // MARK: - UITableViewDataSource
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let question = self.question {
@@ -139,12 +148,18 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     @IBAction func buttonPressed(_ sender: UIButton) {
         loadingView.isHidden = false
         let answeredQuestion = AnsweredQuestion(question: question!, presidingOfficer: presidingOfficer!)
-        answeredQuestionSaver.save(answeredQuestion: answeredQuestion) {[weak self] (success, tokenExpired) in
-            self?.loadingView.isHidden = true
-            if tokenExpired {
-                let _ = self?.navigationController?.popToRootViewController(animated: false)
+        if let answers = question?.answers {
+            if hasAtLeastOneAnswer(answers: answers) {
+                answeredQuestionSaver.save(answeredQuestion: answeredQuestion) {[weak self] (success, tokenExpired) in
+                    self?.loadingView.isHidden = true
+                    if tokenExpired {
+                        let _ = self?.navigationController?.popToRootViewController(animated: false)
+                    } else {
+                        self?.delegate?.showNextQuestion(currentQuestion: answeredQuestion.question)
+                    }
+                }
             } else {
-                self?.delegate?.showNextQuestion(currentQuestion: answeredQuestion.question)
+                delegate?.showNextQuestion(currentQuestion: answeredQuestion.question)
             }
         }
     }
@@ -189,7 +204,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
             self.question = questionUpdated
         }
     }
-
+    
     // MARK: - ButtonHandler
     func didTapOnButton() {
         if let addNoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController {

@@ -15,7 +15,7 @@ class RootViewController: UIViewController {
     }
     
     func pushGuideViewController() {
-        if let url = URL(string: "https://www.google.ro/") {
+        if let url = URL(string: "http://monitorizare-vot-ghid.azurewebsites.net/") {
             let safariViewController = SFSafariViewController(url: url)
             self.navigationController?.present(safariViewController, animated: true, completion: nil)
         }
