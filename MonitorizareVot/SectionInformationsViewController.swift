@@ -103,6 +103,7 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
             pickFormViewController.persistedSectionInfo = persistedSectionInfo
             pickFormViewController.topLabelText = sectionInfo.judet! + " " + String(sectionInfo.sectie!)
             loadingDataView.isHidden = false
+            sectionSaver.persistedSectionInfo = persistedSectionInfo
             sectionSaver.save(sectionInfo: sectionInfo, completion: {[weak self] (success, tokenExpired) in
                 self?.loadingDataView.isHidden = true
                 if tokenExpired {

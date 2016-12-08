@@ -7,6 +7,8 @@ import CoreData
 
 class SectionSaver {
     
+    var persistedSectionInfo: SectionInfo?
+    
     func save(sectionInfo: MVSectionInfo, completion: Completion?) {
         connectionState { (connected) in
             if connected {
@@ -33,12 +35,11 @@ class SectionSaver {
                     
                     Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: { (response) in
                         if let statusCode = response.response?.statusCode, statusCode == 200 {
-                            self.localUpdateSectie(sectionInfo: sectionInfo, synced: true)
+                            self.markSectionAsSynced(sectionInfo: self.persistedSectionInfo)
                             completion?(true, false)
                         } else if let statusCode = response.response?.statusCode, statusCode == 401 {
                             
                         } else {
-                            self.localUpdateSectie(sectionInfo: sectionInfo, synced: false)
                             completion?(true, false)
                         }
                     })
@@ -51,30 +52,10 @@ class SectionSaver {
         }
     }
 
-    private func localSaveSectie(sectionInfo: MVSectionInfo, synced: Bool) {
-        let infoSectie = NSEntityDescription.insertNewObject(forEntityName: "SectionInfo", into: CoreData.context)
-        infoSectie.setValue(sectionInfo.judet, forKey: "judet")
-        infoSectie.setValue(sectionInfo.sectie, forKey: "sectie")
-        infoSectie.setValue(sectionInfo.arriveHour, forKey: "arriveHour")
-        infoSectie.setValue(sectionInfo.arriveMinute, forKey: "arriveMinute")
-        infoSectie.setValue(sectionInfo.leftHour, forKey: "leftHour")
-        infoSectie.setValue(sectionInfo.leftMinute, forKey: "leftMinute")
-        infoSectie.setValue(sectionInfo.genre, forKey: "genre")
-        infoSectie.setValue(sectionInfo.medium, forKey: "medium")
-        infoSectie.setValue(synced, forKey: "synced")
-        try! CoreData.save()
-    }
-    
-    func localUpdateSectie(sectionInfo: MVSectionInfo, synced: Bool) {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "SectionInfo")
-        if let judet = sectionInfo.judet, let sectie = sectionInfo.sectie {
-            request.predicate = NSPredicate(format: "judet == %@ && sectie == %@", judet, sectie)
-        }
-        let results = CoreData.fetch(request)
-        if results.count > 0 {
-            let dbSyncer = DBSyncer()
-            localSaveSectie(sectionInfo: dbSyncer.parseSectionInfo(sectionInfo: results[0], withoutQuestions: false), synced: synced)
+    private func markSectionAsSynced(sectionInfo: SectionInfo?) {
+        if let sectionInfo = sectionInfo {
+            sectionInfo.synced = true
+            try! CoreData.save()
         }
     }
-
 }

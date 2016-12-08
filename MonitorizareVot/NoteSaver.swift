@@ -25,7 +25,7 @@ class NoteSaver {
                 let url = APIURLs.note.url
                 var imageData = Data()
                 if let image = note.image {
-                    imageData = UIImagePNGRepresentation(image)!
+                    imageData = UIImageJPEGRepresentation(image, 0.8)!
                 }
                 
                 var questionID = "-1"
@@ -45,7 +45,7 @@ class NoteSaver {
                         for (aKey, aValue) in parameters {
                             multipart.append(aValue.data(using: String.Encoding.utf8)!, withName: aKey)
                         }
-                        multipart.append(imageData, withName: "file", fileName: "newImage.png", mimeType: "image/png")
+                        multipart.append(imageData, withName: "file", fileName: "newImage.jpg", mimeType: "image/jpeg")
                     }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers, encodingCompletion: { (encodingResult) in
                         switch encodingResult {
                         case .success(request: let request, streamingFromDisk: _, streamFileURL: _):
@@ -76,7 +76,7 @@ class NoteSaver {
         }
         noteToSave.synced = synced
         noteToSave.body = note.body
-        if let image = note.image, let imageNSData = UIImagePNGRepresentation(image) {
+        if let image = note.image, let imageNSData = UIImageJPEGRepresentation(image, 0.8) {
             noteToSave.file = NSData(data: imageNSData)
         }
         noteContainer?.persist(note: noteToSave, in: CoreData.context)
