@@ -98,6 +98,11 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionBodyTableViewCell") as! QuestionBodyTableViewCell
             cell.label.text = question!.text
             cell.delegate = self
+            if let question = question, question.note == nil  {
+                cell.button.setTitle("Adaugă o notă întrebării", for: .normal)
+            } else {
+                cell.button.setTitle("Editează nota", for: .normal)
+            }
             return cell
         }
         

@@ -91,18 +91,19 @@ class DBSyncer: NSObject {
     private func parseQuestions(questionsToParse: [NSManagedObject]) -> [MVQuestion] {
         var qArray : [MVQuestion] = []
         for aQuestion in questionsToParse {
-            var answered : String?
+
             var id: Int?
             if let questionId = aQuestion.value(forKey: "id") as? Int {
                 id = questionId
             } else {
                 id = 0
             }
-            if let qAnswered = aQuestion.value(forKey: "answered") as? String {
+            
+            var answered = false
+            if let qAnswered = aQuestion.value(forKey: "answered") as? Bool {
                 answered = qAnswered
-            } else {
-                answered = ""
             }
+            
             var finalForm: String
             if let form = aQuestion.value(forKey: "form") as? String {
                 finalForm = form
@@ -125,10 +126,11 @@ class DBSyncer: NSObject {
             if let qAnswers = aQuestion.value(forKey: "answers") as? Set<NSManagedObject> {
                 answers = parseAnswers(answersToParse: qAnswers)
             }
-            if let answered = answered, let id = id {
+            
+            if let id = id {
                 if let presidingOfficerMO = aQuestion.value(forKey: "presidingOfficer") as? NSManagedObject {
                     let presidingOfficer = parsePresidingOfficer(presidingOfficer: presidingOfficerMO, withoutQuestions: true)
-                    var q = MVQuestion(form: finalForm, id: id, text: finalText, type: QuestionType.SingleAnswer, answered: NSAttributedString(string: answered, attributes: nil), answers: [], synced: finalSynced, presidingOfficer: presidingOfficer, note: nil)
+                    var q = MVQuestion(form: finalForm, id: id, text: finalText, type: QuestionType.SingleAnswer, answered: answered, answers: [], synced: finalSynced, presidingOfficer: presidingOfficer, note: nil)
                     if let type = aQuestion.value(forKey: "type") as? Int {
                         q.type = QuestionType(dbValue: type)
                     }

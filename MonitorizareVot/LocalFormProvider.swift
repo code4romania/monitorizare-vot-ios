@@ -39,8 +39,6 @@ class LocalFormProvider: FormProvider {
             let text = aQuestion["textIntrebare"] as! String
             let questionID = aQuestion["idTipIntrebare"] as! Int
             let answers = createAnswers(informations: aQuestion["raspunsuriDisponibile"] as! [[String: AnyObject]])
-            let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 11.0), NSForegroundColorAttributeName: MVColors.gray.color]
-            let answered = NSAttributedString(string: "Necompletat", attributes: attributes)
             var type: QuestionType = .SingleAnswer
             
             if questionID == 0 {
@@ -52,7 +50,7 @@ class LocalFormProvider: FormProvider {
             } else if questionID == 3 {
                 type = .MultipleAnswerWithText
             }
-            let newQuestion = MVQuestion(form: named, id: id, text: text, type: type, answered: answered, answers: answers, synced: false, presidingOfficer: nil, note: nil)
+            let newQuestion = MVQuestion(form: named, id: id, text: text, type: type, answered: false, answers: answers, synced: false, presidingOfficer: nil, note: nil)
             questions.append(newQuestion)
         }
         return questions

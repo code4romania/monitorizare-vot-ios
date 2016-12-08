@@ -88,7 +88,7 @@ class AnsweredQuestionSaver {
         
         let aQuestionToSave = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context)
         aQuestionToSave.setValue(question.id, forKey: "id")
-        aQuestionToSave.setValue(question.answered.string, forKey: "answered")
+        aQuestionToSave.setValue(question.answered, forKey: "answered")
         aQuestionToSave.setValue(question.form, forKey: "form")
         aQuestionToSave.setValue(synced, forKey: "synced")
         aQuestionToSave.setValue(question.text, forKey: "text")

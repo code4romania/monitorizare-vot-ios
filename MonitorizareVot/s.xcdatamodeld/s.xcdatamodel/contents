@@ -29,7 +29,7 @@
         <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="presidingOfficer" inverseEntity="Question" syncable="YES"/>
     </entity>
     <entity name="Question" representedClassName="Question" syncable="YES" codeGenerationType="class">
-        <attribute name="answered" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="answered" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="form" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="synced" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>

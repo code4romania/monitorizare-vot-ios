@@ -37,7 +37,7 @@ struct MVQuestion {
     var id: Int
     var text: String
     var type: QuestionType
-    var answered: NSAttributedString
+    var answered: Bool
     var answers: [MVAnswer]
     var synced: Bool
     var presidingOfficer: MVPresidingOfficer? = nil

@@ -76,7 +76,17 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
             } else {
                 let _ = self.navigationController?.popViewController(animated: true)
             }
+            
+            var currentQuestionUpdated = currentQuestion
+            for aAnswer in currentQuestion.answers {
+                if aAnswer.selected == true {
+                    currentQuestionUpdated.answered = true
+                    questions?[index] = currentQuestionUpdated
+                    collectionView.reloadData()
+                    break
+                }
+            }
+            
         }
-        
     }
 }
