@@ -35,7 +35,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
             }
         }
         syncer.fetchNotes()
-        syncer.fetchAnswers()
+        syncer.updateAnswersToServer()
         layout()
         setDefaultValues()
         loadData()

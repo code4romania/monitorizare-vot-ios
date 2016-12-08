@@ -8,6 +8,16 @@ enum QuestionType {
     case SingleAnswerWithText
     case MultipleAnswerWithText
 
+    init(dbValue: Int) {
+        switch dbValue {
+        case 0: self = .MultipleAnswer
+        case 1: self = .SingleAnswer
+        case 2: self = .SingleAnswerWithText
+        case 3: self = .MultipleAnswerWithText
+        default: self = .SingleAnswer
+        }
+    }
+    
     func raw()-> Int {
         switch self {
         case .MultipleAnswer:
@@ -20,7 +30,6 @@ enum QuestionType {
             return 3
         }
     }
-
 }
 
 struct MVQuestion {
@@ -31,5 +40,6 @@ struct MVQuestion {
     var answered: NSAttributedString
     var answers: [MVAnswer]
     var synced: Bool
+    var presidingOfficer: MVPresidingOfficer? = nil
 }
 

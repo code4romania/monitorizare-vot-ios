@@ -11,6 +11,12 @@ typealias AnsweredQuestionSaverCompletion = (_ tokenExpired: Bool) -> Void
 class AnsweredQuestionSaver {
     private var completion: AnsweredQuestionSaverCompletion?
     
+    private let shouldTryToSaveLocallyIfFails: Bool
+    
+    init(shouldTryToSaveLocallyIfFails: Bool = true) {
+        self.shouldTryToSaveLocallyIfFails = shouldTryToSaveLocallyIfFails
+    }
+    
     func save(answeredQuestion: [AnsweredQuestion]) {
         for aAnsweredQuestion in answeredQuestion {
             save(answeredQuestion: aAnsweredQuestion, completion: nil)
@@ -63,13 +69,29 @@ class AnsweredQuestionSaver {
     private func localSave(presidingOfficer: MVPresidingOfficer, question: MVQuestion, synced: Bool, tokenExpired: Bool) {
         var questionToSave = question
         questionToSave.synced = synced
+        let presidingOfficerToSave = NSEntityDescription.insertNewObject(forEntityName: "PresidingOfficer", into: CoreData.context)
+        presidingOfficerToSave.setValue(presidingOfficer.arriveHour, forKey: "arriveHour")
+        presidingOfficerToSave.setValue(presidingOfficer.arriveMinute, forKey: "arriveMinute")
+        presidingOfficerToSave.setValue(presidingOfficer.genre, forKey: "genre")
+        presidingOfficerToSave.setValue(presidingOfficer.judet, forKey: "judet")
+        presidingOfficerToSave.setValue(presidingOfficer.sectie, forKey: "sectie")
+        presidingOfficerToSave.setValue(presidingOfficer.synced, forKey: "synced")
+        presidingOfficerToSave.setValue(presidingOfficer.leftHour, forKey: "leftHour")
+        presidingOfficerToSave.setValue(presidingOfficer.leftMinute, forKey: "leftMinute")
+        presidingOfficerToSave.setValue(presidingOfficer.medium, forKey: "medium")
+        
         let aQuestionToSave = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context)
         aQuestionToSave.setValue(question.id, forKey: "id")
         aQuestionToSave.setValue(question.answered.string, forKey: "answered")
         aQuestionToSave.setValue(question.form, forKey: "form")
-        aQuestionToSave.setValue(question.synced, forKey: "synced")
+        aQuestionToSave.setValue(synced, forKey: "synced")
         aQuestionToSave.setValue(question.text, forKey: "text")
         aQuestionToSave.setValue(question.type.raw(), forKey: "type")
+        aQuestionToSave.setValue(presidingOfficerToSave, forKey: "presidingOfficer")
+        
+        let questions = presidingOfficerToSave.mutableSetValue(forKeyPath: "questions")
+        questions.add(aQuestionToSave)
+        
         for answer in question.answers {
             let answerToSave = NSEntityDescription.insertNewObject(forEntityName: "Answer", into: CoreData.context)
             answerToSave.setValue(answer.id, forKey: "id")
@@ -77,6 +99,7 @@ class AnsweredQuestionSaver {
             answerToSave.setValue(answer.inputText, forKey: "inputText")
             answerToSave.setValue(answer.selected, forKey: "selected")
             answerToSave.setValue(answer.text, forKey: "text")
+            answerToSave.setValue(aQuestionToSave, forKey: "question")
             let answers = aQuestionToSave.mutableSetValue(forKeyPath: "answers")
             answers.add(answerToSave)
         }

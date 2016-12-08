@@ -153,7 +153,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
                     answers.append(newAnswer)
                 }
             }
-            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false)
+            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false, presidingOfficer: nil)
             self.question = questionUpdated
             tableView.reloadData()
         }
@@ -171,7 +171,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
                     answers.append(newAnswer)
                 }
             }
-            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false)
+            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false, presidingOfficer: nil)
             self.question = questionUpdated
         }
     }
