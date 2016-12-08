@@ -134,7 +134,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     @IBAction func buttonPressed(_ sender: UIButton) {
         loadingView.isHidden = false
         let answeredQuestion = AnsweredQuestion(question: question!, presidingOfficer: presidingOfficer!)
-        answeredQuestionSaver.save(answeredQuestion: answeredQuestion) {[weak self] (tokenExpired) in
+        answeredQuestionSaver.save(answeredQuestion: answeredQuestion) {[weak self] (success, tokenExpired) in
             self?.loadingView.isHidden = true
             if tokenExpired {
                 let _ = self?.navigationController?.popToRootViewController(animated: false)

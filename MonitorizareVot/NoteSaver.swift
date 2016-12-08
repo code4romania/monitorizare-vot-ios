@@ -5,18 +5,18 @@ import Alamofire
 import CoreData
 import SwiftKeychainWrapper
 
-typealias NoteSaverCompletion = (_ tokenExpired: Bool) -> Void
+typealias Completion = (_ success: Bool, _ tokenExpired: Bool) -> Void
 
 class NoteSaver {
 
-    private var completion: NoteSaverCompletion?
+    private var completion: Completion?
     func save(notes: [MVNote]) {
         for aNote in notes {
             save(note: aNote, completion: nil)
         }
     }
     
-    func save(note: MVNote, completion: NoteSaverCompletion?) {
+    func save(note: MVNote, completion: Completion?) {
         self.completion = completion
         connectionState { (connected) in
             if connected {
@@ -93,7 +93,7 @@ class NoteSaver {
             noteToSave.setValue(imageData, forKey: "file")
         }
         try! CoreData.save()
-        completion?(tokenExpired)
+        completion?(true, tokenExpired)
     }
     
 }

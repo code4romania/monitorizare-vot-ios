@@ -7,7 +7,7 @@ import CoreData
 
 class SectionSaver {
     
-    func save(presidingOfficer: MVPresidingOfficer, completion: AnsweredQuestionSaverCompletion?) {
+    func save(presidingOfficer: MVPresidingOfficer, completion: Completion?) {
         connectionState { (connected) in
             if connected {
                 let url = APIURLs.section.url
@@ -34,17 +34,19 @@ class SectionSaver {
                     Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: { (response) in
                         if let statusCode = response.response?.statusCode, statusCode == 200 {
                             self.localUpdateSectie(presidingOfficer: presidingOfficer, synced: true)
-                            completion?(false)
+                            completion?(true, false)
                         } else if let statusCode = response.response?.statusCode, statusCode == 401 {
                             
                         } else {
                             self.localUpdateSectie(presidingOfficer: presidingOfficer, synced: false)
-                            completion?(false)
+                            completion?(true, false)
                         }
                     })
                 } else {
-                    completion?(true)
+                    completion?(false, true)
                 }
+            } else {
+                completion?(false, false)
             }
         }
     }

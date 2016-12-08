@@ -1,6 +1,7 @@
 //  Created by Code4Romania
 
 import UIKit
+import SafariServices
 
 class RootViewController: UIViewController {
 
@@ -14,12 +15,9 @@ class RootViewController: UIViewController {
     }
     
     func pushGuideViewController() {
-        if let _ = self.navigationController?.childViewControllers.last as? GuideViewController {
-            return
-        }
-        
-        if let guideViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GuideViewController") as? GuideViewController {
-            self.navigationController?.pushViewController(guideViewController, animated: true)
+        if let url = URL(string: "https://www.google.ro/") {
+            let safariViewController = SFSafariViewController(url: url)
+            self.navigationController?.present(safariViewController, animated: true, completion: nil)
         }
     }
     

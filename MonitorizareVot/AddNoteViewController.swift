@@ -104,7 +104,7 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
         if let note = self.note {
             if delegate == nil {
                 loadingView.isHidden = false
-                noteSaver.save(note: note, completion: { (tokenExpired) in
+                noteSaver.save(note: note, completion: { (success, tokenExpired) in
                     if tokenExpired {
                         let _ = self.navigationController?.popToRootViewController(animated: false)
                     } else {

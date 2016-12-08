@@ -6,10 +6,8 @@ import UIKit
 import CoreData
 import SwiftKeychainWrapper
 
-typealias AnsweredQuestionSaverCompletion = (_ tokenExpired: Bool) -> Void
-
 class AnsweredQuestionSaver {
-    private var completion: AnsweredQuestionSaverCompletion?
+    private var completion: Completion?
     private var noteSaver = NoteSaver()
     
     func save(answeredQuestion: [AnsweredQuestion]) {
@@ -18,12 +16,12 @@ class AnsweredQuestionSaver {
         }
     }
     
-    func save(answeredQuestion: AnsweredQuestion, completion: AnsweredQuestionSaverCompletion?) {
+    func save(answeredQuestion: AnsweredQuestion, completion: Completion?) {
         self.completion = completion
         connectionState {[weak self] (connected) in
             if connected {
                 if let note = answeredQuestion.question.note {
-                    self?.noteSaver.save(note: note, completion: { (tokenExpired) in
+                    self?.noteSaver.save(note: note, completion: { (success, tokenExpired) in
                         self?.save(answeredQuestion: answeredQuestion, tokenExpired: tokenExpired)
                     })
                 } else {
@@ -89,7 +87,7 @@ class AnsweredQuestionSaver {
             answers.add(answerToSave)
         }
         try! CoreData.save()
-        completion?(false)
+        completion?(true, false)
     }
     
 }

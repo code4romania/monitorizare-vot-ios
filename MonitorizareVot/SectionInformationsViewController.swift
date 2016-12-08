@@ -93,7 +93,7 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
             pickFormViewController.presidingOfficer = presidingOfficer
             pickFormViewController.topLabelText = presidingOfficer.judet! + " " + String(presidingOfficer.sectie!)
             loadingDataView.isHidden = false
-            sectionSaver.save(presidingOfficer: presidingOfficer, completion: {[weak self] (tokenExpired) in
+            sectionSaver.save(presidingOfficer: presidingOfficer, completion: {[weak self] (success, tokenExpired) in
                 self?.loadingDataView.isHidden = true
                 if tokenExpired {
                     let _ = self?.navigationController?.popToRootViewController(animated: false)
