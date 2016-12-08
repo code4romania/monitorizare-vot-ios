@@ -65,9 +65,11 @@ class DBSyncer: NSObject {
     private func syncUnsyncedQuestions() {
         let answeredDBQuestions = fetchQuestions()
         for answeredDBQuestion in answeredDBQuestions {
-            let questionToSync = AnsweredQuestion(question: answeredDBQuestion, sectionInfo: answeredDBQuestion.sectionInfo!)
+            let questionForUI = parseQuestions(questionsToParse: [answeredDBQuestion]).first!
+            let questionToSync = AnsweredQuestion(question: questionForUI, sectionInfo: questionForUI.sectionInfo!)
             let questionID = NSNumber(integerLiteral: Int(questionToSync.question.id))
             let answeredQuestionSaver = AnsweredQuestionSaver()
+            answeredQuestionSaver.persistedQuestion = answeredDBQuestion
             answeredQuestionSavers.setObject(answeredQuestionSaver, forKey: questionID)
             answeredQuestionSaver.save(answeredQuestion: questionToSync, completion: {[weak self] (success, tokenExpired) in
                 self?.answeredQuestionSavers.removeObject(forKey: questionID)
@@ -75,12 +77,11 @@ class DBSyncer: NSObject {
         }
     }
     
-    private func fetchQuestions() -> [MVQuestion] {
+    private func fetchQuestions() -> [Question] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Question")
         request.predicate = NSPredicate(format: "synced == false")
         let questionsToSync = CoreData.fetch(request) as! [Question]
-        let qustionsForUI = parseQuestions(questionsToParse: questionsToSync)
-        return qustionsForUI
+        return questionsToSync
     }
     
     private func deleteSyncedNotes( notesToDelete: [NSManagedObject]) {
