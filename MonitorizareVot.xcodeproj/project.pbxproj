@@ -49,7 +49,7 @@
 		E7E5B80D1DE1D33F00A05E56 /* QuestionBodyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E5B80B1DE1D33F00A05E56 /* QuestionBodyTableViewCell.xib */; };
 		E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB481DDB63E1009EBE01 /* SectionInformationsViewController.swift */; };
 		E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */; };
-		E7E8EB4D1DDB7C8F009EBE01 /* MVPresidingOfficer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4C1DDB7C8F009EBE01 /* MVPresidingOfficer.swift */; };
+		E7E8EB4D1DDB7C8F009EBE01 /* MVSectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4C1DDB7C8F009EBE01 /* MVSectionInfo.swift */; };
 		E7EB673F1DE5F03A00260CC1 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EB673E1DE5F03A00260CC1 /* RootViewController.swift */; };
 		E7EB67421DE5F3CA00260CC1 /* GuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EB67411DE5F3CA00260CC1 /* GuideViewController.swift */; };
 		E7FEC2BE1DE09E6300F2F04D /* BasicAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FEC2BC1DE09E6300F2F04D /* BasicAnswerTableViewCell.swift */; };

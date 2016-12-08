@@ -6,7 +6,7 @@ import CoreData
 class DBSyncer: NSObject {
     
     private let noteSaver = NoteSaver()
-    private var answeredQuestionSaver: AnsweredQuestionSaver?
+    private var answeredQuestionSavers = NSMapTable<NSNumber, AnsweredQuestionSaver>.strongToStrongObjects()
 
     func fetchNotes() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
@@ -19,26 +19,35 @@ class DBSyncer: NSObject {
         }
     }
     
-    func  fetchPresidingOfficers() -> [MVPresidingOfficer] {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PresidingOfficer")
-        let presidingOfficersArray = CoreData.fetch(request)
-        var finalArray : [MVPresidingOfficer] = []
-        for aPresdingOfficer in presidingOfficersArray {
-            let finalOfficer = parsePresidingOfficer(presidingOfficer: aPresdingOfficer, withoutQuestions: false) as MVPresidingOfficer
-            finalArray.append(finalOfficer)
+    func sectionInfo(for judet: String, sectie:String) -> SectionInfo {
+        let requestForExistingSectionInfo = NSFetchRequest<NSFetchRequestResult>(entityName: "SectionInfo")
+        requestForExistingSectionInfo.predicate = NSPredicate(format: "judet == %@ && sectie == %@", judet, sectie)
+        let sectionInfoArray = CoreData.fetch(requestForExistingSectionInfo)
+        if let sectionInfo = sectionInfoArray.first as? SectionInfo {
+            return sectionInfo
         }
-        return finalArray
+        else {
+            let sectionInfoEntityDescription = NSEntityDescription.entity(forEntityName: "SectionInfo", in: CoreData.context)
+            let newSectioInfo = SectionInfo(entity: sectionInfoEntityDescription!, insertInto: CoreData.context)
+            newSectioInfo.judet = judet
+            newSectioInfo.sectie = sectie
+            newSectioInfo.synced = false
+            try! CoreData.context.save()
+            return newSectioInfo
+        }
     }
     
     func updateAnswersToServer() {
-        answeredQuestionSaver = AnsweredQuestionSaver(shouldTryToSaveLocallyIfFails: false)
         let answeredDBQuestions = fetchQuestions()
-        var answeredQuestionsToSave = [AnsweredQuestion]()
         for answeredDBQuestion in answeredDBQuestions {
-            let questionToSync = AnsweredQuestion(question: answeredDBQuestion, presidingOfficer: answeredDBQuestion.presidingOfficer!)
-            answeredQuestionsToSave.append(questionToSync)
+            let questionToSync = AnsweredQuestion(question: answeredDBQuestion, sectionInfo: answeredDBQuestion.sectionInfo!)
+            let questionID = NSNumber(integerLiteral: Int(questionToSync.question.id))
+            let answeredQuestionSaver = AnsweredQuestionSaver()
+            answeredQuestionSavers.setObject(answeredQuestionSaver, forKey: questionID)
+            answeredQuestionSaver.save(answeredQuestion: questionToSync, completion: {[weak self] (success, tokenExpired) in
+                self?.answeredQuestionSavers.removeObject(forKey: questionID)
+            })
         }
-        answeredQuestionSaver?.save(answeredQuestion: answeredQuestionsToSave)
     }
     
     private func fetchQuestions() -> [MVQuestion] {
@@ -46,10 +55,6 @@ class DBSyncer: NSObject {
         request.predicate = NSPredicate(format: "synced == false")
         let questionsToSync = CoreData.fetch(request)
         let qustionsForUI = parseQuestions(questionsToParse: questionsToSync)
-        for questionMO in questionsToSync {
-            CoreData.context.delete(questionMO)
-        }
-        try! CoreData.context.save()
         return qustionsForUI
     }
     
@@ -59,7 +64,7 @@ class DBSyncer: NSObject {
         }
     }
     
-    private func parseAnswers(answersToParse: Set<NSManagedObject>) -> [MVAnswer] {
+    func parseAnswers(answersToParse: Set<NSManagedObject>) -> [MVAnswer] {
         var answersArray : [MVAnswer] = []
         for anAnswer in answersToParse {
             var id : Int?
@@ -88,12 +93,12 @@ class DBSyncer: NSObject {
         return answersArray
     }
     
-    private func parseQuestions(questionsToParse: [NSManagedObject]) -> [MVQuestion] {
+    func parseQuestions(questionsToParse: [NSManagedObject]) -> [MVQuestion] {
         var qArray : [MVQuestion] = []
         for aQuestion in questionsToParse {
 
-            var id: Int?
-            if let questionId = aQuestion.value(forKey: "id") as? Int {
+            var id: Int16?
+            if let questionId = aQuestion.value(forKey: "id") as? Int16 {
                 id = questionId
             } else {
                 id = 0
@@ -128,9 +133,9 @@ class DBSyncer: NSObject {
             }
             
             if let id = id {
-                if let presidingOfficerMO = aQuestion.value(forKey: "presidingOfficer") as? NSManagedObject {
-                    let presidingOfficer = parsePresidingOfficer(presidingOfficer: presidingOfficerMO, withoutQuestions: true)
-                    var q = MVQuestion(form: finalForm, id: id, text: finalText, type: QuestionType.SingleAnswer, answered: answered, answers: [], synced: finalSynced, presidingOfficer: presidingOfficer, note: nil)
+                if let sectionInfoMO = aQuestion.value(forKey: "sectionInfo") as? NSManagedObject {
+                    let sectionInfo = parseSectionInfo(sectionInfo: sectionInfoMO, withoutQuestions: true)
+                    var q = MVQuestion(form: finalForm, id: id, text: finalText, type: QuestionType.SingleAnswer, answered: answered, answers: [], synced: finalSynced, sectionInfo: sectionInfo, note: nil)
                     if let type = aQuestion.value(forKey: "type") as? Int {
                         q.type = QuestionType(dbValue: type)
                     }
@@ -145,61 +150,61 @@ class DBSyncer: NSObject {
         return qArray
     }
     
-    public func parsePresidingOfficer(presidingOfficer: NSManagedObject, withoutQuestions: Bool) -> MVPresidingOfficer {
-        let aPresidingOfficer = MVPresidingOfficer()
-        if let arriveHour = presidingOfficer.value(forKey: "arriveHour") as? String {
-            aPresidingOfficer.arriveHour = arriveHour
+    public func parseSectionInfo(sectionInfo: NSManagedObject, withoutQuestions: Bool) -> MVSectionInfo {
+        let aSectionInfo = MVSectionInfo()
+        if let arriveHour = sectionInfo.value(forKey: "arriveHour") as? String {
+            aSectionInfo.arriveHour = arriveHour
         } else {
-            aPresidingOfficer.arriveHour = "00"
+            aSectionInfo.arriveHour = "00"
         }
-        if let arriveMinute = presidingOfficer.value(forKey: "arriveMinute") as? String {
-            aPresidingOfficer.arriveMinute = arriveMinute
+        if let arriveMinute = sectionInfo.value(forKey: "arriveMinute") as? String {
+            aSectionInfo.arriveMinute = arriveMinute
         } else {
-            aPresidingOfficer.arriveMinute = "00"
+            aSectionInfo.arriveMinute = "00"
         }
-        if let genre = presidingOfficer.value(forKey: "genre") as? String {
-            aPresidingOfficer.genre = genre
+        if let genre = sectionInfo.value(forKey: "genre") as? String {
+            aSectionInfo.genre = genre
         } else {
-            aPresidingOfficer.arriveHour = ""
+            aSectionInfo.arriveHour = ""
         }
-        if let judet = presidingOfficer.value(forKey: "judet") as? String {
-            aPresidingOfficer.judet = judet
+        if let judet = sectionInfo.value(forKey: "judet") as? String {
+            aSectionInfo.judet = judet
         } else {
-            aPresidingOfficer.judet = ""
+            aSectionInfo.judet = ""
         }
-        if let sectie = presidingOfficer.value(forKey: "sectie") as? String {
-            aPresidingOfficer.sectie = sectie
+        if let sectie = sectionInfo.value(forKey: "sectie") as? String {
+            aSectionInfo.sectie = sectie
         } else {
-            aPresidingOfficer.sectie = ""
+            aSectionInfo.sectie = ""
         }
-        if let medium = presidingOfficer.value(forKey: "medium") as? String {
-            aPresidingOfficer.medium = medium
+        if let medium = sectionInfo.value(forKey: "medium") as? String {
+            aSectionInfo.medium = medium
         } else {
-            aPresidingOfficer.medium = ""
+            aSectionInfo.medium = ""
         }
-        if let leftHour = presidingOfficer.value(forKey: "leftHour") as? String {
-            aPresidingOfficer.leftHour = leftHour
+        if let leftHour = sectionInfo.value(forKey: "leftHour") as? String {
+            aSectionInfo.leftHour = leftHour
         } else {
-            aPresidingOfficer.leftHour = "00"
+            aSectionInfo.leftHour = "00"
         }
-        if let leftMinute = presidingOfficer.value(forKey: "leftMinute") as? String {
-            aPresidingOfficer.leftMinute = leftMinute
+        if let leftMinute = sectionInfo.value(forKey: "leftMinute") as? String {
+            aSectionInfo.leftMinute = leftMinute
         } else {
-            aPresidingOfficer.leftMinute = "00"
+            aSectionInfo.leftMinute = "00"
         }
-        if let questions = presidingOfficer.value(forKey: "questions") as? [NSManagedObject], !withoutQuestions {
-            aPresidingOfficer.questions = parseQuestions(questionsToParse: questions)
+        if let questions = sectionInfo.value(forKey: "questions") as? [NSManagedObject], !withoutQuestions {
+            aSectionInfo.questions = parseQuestions(questionsToParse: questions)
         }
-        return aPresidingOfficer
+        return aSectionInfo
     }
     
-    private func parseNotesFromDB(notesToParse: [NSManagedObject]) -> [MVNote] {
+    func parseNotesFromDB(notesToParse: [NSManagedObject]) -> [MVNote] {
         var notes = [MVNote]()
         for  i in 0...notesToParse.count-1 {
             if let aNote = notesToParse[i] as? NSManagedObject {
-//                var aPresidingOfficer = MVPresidingOfficer()
-                if let presidingOfficer = aNote.value(forKey: "presidingOfficer") as? NSManagedObject{
-                    let note = MVNote(presidingOfficer: parsePresidingOfficer(presidingOfficer: presidingOfficer, withoutQuestions: false))
+//                var aSectionInfo = MVSectionInfo()
+                if let sectionInfo = aNote.value(forKey: "sectionInfo") as? NSManagedObject{
+                    let note = MVNote(sectionInfo: parseSectionInfo(sectionInfo: sectionInfo, withoutQuestions: false))
                 if let body = aNote.value(forKey: "body") as? String {
                     note.body = body
                 } else {
@@ -209,7 +214,7 @@ class DBSyncer: NSObject {
                     let image = UIImage(data: file)
                     note.image = image
                 }
-                if let questionID = aNote.value(forKey: "questionID") as? Int {
+                if let questionID = aNote.value(forKey: "questionID") as? Int16 {
                     note.questionID = questionID
                 } else {
                     note.questionID = -1

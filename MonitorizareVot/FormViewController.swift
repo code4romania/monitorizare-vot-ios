@@ -7,7 +7,8 @@ import UIKit
 class FormViewController: RootViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, QuestionViewControllerDelegate {
     
     var questions: [MVQuestion]?
-    var presidingOfficer: MVPresidingOfficer?
+    var sectionInfo: MVSectionInfo?
+    var persistedSectionInfo: SectionInfo?
     var form: String?
     private let cellSpacer = 16
     private let numberOfCellsOnEachRow = 2
@@ -57,7 +58,8 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let questions = self.questions, let questionViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QuestionViewController") as? QuestionViewController {
             questionViewController.question = questions[indexPath.row]
-            questionViewController.presidingOfficer = presidingOfficer
+            questionViewController.sectionInfo = sectionInfo
+            questionViewController.persistedSectionInfo = persistedSectionInfo
             questionViewController.delegate = self
             self.navigationController?.pushViewController(questionViewController, animated: pushAnimated)
         }

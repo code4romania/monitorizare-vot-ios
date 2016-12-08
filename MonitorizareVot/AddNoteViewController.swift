@@ -11,9 +11,14 @@ protocol AddNoteViewControllerDelegate: class {
 class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     // MARK: - iVars
-    var presidingOfficer: MVPresidingOfficer?
+    var sectionInfo: MVSectionInfo?
+    var noteContainer: NoteContainer? {
+        didSet {
+            noteSaver.noteContainer = noteContainer
+        }
+    }
     var note: MVNote?
-    var questionID: Int?
+    var questionID: Int16?
     private var noteSaver = NoteSaver()
     private var tapGestureRecognizer: UITapGestureRecognizer?
     private var cameraPicker: UIImagePickerController?
@@ -32,8 +37,8 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
         super.viewDidLoad()
         bodyTextView.customDelegate = self
         bodyTextView.placeholder = "Scrie aici ..."
-        if let presidingOfficer = self.presidingOfficer, note == nil {
-            note = MVNote(presidingOfficer: presidingOfficer)
+        if let sectionInfo = self.sectionInfo, note == nil {
+            note = MVNote(sectionInfo: sectionInfo)
         }
         note?.questionID = questionID
         layout()

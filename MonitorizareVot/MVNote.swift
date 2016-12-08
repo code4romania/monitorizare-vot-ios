@@ -4,13 +4,13 @@ import Foundation
 import UIKit
 
 class MVNote {
-    var presidingOfficer: MVPresidingOfficer
-    var questionID: Int?
+    var sectionInfo: MVSectionInfo
+    var questionID: Int16?
     var body: String?
     var image: UIImage?
     var synced: Bool = false
     
-    init(presidingOfficer: MVPresidingOfficer) {
-        self.presidingOfficer = presidingOfficer
+    init(sectionInfo: MVSectionInfo) {
+        self.sectionInfo = sectionInfo
     }
 }

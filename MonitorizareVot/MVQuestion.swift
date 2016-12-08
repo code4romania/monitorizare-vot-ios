@@ -34,13 +34,13 @@ enum QuestionType {
 
 struct MVQuestion {
     var form: String
-    var id: Int
+    var id: Int16
     var text: String
     var type: QuestionType
     var answered: Bool
     var answers: [MVAnswer]
     var synced: Bool
-    var presidingOfficer: MVPresidingOfficer? = nil
+    var sectionInfo: MVSectionInfo? = nil
     var note: MVNote?
 }
 

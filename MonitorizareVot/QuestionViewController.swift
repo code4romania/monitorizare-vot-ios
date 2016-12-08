@@ -11,7 +11,12 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     
     // MARK: - iVars
     var question: MVQuestion?
-    var presidingOfficer: MVPresidingOfficer?
+    var sectionInfo: MVSectionInfo?
+    var persistedSectionInfo: SectionInfo? {
+        didSet {
+            answeredQuestionSaver.persistedSectionInfo = persistedSectionInfo
+        }
+    }
     private let answerWithTextTableViewCellConfigurator = AnswerWithTextTableViewCellConfigurator()
     private let basicAnswerTableViewCellConfigurator = BasicAnswerTableViewCellConfigurator()
     private var tapGestureRecognizer: UITapGestureRecognizer?
@@ -147,7 +152,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     // MARK: - IBActions
     @IBAction func buttonPressed(_ sender: UIButton) {
         loadingView.isHidden = false
-        let answeredQuestion = AnsweredQuestion(question: question!, presidingOfficer: presidingOfficer!)
+        let answeredQuestion = AnsweredQuestion(question: question!, sectionInfo: sectionInfo!)
         if let answers = question?.answers {
             if hasAtLeastOneAnswer(answers: answers) {
                 answeredQuestionSaver.save(answeredQuestion: answeredQuestion) {[weak self] (success, tokenExpired) in
@@ -182,7 +187,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
                     answers.append(newAnswer)
                 }
             }
-            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false, presidingOfficer: nil, note: question.note)
+            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: true, answers: answers, synced: false, sectionInfo: nil, note: question.note)
             self.question = questionUpdated
             tableView.reloadData()
         }
@@ -200,7 +205,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
                     answers.append(newAnswer)
                 }
             }
-            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false, presidingOfficer: nil, note: question.note)
+            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false, sectionInfo: nil, note: question.note)
             self.question = questionUpdated
         }
     }
@@ -209,7 +214,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     func didTapOnButton() {
         if let addNoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController {
             addNoteViewController.delegate = self
-            addNoteViewController.presidingOfficer = presidingOfficer
+            addNoteViewController.sectionInfo = sectionInfo
             addNoteViewController.note = question?.note
             addNoteViewController.questionID = question?.id
             self.navigationController?.pushViewController(addNoteViewController, animated: true)

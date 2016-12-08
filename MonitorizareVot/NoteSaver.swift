@@ -9,6 +9,8 @@ typealias Completion = (_ success: Bool, _ tokenExpired: Bool) -> Void
 
 class NoteSaver {
 
+    var noteContainer: NoteContainer?
+    
     private var completion: Completion?
     func save(notes: [MVNote]) {
         for aNote in notes {
@@ -31,8 +33,8 @@ class NoteSaver {
                     questionID = String(id)
                 }
                 
-                let parameters: [String: String] = ["CodJudet": note.presidingOfficer.judet ?? "",
-                                "NumarSectie": note.presidingOfficer.sectie ?? "-1",
+                let parameters: [String: String] = ["CodJudet": note.sectionInfo.judet ?? "",
+                                "NumarSectie": note.sectionInfo.sectie ?? "-1",
                                 "IdIntrebare": questionID,
                                 "TextNota": note.body ?? ""]
                 
@@ -67,34 +69,17 @@ class NoteSaver {
         }
     }
     
-    private func savePresidingOfficer(presidingOfficer: MVPresidingOfficer) -> NSManagedObject {
-        let presidingOfficerToSave = NSEntityDescription.insertNewObject(forEntityName: "PresidingOfficer", into: CoreData.context)
-        presidingOfficerToSave.setValue(presidingOfficer.arriveHour, forKey: "arriveHour")
-        presidingOfficerToSave.setValue(presidingOfficer.arriveMinute, forKey: "arriveMinute")
-        presidingOfficerToSave.setValue(presidingOfficer.genre, forKey: "genre")
-        presidingOfficerToSave.setValue(presidingOfficer.judet, forKey: "judet")
-        presidingOfficerToSave.setValue(presidingOfficer.sectie, forKey: "sectie")
-        presidingOfficerToSave.setValue(presidingOfficer.synced, forKey: "synced")
-        presidingOfficerToSave.setValue(presidingOfficer.leftHour, forKey: "leftHour")
-        presidingOfficerToSave.setValue(presidingOfficer.leftMinute, forKey: "leftMinute")
-        presidingOfficerToSave.setValue(presidingOfficer.medium, forKey: "medium")
-        return presidingOfficerToSave
-    }
-    
     private func localSave(note: MVNote, synced: Bool, tokenExpired: Bool) {
-        let noteToSave = NSEntityDescription.insertNewObject(forEntityName: "Note", into: CoreData.context)
-        var questionID = "-1"
-        if let id = note.questionID {
-            questionID = String(id)
+        let noteToSave = NSEntityDescription.insertNewObject(forEntityName: "Note", into: CoreData.context) as! Note
+        if let questionID = note.questionID {
+            noteToSave.questionID = questionID//NSNumber(integerLiteral: Int(questionID))
         }
-        noteToSave .setValue(synced, forKey: "synced")
-        noteToSave.setValue(questionID, forKey: "questionID")
-        noteToSave.setValue(savePresidingOfficer(presidingOfficer: note.presidingOfficer), forKey: "presidingOfficer")
-        noteToSave.setValue(note.body, forKey: "body")
-        if let image = note.image, let imageData = UIImagePNGRepresentation(image) {
-            noteToSave.setValue(imageData, forKey: "file")
+        noteToSave.synced = synced
+        noteToSave.body = note.body
+        if let image = note.image, let imageNSData = UIImagePNGRepresentation(image) {
+            noteToSave.file = NSData(data: imageNSData)
         }
-        try! CoreData.save()
+        noteContainer?.persist(note: noteToSave, in: CoreData.context)
         completion?(true, tokenExpired)
     }
     

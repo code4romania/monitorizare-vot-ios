@@ -10,20 +10,22 @@ class AnsweredQuestionSaver {
     private var completion: Completion?
     private var noteSaver = NoteSaver()
     
-    private let shouldTryToSaveLocallyIfFails: Bool
-    
-    init(shouldTryToSaveLocallyIfFails: Bool = true) {
-        self.shouldTryToSaveLocallyIfFails = shouldTryToSaveLocallyIfFails
-    }
-    
-    func save(answeredQuestion: [AnsweredQuestion]) {
-        for aAnsweredQuestion in answeredQuestion {
-            save(answeredQuestion: aAnsweredQuestion, completion: nil)
-        }
-    }
+    var persistedSectionInfo: SectionInfo?
+    var persistedQuestion: Question?
     
     func save(answeredQuestion: AnsweredQuestion, completion: Completion?) {
         self.completion = completion
+        
+        var localPersistedQuestion: Question
+        if let persistedQuestion = persistedQuestion {
+            localPersistedQuestion = persistedQuestion
+        }
+        else {
+            let persistedQuestion = localSave(sectionInfo: persistedSectionInfo, existingQuestion:nil, question: answeredQuestion.question, synced: false)
+            self.persistedQuestion = persistedQuestion
+            localPersistedQuestion = persistedQuestion
+        }
+        noteSaver.noteContainer = localPersistedQuestion
         connectionState {[weak self] (connected) in
             if connected {
                 if let note = answeredQuestion.question.note {
@@ -33,8 +35,9 @@ class AnsweredQuestionSaver {
                 } else {
                     self?.save(answeredQuestion: answeredQuestion, tokenExpired: false)
                 }
-            } else {
-                self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: false)
+            }
+            else {
+                self?.completion?(true, false)
             }
         }
     }
@@ -54,50 +57,49 @@ class AnsweredQuestionSaver {
             }
             
             let raspuns: [String : Any] = ["idIntrebare": answeredQuestion.question.id,
-                                           "codJudet": answeredQuestion.presidingOfficer.judet ?? "",
-                                           "numarSectie": answeredQuestion.presidingOfficer.sectie ?? "-1",
+                                           "codJudet": answeredQuestion.sectionInfo.judet ?? "",
+                                           "numarSectie": answeredQuestion.sectionInfo.sectie ?? "-1",
                                            "codFormular": answeredQuestion.question.form,
                                            "optiuni": options]
             
             Alamofire.request(url, method: .post, parameters: ["raspuns": [raspuns]], encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: {[weak self] (response) in
                 if let statusCode = response.response?.statusCode, statusCode == 200 {
-                    self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: true, tokenExpired: (tokenExpired || false))
+                    if let question = self?.persistedQuestion {
+                        self?.updateAsSynced(question: question)
+                    }
+                    self?.completion?(true, (tokenExpired || false))
                 } else {
-                    self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: true)
+                    self?.completion?(true, true)
                 }
             })
         } else {
-            self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: true)
+            self.completion?(true, true)
         }
     }
     
     
-    private func localSave(presidingOfficer: MVPresidingOfficer, question: MVQuestion, synced: Bool, tokenExpired: Bool) {
+    private func localSave(sectionInfo: SectionInfo?, existingQuestion: Question?, question: MVQuestion, synced: Bool) -> Question {
         var questionToSave = question
         questionToSave.synced = synced
-        let presidingOfficerToSave = NSEntityDescription.insertNewObject(forEntityName: "PresidingOfficer", into: CoreData.context)
-        presidingOfficerToSave.setValue(presidingOfficer.arriveHour, forKey: "arriveHour")
-        presidingOfficerToSave.setValue(presidingOfficer.arriveMinute, forKey: "arriveMinute")
-        presidingOfficerToSave.setValue(presidingOfficer.genre, forKey: "genre")
-        presidingOfficerToSave.setValue(presidingOfficer.judet, forKey: "judet")
-        presidingOfficerToSave.setValue(presidingOfficer.sectie, forKey: "sectie")
-        presidingOfficerToSave.setValue(presidingOfficer.synced, forKey: "synced")
-        presidingOfficerToSave.setValue(presidingOfficer.leftHour, forKey: "leftHour")
-        presidingOfficerToSave.setValue(presidingOfficer.leftMinute, forKey: "leftMinute")
-        presidingOfficerToSave.setValue(presidingOfficer.medium, forKey: "medium")
         
-        let aQuestionToSave = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context)
+        var aQuestionToSave: Question
+        if let existingQuestion = existingQuestion {
+            aQuestionToSave = existingQuestion
+        }
+        else {
+            aQuestionToSave = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context) as! Question
+        }
         aQuestionToSave.setValue(question.id, forKey: "id")
         aQuestionToSave.setValue(question.answered, forKey: "answered")
         aQuestionToSave.setValue(question.form, forKey: "form")
         aQuestionToSave.setValue(synced, forKey: "synced")
         aQuestionToSave.setValue(question.text, forKey: "text")
         aQuestionToSave.setValue(question.type.raw(), forKey: "type")
-        aQuestionToSave.setValue(presidingOfficerToSave, forKey: "presidingOfficer")
+        aQuestionToSave.setValue(sectionInfo, forKey: "sectionInfo")
         
-        let questions = presidingOfficerToSave.mutableSetValue(forKeyPath: "questions")
-        questions.add(aQuestionToSave)
+        sectionInfo?.addToQuestions([aQuestionToSave])
         
+        let answersMutableSet = NSMutableSet()
         for answer in question.answers {
             let answerToSave = NSEntityDescription.insertNewObject(forEntityName: "Answer", into: CoreData.context)
             answerToSave.setValue(answer.id, forKey: "id")
@@ -106,11 +108,16 @@ class AnsweredQuestionSaver {
             answerToSave.setValue(answer.selected, forKey: "selected")
             answerToSave.setValue(answer.text, forKey: "text")
             answerToSave.setValue(aQuestionToSave, forKey: "question")
-            let answers = aQuestionToSave.mutableSetValue(forKeyPath: "answers")
-            answers.add(answerToSave)
+            answersMutableSet.add(answerToSave)
         }
+        aQuestionToSave.answers = answersMutableSet.copy() as? NSSet
         try! CoreData.save()
-        completion?(true, false)
+        return aQuestionToSave
+    }
+    
+    private func updateAsSynced(question: Question) {
+        question.synced = true
+        try! CoreData.save()
     }
     
 }
