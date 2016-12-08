@@ -5,7 +5,7 @@ import UIKit
 
 class MVNote {
     var presidingOfficer: MVPresidingOfficer
-    var questionID: String?
+    var questionID: Int?
     var body: String?
     var image: UIImage?
     var synced: Bool = false

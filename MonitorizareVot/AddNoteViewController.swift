@@ -4,11 +4,16 @@ import Foundation
 import UIKit
 import Photos
 
+protocol AddNoteViewControllerDelegate: class {
+    func attach(note: MVNote)
+}
+
 class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     // MARK: - iVars
     var presidingOfficer: MVPresidingOfficer?
-    private var note: MVNote?
+    var note: MVNote?
+    var questionID: Int?
     private var noteSaver = NoteSaver()
     private var tapGestureRecognizer: UITapGestureRecognizer?
     private var cameraPicker: UIImagePickerController?
@@ -19,16 +24,20 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
     @IBOutlet weak var bodyTextView: MVUITextView!
     @IBOutlet weak var textViewBackgroundView: UIView!
     @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var secondButton: UIButton!
+    weak var delegate: AddNoteViewControllerDelegate?
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         bodyTextView.customDelegate = self
         bodyTextView.placeholder = "Scrie aici ..."
-        if let presidingOfficer = self.presidingOfficer {
+        if let presidingOfficer = self.presidingOfficer, note == nil {
             note = MVNote(presidingOfficer: presidingOfficer)
         }
+        note?.questionID = questionID
         layout()
+        outlets()
         setTapGestureRecognizer()
     }
     
@@ -66,6 +75,23 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
         bottomRightButton.layer.defaultCornerRadius(borderColor: MVColors.lightGray.cgColor)
     }
     
+    private func outlets()  {
+        if delegate != nil {
+            secondButton.setTitle("Adaugă", for: .normal)
+        } else {
+            secondButton.setTitle("Trimite", for: .normal)
+        }
+        if let note = self.note {
+            if note.image != nil {
+                bottomLeftLabel.text = "Șterge"
+                bottomRightButton.setImage(UIImage(named: "trash")!, for: .normal)
+            }
+            if let body = note.body {
+                bodyTextView.savedText = body
+            }
+        }
+    }
+    
     private func setTapGestureRecognizer() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddNoteViewController.keyboardIsHidden))
         self.tapGestureRecognizer = tapGestureRecognizer
@@ -76,14 +102,21 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         bodyTextView.resignFirstResponder()
         if let note = self.note {
-            loadingView.isHidden = false
-            noteSaver.save(note: note, completion: { (tokenExpired) in
-                if tokenExpired {
-                    let _ = self.navigationController?.popToRootViewController(animated: false)
-                } else {
-                    let _ = self.navigationController?.popViewController(animated: true)
+            if delegate == nil {
+                loadingView.isHidden = false
+                noteSaver.save(note: note, completion: { (tokenExpired) in
+                    if tokenExpired {
+                        let _ = self.navigationController?.popToRootViewController(animated: false)
+                    } else {
+                        let _ = self.navigationController?.popViewController(animated: true)
+                    }
+                })
+            } else {
+                if let note = self.note {
+                    delegate?.attach(note: note)
                 }
-            })
+                let _ = self.navigationController?.popViewController(animated: true)
+            }
         }
     }
     

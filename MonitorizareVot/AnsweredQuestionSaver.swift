@@ -10,6 +10,7 @@ typealias AnsweredQuestionSaverCompletion = (_ tokenExpired: Bool) -> Void
 
 class AnsweredQuestionSaver {
     private var completion: AnsweredQuestionSaverCompletion?
+    private var noteSaver = NoteSaver()
     
     func save(answeredQuestion: [AnsweredQuestion]) {
         for aAnsweredQuestion in answeredQuestion {
@@ -19,46 +20,53 @@ class AnsweredQuestionSaver {
     
     func save(answeredQuestion: AnsweredQuestion, completion: AnsweredQuestionSaverCompletion?) {
         self.completion = completion
-        connectionState { (connected) in
+        connectionState {[weak self] (connected) in
             if connected {
-                let url = APIURLs.answeredQuestion.url
-                if let token = KeychainWrapper.standard.string(forKey: "token") {
-                    let headers = ["Content-Type": "application/json",
-                                   "Authorization" :"Bearer " + token]
-                    var options = [[String: Any]]()
-                    for aAnswer in answeredQuestion.question.answers {
-                        if aAnswer.selected {
-                            let option: [String: Any] = ["idOptiune" : aAnswer.id,
-                                                            "value": aAnswer.inputText ?? ""]
-                            options.append(option)
-                        }
-                    }
-                    
-                    let raspuns: [String : Any] = ["idIntrebare": answeredQuestion.question.id,
-                                                    "codJudet": answeredQuestion.presidingOfficer.judet ?? "",
-                                                    "numarSectie": answeredQuestion.presidingOfficer.sectie ?? "-1",
-                                                    "codFormular": answeredQuestion.question.form,
-                                                    "optiuni": options]
-
-                    Alamofire.request(url, method: .post, parameters: ["raspuns": [raspuns]], encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: {[weak self] (response) in
-                        if let statusCode = response.response?.statusCode, statusCode == 200 {
-                            self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: true, tokenExpired: false)
-                        } else {
-                            self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: true)
-                        }
+                if let note = answeredQuestion.question.note {
+                    self?.noteSaver.save(note: note, completion: { (tokenExpired) in
+                        self?.save(answeredQuestion: answeredQuestion, tokenExpired: tokenExpired)
                     })
                 } else {
-                   self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: true)
+                    self?.save(answeredQuestion: answeredQuestion, tokenExpired: false)
                 }
             } else {
-                self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: false)
+                self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: false)
             }
         }
     }
     
-    private func savePresidingOfficerLocally() {
-        
+    private func save(answeredQuestion: AnsweredQuestion, tokenExpired: Bool) {
+        let url = APIURLs.answeredQuestion.url
+        if let token = KeychainWrapper.standard.string(forKey: "token") {
+            let headers = ["Content-Type": "application/json",
+                           "Authorization" :"Bearer " + token]
+            var options = [[String: Any]]()
+            for aAnswer in answeredQuestion.question.answers {
+                if aAnswer.selected {
+                    let option: [String: Any] = ["idOptiune" : aAnswer.id,
+                                                 "value": aAnswer.inputText ?? ""]
+                    options.append(option)
+                }
+            }
+            
+            let raspuns: [String : Any] = ["idIntrebare": answeredQuestion.question.id,
+                                           "codJudet": answeredQuestion.presidingOfficer.judet ?? "",
+                                           "numarSectie": answeredQuestion.presidingOfficer.sectie ?? "-1",
+                                           "codFormular": answeredQuestion.question.form,
+                                           "optiuni": options]
+            
+            Alamofire.request(url, method: .post, parameters: ["raspuns": [raspuns]], encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: {[weak self] (response) in
+                if let statusCode = response.response?.statusCode, statusCode == 200 {
+                    self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: true, tokenExpired: (tokenExpired || false))
+                } else {
+                    self?.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: true)
+                }
+            })
+        } else {
+            self.localSave(presidingOfficer: answeredQuestion.presidingOfficer, question: answeredQuestion.question, synced: false, tokenExpired: true)
+        }
     }
+    
     
     private func localSave(presidingOfficer: MVPresidingOfficer, question: MVQuestion, synced: Bool, tokenExpired: Bool) {
         var questionToSave = question

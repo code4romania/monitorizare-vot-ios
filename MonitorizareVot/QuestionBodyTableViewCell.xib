@@ -19,20 +19,35 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WP-eC-RO8">
-                        <rect key="frame" x="21" y="40" width="317" height="141"/>
+                        <rect key="frame" x="21" y="30" width="317" height="146.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qto-ZO-rPR">
+                        <rect key="frame" x="97" y="201.5" width="164" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="a6I-iC-Nam"/>
+                        </constraints>
+                        <state key="normal" title="Adaugă o notă întrebării">
+                            <color key="titleColor" red="1" green="0.80392156859999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="addNoteButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="seK-oq-KHZ"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9WP-eC-RO8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="40" id="Mp9-TK-Q9S"/>
+                    <constraint firstAttribute="bottom" secondItem="qto-ZO-rPR" secondAttribute="bottom" constant="10" id="EqP-zO-Xkp"/>
+                    <constraint firstItem="9WP-eC-RO8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="Mp9-TK-Q9S"/>
                     <constraint firstItem="9WP-eC-RO8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="OE9-cp-G8l"/>
                     <constraint firstAttribute="trailing" secondItem="9WP-eC-RO8" secondAttribute="trailing" constant="21" id="fIj-Zz-GBv"/>
-                    <constraint firstAttribute="bottom" secondItem="9WP-eC-RO8" secondAttribute="bottom" constant="75" id="uM8-ng-V7t"/>
+                    <constraint firstItem="qto-ZO-rPR" firstAttribute="centerX" secondItem="9WP-eC-RO8" secondAttribute="centerX" id="pzP-kU-KHn"/>
+                    <constraint firstItem="qto-ZO-rPR" firstAttribute="top" secondItem="9WP-eC-RO8" secondAttribute="bottom" constant="25" id="tvs-SN-vdV"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="button" destination="qto-ZO-rPR" id="bWN-nU-xSx"/>
                 <outlet property="label" destination="9WP-eC-RO8" id="yMI-a0-Bgp"/>
             </connections>
             <point key="canvasLocation" x="53.5" y="160"/>

@@ -118,7 +118,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exT-h3-7d7">
                                 <rect key="frame" x="0.0" y="414" width="375" height="129"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Număr de telefon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0A7-JF-Sdj">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0000000010" placeholder="Număr de telefon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0A7-JF-Sdj">
                                         <rect key="frame" x="20" y="0.0" width="335" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="0bF-vE-xfj"/>
@@ -150,7 +150,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                             <constraint firstAttribute="height" constant="1" id="jcf-oJ-fui"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cod primit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UKC-Kc-Qmh">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="Cod primit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UKC-Kc-Qmh">
                                         <rect key="frame" x="20" y="55" width="335" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="G0Z-Al-Nen"/>
@@ -1442,6 +1442,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <outlet property="bottomLeftLabel" destination="c7r-Rx-j74" id="aRA-7w-MfO"/>
                         <outlet property="bottomRightButton" destination="caO-7K-Y0p" id="tNw-pM-p0f"/>
                         <outlet property="loadingView" destination="Qi7-bg-sup" id="ae9-E9-akx"/>
+                        <outlet property="secondButton" destination="wfJ-s5-DBX" id="U29-Rk-OfA"/>
                         <outlet property="textViewBackgroundView" destination="kB1-hh-oaD" id="pWQ-TT-YO3"/>
                     </connections>
                 </viewController>

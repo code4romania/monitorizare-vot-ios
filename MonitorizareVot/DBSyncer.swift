@@ -106,7 +106,7 @@ class DBSyncer: NSObject {
                 answers = parseAnswers(answersToParse: qAnswers)
             }
             if let answered = answered, let id = id {
-                var q = MVQuestion(form: "", id: id, text: "", type: QuestionType.SingleAnswer, answered: NSAttributedString(string: answered, attributes: nil), answers: [], synced: false)
+                var q = MVQuestion(form: "", id: id, text: "", type: QuestionType.SingleAnswer, answered: NSAttributedString(string: answered, attributes: nil), answers: [], synced: false, note: nil)
                 q.answers = answers
                 qArray.append(q)
             }
@@ -178,10 +178,10 @@ class DBSyncer: NSObject {
                     let image = UIImage(data: file)
                     note.image = image
                 }
-                if let questionID = aNote.value(forKey: "questionID") as? String {
+                if let questionID = aNote.value(forKey: "questionID") as? Int {
                     note.questionID = questionID
                 } else {
-                    note.questionID = ""
+                    note.questionID = -1
                 }
                 if let synced = aNote.value(forKey: "synced") as? Bool {
                     note.synced = synced

@@ -68,14 +68,14 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
         adjustButton(button: sender, selected: true)
         adjustButton(button: fourthButton, selected: false)
         presidingOfficer?.genre = "masculin"
-        UserDefaults.standard.set("masculin", forKey: "medium")
+        UserDefaults.standard.set("masculin", forKey: "genre")
     }
     
     @IBAction func fourthButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: thirdButton, selected: false)
         presidingOfficer?.genre = "feminin"
-        UserDefaults.standard.set("feminin", forKey: "medium")
+        UserDefaults.standard.set("feminin", forKey: "genre")
     }
     
     @IBAction func fifthButtonTapped(_ sender: UIButton) {
@@ -111,7 +111,6 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     }
     
     // MARK: - Utils
-    
     private func resetHourButtons() {
         sixthButton.setTitle("00:00", for:.normal)
         fifthButton.setTitle("00:00", for:.normal)
@@ -119,27 +118,16 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     
     private func checkLocalStorage() {
         if let medium = UserDefaults.standard.value(forKey: "medium") as? String {
-            if medium == "urban" {
-                adjustButton(button: firstButton, selected: true)
-                adjustButton(button: secondButton, selected: false)
-                presidingOfficer?.medium = "urban"
-            } else if medium == "rural" {
-                adjustButton(button: firstButton, selected: false)
-                adjustButton(button: secondButton, selected: true)
-            }
+            presidingOfficer?.medium = medium
+            adjustButton(button: firstButton, selected: (medium == "urban") ? true : false)
+            adjustButton(button: secondButton, selected: (medium == "rural") ? true : false)
         }
         
         if let genre = UserDefaults.standard.value(forKey: "genre") as? String {
-            if genre == "masculin" {
-                adjustButton(button: thirdButton, selected: true)
-                adjustButton(button: fourthButton, selected: false)
-                presidingOfficer?.genre = "masculin"
-            } else if genre == "feminin" {
-                adjustButton(button: thirdButton, selected: false)
-                adjustButton(button: fourthButton, selected: true)
-                presidingOfficer?.genre = "feminin"
-            }
-         }
+            presidingOfficer?.genre = genre
+            adjustButton(button: thirdButton, selected: (genre == "masculin") ? true : false)
+            adjustButton(button: fourthButton, selected: (genre == "feminin") ? true : false)
+        }
         
         let arriveHour = UserDefaults.standard.value(forKey: "arriveHour")
         let arriveMinute = UserDefaults.standard.value(forKey: "arriveMinute")

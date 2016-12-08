@@ -31,5 +31,6 @@ struct MVQuestion {
     var answered: NSAttributedString
     var answers: [MVAnswer]
     var synced: Bool
+    var note: MVNote?
 }
 

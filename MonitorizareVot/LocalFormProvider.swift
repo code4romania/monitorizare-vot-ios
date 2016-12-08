@@ -53,7 +53,7 @@ class LocalFormProvider: FormProvider {
                 type = .MultipleAnswerWithText
             }
             
-            let newQuestion = MVQuestion(form: named, id: id, text: text, type: type, answered: answered, answers: answers, synced: false)
+            let newQuestion = MVQuestion(form: named, id: id, text: text, type: type, answered: answered, answers: answers, synced: false, note: nil)
             questions.append(newQuestion)
         }
         return questions

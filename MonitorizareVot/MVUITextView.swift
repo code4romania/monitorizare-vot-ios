@@ -16,12 +16,20 @@ class MVUITextView: UITextView, UITextViewDelegate {
         }
     }
     weak var customDelegate: MVUITextViewDelegate?
+    var savedText: String? {
+        didSet {
+            isEmpty = false
+            self.text = savedText
+            notEmptyTextFieldLayout()
+        }
+    }
     private var isEmpty = true
 
     // MARK: - Life cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         self.delegate = self
+
     }
     
     // MARK: - Utils

@@ -7,20 +7,21 @@ protocol QuestionViewControllerDelegate: class {
     func showNextQuestion(currentQuestion: MVQuestion)
 }
 
-class QuestionViewController: RootViewController, UITableViewDataSource, UITableViewDelegate, AnswerTableViewCellDelegate {
+class QuestionViewController: RootViewController, UITableViewDataSource, UITableViewDelegate, AnswerTableViewCellDelegate, ButtonHandler, AddNoteViewControllerDelegate {
     
     // MARK: - iVars
-    weak var delegate: QuestionViewControllerDelegate?
     var question: MVQuestion?
     var presidingOfficer: MVPresidingOfficer?
     private let answerWithTextTableViewCellConfigurator = AnswerWithTextTableViewCellConfigurator()
     private let basicAnswerTableViewCellConfigurator = BasicAnswerTableViewCellConfigurator()
     private var tapGestureRecognizer: UITapGestureRecognizer?
     private var answeredQuestionSaver = AnsweredQuestionSaver()
+    private var addNoteViewController: AddNoteViewController?
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var buttonHeight: NSLayoutConstraint!
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var loadingView: UIView!
+    weak var delegate: QuestionViewControllerDelegate?
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -36,6 +37,13 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(QuestionViewController.keyboardDidShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(QuestionViewController.keyboardDidHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        if let question = self.question, let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? QuestionBodyTableViewCell {
+            if question.note == nil  {
+                firstCell.button.setTitle("Adaugă o notă întrebării", for: .normal)
+            } else {
+                firstCell.button.setTitle("Editează nota", for: .normal)
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -89,6 +97,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionBodyTableViewCell") as! QuestionBodyTableViewCell
             cell.label.text = question!.text
+            cell.delegate = self
             return cell
         }
         
@@ -153,7 +162,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
                     answers.append(newAnswer)
                 }
             }
-            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false)
+            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false, note: question.note)
             self.question = questionUpdated
             tableView.reloadData()
         }
@@ -171,10 +180,25 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
                     answers.append(newAnswer)
                 }
             }
-            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false)
+            let questionUpdated = MVQuestion(form: question.form, id: question.id, text: question.text, type: question.type, answered: question.answered, answers: answers, synced: false, note: question.note)
             self.question = questionUpdated
         }
     }
 
+    // MARK: - ButtonHandler
+    func didTapOnButton() {
+        if let addNoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNoteViewController") as? AddNoteViewController {
+            addNoteViewController.delegate = self
+            addNoteViewController.presidingOfficer = presidingOfficer
+            addNoteViewController.note = question?.note
+            addNoteViewController.questionID = question?.id
+            self.navigationController?.pushViewController(addNoteViewController, animated: true)
+        }
+    }
+    
+    // MARK: - AddNoteViewControllerDelegate
+    func attach(note: MVNote) {
+        question?.note = note
+    }
     
 }

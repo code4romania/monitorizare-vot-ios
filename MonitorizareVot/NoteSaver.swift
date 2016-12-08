@@ -26,9 +26,14 @@ class NoteSaver {
                     imageData = UIImagePNGRepresentation(image)!
                 }
                 
+                var questionID = "-1"
+                if let id = note.questionID {
+                    questionID = String(id)
+                }
+                
                 let parameters: [String: String] = ["CodJudet": note.presidingOfficer.judet ?? "",
                                 "NumarSectie": note.presidingOfficer.sectie ?? "-1",
-                                "IdIntrebare": note.questionID ?? "",
+                                "IdIntrebare": questionID,
                                 "TextNota": note.body ?? ""]
                 
                 if let token = KeychainWrapper.standard.string(forKey: "token") {
@@ -75,9 +80,13 @@ class NoteSaver {
     }
     
     private func localSave(note: MVNote, synced: Bool, tokenExpired: Bool) {
-        let noteToSave = NSEntityDescription.insertNewObject(forEntityName: "Note", into: CoreData.context);
+        let noteToSave = NSEntityDescription.insertNewObject(forEntityName: "Note", into: CoreData.context)
+        var questionID = "-1"
+        if let id = note.questionID {
+            questionID = String(id)
+        }
         noteToSave .setValue(synced, forKey: "synced")
-        noteToSave.setValue(note.questionID, forKey: "questionID")
+        noteToSave.setValue(questionID, forKey: "questionID")
         noteToSave.setValue(savePresidingOfficer(presidingOfficer: note.presidingOfficer), forKey: "presidingOfficer")
         noteToSave.setValue(note.body, forKey: "body")
         if let image = note.image, let imageData = UIImagePNGRepresentation(image) {
