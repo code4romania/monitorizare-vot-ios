@@ -1,0 +1,57 @@
+//  Created by Code4Romania
+
+"TextField_Placeholder_PhoneNumber" = "Număr de telefon";
+"TextField_Placeholder_PINNumber" = "Cod primit";
+"TextField_Placeholder_DepartmentNumber" = "Număr secție";
+
+"TextView_Placeholder_WriteHere" = "Scrie aici ...";
+"TextView_Placeholder_MoreDetails" = "Mai multe detalii ...";
+
+"Button_Authenticate" = "Autentificare";
+"Button_Close" = "Închide";
+"Button_Continue" = "Continuă";
+"Button_ChangeDepartemnt" = "Schimbă secție";
+"Button_Urban" = "Urban";
+"Button_Rural" = "Rural";
+"Button_Male" = "Bărbat";
+"Button_Female" = "Femeie";
+"Button_ContinueToForms" = "Continuă către formulare";
+"Button_SyncData" = "Sincronizare Date";
+"Button_AddNoteToQuestion" = "Adaugă o notă întrebării";
+"Button_EditNote" = "Editează nota";
+"Button_NextQuestion" = "Următoarea întrebare";
+"Button_Add" = "Adaugă";
+"Button_Send" = "Trimite";
+"Button_Delete" = "Șterge";
+"Button_Settings" = "Setări";
+
+"Label_PickDepartment" = "Alege secția";
+"Label_PickDepartmentDetails" = "în care te afli";
+"Label_County" = "Județ";
+"Label_SelectedCounty" = "Alege";
+"Label_CountyLocation" = "În ce mediu se află secția?";
+"Label_CountyPresidentGender" = "Președintele secției este";
+"Label_CountyArriveTime" = "Ora sosirii în secție";
+"Label_CountyLeaveTime" = "Ora plecării din secție";
+"Label_FormA" = "Formular deschidere";
+"Label_FormB" = "Formular votare";
+"Label_FormC" = "Formular inchidere";
+"Label_AddNote" = "Adaugă notă";
+"Label_YourMessage" = "Mesajul tău";
+"Label_AddPhoto" = "Adaugă o fotografie";
+"Label_Completed" = "Completat";
+"Label_NotCompleted" = "Necompletat";
+
+"NavigationBar_DepartmentDetails" = "Informații despre secție";
+"NavigationBar_SelectForm" = "Alege formular";
+
+"AlertTitle_SelectCounty" = "Selectează județ";
+"AlertMessage_SelectCounty" = "Alege un județ pentru a putea trece la următorul pas.";
+"AlertTitle_CountyNumber" = "Introdu codul secției";
+"AlertMessage_CountyNumber" = "Este nevoie să precizezi codul secției pentru a putea trece la următorul pas.";
+"AlertTitle_CountyNumberInvalid" = "Codul secției este invalid";
+"AlertMessage_CountyNumberInvalid" = "Nu a fost gasită nici o secție care sa aibă acest număr.";
+"AlertTitle_AccessRestricted" = "Accessul este restricționat";
+"AlertMessage_EnableCameraAccess" = "Te rugăm să accesezi setările și să ne oferi permisiuni de acces la librăria de poze.";
+
+"AlertButton_Understood" = "Am înțeles";

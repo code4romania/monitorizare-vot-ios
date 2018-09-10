@@ -22,6 +22,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     private var tapGestureRecognizer: UITapGestureRecognizer?
     private var answeredQuestionSaver = AnsweredQuestionSaver()
     private var addNoteViewController: AddNoteViewController?
+    @IBOutlet weak var continueButton: UIButton!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var buttonHeight: NSLayoutConstraint!
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
@@ -36,6 +37,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
         registerCell(identifier: "QuestionBodyTableViewCell")
         setTapGestureRecognizer()
         tableView.rowHeight = UITableViewAutomaticDimension
+        continueButton?.setTitle("Button_NextQuestion".localized, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,9 +46,9 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
         NotificationCenter.default.addObserver(self, selector: #selector(QuestionViewController.keyboardDidHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         if let question = self.question, let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? QuestionBodyTableViewCell {
             if question.note == nil  {
-                firstCell.button.setTitle("Adaugă o notă întrebării", for: .normal)
+                firstCell.button.setTitle("Button_AddNoteToQuestion".localized, for: .normal)
             } else {
-                firstCell.button.setTitle("Editează nota", for: .normal)
+                firstCell.button.setTitle("Button_EditNote".localized, for: .normal)
             }
         }
     }
@@ -113,9 +115,9 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
             cell.label.text = question!.text
             cell.delegate = self
             if let question = question, question.note == nil  {
-                cell.button.setTitle("Adaugă o notă întrebării", for: .normal)
+                cell.button.setTitle("Button_AddNoteToQuestion".localized, for: .normal)
             } else {
-                cell.button.setTitle("Editează nota", for: .normal)
+                cell.button.setTitle("Button_EditNote".localized, for: .normal)
             }
             return cell
         }

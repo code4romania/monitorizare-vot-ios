@@ -11,6 +11,13 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     var topLabelText: String?
     private var pickerViewSelection: PickerViewSelection?
     private var sectionSaver = SectionSaver()
+    
+    @IBOutlet weak var firstLabel: UILabel?
+    @IBOutlet weak var secondLabel: UILabel?
+    @IBOutlet weak var thirdLabel: UILabel?
+    @IBOutlet weak var fourthLabel: UILabel?
+    
+    @IBOutlet weak var closeButton: UIButton?
     @IBOutlet private var formsButtons: [UIButton]!
     @IBOutlet private weak var topLabel: UILabel!
     @IBOutlet private weak var topButton: UIButton!
@@ -20,6 +27,7 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     @IBOutlet private weak var fourthButton: UIButton!
     @IBOutlet private weak var fifthButton: UIButton!
     @IBOutlet private weak var sixthButton: UIButton!
+    @IBOutlet weak var continueButton: UIButton?
     @IBOutlet private weak var pickerContainer: UIView!
     @IBOutlet private weak var pickerView: UIPickerView!
     @IBOutlet weak var loadingDataView: UIView!
@@ -34,14 +42,23 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
         setupOutlets()
         sectionInfo?.resetSectionInformations()
         pickerContainer.isHidden = true
-        fifthButton.setTitle("Alege...", with: MVColors.lightGray.color, for: .normal)
-        sixthButton.setTitle("Alege...", with: MVColors.lightGray.color, for: .normal)
         
         if let topLabelText = self.topLabelText {
-            self.navigationItem.set(title: topLabelText, subtitle: "Informații despre secție")
+            self.navigationItem.set(title: topLabelText, subtitle: "NavigationBar_DepartmentDetails".localized)
         }
-        
+    
+        firstLabel?.text = "Label_CountyLocation".localized
+        secondLabel?.text = "Label_CountyPresidentGender".localized
+        thirdLabel?.text = "Label_CountyArriveTime".localized
+        fourthLabel?.text = "Label_CountyLeaveTime".localized
+        topButton?.setTitle("Button_ChangeDepartemnt".localized, for: .normal)
+        firstButton?.setTitle("Button_Urban".localized, for: .normal)
+        secondButton?.setTitle("Button_Rural".localized, for: .normal)
+        thirdButton?.setTitle("Button_Male".localized, for: .normal)
+        fourthButton?.setTitle("Button_Female".localized, for: .normal)
+        closeButton?.setTitle("Button_Close".localized, for: .normal)
         persistedSectionInfo = dbSyncer.sectionInfo(for: sectionInfo!.judet!, sectie: sectionInfo!.sectie!)
+        continueButton?.setTitle("Button_ContinueToForms".localized, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,16 +91,16 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
     @IBAction func thirdButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: fourthButton, selected: false)
-        sectionInfo?.genre = "masculin"
-        persistedSectionInfo?.genre = "masculin"
+        sectionInfo?.genre = "man"
+        persistedSectionInfo?.genre = "man"
         try! CoreData.save()
     }
     
     @IBAction func fourthButtonTapped(_ sender: UIButton) {
         adjustButton(button: sender, selected: true)
         adjustButton(button: thirdButton, selected: false)
-        sectionInfo?.genre = "feminin"
-        persistedSectionInfo?.genre = "feminin"
+        sectionInfo?.genre = "woman"
+        persistedSectionInfo?.genre = "woman"
         try! CoreData.save()
     }
     
@@ -136,8 +153,8 @@ class SectionInformationsViewController: RootViewController, UIPickerViewDelegat
         
         if let genre = persistedSectionInfo?.genre {
             sectionInfo?.genre = genre
-            adjustButton(button: thirdButton, selected: (genre == "masculin") ? true : false)
-            adjustButton(button: fourthButton, selected: (genre == "feminin") ? true : false)
+            adjustButton(button: thirdButton, selected: (genre == "man") ? true : false)
+            adjustButton(button: fourthButton, selected: (genre == "woman") ? true : false)
         }
         
         var firstButtonTitle = "00:00"

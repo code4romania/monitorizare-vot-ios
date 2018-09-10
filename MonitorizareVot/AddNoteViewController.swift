@@ -22,6 +22,8 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
     private var noteSaver = NoteSaver()
     private var tapGestureRecognizer: UITapGestureRecognizer?
     private var cameraPicker: UIImagePickerController?
+    @IBOutlet weak var addNoteLabel: UILabel?
+    @IBOutlet weak var messageLabel: UILabel?
     @IBOutlet weak var bottomButtonHeight: NSLayoutConstraint!
     @IBOutlet weak var bottomRightButton: UIButton!
     @IBOutlet weak var bottomLeftLabel: UILabel!
@@ -36,7 +38,7 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
     override func viewDidLoad() {
         super.viewDidLoad()
         bodyTextView.customDelegate = self
-        bodyTextView.placeholder = "Scrie aici ..."
+        bodyTextView.placeholder = "TextView_Placeholder_WriteHere".localized
         if let sectionInfo = self.sectionInfo, note == nil {
             note = MVNote(sectionInfo: sectionInfo)
         }
@@ -81,19 +83,25 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
     }
     
     private func outlets()  {
+        addNoteLabel?.text = "Label_AddNote".localized
+        messageLabel?.text = "Label_YourMessage".localized
         if delegate != nil {
-            secondButton.setTitle("Adaugă", for: .normal)
+            secondButton.setTitle("Button_Add".localized, for: .normal)
         } else {
-            secondButton.setTitle("Trimite", for: .normal)
+            secondButton.setTitle("Button_Send".localized, for: .normal)
         }
         if let note = self.note {
             if note.image != nil {
-                bottomLeftLabel.text = "Șterge"
+                bottomLeftLabel.text = "Button_Delete".localized
                 bottomRightButton.setImage(UIImage(named: "trash")!, for: .normal)
+            } else {
+                bottomLeftLabel.text = "Label_AddPhoto".localized
             }
             if let body = note.body {
                 bodyTextView.savedText = body
             }
+        } else {
+            bottomLeftLabel.text = "Label_AddPhoto".localized
         }
     }
     
@@ -135,19 +143,19 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
                 self.cameraPicker = cameraPicker
                 navigationController?.present(cameraPicker, animated: true, completion: nil)
             case .denied, .restricted:
-                let appSettings = UIAlertAction(title: "Setări", style: .default) { (action) in
+                let appSettings = UIAlertAction(title: "Button_Settings".localized, style: .default) { (action) in
                     UIApplication.shared.openURL(NSURL(string: UIApplicationOpenSettingsURLString)! as URL)
                 }
-                let cancel = UIAlertAction(title: "Închide", style: .cancel, handler: nil)
+                let cancel = UIAlertAction(title: "Button_Close".localized, style: .cancel, handler: nil)
                 
-                let alertController = UIAlertController(title: "Accessul este restricționat", message: "Te rugăm să accesezi setările și să ne oferi permisiuni de acces la librăria de poze.", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "AlertTitle_AccessRestricted".localized, message: "AlertMessage_EnableCameraAccess".localized, preferredStyle: .alert)
                 alertController.addAction(appSettings)
                 alertController.addAction(cancel)
                 self.present(alertController, animated: true, completion: nil)
             }
         } else {
             note?.image = nil
-            bottomLeftLabel.text = "Adaugă o fotografie"
+            bottomLeftLabel.text = "Label_AddPhoto".localized
             bottomRightButton.setImage(UIImage(named: "camera")!, for: .normal)
         }
     }
@@ -166,7 +174,7 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
         picker.dismiss(animated: false, completion: nil)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             note?.image = image
-            bottomLeftLabel.text = "Șterge"
+            bottomLeftLabel.text = "Button_Delete".localized
             bottomRightButton.setImage(UIImage(named: "trash")!, for: .normal)
         }
     }

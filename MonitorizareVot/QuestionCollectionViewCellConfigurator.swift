@@ -9,10 +9,10 @@ class QuestionCollectionViewCellConfigurator {
         cell.topLabel.text = form + String(row)
         if data.answered {
             let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 11.0), NSForegroundColorAttributeName: MVColors.green.color]
-            cell.bottomLabel.attributedText = NSAttributedString(string: "Completat", attributes: attributes)
+            cell.bottomLabel.attributedText = NSAttributedString(string: "Label_Completed".localized, attributes: attributes)
         } else {
             let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 11.0), NSForegroundColorAttributeName: MVColors.gray.color]
-            cell.bottomLabel.attributedText = NSAttributedString(string: "Necompletat", attributes: attributes)
+            cell.bottomLabel.attributedText = NSAttributedString(string: "Label_NotCompleted".localized, attributes: attributes)
         }
     }
 }

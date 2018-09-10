@@ -1,0 +1,7 @@
+//  Created by Code4Romania
+
+NSPhotoLibraryUsageDescription = "";
+NSCameraUsageDescription = "We need access to the picture library to attach a picture of the note.";
+NSLocationWhenInUseUsageDescription = "";
+NSLocationAlwaysUsageDescription = "";
+NSLocationUsageDescription = "";

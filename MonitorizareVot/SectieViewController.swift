@@ -16,14 +16,22 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     private var judete = [[String: AnyObject]]()
     private var pickerViewSelection: PickerViewSelection?
     private var tapGestureRecognizer: UITapGestureRecognizer?
+    
+    @IBOutlet weak var topFirstLabel: UILabel?
+    @IBOutlet weak var topSecondLabel: UILabel?
+    @IBOutlet weak var countyLabel: UILabel?
+    @IBOutlet weak var selectedCountyLabel: UILabel?
+    
+    @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton?
     @IBOutlet private var buttons: [UIButton]!
     @IBOutlet private weak var bottomTextField: UITextField!
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var pickerView: UIPickerView!
     @IBOutlet private weak var pickerContainer: UIView!
-    @IBOutlet private weak var firstLabel: UILabel!
     private let formsVersionsFetcher = FormsFetcher(formsPersistor: LocalFormsPersistor())
     private let syncer = DBSyncer()
+    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +69,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         bottomTextField.resignFirstResponder()
         if sectionInfo.judet == nil, let judet = judete.first?.keys.first {
             sectionInfo.judet = judet
-            firstLabel.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
+            selectedCountyLabel?.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
         }
     }
     
@@ -70,7 +78,6 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func bottomButtonPressed(_ sender: UIButton) {
-        
         if sectionInfo.judet == nil {
             showAlertController(errorType: .judetNotSet)
         } else if sectionInfo.sectie == nil {
@@ -119,19 +126,19 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     private func showAlertController(errorType: SectieErrorType) {
-        let alertButton = UIAlertAction(title: "Am înțeles", style: .cancel, handler: nil)
+        let alertButton = UIAlertAction(title: "AlertButton_Understood".localized, style: .cancel, handler: nil)
         
         switch errorType {
         case .judetNotSet:
-            let alertController = UIAlertController(title: "Selectează județ", message: "Alege un județ pentru a putea trece la următorul pas.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "AlertTitle_SelectCounty".localized, message: "AlertMessage_SelectCounty".localized, preferredStyle: .alert)
             alertController.addAction(alertButton)
             self.present(alertController, animated: true, completion: nil)
         case .sectieNotSet:
-            let alertController = UIAlertController(title: "Introdu codul secției", message: "Este nevoie să precizezi codul secției pentru a putea trece la următorul pas.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "AlertTitle_CountyNumber".localized, message: "AlertMessage_CountyNumber".localized, preferredStyle: .alert)
             alertController.addAction(alertButton)
             self.present(alertController, animated: true, completion: nil)
         case .sectieInvalid:
-            let alertController = UIAlertController(title: "Codul secției este invalid", message: "Nu a fost gasită nici o secție care sa aibă acest număr.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "AlertTitle_CountyNumberInvalid".localized, message: "AlertMessage_CountyNumberInvalid".localized, preferredStyle: .alert)
             alertController.addAction(alertButton)
             self.present(alertController, animated: true, completion: nil)
         }
@@ -158,8 +165,14 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     private func setDefaultValues() {
-        let attributedText = NSAttributedString(string: "Alege", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.gray.color])
-        firstLabel.attributedText = attributedText
+        topFirstLabel?.text = "Label_PickDepartment".localized
+        topSecondLabel?.text  = "Label_PickDepartmentDetails".localized
+        countyLabel?.text = "Label_County".localized
+        closeButton?.setTitle("Button_Close".localized, for: .normal)
+        continueButton?.setTitle("Button_Continue".localized, for: .normal)
+        bottomTextField?.placeholder = "TextField_Placeholder_DepartmentNumber".localized
+        let attributedText = NSAttributedString(string: "Label_SelectedCounty".localized, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.gray.color])
+        selectedCountyLabel?.attributedText = attributedText
     }
     
     private func loadData() {
@@ -171,7 +184,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     private func checkLocalStorage() {
         if let judet = UserDefaults.standard.string(forKey: "judet") {
             sectionInfo.judet = judet
-            firstLabel.text = judet
+            selectedCountyLabel?.text = judet
         }
         
         if let sectie = UserDefaults.standard.string(forKey: "sectie") {
@@ -208,7 +221,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
             case .judete:
                 if let judet = judete[row].keys.first {
                     sectionInfo.judet = judet
-                    firstLabel.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
+                    selectedCountyLabel?.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
                 }
             default:
                 break

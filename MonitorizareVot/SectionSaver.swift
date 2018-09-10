@@ -31,7 +31,7 @@ class SectionSaver {
                                                    "oraSosirii": sectionInfo.arriveHour + ":" + sectionInfo.arriveMinute,
                                                    "oraPlecarii": sectionInfo.leftHour + ":" + sectionInfo.leftMinute,
                                                    "esteZonaUrbana": medium == "urban" ? true : false,
-                                                   "presedinteBesvesteFemeie": genre == "feminin" ? true : false ]
+                                                   "presedinteBesvesteFemeie": genre == "woman" ? true : false ]
                     
                     Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: { (response) in
                         if let statusCode = response.response?.statusCode, statusCode == 200 {

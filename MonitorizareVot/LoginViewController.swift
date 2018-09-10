@@ -13,6 +13,7 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     @IBOutlet private weak var buttonHeight: NSLayoutConstraint!
     @IBOutlet private weak var loadingView: UIView!
     @IBOutlet private weak var formViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var centerButton: UIButton?
     private var loginAPIRequest: LoginAPIRequest?
     
     // MARK: - Life cycle
@@ -21,6 +22,9 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
         self.loginAPIRequest = LoginAPIRequest(parentView: self)
         layout()
         setTapGestureRecognizer()
+        phoneNumberTextField.placeholder = "TextField_Placeholder_PhoneNumber".localized
+        codeTextField.placeholder = "TextField_Placeholder_PINNumber".localized
+        centerButton?.setTitle("Button_Authenticate".localized, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +53,7 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
         let params: [String: Any] = ["phone":phoneNumberTextField.text ?? "",
                                            "pin": codeTextField.text ?? "",
                                            "udid": udid]
+        
         loginAPIRequest?.perform(informations: params) {[weak self] success, response in
             self?.loadingView.isHidden = true
             if let token = response as? String, success {
