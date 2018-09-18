@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		271595B521465EBA00BECC9C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271595B421465EBA00BECC9C /* StringExtensions.swift */; };
 		271595B72146AB1F00BECC9C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 271595B92146AB1F00BECC9C /* InfoPlist.strings */; };
+		27BBB27B21510B9600D72D72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27BBB27D21510B9600D72D72 /* LaunchScreen.storyboard */; };
 		27EDBD18214659800060DB8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EDBD1A214659800060DB8A /* Main.storyboard */; };
 		27EDBD2221465D190060DB8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EDBD2421465D190060DB8A /* Localizable.strings */; };
 		55A0F006987479F41A76966C /* Pods_MonitorizareVot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */; };
@@ -34,7 +35,6 @@
 		E74908111DDCBB5800878F0A /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74908101DDCBB5800878F0A /* FormViewController.swift */; };
 		E753C4321DE5FA6800B6B7C9 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */; };
 		E7702ED01DF966F200B3E1F2 /* ButtonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7702ECF1DF966F200B3E1F2 /* ButtonHandler.swift */; };
-		E7702ED21DF980FF00B3E1F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7702ED11DF980FF00B3E1F2 /* LaunchScreen.storyboard */; };
 		E7CC39F31DDDFF760010688D /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */; };
 		E7CC39F81DDF25530010688D /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39F71DDF25530010688D /* AddNoteViewController.swift */; };
 		E7CC39FA1DDF255B0010688D /* MVNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39F91DDF255B0010688D /* MVNote.swift */; };
@@ -104,6 +104,8 @@
 		271595B421465EBA00BECC9C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		271595B82146AB1F00BECC9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		271595BA2146AB2800BECC9C /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		27BBB27C21510B9600D72D72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		27BBB28821510C6800D72D72 /* ro */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ro; path = ro.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27EDBD19214659800060DB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27EDBD2621465D290060DB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		27EDBD2821465D480060DB8A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -134,7 +136,6 @@
 		E74908101DDCBB5800878F0A /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		E7702ECF1DF966F200B3E1F2 /* ButtonHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonHandler.swift; sourceTree = "<group>"; };
-		E7702ED11DF980FF00B3E1F2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
 		E7CC39F71DDF25530010688D /* AddNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		E7CC39F91DDF255B0010688D /* MVNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVNote.swift; sourceTree = "<group>"; };
@@ -446,7 +447,7 @@
 				EF4BD3DE1D9E64720042BEC7 /* ViewControllers */,
 				EF4BD3841D9D08DE0042BEC7 /* Supporting Files */,
 				EF903E361DA25E3800D5BC9C /* Resources */,
-				E7702ED11DF980FF00B3E1F2 /* LaunchScreen.storyboard */,
+				27BBB27D21510B9600D72D72 /* LaunchScreen.storyboard */,
 				27EDBD1A214659800060DB8A /* Main.storyboard */,
 				EF4BD3981D9D08DE0042BEC7 /* Info.plist */,
 				EF4BD3901D9D08DE0042BEC7 /* s.xcdatamodeld */,
@@ -705,7 +706,7 @@
 				27EDBD18214659800060DB8A /* Main.storyboard in Resources */,
 				EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */,
 				E7FEC2BF1DE09E6300F2F04D /* BasicAnswerTableViewCell.xib in Resources */,
-				E7702ED21DF980FF00B3E1F2 /* LaunchScreen.storyboard in Resources */,
+				27BBB27B21510B9600D72D72 /* LaunchScreen.storyboard in Resources */,
 				EFEC82041DCF25B800610D79 /* QuestionCollectionViewCell.xib in Resources */,
 				27EDBD2221465D190060DB8A /* Localizable.strings in Resources */,
 				E7FEC2C51DE09E8700F2F04D /* AnswerWithTextTableViewCell.xib in Resources */,
@@ -974,6 +975,16 @@
 				271595BA2146AB2800BECC9C /* ro */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		27BBB27D21510B9600D72D72 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27BBB27C21510B9600D72D72 /* Base */,
+				27BBB28821510C6800D72D72 /* ro */,
+			);
+			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		27EDBD1A214659800060DB8A /* Main.storyboard */ = {

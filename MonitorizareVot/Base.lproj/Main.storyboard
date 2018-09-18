@@ -110,7 +110,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="414"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VoteMonitor" translatesAutoresizingMaskIntoConstraints="NO" id="gwU-RA-BdZ">
-                                        <rect key="frame" x="20" y="20" width="335" height="374"/>
+                                        <rect key="frame" x="0.0" y="20" width="375" height="374"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -118,9 +118,9 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <constraint firstItem="gwU-RA-BdZ" firstAttribute="top" secondItem="VBX-Ln-slK" secondAttribute="top" constant="20" id="2WB-Pb-JUl"/>
                                     <constraint firstItem="gwU-RA-BdZ" firstAttribute="centerX" secondItem="VBX-Ln-slK" secondAttribute="centerX" id="UUK-FR-dzm"/>
                                     <constraint firstItem="gwU-RA-BdZ" firstAttribute="centerY" secondItem="VBX-Ln-slK" secondAttribute="centerY" id="XKv-cY-cO0"/>
-                                    <constraint firstItem="gwU-RA-BdZ" firstAttribute="leading" secondItem="VBX-Ln-slK" secondAttribute="leading" constant="20" id="b8o-ow-czB"/>
+                                    <constraint firstItem="gwU-RA-BdZ" firstAttribute="leading" secondItem="VBX-Ln-slK" secondAttribute="leading" id="b8o-ow-czB"/>
                                     <constraint firstAttribute="bottom" secondItem="gwU-RA-BdZ" secondAttribute="bottom" constant="20" id="kjA-eq-Huh"/>
-                                    <constraint firstAttribute="trailing" secondItem="gwU-RA-BdZ" secondAttribute="trailing" constant="20" id="uOJ-8o-U0s"/>
+                                    <constraint firstAttribute="trailing" secondItem="gwU-RA-BdZ" secondAttribute="trailing" id="uOJ-8o-U0s"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3x-gz-w2p">
