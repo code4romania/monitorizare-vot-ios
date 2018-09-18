@@ -41,6 +41,7 @@
 "Label_AddPhoto" = "Adaugă o fotografie";
 "Label_Completed" = "Completat";
 "Label_NotCompleted" = "Necompletat";
+"Label_DevelopedBy" = "aplicație dezvoltată de";
 
 "NavigationBar_DepartmentDetails" = "Informații despre secție";
 "NavigationBar_SelectForm" = "Alege formular";

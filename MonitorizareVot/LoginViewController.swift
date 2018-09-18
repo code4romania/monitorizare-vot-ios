@@ -14,6 +14,7 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     @IBOutlet private weak var loadingView: UIView!
     @IBOutlet private weak var formViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var centerButton: UIButton?
+    @IBOutlet private weak var developerBy: UILabel!
     private var loginAPIRequest: LoginAPIRequest?
     
     // MARK: - Life cycle
@@ -25,6 +26,7 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
         phoneNumberTextField.placeholder = "TextField_Placeholder_PhoneNumber".localized
         codeTextField.placeholder = "TextField_Placeholder_PINNumber".localized
         centerButton?.setTitle("Button_Authenticate".localized, for: .normal)
+        developerBy?.text = "Label_DevelopedBy".localized
     }
     
     override func viewWillAppear(_ animated: Bool) {

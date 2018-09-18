@@ -41,6 +41,7 @@
 "Label_AddPhoto" = "Add photo";
 "Label_Completed" = "Completed";
 "Label_NotCompleted" = "Not completed";
+"Label_DevelopedBy" = "app developed by";
 
 "NavigationBar_DepartmentDetails" = "Department details";
 "NavigationBar_SelectForm" = "Select form";
