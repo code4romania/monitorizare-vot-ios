@@ -33,9 +33,9 @@
 "Label_CountyPresidentGender" = "Președintele secției este";
 "Label_CountyArriveTime" = "Ora sosirii în secție";
 "Label_CountyLeaveTime" = "Ora plecării din secție";
-"Label_FormA" = "Formular deschidere";
-"Label_FormB" = "Formular votare";
-"Label_FormC" = "Formular inchidere";
+"Label_FormA" = "Sâmbătă";
+"Label_FormB" = "Duminică";
+"Label_FormC" = "Numărare";
 "Label_AddNote" = "Adaugă notă";
 "Label_YourMessage" = "Mesajul tău";
 "Label_AddPhoto" = "Adaugă o fotografie";
