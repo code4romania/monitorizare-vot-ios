@@ -36,6 +36,9 @@
 "Label_FormA" = "Sâmbătă";
 "Label_FormB" = "Duminică";
 "Label_FormC" = "Numărare";
+"Label_FormAAbr" = "S";
+"Label_FormBAbr" = "D";
+"Label_FormCAbr" = "N";
 "Label_AddNote" = "Adaugă notă";
 "Label_YourMessage" = "Mesajul tău";
 "Label_AddPhoto" = "Adaugă o fotografie";

@@ -9,6 +9,9 @@ class PickFormViewController: RootViewController {
     var sectionInfo: MVSectionInfo?
     var persistedSectionInfo: SectionInfo?
     var topLabelText: String?
+    @IBOutlet weak var firstTitle: UILabel?
+    @IBOutlet weak var secondTitle: UILabel?
+    @IBOutlet weak var thirdTitle: UILabel?
     @IBOutlet weak var firstLabel: UILabel?
     @IBOutlet weak var secondLabel: UILabel?
     @IBOutlet weak var thirdLabel: UILabel?
@@ -72,8 +75,11 @@ class PickFormViewController: RootViewController {
         }
         topButton.layer.defaultCornerRadius(borderColor: MVColors.gray.cgColor)
         firstLabel?.text = "Label_FormA".localized
+        firstTitle?.text = "Label_FormAAbr".localized
         secondLabel?.text = "Label_FormB".localized
+        secondTitle?.text = "Label_FormBAbr".localized
         thirdLabel?.text = "Label_FormC".localized
+        thirdTitle?.text = "Label_FormCAbr".localized
         fourthLabel?.text = "Label_AddNote".localized
         centerButton?.setTitle("Button_SyncData".localized, for: .normal)
     }

@@ -33,9 +33,12 @@
 "Label_CountyPresidentGender" = "The chairman of the department is";
 "Label_CountyArriveTime" = "Arrival time in the section";
 "Label_CountyLeaveTime" = "Time of departure";
-"Label_FormA" = "Saturday";
-"Label_FormB" = "Sunday";
-"Label_FormC" = "Counting";
+"Label_FormA" = "Saturday Form";
+"Label_FormB" = "Sunday Form";
+"Label_FormC" = "Counting Form";
+"Label_FormAAbr" = "SA";
+"Label_FormBAbr" = "SU";
+"Label_FormCAbr" = "C";
 "Label_AddNote" = "Add note";
 "Label_YourMessage" = "Your message";
 "Label_AddPhoto" = "Add photo";
