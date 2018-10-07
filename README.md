@@ -18,10 +18,12 @@ The app also has a web version, available for every citizen who wants to report 
 
 * Swift
 
+Swagger docs for the API are available [here](https://mv-mobile-prod.azurewebsites.net/swagger/ui/index.html).
+
 ## Repos and projects
 
 - repo for the API - https://github.com/code4romania/monitorizare-vot
-- repo for the android app - https://github.com/code4romania/monitorizare-vot-android
+- repo for the Android app - https://github.com/code4romania/monitorizare-vot-android
 
 Other related projects:
 
