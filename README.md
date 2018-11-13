@@ -1,6 +1,6 @@
 # Monitorizare Vot - iOS app [![Build status](https://build.appcenter.ms/v0.1/apps/742d5378-faae-4ad6-9204-d94eb3e98923/branches/master/badge)](https://appcenter.ms)
 
-[![GitHub contributors](https://img.shields.io/github/contributors/code4romania/monitorizare-vot-ios.svg?style=for-the-badge)]() [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/monitorizare-vot-ios.svg?style=for-the-badge)]() [![License: MPL 2.0](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)
+[![GitHub contributors](https://img.shields.io/github/contributors/code4romania/monitorizare-vot-ios.svg?style=for-the-badge)](https://github.com/code4romania/monitorizare-vot-ios/graphs/contributors) [![GitHub last commit](https://img.shields.io/github/last-commit/code4romania/monitorizare-vot-ios.svg?style=for-the-badge)](https://github.com/code4romania/monitorizare-vot-ios/commits/master) [![License: MPL 2.0](https://img.shields.io/badge/license-MPL%202.0-brightgreen.svg?style=for-the-badge)](https://opensource.org/licenses/MPL-2.0)
 
 [See the project live](http://monitorizarevot.ro/)
 
