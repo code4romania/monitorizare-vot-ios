@@ -1303,9 +1303,12 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     <connections>
                         <outlet property="centerButton" destination="j3E-dM-otl" id="rmA-pY-2Io"/>
                         <outlet property="firstLabel" destination="f3f-BP-CM2" id="E4Q-er-fVz"/>
+                        <outlet property="firstTitle" destination="VLO-Ho-aFI" id="ReN-qm-Jsn"/>
                         <outlet property="fourthLabel" destination="Ojb-IK-tvG" id="f5X-Ih-a1e"/>
                         <outlet property="secondLabel" destination="aiy-bM-104" id="JZx-gY-pKo"/>
+                        <outlet property="secondTitle" destination="JII-Ll-GRZ" id="hJc-2S-wL0"/>
                         <outlet property="thirdLabel" destination="C5R-rl-egY" id="KQ1-Be-tK3"/>
+                        <outlet property="thirdTitle" destination="FXz-vs-JRP" id="1yN-fc-xK9"/>
                         <outlet property="topButton" destination="M3t-1Q-kiT" id="GGF-LR-4Ve"/>
                         <outlet property="topLabel" destination="imj-WS-cZq" id="8ba-Mw-xbW"/>
                         <outletCollection property="buttonsBackgroundViews" destination="RXC-6V-ujy" collectionClass="NSMutableArray" id="Pzd-8d-u74"/>

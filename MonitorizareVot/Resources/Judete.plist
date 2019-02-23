@@ -16,11 +16,11 @@
 	</dict>
 	<dict>
 		<key>BC</key>
-		<integer>634</integer>
+		<integer>635</integer>
 	</dict>
 	<dict>
 		<key>BH</key>
-		<integer>652</integer>
+		<integer>650</integer>
 	</dict>
 	<dict>
 		<key>BN</key>
@@ -28,19 +28,19 @@
 	</dict>
 	<dict>
 		<key>BT</key>
-		<integer>422</integer>
+		<integer>425</integer>
 	</dict>
 	<dict>
 		<key>BR</key>
-		<integer>281</integer>
+		<integer>280</integer>
 	</dict>
 	<dict>
 		<key>BV</key>
-		<integer>447</integer>
+		<integer>449</integer>
 	</dict>
 	<dict>
 		<key>BZ</key>
-		<integer>427</integer>
+		<integer>426</integer>
 	</dict>
 	<dict>
 		<key>CL</key>
@@ -96,7 +96,7 @@
 	</dict>
 	<dict>
 		<key>IS</key>
-		<integer>730</integer>
+		<integer>736</integer>
 	</dict>
 	<dict>
 		<key>IF</key>
@@ -108,7 +108,7 @@
 	</dict>
 	<dict>
 		<key>MH</key>
-		<integer>286</integer>
+		<integer>287</integer>
 	</dict>
 	<dict>
 		<key>MS</key>
@@ -136,11 +136,11 @@
 	</dict>
 	<dict>
 		<key>SB</key>
-		<integer>370</integer>
+		<integer>373</integer>
 	</dict>
 	<dict>
 		<key>SV</key>
-		<integer>555</integer>
+		<integer>558</integer>
 	</dict>
 	<dict>
 		<key>TR</key>
@@ -148,7 +148,7 @@
 	</dict>
 	<dict>
 		<key>TM</key>
-		<integer>595</integer>
+		<integer>597</integer>
 	</dict>
 	<dict>
 		<key>TL</key>
@@ -168,7 +168,7 @@
 	</dict>
 	<dict>
 		<key>B</key>
-		<real>1254</real>
+		<integer>1264</integer>
 	</dict>
 </array>
 </plist>
