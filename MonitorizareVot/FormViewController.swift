@@ -75,6 +75,18 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
         if let index = getIndex(ofQuestion: currentQuestion),
             index < questions.count - 1 {
             showQuestion(withIndex: index + 1, currentQuestion: currentQuestion)
+
+            // update the answers from it
+            var currentQuestionUpdated = currentQuestion
+            for aAnswer in currentQuestion.answers {
+                if aAnswer.selected == true {
+                    currentQuestionUpdated.answered = true
+                    self.questions?[index] = currentQuestionUpdated
+                    collectionView.reloadData()
+                    break
+                }
+            }
+
         }
 
     }
@@ -82,7 +94,7 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
     func showPreviousQuestion(currentQuestion: MVQuestion) {
         if let index = getIndex(ofQuestion: currentQuestion) {
             // we might not want to update the answers to the current question when going back
-            showQuestion(withIndex: index - 1, currentQuestion: currentQuestion, updateAnswers: false)
+            showQuestion(withIndex: index - 1, currentQuestion: currentQuestion)
         }
     }
     
@@ -93,7 +105,7 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
         return index
     }
     
-    fileprivate func showQuestion(withIndex index: Int, currentQuestion: MVQuestion, updateAnswers: Bool = true) {
+    fileprivate func showQuestion(withIndex index: Int, currentQuestion: MVQuestion) {
         if let questions = self.questions, index < questions.count, index >= 0 {
             pushAnimated = false
             let _ = self.navigationController?.popViewController(animated: false)
@@ -101,18 +113,6 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
             self.collectionView(self.collectionView, didSelectItemAt: indexPath)
         } else {
             let _ = self.navigationController?.popViewController(animated: true)
-        }
-        
-        if updateAnswers {
-            var currentQuestionUpdated = currentQuestion
-            for aAnswer in currentQuestion.answers {
-                if aAnswer.selected == true {
-                    currentQuestionUpdated.answered = true
-                    questions?[index] = currentQuestionUpdated
-                    collectionView.reloadData()
-                    break
-                }
-            }
         }
     }
 }
