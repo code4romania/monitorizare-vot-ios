@@ -260,6 +260,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C3BCCAF422216A39004EACF4 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				27EDBD1A214659800060DB8A /* Main.storyboard */,
+				27BBB27D21510B9600D72D72 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		E74087211DDC8D6000D9332F /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,10 +454,9 @@
 				E7E1F2C21DDB586100CE52FC /* Utils */,
 				EF4BD3E21D9E64F30042BEC7 /* CustomViews */,
 				EF4BD3DE1D9E64720042BEC7 /* ViewControllers */,
+				C3BCCAF422216A39004EACF4 /* Storyboards */,
 				EF4BD3841D9D08DE0042BEC7 /* Supporting Files */,
 				EF903E361DA25E3800D5BC9C /* Resources */,
-				27BBB27D21510B9600D72D72 /* LaunchScreen.storyboard */,
-				27EDBD1A214659800060DB8A /* Main.storyboard */,
 				EF4BD3981D9D08DE0042BEC7 /* Info.plist */,
 				EF4BD3901D9D08DE0042BEC7 /* s.xcdatamodeld */,
 			);
