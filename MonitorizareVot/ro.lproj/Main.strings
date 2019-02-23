@@ -1,0 +1,132 @@
+
+/* Class = "UITextField"; placeholder = "Număr de telefon"; ObjectID = "0A7-JF-Sdj"; */
+"0A7-JF-Sdj.placeholder" = "Număr de telefon";
+
+/* Class = "UILabel"; text = "Mesajul tău"; ObjectID = "0OF-pf-yfa"; */
+"0OF-pf-yfa.text" = "Mesajul tău";
+
+/* Class = "UIButton"; normalTitle = "Continuă"; ObjectID = "3HY-d5-K26"; */
+"3HY-d5-K26.normalTitle" = "Continuă";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5YO-e7-3ky"; */
+"5YO-e7-3ky.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Număr secție"; ObjectID = "6ZQ-Wy-huI"; */
+"6ZQ-Wy-huI.placeholder" = "Număr secție";
+
+/* Class = "UILabel"; text = "Președintele secției este"; ObjectID = "7Xe-bC-Ib7"; */
+"7Xe-bC-Ib7.text" = "Președintele secției este";
+
+/* Class = "UILabel"; text = "GR 12345"; ObjectID = "7h4-R9-pVf"; */
+"7h4-R9-pVf.text" = "GR 12345";
+
+/* Class = "UILabel"; text = "Adaugă o notă"; ObjectID = "9Et-Us-nxc"; */
+"9Et-Us-nxc.text" = "Adaugă o notă";
+
+/* Class = "UIButton"; normalTitle = "Închide"; ObjectID = "9gc-OI-4d5"; */
+"9gc-OI-4d5.normalTitle" = "Închide";
+
+/* Class = "UIButton"; normalTitle = "Autentificare"; ObjectID = "B3x-gz-w2p"; */
+"B3x-gz-w2p.normalTitle" = "Autentificare";
+
+/* Class = "UILabel"; text = "Formular inchidere"; ObjectID = "C5R-rl-egY"; */
+"C5R-rl-egY.text" = "Formular inchidere";
+
+/* Class = "UILabel"; text = "în care te afli"; ObjectID = "DkI-OV-lJb"; */
+"DkI-OV-lJb.text" = "în care te afli";
+
+/* Class = "UILabel"; text = "C"; ObjectID = "FXz-vs-JRP"; */
+"FXz-vs-JRP.text" = "C";
+
+/* Class = "UILabel"; text = "B"; ObjectID = "JII-Ll-GRZ"; */
+"JII-Ll-GRZ.text" = "B";
+
+/* Class = "UIButton"; normalTitle = "Schimbă secție"; ObjectID = "M3t-1Q-kiT"; */
+"M3t-1Q-kiT.normalTitle" = "Schimbă secție";
+
+/* Class = "UIButton"; normalTitle = "Rural"; ObjectID = "Mkw-fc-RdK"; */
+"Mkw-fc-RdK.normalTitle" = "Rural";
+
+/* Class = "UILabel"; text = "Adauga nota"; ObjectID = "Ojb-IK-tvG"; */
+"Ojb-IK-tvG.text" = "Adauga nota";
+
+/* Class = "UILabel"; text = "Județ"; ObjectID = "SAl-1y-5bo"; */
+"SAl-1y-5bo.text" = "Județ";
+
+/* Class = "UIButton"; normalTitle = "Schimbă secție"; ObjectID = "TWp-MH-LmI"; */
+"TWp-MH-LmI.normalTitle" = "Schimbă secție";
+
+/* Class = "UIButton"; normalTitle = "hh:mm"; ObjectID = "UGo-n6-FHg"; */
+"UGo-n6-FHg.normalTitle" = "hh:mm";
+
+/* Class = "UITextField"; placeholder = "Cod primit"; ObjectID = "UKC-Kc-Qmh"; */
+"UKC-Kc-Qmh.placeholder" = "Cod primit";
+
+/* Class = "UILabel"; text = "A"; ObjectID = "VLO-Ho-aFI"; */
+"VLO-Ho-aFI.text" = "A";
+
+/* Class = "UIButton"; normalTitle = "Continuă către formulare"; ObjectID = "Vxe-EC-icY"; */
+"Vxe-EC-icY.normalTitle" = "Continuă către formulare";
+
+/* Class = "UILabel"; text = "Alege secția"; ObjectID = "ZIO-OQ-npY"; */
+"ZIO-OQ-npY.text" = "Alege secția";
+
+/* Class = "UILabel"; text = "Formular votare"; ObjectID = "aiy-bM-104"; */
+"aiy-bM-104.text" = "Formular votare";
+
+/* Class = "UILabel"; text = "Adaugă o fotografie"; ObjectID = "c7r-Rx-j74"; */
+"c7r-Rx-j74.text" = "Adaugă o fotografie";
+
+/* Class = "UIButton"; normalTitle = "Următoarea întrebare"; ObjectID = "cCo-wS-pQ0"; */
+"cCo-wS-pQ0.normalTitle" = "Următoarea întrebare";
+
+/* Class = "UILabel"; text = "Formular deschidere"; ObjectID = "f3f-BP-CM2"; */
+"f3f-BP-CM2.text" = "Formular deschidere";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "fgU-PK-aFj"; */
+"fgU-PK-aFj.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Femeie"; ObjectID = "hvj-xv-hGq"; */
+"hvj-xv-hGq.normalTitle" = "Femeie";
+
+/* Class = "UILabel"; text = "GR 12345"; ObjectID = "imj-WS-cZq"; */
+"imj-WS-cZq.text" = "GR 12345";
+
+/* Class = "UIButton"; normalTitle = "Sincronizare Date"; ObjectID = "j3E-dM-otl"; */
+"j3E-dM-otl.normalTitle" = "Sincronizare Date";
+
+/* Class = "UIButton"; normalTitle = "hh:mm"; ObjectID = "l1J-Xj-QnN"; */
+"l1J-Xj-QnN.normalTitle" = "hh:mm";
+
+/* Class = "UIButton"; normalTitle = "Urban"; ObjectID = "l9o-eh-SuW"; */
+"l9o-eh-SuW.normalTitle" = "Urban";
+
+/* Class = "UITextView"; text = "\nLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.\n\n1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.\n\n2.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.\n\t\n\t2.1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.\n\n\t\t2.1.1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "lpe-u8-Kkv"; */
+"lpe-u8-Kkv.text" = "\nLorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.\n\n1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.\n\n2.Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.\n\t\n\t2.1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.\n\n\t\t2.1.1. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UILabel"; text = "Ora plecării din secție"; ObjectID = "msh-S1-jHL"; */
+"msh-S1-jHL.text" = "Ora plecării din secție";
+
+/* Class = "UILabel"; text = "Ora sosirii în secție"; ObjectID = "mtj-c4-RiZ"; */
+"mtj-c4-RiZ.text" = "Ora sosirii în secție";
+
+/* Class = "UIButton"; normalTitle = "Închide"; ObjectID = "nOC-i5-MOc"; */
+"nOC-i5-MOc.normalTitle" = "Închide";
+
+/* Class = "UILabel"; text = "În ce mediu se află secția?"; ObjectID = "uf3-h9-is7"; */
+"uf3-h9-is7.text" = "În ce mediu se află secția?";
+
+/* Class = "UINavigationItem"; title = " "; ObjectID = "w3V-ww-bj6"; */
+"w3V-ww-bj6.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Trimite"; ObjectID = "wfJ-s5-DBX"; */
+"wfJ-s5-DBX.normalTitle" = "Trimite";
+
+/* Class = "UILabel"; text = "Observatorului"; ObjectID = "wsb-Us-yJ5"; */
+"wsb-Us-yJ5.text" = "Observatorului";
+
+/* Class = "UIButton"; normalTitle = "Bărbat"; ObjectID = "xaJ-Ok-58S"; */
+"xaJ-Ok-58S.normalTitle" = "Bărbat";
+
+/* Class = "UILabel"; text = "Ghidul"; ObjectID = "zsD-hD-Ze8"; */
+"zsD-hD-Ze8.text" = "Ghidul";

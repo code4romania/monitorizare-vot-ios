@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CLR-DH-k2X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CLR-DH-k2X">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,22 +22,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guide" translatesAutoresizingMaskIntoConstraints="NO" id="yYv-hx-f9I">
-                                <rect key="frame" x="160" y="45" width="55" height="46"/>
+                                <rect key="frame" x="160" y="65" width="55" height="46"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ghidul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsD-hD-Ze8">
-                                <rect key="frame" x="147" y="100" width="81" height="34"/>
+                                <rect key="frame" x="148" y="120" width="79" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Observatorului" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsb-Us-yJ5">
-                                <rect key="frame" x="131" y="140" width="113" height="21"/>
+                                <rect key="frame" x="131" y="160" width="113" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lpe-u8-Kkv">
-                                <rect key="frame" x="25" y="186" width="325" height="456"/>
+                                <rect key="frame" x="25" y="206" width="325" height="436"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">
 Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
@@ -82,17 +81,36 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="oEB-20-ESH">
-                                <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nIX-88-CcR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="61"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="code4ro" translatesAutoresizingMaskIntoConstraints="NO" id="chT-AQ-YPf">
+                                        <rect key="frame" x="272" y="30" width="93" height="26"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Developer by]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsR-By-UCf">
+                                        <rect key="frame" x="178" y="41.5" width="84" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="chT-AQ-YPf" firstAttribute="top" secondItem="nIX-88-CcR" secondAttribute="top" constant="30" id="N60-se-O71"/>
+                                    <constraint firstItem="XsR-By-UCf" firstAttribute="bottom" secondItem="chT-AQ-YPf" secondAttribute="bottom" id="OHJ-Sh-K4z"/>
+                                    <constraint firstItem="chT-AQ-YPf" firstAttribute="leading" secondItem="XsR-By-UCf" secondAttribute="trailing" constant="10" id="fBz-W5-sgD"/>
+                                    <constraint firstAttribute="trailing" secondItem="chT-AQ-YPf" secondAttribute="trailing" constant="10" id="gYp-ms-DTZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="chT-AQ-YPf" secondAttribute="bottom" constant="5" id="nFy-pl-mby"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBX-Ln-slK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="414"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="gwU-RA-BdZ">
-                                        <rect key="frame" x="110" y="20" width="156" height="374"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VoteMonitor" translatesAutoresizingMaskIntoConstraints="NO" id="gwU-RA-BdZ">
+                                        <rect key="frame" x="0.0" y="20" width="375" height="374"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -100,7 +118,9 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <constraint firstItem="gwU-RA-BdZ" firstAttribute="top" secondItem="VBX-Ln-slK" secondAttribute="top" constant="20" id="2WB-Pb-JUl"/>
                                     <constraint firstItem="gwU-RA-BdZ" firstAttribute="centerX" secondItem="VBX-Ln-slK" secondAttribute="centerX" id="UUK-FR-dzm"/>
                                     <constraint firstItem="gwU-RA-BdZ" firstAttribute="centerY" secondItem="VBX-Ln-slK" secondAttribute="centerY" id="XKv-cY-cO0"/>
+                                    <constraint firstItem="gwU-RA-BdZ" firstAttribute="leading" secondItem="VBX-Ln-slK" secondAttribute="leading" id="b8o-ow-czB"/>
                                     <constraint firstAttribute="bottom" secondItem="gwU-RA-BdZ" secondAttribute="bottom" constant="20" id="kjA-eq-Huh"/>
+                                    <constraint firstAttribute="trailing" secondItem="gwU-RA-BdZ" secondAttribute="trailing" id="uOJ-8o-U0s"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3x-gz-w2p">
@@ -110,7 +130,6 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <constraint firstAttribute="height" constant="60" id="SSx-1T-flV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Autentificare"/>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rZz-ex-NAC"/>
                                 </connections>
@@ -118,7 +137,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exT-h3-7d7">
                                 <rect key="frame" x="0.0" y="414" width="375" height="129"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Număr de telefon" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0A7-JF-Sdj">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0A7-JF-Sdj">
                                         <rect key="frame" x="20" y="0.0" width="335" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="0bF-vE-xfj"/>
@@ -150,7 +169,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                             <constraint firstAttribute="height" constant="1" id="jcf-oJ-fui"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cod primit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UKC-Kc-Qmh">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UKC-Kc-Qmh">
                                         <rect key="frame" x="20" y="55" width="335" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="G0Z-Al-Nen"/>
@@ -199,35 +218,38 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="VBX-Ln-slK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="50g-Hh-HDQ"/>
                             <constraint firstItem="dSd-p9-QdY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9aP-EW-Ocb"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oEB-20-ESH" secondAttribute="bottom" id="B2r-Bh-tbZ"/>
-                            <constraint firstItem="oEB-20-ESH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DUB-fY-JQF"/>
                             <constraint firstItem="VBX-Ln-slK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FPz-Aj-Zz2"/>
                             <constraint firstItem="exT-h3-7d7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FXe-bk-qH2"/>
+                            <constraint firstItem="nIX-88-CcR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HeA-K0-LsE"/>
+                            <constraint firstAttribute="trailing" secondItem="VBX-Ln-slK" secondAttribute="trailing" id="I1e-f1-ZvT"/>
                             <constraint firstItem="B3x-gz-w2p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="J3j-Nd-8Vd"/>
                             <constraint firstItem="VBX-Ln-slK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Miz-Xc-fbV"/>
                             <constraint firstItem="exT-h3-7d7" firstAttribute="top" secondItem="VBX-Ln-slK" secondAttribute="bottom" id="Nke-gq-HlU"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="B3x-gz-w2p" secondAttribute="bottom" id="UPr-Z1-4ZC"/>
                             <constraint firstAttribute="trailing" secondItem="B3x-gz-w2p" secondAttribute="trailing" id="V1x-1Q-xif"/>
                             <constraint firstAttribute="trailing" secondItem="exT-h3-7d7" secondAttribute="trailing" id="Y5X-ad-67g"/>
-                            <constraint firstItem="oEB-20-ESH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-64" id="bY3-vE-klV"/>
                             <constraint firstAttribute="trailing" secondItem="B3x-gz-w2p" secondAttribute="trailing" id="clJ-nV-0Jf"/>
-                            <constraint firstAttribute="trailing" secondItem="oEB-20-ESH" secondAttribute="trailing" id="dEs-AI-adD"/>
                             <constraint firstAttribute="trailing" secondItem="VBX-Ln-slK" secondAttribute="trailing" id="dbi-Se-VxK"/>
+                            <constraint firstAttribute="trailing" secondItem="nIX-88-CcR" secondAttribute="trailing" id="fdh-08-1oh"/>
                             <constraint firstItem="dSd-p9-QdY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gcu-q1-Lam"/>
                             <constraint firstAttribute="trailing" secondItem="dSd-p9-QdY" secondAttribute="trailing" id="ifP-f7-SZI"/>
                             <constraint firstItem="B3x-gz-w2p" firstAttribute="top" secondItem="exT-h3-7d7" secondAttribute="bottom" id="jsU-9y-DKU"/>
                             <constraint firstItem="B3x-gz-w2p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="n2w-bC-W2L"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="B3x-gz-w2p" secondAttribute="bottom" id="nqm-kz-VDb"/>
+                            <constraint firstItem="nIX-88-CcR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="s9e-Cx-Hld"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dSd-p9-QdY" secondAttribute="bottom" id="ucT-TO-sKT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title=" " id="w3V-ww-bj6"/>
                     <connections>
                         <outlet property="buttonHeight" destination="SSx-1T-flV" id="gyp-HC-J76"/>
+                        <outlet property="centerButton" destination="B3x-gz-w2p" id="Gqu-Ep-okQ"/>
                         <outlet property="codeTextField" destination="UKC-Kc-Qmh" id="vfP-GO-A4d"/>
+                        <outlet property="developerBy" destination="XsR-By-UCf" id="qqL-Bi-faF"/>
                         <outlet property="formViewBottomConstraint" destination="jsU-9y-DKU" id="Uwy-x6-NK1"/>
                         <outlet property="loadingView" destination="dSd-p9-QdY" id="a8S-jU-5F6"/>
                         <outlet property="phoneNumberTextField" destination="0A7-JF-Sdj" id="qky-2o-jQD"/>
@@ -255,7 +277,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="yU7-6h-6tt"/>
                                 </constraints>
-                                <state key="normal" title="Continuă">
+                                <state key="normal" title="[Continue]">
                                     <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -266,22 +288,22 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 <rect key="frame" x="0.0" y="20" width="375" height="587"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iar-cR-X5L">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="412"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="419"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jve-iu-Eg1">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sectieIcon" translatesAutoresizingMaskIntoConstraints="NO" id="IDU-Iv-OOD">
-                                                        <rect key="frame" x="173" y="45" width="30" height="27"/>
+                                                        <rect key="frame" x="172.5" y="45" width="30" height="27"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Alege secția" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-OQ-npY">
-                                                        <rect key="frame" x="112" y="82" width="152" height="33.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="[Select departement]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIO-OQ-npY">
+                                                        <rect key="frame" x="60" y="82" width="255" height="33.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="în care te afli" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkI-OV-lJb">
-                                                        <rect key="frame" x="140.5" y="115.5" width="95.5" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[located]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkI-OV-lJb">
+                                                        <rect key="frame" x="153.5" y="115.5" width="68" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -299,16 +321,16 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFC-4T-ztx">
-                                                <rect key="frame" x="0.0" y="200" width="375" height="141"/>
+                                                <rect key="frame" x="0.0" y="200" width="375" height="148"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Județ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAl-1y-5bo">
-                                                        <rect key="frame" x="21" y="50" width="39" height="11"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[County]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAl-1y-5bo">
+                                                        <rect key="frame" x="21" y="40" width="60.5" height="28"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJq-x1-DZx">
-                                                        <rect key="frame" x="11" y="81" width="353" height="55"/>
+                                                        <rect key="frame" x="11" y="88" width="353" height="55"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgU-PK-aFj">
                                                                 <rect key="frame" x="10" y="0.0" width="333" height="50"/>
@@ -321,7 +343,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5YO-e7-3ky">
-                                                                <rect key="frame" x="30" y="15.5" width="42" height="20.5"/>
+                                                                <rect key="frame" x="30" y="15" width="42" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -349,14 +371,13 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                     <constraint firstItem="LJq-x1-DZx" firstAttribute="top" secondItem="SAl-1y-5bo" secondAttribute="bottom" constant="20" id="EmA-i2-bVJ"/>
                                                     <constraint firstItem="SAl-1y-5bo" firstAttribute="leading" secondItem="xFC-4T-ztx" secondAttribute="leading" constant="21" id="LL2-D2-uoS"/>
                                                     <constraint firstItem="LJq-x1-DZx" firstAttribute="leading" secondItem="xFC-4T-ztx" secondAttribute="leading" constant="11" id="QFi-rA-h8P"/>
-                                                    <constraint firstAttribute="height" constant="141" id="VYB-tX-Hc8"/>
                                                     <constraint firstAttribute="bottom" secondItem="LJq-x1-DZx" secondAttribute="bottom" constant="5" id="XaM-vG-jDG"/>
                                                     <constraint firstAttribute="trailing" secondItem="LJq-x1-DZx" secondAttribute="trailing" constant="11" id="sXe-Ms-ByJ"/>
-                                                    <constraint firstItem="SAl-1y-5bo" firstAttribute="top" secondItem="xFC-4T-ztx" secondAttribute="top" constant="50" id="u1c-C9-04a"/>
+                                                    <constraint firstItem="SAl-1y-5bo" firstAttribute="top" secondItem="xFC-4T-ztx" secondAttribute="top" constant="40" id="u1c-C9-04a"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="055-rJ-ZRn">
-                                                <rect key="frame" x="0.0" y="341" width="375" height="71"/>
+                                                <rect key="frame" x="0.0" y="348" width="375" height="71"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Uz-iB-WZs" userLabel="separator">
                                                         <rect key="frame" x="21" y="70" width="333" height="1"/>
@@ -365,7 +386,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                             <constraint firstAttribute="height" constant="1" id="RKi-TN-ARo"/>
                                                         </constraints>
                                                     </view>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Număr secție" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ZQ-Wy-huI">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="[Department number]" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ZQ-Wy-huI">
                                                         <rect key="frame" x="21" y="20" width="333" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="vpK-Vx-rT1"/>
@@ -411,7 +432,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                             <constraint firstAttribute="height" constant="30" id="KzG-JJ-a9U"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Închide">
+                                        <state key="normal" title="[Close]">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -460,9 +481,14 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     <connections>
                         <outlet property="bottomConstraint" destination="wVZ-LK-KwZ" id="0Cq-rf-9eb"/>
                         <outlet property="bottomTextField" destination="6ZQ-Wy-huI" id="lan-rV-MLR"/>
-                        <outlet property="firstLabel" destination="5YO-e7-3ky" id="oBn-p1-BdV"/>
+                        <outlet property="closeButton" destination="nOC-i5-MOc" id="7gF-bl-5i8"/>
+                        <outlet property="continueButton" destination="3HY-d5-K26" id="UkK-Fn-RJD"/>
+                        <outlet property="countyLabel" destination="SAl-1y-5bo" id="uWA-ou-aYW"/>
                         <outlet property="pickerContainer" destination="1rW-wM-j2E" id="lA2-tJ-4HM"/>
                         <outlet property="pickerView" destination="yaU-3A-C6C" id="a6Q-ve-g4L"/>
+                        <outlet property="selectedCountyLabel" destination="5YO-e7-3ky" id="fTb-wg-IUf"/>
+                        <outlet property="topFirstLabel" destination="ZIO-OQ-npY" id="HHZ-lL-ksK"/>
+                        <outlet property="topSecondLabel" destination="DkI-OV-lJb" id="Yhr-qV-gDm"/>
                         <outletCollection property="buttons" destination="fgU-PK-aFj" collectionClass="NSMutableArray" id="FKT-AM-Ca3"/>
                     </connections>
                 </viewController>
@@ -552,7 +578,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ecW-G5-Z14"/>
                                 </constraints>
-                                <state key="normal" title="Următoarea întrebare">
+                                <state key="normal" title="[Button_NextQuestion]">
                                     <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -591,6 +617,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     <connections>
                         <outlet property="bottomConstraint" destination="RTD-G8-u5y" id="WaI-Cl-iTV"/>
                         <outlet property="buttonHeight" destination="ecW-G5-Z14" id="shO-DX-4fy"/>
+                        <outlet property="continueButton" destination="cCo-wS-pQ0" id="sDq-kD-M8A"/>
                         <outlet property="loadingView" destination="u51-zy-bO2" id="gmg-LE-iSE"/>
                         <outlet property="tableView" destination="1jh-0y-L3Z" id="KEC-7d-i8h"/>
                     </connections>
@@ -605,7 +632,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CLR-DH-k2X" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="chj-On-WIt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
@@ -641,18 +668,16 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GR 12345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7h4-R9-pVf">
-                                        <rect key="frame" x="66" y="20.5" width="76" height="20.5"/>
+                                        <rect key="frame" x="66" y="20" width="76" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWp-MH-LmI">
-                                        <rect key="frame" x="235" y="16" width="120" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="M7m-iQ-u2t"/>
-                                        </constraints>
+                                        <rect key="frame" x="207" y="11.5" width="148" height="37"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Schimbă secție">
+                                        <inset key="contentEdgeInsets" minX="5" minY="10" maxX="5" maxY="10"/>
+                                        <state key="normal" title="[ChangeDepartemnt]">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -676,6 +701,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <constraint firstItem="TWp-MH-LmI" firstAttribute="centerY" secondItem="fhS-kB-1hf" secondAttribute="centerY" id="2fK-BY-kVl"/>
                                     <constraint firstItem="H4D-ep-iVb" firstAttribute="centerY" secondItem="fhS-kB-1hf" secondAttribute="centerY" id="Dja-x9-dwI"/>
                                     <constraint firstItem="7h4-R9-pVf" firstAttribute="centerY" secondItem="H4D-ep-iVb" secondAttribute="centerY" id="MAU-GR-y7U"/>
+                                    <constraint firstItem="TWp-MH-LmI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7h4-R9-pVf" secondAttribute="trailing" constant="50" id="Xyi-7S-p68"/>
                                     <constraint firstItem="7h4-R9-pVf" firstAttribute="leading" secondItem="H4D-ep-iVb" secondAttribute="trailing" constant="10" id="ZIe-ka-fbk"/>
                                     <constraint firstItem="H4D-ep-iVb" firstAttribute="leading" secondItem="fhS-kB-1hf" secondAttribute="leading" constant="20" id="oVb-XW-usc"/>
                                     <constraint firstAttribute="height" constant="60" id="sfc-Tq-Z1Z"/>
@@ -696,7 +722,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="npd-k8-B4i"/>
                                                         </constraints>
-                                                        <state key="normal" title="Urban">
+                                                        <state key="normal" title="[Button_Urban]">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -705,14 +731,14 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkw-fc-RdK">
                                                         <rect key="frame" x="198" y="70" width="156" height="50"/>
-                                                        <state key="normal" title="Rural">
+                                                        <state key="normal" title="[Button_Rural]">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="secondButtonTapped:" destination="joA-Sk-w7W" eventType="touchUpInside" id="MgI-GN-SZX"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="În ce mediu se află secția?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uf3-h9-is7">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Label_CountyLocation]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uf3-h9-is7">
                                                         <rect key="frame" x="20" y="30" width="335" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
@@ -752,7 +778,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="Trv-Gv-ff6"/>
                                                         </constraints>
-                                                        <state key="normal" title="Bărbat">
+                                                        <state key="normal" title="[Button_Male]">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -761,14 +787,14 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvj-xv-hGq">
                                                         <rect key="frame" x="198" y="70" width="156" height="50"/>
-                                                        <state key="normal" title="Femeie">
+                                                        <state key="normal" title="[Button_Female]">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="fourthButtonTapped:" destination="joA-Sk-w7W" eventType="touchUpInside" id="9SS-dM-TZy"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Președintele secției este" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xe-bC-Ib7">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Label_CountyPresidentGender]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xe-bC-Ib7">
                                                         <rect key="frame" x="20" y="30" width="335" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
@@ -838,13 +864,13 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                             <action selector="sixthButtonTapped:" destination="joA-Sk-w7W" eventType="touchUpInside" id="TgM-6U-KQi"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ora sosirii în secție" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="mtj-c4-RiZ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Label_CountyArriveTime]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="mtj-c4-RiZ">
                                                         <rect key="frame" x="20" y="30" width="157.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ora plecării din secție" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="msh-S1-jHL">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Label_CountyLeaveTime]" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="msh-S1-jHL">
                                                         <rect key="frame" x="197.5" y="30" width="157.5" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
@@ -890,7 +916,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <constraint firstAttribute="height" constant="60" id="WNZ-I9-CrN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Continuă către formulare">
+                                <state key="normal" title="[Continue]">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -907,7 +933,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                             <constraint firstAttribute="height" constant="30" id="EvE-Rg-14R"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Închide">
+                                        <state key="normal" title="[Close]">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -975,15 +1001,21 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     </view>
                     <navigationItem key="navigationItem" id="nAH-65-Ugq"/>
                     <connections>
+                        <outlet property="closeButton" destination="9gc-OI-4d5" id="SHX-L7-tTv"/>
+                        <outlet property="continueButton" destination="Vxe-EC-icY" id="ZrS-g1-ZBC"/>
                         <outlet property="fifthButton" destination="UGo-n6-FHg" id="HX8-tk-Ehw"/>
                         <outlet property="firstButton" destination="l9o-eh-SuW" id="HZW-ta-AVD"/>
+                        <outlet property="firstLabel" destination="uf3-h9-is7" id="aUN-vC-aWT"/>
                         <outlet property="fourthButton" destination="hvj-xv-hGq" id="TqX-Em-MB2"/>
+                        <outlet property="fourthLabel" destination="msh-S1-jHL" id="rDZ-E7-AN4"/>
                         <outlet property="loadingDataView" destination="PhO-qy-iSl" id="VwE-z4-Xhb"/>
                         <outlet property="pickerContainer" destination="xMK-G0-uE8" id="62D-z1-spH"/>
                         <outlet property="pickerView" destination="9uC-JU-aiN" id="uSb-fd-PaV"/>
                         <outlet property="secondButton" destination="Mkw-fc-RdK" id="1QB-H5-Rq4"/>
+                        <outlet property="secondLabel" destination="7Xe-bC-Ib7" id="GmN-YF-xKP"/>
                         <outlet property="sixthButton" destination="l1J-Xj-QnN" id="Jyi-KD-5dN"/>
                         <outlet property="thirdButton" destination="xaJ-Ok-58S" id="3BW-4H-lar"/>
+                        <outlet property="thirdLabel" destination="mtj-c4-RiZ" id="8d0-Ck-tz1"/>
                         <outlet property="topButton" destination="TWp-MH-LmI" id="JnI-Ks-D5a"/>
                         <outlet property="topLabel" destination="7h4-R9-pVf" id="B0c-s8-eFB"/>
                         <outletCollection property="formsButtons" destination="xaJ-Ok-58S" collectionClass="NSMutableArray" id="3a7-9A-ddU"/>
@@ -1021,18 +1053,16 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GR 12345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imj-WS-cZq">
-                                        <rect key="frame" x="66" y="20" width="76" height="21"/>
+                                        <rect key="frame" x="66" y="19.5" width="76" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3t-1Q-kiT">
-                                        <rect key="frame" x="235" y="16" width="120" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="2Uf-RF-jjP"/>
-                                        </constraints>
+                                        <rect key="frame" x="207" y="11.5" width="148" height="37"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="Schimbă secție">
+                                        <inset key="contentEdgeInsets" minX="5" minY="10" maxX="5" maxY="10"/>
+                                        <state key="normal" title="[ChangeDepartemnt]">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -1057,6 +1087,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                     <constraint firstItem="imj-WS-cZq" firstAttribute="leading" secondItem="G7X-vq-daK" secondAttribute="trailing" constant="10" id="YDp-qP-clg"/>
                                     <constraint firstItem="M3t-1Q-kiT" firstAttribute="centerY" secondItem="Bhp-h7-Ret" secondAttribute="centerY" id="coj-C4-DPr"/>
                                     <constraint firstItem="imj-WS-cZq" firstAttribute="centerY" secondItem="G7X-vq-daK" secondAttribute="centerY" id="egs-Ys-0XK"/>
+                                    <constraint firstItem="M3t-1Q-kiT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="imj-WS-cZq" secondAttribute="trailing" constant="50" id="jfq-3W-ony"/>
                                     <constraint firstItem="G7X-vq-daK" firstAttribute="centerY" secondItem="Bhp-h7-Ret" secondAttribute="centerY" id="jyN-Pi-deG"/>
                                     <constraint firstAttribute="height" constant="60" id="sWu-dx-7Z8"/>
                                     <constraint firstAttribute="trailing" secondItem="M3t-1Q-kiT" secondAttribute="trailing" constant="20" id="yzA-Lx-HXI"/>
@@ -1270,6 +1301,11 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="centerButton" destination="j3E-dM-otl" id="rmA-pY-2Io"/>
+                        <outlet property="firstLabel" destination="f3f-BP-CM2" id="E4Q-er-fVz"/>
+                        <outlet property="fourthLabel" destination="Ojb-IK-tvG" id="f5X-Ih-a1e"/>
+                        <outlet property="secondLabel" destination="aiy-bM-104" id="JZx-gY-pKo"/>
+                        <outlet property="thirdLabel" destination="C5R-rl-egY" id="KQ1-Be-tK3"/>
                         <outlet property="topButton" destination="M3t-1Q-kiT" id="GGF-LR-4Ve"/>
                         <outlet property="topLabel" destination="imj-WS-cZq" id="8ba-Mw-xbW"/>
                         <outletCollection property="buttonsBackgroundViews" destination="RXC-6V-ujy" collectionClass="NSMutableArray" id="Pzd-8d-u74"/>
@@ -1300,7 +1336,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="0Nb-nA-oPs"/>
                                 </constraints>
-                                <state key="normal" title="Trimite">
+                                <state key="normal" title="[Button_Send]">
                                     <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -1319,8 +1355,8 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notaIcon" translatesAutoresizingMaskIntoConstraints="NO" id="eJ6-9R-6vz">
                                                         <rect key="frame" x="154" y="45" width="67" height="67"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Adaugă o notă" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Et-Us-nxc">
-                                                        <rect key="frame" x="97" y="122" width="181" height="33.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="[Label_AddNote]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Et-Us-nxc">
+                                                        <rect key="frame" x="85.5" y="122" width="204.5" height="33.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1338,8 +1374,8 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVQ-kX-INM">
                                                 <rect key="frame" x="0.0" y="200" width="375" height="340"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mesajul tău" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OF-pf-yfa">
-                                                        <rect key="frame" x="21" y="50" width="78.5" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Label_YourMessage]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OF-pf-yfa">
+                                                        <rect key="frame" x="21" y="50" width="146" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1377,8 +1413,8 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                             <action selector="bottomRightButtonTapped:" destination="6qG-Fh-uqS" eventType="touchUpInside" id="kaP-uw-ZRu"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adaugă o fotografie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="c7r-Rx-j74">
-                                                        <rect key="frame" x="21" y="268.5" width="218" height="20.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Label_AddPhoto]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="c7r-Rx-j74">
+                                                        <rect key="frame" x="21" y="268" width="218" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1448,12 +1484,14 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     </view>
                     <navigationItem key="navigationItem" id="7RW-uw-zed"/>
                     <connections>
+                        <outlet property="addNoteLabel" destination="9Et-Us-nxc" id="oxz-OL-Hf9"/>
                         <outlet property="bodyTextView" destination="aE8-NY-6lG" id="hRm-bs-Hzs"/>
                         <outlet property="bottomButtonHeight" destination="0Nb-nA-oPs" id="NZA-R0-RDz"/>
                         <outlet property="bottomConstraint" destination="pgo-VQ-f52" id="cY0-Jk-xjg"/>
                         <outlet property="bottomLeftLabel" destination="c7r-Rx-j74" id="aRA-7w-MfO"/>
                         <outlet property="bottomRightButton" destination="caO-7K-Y0p" id="tNw-pM-p0f"/>
                         <outlet property="loadingView" destination="Qi7-bg-sup" id="ae9-E9-akx"/>
+                        <outlet property="messageLabel" destination="0OF-pf-yfa" id="tNu-HE-Zue"/>
                         <outlet property="secondButton" destination="wfJ-s5-DBX" id="U29-Rk-OfA"/>
                         <outlet property="textViewBackgroundView" destination="kB1-hh-oaD" id="pWQ-TT-YO3"/>
                     </connections>
@@ -1464,11 +1502,11 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="375" height="661"/>
+        <image name="VoteMonitor" width="426" height="240"/>
         <image name="camera" width="28" height="22"/>
+        <image name="code4ro" width="93" height="26"/>
         <image name="downArrow" width="22" height="13"/>
         <image name="guide" width="55" height="46"/>
-        <image name="logo" width="156" height="156"/>
         <image name="notaIcon" width="67" height="67"/>
         <image name="sectieIcon" width="30" height="27"/>
     </resources>

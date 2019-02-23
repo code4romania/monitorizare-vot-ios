@@ -9,11 +9,17 @@ class PickFormViewController: RootViewController {
     var sectionInfo: MVSectionInfo?
     var persistedSectionInfo: SectionInfo?
     var topLabelText: String?
+    @IBOutlet weak var firstLabel: UILabel?
+    @IBOutlet weak var secondLabel: UILabel?
+    @IBOutlet weak var thirdLabel: UILabel?
+    @IBOutlet weak var fourthLabel: UILabel?
+    @IBOutlet weak var centerButton: UIButton?
     private var localFormProvider = LocalFormProvider()
     @IBOutlet private var buttonsBackgroundViews: [UIView]!
     @IBOutlet private weak var topButton: UIButton!
     @IBOutlet private weak var topLabel: UILabel!
     private let dbSyncer = DBSyncer()
+    
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -21,7 +27,7 @@ class PickFormViewController: RootViewController {
         layout()
         setupOutlets()
         if let topLabelText = self.topLabelText {
-            self.navigationItem.set(title: topLabelText, subtitle: "Alege formular")
+            self.navigationItem.set(title: topLabelText, subtitle: "NavigationBar_SelectForm".localized)
         }
     }
     
@@ -65,12 +71,18 @@ class PickFormViewController: RootViewController {
             aView.layer.dropDefaultShadow()
         }
         topButton.layer.defaultCornerRadius(borderColor: MVColors.gray.cgColor)
+        firstLabel?.text = "Label_FormA".localized
+        secondLabel?.text = "Label_FormB".localized
+        thirdLabel?.text = "Label_FormC".localized
+        fourthLabel?.text = "Label_AddNote".localized
+        centerButton?.setTitle("Button_SyncData".localized, for: .normal)
     }
     
     private func setupOutlets() {
         if let topLabelText = self.topLabelText {
             topLabel.text = topLabelText
         }
+        topButton?.setTitle("Button_ChangeDepartemnt".localized, for: .normal)
     }
     
     private func pushFormViewController(type: String) {

@@ -1,0 +1,58 @@
+//  Created by Code4Romania
+
+"TextField_Placeholder_PhoneNumber" = "Phone number";
+"TextField_Placeholder_PINNumber" = "Received PIN";
+"TextField_Placeholder_DepartmentNumber" = "Department number";
+
+"TextView_Placeholder_WriteHere" = "Write here ...";
+"TextView_Placeholder_MoreDetails" = "Add more details ...";
+
+"Button_Authenticate" = "Authenticate";
+"Button_Close" = "Close";
+"Button_Continue" = "Continue";
+"Button_ChangeDepartemnt" = "Change department";
+"Button_Urban" = "Urban";
+"Button_Rural" = "Rural";
+"Button_Male" = "Man";
+"Button_Female" = "Woman";
+"Button_ContinueToForms" = "Continue to forms";
+"Button_SyncData" = "Synchronize Data";
+"Button_AddNoteToQuestion" = "Add note to question";
+"Button_EditNote" = "Edit note";
+"Button_NextQuestion" = "Next question";
+"Button_Add" = "Add";
+"Button_Send" = "Send";
+"Button_Delete" = "Delete";
+"Button_Settings" = "Settings";
+
+"Label_PickDepartment" = "Pick department";
+"Label_PickDepartmentDetails" = "where you are located";
+"Label_County" = "County";
+"Label_SelectedCounty" = "Choose";
+"Label_CountyLocation" = "In what environment is the department?";
+"Label_CountyPresidentGender" = "The chairman of the department is";
+"Label_CountyArriveTime" = "Arrival time in the section";
+"Label_CountyLeaveTime" = "Time of departure";
+"Label_FormA" = "Form opening";
+"Label_FormB" = "Form voting";
+"Label_FormC" = "Form closing";
+"Label_AddNote" = "Add note";
+"Label_YourMessage" = "Your message";
+"Label_AddPhoto" = "Add photo";
+"Label_Completed" = "Completed";
+"Label_NotCompleted" = "Not completed";
+"Label_DevelopedBy" = "app developed by";
+
+"NavigationBar_DepartmentDetails" = "Department details";
+"NavigationBar_SelectForm" = "Select form";
+
+"AlertTitle_SelectCounty" = "Select county";
+"AlertMessage_SelectCounty" = "Select a county to continue.";
+"AlertTitle_CountyNumber" = "Add department number";
+"AlertMessage_CountyNumber" = "You have to add the department number to continue.";
+"AlertTitle_CountyNumberInvalid" = "Department number is invalid";
+"AlertMessage_CountyNumberInvalid" = "We didn't find any department for given number.";
+"AlertTitle_AccessRestricted" = "Access restricted";
+"AlertMessage_EnableCameraAccess" = "Please access the settings and give us permissions to access the picture library.";
+
+"AlertButton_Understood" = "I understood";

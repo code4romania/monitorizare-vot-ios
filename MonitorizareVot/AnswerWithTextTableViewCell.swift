@@ -14,7 +14,7 @@ class AnswerWithTextTableViewCell: UITableViewCell, AnswerTableViewCell, MVUITex
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        textView.placeholder = "Mai multe detalii ..."
+        textView.placeholder = "TextView_Placeholder_MoreDetails".localized
         textView.customDelegate = self
         textViewBackground.layer.defaultCornerRadius(borderColor: MVColors.gray.color.cgColor)
     }
