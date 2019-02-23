@@ -14,12 +14,14 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     @IBOutlet private weak var loadingView: UIView!
     @IBOutlet private weak var formViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var centerButton: UIButton?
+    @IBOutlet weak var centerButtonBottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var developerBy: UILabel!
     private var loginAPIRequest: LoginAPIRequest?
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        performKeyboardAnimation()
         self.loginAPIRequest = LoginAPIRequest(parentView: self)
         layout()
         setTapGestureRecognizer()
@@ -74,7 +76,9 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     // MARK: - Utils
     func keyboardDidShow(notification: Notification) {
         if let userInfo = notification.userInfo, let frame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
-            formViewBottomConstraint.constant = frame.size.height - buttonHeight.constant
+            //formViewBottomConstraint.constant = frame.size.height - buttonHeight.constant
+            print(frame)
+            centerButtonBottomConstraint.constant = 256
             performKeyboardAnimation()
         }
     }
@@ -84,7 +88,8 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     }
     
     func keyboardIsHidden() {
-        formViewBottomConstraint?.constant = 0
+        //formViewBottomConstraint?.constant = 0
+        centerButtonBottomConstraint.constant = 0
         performKeyboardAnimation()
         phoneNumberTextField.resignFirstResponder()
         codeTextField.resignFirstResponder()
