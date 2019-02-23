@@ -75,12 +75,13 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     
     // MARK: - Utils
     func keyboardDidShow(notification: Notification) {
-        if let userInfo = notification.userInfo, let frame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
-            //formViewBottomConstraint.constant = frame.size.height - buttonHeight.constant
-            print(frame)
-            centerButtonBottomConstraint.constant = 256
-            performKeyboardAnimation()
-        }
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue else {return}
+        let keyboardFrame = keyboardSize.cgRectValue
+        
+        centerButtonBottomConstraint.constant = keyboardFrame.height
+        performKeyboardAnimation()
+        
     }
     
     func keyboardDidHide(notification: Notification) {
@@ -88,7 +89,6 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     }
     
     func keyboardIsHidden() {
-        //formViewBottomConstraint?.constant = 0
         centerButtonBottomConstraint.constant = 0
         performKeyboardAnimation()
         phoneNumberTextField.resignFirstResponder()
