@@ -5,6 +5,7 @@ import UIKit
 
 protocol QuestionViewControllerDelegate: class {
     func showNextQuestion(currentQuestion: MVQuestion)
+    func showPreviousQuestion(currentQuestion: MVQuestion)
 }
 
 class QuestionViewController: RootViewController, UITableViewDataSource, UITableViewDelegate, AnswerTableViewCellDelegate, ButtonHandler, AddNoteViewControllerDelegate {
@@ -38,6 +39,8 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
         setTapGestureRecognizer()
         tableView.rowHeight = UITableViewAutomaticDimension
         continueButton?.setTitle("Button_NextQuestion".localized, for: .normal)
+        
+        addGestureRecognizers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,11 +54,21 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
                 firstCell.button.setTitle("Button_EditNote".localized, for: .normal)
             }
         }
+        
+        // disable the default swipe to go back in the nav controller hierarchy so it will not
+        // interfere with the swipe gesture to go back to the previous question
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
+
+
+        // re-enable the default swipe to go back on the nav controller that we disabled in viewDidAppear
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
     }
     
     // MARK: - Utils
@@ -228,4 +241,17 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
         question?.note = note
     }
     
+    // MARK: - Gestures
+    
+    fileprivate func addGestureRecognizers() {
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
+        swipeGesture.direction = .right
+        view.addGestureRecognizer(swipeGesture)
+    }
+    
+    @objc fileprivate func handleSwipe(_ gesture: UISwipeGestureRecognizer) {
+        guard let question = question else { return }
+        delegate?.showPreviousQuestion(currentQuestion: question)
+    }
+
 }

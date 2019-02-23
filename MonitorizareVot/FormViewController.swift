@@ -67,18 +67,43 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
     
     // MARK: - QuestionViewControllerDelegate
     func showNextQuestion(currentQuestion: MVQuestion) {
-        if let index = questions?.index(where: { (aQuestion) -> Bool in
-            return aQuestion.id == currentQuestion.id
-        }) {
-            if let questions = self.questions, index < questions.count - 1 {
-                pushAnimated = false
-                let _ = self.navigationController?.popViewController(animated: false)
-                let indexPath = IndexPath(row: index + 1, section: 0)
-                self.collectionView(self.collectionView, didSelectItemAt: indexPath)
-            } else {
-                let _ = self.navigationController?.popViewController(animated: true)
-            }
-            
+        guard let questions = self.questions else {
+            // TODO: add some debug logs for this type of scenarios
+            return
+        }
+        
+        if let index = getIndex(ofQuestion: currentQuestion),
+            index < questions.count - 1 {
+            showQuestion(withIndex: index + 1, currentQuestion: currentQuestion)
+        }
+
+    }
+
+    func showPreviousQuestion(currentQuestion: MVQuestion) {
+        if let index = getIndex(ofQuestion: currentQuestion) {
+            // we might not want to update the answers to the current question when going back
+            showQuestion(withIndex: index - 1, currentQuestion: currentQuestion, updateAnswers: false)
+        }
+    }
+    
+    fileprivate func getIndex(ofQuestion question: MVQuestion) -> Int? {
+        let index = questions?.index(where: { (aQuestion) -> Bool in
+            return aQuestion.id == question.id
+        })
+        return index
+    }
+    
+    fileprivate func showQuestion(withIndex index: Int, currentQuestion: MVQuestion, updateAnswers: Bool = true) {
+        if let questions = self.questions, index < questions.count, index >= 0 {
+            pushAnimated = false
+            let _ = self.navigationController?.popViewController(animated: false)
+            let indexPath = IndexPath(row: index, section: 0)
+            self.collectionView(self.collectionView, didSelectItemAt: indexPath)
+        } else {
+            let _ = self.navigationController?.popViewController(animated: true)
+        }
+        
+        if updateAnswers {
             var currentQuestionUpdated = currentQuestion
             for aAnswer in currentQuestion.answers {
                 if aAnswer.selected == true {
@@ -88,7 +113,6 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
                     break
                 }
             }
-            
         }
     }
 }
