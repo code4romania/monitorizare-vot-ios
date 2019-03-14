@@ -6,6 +6,8 @@ target 'MonitorizareVot' do
   use_frameworks!
   pod 'Alamofire', '~> 4.0'
   pod 'SwiftKeychainWrapper'
+  pod 'Firebase/Core'
+
   # Pods for MonitorizareVot
 
   target 'MonitorizareVotTests' do

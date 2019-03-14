@@ -18,6 +18,16 @@ The app also has a web version, available for every citizen who wants to report 
 
 This project is built by amazing volunteers and you can be one of them! Here's a list of ways in [which you can contribute to this project](.github/CONTRIBUTING.MD).
 
+## Important, before you start
+
+### Firebase
+
+This project uses Firebase for event and usage tracking and Crashlytics for crash reports. So before you start work on it, you'll need to go to your Firebase console and create an app for this project, then download its `GoogleService-Info.plist` file and copy it to the `Config` folder. 
+
+### CocoaPods
+
+This project uses CocoaPods for its dependency management, so make sure you install it if you didn't already, then run a `pod install` before you build the project.
+
 ## Built With
 
 * Swift
