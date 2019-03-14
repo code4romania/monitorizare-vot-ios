@@ -17,16 +17,30 @@ DerivedData/
 !default.perspectivev3
 Pods/Pods.xcodeproj/xcuserdata/
 MonitorizareVot.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+xcuserdata/
 
 ## Other
 *.moved-aside
-*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
 
 ## Obj-C/Swift specific
 *.hmap
 *.ipa
 *.dSYM.zip
 *.dSYM
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+#
+# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
+# Packages/
+# Package.pins
+# Package.resolved
+.build/
 
 # CocoaPods
 #
@@ -51,7 +65,9 @@ Carthage/Build
 # https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md
 
 fastlane/report.xml
-fastlane/screenshots
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
 
 #Code Injection
 #
