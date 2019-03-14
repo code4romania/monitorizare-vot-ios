@@ -75,3 +75,9 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# Sensitive configuration files.
+# Usually, add here the files that contain API Keys, Secrets, stuff that should not be
+# part of the Git project
+
+Config/GoogleService-Info.plist
