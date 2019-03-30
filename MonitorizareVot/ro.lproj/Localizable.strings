@@ -56,6 +56,7 @@
 "AlertTitle_CountyNumberInvalid" = "Codul secției este invalid";
 "AlertMessage_CountyNumberInvalid" = "Nu a fost gasită nici o secție care sa aibă acest număr.";
 "AlertTitle_AccessRestricted" = "Accessul este restricționat";
+"AlertTitle_UnknownError" = "Eroare Necunoscută"
 "AlertMessage_EnableCameraAccess" = "Te rugăm să accesezi setările și să ne oferi permisiuni de acces la librăria de poze.";
 
 "AlertButton_Understood" = "Am înțeles";

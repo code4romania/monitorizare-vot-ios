@@ -14,14 +14,14 @@ class RootViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = [callButton, guideButton]
     }
     
-    func pushGuideViewController() {
+    @objc func pushGuideViewController() {
         if let url = URL(string: "http://monitorizare-vot-ghid.azurewebsites.net/") {
             let safariViewController = SFSafariViewController(url: url)
             self.navigationController?.present(safariViewController, animated: true, completion: nil)
         }
     }
     
-    func performCall() {
+    @objc func performCall() {
         let phoneCallPath = "telprompt://0800080200"
         if let phoneCallURL = NSURL(string: phoneCallPath) {
             UIApplication.shared.openURL(phoneCallURL as URL)

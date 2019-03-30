@@ -59,7 +59,7 @@ class PickFormViewController: RootViewController {
     }
     
     @IBAction func topRightButtonPressed(_ sender: UIButton) {
-        if let childs = self.navigationController?.childViewControllers {
+        if let childs = self.navigationController?.children {
             for aChild in childs {
                 if aChild is SectieViewController {
                     let _ = self.navigationController?.popToViewController(aChild, animated: true)
@@ -99,7 +99,7 @@ class PickFormViewController: RootViewController {
                 if let persistedQuestions = persistedSectionInfo?.questions as? Set<Question> {
                     let persistedQuestionsArray = Array(persistedQuestions)
                     for questionToAdd in aSection.questions {
-                        let indexOfPersistedQuestionInSection = persistedQuestionsArray.index { (persistedQuestion: Question) -> Bool in
+                        let indexOfPersistedQuestionInSection = persistedQuestionsArray.firstIndex { (persistedQuestion: Question) -> Bool in
                             return persistedQuestion.id == questionToAdd.id
                         }
                         if let indexOfPersistedQuestionInSection = indexOfPersistedQuestionInSection {

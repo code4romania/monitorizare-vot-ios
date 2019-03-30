@@ -67,7 +67,7 @@ class FormViewController: RootViewController, UICollectionViewDataSource, UIColl
     
     // MARK: - QuestionViewControllerDelegate
     func showNextQuestion(currentQuestion: MVQuestion) {
-        if let index = questions?.index(where: { (aQuestion) -> Bool in
+        if let index = questions?.firstIndex(where: { (aQuestion) -> Bool in
             return aQuestion.id == currentQuestion.id
         }) {
             if let questions = self.questions, index < questions.count - 1 {

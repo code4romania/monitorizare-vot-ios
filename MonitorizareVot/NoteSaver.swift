@@ -23,10 +23,7 @@ class NoteSaver {
         connectionState { (connected) in
             if connected {
                 let url = APIURLs.note.url
-                var imageData = Data()
-                if let image = note.image {
-                    imageData = UIImageJPEGRepresentation(image, 0.8)!
-                }
+                let imageData = note.image?.jpegData(compressionQuality: 0.8) ?? Data()
                 
                 var questionID = "-1"
                 if let id = note.questionID {
@@ -77,9 +74,7 @@ class NoteSaver {
         }
         noteToSave.synced = false
         noteToSave.body = note.body
-        if let image = note.image, let imageNSData = UIImageJPEGRepresentation(image, 0.8) {
-            noteToSave.file = NSData(data: imageNSData)
-        }
+        noteToSave.file = note.image?.jpegData(compressionQuality: 0.8) as NSData?
         noteContainer?.persist(note: noteToSave, in: CoreData.context)
         return noteToSave
     }
