@@ -31,8 +31,13 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardDidShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.keyboardDidHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardDidShow(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardDidHide(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -72,18 +77,18 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     }
     
     // MARK: - Utils
-    func keyboardDidShow(notification: Notification) {
-        if let userInfo = notification.userInfo, let frame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
+    @objc func keyboardDidShow(notification: Notification) {
+        if let userInfo = notification.userInfo, let frame = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect {
             formViewBottomConstraint.constant = frame.size.height - buttonHeight.constant
             performKeyboardAnimation()
         }
     }
     
-    func keyboardDidHide(notification: Notification) {
+    @objc func keyboardDidHide(notification: Notification) {
         keyboardIsHidden()
     }
     
-    func keyboardIsHidden() {
+    @objc func keyboardIsHidden() {
         formViewBottomConstraint?.constant = 0
         performKeyboardAnimation()
         phoneNumberTextField.resignFirstResponder()

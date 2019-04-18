@@ -57,7 +57,7 @@ class MVUITextView: UITextView, UITextViewDelegate {
     
     // MARK: - UITextView Delegate
     func textViewDidChange(_ textView: UITextView) {
-        if textView.text.characters.count == 0 && isEmpty {
+        if textView.text.count == 0 && isEmpty {
             emptyTextFieldLayout()
             customDelegate?.textView(textView: self, didChangeText: "")
         } else {
@@ -72,7 +72,7 @@ class MVUITextView: UITextView, UITextViewDelegate {
             return false
         }
     
-        if (textView.text.characters.count <= 1 || isEmpty) && text == "" {
+        if (textView.text.count <= 1 || isEmpty) && text == "" {
             self.emptyTextFieldLayout()
             self.isEmpty = true
         } else if (textView.text == placeholder && isEmpty && text != "") {
@@ -95,7 +95,7 @@ class MVUITextView: UITextView, UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.characters.count == 0 {
+        if textView.text.count == 0 {
             emptyTextFieldLayout()
         }
     }

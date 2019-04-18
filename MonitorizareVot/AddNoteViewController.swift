@@ -50,8 +50,13 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(AddNoteViewController.keyboardDidShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(AddNoteViewController.keyboardDidHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardDidShow(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardDidHide(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,18 +65,18 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
     }
     
     // MARK: - Utils
-    func keyboardDidShow(notification: Notification) {
-        if let userInfo = notification.userInfo, let frame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
+    @objc func keyboardDidShow(notification: Notification) {
+        if let userInfo = notification.userInfo, let frame = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect {
             bottomConstraint.constant = frame.size.height - bottomButtonHeight.constant
             performKeyboardAnimation()
         }
     }
     
-    func keyboardDidHide(notification: Notification) {
+    @objc func keyboardDidHide(notification: Notification) {
         keyboardIsHidden()
     }
     
-    func keyboardIsHidden() {
+    @objc func keyboardIsHidden() {
         bottomConstraint?.constant = 0
         performKeyboardAnimation()
         bodyTextView.resignFirstResponder()
@@ -136,7 +141,7 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
     @IBAction func bottomRightButtonTapped(_ sender: UIButton) {
         bodyTextView.resignFirstResponder()
         if note?.image == nil {
-            switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
+            switch AVCaptureDevice.authorizationStatus(for: AVMediaType.video) {
             case .authorized, .notDetermined:
                 let cameraPicker = UIImagePickerController()
                 cameraPicker.delegate = self
@@ -144,12 +149,17 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
                 navigationController?.present(cameraPicker, animated: true, completion: nil)
             case .denied, .restricted:
                 let appSettings = UIAlertAction(title: "Button_Settings".localized, style: .default) { (action) in
-                    UIApplication.shared.openURL(NSURL(string: UIApplicationOpenSettingsURLString)! as URL)
+                    UIApplication.shared.openURL(NSURL(string: UIApplication.openSettingsURLString)! as URL)
                 }
                 let cancel = UIAlertAction(title: "Button_Close".localized, style: .cancel, handler: nil)
                 
                 let alertController = UIAlertController(title: "AlertTitle_AccessRestricted".localized, message: "AlertMessage_EnableCameraAccess".localized, preferredStyle: .alert)
                 alertController.addAction(appSettings)
+                alertController.addAction(cancel)
+                self.present(alertController, animated: true, completion: nil)
+            @unknown default:
+                let alertController = UIAlertController(title: "AlertTitle_UnknownError".localized, preferredStyle: .alert)
+                let cancel = UIAlertAction(title: "Button_Close".localized, style: .cancel, handler: nil)
                 alertController.addAction(cancel)
                 self.present(alertController, animated: true, completion: nil)
             }
@@ -170,13 +180,12 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: false, completion: nil)
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             note?.image = image
             bottomLeftLabel.text = "Button_Delete".localized
             bottomRightButton.setImage(UIImage(named: "trash")!, for: .normal)
         }
-    }
-    
+    }    
 }

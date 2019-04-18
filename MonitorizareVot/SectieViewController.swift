@@ -52,8 +52,13 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         checkLocalStorage()
-        NotificationCenter.default.addObserver(self, selector: #selector(SectieViewController.keyboardDidShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(SectieViewController.keyboardDidHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardDidShow(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardDidHide(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -69,7 +74,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         bottomTextField.resignFirstResponder()
         if sectionInfo.judet == nil, let judet = judete.first?.keys.first {
             sectionInfo.judet = judet
-            selectedCountyLabel?.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
+            selectedCountyLabel?.attributedText = NSAttributedString(string: judet, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0), NSAttributedString.Key.foregroundColor: MVColors.black.color])
         }
     }
     
@@ -106,19 +111,19 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     // MARK: - Utils
-    func keyboardDidShow(notification: Notification) {
+    @objc func keyboardDidShow(notification: Notification) {
         pickerContainer.isHidden = true
-        if let userInfo = notification.userInfo, let frame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
+        if let userInfo = notification.userInfo, let frame = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect {
             bottomConstraint.constant = frame.size.height
             performKeyboardAnimation()
         }
     }
     
-    func keyboardDidHide(notification: Notification) {
+    @objc func keyboardDidHide(notification: Notification) {
         keyboardIsHidden()
     }
     
-    func keyboardIsHidden() {
+    @objc func keyboardIsHidden() {
         pickerContainer.isHidden = true
         bottomConstraint?.constant = 0
         performKeyboardAnimation()
@@ -171,7 +176,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         closeButton?.setTitle("Button_Close".localized, for: .normal)
         continueButton?.setTitle("Button_Continue".localized, for: .normal)
         bottomTextField?.placeholder = "TextField_Placeholder_DepartmentNumber".localized
-        let attributedText = NSAttributedString(string: "Label_SelectedCounty".localized, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.gray.color])
+        let attributedText = NSAttributedString(string: "Label_SelectedCounty".localized, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0), NSAttributedString.Key.foregroundColor: MVColors.gray.color])
         selectedCountyLabel?.attributedText = attributedText
     }
     
@@ -221,7 +226,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
             case .judete:
                 if let judet = judete[row].keys.first {
                     sectionInfo.judet = judet
-                    selectedCountyLabel?.attributedText = NSAttributedString(string: judet, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 17.0), NSForegroundColorAttributeName: MVColors.black.color])
+                    selectedCountyLabel?.attributedText = NSAttributedString(string: judet, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0), NSAttributedString.Key.foregroundColor: MVColors.black.color])
                 }
             default:
                 break

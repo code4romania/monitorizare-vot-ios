@@ -8,7 +8,7 @@ extension CALayer {
     func dropDefaultShadow() {
         self.cornerRadius = 4
         self.borderWidth = 1
-        self.borderColor = UIColor(colorLiteralRed:172.0/255.0, green:180.0/255.0, blue:190.0/255.0, alpha:1).cgColor
+        self.borderColor = UIColor(red: 172, green: 180, blue: 190, alpha: 1).cgColor
         self.masksToBounds = false
         self.shadowColor = MVColors.black.cgColor
         self.shadowRadius = 4.0

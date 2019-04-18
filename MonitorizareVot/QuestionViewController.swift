@@ -36,14 +36,20 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
         registerCell(identifier: "BasicAnswerTableViewCell")
         registerCell(identifier: "QuestionBodyTableViewCell")
         setTapGestureRecognizer()
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         continueButton?.setTitle("Button_NextQuestion".localized, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(QuestionViewController.keyboardDidShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(QuestionViewController.keyboardDidHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardDidShow(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardDidHide(notification:)),
+                                               name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         if let question = self.question, let firstCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? QuestionBodyTableViewCell {
             if question.note == nil  {
                 firstCell.button.setTitle("Button_AddNoteToQuestion".localized, for: .normal)
@@ -59,18 +65,18 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     }
     
     // MARK: - Utils
-    func keyboardDidShow(notification: Notification) {
-        if let userInfo = notification.userInfo, let frame = userInfo[UIKeyboardFrameBeginUserInfoKey] as? CGRect {
+    @objc func keyboardDidShow(notification: Notification) {
+        if let userInfo = notification.userInfo, let frame = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect {
             bottomConstraint.constant = frame.size.height - buttonHeight.constant
             performKeyboardAnimation()
         }
     }
     
-    func keyboardDidHide(notification: Notification) {
+    @objc func keyboardDidHide(notification: Notification) {
         keyboardIsHidden()
     }
     
-    func keyboardIsHidden() {
+    @objc func keyboardIsHidden() {
         bottomConstraint?.constant = 0
         performKeyboardAnimation()
         let cells = tableView.visibleCells
@@ -141,7 +147,7 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return UITableViewAutomaticDimension
+            return UITableView.automaticDimension
         }
         
         let answer = question!.answers[indexPath.row - 1]
