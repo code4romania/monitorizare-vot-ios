@@ -36,6 +36,7 @@
 "Label_FormA" = "Saturday Form";
 "Label_FormB" = "Sunday Form";
 "Label_FormC" = "Counting Form";
+"Label_Form" = "Form";
 "Label_FormAAbr" = "SA";
 "Label_FormBAbr" = "SU";
 "Label_FormCAbr" = "C";

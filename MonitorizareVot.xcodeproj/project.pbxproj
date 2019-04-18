@@ -12,6 +12,8 @@
 		27BBB27B21510B9600D72D72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27BBB27D21510B9600D72D72 /* LaunchScreen.storyboard */; };
 		27EDBD18214659800060DB8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EDBD1A214659800060DB8A /* Main.storyboard */; };
 		27EDBD2221465D190060DB8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EDBD2421465D190060DB8A /* Localizable.strings */; };
+		282045D5224F936F004B6D5D /* FormPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 282045D3224F936F004B6D5D /* FormPickerCollectionViewCell.xib */; };
+		282045D6224F936F004B6D5D /* FormPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282045D4224F936F004B6D5D /* FormPickerCollectionViewCell.swift */; };
 		28F280E3223A3D8C002B3E9A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */; };
 		55A0F006987479F41A76966C /* Pods_MonitorizareVot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */; };
 		64726B5FB8079F4FDA2D91E0 /* Pods_MonitorizareVotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */; };
@@ -110,6 +112,8 @@
 		27EDBD19214659800060DB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27EDBD2621465D290060DB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		27EDBD2821465D480060DB8A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		282045D3224F936F004B6D5D /* FormPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormPickerCollectionViewCell.xib; sourceTree = "<group>"; };
+		282045D4224F936F004B6D5D /* FormPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		28F280E4223A3FA7002B3E9A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2C95EF7A92703E67898E5413 /* Pods-MonitorizareVotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -251,6 +255,15 @@
 				27EDBD2421465D190060DB8A /* Localizable.strings */,
 			);
 			name = Localizations;
+			sourceTree = "<group>";
+		};
+		282045D2224F92A5004B6D5D /* FormPickerCell */ = {
+			isa = PBXGroup;
+			children = (
+				282045D3224F936F004B6D5D /* FormPickerCollectionViewCell.xib */,
+				282045D4224F936F004B6D5D /* FormPickerCollectionViewCell.swift */,
+			);
+			name = FormPickerCell;
 			sourceTree = "<group>";
 		};
 		28F280E1223A3D8C002B3E9A /* Config */ = {
@@ -519,6 +532,7 @@
 		EF4BD3E21D9E64F30042BEC7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				282045D2224F92A5004B6D5D /* FormPickerCell */,
 				E7E5B8091DE1D32A00A05E56 /* QuestionBodyCell */,
 				E7FEC2B91DE09E2300F2F04D /* AnswerCells */,
 				EF1D982E1DA1915F00A73FA7 /* QuestionCell */,
@@ -716,6 +730,7 @@
 				EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */,
 				E7FEC2BF1DE09E6300F2F04D /* BasicAnswerTableViewCell.xib in Resources */,
 				27BBB27B21510B9600D72D72 /* LaunchScreen.storyboard in Resources */,
+				282045D5224F936F004B6D5D /* FormPickerCollectionViewCell.xib in Resources */,
 				EFEC82041DCF25B800610D79 /* QuestionCollectionViewCell.xib in Resources */,
 				27EDBD2221465D190060DB8A /* Localizable.strings in Resources */,
 				E7FEC2C51DE09E8700F2F04D /* AnswerWithTextTableViewCell.xib in Resources */,
@@ -870,6 +885,7 @@
 				EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */,
 				F553E3BB1DF9D67A000D0902 /* Question+CoreDataClass.swift in Sources */,
 				E74087331DDCA79000D9332F /* MVAnswer.swift in Sources */,
+				282045D6224F936F004B6D5D /* FormPickerCollectionViewCell.swift in Sources */,
 				E74087311DDCA74D00D9332F /* MVQuestion.swift in Sources */,
 				E7FEC2C41DE09E8700F2F04D /* AnswerWithTextTableViewCell.swift in Sources */,
 				E7D5CC101DE32B7600393FFF /* AnsweredQuestionSaver.swift in Sources */,

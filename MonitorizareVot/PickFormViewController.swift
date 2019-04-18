@@ -9,24 +9,27 @@ class PickFormViewController: RootViewController {
     var sectionInfo: MVSectionInfo?
     var persistedSectionInfo: SectionInfo?
     var topLabelText: String?
-    @IBOutlet weak var firstTitle: UILabel?
-    @IBOutlet weak var secondTitle: UILabel?
-    @IBOutlet weak var thirdTitle: UILabel?
-    @IBOutlet weak var firstLabel: UILabel?
-    @IBOutlet weak var secondLabel: UILabel?
-    @IBOutlet weak var thirdLabel: UILabel?
-    @IBOutlet weak var fourthLabel: UILabel?
-    @IBOutlet weak var centerButton: UIButton?
+    
+    @IBOutlet weak var formsCollectionView: UICollectionView!
+    
+    @IBOutlet weak var syncButton: UIButton?
+    
     private var localFormProvider = LocalFormProvider()
-    @IBOutlet private var buttonsBackgroundViews: [UIView]!
+    private var localFormsPersistor = LocalFormsPersistor()
+
     @IBOutlet private weak var topButton: UIButton!
     @IBOutlet private weak var topLabel: UILabel!
     private let dbSyncer = DBSyncer()
+
+    // TODO: move this into an object or hash when we have more data to show
+    var forms: [String] = []
     
+    fileprivate let FormCellPadding: CGFloat = 5
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadFormsIfNecessary()
         layout()
         setupOutlets()
         if let topLabelText = self.topLabelText {
@@ -35,19 +38,11 @@ class PickFormViewController: RootViewController {
     }
     
     // MARK: - IBActions
-    @IBAction func firstButtonPressed(_ sender: UIButton) {
-        pushFormViewController(type: "A")
-    }
     
-    @IBAction func secondButtonPressed(_ sender: UIButton) {
-        pushFormViewController(type: "B")
-    }
     
-    @IBAction func thirdButtonPressed(_ sender: UIButton) {
-        pushFormViewController(type: "C")
-    }
+    // MARK: - Handlers
     
-    @IBAction func fourthButtonPressed(_ sender: UIButton) {
+    func handleAddNoteAction() {
         let addNoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNoteViewController") as! AddNoteViewController
         addNoteViewController.sectionInfo = sectionInfo
         addNoteViewController.noteContainer = persistedSectionInfo
@@ -70,18 +65,9 @@ class PickFormViewController: RootViewController {
     
     // MARK: - Utils
     private func layout() {
-        for aView in buttonsBackgroundViews {
-            aView.layer.dropDefaultShadow()
-        }
-        topButton.layer.defaultCornerRadius(borderColor: MVColors.gray.cgColor)
-        firstLabel?.text = "Label_FormA".localized
-        firstTitle?.text = "Label_FormAAbr".localized
-        secondLabel?.text = "Label_FormB".localized
-        secondTitle?.text = "Label_FormBAbr".localized
-        thirdLabel?.text = "Label_FormC".localized
-        thirdTitle?.text = "Label_FormCAbr".localized
-        fourthLabel?.text = "Label_AddNote".localized
-        centerButton?.setTitle("Button_SyncData".localized, for: .normal)
+        syncButton?.setTitle("Button_SyncData".localized, for: .normal)
+        
+        formsCollectionView.register(UINib(nibName: "FormPickerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: FormPickerCollectionViewCell.reuseIdentifier)
     }
     
     private func setupOutlets() {
@@ -91,7 +77,7 @@ class PickFormViewController: RootViewController {
         topButton?.setTitle("Button_ChangeDepartemnt".localized, for: .normal)
     }
     
-    private func pushFormViewController(type: String) {
+    fileprivate func pushFormViewController(type: String) {
         let formViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FormViewController") as! FormViewController
         if let form = localFormProvider.getForm(named: type) {
             var questions = [MVQuestion]()
@@ -123,5 +109,66 @@ class PickFormViewController: RootViewController {
             formViewController.persistedSectionInfo = persistedSectionInfo
             self.navigationController?.pushViewController(formViewController, animated: true)
         }
+    }
+    
+    fileprivate func loadFormsIfNecessary() {
+        if forms.count == 0 {
+            forms = localFormsPersistor.getAllForms()
+            formsCollectionView.reloadData()
+        }
+    }
+}
+
+extension PickFormViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // the number of forms + the add note cell
+        return forms.count + 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FormPickerCollectionViewCell.reuseIdentifier, for: indexPath) as? FormPickerCollectionViewCell else { fatalError("Couldn't find collection view cell") }
+        
+        if indexPath.row == collectionView.numberOfItems(inSection: 0) - 1 {
+            cell.isAddNote = true
+        } else {
+            cell.isAddNote = false
+            let form = forms[indexPath.row]
+            cell.idLabel.text = form.uppercased()
+            cell.descriptionLabel.text = "Label_Form".localized
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == collectionView.numberOfItems(inSection: 0) - 1 {
+            handleAddNoteAction()
+        } else {
+            self.pushFormViewController(type: forms[indexPath.row])
+        }
+    }
+    
+    
+    
+}
+
+
+extension PickFormViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let side = collectionView.frame.size.width / 2 - FormCellPadding
+        return CGSize(width: side, height: 160)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return FormCellPadding * 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return FormCellPadding
     }
 }
