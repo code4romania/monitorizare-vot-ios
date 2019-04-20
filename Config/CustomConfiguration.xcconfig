@@ -1,0 +1,16 @@
+//
+//  CustomConfiguration.xcconfig
+//  MonitorizareVot
+//
+//  Created by Cristi Habliuc on 20/04/2019.
+//  Copyright © 2019 Code4Ro. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.MyOtherAppName
+DEVELOPMENT_TEAM = ""
+CODE_SIGN_STYLE = Manual
+
+#include? "LocalConfiguration.xcconfig"
