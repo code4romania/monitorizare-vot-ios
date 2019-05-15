@@ -3,8 +3,9 @@
 import Foundation
 
 protocol FormsPersistor {
-    func save(version: Int, name: String, informations: [[String :AnyObject]])
+    func save(version: Int, id: String, description: String, informations: [[String : AnyObject]])
     
+    func getForm(withId id: String) -> [String: Any]?
     func getVersion(forForm: String) -> Int
-    func getInformations(forForm: String) -> [[String :AnyObject]]?
+    func getInformations(forForm: String) -> [[String: AnyObject]]?
 }

@@ -8,15 +8,18 @@ class LocalFormProvider: FormProvider {
     private var formsPersistor = LocalFormsPersistor()
     
     func getForm(named: String) -> Form? {
-        if let formSections = formsPersistor.getInformations(forForm: named) {
-            return createForm(informations: formSections, named: named)
+        
+        if let summary = formsPersistor.getForm(withId: named),
+            let formSections = formsPersistor.getInformations(forForm: named) {
+            let description = summary[LocalFormsPersistor.FormSummaryKeys.description] as? String ?? named // default to the name
+            return createForm(informations: formSections, named: named, description: description)
         }
         return nil
     }
     
     
-    private func createForm(informations: [[String: AnyObject]], named: String) -> Form {
-        return Form(id: named, title: "Procedurile ...", sections: createSection(informations: informations, named: named))
+    private func createForm(informations: [[String: AnyObject]], named: String, description: String) -> Form {
+        return Form(id: named, title: description, sections: createSection(informations: informations, named: named))
     }
     
     private func createSection(informations: [[String: AnyObject]], named: String) -> [MVSection] {

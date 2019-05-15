@@ -25,6 +25,8 @@ class FormPickerCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.clipsToBounds = false
+        contentView.clipsToBounds = false
         contentView.layer.dropDefaultShadow()
         contentView.layer.defaultCornerRadius(borderColor: MVColors.gray.cgColor)
 

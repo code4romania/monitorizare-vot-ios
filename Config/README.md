@@ -6,6 +6,10 @@ In order to run the app on your device, make sure you create a `LocalConfigurati
 
 This file will not be committed to the repository (it's in the `.gitignore`), but will be included by XCode and it will update the information automatically. Also, because we're using this local config structure, don't make changes to the build settings regarding the bundle id, team id or signing preference. If you did so, just delete the custom values and let the build settings be updated from the xcconfig files.
 
+If you want to use the `dev` API, copy the Development link that's commented in the `CustomConfiguration.xcconfig` and use it in your own `LocalConfiguration.xcconfig`. If you want to test production, don't add an `API_URL` variable at all.
+
+This might seem obvious, but don't make any changes directly into `CustomConfiguration.xcconfig`, because they'll be committed with the rest of the changes. Use `LocalConfiguration.xcconfig` for your own configs.
+
 If you're interested in how this works, check out [this tutorial](https://www.matrixprojects.net/p/xcconfig-for-shared-projects/)
 
 ## Firebase

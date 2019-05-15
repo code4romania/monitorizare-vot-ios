@@ -21,8 +21,7 @@ class PickFormViewController: RootViewController {
     @IBOutlet private weak var topLabel: UILabel!
     private let dbSyncer = DBSyncer()
 
-    // TODO: move this into an object or hash when we have more data to show
-    var forms: [String] = []
+    var forms: [[String: Any]] = []
     
     fileprivate let FormCellPadding: CGFloat = 5
     
@@ -68,6 +67,7 @@ class PickFormViewController: RootViewController {
         syncButton?.setTitle("Button_SyncData".localized, for: .normal)
         
         formsCollectionView.register(UINib(nibName: "FormPickerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: FormPickerCollectionViewCell.reuseIdentifier)
+        formsCollectionView.clipsToBounds = false
     }
     
     private func setupOutlets() {
@@ -107,6 +107,7 @@ class PickFormViewController: RootViewController {
             formViewController.form = type
             formViewController.sectionInfo = sectionInfo
             formViewController.persistedSectionInfo = persistedSectionInfo
+            formViewController.title = form.title
             self.navigationController?.pushViewController(formViewController, animated: true)
         }
     }
@@ -134,8 +135,8 @@ extension PickFormViewController: UICollectionViewDataSource, UICollectionViewDe
         } else {
             cell.isAddNote = false
             let form = forms[indexPath.row]
-            cell.idLabel.text = form.uppercased()
-            cell.descriptionLabel.text = "Label_Form".localized
+            cell.idLabel.text = (form[LocalFormsPersistor.FormSummaryKeys.id] as? String)?.uppercased()
+            cell.descriptionLabel.text = (form[LocalFormsPersistor.FormSummaryKeys.description] as? String)?.capitalized
         }
         
         return cell
@@ -145,7 +146,9 @@ extension PickFormViewController: UICollectionViewDataSource, UICollectionViewDe
         if indexPath.row == collectionView.numberOfItems(inSection: 0) - 1 {
             handleAddNoteAction()
         } else {
-            self.pushFormViewController(type: forms[indexPath.row])
+            let form = forms[indexPath.row]
+            let id = form[LocalFormsPersistor.FormSummaryKeys.id] as! String
+            self.pushFormViewController(type: id)
         }
     }
     
