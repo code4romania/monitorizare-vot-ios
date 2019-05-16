@@ -158,7 +158,7 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
                 alertController.addAction(cancel)
                 self.present(alertController, animated: true, completion: nil)
             @unknown default:
-                let alertController = UIAlertController(title: "AlertTitle_UnknownError".localized, preferredStyle: .alert)
+                let alertController = UIAlertController(title: "AlertTitle_UnknownError".localized, message: "", preferredStyle: .alert)
                 let cancel = UIAlertAction(title: "Button_Close".localized, style: .cancel, handler: nil)
                 alertController.addAction(cancel)
                 self.present(alertController, animated: true, completion: nil)

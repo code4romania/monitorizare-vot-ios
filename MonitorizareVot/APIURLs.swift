@@ -2,11 +2,11 @@
 
 import Foundation
 
-let baseUrlQA = "https://mv-mobile-prod.azurewebsites.net/api/v1"
-
 enum APIURLs {
     case login
-    case formsVersions
+    @available(*, deprecated, message: "use `forms` instead")
+    case formsVersions // deprecated
+    case forms
     case form
     case note
     case answeredQuestion
@@ -19,6 +19,8 @@ enum APIURLs {
                 return baseUrlQA + "/access/token"
             case .formsVersions:
                 return baseUrlQA + "/formular/versiune"
+            case .forms:
+                return baseUrlQA + "/formular"
             case .form:
                 return baseUrlQA + "/formular"
             case .note:
@@ -30,4 +32,14 @@ enum APIURLs {
             }
         }
     }
+    
+    var baseUrlQA: String {
+        if let info = Bundle.main.infoDictionary,
+            let urlString = info["API_URL"] as? String {
+            return urlString
+        }
+        return ""
+    }
+    
+
 }
