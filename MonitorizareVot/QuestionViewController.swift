@@ -29,6 +29,9 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     @IBOutlet private weak var loadingView: UIView!
     weak var delegate: QuestionViewControllerDelegate?
     
+    /// Tells you if the text answer was selected by the user. This will allow you to automatically make the text view first responder while still not doing it when the user enters the screen
+    var isTextAnswerManuallySelected = false
+    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,9 +69,21 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     
     // MARK: - Utils
     @objc func keyboardDidShow(notification: Notification) {
-        if let userInfo = notification.userInfo, let frame = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect {
-            bottomConstraint.constant = frame.size.height - buttonHeight.constant
+        if let userInfo = notification.userInfo, let frame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            var inset = continueButton.frame.size.height
+            if #available(iOS 11.0, *) {
+                inset += view.safeAreaInsets.bottom
+            }
+            bottomConstraint.constant = frame.size.height - inset
             performKeyboardAnimation()
+            
+            // scroll the tableview to bottom to reveal the text view
+            DispatchQueue.main.async {
+                self.tableView.layoutIfNeeded()
+                var visibleRect = CGRect(origin: .zero, size: self.tableView.frame.size)
+                visibleRect.origin.y = self.tableView.contentSize.height - visibleRect.size.height
+                self.tableView.scrollRectToVisible(visibleRect, animated: true)
+            }
         }
     }
     
@@ -133,6 +148,11 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
         if answer.inputAvailable {
             var cell = tableView.dequeueReusableCell(withIdentifier: "AnswerWithTextTableViewCell") as! AnswerWithTextTableViewCell
             cell = answerWithTextTableViewCellConfigurator.configure(cell: cell, answer: answer, delegate: self, selected: answer.selected) as! AnswerWithTextTableViewCell
+            if answer.selected && isTextAnswerManuallySelected {
+                DispatchQueue.main.async {
+                    cell.textView.becomeFirstResponder()
+                }
+            }
             return cell
         } else {
             var cell = tableView.dequeueReusableCell(withIdentifier: "BasicAnswerTableViewCell") as! BasicAnswerTableViewCell
@@ -180,6 +200,8 @@ class QuestionViewController: RootViewController, UITableViewDataSource, UITable
     // MARK: - AnswerTableViewCellDelegate
     func didTapOnButton(answer: MVAnswer) {
         let newAnswer = MVAnswer(id: answer.id, text: answer.text, selected: !answer.selected, inputAvailable: answer.inputAvailable, inputText: answer.inputText)
+        
+        isTextAnswerManuallySelected = true
         
         var answers = [MVAnswer]()
         if let question = self.question {
