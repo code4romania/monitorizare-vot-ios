@@ -38,7 +38,7 @@ class SectionSaver {
                             self.markSectionAsSynced(sectionInfo: self.persistedSectionInfo)
                             completion?(true, false)
                         } else if let statusCode = response.response?.statusCode, statusCode == 401 {
-                            
+                            completion?(false, true)
                         } else {
                             completion?(true, false)
                         }

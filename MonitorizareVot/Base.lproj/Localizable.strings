@@ -59,5 +59,6 @@
 "AlertTitle_AccessRestricted" = "Access restricted";
 "AlertTitle_UnknownError" = "Unknown Error";
 "AlertMessage_EnableCameraAccess" = "Please access the settings and give us permissions to access the picture library.";
+"AlertMessage_AddNoteError" = "Could not add this note. Please try again later. If the problem persists, please contact us";
 
 "AlertButton_Understood" = "I understood";
