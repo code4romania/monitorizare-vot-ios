@@ -69,14 +69,20 @@ class AnsweredQuestionSaver {
                                            "optiuni": options]
             
             Alamofire.request(url, method: .post, parameters: ["raspuns": [raspuns]], encoding: JSONEncoding.default, headers: headers).responseString(completionHandler: {[weak self] (response) in
-                if let statusCode = response.response?.statusCode, statusCode == 200 {
-                    if let question = self?.persistedQuestion {
-                        self?.updateAsSynced(question: question)
+                var success = false
+                var authFailed = false
+                if let statusCode = response.response?.statusCode {
+                    if statusCode == 200 {
+                        if let question = self?.persistedQuestion {
+                            self?.updateAsSynced(question: question)
+                            success = true
+                        }
+                    } else if statusCode == 401 {
+                        // unauthenticated
+                        authFailed = true
                     }
-                    self?.completion?(true, (tokenExpired || false))
-                } else {
-                    self?.completion?(true, true)
                 }
+                self?.completion?(success, (tokenExpired || authFailed))
             })
         } else {
             self.completion?(true, true)

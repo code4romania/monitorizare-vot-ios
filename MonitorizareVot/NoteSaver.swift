@@ -47,22 +47,28 @@ class NoteSaver {
                         switch encodingResult {
                         case .success(request: let request, streamingFromDisk: _, streamFileURL: _):
                             request.responseString(completionHandler: {[weak self] (response) in
-                                if let statusCode = response.response?.statusCode, statusCode == 200 {
-                                    self?.updateToSynced(note: self?.noteToSave)
-                                    completion?(true, false)
-                                } else {
-                                    completion?(true, true)
+                                var success = false
+                                var authFailed = false
+                                if let statusCode = response.response?.statusCode {
+                                    if statusCode == 200 {
+                                        self?.updateToSynced(note: self?.noteToSave)
+                                        success = true
+                                    } else if statusCode == 401 {
+                                        // unauthenticated
+                                        authFailed = true
+                                    }
                                 }
+                                completion?(success, authFailed)
                             })
                         case .failure(_):
-                            completion?(true, false)
+                            completion?(false, false)
                         }
                     })
                 } else {
-                    completion?(true, true)
+                    completion?(false, true)
                 }
             } else {
-                completion?(true, false)
+                completion?(false, false)
             }
         }
     }

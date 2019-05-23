@@ -58,5 +58,6 @@
 "AlertTitle_AccessRestricted" = "Accessul este restricționat";
 "AlertTitle_UnknownError" = "Eroare Necunoscută";
 "AlertMessage_EnableCameraAccess" = "Te rugăm să accesezi setările și să ne oferi permisiuni de acces la librăria de poze.";
+"AlertMessage_AddNoteError" = "Nu am putut salva nota. Te rugăm să încerci mai târziu. Dacă problema persista, te rog contactează-ne";
 
 "AlertButton_Understood" = "Am înțeles";
