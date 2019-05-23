@@ -40,7 +40,7 @@ class SectionSaver {
                         } else if let statusCode = response.response?.statusCode, statusCode == 401 {
                             completion?(false, true)
                         } else {
-                            completion?(true, false)
+                            completion?(false, false)
                         }
                     })
                 } else {
