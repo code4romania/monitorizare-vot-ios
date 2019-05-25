@@ -3,6 +3,10 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>Diaspora</key>
+		<integer>441</integer>
+	</dict>
+	<dict>
 		<key>AB</key>
 		<integer>440</integer>
 	</dict>
