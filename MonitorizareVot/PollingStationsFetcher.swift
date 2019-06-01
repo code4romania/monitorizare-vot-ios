@@ -20,22 +20,22 @@ class PollingStationsFetcher {
             let headers = ["Content-Type": "application/json",
                            "Authorization" :"Bearer " + token]
             Alamofire.request(url, method: .get, parameters: nil, headers: headers).responseJSON { (response:DataResponse<Any>) in
-                let sectionsData : [[String :AnyObject]]?
+                let pollingStations : [[String :AnyObject]]?
                 
                 switch response.result {
                 case .success(_):
                     if let data = response.result.value as? [[String :AnyObject]] {
-                        sectionsData = data
+                        pollingStations = data
                     } else {
-                        sectionsData = nil
+                        pollingStations = nil
                     }
                     break
                 default:
-                    sectionsData = nil
+                    pollingStations = nil
                     break
                 }
                 
-                completion(false, sectionsData)
+                completion(false, pollingStations)
             }
         } else {
             completion(true, nil)

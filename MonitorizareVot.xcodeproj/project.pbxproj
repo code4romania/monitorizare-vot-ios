@@ -76,6 +76,7 @@
 		EF4BD3AD1D9D08DE0042BEC7 /* MonitorizareVotUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3AC1D9D08DE0042BEC7 /* MonitorizareVotUITests.m */; };
 		EFB9AD1A1DE9FDE0008C1035 /* DBSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */; };
 		EFEC82041DCF25B800610D79 /* QuestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */; };
+		F14A46C522A3417800088D8D /* LocalPollingStationsPersistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A46C422A3417800088D8D /* LocalPollingStationsPersistor.swift */; };
 		F1ACBFAD22A3065900EE4E3A /* LocalConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F1ACBFAC22A3065900EE4E3A /* LocalConfiguration.xcconfig */; };
 		F1B6FBD622A3153D006D61B2 /* PollingStationsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6FBD522A3153D006D61B2 /* PollingStationsFetcher.swift */; };
 		F1B6FBD922A31D03006D61B2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6FBD822A31D03006D61B2 /* LoadingView.swift */; };
@@ -191,6 +192,7 @@
 		EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBSyncer.swift; sourceTree = "<group>"; };
 		EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
 		F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F14A46C422A3417800088D8D /* LocalPollingStationsPersistor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPollingStationsPersistor.swift; sourceTree = "<group>"; };
 		F1ACBFAC22A3065900EE4E3A /* LocalConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LocalConfiguration.xcconfig; sourceTree = "<group>"; };
 		F1B6FBD522A3153D006D61B2 /* PollingStationsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingStationsFetcher.swift; sourceTree = "<group>"; };
 		F1B6FBD822A31D03006D61B2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				E74087271DDC92CA00D9332F /* LocalFormsPersistor.swift */,
+				F14A46C422A3417800088D8D /* LocalPollingStationsPersistor.swift */,
 			);
 			name = Persistors;
 			sourceTree = "<group>";
@@ -941,6 +944,7 @@
 				F553E3C01DF9D67A000D0902 /* SectionInfo+CoreDataProperties.swift in Sources */,
 				EFB9AD1A1DE9FDE0008C1035 /* DBSyncer.swift in Sources */,
 				271595B521465EBA00BECC9C /* StringExtensions.swift in Sources */,
+				F14A46C522A3417800088D8D /* LocalPollingStationsPersistor.swift in Sources */,
 				E739B9751DDDA2B80002604C /* QuestionCollectionViewCellConfigurator.swift in Sources */,
 				E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */,
 				F1B6FBD922A31D03006D61B2 /* LoadingView.swift in Sources */,

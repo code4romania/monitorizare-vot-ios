@@ -34,6 +34,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     private let formsVersionsFetcher = FormsFetcher(formsPersistor: LocalFormsPersistor())
     private let syncer = DBSyncer()
     private let pollingStationsFetcher = PollingStationsFetcher()
+    private let pollingStationsPersistor = LocalPollingStationsPersistor()
     
     private let loadingView = LoadingView(frame:.zero)
     
@@ -201,14 +202,20 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     
     private func loadData() {
         setLoading(true)
-        pollingStationsFetcher.fetch { [weak self](tokenExpired, sectionData) in
+        // First load local, then fire a request
+        judete = pollingStationsPersistor.getPollingStations() ?? []
+        
+        pollingStationsFetcher.fetch { [weak self](tokenExpired, pollingStations) in
             guard !tokenExpired else {
                 self?.navigationController?.popToRootViewController(animated: false)
                 return
             }
             if let self = self {
                 self.setLoading(false)
-                self.judete = sectionData ?? []
+                if let pollingStations = pollingStations {
+                    self.judete = pollingStations
+                    self.pollingStationsPersistor.savePollingStations(pollingStations)
+                }
             }
         }
     }
