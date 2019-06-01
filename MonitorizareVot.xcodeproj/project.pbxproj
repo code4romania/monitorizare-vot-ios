@@ -17,9 +17,10 @@
 		28735F83226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 28735F82226B19F600B4DB0B /* CustomConfiguration.xcconfig */; };
 		28735F84226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 28735F82226B19F600B4DB0B /* CustomConfiguration.xcconfig */; };
 		28735F85226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 28735F82226B19F600B4DB0B /* CustomConfiguration.xcconfig */; };
-		28F280E3223A3D8C002B3E9A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */; };
 		55A0F006987479F41A76966C /* Pods_MonitorizareVot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */; };
 		64726B5FB8079F4FDA2D91E0 /* Pods_MonitorizareVotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */; };
+		67EE98CB22A296F7006E4762 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EE98CA22A296F7006E4762 /* Logger.swift */; };
+		67EE98CE22A29D87006E4762 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67EE98CD22A29D87006E4762 /* GoogleService-Info.plist */; };
 		C79A3041BFF1FED83C00E5F3 /* Pods_MonitorizareVotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */; };
 		E739B9731DDD9F280002604C /* QuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739B9721DDD9F280002604C /* QuestionCollectionViewCell.swift */; };
 		E739B9751DDDA2B80002604C /* QuestionCollectionViewCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739B9741DDDA2B70002604C /* QuestionCollectionViewCellConfigurator.swift */; };
@@ -118,12 +119,13 @@
 		282045D3224F936F004B6D5D /* FormPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		282045D4224F936F004B6D5D /* FormPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		28735F82226B19F600B4DB0B /* CustomConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CustomConfiguration.xcconfig; sourceTree = "<group>"; };
-		28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		28F280E4223A3FA7002B3E9A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2C95EF7A92703E67898E5413 /* Pods-MonitorizareVotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests.release.xcconfig"; sourceTree = "<group>"; };
 		3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6141F9F392CCD91B6DE2B780 /* Pods-MonitorizareVot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVot.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot.release.xcconfig"; sourceTree = "<group>"; };
 		626B7494E0E905A8AEF30B00 /* Pods-MonitorizareVotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		67EE98CA22A296F7006E4762 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		67EE98CD22A29D87006E4762 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7F4B4D98801626552C357D41 /* Pods-MonitorizareVotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		90CF95CA02DCD8E741C5686D /* Pods-MonitorizareVot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot.debug.xcconfig"; sourceTree = "<group>"; };
 		DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,12 +275,20 @@
 		28F280E1223A3D8C002B3E9A /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */,
+				67EE98CD22A29D87006E4762 /* GoogleService-Info.plist */,
 				28735F82226B19F600B4DB0B /* CustomConfiguration.xcconfig */,
 				28F280E4223A3FA7002B3E9A /* README.md */,
 			);
 			path = Config;
 			sourceTree = SOURCE_ROOT;
+		};
+		67EE98C922A296B1006E4762 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				67EE98CA22A296F7006E4762 /* Logger.swift */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
 		};
 		73D320017882699B296EB213 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -348,6 +358,7 @@
 		E7E1F2C21DDB586100CE52FC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				67EE98C922A296B1006E4762 /* Logging */,
 				E7E1F2C51DDB59C800CE52FC /* API */,
 				EFB9AD1B1DEA1039008C1035 /* DBHandlers */,
 				E740872B1DDCA63300D9332F /* Form */,
@@ -685,22 +696,22 @@
 				TargetAttributes = {
 					EF4BD3801D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 442AHZGZ2T;
+						DevelopmentTeam = "\"\"";
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					EF4BD39C1D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 442AHZGZ2T;
+						DevelopmentTeam = "\"\"";
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = EF4BD3801D9D08DE0042BEC7;
 					};
 					EF4BD3A71D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = P2EQL76LN6;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = EF4BD3801D9D08DE0042BEC7;
 					};
 				};
@@ -733,6 +744,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67EE98CE22A29D87006E4762 /* GoogleService-Info.plist in Resources */,
 				27EDBD18214659800060DB8A /* Main.storyboard in Resources */,
 				EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */,
 				E7FEC2BF1DE09E6300F2F04D /* BasicAnswerTableViewCell.xib in Resources */,
@@ -742,7 +754,6 @@
 				27EDBD2221465D190060DB8A /* Localizable.strings in Resources */,
 				E7FEC2C51DE09E8700F2F04D /* AnswerWithTextTableViewCell.xib in Resources */,
 				EF903E351DA25E3100D5BC9C /* Judete.plist in Resources */,
-				28F280E3223A3D8C002B3E9A /* GoogleService-Info.plist in Resources */,
 				271595B72146AB1F00BECC9C /* InfoPlist.strings in Resources */,
 				28735F83226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */,
 				E7E5B80D1DE1D33F00A05E56 /* QuestionBodyTableViewCell.xib in Resources */,
@@ -928,6 +939,7 @@
 				E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */,
 				E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */,
 				E7E1F2C11DDB580B00CE52FC /* LoginAPIRequest.swift in Sources */,
+				67EE98CB22A296F7006E4762 /* Logger.swift in Sources */,
 				E740872A1DDC987C00D9332F /* FormFetcher.swift in Sources */,
 				F553E3BE1DF9D67A000D0902 /* Answer+CoreDataProperties.swift in Sources */,
 				E7FEC2CB1DE0A11900F2F04D /* AnswerTableViewCellDelegate.swift in Sources */,
