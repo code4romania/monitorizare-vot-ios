@@ -61,3 +61,6 @@
 "AlertMessage_AddNoteError" = "Nu am putut salva nota. Te rugăm să încerci mai târziu. Dacă problema persista, te rog contactează-ne";
 
 "AlertButton_Understood" = "Am înțeles";
+
+"AlertTitle_ErrorFetchPollingStation" = "Eroare";
+"AlertMessage_ErrorFetchPollingStation" = "Lista de judete nu a putut fi citita.";

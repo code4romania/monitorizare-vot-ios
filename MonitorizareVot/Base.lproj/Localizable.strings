@@ -62,3 +62,6 @@
 "AlertMessage_AddNoteError" = "Could not add this note. Please try again later. If the problem persists, please contact us";
 
 "AlertButton_Understood" = "I understood";
+
+"AlertTitle_ErrorFetchPollingStation" = "Error";
+"AlertMessage_ErrorFetchPollingStation" = "Could not retrieve the polling stations list.";

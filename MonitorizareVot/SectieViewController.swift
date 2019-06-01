@@ -2,11 +2,13 @@
 
 import UIKit
 import CoreData
+import SnapKit
 
 enum SectieErrorType {
     case judetNotSet
     case sectieNotSet
     case sectieInvalid
+    case pollingStationsNotFetched
 }
 
 class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -31,6 +33,9 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet private weak var pickerContainer: UIView!
     private let formsVersionsFetcher = FormsFetcher(formsPersistor: LocalFormsPersistor())
     private let syncer = DBSyncer()
+    private let pollingStationsFetcher = PollingStationsFetcher()
+    
+    private let loadingView = LoadingView(frame:.zero)
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -68,13 +73,20 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     
     // MARK: - IBActions
     @IBAction func firstButtonTapped(_ sender: UIButton) {
+        guard judete.count > 0  else {
+            showAlertController(errorType: .pollingStationsNotFetched)
+            return
+        }
         pickerViewSelection = .judete
         pickerView.reloadAllComponents()
         pickerContainer.isHidden = !pickerContainer.isHidden
         bottomTextField.resignFirstResponder()
-        if sectionInfo.judet == nil, let judet = judete.first?.keys.first {
+        if sectionInfo.judet == nil, let judet = judete.first?["code"] as? String {
             sectionInfo.judet = judet
-            selectedCountyLabel?.attributedText = NSAttributedString(string: judet, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0), NSAttributedString.Key.foregroundColor: MVColors.black.color])
+            selectedCountyLabel?.attributedText = NSAttributedString(string: judet,
+                                                                     attributes: [
+                                                                        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0),
+                                                                        NSAttributedString.Key.foregroundColor: MVColors.black.color])
         }
     }
     
@@ -89,8 +101,8 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
             showAlertController(errorType: .sectieNotSet)
         } else {
             for judet in judete {
-                if judet.keys.first == sectionInfo.judet {
-                    if let sectieMaximum = judet.values.first as? Int, let sectie = Int(sectionInfo.sectie!) {
+                if judet["code"] as? String == sectionInfo.judet {
+                    if let sectieMaximum = judet["limit"] as? Int, let sectie = Int(sectionInfo.sectie!) {
                         if sectie < 1 || sectie > sectieMaximum {
                             showAlertController(errorType: .sectieInvalid)
                         } else {
@@ -99,6 +111,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
                             showNextScreen()
                         }
                     }
+                    break
                 }
             }
         }
@@ -146,6 +159,12 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
             let alertController = UIAlertController(title: "AlertTitle_CountyNumberInvalid".localized, message: "AlertMessage_CountyNumberInvalid".localized, preferredStyle: .alert)
             alertController.addAction(alertButton)
             self.present(alertController, animated: true, completion: nil)
+        case .pollingStationsNotFetched:
+            let alertController = UIAlertController(title: "AlertTitle_ErrorFetchPollingStation".localized,
+                                                    message: "AlertMessage_ErrorFetchPollingStation".localized,
+                                                    preferredStyle: .alert)
+            alertController.addAction(alertButton)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -181,8 +200,16 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     private func loadData() {
-        if let path = Bundle.main.path(forResource: "Judete", ofType: "plist"), let plistContent = NSArray(contentsOfFile: path) as? [[String: AnyObject]] {
-            judete = plistContent
+        setLoading(true)
+        pollingStationsFetcher.fetch { [weak self](tokenExpired, sectionData) in
+            guard !tokenExpired else {
+                self?.navigationController?.popToRootViewController(animated: false)
+                return
+            }
+            if let self = self {
+                self.setLoading(false)
+                self.judete = sectionData ?? []
+            }
         }
     }
     
@@ -213,7 +240,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if let pickerViewSelection = self.pickerViewSelection {
             if pickerViewSelection == .judete {
-                return  judete[row].keys.first
+                return (judete[row]["name"] as? String) ?? (judete[row]["code"] as? String)
             }
         }
         return nil
@@ -224,7 +251,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         if let pickerViewSelection = self.pickerViewSelection {
             switch pickerViewSelection {
             case .judete:
-                if let judet = judete[row].keys.first {
+                if let judet = judete[row]["code"] as? String {
                     sectionInfo.judet = judet
                     selectedCountyLabel?.attributedText = NSAttributedString(string: judet, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0), NSAttributedString.Key.foregroundColor: MVColors.black.color])
                 }
@@ -238,6 +265,22 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    // MARK: - LoadingView
+    
+    func setLoading(_ loading: Bool) {
+        if loading == (loadingView.superview != nil) {
+            return
+        }
+        if loading {
+            self.view.addSubview(loadingView)
+            loadingView.snp.makeConstraints { (make: ConstraintMaker) in
+                make.edges.equalToSuperview()
+            }
+        } else {
+            loadingView.removeFromSuperview()
+        }
     }
     
 }
