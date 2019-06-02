@@ -84,11 +84,8 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         bottomTextField.resignFirstResponder()
         if sectionInfo.judet == nil, let judet = judete.first?["code"] as? String {
             sectionInfo.judet = judet
-            selectedCountyLabel?.attributedText = NSAttributedString(string: judet,
-                                                                     attributes: [
-                                                                        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0),
-                                                                        NSAttributedString.Key.foregroundColor: MVColors.black.color])
-        }
+            setCountyLabelForCode(judet)
+       }
     }
     
     @IBAction func closePickerButtonTapped(_ sender: UIButton) {
@@ -223,13 +220,28 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     private func checkLocalStorage() {
         if let judet = UserDefaults.standard.string(forKey: "judet") {
             sectionInfo.judet = judet
-            selectedCountyLabel?.text = judet
+            setCountyLabelForCode(judet)
         }
         
         if let sectie = UserDefaults.standard.string(forKey: "sectie") {
             sectionInfo.sectie = sectie
             bottomTextField.text = sectie
         }
+    }
+    
+    private func setCountyLabelForCode(_ judetCode: String) {
+        var label = judetCode
+        for judet in judete {
+            if let code = judet["code"] as? String, code == judetCode, let name=judet["name"] as? String {
+                label = name
+            }
+        }
+        selectedCountyLabel?.attributedText = NSAttributedString(
+            string: label,
+            attributes: [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0),
+                NSAttributedString.Key.foregroundColor: MVColors.black.color])
+        
     }
     
     // MARK: - UIPickerViewDataSource
@@ -260,7 +272,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
             case .judete:
                 if let judet = judete[row]["code"] as? String {
                     sectionInfo.judet = judet
-                    selectedCountyLabel?.attributedText = NSAttributedString(string: judet, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0), NSAttributedString.Key.foregroundColor: MVColors.black.color])
+                    setCountyLabelForCode(judet)
                 }
             default:
                 break
