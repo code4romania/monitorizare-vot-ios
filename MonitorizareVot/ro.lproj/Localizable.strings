@@ -28,6 +28,7 @@
 "Label_PickDepartment" = "Alege secția";
 "Label_PickDepartmentDetails" = "în care te afli";
 "Label_County" = "Județ";
+"Label_Section" = "Numărul Secției";
 "Label_SelectedCounty" = "Alege";
 "Label_CountyLocation" = "În ce mediu se află secția?";
 "Label_CountyPresidentGender" = "Președintele secției este";

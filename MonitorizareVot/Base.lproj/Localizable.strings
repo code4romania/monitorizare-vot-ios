@@ -28,6 +28,7 @@
 "Label_PickDepartment" = "Pick department";
 "Label_PickDepartmentDetails" = "where you are located";
 "Label_County" = "County";
+"Label_Section" = "Department Number";
 "Label_SelectedCounty" = "Choose";
 "Label_CountyLocation" = "In what environment is the department?";
 "Label_CountyPresidentGender" = "The chairman of the department is";

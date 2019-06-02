@@ -22,6 +22,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var topFirstLabel: UILabel?
     @IBOutlet weak var topSecondLabel: UILabel?
     @IBOutlet weak var countyLabel: UILabel?
+    @IBOutlet weak var stationLabel: UILabel?
     @IBOutlet weak var selectedCountyLabel: UILabel?
     
     @IBOutlet weak var continueButton: UIButton!
@@ -192,6 +193,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         countyLabel?.text = "Label_County".localized
         closeButton?.setTitle("Button_Close".localized, for: .normal)
         continueButton?.setTitle("Button_Continue".localized, for: .normal)
+        stationLabel?.text = "Label_Section".localized
         bottomTextField?.placeholder = "TextField_Placeholder_DepartmentNumber".localized
         let attributedText = NSAttributedString(string: "Label_SelectedCounty".localized, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0), NSAttributedString.Key.foregroundColor: MVColors.gray.color])
         selectedCountyLabel?.attributedText = attributedText
