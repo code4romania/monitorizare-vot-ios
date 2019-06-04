@@ -16,11 +16,11 @@ enum MVColors {
         get {
             switch self {
             case .yellow:
-                return UIColor(red: 255, green: 205, blue: 0, alpha: 1)
+                return UIColor(red:1.00, green:0.80, blue:0.00, alpha:1.0)
             case .gray:
-                return UIColor(red: 172, green: 180, blue: 190, alpha: 1)
+                return UIColor(red:0.67, green:0.71, blue:0.75, alpha:1.0)
             case .green:
-                return UIColor(red: 29, green: 191, blue: 48, alpha: 1)
+                return UIColor(red:0.11, green:0.75, blue:0.19, alpha:1.0)
             case .lightGray:
                 return UIColor.lightGray
             case .black:
