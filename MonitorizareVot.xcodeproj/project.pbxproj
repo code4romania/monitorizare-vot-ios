@@ -77,7 +77,6 @@
 		EFB9AD1A1DE9FDE0008C1035 /* DBSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */; };
 		EFEC82041DCF25B800610D79 /* QuestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */; };
 		F14A46C522A3417800088D8D /* LocalPollingStationsPersistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A46C422A3417800088D8D /* LocalPollingStationsPersistor.swift */; };
-		F1ACBFAD22A3065900EE4E3A /* LocalConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F1ACBFAC22A3065900EE4E3A /* LocalConfiguration.xcconfig */; };
 		F1B6FBD622A3153D006D61B2 /* PollingStationsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6FBD522A3153D006D61B2 /* PollingStationsFetcher.swift */; };
 		F1B6FBD922A31D03006D61B2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6FBD822A31D03006D61B2 /* LoadingView.swift */; };
 		F553E3B01DF9C675000D0902 /* NoteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3AF1DF9C675000D0902 /* NoteContainer.swift */; };
@@ -193,7 +192,6 @@
 		EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
 		F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F14A46C422A3417800088D8D /* LocalPollingStationsPersistor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPollingStationsPersistor.swift; sourceTree = "<group>"; };
-		F1ACBFAC22A3065900EE4E3A /* LocalConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LocalConfiguration.xcconfig; sourceTree = "<group>"; };
 		F1B6FBD522A3153D006D61B2 /* PollingStationsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingStationsFetcher.swift; sourceTree = "<group>"; };
 		F1B6FBD822A31D03006D61B2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F553E3AF1DF9C675000D0902 /* NoteContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteContainer.swift; sourceTree = "<group>"; };
@@ -282,7 +280,6 @@
 				28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */,
 				28735F82226B19F600B4DB0B /* CustomConfiguration.xcconfig */,
 				28F280E4223A3FA7002B3E9A /* README.md */,
-				F1ACBFAC22A3065900EE4E3A /* LocalConfiguration.xcconfig */,
 			);
 			path = Config;
 			sourceTree = SOURCE_ROOT;
@@ -757,7 +754,6 @@
 				282045D5224F936F004B6D5D /* FormPickerCollectionViewCell.xib in Resources */,
 				EFEC82041DCF25B800610D79 /* QuestionCollectionViewCell.xib in Resources */,
 				27EDBD2221465D190060DB8A /* Localizable.strings in Resources */,
-				F1ACBFAD22A3065900EE4E3A /* LocalConfiguration.xcconfig in Resources */,
 				E7FEC2C51DE09E8700F2F04D /* AnswerWithTextTableViewCell.xib in Resources */,
 				28F280E3223A3D8C002B3E9A /* GoogleService-Info.plist in Resources */,
 				271595B72146AB1F00BECC9C /* InfoPlist.strings in Resources */,
