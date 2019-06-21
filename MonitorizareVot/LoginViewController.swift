@@ -25,6 +25,7 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
         setTapGestureRecognizer()
         phoneNumberTextField.placeholder = "TextField_Placeholder_PhoneNumber".localized
         codeTextField.placeholder = "TextField_Placeholder_PINNumber".localized
+        centerButton?.isEnabled = false
         centerButton?.setTitle("Button_Authenticate".localized, for: .normal)
         developerBy?.text = "Label_DevelopedBy".localized
     }
@@ -67,6 +68,15 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
                 KeychainWrapper.standard.set(token, forKey: "token")
                 self?.appFeaturesUnlocked()
             } 
+        }
+    }
+    
+    @IBAction func textChanged(_ sender: Any) {
+        if let phoneText = phoneNumberTextField.text,
+            let codeText = codeTextField.text {
+            centerButton?.isEnabled = phoneText.count > 0 && codeText.count > 0
+        } else {
+            centerButton?.isEnabled = false
         }
     }
     
