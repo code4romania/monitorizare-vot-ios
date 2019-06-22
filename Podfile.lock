@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.8.2)
+  - Firebase/Analytics (5.20.0):
+    - Firebase/Core
   - Firebase/Core (5.20.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.8.0)
@@ -55,6 +57,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Firebase/Analytics
   - Firebase/Core
   - SnapKit
   - SwiftKeychainWrapper
@@ -84,6 +87,6 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
 
-PODFILE CHECKSUM: 68dd07aeb945c59ddd48605e73a1e64a50f02202
+PODFILE CHECKSUM: 5aad18a575a697083560d5a2995ca57a9a642a8b
 
 COCOAPODS: 1.6.2
