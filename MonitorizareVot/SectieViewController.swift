@@ -2,11 +2,13 @@
 
 import UIKit
 import CoreData
+import SnapKit
 
 enum SectieErrorType {
     case judetNotSet
     case sectieNotSet
     case sectieInvalid
+    case pollingStationsNotFetched
 }
 
 class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -20,6 +22,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var topFirstLabel: UILabel?
     @IBOutlet weak var topSecondLabel: UILabel?
     @IBOutlet weak var countyLabel: UILabel?
+    @IBOutlet weak var stationLabel: UILabel?
     @IBOutlet weak var selectedCountyLabel: UILabel?
     
     @IBOutlet weak var continueButton: UIButton!
@@ -31,6 +34,10 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet private weak var pickerContainer: UIView!
     private let formsVersionsFetcher = FormsFetcher(formsPersistor: LocalFormsPersistor())
     private let syncer = DBSyncer()
+    private let pollingStationsFetcher = PollingStationsFetcher()
+    private let pollingStationsPersistor = LocalPollingStationsPersistor()
+    
+    private let loadingView = LoadingView(frame:.zero)
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -68,14 +75,18 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     
     // MARK: - IBActions
     @IBAction func firstButtonTapped(_ sender: UIButton) {
+        guard judete.count > 0  else {
+            showAlertController(errorType: .pollingStationsNotFetched)
+            return
+        }
         pickerViewSelection = .judete
         pickerView.reloadAllComponents()
         pickerContainer.isHidden = !pickerContainer.isHidden
         bottomTextField.resignFirstResponder()
-        if sectionInfo.judet == nil, let judet = judete.first?.keys.first {
+        if sectionInfo.judet == nil, let judet = judete.first?["code"] as? String {
             sectionInfo.judet = judet
-            selectedCountyLabel?.attributedText = NSAttributedString(string: judet, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0), NSAttributedString.Key.foregroundColor: MVColors.black.color])
-        }
+            setCountyLabelForCode(judet)
+       }
     }
     
     @IBAction func closePickerButtonTapped(_ sender: UIButton) {
@@ -89,8 +100,8 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
             showAlertController(errorType: .sectieNotSet)
         } else {
             for judet in judete {
-                if judet.keys.first == sectionInfo.judet {
-                    if let sectieMaximum = judet.values.first as? Int, let sectie = Int(sectionInfo.sectie!) {
+                if judet["code"] as? String == sectionInfo.judet {
+                    if let sectieMaximum = judet["limit"] as? Int, let sectie = Int(sectionInfo.sectie!) {
                         if sectie < 1 || sectie > sectieMaximum {
                             showAlertController(errorType: .sectieInvalid)
                         } else {
@@ -99,6 +110,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
                             showNextScreen()
                         }
                     }
+                    break
                 }
             }
         }
@@ -146,6 +158,12 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
             let alertController = UIAlertController(title: "AlertTitle_CountyNumberInvalid".localized, message: "AlertMessage_CountyNumberInvalid".localized, preferredStyle: .alert)
             alertController.addAction(alertButton)
             self.present(alertController, animated: true, completion: nil)
+        case .pollingStationsNotFetched:
+            let alertController = UIAlertController(title: "AlertTitle_ErrorFetchPollingStation".localized,
+                                                    message: "AlertMessage_ErrorFetchPollingStation".localized,
+                                                    preferredStyle: .alert)
+            alertController.addAction(alertButton)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -175,27 +193,57 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         countyLabel?.text = "Label_County".localized
         closeButton?.setTitle("Button_Close".localized, for: .normal)
         continueButton?.setTitle("Button_Continue".localized, for: .normal)
+        stationLabel?.text = "Label_Section".localized
         bottomTextField?.placeholder = "TextField_Placeholder_DepartmentNumber".localized
         let attributedText = NSAttributedString(string: "Label_SelectedCounty".localized, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0), NSAttributedString.Key.foregroundColor: MVColors.gray.color])
         selectedCountyLabel?.attributedText = attributedText
     }
     
     private func loadData() {
-        if let path = Bundle.main.path(forResource: "Judete", ofType: "plist"), let plistContent = NSArray(contentsOfFile: path) as? [[String: AnyObject]] {
-            judete = plistContent
+        setLoading(true)
+        // First load local, then fire a request
+        judete = pollingStationsPersistor.getPollingStations() ?? []
+        
+        pollingStationsFetcher.fetch { [weak self](tokenExpired, pollingStations) in
+            guard !tokenExpired else {
+                self?.navigationController?.popToRootViewController(animated: false)
+                return
+            }
+            if let self = self {
+                self.setLoading(false)
+                if let pollingStations = pollingStations {
+                    self.judete = pollingStations
+                    self.pollingStationsPersistor.savePollingStations(pollingStations)
+                }
+            }
         }
     }
     
     private func checkLocalStorage() {
         if let judet = UserDefaults.standard.string(forKey: "judet") {
             sectionInfo.judet = judet
-            selectedCountyLabel?.text = judet
+            setCountyLabelForCode(judet)
         }
         
         if let sectie = UserDefaults.standard.string(forKey: "sectie") {
             sectionInfo.sectie = sectie
             bottomTextField.text = sectie
         }
+    }
+    
+    private func setCountyLabelForCode(_ judetCode: String) {
+        var label = judetCode
+        for judet in judete {
+            if let code = judet["code"] as? String, code == judetCode, let name=judet["name"] as? String {
+                label = name
+            }
+        }
+        selectedCountyLabel?.attributedText = NSAttributedString(
+            string: label,
+            attributes: [
+                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0),
+                NSAttributedString.Key.foregroundColor: MVColors.black.color])
+        
     }
     
     // MARK: - UIPickerViewDataSource
@@ -213,7 +261,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if let pickerViewSelection = self.pickerViewSelection {
             if pickerViewSelection == .judete {
-                return  judete[row].keys.first
+                return (judete[row]["name"] as? String) ?? (judete[row]["code"] as? String)
             }
         }
         return nil
@@ -224,9 +272,9 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         if let pickerViewSelection = self.pickerViewSelection {
             switch pickerViewSelection {
             case .judete:
-                if let judet = judete[row].keys.first {
+                if let judet = judete[row]["code"] as? String {
                     sectionInfo.judet = judet
-                    selectedCountyLabel?.attributedText = NSAttributedString(string: judet, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17.0), NSAttributedString.Key.foregroundColor: MVColors.black.color])
+                    setCountyLabelForCode(judet)
                 }
             default:
                 break
@@ -238,6 +286,22 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    // MARK: - LoadingView
+    
+    func setLoading(_ loading: Bool) {
+        if loading == (loadingView.superview != nil) {
+            return
+        }
+        if loading {
+            self.view.addSubview(loadingView)
+            loadingView.snp.makeConstraints { (make: ConstraintMaker) in
+                make.edges.equalToSuperview()
+            }
+        } else {
+            loadingView.removeFromSuperview()
+        }
     }
     
 }

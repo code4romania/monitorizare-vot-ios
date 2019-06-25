@@ -8,6 +8,7 @@ target 'MonitorizareVot' do
   pod 'SwiftKeychainWrapper'
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'
+  pod 'SnapKit'
 
   # Pods for MonitorizareVot
 

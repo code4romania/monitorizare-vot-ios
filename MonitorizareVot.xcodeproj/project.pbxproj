@@ -75,9 +75,11 @@
 		EF4BD3921D9D08DE0042BEC7 /* s.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3901D9D08DE0042BEC7 /* s.xcdatamodeld */; };
 		EF4BD3A21D9D08DE0042BEC7 /* MonitorizareVotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3A11D9D08DE0042BEC7 /* MonitorizareVotTests.m */; };
 		EF4BD3AD1D9D08DE0042BEC7 /* MonitorizareVotUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3AC1D9D08DE0042BEC7 /* MonitorizareVotUITests.m */; };
-		EF903E351DA25E3100D5BC9C /* Judete.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF903E341DA25E3100D5BC9C /* Judete.plist */; };
 		EFB9AD1A1DE9FDE0008C1035 /* DBSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */; };
 		EFEC82041DCF25B800610D79 /* QuestionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */; };
+		F14A46C522A3417800088D8D /* LocalPollingStationsPersistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A46C422A3417800088D8D /* LocalPollingStationsPersistor.swift */; };
+		F1B6FBD622A3153D006D61B2 /* PollingStationsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6FBD522A3153D006D61B2 /* PollingStationsFetcher.swift */; };
+		F1B6FBD922A31D03006D61B2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B6FBD822A31D03006D61B2 /* LoadingView.swift */; };
 		F553E3B01DF9C675000D0902 /* NoteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3AF1DF9C675000D0902 /* NoteContainer.swift */; };
 		F553E3B91DF9D67A000D0902 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3B11DF9D67A000D0902 /* Note+CoreDataClass.swift */; };
 		F553E3BA1DF9D67A000D0902 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F553E3B21DF9D67A000D0902 /* Note+CoreDataProperties.swift */; };
@@ -188,10 +190,12 @@
 		EF4BD3A81D9D08DE0042BEC7 /* MonitorizareVotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitorizareVotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4BD3AC1D9D08DE0042BEC7 /* MonitorizareVotUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorizareVotUITests.m; sourceTree = "<group>"; };
 		EF4BD3AE1D9D08DE0042BEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF903E341DA25E3100D5BC9C /* Judete.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Judete.plist; path = Resources/Judete.plist; sourceTree = "<group>"; };
 		EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBSyncer.swift; sourceTree = "<group>"; };
 		EFEC82021DCF25B800610D79 /* QuestionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCollectionViewCell.xib; sourceTree = "<group>"; };
 		F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F14A46C422A3417800088D8D /* LocalPollingStationsPersistor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPollingStationsPersistor.swift; sourceTree = "<group>"; };
+		F1B6FBD522A3153D006D61B2 /* PollingStationsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingStationsFetcher.swift; sourceTree = "<group>"; };
+		F1B6FBD822A31D03006D61B2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F553E3AF1DF9C675000D0902 /* NoteContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteContainer.swift; sourceTree = "<group>"; };
 		F553E3B11DF9D67A000D0902 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F553E3B21DF9D67A000D0902 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 				E7E407551DE076D30021B402 /* ConnectionState.swift */,
 				E7D5CC0F1DE32B7600393FFF /* AnsweredQuestionSaver.swift */,
 				E7DC77531DF772940020FA96 /* SectionSaver.swift */,
+				F1B6FBD522A3153D006D61B2 /* PollingStationsFetcher.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				E74087271DDC92CA00D9332F /* LocalFormsPersistor.swift */,
+				F14A46C422A3417800088D8D /* LocalPollingStationsPersistor.swift */,
 			);
 			name = Persistors;
 			sourceTree = "<group>";
@@ -548,6 +554,7 @@
 		EF4BD3E21D9E64F30042BEC7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				F1B6FBD722A31CE6006D61B2 /* LoadingView */,
 				282045D2224F92A5004B6D5D /* FormPickerCell */,
 				E7E5B8091DE1D32A00A05E56 /* QuestionBodyCell */,
 				E7FEC2B91DE09E2300F2F04D /* AnswerCells */,
@@ -593,7 +600,6 @@
 			isa = PBXGroup;
 			children = (
 				EF13D1561DCF24A800349B43 /* Assets.xcassets */,
-				EF903E341DA25E3100D5BC9C /* Judete.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -606,6 +612,14 @@
 				EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */,
 			);
 			name = DBHandlers;
+			sourceTree = "<group>";
+		};
+		F1B6FBD722A31CE6006D61B2 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				F1B6FBD822A31D03006D61B2 /* LoadingView.swift */,
+			);
+			name = LoadingView;
 			sourceTree = "<group>";
 		};
 		F553E3751DF9A54D000D0902 /* Entities */ = {
@@ -753,7 +767,6 @@
 				EFEC82041DCF25B800610D79 /* QuestionCollectionViewCell.xib in Resources */,
 				27EDBD2221465D190060DB8A /* Localizable.strings in Resources */,
 				E7FEC2C51DE09E8700F2F04D /* AnswerWithTextTableViewCell.xib in Resources */,
-				EF903E351DA25E3100D5BC9C /* Judete.plist in Resources */,
 				271595B72146AB1F00BECC9C /* InfoPlist.strings in Resources */,
 				28735F83226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */,
 				E7E5B80D1DE1D33F00A05E56 /* QuestionBodyTableViewCell.xib in Resources */,
@@ -788,6 +801,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -795,6 +809,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -917,6 +932,7 @@
 				E739B9771DDDD8510002604C /* SectieViewController.swift in Sources */,
 				E7FEC2C11DE09E7000F2F04D /* BasicAnswerTableViewCellConfigurator.swift in Sources */,
 				F553E3BA1DF9D67A000D0902 /* Note+CoreDataProperties.swift in Sources */,
+				F1B6FBD622A3153D006D61B2 /* PollingStationsFetcher.swift in Sources */,
 				F553E3B01DF9C675000D0902 /* NoteContainer.swift in Sources */,
 				F553E3B91DF9D67A000D0902 /* Note+CoreDataClass.swift in Sources */,
 				F553E3BF1DF9D67A000D0902 /* SectionInfo+CoreDataClass.swift in Sources */,
@@ -935,8 +951,10 @@
 				F553E3C01DF9D67A000D0902 /* SectionInfo+CoreDataProperties.swift in Sources */,
 				EFB9AD1A1DE9FDE0008C1035 /* DBSyncer.swift in Sources */,
 				271595B521465EBA00BECC9C /* StringExtensions.swift in Sources */,
+				F14A46C522A3417800088D8D /* LocalPollingStationsPersistor.swift in Sources */,
 				E739B9751DDDA2B80002604C /* QuestionCollectionViewCellConfigurator.swift in Sources */,
 				E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */,
+				F1B6FBD922A31D03006D61B2 /* LoadingView.swift in Sources */,
 				E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */,
 				E7E1F2C11DDB580B00CE52FC /* LoginAPIRequest.swift in Sources */,
 				67EE98CB22A296F7006E4762 /* Logger.swift in Sources */,

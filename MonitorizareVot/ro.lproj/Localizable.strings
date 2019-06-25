@@ -28,6 +28,7 @@
 "Label_PickDepartment" = "Alege secția";
 "Label_PickDepartmentDetails" = "în care te afli";
 "Label_County" = "Județ";
+"Label_Section" = "Numărul Secției";
 "Label_SelectedCounty" = "Alege";
 "Label_CountyLocation" = "În ce mediu se află secția?";
 "Label_CountyPresidentGender" = "Președintele secției este";
@@ -61,3 +62,6 @@
 "AlertMessage_AddNoteError" = "Nu am putut salva nota. Te rugăm să încerci mai târziu. Dacă problema persista, te rog contactează-ne";
 
 "AlertButton_Understood" = "Am înțeles";
+
+"AlertTitle_ErrorFetchPollingStation" = "Eroare";
+"AlertMessage_ErrorFetchPollingStation" = "Lista de judete nu a putut fi citita.";
