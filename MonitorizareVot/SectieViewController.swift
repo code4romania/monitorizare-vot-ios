@@ -150,11 +150,15 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     private func showNextScreen() {
-        if let sectieInfosViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SectionInformationsViewController") as? SectionInformationsViewController {
-            sectieInfosViewController.sectionInfo = sectionInfo
-            sectieInfosViewController.topLabelText = sectionInfo.judet! + " " + String(sectionInfo.sectie!)
-            self.navigationController?.pushViewController(sectieInfosViewController, animated: true)
-        }
+        let model = SectionDetailsViewModel(withSectionInfo: sectionInfo)
+        let controller = SectionDetailsViewController(withModel: model)
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+//        if let sectieInfosViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SectionInformationsViewController") as? SectionInformationsViewController {
+//            sectieInfosViewController.sectionInfo = sectionInfo
+//            sectieInfosViewController.topLabelText = sectionInfo.judet! + " " + String(sectionInfo.sectie!)
+//            self.navigationController?.pushViewController(sectieInfosViewController, animated: true)
+//        }
     }
     
     private func setTapGestureRecognizer() {

@@ -11,6 +11,16 @@ import CoreData
 
 
 extension SectionInfo {
+    
+    enum Medium: String {
+        case urban
+        case rural
+    }
+    
+    enum Genre: String {
+        case woman
+        case man
+    }
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<SectionInfo> {
         return NSFetchRequest<SectionInfo>(entityName: "SectionInfo");
