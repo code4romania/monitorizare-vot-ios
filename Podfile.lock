@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.8.2)
+  - Firebase/Analytics (5.20.0):
+    - Firebase/Core
   - Firebase/Core (5.20.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.8.0)
@@ -50,11 +52,14 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - SnapKit (4.2.0)
   - SwiftKeychainWrapper (3.2.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Firebase/Analytics
   - Firebase/Core
+  - SnapKit
   - SwiftKeychainWrapper
 
 SPEC REPOS:
@@ -67,6 +72,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - nanopb
+    - SnapKit
     - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
@@ -78,8 +84,9 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
 
-PODFILE CHECKSUM: 384fdc1659616be61903b7e87bd6f03274eaa3e9
+PODFILE CHECKSUM: 5aad18a575a697083560d5a2995ca57a9a642a8b
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.6.2

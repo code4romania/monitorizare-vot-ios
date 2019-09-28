@@ -23,6 +23,7 @@ class LoginAPIRequest {
                     if let statusCode = response.response?.statusCode, statusCode == 200 {
                         let response = response.result.value
                         if let data = response?.data(using: .utf8) {
+                            Logger.logAuthenticationWithSuccess(success: true, response: nil)
                             do {
                                 if let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any], let token = json["access_token"] as? String {
                                     completion(true, token)
@@ -31,9 +32,11 @@ class LoginAPIRequest {
                                 completion(true, nil)
                             }
                         } else {
+                            Logger.logAuthenticationWithSuccess(success: false, response: response)
                             completion(false, nil)
                         }
                     } else {
+                        Logger.logAuthenticationWithSuccess(success: false, response: response.result.value)
                         completion(false, nil)
                         let cancel = UIAlertAction(title: "Închide", style: .cancel, handler: nil)
                         

@@ -11,6 +11,7 @@ enum APIURLs {
     case note
     case answeredQuestion
     case section
+    case pollingStation
     
     var url: String {
         get {
@@ -29,6 +30,8 @@ enum APIURLs {
                 return baseUrlQA + "/raspuns"
             case .section:
                 return baseUrlQA + "/sectie"
+            case .pollingStation:
+                return baseUrlQA + "/polling-station"
             }
         }
     }

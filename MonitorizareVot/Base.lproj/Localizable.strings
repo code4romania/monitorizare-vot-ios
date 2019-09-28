@@ -28,6 +28,7 @@
 "Label_PickDepartment" = "Pick department";
 "Label_PickDepartmentDetails" = "where you are located";
 "Label_County" = "County";
+"Label_Section" = "Department Number";
 "Label_SelectedCounty" = "Choose";
 "Label_CountyLocation" = "In what environment is the department?";
 "Label_CountyPresidentGender" = "The chairman of the department is";
@@ -59,5 +60,9 @@
 "AlertTitle_AccessRestricted" = "Access restricted";
 "AlertTitle_UnknownError" = "Unknown Error";
 "AlertMessage_EnableCameraAccess" = "Please access the settings and give us permissions to access the picture library.";
+"AlertMessage_AddNoteError" = "Could not add this note. Please try again later. If the problem persists, please contact us";
 
 "AlertButton_Understood" = "I understood";
+
+"AlertTitle_ErrorFetchPollingStation" = "Error";
+"AlertMessage_ErrorFetchPollingStation" = "Could not retrieve the polling stations list.";

@@ -122,11 +122,17 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
         if let note = self.note {
             if delegate == nil {
                 loadingView.isHidden = false
-                noteSaver.save(note: note, completion: { (success, tokenExpired) in
+                noteSaver.save(note: note, completion: { [weak self] (success, tokenExpired) in
                     if tokenExpired {
-                        let _ = self.navigationController?.popToRootViewController(animated: false)
+                        let _ = self?.navigationController?.popToRootViewController(animated: false)
+                    } else if success {
+                        let _ = self?.navigationController?.popViewController(animated: true)
                     } else {
-                        let _ = self.navigationController?.popViewController(animated: true)
+                        self?.loadingView.isHidden = true
+                        let alertController = UIAlertController(title: "AlertTitle_UnknownError".localized, message: "AlertMessage_AddNoteError".localized, preferredStyle: .alert)
+                        let cancel = UIAlertAction(title: "Button_Close".localized, style: .cancel, handler: nil)
+                        alertController.addAction(cancel)
+                        self?.present(alertController, animated: true, completion: nil)
                     }
                 })
             } else {

@@ -7,6 +7,8 @@ target 'MonitorizareVot' do
   pod 'Alamofire'
   pod 'SwiftKeychainWrapper'
   pod 'Firebase/Core'
+  pod 'Firebase/Analytics'
+  pod 'SnapKit'
 
   # Pods for MonitorizareVot
 

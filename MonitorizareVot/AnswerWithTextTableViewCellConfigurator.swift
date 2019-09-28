@@ -11,6 +11,7 @@ class AnswerWithTextTableViewCellConfigurator {
         cell.button.setTitleColor(MVColors.black.color, for: .normal)
         cell.button.layer.defaultCornerRadius(borderColor: MVColors.gray.color.cgColor)
         cell.button.layer.dropDefaultShadow()
+        cell.textView.savedText = answer.inputText
         cell.answer = answer
 
         if selected {

@@ -36,6 +36,8 @@ Swagger docs for the API are available [here](https://mv-mobile-prod.azurewebsit
 
 ## Repos and projects
 
+![alt text](https://raw.githubusercontent.com/code4romania/monitorizare-vot-ios/develop/MV%20solutions.png)
+
 - repo for the API - https://github.com/code4romania/monitorizare-vot
 - repo for the Android app - https://github.com/code4romania/monitorizare-vot-android
 
