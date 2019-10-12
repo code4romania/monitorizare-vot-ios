@@ -179,6 +179,7 @@ class AddNoteViewController: RootViewController, UITextViewDelegate, MVUITextVie
     // MARK: - MVUITextViewDelegate
     func textView(textView: MVUITextView, didChangeText text: String) {
         note?.body = text
+        secondButton.isEnabled = note?.body?.count ?? 0 > 0
     }
     
     // MARK: - UIImagePickerControllerDelegate
