@@ -33,7 +33,6 @@
 		28E7245F233F5E620096454D /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E7245E233F5E620096454D /* UIImage+Utils.swift */; };
 		28E72463233F66210096454D /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E72462233F66210096454D /* ActionButton.swift */; };
 		28E72466233F67280096454D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E72465233F67280096454D /* Configuration.swift */; };
-		28F280E3223A3D8C002B3E9A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */; };
 		55A0F006987479F41A76966C /* Pods_MonitorizareVot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */; };
 		64726B5FB8079F4FDA2D91E0 /* Pods_MonitorizareVotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */; };
 		67EE98CB22A296F7006E4762 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EE98CA22A296F7006E4762 /* Logger.swift */; };
@@ -380,6 +379,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		868B611323561C620084281B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		E74087211DDC8D6000D9332F /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +554,7 @@
 				EF4BD3821D9D08DE0042BEC7 /* Products */,
 				0EFC16FC3E4279B722E76656 /* Pods */,
 				73D320017882699B296EB213 /* Frameworks */,
+				868B611323561C620084281B /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -852,8 +860,6 @@
 				27EDBD2221465D190060DB8A /* Localizable.strings in Resources */,
 				E7FEC2C51DE09E8700F2F04D /* AnswerWithTextTableViewCell.xib in Resources */,
 				28844A57233F94FD00DEEA44 /* GenericPickerViewController.xib in Resources */,
-				EF903E351DA25E3100D5BC9C /* Judete.plist in Resources */,
-				28F280E3223A3D8C002B3E9A /* GoogleService-Info.plist in Resources */,
 				271595B72146AB1F00BECC9C /* InfoPlist.strings in Resources */,
 				28844A5D233F9AB700DEEA44 /* TimePickerViewController.xib in Resources */,
 				28735F83226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */,
