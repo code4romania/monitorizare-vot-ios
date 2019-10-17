@@ -15,7 +15,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
 
     // MARK: - iVars
     private var sectionInfo = MVSectionInfo()
-    private var judete = [[String: AnyObject]]()
+    private var pollingStations: [PollingStation] = []
     private var pickerViewSelection: PickerViewSelection?
     private var tapGestureRecognizer: UITapGestureRecognizer?
     
@@ -75,7 +75,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     
     // MARK: - IBActions
     @IBAction func firstButtonTapped(_ sender: UIButton) {
-        guard judete.count > 0  else {
+        guard pollingStations.count > 0  else {
             showAlertController(errorType: .pollingStationsNotFetched)
             return
         }
@@ -83,7 +83,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         pickerView.reloadAllComponents()
         pickerContainer.isHidden = !pickerContainer.isHidden
         bottomTextField.resignFirstResponder()
-        if sectionInfo.judet == nil, let judet = judete.first?["code"] as? String {
+        if sectionInfo.judet == nil, let judet = pollingStations.first?.code {
             sectionInfo.judet = judet
             setCountyLabelForCode(judet)
        }
@@ -99,14 +99,15 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         } else if sectionInfo.sectie == nil {
             showAlertController(errorType: .sectieNotSet)
         } else {
-            for judet in judete {
-                if judet["code"] as? String == sectionInfo.judet {
-                    if let sectieMaximum = judet["limit"] as? Int, let sectie = Int(sectionInfo.sectie!) {
+            for station in pollingStations {
+                if station.code == sectionInfo.judet {
+                    let sectieMaximum = station.limit
+                    if let sectie = Int(sectionInfo.sectie!) {
                         if sectie < 1 || sectie > sectieMaximum {
                             showAlertController(errorType: .sectieInvalid)
                         } else {
-                            UserDefaults.standard.set(sectionInfo.judet!, forKey: "judet")
-                            UserDefaults.standard.set(sectionInfo.sectie!, forKey: "sectie")
+                            PreferencesManager.shared.county = sectionInfo.judet!
+                            PreferencesManager.shared.section = sectionInfo.sectie!
                             showNextScreen()
                         }
                     }
@@ -206,40 +207,45 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     private func loadData() {
         setLoading(true)
         // First load local, then fire a request
-        judete = pollingStationsPersistor.getPollingStations() ?? []
+        pollingStations = pollingStationsPersistor.getPollingStations() ?? []
         
-        pollingStationsFetcher.fetch { [weak self](tokenExpired, pollingStations) in
-            guard !tokenExpired else {
-                self?.navigationController?.popToRootViewController(animated: false)
-                return
-            }
-            if let self = self {
+        APIManager.shared.fetchPollingStations { (receivedStations, error) in
+            DispatchQueue.main.async {
                 self.setLoading(false)
-                if let pollingStations = pollingStations {
-                    self.judete = pollingStations
-                    self.pollingStationsPersistor.savePollingStations(pollingStations)
+                
+                if let error = error {
+                    if case .unauthorized = error {
+                        self.navigationController?.popToRootViewController(animated: false)
+                        return
+                    }
+                    
+                    // TODO: show error
+                    print("Error: \(error.localizedDescription)")
+                } else if let receivedStations = receivedStations {
+                    self.pollingStations = receivedStations
+                    self.pollingStationsPersistor.savePollingStations(receivedStations)
                 }
             }
         }
     }
     
     private func checkLocalStorage() {
-        if let judet = UserDefaults.standard.string(forKey: "judet") {
-            sectionInfo.judet = judet
-            setCountyLabelForCode(judet)
+        if let county = PreferencesManager.shared.county {
+            sectionInfo.judet = county
+            setCountyLabelForCode(county)
         }
         
-        if let sectie = UserDefaults.standard.string(forKey: "sectie") {
-            sectionInfo.sectie = sectie
-            bottomTextField.text = sectie
+        if let section = PreferencesManager.shared.section {
+            sectionInfo.sectie = section
+            bottomTextField.text = section
         }
     }
     
     private func setCountyLabelForCode(_ judetCode: String) {
         var label = judetCode
-        for judet in judete {
-            if let code = judet["code"] as? String, code == judetCode, let name=judet["name"] as? String {
-                label = name
+        for station in pollingStations {
+            if station.code == judetCode {
+                label = station.name
             }
         }
         selectedCountyLabel?.attributedText = NSAttributedString(
@@ -257,7 +263,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerViewSelection == .judete {
-            return judete.count
+            return pollingStations.count
         }
         return 0
     }
@@ -265,7 +271,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if let pickerViewSelection = self.pickerViewSelection {
             if pickerViewSelection == .judete {
-                return (judete[row]["name"] as? String) ?? (judete[row]["code"] as? String)
+                return pollingStations[row].name
             }
         }
         return nil
@@ -276,10 +282,9 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         if let pickerViewSelection = self.pickerViewSelection {
             switch pickerViewSelection {
             case .judete:
-                if let judet = judete[row]["code"] as? String {
-                    sectionInfo.judet = judet
-                    setCountyLabelForCode(judet)
-                }
+                let judet = pollingStations[row].code
+                sectionInfo.judet = judet
+                setCountyLabelForCode(judet)
             default:
                 break
             }

@@ -9,33 +9,29 @@
 import Foundation
 
 protocol PollingStationsPersistor {
-    func savePollingStations(_ pollingStations: [[String : AnyObject]])
-    func getPollingStations() -> [[String : AnyObject]]?
+    func savePollingStations(_ pollingStations: [PollingStation])
+    func getPollingStations() -> [PollingStation]?
 }
 
 class LocalPollingStationsPersistor: PollingStationsPersistor {
     
     fileprivate enum UserDefaultsKeys: String {
-        case pollingStations = "pollingStations"
+        case pollingStations = "storedPollingStations"
     }
     
     // MARK: - PollingStationsPersistor
     
-    func savePollingStations(_ pollingStations: [[String : AnyObject]]) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: pollingStations)
-        if data.count == 0 {
-            print("Error saving the polling stations locally")
-            return
-        }
+    func savePollingStations(_ pollingStations: [PollingStation]) {
+        let data = try! JSONEncoder().encode([pollingStations])
         UserDefaults.standard.set(data, forKey: UserDefaultsKeys.pollingStations.rawValue)
         UserDefaults.standard.synchronize()
     }
     
-    func getPollingStations() -> [[String : AnyObject]]? {
+    func getPollingStations() -> [PollingStation]? {
         guard let data = UserDefaults.standard.value(forKey: UserDefaultsKeys.pollingStations.rawValue) as? Data else {
             return nil
         }
-        
-        return NSKeyedUnarchiver.unarchiveObject(with: data) as? [[String: AnyObject]]
+        return try! JSONDecoder().decode([PollingStation].self, from: data)
+        //return NSKeyedUnarchiver.unarchiveObject(with: data) as? [[String: AnyObject]]
     }
 }

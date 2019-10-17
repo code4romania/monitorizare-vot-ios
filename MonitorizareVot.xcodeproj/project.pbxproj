@@ -12,6 +12,11 @@
 		27BBB27B21510B9600D72D72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27BBB27D21510B9600D72D72 /* LaunchScreen.storyboard */; };
 		27EDBD18214659800060DB8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27EDBD1A214659800060DB8A /* Main.storyboard */; };
 		27EDBD2221465D190060DB8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EDBD2421465D190060DB8A /* Localizable.strings */; };
+		2817EA162358CD0A0029AD4C /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817EA152358CD0A0029AD4C /* APIManager.swift */; };
+		2817EA182358CF5F0029AD4C /* ApiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817EA172358CF5F0029AD4C /* ApiURL.swift */; };
+		2817EA1A2358DF330029AD4C /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817EA192358DF330029AD4C /* AccountManager.swift */; };
+		2817EA1C2358F2140029AD4C /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817EA1B2358F2140029AD4C /* PreferencesManager.swift */; };
+		2817EA2D2358FAB60029AD4C /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817EA2C2358FAB60029AD4C /* APITests.swift */; };
 		282045D5224F936F004B6D5D /* FormPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 282045D3224F936F004B6D5D /* FormPickerCollectionViewCell.xib */; };
 		282045D6224F936F004B6D5D /* FormPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282045D4224F936F004B6D5D /* FormPickerCollectionViewCell.swift */; };
 		28735F83226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 28735F82226B19F600B4DB0B /* CustomConfiguration.xcconfig */; };
@@ -33,7 +38,6 @@
 		28E7245F233F5E620096454D /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E7245E233F5E620096454D /* UIImage+Utils.swift */; };
 		28E72463233F66210096454D /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E72462233F66210096454D /* ActionButton.swift */; };
 		28E72466233F67280096454D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E72465233F67280096454D /* Configuration.swift */; };
-		28F280E3223A3D8C002B3E9A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */; };
 		55A0F006987479F41A76966C /* Pods_MonitorizareVot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */; };
 		64726B5FB8079F4FDA2D91E0 /* Pods_MonitorizareVotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */; };
 		67EE98CB22A296F7006E4762 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EE98CA22A296F7006E4762 /* Logger.swift */; };
@@ -135,6 +139,14 @@
 		27EDBD19214659800060DB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27EDBD2621465D290060DB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		27EDBD2821465D480060DB8A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2817EA152358CD0A0029AD4C /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		2817EA172358CF5F0029AD4C /* ApiURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiURL.swift; sourceTree = "<group>"; };
+		2817EA192358DF330029AD4C /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		2817EA1B2358F2140029AD4C /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
+		2817EA232358FA8E0029AD4C /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
+		2817EA252358FA8E0029AD4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2817EA2B2358FAB60029AD4C /* MonitorizareVotTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MonitorizareVotTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		2817EA2C2358FAB60029AD4C /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 		282045D3224F936F004B6D5D /* FormPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		282045D4224F936F004B6D5D /* FormPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		28735F82226B19F600B4DB0B /* CustomConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CustomConfiguration.xcconfig; sourceTree = "<group>"; };
@@ -301,6 +313,15 @@
 			name = Localizations;
 			sourceTree = "<group>";
 		};
+		2817EA222358FA8E0029AD4C /* APITests */ = {
+			isa = PBXGroup;
+			children = (
+				2817EA232358FA8E0029AD4C /* APITests.swift */,
+				2817EA252358FA8E0029AD4C /* Info.plist */,
+			);
+			path = APITests;
+			sourceTree = "<group>";
+		};
 		282045D2224F92A5004B6D5D /* FormPickerCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +342,14 @@
 				28844A5B233F9AB700DEEA44 /* TimePickerViewController.xib */,
 			);
 			name = Utility;
+			sourceTree = "<group>";
+		};
+		28848F922358CB7F009B5667 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		28E72452233F57210096454D /* SectionDetails */ = {
@@ -460,6 +489,10 @@
 			isa = PBXGroup;
 			children = (
 				E7E1F2C31DDB586800CE52FC /* APIURLs.swift */,
+				2817EA152358CD0A0029AD4C /* APIManager.swift */,
+				2817EA172358CF5F0029AD4C /* ApiURL.swift */,
+				2817EA192358DF330029AD4C /* AccountManager.swift */,
+				2817EA1B2358F2140029AD4C /* PreferencesManager.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -544,9 +577,11 @@
 				EF4BD3831D9D08DE0042BEC7 /* MonitorizareVot */,
 				EF4BD3A01D9D08DE0042BEC7 /* MonitorizareVotTests */,
 				EF4BD3AB1D9D08DE0042BEC7 /* MonitorizareVotUITests */,
+				2817EA222358FA8E0029AD4C /* APITests */,
 				EF4BD3821D9D08DE0042BEC7 /* Products */,
 				0EFC16FC3E4279B722E76656 /* Pods */,
 				73D320017882699B296EB213 /* Frameworks */,
+				28848F922358CB7F009B5667 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -591,8 +626,10 @@
 		EF4BD3A01D9D08DE0042BEC7 /* MonitorizareVotTests */ = {
 			isa = PBXGroup;
 			children = (
+				2817EA2C2358FAB60029AD4C /* APITests.swift */,
 				EF4BD3A11D9D08DE0042BEC7 /* MonitorizareVotTests.m */,
 				EF4BD3A31D9D08DE0042BEC7 /* Info.plist */,
+				2817EA2B2358FAB60029AD4C /* MonitorizareVotTests-Bridging-Header.h */,
 			);
 			path = MonitorizareVotTests;
 			sourceTree = "<group>";
@@ -787,27 +824,28 @@
 		EF4BD3791D9D08DE0042BEC7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Code4Ro;
 				TargetAttributes = {
 					EF4BD3801D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = "\"\"";
+						DevelopmentTeam = 442AHZGZ2T;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					EF4BD39C1D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = "\"\"";
-						LastSwiftMigration = 0810;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 442AHZGZ2T;
+						LastSwiftMigration = 1100;
+						ProvisioningStyle = Automatic;
 						TestTargetID = EF4BD3801D9D08DE0042BEC7;
 					};
 					EF4BD3A71D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = P2EQL76LN6;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						TestTargetID = EF4BD3801D9D08DE0042BEC7;
 					};
 				};
@@ -852,8 +890,6 @@
 				27EDBD2221465D190060DB8A /* Localizable.strings in Resources */,
 				E7FEC2C51DE09E8700F2F04D /* AnswerWithTextTableViewCell.xib in Resources */,
 				28844A57233F94FD00DEEA44 /* GenericPickerViewController.xib in Resources */,
-				EF903E351DA25E3100D5BC9C /* Judete.plist in Resources */,
-				28F280E3223A3D8C002B3E9A /* GoogleService-Info.plist in Resources */,
 				271595B72146AB1F00BECC9C /* InfoPlist.strings in Resources */,
 				28844A5D233F9AB700DEEA44 /* TimePickerViewController.xib in Resources */,
 				28735F83226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */,
@@ -1005,13 +1041,16 @@
 				28844A59233F994600DEEA44 /* GenericPickerViewModel.swift in Sources */,
 				E74087371DDCA9FA00D9332F /* Form.swift in Sources */,
 				E7E8EB4D1DDB7C8F009EBE01 /* MVSectionInfo.swift in Sources */,
+				2817EA182358CF5F0029AD4C /* ApiURL.swift in Sources */,
 				F553E3BC1DF9D67A000D0902 /* Question+CoreDataProperties.swift in Sources */,
 				E7FEC2CE1DE0A3BF00F2F04D /* QuestionViewController.swift in Sources */,
+				2817EA162358CD0A0029AD4C /* APIManager.swift in Sources */,
 				E7EB673F1DE5F03A00260CC1 /* RootViewController.swift in Sources */,
 				E7CC3A001DDF30AF0010688D /* MVUITextView.swift in Sources */,
 				E74087261DDC924F00D9332F /* FormsPersistor.swift in Sources */,
 				E7E1F2C41DDB586800CE52FC /* APIURLs.swift in Sources */,
 				EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */,
+				2817EA1C2358F2140029AD4C /* PreferencesManager.swift in Sources */,
 				F553E3BB1DF9D67A000D0902 /* Question+CoreDataClass.swift in Sources */,
 				E74087331DDCA79000D9332F /* MVAnswer.swift in Sources */,
 				28E72458233F58100096454D /* SectionDetailsViewModel.swift in Sources */,
@@ -1032,6 +1071,7 @@
 				28844A5F233F9C6400DEEA44 /* TimePickerViewModel.swift in Sources */,
 				F553E3BF1DF9D67A000D0902 /* SectionInfo+CoreDataClass.swift in Sources */,
 				E7CC39FA1DDF255B0010688D /* MVNote.swift in Sources */,
+				2817EA1A2358DF330029AD4C /* AccountManager.swift in Sources */,
 				E749080F1DDCB8E300878F0A /* PickFormViewController.swift in Sources */,
 				E740872D1DDCA6E800D9332F /* FormProvider.swift in Sources */,
 				E7FEC2BE1DE09E6300F2F04D /* BasicAnswerTableViewCell.swift in Sources */,
@@ -1069,6 +1109,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2817EA2D2358FAB60029AD4C /* APITests.swift in Sources */,
 				EF4BD3A21D9D08DE0042BEC7 /* MonitorizareVotTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1253,7 +1294,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 90CF95CA02DCD8E741C5686D /* Pods-MonitorizareVot.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1271,7 +1311,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6141F9F392CCD91B6DE2B780 /* Pods-MonitorizareVot.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1288,12 +1327,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 626B7494E0E905A8AEF30B00 /* Pods-MonitorizareVotTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MonitorizareVotTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MonitorizareVotTests/MonitorizareVotTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonitorizareVot.app/MonitorizareVot";
 			};
@@ -1303,12 +1344,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2C95EF7A92703E67898E5413 /* Pods-MonitorizareVotTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MonitorizareVotTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MonitorizareVotTests/MonitorizareVotTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonitorizareVot.app/MonitorizareVot";
 			};
@@ -1318,7 +1360,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F4B4D98801626552C357D41 /* Pods-MonitorizareVotUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = P2EQL76LN6;
 				INFOPLIST_FILE = MonitorizareVotUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1333,7 +1374,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = P2EQL76LN6;
 				INFOPLIST_FILE = MonitorizareVotUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
