@@ -67,7 +67,7 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
             if let token = response as? String, success {
                 KeychainWrapper.standard.set(token, forKey: "token")
                 self?.appFeaturesUnlocked()
-            } 
+            }
         }
     }
     
@@ -106,8 +106,17 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     }
     
     private func appFeaturesUnlocked() {
-        let sectieViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SectieViewController")
-        self.navigationController?.setViewControllers([sectieViewController], animated: true)
+        let defaults = UserDefaults.standard
+        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce2") {
+            print("has launched")
+            let sectieViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SectieViewController")
+            self.navigationController?.setViewControllers([sectieViewController], animated: true)
+        } else {
+            print("has not launched")
+            
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            self.navigationController?.setViewControllers([PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: .none)], animated: true)
+        }
     
     }
     
