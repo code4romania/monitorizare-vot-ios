@@ -9,10 +9,11 @@
 import Foundation
 
 protocol PollingStationsPersistor {
-    func savePollingStations(_ pollingStations: [PollingStation])
-    func getPollingStations() -> [PollingStation]?
+    func savePollingStations(_ pollingStations: [PollingStationResponse])
+    func getPollingStations() -> [PollingStationResponse]?
 }
 
+@available(*, deprecated, message: "Will be replaced soon")
 class LocalPollingStationsPersistor: PollingStationsPersistor {
     
     fileprivate enum UserDefaultsKeys: String {
@@ -21,17 +22,17 @@ class LocalPollingStationsPersistor: PollingStationsPersistor {
     
     // MARK: - PollingStationsPersistor
     
-    func savePollingStations(_ pollingStations: [PollingStation]) {
+    func savePollingStations(_ pollingStations: [PollingStationResponse]) {
         let data = try! JSONEncoder().encode([pollingStations])
         UserDefaults.standard.set(data, forKey: UserDefaultsKeys.pollingStations.rawValue)
         UserDefaults.standard.synchronize()
     }
     
-    func getPollingStations() -> [PollingStation]? {
+    func getPollingStations() -> [PollingStationResponse]? {
         guard let data = UserDefaults.standard.value(forKey: UserDefaultsKeys.pollingStations.rawValue) as? Data else {
             return nil
         }
-        return try! JSONDecoder().decode([PollingStation].self, from: data)
+        return try! JSONDecoder().decode([PollingStationResponse].self, from: data)
         //return NSKeyedUnarchiver.unarchiveObject(with: data) as? [[String: AnyObject]]
     }
 }

@@ -51,16 +51,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EF4BD3A71D9D08DE0042BEC7"
-               BuildableName = "MonitorizareVotUITests.xctest"
-               BlueprintName = "MonitorizareVotUITests"
-               ReferencedContainer = "container:MonitorizareVot.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "2817EA202358FA8E0029AD4C"
                BuildableName = "APITests.xctest"
                BlueprintName = "APITests"

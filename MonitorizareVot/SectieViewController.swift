@@ -15,7 +15,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
 
     // MARK: - iVars
     private var sectionInfo = MVSectionInfo()
-    private var pollingStations: [PollingStation] = []
+    private var pollingStations: [PollingStationResponse] = []
     private var pickerViewSelection: PickerViewSelection?
     private var tapGestureRecognizer: UITapGestureRecognizer?
     
@@ -172,12 +172,6 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
         let model = SectionDetailsViewModel(withSectionInfo: sectionInfo)
         let controller = SectionDetailsViewController(withModel: model)
         self.navigationController?.pushViewController(controller, animated: true)
-        
-//        if let sectieInfosViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SectionInformationsViewController") as? SectionInformationsViewController {
-//            sectieInfosViewController.sectionInfo = sectionInfo
-//            sectieInfosViewController.topLabelText = sectionInfo.judet! + " " + String(sectionInfo.sectie!)
-//            self.navigationController?.pushViewController(sectieInfosViewController, animated: true)
-//        }
     }
     
     private func setTapGestureRecognizer() {

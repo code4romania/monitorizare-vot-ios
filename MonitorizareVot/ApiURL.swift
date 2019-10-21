@@ -11,12 +11,20 @@ import UIKit
 enum ApiURL {
     case login
     case pollingStationList
-    
+    case formSets
+    case formsInSet(setId: Int)
+    case uploadNote
+    case uploadAnswer
+
     func url() -> URL {
         var uri = ""
         switch self {
-        case .login: uri = "/access/authorize"
-        case .pollingStationList: uri = "/polling-station"
+        case .login: uri = "/v1/access/authorize"
+        case .pollingStationList: uri = "/v1/polling-station"
+        case .formSets: uri = "/v1/form"
+        case .formsInSet(let setId): uri = "/v1/form/\(setId)"
+        case .uploadNote: uri = "/v2/note/upload"
+        case .uploadAnswer: uri = "/v1/answers"
         }
         return fullURL(withURI: uri)
     }
@@ -31,22 +39,5 @@ enum ApiURL {
         }
         return url
     }
-}
-
-struct LoginRequest: Codable {
-    var user: String
-    var password: String
-    var uniqueId: String
-}
-
-struct ErrorResponse: Codable {
-    var error: String
-}
-
-struct PollingStation: Codable {
-    var id: Int
-    var name: String
-    var code: String
-    var limit: Int
 }
 

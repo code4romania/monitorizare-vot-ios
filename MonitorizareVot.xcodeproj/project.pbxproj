@@ -30,6 +30,8 @@
 		28844A5C233F9AB700DEEA44 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28844A5A233F9AB700DEEA44 /* TimePickerViewController.swift */; };
 		28844A5D233F9AB700DEEA44 /* TimePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28844A5B233F9AB700DEEA44 /* TimePickerViewController.xib */; };
 		28844A5F233F9C6400DEEA44 /* TimePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28844A5E233F9C6400DEEA44 /* TimePickerViewModel.swift */; };
+		28A7DCB6235CC7EB000B00C4 /* ApiModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7DCB5235CC7EB000B00C4 /* ApiModels.swift */; };
+		28A7DCB9235DBDEB000B00C4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7DCB8235DBDEB000B00C4 /* LocalStorage.swift */; };
 		28E72455233F58010096454D /* SectionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E72453233F58010096454D /* SectionDetailsViewController.swift */; };
 		28E72456233F58010096454D /* SectionDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E72454233F58010096454D /* SectionDetailsViewController.xib */; };
 		28E72458233F58100096454D /* SectionDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E72457233F58100096454D /* SectionDetailsViewModel.swift */; };
@@ -78,7 +80,6 @@
 		E7E407561DE076D30021B402 /* ConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E407551DE076D30021B402 /* ConnectionState.swift */; };
 		E7E5B80C1DE1D33F00A05E56 /* QuestionBodyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E5B80A1DE1D33F00A05E56 /* QuestionBodyTableViewCell.swift */; };
 		E7E5B80D1DE1D33F00A05E56 /* QuestionBodyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E5B80B1DE1D33F00A05E56 /* QuestionBodyTableViewCell.xib */; };
-		E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB481DDB63E1009EBE01 /* SectionInformationsViewController.swift */; };
 		E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */; };
 		E7E8EB4D1DDB7C8F009EBE01 /* MVSectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4C1DDB7C8F009EBE01 /* MVSectionInfo.swift */; };
 		E7EB673F1DE5F03A00260CC1 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EB673E1DE5F03A00260CC1 /* RootViewController.swift */; };
@@ -158,6 +159,8 @@
 		28844A5A233F9AB700DEEA44 /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		28844A5B233F9AB700DEEA44 /* TimePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePickerViewController.xib; sourceTree = "<group>"; };
 		28844A5E233F9C6400DEEA44 /* TimePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewModel.swift; sourceTree = "<group>"; };
+		28A7DCB5235CC7EB000B00C4 /* ApiModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModels.swift; sourceTree = "<group>"; };
+		28A7DCB8235DBDEB000B00C4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		28E72453233F58010096454D /* SectionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDetailsViewController.swift; sourceTree = "<group>"; };
 		28E72454233F58010096454D /* SectionDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionDetailsViewController.xib; sourceTree = "<group>"; };
 		28E72457233F58100096454D /* SectionDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -212,7 +215,6 @@
 		E7E407551DE076D30021B402 /* ConnectionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionState.swift; sourceTree = "<group>"; };
 		E7E5B80A1DE1D33F00A05E56 /* QuestionBodyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionBodyTableViewCell.swift; sourceTree = "<group>"; };
 		E7E5B80B1DE1D33F00A05E56 /* QuestionBodyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionBodyTableViewCell.xib; sourceTree = "<group>"; };
-		E7E8EB481DDB63E1009EBE01 /* SectionInformationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionInformationsViewController.swift; sourceTree = "<group>"; };
 		E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVColors.swift; sourceTree = "<group>"; };
 		E7E8EB4C1DDB7C8F009EBE01 /* MVSectionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVSectionInfo.swift; sourceTree = "<group>"; };
 		E7EB673E1DE5F03A00260CC1 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -352,6 +354,14 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		28A7DCB7235DBDD6000B00C4 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				28A7DCB8235DBDEB000B00C4 /* LocalStorage.swift */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
 		28E72452233F57210096454D /* SectionDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +479,7 @@
 		E7E1F2C21DDB586100CE52FC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				28A7DCB7235DBDD6000B00C4 /* Storage */,
 				67EE98C922A296B1006E4762 /* Logging */,
 				E7E1F2C51DDB59C800CE52FC /* API */,
 				EFB9AD1B1DEA1039008C1035 /* DBHandlers */,
@@ -491,6 +502,7 @@
 				E7E1F2C31DDB586800CE52FC /* APIURLs.swift */,
 				2817EA152358CD0A0029AD4C /* APIManager.swift */,
 				2817EA172358CF5F0029AD4C /* ApiURL.swift */,
+				28A7DCB5235CC7EB000B00C4 /* ApiModels.swift */,
 				2817EA192358DF330029AD4C /* AccountManager.swift */,
 				2817EA1B2358F2140029AD4C /* PreferencesManager.swift */,
 			);
@@ -551,14 +563,6 @@
 				E7FEC2CD1DE0A3BF00F2F04D /* QuestionViewController.swift */,
 			);
 			name = QuestionViewController;
-			sourceTree = "<group>";
-		};
-		EF13D14F1DCF243300349B43 /* SectionInformationsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E7E8EB481DDB63E1009EBE01 /* SectionInformationsViewController.swift */,
-			);
-			name = SectionInformationsViewController;
 			sourceTree = "<group>";
 		};
 		EF1D982E1DA1915F00A73FA7 /* QuestionCell */ = {
@@ -658,7 +662,6 @@
 				28E72452233F57210096454D /* SectionDetails */,
 				EF4BD3E81D9E7BB10042BEC7 /* LoginViewController */,
 				EF4BD3E91D9E7BBC0042BEC7 /* SectieViewController */,
-				EF13D14F1DCF243300349B43 /* SectionInformationsViewController */,
 				EF4BD3ED1D9E7C6D0042BEC7 /* PickFormViewController */,
 				EF4BD3F11D9E82230042BEC7 /* FormViewController */,
 				E7EB673D1DE5F02200260CC1 /* RootViewController */,
@@ -1068,6 +1071,7 @@
 				F1B6FBD622A3153D006D61B2 /* PollingStationsFetcher.swift in Sources */,
 				F553E3B01DF9C675000D0902 /* NoteContainer.swift in Sources */,
 				F553E3B91DF9D67A000D0902 /* Note+CoreDataClass.swift in Sources */,
+				28A7DCB9235DBDEB000B00C4 /* LocalStorage.swift in Sources */,
 				28844A5F233F9C6400DEEA44 /* TimePickerViewModel.swift in Sources */,
 				F553E3BF1DF9D67A000D0902 /* SectionInfo+CoreDataClass.swift in Sources */,
 				E7CC39FA1DDF255B0010688D /* MVNote.swift in Sources */,
@@ -1092,9 +1096,9 @@
 				271595B521465EBA00BECC9C /* StringExtensions.swift in Sources */,
 				F14A46C522A3417800088D8D /* LocalPollingStationsPersistor.swift in Sources */,
 				E739B9751DDDA2B80002604C /* QuestionCollectionViewCellConfigurator.swift in Sources */,
-				E7E8EB491DDB63E1009EBE01 /* SectionInformationsViewController.swift in Sources */,
 				F1B6FBD922A31D03006D61B2 /* LoadingView.swift in Sources */,
 				E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */,
+				28A7DCB6235CC7EB000B00C4 /* ApiModels.swift in Sources */,
 				E7E1F2C11DDB580B00CE52FC /* LoginAPIRequest.swift in Sources */,
 				67EE98CB22A296F7006E4762 /* Logger.swift in Sources */,
 				E740872A1DDC987C00D9332F /* FormFetcher.swift in Sources */,

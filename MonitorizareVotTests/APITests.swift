@@ -53,6 +53,40 @@ class APITests: XCTestCase {
         sut?.login(withPhone: knownPhone, pin: knownPin, then: { error in
             self.sut?.fetchPollingStations(then: { (stations, error) in
                 XCTAssertNil(error)
+                XCTAssertNotNil(stations)
+                XCTAssert(stations!.count > 0)
+                waiter.fulfill()
+            })
+        })
+        
+        wait(for: [waiter], timeout: 10)
+    }
+
+    func testGetFormsSets() {
+        let knownPhone = correctPhone
+        let knownPin = correctPin
+        let waiter = expectation(description: "Form Sets")
+        sut?.login(withPhone: knownPhone, pin: knownPin, then: { error in
+            self.sut?.fetchFormSets(then: { (sets, error) in
+                XCTAssertNil(error)
+                XCTAssertNotNil(sets)
+                XCTAssert(sets!.count > 0)
+                waiter.fulfill()
+            })
+        })
+        
+        wait(for: [waiter], timeout: 10)
+    }
+
+    func testGetFormsInFirstSet() {
+        let knownPhone = correctPhone
+        let knownPin = correctPin
+        let waiter = expectation(description: "Forms")
+        sut?.login(withPhone: knownPhone, pin: knownPin, then: { error in
+            self.sut?.fetchForms(inSet: 1, then: { (forms, error) in
+                XCTAssertNil(error)
+                XCTAssertNotNil(forms)
+                XCTAssert(forms!.count > 0)
                 waiter.fulfill()
             })
         })
