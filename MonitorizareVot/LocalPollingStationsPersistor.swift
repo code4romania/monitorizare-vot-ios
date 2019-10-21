@@ -17,7 +17,7 @@ protocol PollingStationsPersistor {
 class LocalPollingStationsPersistor: PollingStationsPersistor {
     
     fileprivate enum UserDefaultsKeys: String {
-        case pollingStations = "storedPollingStations"
+        case pollingStations = "obsoletePollingStations"
     }
     
     // MARK: - PollingStationsPersistor
@@ -35,4 +35,5 @@ class LocalPollingStationsPersistor: PollingStationsPersistor {
         return try! JSONDecoder().decode([PollingStationResponse].self, from: data)
         //return NSKeyedUnarchiver.unarchiveObject(with: data) as? [[String: AnyObject]]
     }
+    
 }
