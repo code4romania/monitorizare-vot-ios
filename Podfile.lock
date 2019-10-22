@@ -52,6 +52,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - ReachabilitySwift (5.0.0)
   - SnapKit (4.2.0)
   - SwiftKeychainWrapper (3.2.0)
 
@@ -59,6 +60,7 @@ DEPENDENCIES:
   - Alamofire
   - Firebase/Analytics
   - Firebase/Core
+  - ReachabilitySwift
   - SnapKit
   - SwiftKeychainWrapper
 
@@ -72,6 +74,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - nanopb
+    - ReachabilitySwift
     - SnapKit
     - SwiftKeychainWrapper
 
@@ -84,9 +87,10 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
 
-PODFILE CHECKSUM: 5aad18a575a697083560d5a2995ca57a9a642a8b
+PODFILE CHECKSUM: 205f96825344adcb6895c76878b39cd5eb203873
 
 COCOAPODS: 1.6.1

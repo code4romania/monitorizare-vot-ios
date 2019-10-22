@@ -26,24 +26,22 @@ class AnsweredQuestionSaver {
             localPersistedQuestion = persistedQuestion
         }
         noteSaver.noteContainer = localPersistedQuestion
-        connectionState {[weak self] (connected) in
-            if connected {
-                if let note = answeredQuestion.question.note {
-                    self?.noteSaver.save(note: note, completion: { (success, tokenExpired) in
-                        self?.save(answeredQuestion: answeredQuestion, tokenExpired: tokenExpired)
-                    })
-                } else {
-                    self?.save(answeredQuestion: answeredQuestion, tokenExpired: false)
-                }
+        
+        if ReachabilityManager.shared.isReachable {
+            if let note = answeredQuestion.question.note {
+                noteSaver.save(note: note, completion: { [weak self] (success, tokenExpired) in
+                    self?.save(answeredQuestion: answeredQuestion, tokenExpired: tokenExpired)
+                })
+            } else {
+                save(answeredQuestion: answeredQuestion, tokenExpired: false)
             }
-            else {
-                if let note = answeredQuestion.question.note {
-                    self?.noteSaver.save(note: note, completion: { (success, tokenExpired) in
-                        self?.completion?(true, false)
-                    })
-                } else {
-                    self?.completion?(true, false)
-                }
+        } else {
+            if let note = answeredQuestion.question.note {
+                noteSaver.save(note: note, completion: { (success, tokenExpired) in
+                    completion?(true, false)
+                })
+            } else {
+                completion?(true, false)
             }
         }
     }

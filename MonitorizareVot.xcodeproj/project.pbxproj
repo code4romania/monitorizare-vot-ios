@@ -30,6 +30,7 @@
 		28844A5C233F9AB700DEEA44 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28844A5A233F9AB700DEEA44 /* TimePickerViewController.swift */; };
 		28844A5D233F9AB700DEEA44 /* TimePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28844A5B233F9AB700DEEA44 /* TimePickerViewController.xib */; };
 		28844A5F233F9C6400DEEA44 /* TimePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28844A5E233F9C6400DEEA44 /* TimePickerViewModel.swift */; };
+		289E1E79235EF6FC000C92A0 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289E1E78235EF6FC000C92A0 /* ReachabilityManager.swift */; };
 		28A7DCB6235CC7EB000B00C4 /* ApiModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7DCB5235CC7EB000B00C4 /* ApiModels.swift */; };
 		28A7DCB9235DBDEB000B00C4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7DCB8235DBDEB000B00C4 /* LocalStorage.swift */; };
 		28E72455233F58010096454D /* SectionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E72453233F58010096454D /* SectionDetailsViewController.swift */; };
@@ -159,6 +160,7 @@
 		28844A5A233F9AB700DEEA44 /* TimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		28844A5B233F9AB700DEEA44 /* TimePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePickerViewController.xib; sourceTree = "<group>"; };
 		28844A5E233F9C6400DEEA44 /* TimePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewModel.swift; sourceTree = "<group>"; };
+		289E1E78235EF6FC000C92A0 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		28A7DCB5235CC7EB000B00C4 /* ApiModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModels.swift; sourceTree = "<group>"; };
 		28A7DCB8235DBDEB000B00C4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		28E72453233F58010096454D /* SectionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDetailsViewController.swift; sourceTree = "<group>"; };
@@ -346,7 +348,7 @@
 			name = Utility;
 			sourceTree = "<group>";
 		};
-		28848F922358CB7F009B5667 /* Recovered References */ = {
+		289E1E77235EF607000C92A0 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */,
@@ -499,6 +501,7 @@
 				E73A5B401DDDE55A00E41490 /* PickerViewSelection.swift */,
 				28E7245E233F5E620096454D /* UIImage+Utils.swift */,
 				28E72465233F67280096454D /* Configuration.swift */,
+				289E1E78235EF6FC000C92A0 /* ReachabilityManager.swift */,
 				271595B92146AB1F00BECC9C /* InfoPlist.strings */,
 			);
 			name = Utils;
@@ -593,7 +596,7 @@
 				EF4BD3821D9D08DE0042BEC7 /* Products */,
 				0EFC16FC3E4279B722E76656 /* Pods */,
 				73D320017882699B296EB213 /* Frameworks */,
-				28848F922358CB7F009B5667 /* Recovered References */,
+				289E1E77235EF607000C92A0 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -901,6 +904,7 @@
 				27EDBD2221465D190060DB8A /* Localizable.strings in Resources */,
 				E7FEC2C51DE09E8700F2F04D /* AnswerWithTextTableViewCell.xib in Resources */,
 				28844A57233F94FD00DEEA44 /* GenericPickerViewController.xib in Resources */,
+				28F280E3223A3D8C002B3E9A /* GoogleService-Info.plist in Resources */,
 				271595B72146AB1F00BECC9C /* InfoPlist.strings in Resources */,
 				28844A5D233F9AB700DEEA44 /* TimePickerViewController.xib in Resources */,
 				28735F83226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */,
@@ -936,6 +940,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -944,6 +949,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -1055,6 +1061,7 @@
 				2817EA182358CF5F0029AD4C /* ApiURL.swift in Sources */,
 				F553E3BC1DF9D67A000D0902 /* Question+CoreDataProperties.swift in Sources */,
 				E7FEC2CE1DE0A3BF00F2F04D /* QuestionViewController.swift in Sources */,
+				289E1E79235EF6FC000C92A0 /* ReachabilityManager.swift in Sources */,
 				2817EA162358CD0A0029AD4C /* APIManager.swift in Sources */,
 				E7EB673F1DE5F03A00260CC1 /* RootViewController.swift in Sources */,
 				E7CC3A001DDF30AF0010688D /* MVUITextView.swift in Sources */,

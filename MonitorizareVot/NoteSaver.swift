@@ -20,56 +20,54 @@ class NoteSaver {
             noteToSave = unsyncedLocalNote(note: note)
         }
         
-        connectionState { (connected) in
-            if connected {
-                let url = APIURLs.note.url
-                let imageData = note.image?.jpegData(compressionQuality: 0.8) ?? Data()
-                
-                var questionID = "-1"
-                if let id = note.questionID {
-                    questionID = String(id)
-                }
-                
-                let parameters: [String: String] = ["CodJudet": note.sectionInfo.judet ?? "",
-                                "NumarSectie": note.sectionInfo.sectie ?? "-1",
-                                "IdIntrebare": questionID,
-                                "TextNota": note.body ?? ""]
-                
-                if let token = KeychainWrapper.standard.string(forKey: "token") {
-                    let headers = ["Authorization" :"Bearer " + token]
-                    
-                    Alamofire.upload(multipartFormData: { (multipart) in
-                        for (aKey, aValue) in parameters {
-                            multipart.append(aValue.data(using: String.Encoding.utf8)!, withName: aKey)
-                        }
-                        multipart.append(imageData, withName: "file", fileName: "newImage.jpg", mimeType: "image/jpeg")
-                    }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers, encodingCompletion: { (encodingResult) in
-                        switch encodingResult {
-                        case .success(request: let request, streamingFromDisk: _, streamFileURL: _):
-                            request.responseString(completionHandler: {[weak self] (response) in
-                                var success = false
-                                var authFailed = false
-                                if let statusCode = response.response?.statusCode {
-                                    if statusCode == 200 {
-                                        self?.updateToSynced(note: self?.noteToSave)
-                                        success = true
-                                    } else if statusCode == 401 {
-                                        // unauthenticated
-                                        authFailed = true
-                                    }
-                                }
-                                completion?(success, authFailed)
-                            })
-                        case .failure(_):
-                            completion?(false, false)
-                        }
-                    })
-                } else {
-                    completion?(false, true)
-                }
-            } else {
-                completion?(false, false)
+        if ReachabilityManager.shared.isReachable {
+            let url = APIURLs.note.url
+            let imageData = note.image?.jpegData(compressionQuality: 0.8) ?? Data()
+            
+            var questionID = "-1"
+            if let id = note.questionID {
+                questionID = String(id)
             }
+            
+            let parameters: [String: String] = ["CodJudet": note.sectionInfo.judet ?? "",
+                            "NumarSectie": note.sectionInfo.sectie ?? "-1",
+                            "IdIntrebare": questionID,
+                            "TextNota": note.body ?? ""]
+            
+            if let token = KeychainWrapper.standard.string(forKey: "token") {
+                let headers = ["Authorization" :"Bearer " + token]
+                
+                Alamofire.upload(multipartFormData: { (multipart) in
+                    for (aKey, aValue) in parameters {
+                        multipart.append(aValue.data(using: String.Encoding.utf8)!, withName: aKey)
+                    }
+                    multipart.append(imageData, withName: "file", fileName: "newImage.jpg", mimeType: "image/jpeg")
+                }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers, encodingCompletion: { (encodingResult) in
+                    switch encodingResult {
+                    case .success(request: let request, streamingFromDisk: _, streamFileURL: _):
+                        request.responseString(completionHandler: {[weak self] (response) in
+                            var success = false
+                            var authFailed = false
+                            if let statusCode = response.response?.statusCode {
+                                if statusCode == 200 {
+                                    self?.updateToSynced(note: self?.noteToSave)
+                                    success = true
+                                } else if statusCode == 401 {
+                                    // unauthenticated
+                                    authFailed = true
+                                }
+                            }
+                            completion?(success, authFailed)
+                        })
+                    case .failure(_):
+                        completion?(false, false)
+                    }
+                })
+            } else {
+                completion?(false, true)
+            }
+        } else {
+            completion?(false, false)
         }
     }
     

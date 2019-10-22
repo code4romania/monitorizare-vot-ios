@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
         
+        // preload the reachability manager
+        _ = ReachabilityManager.shared
+        
         return true
     }
     
