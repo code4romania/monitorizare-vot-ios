@@ -23,7 +23,7 @@ class LocalPollingStationsPersistor: PollingStationsPersistor {
     // MARK: - PollingStationsPersistor
     
     func savePollingStations(_ pollingStations: [PollingStationResponse]) {
-        let data = try! JSONEncoder().encode([pollingStations])
+        let data = try! JSONEncoder().encode(pollingStations)
         UserDefaults.standard.set(data, forKey: UserDefaultsKeys.pollingStations.rawValue)
         UserDefaults.standard.synchronize()
     }
@@ -32,7 +32,7 @@ class LocalPollingStationsPersistor: PollingStationsPersistor {
         guard let data = UserDefaults.standard.value(forKey: UserDefaultsKeys.pollingStations.rawValue) as? Data else {
             return nil
         }
-        return try! JSONDecoder().decode([PollingStationResponse].self, from: data)
+        return try? JSONDecoder().decode([PollingStationResponse].self, from: data)
         //return NSKeyedUnarchiver.unarchiveObject(with: data) as? [[String: AnyObject]]
     }
     
