@@ -419,6 +419,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		868B611323561C620084281B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		E74087211DDC8D6000D9332F /* Network */ = {
 			isa = PBXGroup;
 			children = (
