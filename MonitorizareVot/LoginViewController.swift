@@ -50,24 +50,17 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         loadingView.isHidden = false
         
-        var udid = NSUUID().uuidString
-    
-        if let savedUdid = KeychainWrapper.standard.string(forKey: "udid") {
-            udid = savedUdid
-        } else {
-            KeychainWrapper.standard.set(udid, forKey: "udid")
-        }
-        
-        let params: [String: Any] = ["phone":phoneNumberTextField.text ?? "",
-                                           "pin": codeTextField.text ?? "",
-                                           "udid": udid]
-        
-        loginAPIRequest?.perform(informations: params) {[weak self] success, response in
-            self?.loadingView.isHidden = true
-            if let token = response as? String, success {
-                KeychainWrapper.standard.set(token, forKey: "token")
-                self?.appFeaturesUnlocked()
-            } 
+        let phone = phoneNumberTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let code = codeTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        APIManager.shared.login(withPhone: phone, pin: code) { error in
+            DispatchQueue.main.async {
+                self.loadingView.isHidden = true
+                if let error = error {
+                    self.displayError(error.localizedDescription)
+                } else {
+                    self.appFeaturesUnlocked()
+                }
+            }
         }
     }
     
@@ -119,6 +112,14 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
 
     private func layout() {
         self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    fileprivate func displayError(_ message: String) {
+        let alert = UIAlertController(title: "Error".localized,
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
 }
