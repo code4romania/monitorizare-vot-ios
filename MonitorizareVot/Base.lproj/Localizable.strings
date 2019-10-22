@@ -66,3 +66,12 @@
 
 "AlertTitle_ErrorFetchPollingStation" = "Error";
 "AlertMessage_ErrorFetchPollingStation" = "Could not retrieve the polling stations list.";
+
+"Error_Unknown" = "An unknown error occured";
+"LoginError_Unknown" = "Login failed. Unknown reason";
+
+"Error" = "Error";
+"OK" = "OK";
+
+"Error.IncorrectFormat" = "Incorrect response format";
+"Error.TokenExpired" = "Your authentication expired. Please log in again.";
