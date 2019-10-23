@@ -31,6 +31,12 @@
 		28844A5D233F9AB700DEEA44 /* TimePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28844A5B233F9AB700DEEA44 /* TimePickerViewController.xib */; };
 		28844A5F233F9C6400DEEA44 /* TimePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28844A5E233F9C6400DEEA44 /* TimePickerViewModel.swift */; };
 		289E1E79235EF6FC000C92A0 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289E1E78235EF6FC000C92A0 /* ReachabilityManager.swift */; };
+		289E1E84235F2674000C92A0 /* FormListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289E1E82235F2674000C92A0 /* FormListViewController.swift */; };
+		289E1E85235F2674000C92A0 /* FormListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289E1E83235F2674000C92A0 /* FormListViewController.xib */; };
+		289E1E87235F2A77000C92A0 /* FormListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289E1E86235F2A77000C92A0 /* FormListViewModel.swift */; };
+		289E1E8C235F2ABE000C92A0 /* FormSetTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289E1E8A235F2ABE000C92A0 /* FormSetTableCell.swift */; };
+		289E1E8D235F2ABE000C92A0 /* FormSetTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289E1E8B235F2ABE000C92A0 /* FormSetTableCell.xib */; };
+		289E1E9123604F9D000C92A0 /* MVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289E1E9023604F9D000C92A0 /* MVViewController.swift */; };
 		28A7DCB6235CC7EB000B00C4 /* ApiModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7DCB5235CC7EB000B00C4 /* ApiModels.swift */; };
 		28A7DCB9235DBDEB000B00C4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7DCB8235DBDEB000B00C4 /* LocalStorage.swift */; };
 		28E72455233F58010096454D /* SectionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E72453233F58010096454D /* SectionDetailsViewController.swift */; };
@@ -161,6 +167,12 @@
 		28844A5B233F9AB700DEEA44 /* TimePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimePickerViewController.xib; sourceTree = "<group>"; };
 		28844A5E233F9C6400DEEA44 /* TimePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerViewModel.swift; sourceTree = "<group>"; };
 		289E1E78235EF6FC000C92A0 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		289E1E82235F2674000C92A0 /* FormListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormListViewController.swift; sourceTree = "<group>"; };
+		289E1E83235F2674000C92A0 /* FormListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormListViewController.xib; sourceTree = "<group>"; };
+		289E1E86235F2A77000C92A0 /* FormListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormListViewModel.swift; sourceTree = "<group>"; };
+		289E1E8A235F2ABE000C92A0 /* FormSetTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSetTableCell.swift; sourceTree = "<group>"; };
+		289E1E8B235F2ABE000C92A0 /* FormSetTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormSetTableCell.xib; sourceTree = "<group>"; };
+		289E1E9023604F9D000C92A0 /* MVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVViewController.swift; sourceTree = "<group>"; };
 		28A7DCB5235CC7EB000B00C4 /* ApiModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModels.swift; sourceTree = "<group>"; };
 		28A7DCB8235DBDEB000B00C4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		28E72453233F58010096454D /* SectionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDetailsViewController.swift; sourceTree = "<group>"; };
@@ -344,6 +356,7 @@
 				28844A5E233F9C6400DEEA44 /* TimePickerViewModel.swift */,
 				28844A5A233F9AB700DEEA44 /* TimePickerViewController.swift */,
 				28844A5B233F9AB700DEEA44 /* TimePickerViewController.xib */,
+				289E1E9023604F9D000C92A0 /* MVViewController.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -354,6 +367,25 @@
 				28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		289E1E81235F2665000C92A0 /* FormSets */ = {
+			isa = PBXGroup;
+			children = (
+				289E1E86235F2A77000C92A0 /* FormListViewModel.swift */,
+				289E1E82235F2674000C92A0 /* FormListViewController.swift */,
+				289E1E83235F2674000C92A0 /* FormListViewController.xib */,
+			);
+			path = FormSets;
+			sourceTree = "<group>";
+		};
+		289E1E89235F2AA2000C92A0 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				289E1E8A235F2ABE000C92A0 /* FormSetTableCell.swift */,
+				289E1E8B235F2ABE000C92A0 /* FormSetTableCell.xib */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 		28A7DCB7235DBDD6000B00C4 /* Storage */ = {
@@ -419,14 +451,6 @@
 				DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		868B611323561C620084281B /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				28F280E2223A3D8C002B3E9A /* GoogleService-Info.plist */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		E74087211DDC8D6000D9332F /* Network */ = {
@@ -671,6 +695,7 @@
 			children = (
 				28844A53233F94CB00DEEA44 /* Utility */,
 				28E72452233F57210096454D /* SectionDetails */,
+				289E1E81235F2665000C92A0 /* FormSets */,
 				EF4BD3E81D9E7BB10042BEC7 /* LoginViewController */,
 				EF4BD3E91D9E7BBC0042BEC7 /* SectieViewController */,
 				EF4BD3ED1D9E7C6D0042BEC7 /* PickFormViewController */,
@@ -685,6 +710,7 @@
 		EF4BD3E21D9E64F30042BEC7 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				289E1E89235F2AA2000C92A0 /* TableCells */,
 				28E72459233F58E20096454D /* General */,
 				F1B6FBD722A31CE6006D61B2 /* LoadingView */,
 				282045D2224F92A5004B6D5D /* FormPickerCell */,
@@ -904,9 +930,10 @@
 				27EDBD2221465D190060DB8A /* Localizable.strings in Resources */,
 				E7FEC2C51DE09E8700F2F04D /* AnswerWithTextTableViewCell.xib in Resources */,
 				28844A57233F94FD00DEEA44 /* GenericPickerViewController.xib in Resources */,
-				28F280E3223A3D8C002B3E9A /* GoogleService-Info.plist in Resources */,
+				289E1E85235F2674000C92A0 /* FormListViewController.xib in Resources */,
 				271595B72146AB1F00BECC9C /* InfoPlist.strings in Resources */,
 				28844A5D233F9AB700DEEA44 /* TimePickerViewController.xib in Resources */,
+				289E1E8D235F2ABE000C92A0 /* FormSetTableCell.xib in Resources */,
 				28735F83226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */,
 				E7E5B80D1DE1D33F00A05E56 /* QuestionBodyTableViewCell.xib in Resources */,
 			);
@@ -1061,6 +1088,7 @@
 				2817EA182358CF5F0029AD4C /* ApiURL.swift in Sources */,
 				F553E3BC1DF9D67A000D0902 /* Question+CoreDataProperties.swift in Sources */,
 				E7FEC2CE1DE0A3BF00F2F04D /* QuestionViewController.swift in Sources */,
+				289E1E8C235F2ABE000C92A0 /* FormSetTableCell.swift in Sources */,
 				289E1E79235EF6FC000C92A0 /* ReachabilityManager.swift in Sources */,
 				2817EA162358CD0A0029AD4C /* APIManager.swift in Sources */,
 				E7EB673F1DE5F03A00260CC1 /* RootViewController.swift in Sources */,
@@ -1081,10 +1109,12 @@
 				E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */,
 				E753C4321DE5FA6800B6B7C9 /* UIButtonExtensions.swift in Sources */,
 				E739B9771DDDD8510002604C /* SectieViewController.swift in Sources */,
+				289E1E84235F2674000C92A0 /* FormListViewController.swift in Sources */,
 				E7FEC2C11DE09E7000F2F04D /* BasicAnswerTableViewCellConfigurator.swift in Sources */,
 				F553E3BA1DF9D67A000D0902 /* Note+CoreDataProperties.swift in Sources */,
 				F1B6FBD622A3153D006D61B2 /* PollingStationsFetcher.swift in Sources */,
 				F553E3B01DF9C675000D0902 /* NoteContainer.swift in Sources */,
+				289E1E87235F2A77000C92A0 /* FormListViewModel.swift in Sources */,
 				F553E3B91DF9D67A000D0902 /* Note+CoreDataClass.swift in Sources */,
 				28A7DCB9235DBDEB000B00C4 /* LocalStorage.swift in Sources */,
 				28844A5F233F9C6400DEEA44 /* TimePickerViewModel.swift in Sources */,
@@ -1096,6 +1126,7 @@
 				E7FEC2BE1DE09E6300F2F04D /* BasicAnswerTableViewCell.swift in Sources */,
 				E7CC39FE1DDF2C100010688D /* UIViewControllerExtensions.swift in Sources */,
 				28844A56233F94FD00DEEA44 /* GenericPickerViewController.swift in Sources */,
+				289E1E9123604F9D000C92A0 /* MVViewController.swift in Sources */,
 				E74087281DDC92CA00D9332F /* LocalFormsPersistor.swift in Sources */,
 				E7DC77541DF772940020FA96 /* SectionSaver.swift in Sources */,
 				28E72466233F67280096454D /* Configuration.swift in Sources */,

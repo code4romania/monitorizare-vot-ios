@@ -54,7 +54,9 @@ extension UIColor {
     static var chooserButtonSelectedBackground = navigationBarBackground
     static var actionButtonForeground = UIColor(hexCode: 0x81175C)
     static var actionButtonBackground = actionButtonForeground.withAlphaComponent(0.065)
-    
+    static var cardBackground = UIColor.white
+    static var cardBackgroundSelected = chooserButtonSelectedBackground
+
     convenience init(hexCode: UInt32) {
         var alpha = hexCode >> 24 & 0xFF
         let red   = hexCode >> 16 & 0xFF

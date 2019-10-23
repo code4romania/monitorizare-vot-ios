@@ -39,6 +39,8 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardDidHide(notification:)),
                                                name: UIResponder.keyboardWillHideNotification, object: nil)
+
+        prepopulateTestData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,6 +82,21 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     }
     
     // MARK: - Utils
+    
+    fileprivate func prepopulateTestData() {
+        // set these in your local config if you want the phone and pin to be prepopulated,
+        // saving you a bunch of typing/pasting
+        let prefilledPhone = Bundle.main.infoDictionary?["TEST_PHONE"] as? String ?? ""
+        let prefilledPin = Bundle.main.infoDictionary?["TEST_PIN"] as? String ?? ""
+        if prefilledPin.count > 0 {
+            DispatchQueue.main.async {
+                self.phoneNumberTextField.text = prefilledPhone
+                self.codeTextField.text = prefilledPin
+                self.centerButton?.isEnabled = true
+            }
+        }
+    }
+    
     @objc func keyboardDidShow(notification: Notification) {
         if let userInfo = notification.userInfo, let frame = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? CGRect {
             formViewBottomConstraint.constant = frame.size.height - buttonHeight.constant

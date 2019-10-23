@@ -108,6 +108,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
                         } else {
                             PreferencesManager.shared.county = sectionInfo.judet!
                             PreferencesManager.shared.section = sectionInfo.sectie!
+                            PreferencesManager.shared.sectionName = "Station".localized + " \(sectionInfo.sectie!) \(station.name.capitalized)"
                             showNextScreen()
                         }
                     }

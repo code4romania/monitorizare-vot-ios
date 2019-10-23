@@ -10,13 +10,13 @@
 "Button_Authenticate" = "Authenticate";
 "Button_Close" = "Close";
 "Button_Continue" = "Continue";
-"Button_ChangeDepartemnt" = "Change department";
+"Button_ChangeDepartemnt" = "Change";
 "Button_Urban" = "Urban";
 "Button_Rural" = "Rural";
 "Button_Male" = "Man";
 "Button_Female" = "Woman";
 "Button_ContinueToForms" = "Continue to forms";
-"Button_SyncData" = "Synchronize Data";
+"Button_SyncData" = "Synchronise Data Manually";
 "Button_AddNoteToQuestion" = "Add note to question";
 "Button_EditNote" = "Edit note";
 "Button_NextQuestion" = "Next question";
@@ -24,6 +24,7 @@
 "Button_Send" = "Send";
 "Button_Delete" = "Delete";
 "Button_Settings" = "Settings";
+"Button_Retry" = "Încearcă din nou";
 
 "Label_PickDepartment" = "Pick department";
 "Label_PickDepartmentDetails" = "where you are located";
@@ -75,3 +76,11 @@
 
 "Error.IncorrectFormat" = "Incorrect response format";
 "Error.TokenExpired" = "Your authentication expired. Please log in again.";
+"Error.DataDownloadFailed" = "We couldn't download the latest data. Please try again later.";
+
+"Info.DataNotSyncronised" = "It appears that some of the questions have not been syncronised. Tap the button below to send the answers again";
+
+"Station" = "Station";
+
+"Title.StationDetails" = "Station Details";
+"Title.FormSets" = "Form Sets";

@@ -11,8 +11,8 @@ import UIKit
 enum ApiURL {
     case login
     case pollingStationList
-    case formSets
-    case formsInSet(setId: Int)
+    case forms
+    case form(id: Int)
     case uploadNote
     case uploadAnswer
 
@@ -21,8 +21,8 @@ enum ApiURL {
         switch self {
         case .login: uri = "/v1/access/authorize"
         case .pollingStationList: uri = "/v1/polling-station"
-        case .formSets: uri = "/v1/form"
-        case .formsInSet(let setId): uri = "/v1/form/\(setId)"
+        case .forms: uri = "/v1/form"
+        case .form(let id): uri = "/v1/form/\(id)"
         case .uploadNote: uri = "/v2/note/upload"
         case .uploadAnswer: uri = "/v1/answers"
         }

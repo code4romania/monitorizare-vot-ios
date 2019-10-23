@@ -10,14 +10,14 @@ import UIKit
 
 enum LocalFilename {
     case pollingStations
-    case formSets
+    case forms
     case form(id: Int)
     
     var fullName: String {
         var name: String
         switch self {
         case .pollingStations:  name = "polling-stations"
-        case .formSets:         name = "form-sets"
+        case .forms:            name = "forms"
         case .form(let id):     name = "form-details-\(id)"
         }
         return name + ".json"
@@ -27,10 +27,10 @@ enum LocalFilename {
 protocol LocalStorageType: NSObject {
     
     var pollingStations: [PollingStationResponse]? { set get }
-    var formSets: [FormSetResponse]? { set get }
+    var forms: [FormResponse]? { set get }
     
-    func loadForm(withId formId: Int) -> FormResponse?
-    func saveForm(_ form: FormResponse)
+    func loadForm(withId formId: Int) -> [FormSectionResponse]?
+    func saveForm(_ form: [FormSectionResponse], withId formId: Int)
     
 }
 
@@ -56,24 +56,24 @@ class LocalStorage: NSObject, LocalStorageType {
         }
     }
     
-    var formSets: [FormSetResponse]? {
+    var forms: [FormResponse]? {
         set {
             if let newValue = newValue {
-                save(codable: newValue, withFilename: .formSets)
+                save(codable: newValue, withFilename: .forms)
             } else {
-                delete(fileWithName: .formSets)
+                delete(fileWithName: .forms)
             }
         } get {
-            return load(type: [FormSetResponse].self, withFilename: .formSets)
+            return load(type: [FormResponse].self, withFilename: .forms)
         }
     }
     
-    func loadForm(withId formId: Int) -> FormResponse? {
-        return load(type: FormResponse.self, withFilename: .form(id: formId))
+    func loadForm(withId formId: Int) -> [FormSectionResponse]? {
+        return load(type: [FormSectionResponse].self, withFilename: .form(id: formId))
     }
     
-    func saveForm(_ form: FormResponse) {
-        save(codable: form, withFilename: .form(id: form.id))
+    func saveForm(_ form: [FormSectionResponse], withId formId: Int) {
+        save(codable: form, withFilename: .form(id: formId))
     }
     
     // MARK: - Internal

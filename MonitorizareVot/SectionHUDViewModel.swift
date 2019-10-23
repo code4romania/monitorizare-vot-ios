@@ -9,10 +9,5 @@
 import UIKit
 
 class SectionHUDViewModel: NSObject {
-    var sectionName: String
-    
-    init(withSectionName sectionName: String) {
-        self.sectionName = sectionName
-        super.init()
-    }
+    var sectionName: String = PreferencesManager.shared.sectionName ?? ""
 }

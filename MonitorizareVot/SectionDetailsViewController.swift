@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SectionDetailsViewController: UIViewController {
+class SectionDetailsViewController: MVViewController {
     
     var model: SectionDetailsViewModel
 
@@ -58,9 +58,11 @@ class SectionDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Title.StationDetails".localized
         configureSubviews()
         configureHeader()
         bindToUpdates()
+        addContactDetailsToNavBar()
         isLoading = false
     }
     
@@ -78,14 +80,10 @@ class SectionDetailsViewController: UIViewController {
     }
 
     fileprivate func configureSubviews() {
-        view.backgroundColor = .appBackground
-        
-        self.navigationItem.set(title: model.sectionName, subtitle: "NavigationBar_DepartmentDetails".localized)
     }
     
     fileprivate func configureHeader() {
-        let headerModel = SectionHUDViewModel(withSectionName: model.sectionName)
-        let controller = SectionHUDViewController(withModel: headerModel)
+        let controller = SectionHUDViewController()
         controller.view.translatesAutoresizingMaskIntoConstraints = true
         controller.willMove(toParent: self)
         addChild(controller)
@@ -129,7 +127,7 @@ class SectionDetailsViewController: UIViewController {
     
     fileprivate func handleChangeSectionButtonAction() {
         // simply take the user back to the section selection screen
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func handleEnvironmentButtonTap(_ sender: UIButton) {
@@ -185,25 +183,19 @@ class SectionDetailsViewController: UIViewController {
     }
     
     @IBAction func handleContinueButtonTap(_ sender: Any) {
-        
-        // TODO: update this after we refactor the form picker
-        
-        if let pickFormViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PickFormViewController") as? PickFormViewController,
-            let sectionInfo = self.model.sectionInfo {
-            pickFormViewController.sectionInfo = sectionInfo
-            pickFormViewController.persistedSectionInfo = self.model.persistedSectionInfo
-            pickFormViewController.topLabelText = sectionInfo.judet! + " " + String(sectionInfo.sectie!)
-            
-            self.isLoading = true
-            
-            model.persist { [weak self] (success, isTokenExpired) in
-                self?.isLoading = false
-                
-                if isTokenExpired {
-                    let _ = self?.navigationController?.popToRootViewController(animated: false)
-                } else {
-                    self?.navigationController?.pushViewController(pickFormViewController, animated: true)
-                }
+
+        // persist the data first
+        self.isLoading = true
+        model.persist { [weak self] (success, isTokenExpired) in
+            guard let self = self else { return }
+            self.isLoading = false
+
+            if isTokenExpired {
+                self.navigationController?.popToRootViewController(animated: true)
+            } else {
+                let formsModel = FormListViewModel()
+                let formsVC = FormListViewController(withModel: formsModel)
+                self.navigationController?.pushViewController(formsVC, animated: true)
             }
         }
 

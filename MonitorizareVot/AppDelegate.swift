@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // preload the reachability manager
         _ = ReachabilityManager.shared
         
+        configureAppearance()
+        
         return true
     }
     
@@ -46,3 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+// MARK: - Appearance
+
+extension AppDelegate {
+    fileprivate func configureAppearance() {
+        UINavigationBar.appearance().tintColor = UIColor.navigationBarTint
+    }
+}

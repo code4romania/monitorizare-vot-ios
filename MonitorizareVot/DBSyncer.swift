@@ -5,6 +5,9 @@ import CoreData
 
 class DBSyncer: NSObject {
     
+    // TODO: test for concurrency issues on slow connections
+    static let shared = DBSyncer()
+    
     private var noteSavers = NSMapTable<NSNumber, NoteSaver>.strongToStrongObjects()
     private var answeredQuestionSavers = NSMapTable<NSNumber, AnsweredQuestionSaver>.strongToStrongObjects()
     
@@ -13,7 +16,11 @@ class DBSyncer: NSObject {
         syncUnsyncedQuestions()
     }
     
-    private func syncUnsyncedNotes() {
+    func needsSync() -> Bool {
+        return getUnsyncedNotes().count > 0
+    }
+    
+    func getUnsyncedNotes() -> [Note] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "SectionInfo")
         let allSectionInfo = CoreData.fetch(request) as! [SectionInfo]
         var notesToSyncArray = [Note]()
@@ -30,6 +37,12 @@ class DBSyncer: NSObject {
                 notesToSyncArray.append(contentsOf: unsyncedNotes)
             }
         }
+        return notesToSyncArray
+    }
+    
+    private func syncUnsyncedNotes() {
+        let notesToSyncArray = getUnsyncedNotes()
+        
         for noteIndex in 0 ..< notesToSyncArray.count {
             let noteToSave = notesToSyncArray[noteIndex]
             let sectionInfo = parseSectionInfo(sectionInfo: noteToSave.sectionInfo!, withoutQuestions: true)
