@@ -14,8 +14,8 @@ class FormsViewController: UIViewController {
     
     private var onboardingView: OnboardingView!
     
-    private var onboardingViewModel = OnboardingViewModel(title: "Fill in the forms",
-                                                          context: "In order to help you detect problems, we provide some forms with the standard rules for a voting station. \nOn each form you can mark wether certain procedures have been followed or not.",
+    private var onboardingViewModel = OnboardingViewModel(title: "Onboarding_Forms_Title".localized,
+                                                          context: "Onboarding_Forms_Context".localized,
                                                           imageString: "2")
 
     // MARK: Lifecycle

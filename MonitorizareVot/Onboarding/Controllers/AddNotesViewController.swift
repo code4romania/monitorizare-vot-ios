@@ -14,8 +14,8 @@ class AddNotesViewController: UIViewController {
     
     private var onboardingView: OnboardingView!
     
-    private var onboardingViewModel = OnboardingViewModel(title: "Add notes",
-                                                          context: "Did you notice any problem that does not appear in the form? Use the ‘Add note’ button, write a message and/or attach a picture.",
+    private var onboardingViewModel = OnboardingViewModel(title: "Onboarding_Notes_Title".localized,
+                                                          context: "Onboarding_Notes_Context".localized,
                                                           imageString: "3")
 
     // MARK: Lifecycle

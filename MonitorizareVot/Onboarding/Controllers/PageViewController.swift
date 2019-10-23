@@ -23,7 +23,7 @@ class PageViewController: UIPageViewController {
     
     private lazy var openAppButton: UIButton = {
         var button = UIButton(frame: .zero)
-        button.setTitle("GO TO APP", for: .normal)
+        button.setTitle("Onboarding_Button_Go_To_App".localized, for: .normal)
         button.titleLabel?.font =  UIFont.systemFont(ofSize: 15)
         button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(nextButtonTapped), for: .touchDown)

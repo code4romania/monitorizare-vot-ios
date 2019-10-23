@@ -15,8 +15,8 @@ class VotingStationViewController: UIViewController {
     
     private var onboardingView: OnboardingView!
     
-    private var onboardingViewModel = OnboardingViewModel(title: "Pick your voting station",
-                                                          context: "STEP 1: \nMention the voting station you are in, choosing the county and it’s number. \n\nSTEP 2: \nAdd some details (urban/ rural area, details about the section president, your arrival time). Don’t worry, you can edit the information later.",
+    private var onboardingViewModel = OnboardingViewModel(title: "Onboarding_Voting_Station_Title".localized,
+                                                          context: "Onboarding_Voting_Station_Context".localized,
                                                           imageString: "1")
 
     // MARK: Lifecycle
