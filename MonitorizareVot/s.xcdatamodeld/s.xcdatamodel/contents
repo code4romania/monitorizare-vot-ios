@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Answer" representedClassName="Answer" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="inputAvailable" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="inputText" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="selected" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answers" inverseEntity="Question" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="inputAvailable" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="inputText" optional="YES" attributeType="String"/>
+        <attribute name="selected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answers" inverseEntity="Question"/>
     </entity>
     <entity name="Note" representedClassName="Note" versionHashModifier="1" syncable="YES">
-        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="file" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="questionID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="synced" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="sectionInfo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SectionInfo" inverseName="notes" inverseEntity="SectionInfo" syncable="YES"/>
+        <attribute name="body" optional="YES" attributeType="String"/>
+        <attribute name="file" optional="YES" attributeType="Binary"/>
+        <attribute name="questionID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="synced" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="sectionInfo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SectionInfo" inverseName="notes" inverseEntity="SectionInfo"/>
     </entity>
     <entity name="Question" representedClassName="Question" syncable="YES">
-        <attribute name="answered" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="form" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="synced" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="answers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Answer" inverseName="question" inverseEntity="Answer" syncable="YES"/>
-        <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" syncable="YES"/>
-        <relationship name="sectionInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SectionInfo" inverseName="questions" inverseEntity="SectionInfo" syncable="YES"/>
+        <attribute name="answered" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="form" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="synced" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="answers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Answer" inverseName="question" inverseEntity="Answer"/>
+        <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note"/>
+        <relationship name="sectionInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SectionInfo" inverseName="questions" inverseEntity="SectionInfo"/>
     </entity>
     <entity name="SectionInfo" representedClassName="SectionInfo" syncable="YES">
-        <attribute name="arriveHour" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="arriveMinute" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="genre" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="judet" attributeType="String" syncable="YES"/>
-        <attribute name="leftHour" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="leftMinute" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="medium" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="sectie" attributeType="String" syncable="YES"/>
-        <attribute name="synced" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="sectionInfo" inverseEntity="Note" syncable="YES"/>
-        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="sectionInfo" inverseEntity="Question" syncable="YES"/>
+        <attribute name="arriveHour" optional="YES" attributeType="String"/>
+        <attribute name="arriveMinute" optional="YES" attributeType="String"/>
+        <attribute name="genre" optional="YES" attributeType="String"/>
+        <attribute name="judet" attributeType="String"/>
+        <attribute name="leftHour" optional="YES" attributeType="String"/>
+        <attribute name="leftMinute" optional="YES" attributeType="String"/>
+        <attribute name="medium" optional="YES" attributeType="String"/>
+        <attribute name="sectie" attributeType="String"/>
+        <attribute name="synced" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="sectionInfo" inverseEntity="Note"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="sectionInfo" inverseEntity="Question"/>
     </entity>
     <elements>
         <element name="Answer" positionX="376" positionY="459" width="128" height="133"/>

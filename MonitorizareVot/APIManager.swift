@@ -15,9 +15,9 @@ protocol APIManagerType: NSObject {
                pin: String,
                then callback: @escaping (APIError?) -> Void)
     func fetchPollingStations(then callback: @escaping ([PollingStationResponse]?, APIError?) -> Void)
-    func fetchFormSets(then callback: @escaping ([FormSetResponse]?, APIError?) -> Void)
-    func fetchForms(inSet setId: Int,
-                    then callback: @escaping ([FormResponse]?, APIError?) -> Void)
+    func fetchForms(then callback: @escaping ([FormResponse]?, APIError?) -> Void)
+    func fetchForm(withId formId: Int,
+                   then callback: @escaping ([FormSectionResponse]?, APIError?) -> Void)
     func upload(note: UploadNoteRequest,
                 then callback: @escaping (APIError?) -> Void)
     func upload(answers: UploadAnswersRequest,
@@ -100,8 +100,8 @@ class APIManager: NSObject, APIManagerType {
         }
     }
     
-    func fetchFormSets(then callback: @escaping ([FormSetResponse]?, APIError?) -> Void) {
-        let url = ApiURL.formSets.url()
+    func fetchForms(then callback: @escaping ([FormResponse]?, APIError?) -> Void) {
+        let url = ApiURL.forms.url()
         let headers = authorizationHeaders()
         
         Alamofire
@@ -111,8 +111,8 @@ class APIManager: NSObject, APIManagerType {
                 if response.response?.statusCode == 200,
                     let data = response.data {
                     do {
-                        let response = try JSONDecoder().decode(FormSetListResponse.self, from: data)
-                        callback(response.sets, nil)
+                        let response = try JSONDecoder().decode(FormListResponse.self, from: data)
+                        callback(response.forms, nil)
                     } catch {
                         callback(nil, .incorrectFormat(reason: error.localizedDescription))
                     }
@@ -124,8 +124,9 @@ class APIManager: NSObject, APIManagerType {
         }
     }
     
-    func fetchForms(inSet setId: Int, then callback: @escaping ([FormResponse]?, APIError?) -> Void) {
-        let url = ApiURL.formsInSet(setId: setId).url()
+    func fetchForm(withId formId: Int,
+                   then callback: @escaping ([FormSectionResponse]?, APIError?) -> Void) {
+        let url = ApiURL.form(id: formId).url()
         let headers = authorizationHeaders()
         
         Alamofire
@@ -135,7 +136,7 @@ class APIManager: NSObject, APIManagerType {
                 if response.response?.statusCode == 200,
                     let data = response.data {
                     do {
-                        let response = try JSONDecoder().decode([FormResponse].self, from: data)
+                        let response = try JSONDecoder().decode([FormSectionResponse].self, from: data)
                         callback(response, nil)
                     } catch {
                         callback(nil, .incorrectFormat(reason: error.localizedDescription))

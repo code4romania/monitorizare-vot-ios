@@ -7,7 +7,11 @@ import CoreData
 
 class SectionSaver {
     
-    var persistedSectionInfo: SectionInfo?
+    var persistedSectionInfo: SectionInfo? {
+        didSet {
+            try! CoreData.save()
+        }
+    }
     
     func save(sectionInfo: MVSectionInfo, completion: Completion?) {
         if ReachabilityManager.shared.isReachable {

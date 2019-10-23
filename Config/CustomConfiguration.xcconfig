@@ -13,6 +13,8 @@ PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.MyOtherAppName
 DEVELOPMENT_TEAM = ""
 CODE_SIGN_STYLE = Manual
 API_URL = https:/$()/mv-mobile-prod.azurewebsites.net/api // production
+TEST_PHONE =
+TEST_PIN = 
 
 //API_URL = https:/$()/mv-mobile-test.azurewebsites.net/api // dev - use this in your LocalConfiguration.xcconfig
 

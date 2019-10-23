@@ -7,7 +7,6 @@ class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = MVColors.black.color
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         let guideButton = UIBarButtonItem(image: UIImage(named:"guideIcon"), style: .plain, target: self, action: #selector(RootViewController.pushGuideViewController))
         let callButton = UIBarButtonItem(image: UIImage(named:"callIcon"), style: .plain, target: self, action: #selector(RootViewController.performCall))

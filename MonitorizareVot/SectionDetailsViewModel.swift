@@ -9,10 +9,10 @@
 import UIKit
 
 class SectionDetailsViewModel: NSObject {
-    var sectionName: String
     
     private(set) var sectionInfo: MVSectionInfo?
     private(set) var persistedSectionInfo: SectionInfo?
+    
     private let dbSyncer = DBSyncer()
     private var sectionSaver = SectionSaver()
 
@@ -82,7 +82,6 @@ class SectionDetailsViewModel: NSObject {
         }
         self.arrivalTime = "\(sectionInfo.arriveHour):\(sectionInfo.arriveMinute)"
         self.departureTime = "\(sectionInfo.leftHour):\(sectionInfo.leftMinute)"
-        self.sectionName = sectionInfo.judet! + " " + String(sectionInfo.sectie!)
         persistedSectionInfo = dbSyncer.sectionInfo(
             for: sectionInfo.judet!, sectie: sectionInfo.sectie!)
         super.init()

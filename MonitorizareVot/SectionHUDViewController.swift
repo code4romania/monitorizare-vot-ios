@@ -13,7 +13,7 @@ import UIKit
 /// in most view controllers at the top of the screen, right below the nav bar
 class SectionHUDViewController: UIViewController {
     
-    var model: SectionHUDViewModel
+    var model = SectionHUDViewModel()
 
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,17 +21,6 @@ class SectionHUDViewController: UIViewController {
     
     /// Set this to the callback that needs to be messaged when the user taps the change button
     var onChangeAction: (() -> Void)?
-    
-    // MARK: - Object
-    
-    init(withModel model: SectionHUDViewModel) {
-        self.model = model
-        super.init(nibName: "SectionHUDViewController", bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // MARK: - VC
     

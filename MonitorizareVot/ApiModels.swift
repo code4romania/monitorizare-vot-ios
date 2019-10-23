@@ -85,15 +85,15 @@ struct PollingStationResponse: Codable {
     var limit: Int
 }
 
-struct FormSetListResponse: Codable {
-    var sets: [FormSetResponse]
+struct FormListResponse: Codable {
+    var forms: [FormResponse]
 
     enum CodingKeys: String, CodingKey {
-        case sets = "formVersions"
+        case forms = "formVersions"
     }
 }
 
-struct FormSetResponse: Codable {
+struct FormResponse: Codable {
     var id: Int
     var code: String
     var version: Int
@@ -107,7 +107,7 @@ struct FormSetResponse: Codable {
     }
 }
 
-struct FormResponse: Codable {
+struct FormSectionResponse: Codable {
     var id: Int
     var uniqueId: String
     var code: String

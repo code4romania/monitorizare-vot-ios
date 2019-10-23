@@ -12,39 +12,54 @@ import UIKit
 protocol PreferencesManagerType: NSObject {
     var county: String? { get set }
     var section: String? { get set }
+    var sectionName: String? { get set }
 }
 
 class PreferencesManager: NSObject, PreferencesManagerType {
     static let shared: PreferencesManagerType = PreferencesManager()
     
-    enum SettingKey {
-       static let county = "county"
-       static let section = "section"
+    enum SettingKey: String {
+        case county = "county"
+        case section = "section"
+        case sectionName = "sectionName"
     }
     
     var county: String? {
         set {
-            if let value = newValue {
-                UserDefaults.standard.set(value, forKey: SettingKey.county)
-            } else {
-                UserDefaults.standard.removeObject(forKey: SettingKey.county)
-            }
-            UserDefaults.standard.synchronize()
+            setValue(newValue, forKey: .county)
         } get {
-            return UserDefaults.standard.string(forKey: SettingKey.county)
+            return getValue(forKey: .county) as? String
         }
     }
 
     var section: String? {
         set {
-            if let value = newValue {
-                UserDefaults.standard.set(value, forKey: SettingKey.section)
-            } else {
-                UserDefaults.standard.removeObject(forKey: SettingKey.section)
-            }
-            UserDefaults.standard.synchronize()
+            setValue(newValue, forKey: .section)
         } get {
-            return UserDefaults.standard.string(forKey: SettingKey.section)
+            return getValue(forKey: .section) as? String
         }
+    }
+    
+    var sectionName: String? {
+        set {
+            setValue(newValue, forKey: .sectionName)
+        } get {
+            return getValue(forKey: .sectionName) as? String
+        }
+    }
+    
+    // MARK: - Helpers
+    
+    fileprivate func setValue(_ value: Any?, forKey key: SettingKey) {
+        if let value = value {
+            UserDefaults.standard.set(value, forKey: key.rawValue)
+        } else {
+            UserDefaults.standard.removeObject(forKey: key.rawValue)
+        }
+        UserDefaults.standard.synchronize()
+    }
+
+    fileprivate func getValue(forKey key: SettingKey) -> Any? {
+        return UserDefaults.standard.string(forKey: key.rawValue)
     }
 }
