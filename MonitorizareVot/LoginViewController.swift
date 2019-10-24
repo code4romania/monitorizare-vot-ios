@@ -107,7 +107,7 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     
     private func appFeaturesUnlocked() {
         let defaults = UserDefaults.standard
-        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce2") {
+        if let _ = defaults.string(forKey: "isAppAlreadyLaunchedOnce") {
             print("has launched")
             let sectieViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SectieViewController")
             self.navigationController?.setViewControllers([sectieViewController], animated: true)
