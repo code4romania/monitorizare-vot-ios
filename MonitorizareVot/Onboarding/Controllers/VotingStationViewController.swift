@@ -24,7 +24,7 @@ class VotingStationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = MVColors.white
+        view.backgroundColor = MVColors.white.color
 
         onboardingView = OnboardingView()
         onboardingView.viewModel = onboardingViewModel
