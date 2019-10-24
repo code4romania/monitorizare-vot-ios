@@ -60,15 +60,15 @@ class OnboardingChildViewController: UIViewController {
            
            titleLabel.snp.makeConstraints { (make) in
                 make.top.equalTo(backgroundView.snp.bottom).offset(24)
-                make.leading.equalToSuperview()
-                make.trailing.equalToSuperview()
+                make.leading.equalTo(view.layoutMarginsGuide.snp.leading)
+                make.trailing.equalTo(view.layoutMarginsGuide.snp.trailing)
                 make.height.lessThanOrEqualTo(25)
            }
            
            contextLabel.snp.makeConstraints { (make) in
                 make.top.equalTo(titleLabel.snp.bottom).offset(20)
-                make.leading.equalToSuperview().inset(25)
-                make.trailing.equalToSuperview().inset(25)
+                make.leading.equalTo(view.layoutMarginsGuide.snp.leading)
+                make.trailing.equalTo(view.layoutMarginsGuide.snp.trailing)
            }
        }
 
