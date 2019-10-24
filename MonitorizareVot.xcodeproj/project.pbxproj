@@ -41,11 +41,7 @@
 		DA1584F72361C55700DE0CB6 /* OnboardingChildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1584F52361C55700DE0CB6 /* OnboardingChildViewController.xib */; };
 		DA5C14D02354A89E007C0527 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA5C14CF2354A89E007C0527 /* GoogleService-Info.plist */; };
 		DA5C14D22354A8A7007C0527 /* LocalConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = DA5C14D12354A8A7007C0527 /* LocalConfiguration.xcconfig */; };
-		DA5C14DB2354A8F4007C0527 /* FormsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C14D52354A8F4007C0527 /* FormsViewController.swift */; };
-		DA5C14DC2354A8F4007C0527 /* AddNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C14D62354A8F4007C0527 /* AddNotesViewController.swift */; };
-		DA5C14DD2354A8F4007C0527 /* VotingStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C14D72354A8F4007C0527 /* VotingStationViewController.swift */; };
 		DA5C14DE2354A8F4007C0527 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C14D82354A8F4007C0527 /* PageViewController.swift */; };
-		DA5C14DF2354A8F4007C0527 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C14DA2354A8F4007C0527 /* OnboardingView.swift */; };
 		DA5C14E22354B42A007C0527 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C14E12354B42A007C0527 /* OnboardingViewModel.swift */; };
 		DA5C14E42354FBDA007C0527 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5C14E32354FBDA007C0527 /* View.swift */; };
 		E739B9731DDD9F280002604C /* QuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E739B9721DDD9F280002604C /* QuestionCollectionViewCell.swift */; };
@@ -176,11 +172,7 @@
 		DA1584F52361C55700DE0CB6 /* OnboardingChildViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingChildViewController.xib; sourceTree = "<group>"; };
 		DA5C14CF2354A89E007C0527 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DA5C14D12354A8A7007C0527 /* LocalConfiguration.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = LocalConfiguration.xcconfig; sourceTree = "<group>"; };
-		DA5C14D52354A8F4007C0527 /* FormsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormsViewController.swift; sourceTree = "<group>"; };
-		DA5C14D62354A8F4007C0527 /* AddNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNotesViewController.swift; sourceTree = "<group>"; };
-		DA5C14D72354A8F4007C0527 /* VotingStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VotingStationViewController.swift; sourceTree = "<group>"; };
 		DA5C14D82354A8F4007C0527 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		DA5C14DA2354A8F4007C0527 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		DA5C14E12354B42A007C0527 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		DA5C14E32354FBDA007C0527 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -414,7 +406,6 @@
 			children = (
 				DA5C14D42354A8F4007C0527 /* ViewModels */,
 				DA5C14E02354B405007C0527 /* Controllers */,
-				DA5C14D92354A8F4007C0527 /* Views */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -427,20 +418,9 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		DA5C14D92354A8F4007C0527 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				DA5C14DA2354A8F4007C0527 /* OnboardingView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		DA5C14E02354B405007C0527 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DA5C14D62354A8F4007C0527 /* AddNotesViewController.swift */,
-				DA5C14D52354A8F4007C0527 /* FormsViewController.swift */,
-				DA5C14D72354A8F4007C0527 /* VotingStationViewController.swift */,
 				DA1584F42361C55700DE0CB6 /* OnboardingChildViewController.swift */,
 				DA1584F52361C55700DE0CB6 /* OnboardingChildViewController.xib */,
 				DA5C14D82354A8F4007C0527 /* PageViewController.swift */,
@@ -1084,7 +1064,6 @@
 				E74087261DDC924F00D9332F /* FormsPersistor.swift in Sources */,
 				E7E1F2C41DDB586800CE52FC /* APIURLs.swift in Sources */,
 				EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */,
-				DA5C14DF2354A8F4007C0527 /* OnboardingView.swift in Sources */,
 				F553E3BB1DF9D67A000D0902 /* Question+CoreDataClass.swift in Sources */,
 				E74087331DDCA79000D9332F /* MVAnswer.swift in Sources */,
 				28E72458233F58100096454D /* SectionDetailsViewModel.swift in Sources */,
@@ -1095,7 +1074,6 @@
 				E7D5CC101DE32B7600393FFF /* AnsweredQuestionSaver.swift in Sources */,
 				E74908111DDCBB5800878F0A /* FormViewController.swift in Sources */,
 				E7FEC2C91DE0A0E300F2F04D /* AnswerTableViewCell.swift in Sources */,
-				DA5C14DC2354A8F4007C0527 /* AddNotesViewController.swift in Sources */,
 				E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */,
 				E753C4321DE5FA6800B6B7C9 /* UIButtonExtensions.swift in Sources */,
 				E739B9771DDDD8510002604C /* SectieViewController.swift in Sources */,
@@ -1103,7 +1081,6 @@
 				F553E3BA1DF9D67A000D0902 /* Note+CoreDataProperties.swift in Sources */,
 				F1B6FBD622A3153D006D61B2 /* PollingStationsFetcher.swift in Sources */,
 				F553E3B01DF9C675000D0902 /* NoteContainer.swift in Sources */,
-				DA5C14DD2354A8F4007C0527 /* VotingStationViewController.swift in Sources */,
 				F553E3B91DF9D67A000D0902 /* Note+CoreDataClass.swift in Sources */,
 				28844A5F233F9C6400DEEA44 /* TimePickerViewModel.swift in Sources */,
 				F553E3BF1DF9D67A000D0902 /* SectionInfo+CoreDataClass.swift in Sources */,
@@ -1122,7 +1099,6 @@
 				E7E1F2BC1DDB4FCE00CE52FC /* LoginViewController.swift in Sources */,
 				F553E3BD1DF9D67A000D0902 /* Answer+CoreDataClass.swift in Sources */,
 				E7702ED01DF966F200B3E1F2 /* ButtonHandler.swift in Sources */,
-				DA5C14DB2354A8F4007C0527 /* FormsViewController.swift in Sources */,
 				E7E407561DE076D30021B402 /* ConnectionState.swift in Sources */,
 				F553E3C01DF9D67A000D0902 /* SectionInfo+CoreDataProperties.swift in Sources */,
 				EFB9AD1A1DE9FDE0008C1035 /* DBSyncer.swift in Sources */,

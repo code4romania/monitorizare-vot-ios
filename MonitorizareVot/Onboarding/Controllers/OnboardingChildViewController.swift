@@ -7,36 +7,68 @@
 //
 
 import UIKit
+import SnapKit
 
 class OnboardingChildViewController: UIViewController {
 
      // MARK: Variables
        
-       private var onboardingView: OnboardingView!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var imageInBackgroundView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contextLabel: UILabel!
        
-       private var onboardingViewModel = OnboardingViewModel(title: "Onboarding_Voting_Station_Title".localized,
-                                                             context: "Onboarding_Voting_Station_Context".localized,
-                                                             imageString: "1")
+    var onboardingViewModel: OnboardingViewModel
 
        // MARK: Lifecycle
+    
+    init(withModel model: OnboardingViewModel) {
+        onboardingViewModel = model
+        super.init(nibName: "OnboardingChildViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
        
        override func viewDidLoad() {
            super.viewDidLoad()
            
-        view.backgroundColor = MVColors.white.color
+            view.backgroundColor = MVColors.white.color
+            titleLabel.text = onboardingViewModel.title
+            contextLabel.text = onboardingViewModel.context
+            imageInBackgroundView.image = UIImage(named: "Onboarding-\(onboardingViewModel.imageString)")
 
-           onboardingView = OnboardingView()
-           onboardingView.viewModel = onboardingViewModel
-           // Do any additional setup after loading the view
-           view.addSubview(onboardingView)
+            // Do any additional setup after loading the view
            
-           setupConstraints()
+            setupConstraints()
        }
        
        func setupConstraints() {
+           backgroundView.snp.makeConstraints { (make) in
+                make.top.equalToSuperview()
+                make.leading.equalToSuperview()
+                make.trailing.equalToSuperview()
+                make.height.equalTo(self.view).dividedBy(2.3)
+           }
            
-           onboardingView.snp.makeConstraints { (make) in
-               make.edges.equalToSuperview()
+           imageInBackgroundView.snp.makeConstraints { (make) in
+                make.center.equalToSuperview()
+                make.width.lessThanOrEqualTo(195)
+                make.height.lessThanOrEqualTo(200)
+           }
+           
+           titleLabel.snp.makeConstraints { (make) in
+                make.top.equalTo(backgroundView.snp.bottom).offset(24)
+                make.leading.equalToSuperview()
+                make.trailing.equalToSuperview()
+                make.height.lessThanOrEqualTo(25)
+           }
+           
+           contextLabel.snp.makeConstraints { (make) in
+                make.top.equalTo(titleLabel.snp.bottom).offset(20)
+                make.leading.equalToSuperview().inset(25)
+                make.trailing.equalToSuperview().inset(25)
            }
        }
 

@@ -15,9 +15,18 @@ class PageViewController: UIPageViewController {
     
     lazy var viewControllerList: [UIViewController] = {
         var viewControllers: [UIViewController] = []
-        viewControllers.append(VotingStationViewController())
-        viewControllers.append(FormsViewController())
-        viewControllers.append(AddNotesViewController())
+        viewControllers.append(OnboardingChildViewController(
+            withModel: OnboardingViewModel(title: "Onboarding_Voting_Station_Title".localized,
+                                           context: "Onboarding_Voting_Station_Context".localized,
+                                           imageString: "1")))
+        viewControllers.append(OnboardingChildViewController(
+            withModel: OnboardingViewModel(title: "Onboarding_Forms_Title".localized,
+                                           context: "Onboarding_Forms_Context".localized,
+                                           imageString: "2")))
+        viewControllers.append(OnboardingChildViewController(
+            withModel: OnboardingViewModel(title: "Onboarding_Notes_Title".localized,
+                                           context: "Onboarding_Notes_Context".localized,
+                                           imageString: "3")))
         return viewControllers
     }()
     
