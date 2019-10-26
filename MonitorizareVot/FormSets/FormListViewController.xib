@@ -34,7 +34,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="88" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="su5-eT-6Rp">
-                    <rect key="frame" x="0.0" y="94" width="414" height="663"/>
+                    <rect key="frame" x="0.0" y="94" width="414" height="599"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="S1j-Tu-kud"/>
@@ -42,11 +42,11 @@
                     </connections>
                 </tableView>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cM5-3h-3Lv">
-                    <rect key="frame" x="197" y="415.5" width="20" height="20"/>
+                    <rect key="frame" x="197" y="383.5" width="20" height="20"/>
                     <color key="color" red="0.94509803920000002" green="0.58823529409999997" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08L-24-Ci0" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
-                    <rect key="frame" x="16" y="403.5" width="382" height="44"/>
+                    <rect key="frame" x="16" y="371.5" width="382" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="AhR-0G-5GA"/>
                     </constraints>
@@ -57,19 +57,34 @@
                     </connections>
                 </button>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76d-9E-Vdl">
-                    <rect key="frame" x="0.0" y="757" width="414" height="105"/>
+                    <rect key="frame" x="0.0" y="693" width="414" height="169"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HRl-DR-AUi">
-                            <rect key="frame" x="16" y="16" width="382" height="89"/>
+                            <rect key="frame" x="16" y="16" width="382" height="153"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It appears that some of the questions have not been syncronised. Tap the button below to send the answers again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndr-ju-WH7">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="29"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <color key="textColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-sync" translatesAutoresizingMaskIntoConstraints="NO" id="mx5-8D-PtT">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
+                                </imageView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IdI-lR-aje">
+                                    <rect key="frame" x="0.0" y="46" width="382" height="47"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="It appears that some of the questions have not been syncronised. Tap the button below to send the answers again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndr-ju-WH7">
+                                            <rect key="frame" x="30" y="0.0" width="322" height="47"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Ndr-ju-WH7" secondAttribute="bottom" id="PGN-cl-fCC"/>
+                                        <constraint firstItem="Ndr-ju-WH7" firstAttribute="leading" secondItem="IdI-lR-aje" secondAttribute="leading" constant="30" id="cra-g8-aLS"/>
+                                        <constraint firstItem="Ndr-ju-WH7" firstAttribute="top" secondItem="IdI-lR-aje" secondAttribute="top" id="hp5-3A-RTy"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ndr-ju-WH7" secondAttribute="trailing" constant="30" id="kgu-1o-Myy"/>
+                                    </constraints>
+                                </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFr-vX-iM6" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="45" width="382" height="44"/>
+                                    <rect key="frame" x="0.0" y="109" width="382" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="iEU-mx-6gU"/>
                                     </constraints>
@@ -120,4 +135,7 @@
             <point key="canvasLocation" x="139" y="153"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon-sync" width="102" height="30"/>
+    </resources>
 </document>

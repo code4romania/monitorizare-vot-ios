@@ -78,6 +78,18 @@ struct ErrorResponse: Codable {
     var error: String
 }
 
+struct LoginResponse: Codable {
+    var accessToken: String?
+    var expiresIn: Int?
+    var error: String?
+
+    enum CodingKeys: String, CodingKey {
+        case accessToken = "access_token"
+        case expiresIn = "expires_in"
+        case error
+    }
+}
+
 struct PollingStationResponse: Codable {
     var id: Int
     var name: String
