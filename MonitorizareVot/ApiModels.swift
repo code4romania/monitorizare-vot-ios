@@ -123,6 +123,7 @@ struct FormSectionResponse: Codable {
     var id: Int
     var uniqueId: String
     var code: String
+    var description: String
     var questions: [QuestionResponse]
 }
 

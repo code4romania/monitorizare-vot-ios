@@ -12,10 +12,7 @@ class SectionDetailsViewController: MVViewController {
     
     var model: SectionDetailsViewModel
 
-    fileprivate weak var headerViewController: SectionHUDViewController!
-    
     @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var headerContainer: UIView!
     
     @IBOutlet weak var environmentLabel: UILabel!
     @IBOutlet weak var chairmanGenderLabel: UILabel!
@@ -60,7 +57,6 @@ class SectionDetailsViewController: MVViewController {
         super.viewDidLoad()
         title = "Title.StationDetails".localized
         configureSubviews()
-        configureHeader()
         bindToUpdates()
         addContactDetailsToNavBar()
         isLoading = false
@@ -82,20 +78,6 @@ class SectionDetailsViewController: MVViewController {
     fileprivate func configureSubviews() {
     }
     
-    fileprivate func configureHeader() {
-        let controller = SectionHUDViewController()
-        controller.view.translatesAutoresizingMaskIntoConstraints = true
-        controller.willMove(toParent: self)
-        addChild(controller)
-        controller.view.frame = headerContainer.bounds
-        controller.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        headerContainer.addSubview(controller.view)
-        controller.didMove(toParent: self)
-        headerViewController = controller
-        controller.onChangeAction = { [weak self] in
-            self?.handleChangeSectionButtonAction()
-        }
-    }
     
     // MARK: - UI
     
@@ -124,11 +106,6 @@ class SectionDetailsViewController: MVViewController {
     }
     
     // MARK: - Actions
-    
-    fileprivate func handleChangeSectionButtonAction() {
-        // simply take the user back to the section selection screen
-        self.navigationController?.popToRootViewController(animated: true)
-    }
     
     @IBAction func handleEnvironmentButtonTap(_ sender: UIButton) {
         var medium: SectionInfo.Medium!

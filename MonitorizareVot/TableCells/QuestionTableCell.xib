@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="QuestionTableCell" customModule="MonitorizareVot" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUM-H5-hH2">
+                        <rect key="frame" x="16" y="5" width="288" height="100"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZs-De-HfE">
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eW0-sN-eFb">
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="100"/>
+                                <color key="backgroundColor" white="0.89513644366197187" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="zAt-Ft-tpj">
+                                <rect key="frame" x="16" y="16" width="256" height="68"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OSi-f4-KNz">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="19.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="999" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="999" text="B2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKR-eq-Bf3">
+                                                <rect key="frame" x="0.0" y="0.0" width="192" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="750" image="icon-edit" translatesAutoresizingMaskIntoConstraints="NO" id="edc-0m-cUf">
+                                                <rect key="frame" x="208" y="0.0" width="16" height="19.5"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="750" image="icon-check" translatesAutoresizingMaskIntoConstraints="NO" id="aIf-3F-YLz">
+                                                <rect key="frame" x="240" y="0.0" width="16" height="19.5"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="999" verticalCompressionResistancePriority="999" text="Sectia de votare este accesibila persoanelor cu dizabilitati" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKC-A1-CcT">
+                                        <rect key="frame" x="0.0" y="25.5" width="256" height="42.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zAt-Ft-tpj" firstAttribute="top" secondItem="XUM-H5-hH2" secondAttribute="top" constant="16" id="0cF-pv-10g"/>
+                            <constraint firstAttribute="bottom" secondItem="eW0-sN-eFb" secondAttribute="bottom" id="3He-17-S3k"/>
+                            <constraint firstItem="eW0-sN-eFb" firstAttribute="leading" secondItem="XUM-H5-hH2" secondAttribute="leading" id="8Jz-14-LST"/>
+                            <constraint firstAttribute="trailing" secondItem="zAt-Ft-tpj" secondAttribute="trailing" constant="16" id="Del-IK-Nn6"/>
+                            <constraint firstAttribute="trailing" secondItem="sZs-De-HfE" secondAttribute="trailing" id="Hci-Ic-46v"/>
+                            <constraint firstItem="sZs-De-HfE" firstAttribute="leading" secondItem="XUM-H5-hH2" secondAttribute="leading" id="Vb0-vG-Y5b"/>
+                            <constraint firstAttribute="bottom" secondItem="zAt-Ft-tpj" secondAttribute="bottom" constant="16" id="f4q-gN-HCd"/>
+                            <constraint firstAttribute="bottom" secondItem="sZs-De-HfE" secondAttribute="bottom" id="l4w-xE-SWi"/>
+                            <constraint firstItem="eW0-sN-eFb" firstAttribute="top" secondItem="XUM-H5-hH2" secondAttribute="top" id="m1e-rP-LD4"/>
+                            <constraint firstItem="zAt-Ft-tpj" firstAttribute="leading" secondItem="XUM-H5-hH2" secondAttribute="leading" constant="16" id="rmT-aO-LnD"/>
+                            <constraint firstItem="sZs-De-HfE" firstAttribute="top" secondItem="XUM-H5-hH2" secondAttribute="top" id="wkc-Sw-wIF"/>
+                            <constraint firstAttribute="trailing" secondItem="eW0-sN-eFb" secondAttribute="trailing" id="ynf-Xx-vpQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="XUM-H5-hH2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="8vS-iJ-rQ6"/>
+                    <constraint firstAttribute="trailing" secondItem="XUM-H5-hH2" secondAttribute="trailing" constant="16" id="YIa-qp-YhK"/>
+                    <constraint firstItem="XUM-H5-hH2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="c10-uj-ej0"/>
+                    <constraint firstAttribute="bottom" secondItem="XUM-H5-hH2" secondAttribute="bottom" constant="5" id="kya-vM-bwp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="checkIcon" destination="aIf-3F-YLz" id="Xtg-fg-68X"/>
+                <outlet property="codeLabel" destination="AKR-eq-Bf3" id="we0-eI-Q33"/>
+                <outlet property="container" destination="XUM-H5-hH2" id="wKV-5o-SnM"/>
+                <outlet property="editIcon" destination="edc-0m-cUf" id="3yF-uZ-wbz"/>
+                <outlet property="normalStateBg" destination="sZs-De-HfE" id="9Ec-0H-kwO"/>
+                <outlet property="questionTextLabel" destination="VKC-A1-CcT" id="pxU-Ae-CAX"/>
+                <outlet property="selectedView" destination="eW0-sN-eFb" id="Qkb-4h-OMi"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon-check" width="16" height="16"/>
+        <image name="icon-edit" width="16" height="16"/>
+    </resources>
+</document>

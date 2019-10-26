@@ -118,6 +118,10 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     private func appFeaturesUnlocked() {
         let sectieViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SectieViewController")
         self.navigationController?.setViewControllers([sectieViewController], animated: true)
+        
+        // download any new forms
+        ApplicationData.shared.downloadUpdatedForms { _ in
+        }
     
     }
     

@@ -22,9 +22,6 @@ class FormListViewController: MVViewController {
     @IBOutlet weak var downloadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var headerContainer: UIView!
-    weak var headerViewController: SectionHUDViewController?
-    
     // MARK: - Object
     
     init(withModel model: FormListViewModel) {
@@ -42,7 +39,6 @@ class FormListViewController: MVViewController {
         super.viewDidLoad()
         title = "Title.FormSets".localized
         configureSubviews()
-        configureHeader()
         addContactDetailsToNavBar()
     }
 
@@ -93,21 +89,6 @@ class FormListViewController: MVViewController {
         retryButton.isHidden = true
     }
     
-    fileprivate func configureHeader() {
-        let controller = SectionHUDViewController()
-        controller.view.translatesAutoresizingMaskIntoConstraints = true
-        controller.willMove(toParent: self)
-        addChild(controller)
-        controller.view.frame = headerContainer.bounds
-        controller.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        headerContainer.addSubview(controller.view)
-        controller.didMove(toParent: self)
-        headerViewController = controller
-        controller.onChangeAction = { [weak self] in
-            self?.handleChangeSectionButtonAction()
-        }
-    }
-    
     fileprivate func configureSyncContainer() {
         let needsSync = DBSyncer.shared.needsSync()
         setSyncContainer(hidden: !needsSync)
@@ -140,11 +121,6 @@ class FormListViewController: MVViewController {
     
     // MARK: - Actions
     
-    fileprivate func handleChangeSectionButtonAction() {
-        // simply take the user back to the section selection screen
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
     @IBAction func handleRetryButtonAction(_ sender: Any) {
         retryButton.isHidden = true
         model.downloadFreshData()
@@ -157,43 +133,52 @@ class FormListViewController: MVViewController {
     }
     
     fileprivate func continueToForm(withCode code: String) {
-        // TODO: replace all this after refactoring the form
-        let localFormProvider = LocalFormProvider()
-        let formViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FormViewController") as! FormViewController
-        let persistedSectionInfo = DBSyncer.shared.sectionInfo(
-            for: PreferencesManager.shared.county!,
-            sectie: PreferencesManager.shared.section!)
-        if let form = localFormProvider.getForm(named: code) {
-            var questions = [MVQuestion]()
-            for aSection in form.sections {
-                if let persistedQuestions = persistedSectionInfo.questions as? Set<Question> {
-                    let persistedQuestionsArray = Array(persistedQuestions)
-                    for questionToAdd in aSection.questions {
-                        let indexOfPersistedQuestionInSection = persistedQuestionsArray.firstIndex { (persistedQuestion: Question) -> Bool in
-                            return persistedQuestion.id == questionToAdd.id
-                        }
-                        if let indexOfPersistedQuestionInSection = indexOfPersistedQuestionInSection {
-                            let dbSyncer = DBSyncer()
-                            let persistedQuestion = persistedQuestionsArray[indexOfPersistedQuestionInSection]
-                            let parsedQuestions = dbSyncer.parseQuestions(questionsToParse: [persistedQuestion])
-                            questions.append(parsedQuestions.first!)
-                        }
-                        else {
-                            questions.append(questionToAdd)
-                        }
-                    }
-                }
-                else {
-                    questions.append(contentsOf: aSection.questions)
-                }
-            }
-            formViewController.questions = questions
-            formViewController.form = code
-//            formViewController.sectionInfo = sectionInfo
-//            formViewController.persistedSectionInfo = persistedSectionInfo
-            formViewController.title = form.title
-            self.navigationController?.pushViewController(formViewController, animated: true)
+        guard let questionsModel = QuestionListViewModel(withFormUsingCode: code) else {
+            // TODO: display an error to the user?
+            print("Error: can't load question list model for form with code \(code)")
+            return
         }
+        
+        let questionsVC = QuestionListViewController(withModel: questionsModel)
+        navigationController?.pushViewController(questionsVC, animated: true)
+        
+//        // TODO: replace all this after refactoring the form
+//        let localFormProvider = LocalFormProvider()
+//        let formViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FormViewController") as! FormViewController
+//        let persistedSectionInfo = DBSyncer.shared.sectionInfo(
+//            for: PreferencesManager.shared.county!,
+//            sectie: PreferencesManager.shared.section!)
+//        if let form = localFormProvider.getForm(named: code) {
+//            var questions = [MVQuestion]()
+//            for aSection in form.sections {
+//                if let persistedQuestions = persistedSectionInfo.questions as? Set<Question> {
+//                    let persistedQuestionsArray = Array(persistedQuestions)
+//                    for questionToAdd in aSection.questions {
+//                        let indexOfPersistedQuestionInSection = persistedQuestionsArray.firstIndex { (persistedQuestion: Question) -> Bool in
+//                            return persistedQuestion.id == questionToAdd.id
+//                        }
+//                        if let indexOfPersistedQuestionInSection = indexOfPersistedQuestionInSection {
+//                            let dbSyncer = DBSyncer()
+//                            let persistedQuestion = persistedQuestionsArray[indexOfPersistedQuestionInSection]
+//                            let parsedQuestions = dbSyncer.parseQuestions(questionsToParse: [persistedQuestion])
+//                            questions.append(parsedQuestions.first!)
+//                        }
+//                        else {
+//                            questions.append(questionToAdd)
+//                        }
+//                    }
+//                }
+//                else {
+//                    questions.append(contentsOf: aSection.questions)
+//                }
+//            }
+//            formViewController.questions = questions
+//            formViewController.form = code
+////            formViewController.sectionInfo = sectionInfo
+////            formViewController.persistedSectionInfo = persistedSectionInfo
+//            formViewController.title = form.title
+//            self.navigationController?.pushViewController(formViewController, animated: true)
+//        }
     }
     
     fileprivate func continueToNote() {
