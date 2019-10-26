@@ -28,7 +28,8 @@ protocol LocalStorageType: NSObject {
     
     var pollingStations: [PollingStationResponse]? { set get }
     var forms: [FormResponse]? { set get }
-    
+
+    func getFormSummary(withCode code: String) -> FormResponse?
     func loadForm(withId formId: Int) -> [FormSectionResponse]?
     func saveForm(_ form: [FormSectionResponse], withId formId: Int)
     
@@ -76,6 +77,11 @@ class LocalStorage: NSObject, LocalStorageType {
         save(codable: form, withFilename: .form(id: formId))
     }
     
+    func getFormSummary(withCode code: String) -> FormResponse? {
+        guard let forms = forms else { return nil }
+        return forms.filter { $0.code == code }.first
+    }
+
     // MARK: - Internal
     
     fileprivate override init() {

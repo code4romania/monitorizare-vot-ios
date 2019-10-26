@@ -11,6 +11,12 @@ class DBSyncer: NSObject {
     private var noteSavers = NSMapTable<NSNumber, NoteSaver>.strongToStrongObjects()
     private var answeredQuestionSavers = NSMapTable<NSNumber, AnsweredQuestionSaver>.strongToStrongObjects()
     
+    var currentSectionInfo: SectionInfo? {
+        guard let county = PreferencesManager.shared.county,
+            let stationId = PreferencesManager.shared.section else { return nil }
+        return sectionInfo(for: county, sectie: stationId)
+    }
+    
     func syncUnsyncedData() {
         syncUnsyncedNotes()
         syncUnsyncedQuestions()

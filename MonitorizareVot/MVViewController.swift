@@ -14,12 +14,20 @@ import SafariServices
 /// a default title
 class MVViewController: UIViewController {
 
+    /// Connect the view that will contain the section info controller
+    @IBOutlet weak var headerContainer: UIView!
+    weak var headerViewController: SectionHUDViewController?
+    
+    let TableSectionHeaderHeight: CGFloat = 52
+    let TableSectionFooterHeight: CGFloat = 22
+
     // MARK: - VC
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackButton()
         configureView()
+        configureHeader()
     }
     
     fileprivate func configureBackButton() {
@@ -28,6 +36,22 @@ class MVViewController: UIViewController {
     
     fileprivate func configureView() {
         view.backgroundColor = .appBackground
+    }
+    
+    fileprivate func configureHeader() {
+        guard let headerContainer = headerContainer else { return }
+        let controller = SectionHUDViewController()
+        controller.view.translatesAutoresizingMaskIntoConstraints = true
+        controller.willMove(toParent: self)
+        addChild(controller)
+        controller.view.frame = headerContainer.bounds
+        controller.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        headerContainer.addSubview(controller.view)
+        controller.didMove(toParent: self)
+        headerViewController = controller
+        controller.onChangeAction = { [weak self] in
+            self?.handleChangeSectionButtonAction()
+        }
     }
     
     // MARK: - Public
@@ -66,4 +90,10 @@ class MVViewController: UIViewController {
             UIApplication.shared.openURL(phoneCallURL as URL)
         }
     }
+
+    fileprivate func handleChangeSectionButtonAction() {
+        // simply take the user back to the section selection screen
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
 }

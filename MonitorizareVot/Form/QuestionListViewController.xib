@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestionListViewController" customModule="MonitorizareVot" customModuleProvider="target">
+            <connections>
+                <outlet property="headerContainer" destination="qro-GP-O0x" id="Zxb-HK-FaM"/>
+                <outlet property="tableView" destination="pdi-he-7Op" id="FvI-eX-ucU"/>
+                <outlet property="view" destination="qV3-s6-7TY" id="cFC-OA-WzJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="qV3-s6-7TY">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qro-GP-O0x">
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="3oI-gF-bYV"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pdi-he-7Op">
+                    <rect key="frame" x="0.0" y="94" width="414" height="802"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="d4x-rZ-GXJ"/>
+                        <outlet property="delegate" destination="-1" id="eCQ-mq-oaH"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="pdi-he-7Op" firstAttribute="top" secondItem="qro-GP-O0x" secondAttribute="bottom" id="Hcf-9N-l1c"/>
+                <constraint firstItem="lKx-tB-IML" firstAttribute="trailing" secondItem="pdi-he-7Op" secondAttribute="trailing" id="I5v-DO-Uan"/>
+                <constraint firstItem="qro-GP-O0x" firstAttribute="leading" secondItem="lKx-tB-IML" secondAttribute="leading" id="JUx-xz-78I"/>
+                <constraint firstItem="lKx-tB-IML" firstAttribute="trailing" secondItem="qro-GP-O0x" secondAttribute="trailing" id="Njy-7n-uot"/>
+                <constraint firstItem="pdi-he-7Op" firstAttribute="leading" secondItem="lKx-tB-IML" secondAttribute="leading" id="qNo-tF-Aso"/>
+                <constraint firstItem="qro-GP-O0x" firstAttribute="top" secondItem="lKx-tB-IML" secondAttribute="top" id="sT0-bs-Jt8"/>
+                <constraint firstAttribute="bottom" secondItem="pdi-he-7Op" secondAttribute="bottom" id="yQQ-Cf-ARl"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="lKx-tB-IML"/>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+</document>
