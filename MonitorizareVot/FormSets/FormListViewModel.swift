@@ -38,23 +38,14 @@ class FormListViewModel: NSObject {
     
     func loadCachedData() {
         if let cached = LocalStorage.shared.forms {
-            forms = cached.map { set in
-                let image = UIImage(named: "icon-formset-\(set.code.lowercased())") ?? UIImage(named: "icon-note-small")
-                return FormSetCellModel(
-                    icon: image ?? UIImage(), // just in case
-                    title: set.description,
-                    code: set.code.uppercased(),
-                    // TODO:
-                    progress: 0,
-                    answeredOutOfTotalQuestions: "0/0")
-            }
+            convertToViewModels(responses: cached)
         }
     }
     
     fileprivate func convertToViewModels(responses: [FormResponse]?) {
         if let objects = responses {
             forms = objects.map { set in
-                let image = UIImage(named: "icon-formset-\(set.code.lowercased())") ?? UIImage(named: "icon-formset-a")
+                let image = UIImage(named: "icon-formset-\(set.code.lowercased())") ?? UIImage(named: "icon-formset-default")
                 return FormSetCellModel(
                     icon: image ?? UIImage(), // just in case
                     title: set.description,

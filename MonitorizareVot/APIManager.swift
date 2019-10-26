@@ -52,27 +52,21 @@ class APIManager: NSObject, APIManagerType {
         Alamofire
             .request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
             .response { response in
-                
-                if response.response?.statusCode == 400 {
-                    if let data = response.data {
-                        do {
-                            let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
-                            callback(.loginFailed(reason: errorResponse.error))
-                        } catch {
-                            callback(.incorrectFormat(reason: error.localizedDescription))
-                        }
-                    } else {
-                        callback(.loginFailed(reason: "Error, but no details"))
-                    }
-                } else {
-                    if let data = response.data,
-                        let accessToken = String(data: data, encoding: .utf8) {
-                        AccountManager.shared.accessToken = accessToken
+            if let data = response.data {
+                do {
+                    let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
+                    if let token = loginResponse.accessToken {
+                        AccountManager.shared.accessToken = token
                         callback(nil)
                     } else {
-                        callback(.loginFailed(reason: "Success, but no data"))
+                        callback(.loginFailed(reason: loginResponse.error))
                     }
+                } catch {
+                    callback(.incorrectFormat(reason: error.localizedDescription))
                 }
+            } else {
+                callback(.loginFailed(reason: "No data received"))
+            }
         }
     }
     
