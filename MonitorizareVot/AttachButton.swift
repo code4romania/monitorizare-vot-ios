@@ -1,16 +1,16 @@
 //
-//  ActionButton.swift
+//  AttachButton.swift
 //  MonitorizareVot
 //
-//  Created by Cristi Habliuc on 28/09/2019.
+//  Created by Cristi Habliuc on 28/10/2019.
 //  Copyright © 2019 Code4Ro. All rights reserved.
 //
 
 import UIKit
 
 @IBDesignable
-class ActionButton: UIButton {
-    
+class AttachButton: UIButton {
+
     override func willMove(toWindow newWindow: UIWindow?) {
         super.willMove(toWindow: newWindow)
         setup()
@@ -22,13 +22,12 @@ class ActionButton: UIButton {
     }
     
     fileprivate func setup() {
-        setBackgroundImage(UIImage.from(color: .actionButtonBackground), for: .normal)
-        setBackgroundImage(UIImage.from(color: .actionButtonBackgroundHighlighted), for: .highlighted)
-        setBackgroundImage(UIImage.from(color: .actionButtonBackgroundDisabled), for: .disabled)
+        setBackgroundImage(UIImage.from(color: .attachButtonBackground), for: .normal)
+        setBackgroundImage(UIImage.from(color: .attachButtonBackgroundHighlighted), for: .highlighted)
 
-        setTitleColor(.actionButtonForeground, for: .normal)
-        setTitleColor(.actionButtonForeground, for: .highlighted)
-        setTitleColor(.actionButtonForegroundDisabled, for: .disabled)
+        setTitleColor(.attachButtonForeground, for: .normal)
+        setTitleColor(.attachButtonForeground, for: .highlighted)
+        setTitleColor(.attachButtonForegroundDisabled, for: .disabled)
 
         tintColor = .clear
         

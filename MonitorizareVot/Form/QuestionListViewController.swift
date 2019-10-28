@@ -56,7 +56,10 @@ class QuestionListViewController: MVViewController {
     // MARK: - Actions
 
     fileprivate func openQuestion(_ question: QuestionCellModel) {
-        // TODO: implement this once we rewrite the question VC
+        guard let questionAnswer = QuestionAnswerViewModel(withFormUsingCode: model.formCode,
+                                                           currentQuestionId: question.questionId) else { return }
+        let controller = QuestionAnswerViewController(withModel: questionAnswer)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

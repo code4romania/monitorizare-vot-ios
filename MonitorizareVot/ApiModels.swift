@@ -128,9 +128,17 @@ struct FormSectionResponse: Codable {
 }
 
 struct QuestionResponse: Codable {
+    
+    enum QuestionType: Int, Codable {
+        case multipleAnswers
+        case singleAnswer
+        case singleAnswerWithText
+        case multipleAnswerWithText
+    }
+    
     var id: Int
     var code: String
-    var questionType: Int
+    var questionType: QuestionType
     var text: String
     var options: [QuestionOptionResponse]
     

@@ -45,12 +45,11 @@
                     <rect key="frame" x="197" y="383.5" width="20" height="20"/>
                     <color key="color" red="0.94509803920000002" green="0.58823529409999997" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08L-24-Ci0" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08L-24-Ci0" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
                     <rect key="frame" x="16" y="371.5" width="382" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="AhR-0G-5GA"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                     <state key="normal" title="Download Data"/>
                     <connections>
                         <action selector="handleRetryButtonAction:" destination="-1" eventType="touchUpInside" id="ds3-fS-JoW"/>
@@ -83,12 +82,11 @@
                                         <constraint firstAttribute="trailing" secondItem="Ndr-ju-WH7" secondAttribute="trailing" constant="30" id="kgu-1o-Myy"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFr-vX-iM6" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFr-vX-iM6" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="109" width="382" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="iEU-mx-6gU"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                     <state key="normal" title="Synchronise Data Manually"/>
                                     <connections>
                                         <action selector="handleSyncButtonAction:" destination="-1" eventType="touchUpInside" id="qwK-ef-4n2"/>

@@ -41,12 +41,11 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83O-ur-ab7">
                     <rect key="frame" x="0.0" y="718" width="375" height="60"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sz4-w9-Ic1" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sz4-w9-Ic1" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
                             <rect key="frame" x="16" y="16" width="343" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="dDV-uM-Hgx"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                             <state key="normal" title="Continue to forms"/>
                             <connections>
                                 <action selector="handleContinueButtonTap:" destination="-1" eventType="touchUpInside" id="MoU-cg-CO0"/>
@@ -81,14 +80,14 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yzd-YU-FRB">
                                     <rect key="frame" x="0.0" y="34" width="343" height="44"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szE-Wy-RRp" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szE-Wy-RRp" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="44"/>
                                             <state key="normal" title="Urban"/>
                                             <connections>
                                                 <action selector="handleEnvironmentButtonTap:" destination="-1" eventType="touchUpInside" id="nke-eY-xXk"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYz-1p-rfp" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYz-1p-rfp" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
                                             <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="44"/>
                                             <state key="normal" title="Rural"/>
                                             <connections>
@@ -114,14 +113,14 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3q3-hS-yGn">
                                     <rect key="frame" x="0.0" y="34" width="343" height="44"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXw-mU-Vln" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXw-mU-Vln" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="44"/>
                                             <state key="normal" title="Woman"/>
                                             <connections>
                                                 <action selector="handleGenderButtonTap:" destination="-1" eventType="touchUpInside" id="T5l-kX-Jra"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfT-Tl-Hi9" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfT-Tl-Hi9" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
                                             <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="44"/>
                                             <state key="normal" title="Man"/>
                                             <connections>
@@ -158,14 +157,14 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="uwu-V8-oGD">
                                     <rect key="frame" x="0.0" y="34" width="343" height="44"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3be-Lm-TrN" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3be-Lm-TrN" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="44"/>
                                             <state key="normal" title="Set"/>
                                             <connections>
                                                 <action selector="handleTimeButtonTap:" destination="-1" eventType="touchUpInside" id="ov8-gC-Hpp"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VV8-As-ymM" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VV8-As-ymM" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
                                             <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="44"/>
                                             <state key="normal" title="21:36"/>
                                             <connections>
