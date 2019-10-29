@@ -24,7 +24,8 @@
 "Button_Send" = "Send";
 "Button_Delete" = "Delete";
 "Button_Settings" = "Settings";
-"Button_Retry" = "Încearcă din nou";
+"Button_Retry" = "Retry";
+"Button_AddNoteToQuestion" = "Add Note to Current Question";
 
 "Label_PickDepartment" = "Pick department";
 "Label_PickDepartmentDetails" = "where you are located";
@@ -48,6 +49,8 @@
 "Label_Completed" = "Completed";
 "Label_NotCompleted" = "Not completed";
 "Label_DevelopedBy" = "app developed by";
+"Label_Saved" = "Saved locally";
+"Label_Synced" = "Synced";
 
 "NavigationBar_DepartmentDetails" = "Department details";
 "NavigationBar_SelectForm" = "Select form";
@@ -84,3 +87,4 @@
 
 "Title.StationDetails" = "Station Details";
 "Title.FormSets" = "Form Sets";
+

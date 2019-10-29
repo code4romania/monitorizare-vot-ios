@@ -14,6 +14,7 @@ struct QuestionAnswerCellModel {
         var optionId: Int
         var isFreeText: Bool
         var text: String?
+        var userText: String? = nil
         var isSelected: Bool
 
         mutating func setIsSelected(_ selected: Bool) { isSelected = selected }
@@ -32,6 +33,11 @@ struct QuestionAnswerCellModel {
     mutating func setIsNoteAttached(_ attached: Bool) { isNoteAttached = attached }
     mutating func setIsSaved(_ isSaved: Bool) { self.isSaved = isSaved }
     mutating func setIsSynced(_ isSynced: Bool) { self.isSynced = isSynced }
+    mutating func setSelectedAnswer(atIndex index: Int) {
+        for i in 0..<questionAnswers.count {
+            questionAnswers[i].isSelected = i == index
+        }
+    }
 }
 
 class QuestionAnswerViewModel: NSObject {
@@ -81,7 +87,7 @@ class QuestionAnswerViewModel: NSObject {
                 let model = QuestionAnswerCellModel.AnswerModel(
                     optionId: optionMeta.id,
                     isFreeText: optionMeta.isFreeText,
-                    text: answer?.text,
+                    text: optionMeta.text,
                     isSelected: answer?.selected == true)
                 answerModels.append(model)
             }
@@ -102,5 +108,38 @@ class QuestionAnswerViewModel: NSObject {
     
     fileprivate func setCurrentIndex(withQuestionId questionId: Int) {
         currentQuestionIndex = questions.firstIndex(where: { $0.questionId == questionId }) ?? 0
+    }
+    
+    func updateSelection(ofQuestion questionModel: QuestionAnswerCellModel,
+                         answerIndex: Int) {
+        guard let questionIndex = questionIndex(withModel: questionModel) else { return }
+        
+        let questionData = questions[questionIndex]
+        let answerData = questionData.questionAnswers[answerIndex]
+        
+        if questionData.acceptsMultipleAnswers {
+            questions[questionIndex].questionAnswers[answerIndex].setIsSelected(!answerData.isSelected)
+        } else {
+            for i in 0..<questionData.questionAnswers.count {
+                questions[questionIndex].questionAnswers[answerIndex].setIsSelected(i == answerIndex)
+            }
+        }
+    }
+    
+    func updateUserText(ofQuestion questionModel: QuestionAnswerCellModel,
+                        answerIndex: Int,
+                        userText: String?) {
+        guard let questionIndex = questionIndex(withModel: questionModel) else { return }
+        let questionData = questions[questionIndex]
+        let answerData = questionData.questionAnswers[answerIndex]
+        questions[questionIndex].questionAnswers[answerIndex].userText = userText
+        if userText == nil && answerData.isSelected {
+            // deselect it if no text
+            questions[questionIndex].questionAnswers[answerIndex].setIsSelected(false)
+        }
+    }
+    
+    func questionIndex(withModel questionModel: QuestionAnswerCellModel) -> Int? {
+        return questions.firstIndex(where: { $0.questionId == questionModel.questionId })
     }
 }

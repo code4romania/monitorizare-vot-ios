@@ -60,6 +60,8 @@
 		28FB66A9236706CA00336DBA /* QuestionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB66A7236706CA00336DBA /* QuestionCollectionCell.swift */; };
 		28FB66AA236706CA00336DBA /* QuestionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FB66A8236706CA00336DBA /* QuestionCollectionCell.xib */; };
 		28FB66AC23670B3500336DBA /* AttachButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB66AB23670B3500336DBA /* AttachButton.swift */; };
+		28FB66AE236854C900336DBA /* RemoteSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB66AD236854C900336DBA /* RemoteSyncer.swift */; };
+		28FB66B0236855E400336DBA /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB66AF236855E400336DBA /* DB.swift */; };
 		55A0F006987479F41A76966C /* Pods_MonitorizareVot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */; };
 		64726B5FB8079F4FDA2D91E0 /* Pods_MonitorizareVotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */; };
 		67EE98CB22A296F7006E4762 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EE98CA22A296F7006E4762 /* Logger.swift */; };
@@ -212,6 +214,8 @@
 		28FB66A7236706CA00336DBA /* QuestionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCollectionCell.swift; sourceTree = "<group>"; };
 		28FB66A8236706CA00336DBA /* QuestionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionCollectionCell.xib; sourceTree = "<group>"; };
 		28FB66AB23670B3500336DBA /* AttachButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachButton.swift; sourceTree = "<group>"; };
+		28FB66AD236854C900336DBA /* RemoteSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSyncer.swift; sourceTree = "<group>"; };
+		28FB66AF236855E400336DBA /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		2C95EF7A92703E67898E5413 /* Pods-MonitorizareVotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests.release.xcconfig"; sourceTree = "<group>"; };
 		3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6141F9F392CCD91B6DE2B780 /* Pods-MonitorizareVot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVot.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot.release.xcconfig"; sourceTree = "<group>"; };
@@ -834,6 +838,8 @@
 				F553E3751DF9A54D000D0902 /* Entities */,
 				EF3DC3941DE9DB02006F9D73 /* CoreDataInitialiser.swift */,
 				EFB9AD191DE9FDE0008C1035 /* DBSyncer.swift */,
+				28FB66AD236854C900336DBA /* RemoteSyncer.swift */,
+				28FB66AF236855E400336DBA /* DB.swift */,
 			);
 			name = DBHandlers;
 			sourceTree = "<group>";
@@ -1152,6 +1158,7 @@
 				E7FEC2C71DE09EC500F2F04D /* AnswerWithTextTableViewCellConfigurator.swift in Sources */,
 				28E7245F233F5E620096454D /* UIImage+Utils.swift in Sources */,
 				28844A52233F775E00DEEA44 /* SectionHUDViewModel.swift in Sources */,
+				28FB66AE236854C900336DBA /* RemoteSyncer.swift in Sources */,
 				28844A50233F6F3B00DEEA44 /* ChooserButton.swift in Sources */,
 				28844A59233F994600DEEA44 /* GenericPickerViewModel.swift in Sources */,
 				E74087371DDCA9FA00D9332F /* Form.swift in Sources */,
@@ -1176,6 +1183,7 @@
 				282045D6224F936F004B6D5D /* FormPickerCollectionViewCell.swift in Sources */,
 				E74087311DDCA74D00D9332F /* MVQuestion.swift in Sources */,
 				E7FEC2C41DE09E8700F2F04D /* AnswerWithTextTableViewCell.swift in Sources */,
+				28FB66B0236855E400336DBA /* DB.swift in Sources */,
 				28FB66A22366EAAC00336DBA /* QuestionAnswerViewController.swift in Sources */,
 				E7D5CC101DE32B7600393FFF /* AnsweredQuestionSaver.swift in Sources */,
 				E74908111DDCBB5800878F0A /* FormViewController.swift in Sources */,

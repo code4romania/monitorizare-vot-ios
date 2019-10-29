@@ -18,19 +18,19 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ejc-ma-6JF">
-                        <rect key="frame" x="0.0" y="125.5" width="340" height="297.5"/>
+                        <rect key="frame" x="8" y="125.5" width="324" height="297.5"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYr-rn-Kqo">
-                                <rect key="frame" x="0.0" y="0.0" width="340" height="297.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="324" height="297.5"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpj-3k-l5W">
-                                        <rect key="frame" x="16" y="0.0" width="308" height="297.5"/>
+                                        <rect key="frame" x="16" y="0.0" width="292" height="297.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTj-z5-KTS">
-                                                <rect key="frame" x="0.0" y="0.0" width="308" height="297.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="292" height="297.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="W1B-d3-szx">
-                                                        <rect key="frame" x="206.5" y="16" width="101.5" height="16"/>
+                                                        <rect key="frame" x="190.5" y="16" width="101.5" height="16"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saved locally" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQB-bL-NPQ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="77.5" height="16"/>
@@ -44,33 +44,36 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="B16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBU-D1-lOb">
-                                                        <rect key="frame" x="0.0" y="30" width="308" height="21.5"/>
+                                                        <rect key="frame" x="0.0" y="30" width="292" height="21.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Sectia de votare este accesibila persoanelor cu dizabilitati" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0B3-zJ-iwm">
-                                                        <rect key="frame" x="0.0" y="59.5" width="308" height="86"/>
+                                                        <rect key="frame" x="0.0" y="59.5" width="292" height="86"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7aC-ij-Xdu">
-                                                        <rect key="frame" x="0.0" y="175.5" width="308" height="43"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7aC-ij-Xdu">
+                                                        <rect key="frame" x="0.0" y="175.5" width="292" height="43"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="his-PJ-39A" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="308" height="43"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="292" height="43"/>
                                                                 <inset key="contentEdgeInsets" minX="0.0" minY="13" maxX="0.0" maxY="13"/>
                                                                 <state key="normal" title="Da"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeJ-TG-1ih" customClass="AttachButton" customModule="MonitorizareVot" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="238.5" width="308" height="43"/>
+                                                        <rect key="frame" x="0.0" y="238.5" width="292" height="43"/>
                                                         <inset key="contentEdgeInsets" minX="0.0" minY="13" maxX="0.0" maxY="13"/>
                                                         <inset key="titleEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="7" maxY="0.0"/>
                                                         <state key="normal" title="Add Photo or Video" image="icon-camera"/>
+                                                        <connections>
+                                                            <action selector="handleAddNoteButtonTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="qaL-Me-lgV"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -131,10 +134,10 @@
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ejc-ma-6JF" secondAttribute="bottom" id="36G-Yb-YbT"/>
-                <constraint firstItem="ejc-ma-6JF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RKG-rC-YZA"/>
+                <constraint firstItem="ejc-ma-6JF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="RKG-rC-YZA"/>
                 <constraint firstItem="ejc-ma-6JF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="top" id="Tym-ua-ghJ"/>
                 <constraint firstItem="ejc-ma-6JF" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="ib8-sh-qu7"/>
-                <constraint firstAttribute="trailing" secondItem="ejc-ma-6JF" secondAttribute="trailing" id="mq8-0q-qtb"/>
+                <constraint firstAttribute="trailing" secondItem="ejc-ma-6JF" secondAttribute="trailing" constant="8" id="mq8-0q-qtb"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="443" height="518"/>
@@ -145,6 +148,7 @@
                 <outlet property="container" destination="ejc-ma-6JF" id="4sa-ir-Bkc"/>
                 <outlet property="questionCodeLabel" destination="bBU-D1-lOb" id="eXP-XE-N9m"/>
                 <outlet property="questionTextLabel" destination="0B3-zJ-iwm" id="rTx-XY-ZrS"/>
+                <outlet property="statusContainer" destination="W1B-d3-szx" id="4dj-DR-gUe"/>
                 <outlet property="statusIcon" destination="tUk-Nf-6Gb" id="aK0-ew-IsJ"/>
                 <outlet property="statusLabel" destination="BQB-bL-NPQ" id="uS6-ak-d9y"/>
             </connections>
