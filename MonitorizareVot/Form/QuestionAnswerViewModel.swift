@@ -121,9 +121,11 @@ class QuestionAnswerViewModel: NSObject {
             questions[questionIndex].questionAnswers[answerIndex].setIsSelected(!answerData.isSelected)
         } else {
             for i in 0..<questionData.questionAnswers.count {
-                questions[questionIndex].questionAnswers[answerIndex].setIsSelected(i == answerIndex)
+                questions[questionIndex].questionAnswers[i].setIsSelected(i == answerIndex)
             }
         }
+        
+        // TODO: save locally
     }
     
     func updateUserText(ofQuestion questionModel: QuestionAnswerCellModel,

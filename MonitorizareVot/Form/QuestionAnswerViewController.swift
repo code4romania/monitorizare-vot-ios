@@ -51,13 +51,13 @@ class QuestionAnswerViewController: MVViewController {
     
     func updateInterface() {
         collectionView.reloadData()
-        collectionView.scrollToItem(at: IndexPath(row: model.currentQuestionIndex, section: 0),
-                                    at: .centeredHorizontally, animated: false)
+//        collectionView.scrollToItem(at: IndexPath(row: model.currentQuestionIndex, section: 0),
+//                                    at: .centeredHorizontally, animated: false)
     }
     
     // MARK: - Actions
     
-    func handleTextAnswer(ofQuestion question: inout QuestionAnswerCellModel, answerIndex: Int) {
+    func handleAnswer(ofQuestion question: inout QuestionAnswerCellModel, answerIndex: Int) {
         // first update the answer selection
         model.updateSelection(ofQuestion: question, answerIndex: answerIndex)
         
@@ -68,10 +68,6 @@ class QuestionAnswerViewController: MVViewController {
             }
         }
         
-        // reset the state
-        currentModel!.setIsSaved(false)
-        currentModel!.setIsSynced(false)
-        
         updateInterface()
     }
     
@@ -80,7 +76,7 @@ class QuestionAnswerViewController: MVViewController {
     }
     
     func askForText(then completion: (String?) -> Void) {
-        
+        print("should ask for text")
     }
 }
 
@@ -99,7 +95,7 @@ extension QuestionAnswerViewController: UICollectionViewDataSource {
                                                       for: indexPath) as! QuestionCollectionCell
         let question = model.questions[indexPath.row]
         cell.update(withModel: question)
-        cell.onTextAnswerSelection = { self.handleTextAnswer(ofQuestion: &$0, answerIndex: $1) }
+        cell.onAnswerSelection = { self.handleAnswer(ofQuestion: &$0, answerIndex: $1) }
         cell.onAddNote = { self.handleAddNote(toQuestion: &$0) }
         return cell
     }
