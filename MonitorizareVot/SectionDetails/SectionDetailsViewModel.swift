@@ -38,7 +38,7 @@ class SectionDetailsViewModel: NSObject {
     
     var arrivalTime: Date? {
         didSet {
-            if let time = leaveTime {
+            if let time = arrivalTime {
                 DB.shared.currentSectionInfo()?.arriveTime = time
                 DB.shared.currentSectionInfo()?.synced = false
                 try! CoreData.save()
