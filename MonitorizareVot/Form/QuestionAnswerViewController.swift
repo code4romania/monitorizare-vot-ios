@@ -13,6 +13,8 @@ class QuestionAnswerViewController: MVViewController {
     var model: QuestionAnswerViewModel
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var previousButton: ActionButton!
+    @IBOutlet weak var nextButton: ActionButton!
     
     let HorizontalSpace: CGFloat = 8
     let HorizontalSectionInset: CGFloat = 8
@@ -33,50 +35,102 @@ class QuestionAnswerViewController: MVViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+        bindToUpdateEvents()
+        addContactDetailsToNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateInterface()
+        scrollToCurrentIndex()
     }
     
     // MARK: - Config
     
     fileprivate func configureCollectionView() {
+        if #available(iOS 11.0, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        }
         collectionView.register(UINib(nibName: "QuestionCollectionCell", bundle: nil),
                                 forCellWithReuseIdentifier: QuestionCollectionCell.reuseIdentifier)
+    }
+    
+    fileprivate func bindToUpdateEvents() {
+        model.onModelUpdate = { [weak self] in
+            self?.updateInterface()
+        }
+    }
+    
+    fileprivate func localize() {
+        previousButton.setTitle("Previous".localized, for: .normal)
+        nextButton.setTitle("Next".localized, for: .normal)
     }
 
     // MARK: - UI
     
     func updateInterface() {
+        view.layoutIfNeeded()
         collectionView.reloadData()
-//        collectionView.scrollToItem(at: IndexPath(row: model.currentQuestionIndex, section: 0),
-//                                    at: .centeredHorizontally, animated: false)
+    }
+    
+    func updateTitle() {
+        title = "Title.Question".localized + " \(getDisplayedRow()+1)/\(model.questions.count)"
+    }
+    
+    func scrollToCurrentIndex() {
+        collectionView.scrollToItem(at: IndexPath(row: model.currentQuestionIndex, section: 0),
+                                    at: .centeredHorizontally, animated: false)
+    }
+    
+    func getDisplayedRow() -> Int {
+        let frameWidth = collectionView.frame.size.width
+        let currentXOffset = collectionView.contentOffset.x
+        return Int(floor(currentXOffset / frameWidth))
     }
     
     // MARK: - Actions
     
-    func handleAnswer(ofQuestion question: inout QuestionAnswerCellModel, answerIndex: Int) {
-        // first update the answer selection
-        model.updateSelection(ofQuestion: question, answerIndex: answerIndex)
-        
-        // then, if it requires free text, ask for it
-        if question.questionAnswers[answerIndex].isFreeText {
-            askForText { text in
+    func handleAnswer(ofQuestion question: QuestionAnswerCellModel, answerIndex: Int) {
+        // then, if it requires free text and the answer was not selected already, ask for it
+        if question.questionAnswers[answerIndex].isFreeText
+            && !question.questionAnswers[answerIndex].isSelected {
+            askForText(ofQuestion: question, answerIndex: answerIndex) { text in
                 self.model.updateUserText(ofQuestion: question, answerIndex: answerIndex, userText: text)
+                self.updateInterface()
             }
+        } else {
+            // first update the answer selection
+            model.updateSelection(ofQuestion: question, answerIndex: answerIndex)
+            updateInterface()
         }
         
-        updateInterface()
     }
     
-    func handleAddNote(toQuestion question: inout QuestionAnswerCellModel) {
-        
+    func handleAddNote(toQuestion question: QuestionAnswerCellModel) {
+        // TODO: after implementing the note screen
     }
     
-    func askForText(then completion: (String?) -> Void) {
-        print("should ask for text")
+    func askForText(ofQuestion question: QuestionAnswerCellModel, answerIndex: Int,
+                    then completion: @escaping (String?) -> Void) {
+        let textEntry = TextEntryViewController(nibName: "TextEntryViewController", bundle: nil)
+        textEntry.initialText = question.questionAnswers[answerIndex].userText
+        textEntry.onClose = completion
+        let navigation = UINavigationController(rootViewController: textEntry)
+        present(navigation, animated: true, completion: nil)
+    }
+    
+    @IBAction func handleGoPrevious(_ sender: Any) {
+        let currentRow = getDisplayedRow()
+        guard currentRow > 0 else { return }
+        let indexPath = IndexPath(row: currentRow - 1, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    @IBAction func handleGoNext(_ sender: Any) {
+        let currentRow = getDisplayedRow()
+        guard currentRow < model.questions.count - 1 else { return }
+        let indexPath = IndexPath(row: currentRow + 1, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 }
 
@@ -95,8 +149,8 @@ extension QuestionAnswerViewController: UICollectionViewDataSource {
                                                       for: indexPath) as! QuestionCollectionCell
         let question = model.questions[indexPath.row]
         cell.update(withModel: question)
-        cell.onAnswerSelection = { self.handleAnswer(ofQuestion: &$0, answerIndex: $1) }
-        cell.onAddNote = { self.handleAddNote(toQuestion: &$0) }
+        cell.onAnswerSelection = { self.handleAnswer(ofQuestion: $0, answerIndex: $1) }
+        cell.onAddNote = { self.handleAddNote(toQuestion: $0) }
         return cell
     }
     
@@ -108,7 +162,6 @@ extension QuestionAnswerViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 0, left: HorizontalSectionInset, bottom: 0, right: HorizontalSectionInset)
         return .zero
     }
     
@@ -118,5 +171,14 @@ extension QuestionAnswerViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+extension QuestionAnswerViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let currentPage = getDisplayedRow()
+        previousButton.isEnabled = currentPage > 0
+        nextButton.isEnabled = currentPage < model.questions.count - 1
+        updateTitle()
     }
 }

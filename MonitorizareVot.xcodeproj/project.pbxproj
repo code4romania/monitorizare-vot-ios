@@ -62,6 +62,8 @@
 		28FB66AC23670B3500336DBA /* AttachButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB66AB23670B3500336DBA /* AttachButton.swift */; };
 		28FB66AE236854C900336DBA /* RemoteSyncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB66AD236854C900336DBA /* RemoteSyncer.swift */; };
 		28FB66B0236855E400336DBA /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB66AF236855E400336DBA /* DB.swift */; };
+		28FB66B423699D7400336DBA /* TextEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB66B223699D7400336DBA /* TextEntryViewController.swift */; };
+		28FB66B523699D7400336DBA /* TextEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FB66B323699D7400336DBA /* TextEntryViewController.xib */; };
 		55A0F006987479F41A76966C /* Pods_MonitorizareVot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */; };
 		64726B5FB8079F4FDA2D91E0 /* Pods_MonitorizareVotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */; };
 		67EE98CB22A296F7006E4762 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EE98CA22A296F7006E4762 /* Logger.swift */; };
@@ -216,6 +218,8 @@
 		28FB66AB23670B3500336DBA /* AttachButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachButton.swift; sourceTree = "<group>"; };
 		28FB66AD236854C900336DBA /* RemoteSyncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSyncer.swift; sourceTree = "<group>"; };
 		28FB66AF236855E400336DBA /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		28FB66B223699D7400336DBA /* TextEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryViewController.swift; sourceTree = "<group>"; };
+		28FB66B323699D7400336DBA /* TextEntryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextEntryViewController.xib; sourceTree = "<group>"; };
 		2C95EF7A92703E67898E5413 /* Pods-MonitorizareVotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests.release.xcconfig"; sourceTree = "<group>"; };
 		3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6141F9F392CCD91B6DE2B780 /* Pods-MonitorizareVot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVot.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot.release.xcconfig"; sourceTree = "<group>"; };
@@ -391,20 +395,6 @@
 			path = Form;
 			sourceTree = "<group>";
 		};
-		28844A53233F94CB00DEEA44 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				28844A58233F994600DEEA44 /* GenericPickerViewModel.swift */,
-				28844A54233F94FD00DEEA44 /* GenericPickerViewController.swift */,
-				28844A55233F94FD00DEEA44 /* GenericPickerViewController.xib */,
-				28844A5E233F9C6400DEEA44 /* TimePickerViewModel.swift */,
-				28844A5A233F9AB700DEEA44 /* TimePickerViewController.swift */,
-				28844A5B233F9AB700DEEA44 /* TimePickerViewController.xib */,
-				289E1E9023604F9D000C92A0 /* MVViewController.swift */,
-			);
-			name = Utility;
-			sourceTree = "<group>";
-		};
 		289E1E77235EF607000C92A0 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,16 +441,6 @@
 			path = TableHeaders;
 			sourceTree = "<group>";
 		};
-		28E72452233F57210096454D /* SectionDetails */ = {
-			isa = PBXGroup;
-			children = (
-				28E72457233F58100096454D /* SectionDetailsViewModel.swift */,
-				28E72453233F58010096454D /* SectionDetailsViewController.swift */,
-				28E72454233F58010096454D /* SectionDetailsViewController.xib */,
-			);
-			name = SectionDetails;
-			sourceTree = "<group>";
-		};
 		28E72459233F58E20096454D /* General */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +478,32 @@
 				28FB66A8236706CA00336DBA /* QuestionCollectionCell.xib */,
 			);
 			path = CollectionCells;
+			sourceTree = "<group>";
+		};
+		28FB66B723699D8500336DBA /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				28844A58233F994600DEEA44 /* GenericPickerViewModel.swift */,
+				28844A54233F94FD00DEEA44 /* GenericPickerViewController.swift */,
+				28844A55233F94FD00DEEA44 /* GenericPickerViewController.xib */,
+				28844A5E233F9C6400DEEA44 /* TimePickerViewModel.swift */,
+				28844A5A233F9AB700DEEA44 /* TimePickerViewController.swift */,
+				28844A5B233F9AB700DEEA44 /* TimePickerViewController.xib */,
+				28FB66B223699D7400336DBA /* TextEntryViewController.swift */,
+				28FB66B323699D7400336DBA /* TextEntryViewController.xib */,
+				289E1E9023604F9D000C92A0 /* MVViewController.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		28FB66B823699DA000336DBA /* SectionDetails */ = {
+			isa = PBXGroup;
+			children = (
+				28E72457233F58100096454D /* SectionDetailsViewModel.swift */,
+				28E72453233F58010096454D /* SectionDetailsViewController.swift */,
+				28E72454233F58010096454D /* SectionDetailsViewController.xib */,
+			);
+			path = SectionDetails;
 			sourceTree = "<group>";
 		};
 		67EE98C922A296B1006E4762 /* Logging */ = {
@@ -759,8 +765,8 @@
 		EF4BD3DE1D9E64720042BEC7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				28844A53233F94CB00DEEA44 /* Utility */,
-				28E72452233F57210096454D /* SectionDetails */,
+				28FB66B723699D8500336DBA /* Utility */,
+				28FB66B823699DA000336DBA /* SectionDetails */,
 				289E1E81235F2665000C92A0 /* FormSets */,
 				286D3863236439680091B23F /* Form */,
 				EF4BD3E81D9E7BB10042BEC7 /* LoginViewController */,
@@ -993,6 +999,7 @@
 				28FB66AA236706CA00336DBA /* QuestionCollectionCell.xib in Resources */,
 				27EDBD18214659800060DB8A /* Main.storyboard in Resources */,
 				28FB66A32366EAAC00336DBA /* QuestionAnswerViewController.xib in Resources */,
+				28FB66B523699D7400336DBA /* TextEntryViewController.xib in Resources */,
 				28C363902364512E0084065C /* QuestionTableCell.xib in Resources */,
 				EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */,
 				E7FEC2BF1DE09E6300F2F04D /* BasicAnswerTableViewCell.xib in Resources */,
@@ -1042,6 +1049,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Keyboard+LayoutGuide/KeyboardLayoutGuide.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
@@ -1051,6 +1059,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyboardLayoutGuide.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
@@ -1221,6 +1230,7 @@
 				F553E3BD1DF9D67A000D0902 /* Answer+CoreDataClass.swift in Sources */,
 				E7702ED01DF966F200B3E1F2 /* ButtonHandler.swift in Sources */,
 				E7E407561DE076D30021B402 /* ConnectionState.swift in Sources */,
+				28FB66B423699D7400336DBA /* TextEntryViewController.swift in Sources */,
 				F553E3C01DF9D67A000D0902 /* SectionInfo+CoreDataProperties.swift in Sources */,
 				EFB9AD1A1DE9FDE0008C1035 /* DBSyncer.swift in Sources */,
 				28E7245C233F59260096454D /* SectionHUDViewController.swift in Sources */,

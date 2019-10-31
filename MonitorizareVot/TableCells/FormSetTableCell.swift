@@ -21,6 +21,7 @@ class FormSetTableCell: UITableViewCell {
     
     static let reuseIdentifier = "FormSetTableCell"
 
+    @IBOutlet weak var outerCardContainer: UIView!
     @IBOutlet weak var cardContainer: UIView!
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -35,9 +36,9 @@ class FormSetTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         clipsToBounds = false
-        cardContainer.layer.shadowColor = UIColor.cardShadow.cgColor
-        cardContainer.layer.shadowRadius = Configuration.shadowRadius
-        cardContainer.layer.shadowOpacity = Configuration.shadowOpacity
+        outerCardContainer.layer.shadowColor = UIColor.cardShadow.cgColor
+        outerCardContainer.layer.shadowRadius = Configuration.shadowRadius
+        outerCardContainer.layer.shadowOpacity = Configuration.shadowOpacity
         selectedBackgroundView = UIView(frame: .zero)
         selectedBackgroundView?.backgroundColor = .clear
     }
@@ -58,7 +59,7 @@ class FormSetTableCell: UITableViewCell {
         progressWidthConstraint.constant = -((1-model.progress) * cardContainer.frame.size.width)
         answeredLabel.text = model.answeredOutOfTotalQuestions
         progressContainer.isHidden = false
-        cardContainer.layoutIfNeeded()
+        outerCardContainer.layoutIfNeeded()
     }
     
     func updateAsNote() {
@@ -67,7 +68,7 @@ class FormSetTableCell: UITableViewCell {
         codeLabel.text = nil
         answeredLabel.text = nil
         progressContainer.isHidden = true
-        cardContainer.layoutIfNeeded()
+        outerCardContainer.layoutIfNeeded()
     }
     
 }

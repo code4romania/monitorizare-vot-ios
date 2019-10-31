@@ -37,6 +37,8 @@ extension SectionInfo {
     @NSManaged public var synced: Bool
     @NSManaged public var notes: NSSet?
     @NSManaged public var questions: NSSet?
+    @NSManaged public var leaveTime: Date?
+    @NSManaged public var arriveTime: Date?
 
 }
 

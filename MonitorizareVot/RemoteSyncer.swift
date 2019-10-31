@@ -11,16 +11,18 @@ import Foundation
 enum RemoteSyncerError: Error {
     case noConnection
     case invalidStationData
-    case noteError(reason: String?)
-    case questionError(reason: String?)
-    
+    case stationError(reason: APIError?)
+    case noteError(reason: APIError?)
+    case questionError(reason: APIError?)
+
     var localizedDescription: String {
         // TODO: localize
         switch self {
         case .noConnection: return "No internet connection"
         case .invalidStationData: return "Invalid station data"
-        case .noteError(let reason): return "Can't save note. \(reason ?? "")"
-        case .questionError(let reason): return "Can't save answer to question. \(reason ?? "")"
+        case .stationError(let reason): return "Can't save station data. \(reason?.localizedDescription ?? "")"
+        case .noteError(let reason): return "Can't save note. \(reason?.localizedDescription ?? "")"
+        case .questionError(let reason): return "Can't save answer to question. \(reason?.localizedDescription ?? "")"
         }
     }
 }
@@ -29,14 +31,17 @@ enum RemoteSyncerError: Error {
 class RemoteSyncer: NSObject {
     static let shared = RemoteSyncer()
     
+    static let answersSyncedNotification = Notification.Name("answersSyncedNotification")
+    static let notificationAnswersKey = "answers"
+
     var needsSync: Bool {
         return DBSyncer.shared.needsSync()
     }
     
-    func syncUnsyncedData(then callback: @escaping ([RemoteSyncerError]) -> Void) {
+    func syncUnsyncedData(then callback: @escaping (RemoteSyncerError?) -> Void) {
         guard let section = DB.shared.currentSectionInfo() else {
             // this shouldn't happen but hey
-            callback([])
+            callback(.invalidStationData)
             return
         }
         
@@ -49,13 +54,17 @@ class RemoteSyncer: NSObject {
         }
     }
     
-    func uploadUnsyncAnswersAndNotes(then callback: @escaping ([RemoteSyncerError]) -> Void) {
-        var allErrors: [RemoteSyncerError] = []
-        uploadUnsyncedNotes { [weak self] errors in
-            allErrors.append(contentsOf: errors)
-            self?.uploadUnsyncedQuestions(then: { errors in
-                allErrors.append(contentsOf: errors)
-                callback(allErrors)
+    func uploadUnsyncAnswersAndNotes(then callback: @escaping (RemoteSyncerError?) -> Void) {
+        var errors = [RemoteSyncerError]()
+        uploadUnsyncedNotes { [weak self] error in
+            if let error = error {
+                errors.append(error)
+            }
+            self?.uploadUnsyncedQuestions(then: { error in
+                if let error = error {
+                    errors.append(error)
+                }
+                callback(errors.first)
             })
         }
     }
@@ -69,9 +78,9 @@ class RemoteSyncer: NSObject {
                 return
         }
         
-        // TODO: extract correct time once it's saved correctly into the db
-        let arrivalTime = ""
-        let leaveTime = ""
+        let dateFmt = APIManager.shared.apiDateFormatter
+        let arrivalTime = section.arriveTime != nil ? dateFmt.string(from: section.arriveTime!) : ""
+        let leaveTime = section.leaveTime != nil ? dateFmt.string(from: section.leaveTime!) : ""
         
         let section = UpdatePollingStationRequest(
             id: stationId,
@@ -81,17 +90,56 @@ class RemoteSyncer: NSObject {
             arrivalTime: arrivalTime,
             isPresidentFemale: presidentGenre == .woman)
         
-        // TODO: add actual API call once it's implemented
+        APIManager.shared.upload(pollingStation: section) { error in
+            if let error = error {
+                callback(.stationError(reason: error))
+            } else {
+                callback(nil)
+            }
+        }
+        
+    }
+    
+    func uploadUnsyncedNotes(then callback: @escaping (RemoteSyncerError?) -> Void) {
+        guard let section = DB.shared.currentSectionInfo() else { return }
+        let notes = DB.shared.getUnsyncedNotes()
+        var passedRequests = 0
+        let totalRequests = notes.count
+        guard totalRequests > 0 else {
+            callback(nil)
+            return
+        }
+        var errors: [RemoteSyncerError] = []
+        
+        print("Uploading \(totalRequests) notes...")
+        
+        for note in notes {
+            let uploadRequest = UploadNoteRequest(
+                imageData: note.file as Data?,
+                questionId: Int(note.questionID),
+                countyCode: section.judet!,
+                pollingStationId: Int(section.sectie!) ?? 0,
+                text: note.body ?? "")
+            APIManager.shared.upload(note: uploadRequest) { error in
+                if let error = error {
+                    errors.append(.noteError(reason: error))
+                    print("Failed to uploaded note: \(error.localizedDescription)")
+                } else {
+                    print("Uploaded note")
+                }
+                
+                passedRequests += 1
+                if passedRequests == totalRequests {
+                    print("Finished upload for \(totalRequests) notes")
+                    callback(errors.first)
+                }
+            }
+        }
         
         callback(nil)
     }
-    
-    func uploadUnsyncedNotes(then callback: @escaping ([RemoteSyncerError]) -> Void) {
-        // TODO: implement
-        callback([])
-    }
 
-    func uploadUnsyncedQuestions(then callback: @escaping ([RemoteSyncerError]) -> Void) {
+    func uploadUnsyncedQuestions(then callback: @escaping (RemoteSyncerError?) -> Void) {
         guard let section = DB.shared.currentSectionInfo() else { return }
         let questions = DB.shared.getUnsyncedQuestions()
         var answers: [AnswerRequest] = []
@@ -101,7 +149,7 @@ class RemoteSyncer: NSObject {
                 for qAnswer in questionAnswers {
                     guard qAnswer.selected else { continue }
                     // TODO: what should be sent, text or inputText as the value?
-                    let option = AnswerOptionRequest(id: Int(qAnswer.id), value: qAnswer.text ?? "")
+                    let option = AnswerOptionRequest(id: Int(qAnswer.id), value: qAnswer.inputText)
                     answerRequests.append(option)
                 }
             }
@@ -113,16 +161,37 @@ class RemoteSyncer: NSObject {
             answers.append(question)
         }
         
+        guard answers.count > 0 else {
+            callback(nil)
+            return
+        }
+        
         let request = UploadAnswersRequest(answers: answers)
         print("Uploading answers for \(answers.count) questions...")
         APIManager.shared.upload(answers: request) { error in
             if let error = error {
                 print("Uploading answers failed: \(error)")
-                callback([RemoteSyncerError.questionError(reason: error.localizedDescription)])
+                callback(RemoteSyncerError.questionError(reason: error))
             } else {
                 print("Uploaded answers.")
-                callback([])
+                
+                // update the questions sync status
+                self.markQuestionsAsSynced(usingAnswers: answers)
+                
+                // notify any interested objects
+                NotificationCenter.default.post(name: RemoteSyncer.answersSyncedNotification,
+                                                object: self,
+                                                userInfo: [RemoteSyncer.notificationAnswersKey: answers])
+                
+                callback(nil)
             }
         }
+    }
+    
+    // MARK: - Internal
+    
+    fileprivate func markQuestionsAsSynced(usingAnswers answers: [AnswerRequest]) {
+        let questionIds = answers.map { Int16($0.questionId) }
+        DB.shared.setQuestionsSynced(withIds: questionIds)
     }
 }

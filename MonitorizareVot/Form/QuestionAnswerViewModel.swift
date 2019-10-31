@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 struct QuestionAnswerCellModel {
     
@@ -18,12 +19,13 @@ struct QuestionAnswerCellModel {
         var isSelected: Bool
 
         mutating func setIsSelected(_ selected: Bool) { isSelected = selected }
-        mutating func setText(_ text: String?) { self.text = text }
+        mutating func setUserText(_ text: String?) { self.userText = text }
     }
     
     var questionId: Int
     var questionCode: String
     var questionText: String
+    var type: QuestionResponse.QuestionType
     var acceptsMultipleAnswers: Bool
     var questionAnswers: [AnswerModel]
     var isNoteAttached: Bool
@@ -45,7 +47,10 @@ class QuestionAnswerViewModel: NSObject {
     fileprivate var sections: [FormSectionResponse]
     
     var questions: [QuestionAnswerCellModel] = []
-    var currentQuestionIndex: Int = 0
+    fileprivate(set) var currentQuestionIndex: Int = 0
+    
+    /// Bind to this callback to be notified whenever the model data is updated
+    var onModelUpdate: (() -> Void)?
     
     init?(withFormUsingCode code: String, currentQuestionId: Int) {
         guard let form = LocalStorage.shared.getFormSummary(withCode: code),
@@ -63,12 +68,9 @@ class QuestionAnswerViewModel: NSObject {
         guard let sectionInfo = DBSyncer.shared.currentSectionInfo else { return }
         let allQuestions = sections.reduce(into: [QuestionResponse]()) { $0 += $1.questions }
         
-        let storedQuestions = sectionInfo.questions?.allObjects as? [Question] ?? []
-        let mappedQuestions = storedQuestions.reduce(into: [Int: Question]()) { $0[Int($1.id)] = $1 }
-        
         var models: [QuestionAnswerCellModel] = []
         for questionMeta in allQuestions {
-            let answered = mappedQuestions[questionMeta.id]
+            let answered = DB.shared.getQuestion(withId: questionMeta.id)
             let options = questionMeta.options
 
             let acceptsMultipleAnswers = [
@@ -84,11 +86,12 @@ class QuestionAnswerViewModel: NSObject {
             var answerModels: [QuestionAnswerCellModel.AnswerModel] = []
             for optionMeta in options {
                 let answer = mappedAnswers[optionMeta.id]
-                let model = QuestionAnswerCellModel.AnswerModel(
+                var model = QuestionAnswerCellModel.AnswerModel(
                     optionId: optionMeta.id,
                     isFreeText: optionMeta.isFreeText,
                     text: optionMeta.text,
                     isSelected: answer?.selected == true)
+                model.setUserText(answer?.inputText)
                 answerModels.append(model)
             }
             
@@ -96,6 +99,7 @@ class QuestionAnswerViewModel: NSObject {
                 questionId: questionMeta.id,
                 questionCode: questionMeta.code,
                 questionText: questionMeta.text,
+                type: questionMeta.questionType,
                 acceptsMultipleAnswers: acceptsMultipleAnswers,
                 questionAnswers: answerModels,
                 isNoteAttached: isNoteAttached,
@@ -121,27 +125,84 @@ class QuestionAnswerViewModel: NSObject {
             questions[questionIndex].questionAnswers[answerIndex].setIsSelected(!answerData.isSelected)
         } else {
             for i in 0..<questionData.questionAnswers.count {
-                questions[questionIndex].questionAnswers[i].setIsSelected(i == answerIndex)
+                let isAlreadySelected = questions[questionIndex].questionAnswers[i].isSelected
+                questions[questionIndex].questionAnswers[i].setIsSelected(!isAlreadySelected && i == answerIndex)
             }
         }
         
-        // TODO: save locally
+        save(withModel: questions[questionIndex])
+        questions[questionIndex].isSaved = true
+        questions[questionIndex].isSynced = false
+        
+        RemoteSyncer.shared.syncUnsyncedData { error in
+            self.generateModels(usingFormSections: self.sections)
+            self.onModelUpdate?()
+        }
     }
     
     func updateUserText(ofQuestion questionModel: QuestionAnswerCellModel,
                         answerIndex: Int,
                         userText: String?) {
         guard let questionIndex = questionIndex(withModel: questionModel) else { return }
+        let normalizedText = userText?.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let text = normalizedText, text.count > 0 else { return }
         let questionData = questions[questionIndex]
         let answerData = questionData.questionAnswers[answerIndex]
-        questions[questionIndex].questionAnswers[answerIndex].userText = userText
-        if userText == nil && answerData.isSelected {
-            // deselect it if no text
-            questions[questionIndex].questionAnswers[answerIndex].setIsSelected(false)
+        questions[questionIndex].questionAnswers[answerIndex].userText = text
+        let isSelected = text.count > 0
+        questions[questionIndex].questionAnswers[answerIndex].setIsSelected(isSelected)
+        if isSelected && !questionData.acceptsMultipleAnswers {
+            // deselect other options
+            for i in 0..<questions[questionIndex].questionAnswers.count {
+                questions[questionIndex].questionAnswers[i].setIsSelected(i == answerIndex)
+            }
+        }
+        
+        save(withModel: questions[questionIndex])
+        questions[questionIndex].isSaved = true
+        questions[questionIndex].isSynced = false
+        
+        RemoteSyncer.shared.syncUnsyncedData { error in
+            self.generateModels(usingFormSections: self.sections)
+            self.onModelUpdate?()
         }
     }
     
     func questionIndex(withModel questionModel: QuestionAnswerCellModel) -> Int? {
         return questions.firstIndex(where: { $0.questionId == questionModel.questionId })
+    }
+    
+    func save(withModel questionModel: QuestionAnswerCellModel) {
+        var question: Question! = DB.shared.getQuestion(withId: questionModel.questionId)
+        if question == nil {
+            question = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context) as! Question
+            question.form = form.code
+            question.id = Int16(questionModel.questionId)
+            question.synced = false
+            question.type = Int16(questionModel.type.rawValue)
+            question.sectionInfo = DBSyncer.shared.currentSectionInfo
+        }
+        
+        if let existingAnswers = question.answers {
+            question.removeFromAnswers(existingAnswers)
+        }
+        
+        // add the new answers
+        var isAnswered = false
+        let answerSet = NSMutableSet()
+        for answerModel in questionModel.questionAnswers {
+            guard answerModel.isSelected else { continue }
+            isAnswered = true
+            let answerEntity = NSEntityDescription.insertNewObject(forEntityName: "Answer", into: CoreData.context) as! Answer
+            answerEntity.id = Int16(answerModel.optionId)
+            answerEntity.inputAvailable = answerModel.isFreeText
+            answerEntity.inputText = answerModel.userText
+            answerEntity.selected = true
+            answerSet.add(answerEntity)
+        }
+        question.answers = answerSet
+        question.answered = isAnswered
+        question.synced = false
+        try! CoreData.save()
     }
 }

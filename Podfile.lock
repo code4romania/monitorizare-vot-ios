@@ -47,6 +47,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.5.0):
     - GoogleUtilities/Logger
+  - "Keyboard+LayoutGuide (1.5.0)"
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
@@ -60,6 +61,7 @@ DEPENDENCIES:
   - Alamofire
   - Firebase/Analytics
   - Firebase/Core
+  - "Keyboard+LayoutGuide"
   - ReachabilitySwift
   - SnapKit
   - SwiftKeychainWrapper
@@ -73,6 +75,7 @@ SPEC REPOS:
     - FirebaseInstanceID
     - GoogleAppMeasurement
     - GoogleUtilities
+    - "Keyboard+LayoutGuide"
     - nanopb
     - ReachabilitySwift
     - SnapKit
@@ -86,11 +89,12 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: a122b0c258720cf250551bb2bedf48c699f80d90
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
+  "Keyboard+LayoutGuide": 8419e1a75285895bc9a6fc032b63fff24f2ef02c
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
 
-PODFILE CHECKSUM: 205f96825344adcb6895c76878b39cd5eb203873
+PODFILE CHECKSUM: d9bec090d088a5fee62a8de42a6bc46c9b0fd16b
 
 COCOAPODS: 1.6.1

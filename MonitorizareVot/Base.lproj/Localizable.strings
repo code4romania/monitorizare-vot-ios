@@ -86,5 +86,8 @@
 "Station" = "Station";
 
 "Title.StationDetails" = "Station Details";
-"Title.FormSets" = "Form Sets";
+"Title.FormSets" = "All Forms";
+"Title.Question" = "Question";
 
+"Next" = "Next";
+"Previous" = "Previous";

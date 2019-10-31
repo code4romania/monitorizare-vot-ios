@@ -85,4 +85,8 @@
 "Station" = "Secția";
 
 "Title.StationDetails" = "Detalii despre Secție";
-"Title.FormSets" = "Seturi de Formulare";
+"Title.FormSets" = "Toate Formularele";
+"Title.Question" = "Întrebarea";
+
+"Next" = "Următoarea";
+"Previous" = "Precedenta";

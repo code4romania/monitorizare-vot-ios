@@ -59,6 +59,10 @@ class QuestionCollectionCell: UICollectionViewCell {
             button.setContentCompressionResistancePriority(.required, for: .vertical)
             button.setContentHuggingPriority(.required, for: .vertical)
             button.setTitle(answer.text, for: .normal)
+            if answer.isFreeText {
+                let icon = answer.userText != nil ? #imageLiteral(resourceName: "icon-check") : nil
+                button.setImage(icon, for: .normal)
+            }
             button.isSelected = answer.isSelected
             button.addTarget(self, action: #selector(handleAnswerButtonTap(_:)), for: .touchUpInside)
             answersStackView.addArrangedSubview(button)

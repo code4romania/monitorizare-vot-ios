@@ -12,6 +12,8 @@
             <connections>
                 <outlet property="collectionView" destination="xE0-R0-swH" id="hoV-tc-IZx"/>
                 <outlet property="headerContainer" destination="C4B-FI-9Rk" id="fzG-a3-Fr8"/>
+                <outlet property="nextButton" destination="CCZ-Ec-Xpc" id="Dux-qK-d47"/>
+                <outlet property="previousButton" destination="Ljk-FZ-isd" id="jUd-PM-F27"/>
                 <outlet property="view" destination="MW8-OH-21m" id="YFY-sF-lKG"/>
             </connections>
         </placeholder>
@@ -50,10 +52,16 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljk-FZ-isd" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="185.5" height="44"/>
                                     <state key="normal" title="Previous"/>
+                                    <connections>
+                                        <action selector="handleGoPrevious:" destination="-1" eventType="touchUpInside" id="WUm-bE-v9O"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCZ-Ec-Xpc" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
                                     <rect key="frame" x="196.5" y="0.0" width="185.5" height="44"/>
                                     <state key="normal" title="Next"/>
+                                    <connections>
+                                        <action selector="handleGoNext:" destination="-1" eventType="touchUpInside" id="4Hc-LT-3Z7"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>

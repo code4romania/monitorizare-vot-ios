@@ -13,6 +13,7 @@ struct QuestionCellModel {
     var questionCode: String
     var questionText: String
     var isAnswered: Bool
+    var isSynced: Bool
     var hasNoteAttached: Bool
 }
 
@@ -54,6 +55,7 @@ class QuestionListViewModel: NSObject {
                 questionCode: questionResponse.code,
                 questionText: questionResponse.text,
                 isAnswered: stored?.answered ?? false,
+                isSynced: stored?.synced ?? false,
                 hasNoteAttached: stored?.note != nil)
         }
     }

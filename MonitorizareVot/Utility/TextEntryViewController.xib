@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextEntryViewController" customModule="MonitorizareVot" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomContainer" destination="1rS-2l-JQI" id="BQi-MB-X4e"/>
+                <outlet property="textView" destination="2xD-i1-ajM" id="QrS-vT-qxz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2xD-i1-ajM">
+                    <rect key="frame" x="16" y="60" width="382" height="726"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.029999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rS-2l-JQI">
+                    <rect key="frame" x="0.0" y="786" width="414" height="76"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmL-VO-v2c" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
+                            <rect key="frame" x="16" y="16" width="382" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="f06-26-2Ba"/>
+                            </constraints>
+                            <state key="normal" title="Save"/>
+                            <connections>
+                                <action selector="handleSaveAction:" destination="-1" eventType="touchUpInside" id="Ywe-Ta-LR8"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="qmL-VO-v2c" secondAttribute="bottom" constant="16" id="8b8-a9-Uee"/>
+                        <constraint firstItem="qmL-VO-v2c" firstAttribute="leading" secondItem="1rS-2l-JQI" secondAttribute="leading" constant="16" id="egd-ou-KLV"/>
+                        <constraint firstItem="qmL-VO-v2c" firstAttribute="top" secondItem="1rS-2l-JQI" secondAttribute="top" constant="16" id="hRX-H9-A44"/>
+                        <constraint firstAttribute="trailing" secondItem="qmL-VO-v2c" secondAttribute="trailing" constant="16" id="u9J-hZ-rkk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1rS-2l-JQI" secondAttribute="bottom" priority="990" id="3oC-II-RBC"/>
+                <constraint firstItem="2xD-i1-ajM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="RfZ-kF-icT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1rS-2l-JQI" secondAttribute="trailing" id="SZa-kR-4Bm"/>
+                <constraint firstItem="2xD-i1-ajM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="ewL-rr-6fg"/>
+                <constraint firstItem="2xD-i1-ajM" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-16" id="toa-tm-a99"/>
+                <constraint firstItem="1rS-2l-JQI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="u7V-TQ-EFj"/>
+                <constraint firstItem="1rS-2l-JQI" firstAttribute="top" secondItem="2xD-i1-ajM" secondAttribute="bottom" id="xMU-d3-uRg"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+</document>
