@@ -26,6 +26,8 @@
 "Button_Settings" = "Settings";
 "Button_Retry" = "Retry";
 "Button_AddNoteToQuestion" = "Add Note to Current Question";
+"Button_Submit" = "Submit";
+"Button_AddPhotoVideo" = "Add Photo or Video";
 
 "Label_PickDepartment" = "Pick department";
 "Label_PickDepartmentDetails" = "where you are located";
@@ -51,6 +53,9 @@
 "Label_DevelopedBy" = "app developed by";
 "Label_Saved" = "Saved locally";
 "Label_Synced" = "Synced";
+
+"Label_AddNote" = "Add a note";
+"Label_TypeNote" = "Type your note here";
 
 "NavigationBar_DepartmentDetails" = "Department details";
 "NavigationBar_SelectForm" = "Select form";
@@ -88,6 +93,7 @@
 "Title.StationDetails" = "Station Details";
 "Title.FormSets" = "All Forms";
 "Title.Question" = "Question";
+"Title.Note" = "Notes";
 
 "Next" = "Next";
 "Previous" = "Previous";

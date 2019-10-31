@@ -26,6 +26,8 @@
 "Button_Settings" = "Setări";
 "Button_Retry" = "Încearcă din nou";
 "Button_AddNoteToQuestion" = "Adaugă o notă întrebării";
+"Button_Submit" = "Trimite";
+"Button_AddPhotoVideo" = "Adaugă o poză sau video";
 
 "Label_PickDepartment" = "Alege secția";
 "Label_PickDepartmentDetails" = "în care te afli";
@@ -50,6 +52,9 @@
 "Label_DevelopedBy" = "aplicație dezvoltată de";
 "Label_Saved" = "Salvat local";
 "Label_Synced" = "Sincronizat";
+
+"Label_AddNote" = "Adaugă o notă";
+"Label_TypeNote" = "Scrie aici nota";
 
 "NavigationBar_DepartmentDetails" = "Informații despre secție";
 "NavigationBar_SelectForm" = "Alege formular";
@@ -87,6 +92,7 @@
 "Title.StationDetails" = "Detalii despre Secție";
 "Title.FormSets" = "Toate Formularele";
 "Title.Question" = "Întrebarea";
+"Title.Note" = "Notă";
 
 "Next" = "Următoarea";
 "Previous" = "Precedenta";

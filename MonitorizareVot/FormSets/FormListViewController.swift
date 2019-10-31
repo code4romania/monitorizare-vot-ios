@@ -161,9 +161,13 @@ class FormListViewController: MVViewController {
     }
     
     fileprivate func continueToNote() {
-        // TODO: replace this after refactoring the note
-        let addNoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNoteViewController") as! AddNoteViewController
-        self.navigationController?.pushViewController(addNoteViewController, animated: true)
+        let noteModel = NoteViewModel()
+        let controller = NoteViewController(withModel: noteModel)
+        navigationController?.pushViewController(controller, animated: true)
+//        
+//        // TODO: replace this after refactoring the note
+//        let addNoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNoteViewController") as! AddNoteViewController
+//        self.navigationController?.pushViewController(addNoteViewController, animated: true)
     }
 }
 

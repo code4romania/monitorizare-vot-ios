@@ -71,6 +71,9 @@ extension UIColor {
     static var cardDarkerShadow = UIColor.black.withAlphaComponent(0.12)
     static var tableSectionHeaderBg = UIColor(hexCode: 0xEEEDED)
 
+    static var textViewContainerBorder = UIColor(hexCode: 0xDDDDDD)
+    static var textViewContainerBg = UIColor(hexCode: 0xFCFCFC)
+
     convenience init(hexCode: UInt32) {
         var alpha = hexCode >> 24 & 0xFF
         let red   = hexCode >> 16 & 0xFF
