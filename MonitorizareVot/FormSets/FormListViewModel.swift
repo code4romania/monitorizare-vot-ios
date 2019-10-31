@@ -46,13 +46,16 @@ class FormListViewModel: NSObject {
         if let objects = responses {
             forms = objects.map { set in
                 let image = UIImage(named: "icon-formset-\(set.code.lowercased())") ?? UIImage(named: "icon-formset-default")
+                let answeredQuestions = DB.shared.getAnsweredQuestions(inFormWithCode: set.code).count
+                let formSections = LocalStorage.shared.loadForm(withId: set.id)
+                let totalQuestions = formSections?.reduce([QuestionResponse](), { $0 + $1.questions }).count ?? 0
+                let progress = totalQuestions > 0 ? CGFloat(answeredQuestions) / CGFloat(totalQuestions) : 0
                 return FormSetCellModel(
                     icon: image ?? UIImage(), // just in case
                     title: set.description,
                     code: set.code.uppercased(),
-                    // TODO:
-                    progress: 0,
-                    answeredOutOfTotalQuestions: "0/0")
+                    progress: progress,
+                    answeredOutOfTotalQuestions: "\(answeredQuestions)/\(totalQuestions)")
             }
         }
     }

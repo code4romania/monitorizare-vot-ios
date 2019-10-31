@@ -16,7 +16,7 @@ class TimePickerViewController: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
-    var onCompletion: ((_ timeString: String?) -> Void)?
+    var onCompletion: ((_ date: Date?) -> Void)?
     
     init(withModel model: TimePickerViewModel) {
         self.model = model
@@ -62,7 +62,7 @@ class TimePickerViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction func handleDoneButtonTap(_ sender: Any) {
-        onCompletion?(model.timeString)
+        onCompletion?(model.date)
     }
     
     @IBAction func handleCancelButtonTap(_ sender: Any) {

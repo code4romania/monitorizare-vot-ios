@@ -40,8 +40,9 @@ class QuestionTableCell: UITableViewCell {
     
     func update(withModel model: QuestionCellModel) {
         codeLabel.text = model.questionCode.uppercased()
-        editIcon.isHidden = true // ?
+        editIcon.isHidden = !model.hasNoteAttached
         checkIcon.isHidden = !model.isAnswered
+        checkIcon.image = model.isSynced ? #imageLiteral(resourceName: "icon-check") : #imageLiteral(resourceName: "icon-check-greyed")
         questionTextLabel.text = model.questionText
     }
     

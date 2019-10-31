@@ -27,7 +27,7 @@ struct UpdatePollingStationRequest: Codable {
     var isPresidentFemale: Bool
     
     enum CodingKeys: String, CodingKey {
-        case id
+        case id = "idPollingStation"
         case countyCode
         case isUrbanArea = "urbanArea"
         case leaveTime = "observerLeaveTime"
@@ -64,7 +64,7 @@ struct AnswerRequest: Codable {
 
 struct AnswerOptionRequest: Codable {
     var id: Int
-    var value: String
+    var value: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "optionId"
@@ -128,9 +128,17 @@ struct FormSectionResponse: Codable {
 }
 
 struct QuestionResponse: Codable {
+    
+    enum QuestionType: Int, Codable {
+        case multipleAnswers
+        case singleAnswer
+        case singleAnswerWithText
+        case multipleAnswerWithText
+    }
+    
     var id: Int
     var code: String
-    var questionType: Int
+    var questionType: QuestionType
     var text: String
     var options: [QuestionOptionResponse]
     

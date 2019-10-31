@@ -24,7 +24,8 @@
 "Button_Send" = "Trimite";
 "Button_Delete" = "Șterge";
 "Button_Settings" = "Setări";
-"Button_Retry" = "Retry";
+"Button_Retry" = "Încearcă din nou";
+"Button_AddNoteToQuestion" = "Adaugă o notă întrebării";
 
 "Label_PickDepartment" = "Alege secția";
 "Label_PickDepartmentDetails" = "în care te afli";
@@ -47,6 +48,8 @@
 "Label_Completed" = "Completat";
 "Label_NotCompleted" = "Necompletat";
 "Label_DevelopedBy" = "aplicație dezvoltată de";
+"Label_Saved" = "Salvat local";
+"Label_Synced" = "Sincronizat";
 
 "NavigationBar_DepartmentDetails" = "Informații despre secție";
 "NavigationBar_SelectForm" = "Alege formular";
@@ -82,4 +85,8 @@
 "Station" = "Secția";
 
 "Title.StationDetails" = "Detalii despre Secție";
-"Title.FormSets" = "Seturi de Formulare";
+"Title.FormSets" = "Toate Formularele";
+"Title.Question" = "Întrebarea";
+
+"Next" = "Următoarea";
+"Previous" = "Precedenta";

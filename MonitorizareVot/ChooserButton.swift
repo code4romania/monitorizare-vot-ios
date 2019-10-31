@@ -32,6 +32,8 @@ class ChooserButton: UIButton {
         setTitleColor(.defaultText, for: .highlighted)
         setTitleColor(.defaultText, for: [.highlighted, .selected])
         
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
+
         tintColor = .clear
 
         layer.masksToBounds = true

@@ -28,6 +28,13 @@ class SectionDetailsViewController: MVViewController {
     
     @IBOutlet weak var continueButton: UIButton!
     
+    lazy var timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter
+    }()
+    
     var isLoading: Bool = false {
         didSet {
             if isLoading {
@@ -81,13 +88,22 @@ class SectionDetailsViewController: MVViewController {
     
     // MARK: - UI
     
+    fileprivate func formattedTime(fromDate date: Date?) -> String {
+        if let date = date {
+            return timeFormatter.string(from: date)
+        } else {
+            return "--:--"
+        }
+    }
+    
     fileprivate func updateInterface() {
         envUrbanButton.isSelected = model.medium == .urban
         envRuralButton.isSelected = model.medium == .rural
         genderWomanButton.isSelected = model.gender == .woman
         genderManButton.isSelected = model.gender == .man
-        arrivalButton.setTitle(model.arrivalTime ?? "--:--", for: .normal)
-        departureButton.setTitle(model.departureTime ?? "--:--", for: .normal)
+        arrivalButton.setTitle(formattedTime(fromDate: model.arrivalTime), for: .normal)
+        departureButton.setTitle(formattedTime(fromDate: model.leaveTime), for: .normal)
+        continueButton.isEnabled = model.isReady
     }
     
     fileprivate func updateLabelsTexts() {
@@ -129,25 +145,25 @@ class SectionDetailsViewController: MVViewController {
     
     @IBAction func handleTimeButtonTap(_ sender: UIButton) {
         let isArrivalTime = sender == arrivalButton
-        let initialTime = isArrivalTime ? model.arrivalTime : model.departureTime
+        let initialTime = isArrivalTime ? model.arrivalTime : model.leaveTime
 
-        let pickerModel = TimePickerViewModel(withTimeString: initialTime ?? "")
+        let pickerModel = TimePickerViewModel(withTime: initialTime, dateFormatter: timeFormatter)
         let controller = TimePickerViewController(withModel: pickerModel)
         controller.onCompletion = { [weak self] time in
             if isArrivalTime {
                 self?.model.arrivalTime = time
-                let departureDate = TimePickerViewModel.timeStringToDate(self?.model.departureTime ?? "")
+                let departureDate = self?.model.leaveTime
                 if let departure = departureDate,
-                    let arrival = pickerModel.date,
+                    let arrival = time,
                     arrival > departure {
                     // reset the departure to the same time
-                    self?.model.departureTime = time
+                    self?.model.leaveTime = time
                 }
             } else {
-                self?.model.departureTime = time
-                let arrivalDate = TimePickerViewModel.timeStringToDate(self?.model.arrivalTime ?? "")
+                self?.model.leaveTime = time
+                let arrivalDate = self?.model.arrivalTime
                 if let arrival = arrivalDate,
-                    let departure = pickerModel.date,
+                    let departure = time,
                     arrival > departure {
                     // reset the arrival to the same time
                     self?.model.arrivalTime = time
@@ -163,16 +179,24 @@ class SectionDetailsViewController: MVViewController {
 
         // persist the data first
         self.isLoading = true
-        model.persist { [weak self] (success, isTokenExpired) in
+        model.persist { [weak self] (error, isTokenExpired) in
             guard let self = self else { return }
             self.isLoading = false
 
             if isTokenExpired {
                 self.navigationController?.popToRootViewController(animated: true)
             } else {
-                let formsModel = FormListViewModel()
-                let formsVC = FormListViewController(withModel: formsModel)
-                self.navigationController?.pushViewController(formsVC, animated: true)
+                if error == nil {
+                    let formsModel = FormListViewModel()
+                    let formsVC = FormListViewController(withModel: formsModel)
+                    self.navigationController?.pushViewController(formsVC, animated: true)
+                } else {
+                    let alert = UIAlertController(title: "Error".localized,
+                                                  message: error?.localizedDescription ?? "An error occured",
+                                                  preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
 

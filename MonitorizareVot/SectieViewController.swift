@@ -170,7 +170,7 @@ class SectieViewController: RootViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     private func showNextScreen() {
-        let model = SectionDetailsViewModel(withSectionInfo: sectionInfo)
+        let model = SectionDetailsViewModel()
         let controller = SectionDetailsViewController(withModel: model)
         self.navigationController?.pushViewController(controller, animated: true)
     }

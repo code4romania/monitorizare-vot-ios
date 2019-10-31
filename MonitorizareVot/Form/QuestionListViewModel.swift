@@ -13,6 +13,8 @@ struct QuestionCellModel {
     var questionCode: String
     var questionText: String
     var isAnswered: Bool
+    var isSynced: Bool
+    var hasNoteAttached: Bool
 }
 
 class QuestionListViewModel: NSObject {
@@ -27,6 +29,10 @@ class QuestionListViewModel: NSObject {
         return sections.map { $0.description }
     }
     
+    var formCode: String {
+        return form.code
+    }
+    
     init?(withFormUsingCode code: String) {
         guard let form = LocalStorage.shared.getFormSummary(withCode: code),
             let sections = LocalStorage.shared.loadForm(withId: form.id) else { return nil }
@@ -36,13 +42,9 @@ class QuestionListViewModel: NSObject {
     }
     
     func questions(inSection section: Int) -> [QuestionCellModel] {
-        guard sections.count > section,
-            let county = PreferencesManager.shared.county,
-            let stationId = PreferencesManager.shared.section
-            else { return [] }
+        guard sections.count > section else { return [] }
+        guard let sectionInfo = DBSyncer.shared.currentSectionInfo else { return [] }
         
-        
-        let sectionInfo = DBSyncer.shared.sectionInfo(for: county, sectie: stationId)
         let storedQuestions = sectionInfo.questions?.allObjects as? [Question] ?? []
         let mappedQuestions = storedQuestions.reduce(into: [Int: Question]()) { $0[Int($1.id)] = $1 }
         
@@ -52,7 +54,9 @@ class QuestionListViewModel: NSObject {
                 questionId: questionResponse.id,
                 questionCode: questionResponse.code,
                 questionText: questionResponse.text,
-                isAnswered: stored?.answered ?? false)
+                isAnswered: stored?.answered ?? false,
+                isSynced: stored?.synced ?? false,
+                hasNoteAttached: stored?.note != nil)
         }
     }
     

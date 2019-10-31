@@ -10,6 +10,7 @@ target 'MonitorizareVot' do
   pod 'Firebase/Analytics'
   pod 'SnapKit'
   pod 'ReachabilitySwift'
+  pod 'Keyboard+LayoutGuide'
 
   # Pods for MonitorizareVot
 

@@ -11,6 +11,7 @@ import Alamofire
 import SwiftKeychainWrapper
 
 protocol APIManagerType: NSObject {
+    var apiDateFormatter: DateFormatter { get }
     func login(withPhone phone: String,
                pin: String,
                then callback: @escaping (APIError?) -> Void)
@@ -18,6 +19,8 @@ protocol APIManagerType: NSObject {
     func fetchForms(then callback: @escaping ([FormResponse]?, APIError?) -> Void)
     func fetchForm(withId formId: Int,
                    then callback: @escaping ([FormSectionResponse]?, APIError?) -> Void)
+    func upload(pollingStation: UpdatePollingStationRequest,
+                then callback: @escaping (APIError?) -> Void)
     func upload(note: UploadNoteRequest,
                 then callback: @escaping (APIError?) -> Void)
     func upload(answers: UploadAnswersRequest,
@@ -42,6 +45,15 @@ enum APIError: Error {
 
 class APIManager: NSObject, APIManagerType {
     static let shared: APIManagerType = APIManager()
+    
+    /// Use this to format dates to and from the API
+    lazy var apiDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SZ"
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
+    }()
     
     func login(withPhone phone: String, pin: String, then callback: @escaping (APIError?) -> Void) {
         let url = ApiURL.login.url()
@@ -143,11 +155,31 @@ class APIManager: NSObject, APIManagerType {
         }
     }
     
+    func upload(pollingStation: UpdatePollingStationRequest, then callback: @escaping (APIError?) -> Void) {
+        let url = ApiURL.pollingStation.url()
+        let auth = authorizationHeaders()
+        let headers = requestHeaders(withAuthHeaders: auth)
+        let body = try! JSONEncoder().encode(pollingStation)
+        
+        Alamofire
+            .upload(body, to: url, method: .post, headers: headers)
+            .response { response in
+                if response.response?.statusCode == 200 {
+                    callback(nil)
+                } else if response.response?.statusCode == 401 {
+                    callback(.unauthorized)
+                } else {
+                    callback(.incorrectFormat(reason: "Unknown reason"))
+                }
+        }
+    }
+    
     // TODO: test this
     func upload(note: UploadNoteRequest, then callback: @escaping (APIError?) -> Void) {
         let url = ApiURL.uploadNote.url()
-        let headers = authorizationHeaders()
-        
+        let auth = authorizationHeaders()
+        let headers = requestHeaders(withAuthHeaders: auth)
+
         let parameters: [String: String] = [
             "CountyCode": note.countyCode,
             "PollingStattionNumber": String(note.pollingStationId ?? -1),
@@ -182,10 +214,10 @@ class APIManager: NSObject, APIManagerType {
         })
     }
     
-    // TODO: test this
     func upload(answers: UploadAnswersRequest, then callback: @escaping (APIError?) -> Void) {
         let url = ApiURL.uploadAnswer.url()
-        let headers = authorizationHeaders()
+        let auth = authorizationHeaders()
+        let headers = requestHeaders(withAuthHeaders: auth)
         let body = try! JSONEncoder().encode(answers)
         
         Alamofire
@@ -196,7 +228,7 @@ class APIManager: NSObject, APIManagerType {
                 } else if response.response?.statusCode == 401 {
                     callback(.unauthorized)
                 } else {
-                    callback(.incorrectFormat(reason: "Unknown reason"))
+                    callback(.incorrectFormat(reason: "Unknown reason (code: \(response.response?.statusCode ?? -1))"))
                 }
         }
     }
@@ -217,5 +249,15 @@ extension APIManager {
         } else {
             return [:]
         }
+    }
+    
+    fileprivate func requestHeaders(withAuthHeaders authHeaders: [String: String]?) -> [String: String] {
+        var headers: [String: String] = ["Content-Type": "application/json"]
+        if let authHeaders = authHeaders {
+            for (key, value) in authHeaders {
+                headers[key] = value
+            }
+        }
+        return headers
     }
 }

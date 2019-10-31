@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Answer" representedClassName="Answer" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="inputAvailable" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -29,8 +29,10 @@
     <entity name="SectionInfo" representedClassName="SectionInfo" syncable="YES">
         <attribute name="arriveHour" optional="YES" attributeType="String"/>
         <attribute name="arriveMinute" optional="YES" attributeType="String"/>
+        <attribute name="arriveTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="genre" optional="YES" attributeType="String"/>
         <attribute name="judet" attributeType="String"/>
+        <attribute name="leaveTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="leftHour" optional="YES" attributeType="String"/>
         <attribute name="leftMinute" optional="YES" attributeType="String"/>
         <attribute name="medium" optional="YES" attributeType="String"/>
@@ -43,6 +45,6 @@
         <element name="Answer" positionX="376" positionY="459" width="128" height="133"/>
         <element name="Note" positionX="198" positionY="288" width="128" height="118"/>
         <element name="Question" positionX="178" positionY="447" width="128" height="178"/>
-        <element name="SectionInfo" positionX="-11" positionY="252" width="128" height="208"/>
+        <element name="SectionInfo" positionX="-11" positionY="252" width="128" height="238"/>
     </elements>
 </model>
