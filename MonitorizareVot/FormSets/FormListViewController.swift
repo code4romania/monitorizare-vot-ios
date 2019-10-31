@@ -48,6 +48,12 @@ class FormListViewController: MVViewController {
         bindToUpdates()
         DispatchQueue.main.async {
             self.configureSyncContainer()
+            if self.model.forms.isEmpty {
+                // only show the spinner and hide the table view if there are no forms
+                self.tableView.isHidden = true
+                self.downloadingSpinner.startAnimating()
+            }
+            self.retryButton.isHidden = true
             self.model.downloadFreshData()
         }
     }
@@ -56,15 +62,24 @@ class FormListViewController: MVViewController {
     
     fileprivate func bindToUpdates() {
         model.onDownloadComplete = { [weak self] error in
-            if let _ = error {
-                let alert = UIAlertController(title: "Error".localized,
-                                              message: "Error.DataDownloadFailed".localized,
-                                              preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: nil))
-                self?.present(alert, animated: true, completion: nil)
-                self?.retryButton.isHidden = false
-            } else {
-                self?.updateInterface()
+            guard let self = self else { return }
+            self.downloadingSpinner.stopAnimating()
+            if self.model.forms.isEmpty {
+                // only treat this as a failure if we have no forms yet.
+                // otherwise, leave the older versions
+                if let _ = error {
+                    let alert = UIAlertController(title: "Error".localized,
+                                                  message: "Error.DataDownloadFailed".localized,
+                                                  preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    self.retryButton.isHidden = false
+                    self.tableView.isHidden = true
+                } else {
+                    self.tableView.isHidden = false
+                    self.retryButton.isHidden = true
+                    self.updateInterface()
+                }
             }
         }
         model.onDownloadingStateChanged = { [weak self] in
@@ -123,6 +138,8 @@ class FormListViewController: MVViewController {
     
     @IBAction func handleRetryButtonAction(_ sender: Any) {
         retryButton.isHidden = true
+        downloadingSpinner.startAnimating()
+        tableView.isHidden = true
         model.downloadFreshData()
     }
     

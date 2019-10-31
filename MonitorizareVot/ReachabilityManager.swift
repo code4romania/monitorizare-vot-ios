@@ -32,6 +32,23 @@ class ReachabilityManager: NSObject {
     
     deinit {
         reachability?.stopNotifier()
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override init() {
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleAppForeground(_:)),
+                                               name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleAppBackground(_:)),
+                                               name: UIApplication.didEnterBackgroundNotification, object: nil)
+    }
+    
+    @objc fileprivate func handleAppForeground(_ notification: Notification) {
+        try? reachability?.startNotifier()
+    }
+    
+    @objc fileprivate func handleAppBackground(_ notification: Notification) {
+        reachability?.stopNotifier()
     }
     
 }

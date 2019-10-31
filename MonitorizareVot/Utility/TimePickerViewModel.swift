@@ -9,11 +9,11 @@
 import UIKit
 
 class TimePickerViewModel: NSObject {
-    var date: Date?
+    var date: Date
     var dateFormatter: DateFormatter
     
     init(withTime time: Date?, dateFormatter: DateFormatter) {
-        self.date = time
+        self.date = time ?? Date()
         self.dateFormatter = dateFormatter
         super.init()
     }

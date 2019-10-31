@@ -54,9 +54,7 @@ class TimePickerViewController: UIViewController {
     }
     
     fileprivate func updateInterface() {
-        if let date = model.date {
-            picker.date = date
-        }
+        picker.date = model.date
     }
     
     // MARK: - Actions
