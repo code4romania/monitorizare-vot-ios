@@ -180,12 +180,15 @@ class APIManager: NSObject, APIManagerType {
         let auth = authorizationHeaders()
         let headers = requestHeaders(withAuthHeaders: auth)
 
-        let parameters: [String: String] = [
+        var parameters: [String: String] = [
             "CountyCode": note.countyCode,
-            "PollingStattionNumber": String(note.pollingStationId ?? -1),
-            "QuestionId": String(note.questionId ?? -1),
+            "PollingStationNumber": String(note.pollingStationId ?? -1),
             "Text": note.text
         ]
+        if let questionId = note.questionId {
+            parameters["QuestionId"] = String(questionId)
+        }
+
         let threshold = SessionManager.multipartFormDataEncodingMemoryThreshold
         
         Alamofire

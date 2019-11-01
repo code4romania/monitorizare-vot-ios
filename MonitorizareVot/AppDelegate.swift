@@ -25,6 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.overrideUserInterfaceStyle = .light
         }
         
+        #if DEBUG
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
+        #endif
+        
         return true
     }
     

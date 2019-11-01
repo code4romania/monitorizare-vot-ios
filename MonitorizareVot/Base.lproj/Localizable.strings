@@ -26,6 +26,8 @@
 "Button_Settings" = "Settings";
 "Button_Retry" = "Retry";
 "Button_AddNoteToQuestion" = "Add Note to Current Question";
+"Button_Submit" = "Submit";
+"Button_AddPhotoVideo" = "Add Photo or Video";
 
 "Label_PickDepartment" = "Pick department";
 "Label_PickDepartmentDetails" = "where you are located";
@@ -51,6 +53,9 @@
 "Label_DevelopedBy" = "app developed by";
 "Label_Saved" = "Saved locally";
 "Label_Synced" = "Synced";
+
+"Label_AddNote" = "Add a note";
+"Label_TypeNote" = "Type your note here";
 
 "NavigationBar_DepartmentDetails" = "Department details";
 "NavigationBar_SelectForm" = "Select form";
@@ -80,6 +85,8 @@
 "Error.IncorrectFormat" = "Incorrect response format";
 "Error.TokenExpired" = "Your authentication expired. Please log in again.";
 "Error.DataDownloadFailed" = "We couldn't download the latest data. Please try again later.";
+"Error.SaveNoteFailed" = "We couldn't save your note. Please try again later.";
+"Error.UploadNoteFailed" = "We couldn't upload your note. We will retry later.";
 
 "Info.DataNotSyncronised" = "It appears that some of the questions have not been syncronised. Tap the button below to send the answers again";
 
@@ -88,6 +95,8 @@
 "Title.StationDetails" = "Station Details";
 "Title.FormSets" = "All Forms";
 "Title.Question" = "Question";
+"Title.Note" = "Notes";
+"Title.NoteHistory" = "Note History";
 
 "Next" = "Next";
 "Previous" = "Previous";

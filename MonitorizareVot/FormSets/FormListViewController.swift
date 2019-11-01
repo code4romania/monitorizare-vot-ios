@@ -44,6 +44,7 @@ class FormListViewController: MVViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        model.reload()
         updateInterface()
         bindToUpdates()
         DispatchQueue.main.async {
@@ -144,15 +145,23 @@ class FormListViewController: MVViewController {
     }
     
     @IBAction func handleSyncButtonAction(_ sender: Any) {
-        // TODO: implement progress once the API Calls are refactored
         setSyncContainer(hidden: true, animated: true)
-        DBSyncer.shared.syncUnsyncedData()
+        RemoteSyncer.shared.syncUnsyncedData { error in
+            if let error = error {
+                let alert = UIAlertController.error(withMessage: error.localizedDescription)
+                self.present(alert, animated: true) {
+                    self.setSyncContainer(hidden: false, animated: true)
+                }
+            }
+        }
     }
     
     fileprivate func continueToForm(withCode code: String) {
         guard let questionsModel = QuestionListViewModel(withFormUsingCode: code) else {
-            // TODO: display an error to the user?
-            print("Error: can't load question list model for form with code \(code)")
+            let message = "Error: can't load question list model for form with code \(code)"
+            print(message)
+            let alert = UIAlertController.error(withMessage: message)
+            present(alert, animated: true, completion: nil)
             return
         }
         
@@ -161,9 +170,9 @@ class FormListViewController: MVViewController {
     }
     
     fileprivate func continueToNote() {
-        // TODO: replace this after refactoring the note
-        let addNoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNoteViewController") as! AddNoteViewController
-        self.navigationController?.pushViewController(addNoteViewController, animated: true)
+        let noteModel = NoteViewModel()
+        let controller = NoteViewController(withModel: noteModel)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 
@@ -212,7 +221,7 @@ extension FormListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            // set was tapped
+            // form was tapped
             let formSet = model.forms[indexPath.row]
             continueToForm(withCode: formSet.code)
             break
