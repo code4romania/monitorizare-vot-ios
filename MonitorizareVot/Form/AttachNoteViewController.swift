@@ -23,8 +23,12 @@ class AttachNoteViewController: UIViewController {
     @IBOutlet weak var textViewContainer: UIView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewPlaceHolder: UILabel!
+    @IBOutlet weak var filenameLabel: UILabel!
+    @IBOutlet weak var attachmentStackView: UIStackView!
     @IBOutlet weak var attachButton: AttachButton!
     @IBOutlet weak var submitButton: ActionButton!
+    
+    var onAttachmentRequest: (() -> Void)?
     
     // MARK: - Object
     
@@ -89,12 +93,20 @@ class AttachNoteViewController: UIViewController {
         statusIcon.isHidden = !model.isSaved
         statusIcon.image = model.isSynced ? #imageLiteral(resourceName: "icon-check") : #imageLiteral(resourceName: "icon-check-greyed")
         textViewPlaceHolder.isHidden = model.text.count > 0
+        attachmentStackView.isHidden = model.attachment == nil
+        filenameLabel.text = model.attachment?.filename
     }
     
     // MARK: - Actions
     
+    func handleMediaSelection(filename: String, data: Data) {
+        model.attachment = NoteAttachment(filename: filename, data: data)
+        updateInterface()
+        view.layoutIfNeeded()
+    }
+    
     @IBAction func handleAttachAction(_ sender: Any) {
-        // TODO:
+        onAttachmentRequest?()
     }
     
     @IBAction func handleSubmitAction(_ sender: Any) {
@@ -125,3 +137,5 @@ extension AttachNoteViewController: UITextViewDelegate {
         return true
     }
 }
+
+

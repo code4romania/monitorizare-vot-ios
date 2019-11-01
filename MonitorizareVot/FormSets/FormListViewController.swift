@@ -44,6 +44,7 @@ class FormListViewController: MVViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        model.reload()
         updateInterface()
         bindToUpdates()
         DispatchQueue.main.async {
@@ -157,8 +158,10 @@ class FormListViewController: MVViewController {
     
     fileprivate func continueToForm(withCode code: String) {
         guard let questionsModel = QuestionListViewModel(withFormUsingCode: code) else {
-            // TODO: display an error to the user?
-            print("Error: can't load question list model for form with code \(code)")
+            let message = "Error: can't load question list model for form with code \(code)"
+            print(message)
+            let alert = UIAlertController.error(withMessage: message)
+            present(alert, animated: true, completion: nil)
             return
         }
         
@@ -170,10 +173,6 @@ class FormListViewController: MVViewController {
         let noteModel = NoteViewModel()
         let controller = NoteViewController(withModel: noteModel)
         navigationController?.pushViewController(controller, animated: true)
-//
-//        // TODO: replace this after refactoring the note
-//        let addNoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNoteViewController") as! AddNoteViewController
-//        self.navigationController?.pushViewController(addNoteViewController, animated: true)
     }
 }
 
@@ -222,7 +221,7 @@ extension FormListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            // set was tapped
+            // form was tapped
             let formSet = model.forms[indexPath.row]
             continueToForm(withCode: formSet.code)
             break

@@ -26,17 +26,16 @@ class FormListViewModel: NSObject {
     /// Get notified when syncing state has changed
     var onSyncingStateChanged: (() -> Void)?
 
-    // TODO: remove them when not needed anymore
-    /// Use these until we completely update the API
-    var legacyForms: [[String: Any]] = []
-    var legacyPersistor = LocalFormsPersistor()
-    
     override init() {
         super.init()
         loadCachedData()
     }
     
-    func loadCachedData() {
+    func reload() {
+        loadCachedData()
+    }
+    
+    fileprivate func loadCachedData() {
         if let cached = LocalStorage.shared.forms {
             convertToViewModels(responses: cached)
         }

@@ -76,8 +76,18 @@ class NoteViewController: MVViewController {
         attachNoteController.view.translatesAutoresizingMaskIntoConstraints = false
         attachNoteController.contentWidth.constant = view.frame.width
         attachNoteController.view.layoutIfNeeded()
+        
+        attachNoteController.onAttachmentRequest = { [weak self] in
+            guard let self = self else { return }
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            self.present(picker, animated: true, completion: nil)
+        }
 
         historyTableView.tableHeaderView = attachNote.content
+        DispatchQueue.main.async {
+            self.historyTableView.reloadData()
+        }
     }
     
     fileprivate func configureSubviews() {
@@ -127,3 +137,39 @@ extension NoteViewController: UITableViewDelegate {
     
 }
 
+
+extension NoteViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let imageData = info[.editedImage] ?? info[.originalImage]
+        if let image = imageData as? UIImage,
+            let data = image.jpegData(compressionQuality: 0.9) {
+            var filename = "attachment"
+            if #available(iOS 11.0, *) {
+                if let url = info[.imageURL] as? URL,
+                    let lastPath = url.pathComponents.last?.split(separator: "-").last {
+                    filename = lastPath.lowercased()
+                }
+            } else {
+                if let url = info[.referenceURL] as? URL,
+                    let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
+                    let queryItems = components.queryItems,
+                    let ext = queryItems.first(where: { $0.name == "ext" }),
+                    let extValue = ext.value {
+                    filename = ("attachment." + extValue).lowercased()
+                }
+            }
+            print("chosen image/video: \(filename)")
+            attachNoteController.handleMediaSelection(filename: filename, data: data)
+            // add the header again so that it updates the frame
+            addHeaderIfNecessary()
+        } else {
+            print("not enough info:\n\(info)")
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+}

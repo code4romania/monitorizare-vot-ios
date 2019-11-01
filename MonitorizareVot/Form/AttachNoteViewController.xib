@@ -11,9 +11,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AttachNoteViewController" customModule="MonitorizareVot" customModuleProvider="target">
             <connections>
                 <outlet property="attachButton" destination="zK8-Iq-Ayl" id="JBb-f1-1Jl"/>
+                <outlet property="attachmentStackView" destination="cUs-cu-Zbp" id="Eba-ml-T96"/>
                 <outlet property="cardContainer" destination="a3y-Yz-Sgz" id="FMX-nu-ty9"/>
                 <outlet property="content" destination="7Fu-ot-pwE" id="MU1-bG-Wfb"/>
                 <outlet property="contentWidth" destination="zOO-n6-Gne" id="pV7-HT-OTS"/>
+                <outlet property="filenameLabel" destination="gGc-P4-361" id="PuX-ht-bmL"/>
                 <outlet property="outerContainer" destination="Da3-Qs-TAh" id="4Jg-ZJ-W5U"/>
                 <outlet property="statusIcon" destination="j22-3Y-Qhi" id="ZpD-ej-R5Q"/>
                 <outlet property="submitButton" destination="AUA-rY-k5J" id="ekb-sF-wQa"/>
@@ -30,16 +32,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Fu-ot-pwE">
-                    <rect key="frame" x="0.0" y="44" width="414" height="448"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="478.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Da3-Qs-TAh">
-                            <rect key="frame" x="16" y="36" width="382" height="388"/>
+                            <rect key="frame" x="16" y="36" width="382" height="418.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="a3y-Yz-Sgz">
-                                    <rect key="frame" x="0.0" y="0.0" width="382" height="388"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="418.5"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3t2-Af-WjW">
-                                            <rect key="frame" x="16" y="24" width="350" height="340"/>
+                                            <rect key="frame" x="16" y="24" width="350" height="370.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdu-DZ-UJL">
                                                     <rect key="frame" x="0.0" y="0.0" width="350" height="29"/>
@@ -86,8 +88,22 @@
                                                         <constraint firstAttribute="bottom" secondItem="b1H-H7-oe5" secondAttribute="bottom" id="xqX-yl-QF7"/>
                                                     </constraints>
                                                 </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cUs-cu-Zbp">
+                                                    <rect key="frame" x="0.0" y="237" width="350" height="14.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="icon-photo-attachment" translatesAutoresizingMaskIntoConstraints="NO" id="GiZ-6D-96F">
+                                                            <rect key="frame" x="0.0" y="0.0" width="11" height="14.5"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="file name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGc-P4-361">
+                                                            <rect key="frame" x="19" y="0.0" width="331" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zK8-Iq-Ayl" customClass="AttachButton" customModule="MonitorizareVot" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="237" width="350" height="43"/>
+                                                    <rect key="frame" x="0.0" y="267.5" width="350" height="43"/>
                                                     <inset key="contentEdgeInsets" minX="0.0" minY="13" maxX="0.0" maxY="13"/>
                                                     <inset key="titleEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="7" maxY="0.0"/>
@@ -97,7 +113,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUA-rY-k5J" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="296" width="350" height="44"/>
+                                                    <rect key="frame" x="0.0" y="326.5" width="350" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="HC3-wh-rHj"/>
                                                     </constraints>
@@ -150,5 +166,6 @@
     <resources>
         <image name="icon-camera" width="16" height="14"/>
         <image name="icon-check" width="16" height="16"/>
+        <image name="icon-photo-attachment" width="11" height="9"/>
     </resources>
 </document>
