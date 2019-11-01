@@ -8,13 +8,31 @@
 
 import UIKit
 
+/// This VM backs the note cells
+struct NoteCellModel {
+    var note: Note
+    var text: String
+    var date: String
+    var isSynced: Bool
+}
+
 class NoteViewModel: NSObject {
     
-    var questionId: String?
+    var questionId: Int?
     
-    init(withQuestionId questionId: String? = nil) {
+    var notes: [NoteCellModel] = []
+    
+    init(withQuestionId questionId: Int? = nil) {
         self.questionId = questionId
         super.init()
+        notes = DB.shared.getNotes(attachedToQuestion: questionId).map { model(fromDbObject: $0) }
+    }
+    
+    fileprivate func model(fromDbObject dbObject: Note) -> NoteCellModel {
+        return NoteCellModel(note: dbObject,
+                             text: dbObject.body ?? "",
+                             date: DateFormatter.noteCell.string(from: dbObject.date ?? Date()),
+                             isSynced: dbObject.synced)
     }
     
 }

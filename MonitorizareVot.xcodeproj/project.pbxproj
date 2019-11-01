@@ -18,6 +18,10 @@
 		28104136236B5DE000B7422C /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28104134236B5DE000B7422C /* NoteViewController.swift */; };
 		28104137236B5DE000B7422C /* NoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28104135236B5DE000B7422C /* NoteViewController.xib */; };
 		28104139236B5DEF00B7422C /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28104138236B5DEF00B7422C /* NoteViewModel.swift */; };
+		2810413C236C2EC300B7422C /* NoteHistoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2810413A236C2EC300B7422C /* NoteHistoryTableCell.swift */; };
+		2810413D236C2EC300B7422C /* NoteHistoryTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2810413B236C2EC300B7422C /* NoteHistoryTableCell.xib */; };
+		28104140236C3A4900B7422C /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2810413F236C3A4900B7422C /* Formatters.swift */; };
+		28104142236C3FD500B7422C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28104141236C3FD500B7422C /* Alerts.swift */; };
 		2817EA162358CD0A0029AD4C /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817EA152358CD0A0029AD4C /* APIManager.swift */; };
 		2817EA182358CF5F0029AD4C /* ApiURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817EA172358CF5F0029AD4C /* ApiURL.swift */; };
 		2817EA1A2358DF330029AD4C /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817EA192358DF330029AD4C /* AccountManager.swift */; };
@@ -176,6 +180,10 @@
 		28104134236B5DE000B7422C /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		28104135236B5DE000B7422C /* NoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteViewController.xib; sourceTree = "<group>"; };
 		28104138236B5DEF00B7422C /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
+		2810413A236C2EC300B7422C /* NoteHistoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteHistoryTableCell.swift; sourceTree = "<group>"; };
+		2810413B236C2EC300B7422C /* NoteHistoryTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteHistoryTableCell.xib; sourceTree = "<group>"; };
+		2810413F236C3A4900B7422C /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		28104141236C3FD500B7422C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		2817EA152358CD0A0029AD4C /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		2817EA172358CF5F0029AD4C /* ApiURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiURL.swift; sourceTree = "<group>"; };
 		2817EA192358DF330029AD4C /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
@@ -376,6 +384,15 @@
 			name = Localizations;
 			sourceTree = "<group>";
 		};
+		2810413E236C3A3700B7422C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2810413F236C3A4900B7422C /* Formatters.swift */,
+				28104141236C3FD500B7422C /* Alerts.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		2817EA222358FA8E0029AD4C /* APITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +455,8 @@
 				289E1E8B235F2ABE000C92A0 /* FormSetTableCell.xib */,
 				28C3638D2364512E0084065C /* QuestionTableCell.swift */,
 				28C3638E2364512E0084065C /* QuestionTableCell.xib */,
+				2810413A236C2EC300B7422C /* NoteHistoryTableCell.swift */,
+				2810413B236C2EC300B7422C /* NoteHistoryTableCell.xib */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -602,6 +621,7 @@
 		E7E1F2C21DDB586100CE52FC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2810413E236C3A3700B7422C /* Extensions */,
 				28A7DCB7235DBDD6000B00C4 /* Storage */,
 				67EE98C922A296B1006E4762 /* Logging */,
 				E7E1F2C51DDB59C800CE52FC /* API */,
@@ -1024,6 +1044,7 @@
 				E7FEC2BF1DE09E6300F2F04D /* BasicAnswerTableViewCell.xib in Resources */,
 				27BBB27B21510B9600D72D72 /* LaunchScreen.storyboard in Resources */,
 				282045D5224F936F004B6D5D /* FormPickerCollectionViewCell.xib in Resources */,
+				2810413D236C2EC300B7422C /* NoteHistoryTableCell.xib in Resources */,
 				28E7245D233F59260096454D /* SectionHUDViewController.xib in Resources */,
 				EFEC82041DCF25B800610D79 /* QuestionCollectionViewCell.xib in Resources */,
 				28E72456233F58010096454D /* SectionDetailsViewController.xib in Resources */,
@@ -1202,13 +1223,16 @@
 				289E1E79235EF6FC000C92A0 /* ReachabilityManager.swift in Sources */,
 				2817EA162358CD0A0029AD4C /* APIManager.swift in Sources */,
 				E7EB673F1DE5F03A00260CC1 /* RootViewController.swift in Sources */,
+				2810413C236C2EC300B7422C /* NoteHistoryTableCell.swift in Sources */,
 				E7CC3A001DDF30AF0010688D /* MVUITextView.swift in Sources */,
 				E74087261DDC924F00D9332F /* FormsPersistor.swift in Sources */,
+				28104142236C3FD500B7422C /* Alerts.swift in Sources */,
 				E7E1F2C41DDB586800CE52FC /* APIURLs.swift in Sources */,
 				28C3639523646D480084065C /* DefaultTableHeader.swift in Sources */,
 				EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */,
 				2817EA1C2358F2140029AD4C /* PreferencesManager.swift in Sources */,
 				F553E3BB1DF9D67A000D0902 /* Question+CoreDataClass.swift in Sources */,
+				28104140236C3A4900B7422C /* Formatters.swift in Sources */,
 				E74087331DDCA79000D9332F /* MVAnswer.swift in Sources */,
 				28E72458233F58100096454D /* SectionDetailsViewModel.swift in Sources */,
 				28104139236B5DEF00B7422C /* NoteViewModel.swift in Sources */,
@@ -1402,6 +1426,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;

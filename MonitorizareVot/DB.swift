@@ -98,4 +98,32 @@ class DB: NSObject {
             print("Error: couldn't save synced status locally: \(error)")
         }
     }
+
+    /// Returns the list of all saved notes in this section. Optionally you can pass the questionId to return
+    /// only the notes attached to that question. If nil, it will return all notes that aren't attached to any question
+    /// - Parameter questionId: the question id
+    func getNotes(attachedToQuestion questionId: Int?) -> [Note] {
+        guard let section = currentSectionInfo() else { return [] }
+        let request: NSFetchRequest<Note> = Note.fetchRequest()
+        let sectionPredicate = NSPredicate(format: "sectionInfo == %@", section)
+        let questionPredicate = NSPredicate(format: "questionID == %d", Int16(questionId ?? -1))
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [sectionPredicate, questionPredicate])
+        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+        let notes = CoreData.fetch(request) as? [Note]
+        return notes ?? []
+    }
+    
+    func saveNote(withText text: String, fileAttachment: Data?, questionId: Int?) throws -> Note {
+        let noteEntityDescription = NSEntityDescription.entity(forEntityName: "Note", in: CoreData.context)
+        let note = Note(entity: noteEntityDescription!, insertInto: CoreData.context)
+        note.body = text
+        note.date = Date()
+        note.questionID = Int16(questionId ?? -1)
+        note.file = fileAttachment as NSData?
+        note.synced = false
+        note.sectionInfo = currentSectionInfo()
+        try CoreData.save()
+        return note
+    }
+    
 }

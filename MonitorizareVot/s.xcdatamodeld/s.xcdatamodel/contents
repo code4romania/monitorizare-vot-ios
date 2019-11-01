@@ -10,6 +10,7 @@
     </entity>
     <entity name="Note" representedClassName="Note" versionHashModifier="1" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="file" optional="YES" attributeType="Binary"/>
         <attribute name="questionID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="synced" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -43,7 +44,7 @@
     </entity>
     <elements>
         <element name="Answer" positionX="376" positionY="459" width="128" height="133"/>
-        <element name="Note" positionX="198" positionY="288" width="128" height="118"/>
+        <element name="Note" positionX="198" positionY="288" width="128" height="133"/>
         <element name="Question" positionX="178" positionY="447" width="128" height="178"/>
         <element name="SectionInfo" positionX="-11" positionY="252" width="128" height="238"/>
     </elements>

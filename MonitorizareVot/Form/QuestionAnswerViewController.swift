@@ -42,6 +42,7 @@ class QuestionAnswerViewController: MVViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateInterface()
+        updateTitle()
         scrollToCurrentIndex()
     }
     
@@ -107,7 +108,9 @@ class QuestionAnswerViewController: MVViewController {
     }
     
     func handleAddNote(toQuestion question: QuestionAnswerCellModel) {
-        // TODO: after implementing the note screen
+        let noteModel = NoteViewModel(withQuestionId: question.questionId)
+        let noteController = NoteViewController(withModel: noteModel)
+        navigationController?.pushViewController(noteController, animated: true)
     }
     
     func askForText(ofQuestion question: QuestionAnswerCellModel, answerIndex: Int,

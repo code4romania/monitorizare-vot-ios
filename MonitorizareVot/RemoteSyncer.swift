@@ -116,7 +116,7 @@ class RemoteSyncer: NSObject {
         for note in notes {
             let uploadRequest = UploadNoteRequest(
                 imageData: note.file as Data?,
-                questionId: Int(note.questionID),
+                questionId: note.questionID != -1 ? Int(note.questionID) : nil,
                 countyCode: section.judet!,
                 pollingStationId: Int(section.sectie!) ?? 0,
                 text: note.body ?? "")
@@ -126,6 +126,10 @@ class RemoteSyncer: NSObject {
                     print("Failed to uploaded note: \(error.localizedDescription)")
                 } else {
                     print("Uploaded note")
+                    
+                    // also mark it as synced
+                    note.synced = true
+                    try? CoreData.save()
                 }
                 
                 passedRequests += 1

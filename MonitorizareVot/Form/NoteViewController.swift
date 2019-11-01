@@ -18,7 +18,7 @@ class NoteViewController: MVViewController {
     
     /// This backs the history table view's header to allow the user to add notes
     lazy var attachNoteController: AttachNoteViewController = {
-        let noteModel = AttachNoteViewModel()
+        let noteModel = AttachNoteViewModel(withQuestionId: model.questionId)
         let controller = AttachNoteViewController(withModel: noteModel)
         return controller
     }()
@@ -42,9 +42,15 @@ class NoteViewController: MVViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Title.Note".localized
         configureTableView()
         addContactDetailsToNavBar()
         configureSubviews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addHeaderIfNecessary()
     }
     
     fileprivate func configureTableView() {
@@ -54,11 +60,24 @@ class NoteViewController: MVViewController {
             automaticallyAdjustsScrollViewInsets = false
         }
         
-        // TODO: register cell
+        historyTableView.register(UINib(nibName: "NoteHistoryTableCell", bundle: nil),
+                                  forCellReuseIdentifier: NoteHistoryTableCell.reuseIdentifier)
+        historyTableView.rowHeight = UITableView.automaticDimension
+        historyTableView.estimatedRowHeight = 60
         
+    }
+    
+    fileprivate func addHeaderIfNecessary() {
         let attachNote = attachNoteController
-        addChild(attachNote)
-        historyTableView.tableHeaderView = attachNote.view
+        if attachNote.parent == nil {
+            addChild(attachNote)
+        }
+        
+        attachNoteController.view.translatesAutoresizingMaskIntoConstraints = false
+        attachNoteController.contentWidth.constant = view.frame.width
+        attachNoteController.view.layoutIfNeeded()
+
+        historyTableView.tableHeaderView = attachNote.content
     }
     
     fileprivate func configureSubviews() {
@@ -74,10 +93,37 @@ extension NoteViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return model.notes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        fatalError()
+        let cell = tableView.dequeueReusableCell(withIdentifier: NoteHistoryTableCell.reuseIdentifier,
+                                                 for: indexPath) as! NoteHistoryTableCell
+        let cellModel = model.notes[indexPath.row]
+        cell.update(withModel: cellModel)
+        return cell
     }
 }
+
+extension NoteViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let width = tableView.bounds.width
+        let header = DefaultTableHeader(frame: CGRect(x: 0, y: 0, width: width, height: TableSectionHeaderHeight))
+        header.titleLabel.text = "Title.NoteHistory".localized
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: .zero)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return TableSectionHeaderHeight
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return TableSectionFooterHeight
+    }
+    
+}
+

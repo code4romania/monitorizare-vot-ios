@@ -14,9 +14,12 @@ class AttachNoteViewController: UIViewController {
     
     let model: AttachNoteViewModel
     
+    @IBOutlet weak var contentWidth: NSLayoutConstraint!
+    @IBOutlet weak var content: UIView!
     @IBOutlet weak var outerContainer: UIView!
     @IBOutlet weak var cardContainer: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var statusIcon: UIImageView!
     @IBOutlet weak var textViewContainer: UIView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewPlaceHolder: UILabel!
@@ -39,14 +42,18 @@ class AttachNoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         localize()
+        bindToModelUpdates()
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        updateAppearance()
+        configureAppearance()
+        updateInterface()
     }
     
-    fileprivate func updateAppearance() {
+    // MARK: - Config
+    
+    fileprivate func configureAppearance() {
         cardContainer.layer.masksToBounds = true
         cardContainer.layer.cornerRadius = Configuration.buttonCornerRadius
         outerContainer.layer.shadowColor = UIColor.cardDarkerShadow.cgColor
@@ -68,5 +75,53 @@ class AttachNoteViewController: UIViewController {
         submitButton.setTitle("Button_Submit".localized, for: .normal)
         textViewPlaceHolder.text = "Label_TypeNote".localized
     }
+    
+    fileprivate func bindToModelUpdates() {
+        model.onUpdate = { [weak self] in
+            self?.updateInterface()
+        }
+    }
+    
+    // MARK: - UI
+    
+    fileprivate func updateInterface() {
+        submitButton.isEnabled = model.canBeSaved
+        statusIcon.isHidden = !model.isSaved
+        statusIcon.image = model.isSynced ? #imageLiteral(resourceName: "icon-check") : #imageLiteral(resourceName: "icon-check-greyed")
+        textViewPlaceHolder.isHidden = model.text.count > 0
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func handleAttachAction(_ sender: Any) {
+        // TODO:
+    }
+    
+    @IBAction func handleSubmitAction(_ sender: Any) {
+        submitButton.isEnabled = false
+        model.saveAndUpload { [weak self] error in
+            guard let self = self else { return }
+            if let error = error,
+                case AttachNoteError.saveFailed = error {
+                let alert = UIAlertController.error(withMessage: error.localizedDescription)
+                self.present(alert, animated: true, completion: nil)
+                self.submitButton.isEnabled = true
+            } else {
+                // back out
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+    }
+    
+}
 
+
+extension AttachNoteViewController: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let replaced = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        model.text = replaced
+        return true
+    }
 }

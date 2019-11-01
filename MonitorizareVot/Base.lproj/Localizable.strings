@@ -85,6 +85,8 @@
 "Error.IncorrectFormat" = "Incorrect response format";
 "Error.TokenExpired" = "Your authentication expired. Please log in again.";
 "Error.DataDownloadFailed" = "We couldn't download the latest data. Please try again later.";
+"Error.SaveNoteFailed" = "We couldn't save your note. Please try again later.";
+"Error.UploadNoteFailed" = "We couldn't upload your note. We will retry later.";
 
 "Info.DataNotSyncronised" = "It appears that some of the questions have not been syncronised. Tap the button below to send the answers again";
 
@@ -94,6 +96,7 @@
 "Title.FormSets" = "All Forms";
 "Title.Question" = "Question";
 "Title.Note" = "Notes";
+"Title.NoteHistory" = "Note History";
 
 "Next" = "Next";
 "Previous" = "Previous";

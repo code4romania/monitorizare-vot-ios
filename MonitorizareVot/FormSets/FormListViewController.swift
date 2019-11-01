@@ -144,9 +144,15 @@ class FormListViewController: MVViewController {
     }
     
     @IBAction func handleSyncButtonAction(_ sender: Any) {
-        // TODO: implement progress once the API Calls are refactored
         setSyncContainer(hidden: true, animated: true)
-        DBSyncer.shared.syncUnsyncedData()
+        RemoteSyncer.shared.syncUnsyncedData { error in
+            if let error = error {
+                let alert = UIAlertController.error(withMessage: error.localizedDescription)
+                self.present(alert, animated: true) {
+                    self.setSyncContainer(hidden: false, animated: true)
+                }
+            }
+        }
     }
     
     fileprivate func continueToForm(withCode code: String) {
@@ -164,7 +170,7 @@ class FormListViewController: MVViewController {
         let noteModel = NoteViewModel()
         let controller = NoteViewController(withModel: noteModel)
         navigationController?.pushViewController(controller, animated: true)
-//        
+//
 //        // TODO: replace this after refactoring the note
 //        let addNoteViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNoteViewController") as! AddNoteViewController
 //        self.navigationController?.pushViewController(addNoteViewController, animated: true)

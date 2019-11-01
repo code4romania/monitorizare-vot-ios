@@ -21,5 +21,6 @@ extension Note {
     @NSManaged public var questionID: Int16
     @NSManaged public var synced: Bool
     @NSManaged public var sectionInfo: SectionInfo?
+    @NSManaged public var date: Date?
 
 }
