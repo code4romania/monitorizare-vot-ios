@@ -21,10 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         configureAppearance()
         
-        if #available(iOS 13.0, *) {
-            window?.overrideUserInterfaceStyle = .light
-        }
-        
         #if DEBUG
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
         #endif
@@ -70,7 +66,14 @@ extension AppDelegate {
     }
     
     fileprivate func setRootViewController() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
         // TODO: set the onboarding if necessary
+        
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
+        
         let entryViewController = LoginViewController()
         let navigation = UINavigationController(rootViewController: entryViewController)
         window?.rootViewController = navigation
