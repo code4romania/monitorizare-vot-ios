@@ -29,7 +29,7 @@ class SectionDetailsViewModel: NSObject {
     var gender: SectionInfo.Genre? {
        didSet {
            if let gender = gender {
-               DB.shared.currentSectionInfo()?.genre = gender.rawValue
+               DB.shared.currentSectionInfo()?.presidentGender = gender.rawValue
                try! CoreData.save()
            }
            onUpdate?()
@@ -63,7 +63,7 @@ class SectionDetailsViewModel: NSObject {
         if let medium = sectionInfo?.medium {
             self.medium = SectionInfo.Medium(rawValue: medium)
         }
-        if let gender = sectionInfo?.genre {
+        if let gender = sectionInfo?.presidentGender {
             self.gender = SectionInfo.Genre(rawValue: gender)
         }
         self.arrivalTime = sectionInfo?.arriveTime

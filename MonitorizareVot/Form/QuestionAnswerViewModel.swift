@@ -65,7 +65,7 @@ class QuestionAnswerViewModel: NSObject {
     }
     
     fileprivate func generateModels(usingFormSections formSections: [FormSectionResponse]) {
-        guard let sectionInfo = DBSyncer.shared.currentSectionInfo else { return }
+        guard let sectionInfo = DB.shared.currentSectionInfo() else { return }
         let allQuestions = sections.reduce(into: [QuestionResponse]()) { $0 += $1.questions }
         
         var models: [QuestionAnswerCellModel] = []
@@ -147,7 +147,6 @@ class QuestionAnswerViewModel: NSObject {
         let normalizedText = userText?.trimmingCharacters(in: .whitespacesAndNewlines)
         guard let text = normalizedText, text.count > 0 else { return }
         let questionData = questions[questionIndex]
-        let answerData = questionData.questionAnswers[answerIndex]
         questions[questionIndex].questionAnswers[answerIndex].userText = text
         let isSelected = text.count > 0
         questions[questionIndex].questionAnswers[answerIndex].setIsSelected(isSelected)
@@ -175,12 +174,12 @@ class QuestionAnswerViewModel: NSObject {
     func save(withModel questionModel: QuestionAnswerCellModel) {
         var question: Question! = DB.shared.getQuestion(withId: questionModel.questionId)
         if question == nil {
-            question = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context) as! Question
+            question = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context) as? Question
             question.form = form.code
             question.id = Int16(questionModel.questionId)
             question.synced = false
             question.type = Int16(questionModel.type.rawValue)
-            question.sectionInfo = DBSyncer.shared.currentSectionInfo
+            question.sectionInfo = DB.shared.currentSectionInfo()
         }
         
         if let existingAnswers = question.answers {

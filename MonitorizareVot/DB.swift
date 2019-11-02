@@ -12,16 +12,20 @@ import CoreData
 class DB: NSObject {
     static let shared = DB()
     
+    var needsSync: Bool {
+        return getUnsyncedNotes().count + getUnsyncedQuestions().count > 0
+    }
+    
     func currentSectionInfo() -> SectionInfo? {
         guard let county = PreferencesManager.shared.county,
             let stationId = PreferencesManager.shared.section else { return nil }
-        return sectionInfo(for: county, sectie: stationId)
+        return sectionInfo(for: county, sectionId: stationId)
     }
     
-    func sectionInfo(for judet: String, sectie:String) -> SectionInfo {
+    func sectionInfo(for county: String, sectionId: Int) -> SectionInfo {
         let request: NSFetchRequest<SectionInfo> = SectionInfo.fetchRequest()
         request.fetchLimit = 1
-        request.predicate = NSPredicate(format: "judet == %@ && sectie == %@", judet, sectie)
+        request.predicate = NSPredicate(format: "countyCode == %@ && sectionId == %d", county, Int16(sectionId))
         let sections = try? CoreData.context.fetch(request)
         if let sectionInfo = sections?.first {
             return sectionInfo
@@ -29,8 +33,8 @@ class DB: NSObject {
             // create it
             let sectionInfoEntityDescription = NSEntityDescription.entity(forEntityName: "SectionInfo", in: CoreData.context)
             let newSectioInfo = SectionInfo(entity: sectionInfoEntityDescription!, insertInto: CoreData.context)
-            newSectioInfo.judet = judet
-            newSectioInfo.sectie = sectie
+            newSectioInfo.countyCode = county
+            newSectioInfo.sectionId = Int16(sectionId)
             newSectioInfo.synced = false
             try! CoreData.context.save()
             return newSectioInfo
