@@ -15,7 +15,8 @@ class TimePickerViewController: UIViewController {
     @IBOutlet weak var picker: UIDatePicker!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
-    
+    @IBOutlet weak var container: UIView!
+
     var onCompletion: ((_ date: Date?) -> Void)?
     
     init(withModel model: TimePickerViewModel) {
@@ -29,28 +30,30 @@ class TimePickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureColors()
+        configureView()
         configureTexts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateInterface()
-        view.backgroundColor = .clear
-        UIView.animate(withDuration: 0.3, delay: 0.3, options: [], animations: {
-            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.1)
-        }, completion: nil)
     }
     
     // MARK: - Config
     
-    fileprivate func configureColors() {
-        doneButton.setTitleColor(.navigationBarBackground, for: .normal)
-        cancelButton.setTitleColor(.navigationBarBackground, for: .normal)
+    fileprivate func configureView() {
+        container.backgroundColor = .navigationBarBackground
+        container.tintColor = .navigationBarTint
+        container.layer.shadowColor = UIColor.cardDarkerShadow.cgColor
+        container.layer.shadowRadius = Configuration.shadowRadius
+        container.layer.shadowOffset = .zero
+        container.layer.shadowOpacity = Configuration.shadowOpacity
+        container.layer.cornerRadius = Configuration.buttonCornerRadius
     }
     
     fileprivate func configureTexts() {
-        // TODO:
+        doneButton.setTitle("Select".localized, for: .normal)
+        cancelButton.setTitle("Cancel".localized, for: .normal)
     }
     
     fileprivate func updateInterface() {

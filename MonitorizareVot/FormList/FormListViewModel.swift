@@ -8,6 +8,18 @@
 
 import UIKit
 
+enum FormListViewModelError: Error {
+    case forms(reason: String)
+    
+    var localizedDescription: String {
+        // TODO: localize
+        switch self {
+        case .forms(let reason):
+            return "Could not download forms. " + reason
+        }
+    }
+}
+
 class FormListViewModel: NSObject {
     var forms: [FormSetCellModel] = []
     
@@ -18,7 +30,7 @@ class FormListViewModel: NSObject {
     var isSynchronising: Bool = false
     
     /// Get notified when new sets are downloaded
-    var onDownloadComplete: ((APIError?) -> Void)?
+    var onDownloadComplete: ((FormListViewModelError?) -> Void)?
 
     /// Get notified when downloading state has changed
     var onDownloadingStateChanged: (() -> Void)?
@@ -61,15 +73,13 @@ class FormListViewModel: NSObject {
     
     func downloadFreshData() {
         isDownloadingData = true
-        APIManager.shared.fetchForms { (forms, error) in
+        ApplicationData.shared.downloadUpdatedForms { error in
             self.isDownloadingData = false
-            self.convertToViewModels(responses: forms)
-            self.onDownloadComplete?(error)
-            if let forms = forms {
-                // Also cache them for later
-                DispatchQueue.main.async {
-                    LocalStorage.shared.forms = forms
-                }
+            self.convertToViewModels(responses: LocalStorage.shared.forms)
+            if let error = error {
+                self.onDownloadComplete?(.forms(reason: error.localizedDescription))
+            } else {
+                self.onDownloadComplete?(nil)
             }
         }
     }

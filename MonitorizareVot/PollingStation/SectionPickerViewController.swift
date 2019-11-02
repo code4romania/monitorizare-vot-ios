@@ -41,6 +41,7 @@ class SectionPickerViewController: MVViewController {
         bindToModelUpdates()
         localize()
         fetchStations()
+        addContactDetailsToNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +69,8 @@ class SectionPickerViewController: MVViewController {
             if let error = error {
                 let alert = UIAlertController.error(withMessage: error.localizedDescription)
                 self?.present(alert, animated: true, completion: nil)
+            } else {
+                self?.updateInterface()
             }
         }
     }

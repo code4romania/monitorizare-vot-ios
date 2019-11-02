@@ -4,7 +4,7 @@ import Foundation
 import UIKit
 import SwiftKeychainWrapper
 
-class LoginViewController: RootViewController, UITextFieldDelegate {
+class OldLoginViewController: RootViewController, UITextFieldDelegate {
     
     // MARK: - iVars
     private var tapGestureRecognizer: UITapGestureRecognizer?
@@ -128,7 +128,7 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     }
     
     private func setTapGestureRecognizer() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.keyboardIsHidden))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(OldLoginViewController.keyboardIsHidden))
         self.tapGestureRecognizer = tapGestureRecognizer
         self.view.addGestureRecognizer(tapGestureRecognizer)
     }

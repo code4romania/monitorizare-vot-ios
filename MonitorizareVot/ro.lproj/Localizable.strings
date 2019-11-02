@@ -57,6 +57,7 @@
 "Label_County" = "Județ / Sector";
 "Label_StationNumber" = "Numărul secției";
 "Label_SelectOption" = "Alege o opțiune";
+"Label_DevelopedBy" = "dezvoltat de";
 
 "Label_AddNote" = "Adaugă o notă";
 "Label_TypeNote" = "Scrie aici nota";

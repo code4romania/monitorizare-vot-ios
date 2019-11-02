@@ -29,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
         #endif
         
+        setRootViewController()
+        
         return true
     }
     
@@ -47,12 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        if ReachabilityManager.shared.isReachable {
-            RemoteSyncer.shared.syncUnsyncedData { error in
-                print("Tried to sync any unsynced data. Error? \(error?.localizedDescription ?? "None")")
-            }
-        } else {
-            print("Would sync any unsynced data, but we're not online")
+        RemoteSyncer.shared.syncUnsyncedData { error in
+            print("Tried to sync any unsynced data. Error? \(error?.localizedDescription ?? "None")")
         }
     }
     
@@ -67,5 +65,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     fileprivate func configureAppearance() {
         UINavigationBar.appearance().tintColor = UIColor.navigationBarTint
+        UINavigationBar.appearance().backgroundColor = .navigationBarBackground
+        UINavigationBar.appearance().barTintColor = .navigationBarBackground
+    }
+    
+    fileprivate func setRootViewController() {
+        // TODO: set the onboarding if necessary
+        let entryViewController = LoginViewController()
+        let navigation = UINavigationController(rootViewController: entryViewController)
+        window?.rootViewController = navigation
+        window?.makeKeyAndVisible()
     }
 }

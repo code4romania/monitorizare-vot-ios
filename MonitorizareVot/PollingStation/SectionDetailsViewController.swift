@@ -171,7 +171,6 @@ class SectionDetailsViewController: MVViewController {
             }
             controller.dismiss(animated: true, completion: nil)
         }
-        controller.modalPresentationStyle = .overCurrentContext
         present(controller, animated: true, completion: nil)
     }
     
