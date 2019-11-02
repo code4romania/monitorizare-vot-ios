@@ -19,9 +19,9 @@ class PreferencesManager: NSObject, PreferencesManagerType {
     static let shared: PreferencesManagerType = PreferencesManager()
     
     enum SettingKey: String {
-        case county = "county"
-        case section = "sectionId"
-        case sectionName = "sectionName"
+        case county = "PreferenceCounty"
+        case section = "PreferenceSectionId"
+        case sectionName = "PreferenceSectionName"
     }
     
     var county: String? {
@@ -60,6 +60,6 @@ class PreferencesManager: NSObject, PreferencesManagerType {
     }
 
     fileprivate func getValue(forKey key: SettingKey) -> Any? {
-        return UserDefaults.standard.string(forKey: key.rawValue)
+        return UserDefaults.standard.object(forKey: key.rawValue)
     }
 }

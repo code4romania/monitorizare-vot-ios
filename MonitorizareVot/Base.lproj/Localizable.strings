@@ -58,6 +58,7 @@
 "Label_County" = "County / District";
 "Label_StationNumber" = "Polling station number";
 "Label_SelectOption" = "Select an option";
+"Label_DevelopedBy" = "developed by";
 
 "Label_AddNote" = "Add a note";
 "Label_TypeNote" = "Type your note here";

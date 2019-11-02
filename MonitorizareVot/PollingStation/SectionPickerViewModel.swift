@@ -110,6 +110,11 @@ class SectionPickerViewModel: NSObject {
             return
         }
         let _ = DB.shared.sectionInfo(for: county, sectionId: sectionId)
+        PreferencesManager.shared.county = county
+        PreferencesManager.shared.section = sectionId
+        if let countyName = selectedCountyName {
+            PreferencesManager.shared.sectionName = "Station".localized + " \(sectionId) \(countyName)"
+        }
         callback(nil)
     }
     

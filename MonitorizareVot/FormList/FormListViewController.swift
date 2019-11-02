@@ -40,13 +40,13 @@ class FormListViewController: MVViewController {
         title = "Title.FormSets".localized
         configureSubviews()
         addContactDetailsToNavBar()
+        bindToUpdates()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         model.reload()
         updateInterface()
-        bindToUpdates()
         DispatchQueue.main.async {
             self.configureSyncContainer()
             if self.model.forms.isEmpty {
@@ -77,10 +77,12 @@ class FormListViewController: MVViewController {
                     self.retryButton.isHidden = false
                     self.tableView.isHidden = true
                 } else {
-                    self.tableView.isHidden = false
-                    self.retryButton.isHidden = true
                     self.updateInterface()
                 }
+            } else {
+                self.tableView.isHidden = false
+                self.retryButton.isHidden = true
+                self.updateInterface()
             }
         }
         model.onDownloadingStateChanged = { [weak self] in

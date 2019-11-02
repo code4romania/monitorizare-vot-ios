@@ -70,8 +70,9 @@ class DropdownButton: UIButton {
         label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         accessoryImageView.setContentHuggingPriority(.required, for: .horizontal)
+        accessoryImageView.setContentCompressionResistancePriority(.required, for: .horizontal)
         accessoryImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        accessoryImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16).isActive = true
+        accessoryImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
 
         tintColor = .clear
         
