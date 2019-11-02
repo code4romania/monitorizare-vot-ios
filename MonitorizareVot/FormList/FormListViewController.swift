@@ -106,7 +106,7 @@ class FormListViewController: MVViewController {
     }
     
     fileprivate func configureSyncContainer() {
-        let needsSync = DBSyncer.shared.needsSync()
+        let needsSync = DB.shared.needsSync
         setSyncContainer(hidden: !needsSync)
     }
 

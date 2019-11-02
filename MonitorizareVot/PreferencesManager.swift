@@ -11,7 +11,7 @@ import UIKit
 
 protocol PreferencesManagerType: NSObject {
     var county: String? { get set }
-    var section: String? { get set }
+    var section: Int? { get set }
     var sectionName: String? { get set }
 }
 
@@ -20,7 +20,7 @@ class PreferencesManager: NSObject, PreferencesManagerType {
     
     enum SettingKey: String {
         case county = "county"
-        case section = "section"
+        case section = "sectionId"
         case sectionName = "sectionName"
     }
     
@@ -32,11 +32,11 @@ class PreferencesManager: NSObject, PreferencesManagerType {
         }
     }
 
-    var section: String? {
+    var section: Int? {
         set {
             setValue(newValue, forKey: .section)
         } get {
-            return getValue(forKey: .section) as? String
+            return getValue(forKey: .section) as? Int
         }
     }
     

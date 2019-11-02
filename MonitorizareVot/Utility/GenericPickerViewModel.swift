@@ -16,6 +16,12 @@ struct GenericPickerValue {
 class GenericPickerViewModel: NSObject {
     var values: [GenericPickerValue]
     
+    var selectedValue: GenericPickerValue? {
+        return selectedIndex < values.count ? values[selectedIndex] : nil
+    }
+    
+    var selectedIndex: Int = 0
+    
     init(withValues values: [GenericPickerValue]) {
         self.values = values
         super.init()

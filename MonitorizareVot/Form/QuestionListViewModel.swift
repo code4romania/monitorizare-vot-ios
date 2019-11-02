@@ -43,7 +43,7 @@ class QuestionListViewModel: NSObject {
     
     func questions(inSection section: Int) -> [QuestionCellModel] {
         guard sections.count > section else { return [] }
-        guard let sectionInfo = DBSyncer.shared.currentSectionInfo else { return [] }
+        guard let sectionInfo = DB.shared.currentSectionInfo() else { return [] }
         
         let storedQuestions = sectionInfo.questions?.allObjects as? [Question] ?? []
         let mappedQuestions = storedQuestions.reduce(into: [Int: Question]()) { $0[Int($1.id)] = $1 }

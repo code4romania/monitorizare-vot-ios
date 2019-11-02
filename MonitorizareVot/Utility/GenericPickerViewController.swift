@@ -15,6 +15,10 @@ class GenericPickerViewController: UIViewController {
     @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var toolbar: UIView!
+    @IBOutlet weak var container: UIView!
+    
+    var onCompletion: ((_ value: GenericPickerValue?) -> Void)?
     
     init(withModel model: GenericPickerViewModel) {
         self.model = model
@@ -27,35 +31,45 @@ class GenericPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureColors()
         configureTexts()
-        // TODO: finish this implementation when refactoring the section picker screen
+        configureView()
+        picker.selectRow(model.selectedIndex, inComponent: 0, animated: false)
     }
     
     // MARK: - Config
     
-    fileprivate func configureColors() {
-        doneButton.setTitleColor(.navigationBarBackground, for: .normal)
-        cancelButton.setTitleColor(.navigationBarBackground, for: .normal)
+    fileprivate func configureView() {
+        container.backgroundColor = .navigationBarBackground
+        container.tintColor = .navigationBarTint
+        container.layer.shadowColor = UIColor.cardDarkerShadow.cgColor
+        container.layer.shadowRadius = Configuration.shadowRadius
+        container.layer.shadowOffset = .zero
+        container.layer.shadowOpacity = Configuration.shadowOpacity
+        container.layer.cornerRadius = Configuration.buttonCornerRadius
     }
     
     fileprivate func configureTexts() {
-        // TODO:
+        doneButton.setTitle("Select".localized, for: .normal)
+        cancelButton.setTitle("Cancel".localized, for: .normal)
     }
     
     // MARK: - Actions
 
     @IBAction func handleDoneButtonTap(_ sender: Any) {
+        onCompletion?(model.selectedValue)
     }
     
     @IBAction func handleCancelButtonTap(_ sender: Any) {
+        onCompletion?(nil)
     }
 
 }
 
 
 extension GenericPickerViewController: UIPickerViewDelegate {
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        model.selectedIndex = row
+    }
 }
 
 extension GenericPickerViewController: UIPickerViewDataSource {

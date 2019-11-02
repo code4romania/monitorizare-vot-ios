@@ -28,16 +28,12 @@
         <relationship name="sectionInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SectionInfo" inverseName="questions" inverseEntity="SectionInfo"/>
     </entity>
     <entity name="SectionInfo" representedClassName="SectionInfo" syncable="YES">
-        <attribute name="arriveHour" optional="YES" attributeType="String"/>
-        <attribute name="arriveMinute" optional="YES" attributeType="String"/>
         <attribute name="arriveTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="genre" optional="YES" attributeType="String"/>
-        <attribute name="judet" attributeType="String"/>
+        <attribute name="countyCode" optional="YES" attributeType="String"/>
         <attribute name="leaveTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="leftHour" optional="YES" attributeType="String"/>
-        <attribute name="leftMinute" optional="YES" attributeType="String"/>
         <attribute name="medium" optional="YES" attributeType="String"/>
-        <attribute name="sectie" attributeType="String"/>
+        <attribute name="presidentGender" optional="YES" attributeType="String"/>
+        <attribute name="sectionId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="synced" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="sectionInfo" inverseEntity="Note"/>
         <relationship name="questions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="sectionInfo" inverseEntity="Question"/>
@@ -46,6 +42,6 @@
         <element name="Answer" positionX="376" positionY="459" width="128" height="133"/>
         <element name="Note" positionX="198" positionY="288" width="128" height="133"/>
         <element name="Question" positionX="178" positionY="447" width="128" height="178"/>
-        <element name="SectionInfo" positionX="-11" positionY="252" width="128" height="238"/>
+        <element name="SectionInfo" positionX="-11" positionY="252" width="128" height="178"/>
     </elements>
 </model>

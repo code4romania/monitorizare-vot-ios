@@ -26,20 +26,16 @@ extension SectionInfo {
         return NSFetchRequest<SectionInfo>(entityName: "SectionInfo");
     }
 
-    @NSManaged public var arriveHour: String?
-    @NSManaged public var arriveMinute: String?
-    @NSManaged public var genre: String?
-    @NSManaged public var judet: String?
-    @NSManaged public var leftHour: String?
-    @NSManaged public var leftMinute: String?
+    @NSManaged public var countyCode: String?
+    @NSManaged public var sectionId: Int16
+    @NSManaged public var presidentGender: String?
     @NSManaged public var medium: String?
-    @NSManaged public var sectie: String?
     @NSManaged public var synced: Bool
-    @NSManaged public var notes: NSSet?
-    @NSManaged public var questions: NSSet?
     @NSManaged public var leaveTime: Date?
     @NSManaged public var arriveTime: Date?
 
+    @NSManaged public var notes: NSSet?
+    @NSManaged public var questions: NSSet?
 }
 
 // MARK: Generated accessors for notes

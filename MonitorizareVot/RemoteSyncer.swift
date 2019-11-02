@@ -35,7 +35,7 @@ class RemoteSyncer: NSObject {
     static let notificationAnswersKey = "answers"
 
     var needsSync: Bool {
-        return DBSyncer.shared.needsSync()
+        return DB.shared.needsSync
     }
     
     func syncUnsyncedData(then callback: @escaping (RemoteSyncerError?) -> Void) {
@@ -70,10 +70,10 @@ class RemoteSyncer: NSObject {
     }
     
     func uploadSectionInfo(_ section: SectionInfo, then callback: @escaping (RemoteSyncerError?) -> Void) {
-        guard let stationId = Int(section.sectie ?? ""),
-            let county = section.judet,
+        let stationId = Int(section.sectionId)
+        guard let county = section.countyCode,
             let medium = SectionInfo.Medium(rawValue: section.medium ?? ""),
-            let presidentGenre = SectionInfo.Genre(rawValue: section.genre ?? "") else {
+            let presidentGenre = SectionInfo.Genre(rawValue: section.presidentGender ?? "") else {
                 callback(.invalidStationData)
                 return
         }
@@ -117,8 +117,8 @@ class RemoteSyncer: NSObject {
             let uploadRequest = UploadNoteRequest(
                 imageData: note.file as Data?,
                 questionId: note.questionID != -1 ? Int(note.questionID) : nil,
-                countyCode: section.judet!,
-                pollingStationId: Int(section.sectie!) ?? 0,
+                countyCode: section.countyCode ?? "",
+                pollingStationId: Int(section.sectionId),
                 text: note.body ?? "")
             APIManager.shared.upload(note: uploadRequest) { error in
                 if let error = error {
@@ -159,8 +159,8 @@ class RemoteSyncer: NSObject {
             }
             let question = AnswerRequest(
                 questionId: Int(question.id),
-                countyCode: section.judet ?? "",
-                pollingStationId: Int(section.sectie ?? "") ?? 0,
+                countyCode: section.countyCode ?? "",
+                pollingStationId: Int(section.sectionId),
                 options: answerRequests)
             answers.append(question)
         }

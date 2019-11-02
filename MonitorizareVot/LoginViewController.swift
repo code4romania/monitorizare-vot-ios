@@ -21,7 +21,6 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loginAPIRequest = LoginAPIRequest(parentView: self)
-        layout()
         setTapGestureRecognizer()
         phoneNumberTextField.placeholder = "TextField_Placeholder_PhoneNumber".localized
         codeTextField.placeholder = "TextField_Placeholder_PINNumber".localized
@@ -32,6 +31,8 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: animated)
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardDidShow(notification:)),
@@ -116,12 +117,13 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
     }
     
     private func appFeaturesUnlocked() {
-        let sectieViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SectieViewController")
-        self.navigationController?.setViewControllers([sectieViewController], animated: true)
+        let sectionModel = SectionPickerViewModel()
+        let sectionController = SectionPickerViewController(withModel: sectionModel)
+        self.navigationController?.setViewControllers([sectionController], animated: true)
         
-        // download any new forms
-        ApplicationData.shared.downloadUpdatedForms { _ in
-        }
+//        // download any new forms
+//        ApplicationData.shared.downloadUpdatedForms { _ in
+//        }
     
     }
     
@@ -131,9 +133,9 @@ class LoginViewController: RootViewController, UITextFieldDelegate {
         self.view.addGestureRecognizer(tapGestureRecognizer)
     }
 
-    private func layout() {
-        self.navigationController?.navigationBar.isHidden = true
-    }
+//    private func layout() {
+//        self.navigationController?.navigationBar.isHidden = true
+//    }
     
     fileprivate func displayError(_ message: String) {
         let alert = UIAlertController(title: "Error".localized,

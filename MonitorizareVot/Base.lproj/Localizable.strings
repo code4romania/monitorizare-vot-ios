@@ -54,6 +54,11 @@
 "Label_Saved" = "Saved locally";
 "Label_Synced" = "Synced";
 
+"Label_ChooseStation" = "Choose the polling station you are in";
+"Label_County" = "County / District";
+"Label_StationNumber" = "Polling station number";
+"Label_SelectOption" = "Select an option";
+
 "Label_AddNote" = "Add a note";
 "Label_TypeNote" = "Type your note here";
 
@@ -87,6 +92,7 @@
 "Error.DataDownloadFailed" = "We couldn't download the latest data. Please try again later.";
 "Error.SaveNoteFailed" = "We couldn't save your note. Please try again later.";
 "Error.UploadNoteFailed" = "We couldn't upload your note. We will retry later.";
+"Error.SelectCountyFirst" = "Please select your county / district first.";
 
 "Info.DataNotSyncronised" = "It appears that some of the questions have not been syncronised. Tap the button below to send the answers again";
 
@@ -97,6 +103,9 @@
 "Title.Question" = "Question";
 "Title.Note" = "Notes";
 "Title.NoteHistory" = "Note History";
+"Title.Section" = "Polling Station Setup";
 
 "Next" = "Next";
 "Previous" = "Previous";
+"Select" = "Select";
+"Cancel" = "Cancel";

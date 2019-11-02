@@ -53,6 +53,11 @@
 "Label_Saved" = "Salvat local";
 "Label_Synced" = "Sincronizat";
 
+"Label_ChooseStation" = "Alege secția în care te afli";
+"Label_County" = "Județ / Sector";
+"Label_StationNumber" = "Numărul secției";
+"Label_SelectOption" = "Alege o opțiune";
+
 "Label_AddNote" = "Adaugă o notă";
 "Label_TypeNote" = "Scrie aici nota";
 
@@ -86,6 +91,7 @@
 "Error.DataDownloadFailed" = "Nu am reușit să descărcăm ultimele date. Te rugăm să încerci mai târziu.";
 "Error.SaveNoteFailed" = "Nu am reușit să salvăm nota. Te rugăm să încerci mai târziu.";
 "Error.UploadNoteFailed" = "Nu am reușit să trimitem la server nota. Vom încerca mai târziu.";
+"Error.SelectCountyFirst" = "Te rugăm să alegi județul/sectorul pentru a putea alege secția";
 
 "Info.DataNotSyncronised" = "Se pare că unele răspunsuri nu au fost sincronizate cu serverul. Apasă butonul acesta pentru a le retrimite";
 
@@ -96,6 +102,9 @@
 "Title.Question" = "Întrebarea";
 "Title.Note" = "Notă";
 "Title.NoteHistory" = "Istoricul Notelor";
+"Title.Section" = "Configurarea Secției";
 
 "Next" = "Următoarea";
 "Previous" = "Precedenta";
+"Select" = "Selectează";
+"Cancel" = "Anulează";

@@ -85,8 +85,8 @@ class AttachNoteViewModel: NSObject {
         let request = UploadNoteRequest(
             imageData: attachment?.data,
             questionId: questionId,
-            countyCode: pollingStation.judet ?? "",
-            pollingStationId: Int(pollingStation.sectie ?? "0"),
+            countyCode: pollingStation.countyCode ?? "",
+            pollingStationId: Int(pollingStation.sectionId),
             text: text)
         APIManager.shared.upload(note: request) { apiError in
             if let error = apiError {

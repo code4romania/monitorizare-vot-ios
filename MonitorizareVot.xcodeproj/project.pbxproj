@@ -27,6 +27,10 @@
 		2817EA1A2358DF330029AD4C /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817EA192358DF330029AD4C /* AccountManager.swift */; };
 		2817EA1C2358F2140029AD4C /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817EA1B2358F2140029AD4C /* PreferencesManager.swift */; };
 		2817EA2D2358FAB60029AD4C /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2817EA2C2358FAB60029AD4C /* APITests.swift */; };
+		281A4B82236CBD30001AD277 /* SectionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A4B80236CBD30001AD277 /* SectionPickerViewController.swift */; };
+		281A4B83236CBD30001AD277 /* SectionPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 281A4B81236CBD30001AD277 /* SectionPickerViewController.xib */; };
+		281A4B85236CBD3C001AD277 /* SectionPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A4B84236CBD3C001AD277 /* SectionPickerViewModel.swift */; };
+		281A4B87236CC625001AD277 /* DropdownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A4B86236CC625001AD277 /* DropdownButton.swift */; };
 		282045D5224F936F004B6D5D /* FormPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 282045D3224F936F004B6D5D /* FormPickerCollectionViewCell.xib */; };
 		282045D6224F936F004B6D5D /* FormPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282045D4224F936F004B6D5D /* FormPickerCollectionViewCell.swift */; };
 		286D38662364398C0091B23F /* QuestionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D38642364398C0091B23F /* QuestionListViewController.swift */; };
@@ -95,7 +99,6 @@
 		E74087331DDCA79000D9332F /* MVAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74087321DDCA79000D9332F /* MVAnswer.swift */; };
 		E74087351DDCA83600D9332F /* LocalFormProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74087341DDCA83600D9332F /* LocalFormProvider.swift */; };
 		E74087371DDCA9FA00D9332F /* Form.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74087361DDCA9FA00D9332F /* Form.swift */; };
-		E749080F1DDCB8E300878F0A /* PickFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E749080E1DDCB8E200878F0A /* PickFormViewController.swift */; };
 		E74908111DDCBB5800878F0A /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74908101DDCBB5800878F0A /* FormViewController.swift */; };
 		E753C4321DE5FA6800B6B7C9 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */; };
 		E7702ED01DF966F200B3E1F2 /* ButtonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7702ECF1DF966F200B3E1F2 /* ButtonHandler.swift */; };
@@ -192,6 +195,10 @@
 		2817EA252358FA8E0029AD4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2817EA2B2358FAB60029AD4C /* MonitorizareVotTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MonitorizareVotTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		2817EA2C2358FAB60029AD4C /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
+		281A4B80236CBD30001AD277 /* SectionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionPickerViewController.swift; sourceTree = "<group>"; };
+		281A4B81236CBD30001AD277 /* SectionPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionPickerViewController.xib; sourceTree = "<group>"; };
+		281A4B84236CBD3C001AD277 /* SectionPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionPickerViewModel.swift; sourceTree = "<group>"; };
+		281A4B86236CC625001AD277 /* DropdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownButton.swift; sourceTree = "<group>"; };
 		282045D3224F936F004B6D5D /* FormPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		282045D4224F936F004B6D5D /* FormPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		286D38642364398C0091B23F /* QuestionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListViewController.swift; sourceTree = "<group>"; };
@@ -265,7 +272,6 @@
 		E74087321DDCA79000D9332F /* MVAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVAnswer.swift; sourceTree = "<group>"; };
 		E74087341DDCA83600D9332F /* LocalFormProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFormProvider.swift; sourceTree = "<group>"; };
 		E74087361DDCA9FA00D9332F /* Form.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form.swift; sourceTree = "<group>"; };
-		E749080E1DDCB8E200878F0A /* PickFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickFormViewController.swift; sourceTree = "<group>"; };
 		E74908101DDCBB5800878F0A /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		E7702ECF1DF966F200B3E1F2 /* ButtonHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonHandler.swift; sourceTree = "<group>"; };
@@ -438,14 +444,14 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		289E1E81235F2665000C92A0 /* FormSets */ = {
+		289E1E81235F2665000C92A0 /* FormList */ = {
 			isa = PBXGroup;
 			children = (
 				289E1E86235F2A77000C92A0 /* FormListViewModel.swift */,
 				289E1E82235F2674000C92A0 /* FormListViewController.swift */,
 				289E1E83235F2674000C92A0 /* FormListViewController.xib */,
 			);
-			path = FormSets;
+			path = FormList;
 			sourceTree = "<group>";
 		};
 		289E1E89235F2AA2000C92A0 /* TableCells */ = {
@@ -494,6 +500,7 @@
 				28E72462233F66210096454D /* ActionButton.swift */,
 				28844A4F233F6F3B00DEEA44 /* ChooserButton.swift */,
 				28FB66AB23670B3500336DBA /* AttachButton.swift */,
+				281A4B86236CC625001AD277 /* DropdownButton.swift */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -533,14 +540,17 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		28FB66B823699DA000336DBA /* SectionDetails */ = {
+		28FB66B823699DA000336DBA /* PollingStation */ = {
 			isa = PBXGroup;
 			children = (
+				281A4B84236CBD3C001AD277 /* SectionPickerViewModel.swift */,
+				281A4B80236CBD30001AD277 /* SectionPickerViewController.swift */,
+				281A4B81236CBD30001AD277 /* SectionPickerViewController.xib */,
 				28E72457233F58100096454D /* SectionDetailsViewModel.swift */,
 				28E72453233F58010096454D /* SectionDetailsViewController.swift */,
 				28E72454233F58010096454D /* SectionDetailsViewController.xib */,
 			);
-			path = SectionDetails;
+			path = PollingStation;
 			sourceTree = "<group>";
 		};
 		67EE98C922A296B1006E4762 /* Logging */ = {
@@ -804,12 +814,11 @@
 			isa = PBXGroup;
 			children = (
 				28FB66B723699D8500336DBA /* Utility */,
-				28FB66B823699DA000336DBA /* SectionDetails */,
-				289E1E81235F2665000C92A0 /* FormSets */,
+				28FB66B823699DA000336DBA /* PollingStation */,
+				289E1E81235F2665000C92A0 /* FormList */,
 				286D3863236439680091B23F /* Form */,
 				EF4BD3E81D9E7BB10042BEC7 /* LoginViewController */,
 				EF4BD3E91D9E7BBC0042BEC7 /* SectieViewController */,
-				EF4BD3ED1D9E7C6D0042BEC7 /* PickFormViewController */,
 				EF4BD3F11D9E82230042BEC7 /* FormViewController */,
 				E7EB673D1DE5F02200260CC1 /* RootViewController */,
 				E7FEC2CC1DE0A3AF00F2F04D /* QuestionViewController */,
@@ -850,14 +859,6 @@
 				E739B9761DDDD8510002604C /* SectieViewController.swift */,
 			);
 			name = SectieViewController;
-			sourceTree = "<group>";
-		};
-		EF4BD3ED1D9E7C6D0042BEC7 /* PickFormViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E749080E1DDCB8E200878F0A /* PickFormViewController.swift */,
-			);
-			name = PickFormViewController;
 			sourceTree = "<group>";
 		};
 		EF4BD3F11D9E82230042BEC7 /* FormViewController */ = {
@@ -1039,6 +1040,7 @@
 				28104137236B5DE000B7422C /* NoteViewController.xib in Resources */,
 				28FB66A32366EAAC00336DBA /* QuestionAnswerViewController.xib in Resources */,
 				28FB66B523699D7400336DBA /* TextEntryViewController.xib in Resources */,
+				281A4B83236CBD30001AD277 /* SectionPickerViewController.xib in Resources */,
 				28C363902364512E0084065C /* QuestionTableCell.xib in Resources */,
 				EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */,
 				E7FEC2BF1DE09E6300F2F04D /* BasicAnswerTableViewCell.xib in Resources */,
@@ -1206,6 +1208,7 @@
 				E73A5B411DDDE55A00E41490 /* PickerViewSelection.swift in Sources */,
 				E739B9731DDD9F280002604C /* QuestionCollectionViewCell.swift in Sources */,
 				E740872F1DDCA70A00D9332F /* MVSection.swift in Sources */,
+				281A4B85236CBD3C001AD277 /* SectionPickerViewModel.swift in Sources */,
 				E7FEC2C71DE09EC500F2F04D /* AnswerWithTextTableViewCellConfigurator.swift in Sources */,
 				28E7245F233F5E620096454D /* UIImage+Utils.swift in Sources */,
 				28844A52233F775E00DEEA44 /* SectionHUDViewModel.swift in Sources */,
@@ -1232,8 +1235,10 @@
 				EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */,
 				2817EA1C2358F2140029AD4C /* PreferencesManager.swift in Sources */,
 				F553E3BB1DF9D67A000D0902 /* Question+CoreDataClass.swift in Sources */,
+				281A4B82236CBD30001AD277 /* SectionPickerViewController.swift in Sources */,
 				28104140236C3A4900B7422C /* Formatters.swift in Sources */,
 				E74087331DDCA79000D9332F /* MVAnswer.swift in Sources */,
+				281A4B87236CC625001AD277 /* DropdownButton.swift in Sources */,
 				28E72458233F58100096454D /* SectionDetailsViewModel.swift in Sources */,
 				28104139236B5DEF00B7422C /* NoteViewModel.swift in Sources */,
 				282045D6224F936F004B6D5D /* FormPickerCollectionViewCell.swift in Sources */,
@@ -1259,7 +1264,6 @@
 				F553E3BF1DF9D67A000D0902 /* SectionInfo+CoreDataClass.swift in Sources */,
 				E7CC39FA1DDF255B0010688D /* MVNote.swift in Sources */,
 				2817EA1A2358DF330029AD4C /* AccountManager.swift in Sources */,
-				E749080F1DDCB8E300878F0A /* PickFormViewController.swift in Sources */,
 				28FB66AC23670B3500336DBA /* AttachButton.swift in Sources */,
 				28FB66A52366EAC700336DBA /* QuestionAnswerViewModel.swift in Sources */,
 				E740872D1DDCA6E800D9332F /* FormProvider.swift in Sources */,
