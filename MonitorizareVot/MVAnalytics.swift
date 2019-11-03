@@ -11,6 +11,7 @@ import Firebase
 
 enum MVAnalyticsEvent {
     case screen(name: String)
+    case onboardingPage(page: Int)
     case loginFailed(error: String)
     case pushNotificationsAllowed
     case pushNotificationsDenied
@@ -32,6 +33,7 @@ enum MVAnalyticsEvent {
     var name: String {
         switch self {
         case .screen:               return "screen_view"
+        case .onboardingPage:       return "onboarding_page"
         case .loginFailed:          return "login_failed"
         case .pushNotificationsAllowed: return "push_allowed"
         case .pushNotificationsDenied: return "push_denied"
@@ -55,6 +57,7 @@ enum MVAnalyticsEvent {
     var parameters: [String: Any]? {
         switch self {
         case .screen(let name): return ["name": name]
+        case .onboardingPage(let page): return ["page": page]
         case .loginFailed(let error): return ["error": error]
         case .county(let name): return ["county": name]
         case .sectionEnvironment(let type): return ["type": type]

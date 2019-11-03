@@ -67,3 +67,13 @@
 "Select" = "Selectează";
 "Cancel" = "Anulează";
 "Other" = "Altele";
+
+"Onboarding.Title.Station" = "Alege-ți secția de votare";
+"Onboarding.Title.Forms" = "Completează formularele";
+"Onboarding.Title.Notes" = "Adaugă note";
+
+"Onboarding.Text.Station" = "PASUL 1:\nDefinește secția de votare în care te afli, alegând județul și numărul acesteia.\n\nPASUL 2:\nAdaugă câteva detalii (mediul urban/rural, detalii despre președintele de secție, ora sosirii). Nu-ți face griji, poți să modifici informațiile mai târziu.";
+"Onboarding.Text.Forms" = "Pentru a detecta problemele, îți punem la dispoziție câteva formulare cu regulile standard ale unei secții de votare.\n\nÎn fiecare formular poți semnala dacă anumite proceduri au fost urmate sau nu.";
+"Onboarding.Text.Notes" = "Ai observat o problemă care nu apare în formular? Folosește butonul de ‘Adaugă notă’, scrie un mesaj și/sau anexează o imagine.";
+
+"Onboarding.Go" = "Spre aplicație";
