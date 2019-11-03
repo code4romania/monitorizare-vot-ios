@@ -25,6 +25,8 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        localize()
+        
         addChild(pageController)
         pageController.view.frame = pageControllerContainer.bounds
         pageControllerContainer.addSubview(pageController.view)
@@ -43,6 +45,10 @@ class OnboardingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         MVAnalytics.shared.log(event: .screen(name: String(describing: type(of: self))))
+    }
+    
+    func localize() {
+        proceedButton.setTitle("Onboarding.Go".localized, for: .normal)
     }
     
     func updateInterface() {

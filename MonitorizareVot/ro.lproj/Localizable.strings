@@ -68,10 +68,12 @@
 "Cancel" = "Anulează";
 "Other" = "Altele";
 
-"Onboarding.Title.Station" = "Pick your voting station";
-"Onboarding.Title.Forms" = "Fill in the forms";
-"Onboarding.Title.Notes" = "Add notes";
+"Onboarding.Title.Station" = "Alege-ți secția de votare";
+"Onboarding.Title.Forms" = "Completează formularele";
+"Onboarding.Title.Notes" = "Adaugă note";
 
-"Onboarding.Text.Station" = "STEP 1:\nMention the voting station you are in, choosing the county and it’s number.\n\nSTEP 2:\nAdd some details (urban/ rural area, details about the section president, your arrival time). Don’t worry, you can edit the information later.";
-"Onboarding.Text.Forms" = "In order to help you detect problems, we provide some forms with the standard rules for a voting station.\n\nOn each form you can mark wether certain procedures have been followed or not.";
-"Onboarding.Text.Notes" = "Did you notice any problem that does not appear in the form? Use the ‘Add note’ button, write a message and/or attach a picture.";
+"Onboarding.Text.Station" = "PASUL 1:\nDefinește secția de votare în care te afli, alegând județul și numărul acesteia.\n\nPASUL 2:\nAdaugă câteva detalii (mediul urban/rural, detalii despre președintele de secție, ora sosirii). Nu-ți face griji, poți să modifici informațiile mai târziu.";
+"Onboarding.Text.Forms" = "Pentru a detecta problemele, îți punem la dispoziție câteva formulare cu regulile standard ale unei secții de votare.\n\nÎn fiecare formular poți semnala dacă anumite proceduri au fost urmate sau nu.";
+"Onboarding.Text.Notes" = "Ai observat o problemă care nu apare în formular? Folosește butonul de ‘Adaugă notă’, scrie un mesaj și/sau anexează o imagine.";
+
+"Onboarding.Go" = "Spre aplicație";

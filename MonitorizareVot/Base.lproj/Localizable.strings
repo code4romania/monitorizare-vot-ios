@@ -75,3 +75,5 @@
 "Onboarding.Text.Station" = "STEP 1:\nMention the voting station you are in, choosing the county and it’s number.\n\nSTEP 2:\nAdd some details (urban/ rural area, details about the section president, your arrival time). Don’t worry, you can edit the information later.";
 "Onboarding.Text.Forms" = "In order to help you detect problems, we provide some forms with the standard rules for a voting station.\nOn each form you can mark wether certain procedures have been followed or not.";
 "Onboarding.Text.Notes" = "Did you notice any problem that does not appear in the form? Use the ‘Add note’ button, write a message and/or attach a picture.";
+
+"Onboarding.Go" = "Go to app";
