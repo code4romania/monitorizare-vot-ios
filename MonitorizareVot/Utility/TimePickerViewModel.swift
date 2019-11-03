@@ -11,6 +11,8 @@ import UIKit
 class TimePickerViewModel: NSObject {
     var date: Date
     var dateFormatter: DateFormatter
+    var minDate: Date?
+    var maxDate: Date?
     
     init(withTime time: Date?, dateFormatter: DateFormatter) {
         self.date = time ?? Date()

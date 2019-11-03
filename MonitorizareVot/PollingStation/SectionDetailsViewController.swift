@@ -66,6 +66,7 @@ class SectionDetailsViewController: MVViewController {
         configureSubviews()
         bindToUpdates()
         addContactDetailsToNavBar()
+        updateLabelsTexts()
         isLoading = false
     }
     
@@ -148,6 +149,9 @@ class SectionDetailsViewController: MVViewController {
         let initialTime = isArrivalTime ? model.arrivalTime : model.leaveTime
 
         let pickerModel = TimePickerViewModel(withTime: initialTime, dateFormatter: timeFormatter)
+        if let arrivalTime = model.arrivalTime, !isArrivalTime {
+            pickerModel.minDate = arrivalTime
+        }
         let controller = TimePickerViewController(withModel: pickerModel)
         controller.onCompletion = { [weak self] time in
             if isArrivalTime {
@@ -156,12 +160,13 @@ class SectionDetailsViewController: MVViewController {
                 if let departure = departureDate,
                     let arrival = time,
                     arrival > departure {
-                    // reset the departure to the same time
-                    self?.model.leaveTime = time
+                    // reset the departure in case the arrival date has been set in the future
+                    self?.model.leaveTime = nil
                 }
             } else {
                 self?.model.leaveTime = time
                 let arrivalDate = self?.model.arrivalTime
+                // this shouldn't happen anymore
                 if let arrival = arrivalDate,
                     let departure = time,
                     arrival > departure {
@@ -189,7 +194,7 @@ class SectionDetailsViewController: MVViewController {
                     MVAnalytics.shared.log(event: .sectionEnvironment(type: self.model.medium == .urban ? "urban" : "rural"))
                     let formsModel = FormListViewModel()
                     let formsVC = FormListViewController(withModel: formsModel)
-                    self.navigationController?.pushViewController(formsVC, animated: true)
+                    self.navigationController?.setViewControllers([formsVC], animated: true)
                 } else {
                     let alert = UIAlertController(title: "Error".localized,
                                                   message: error?.localizedDescription ?? "An error occured",
