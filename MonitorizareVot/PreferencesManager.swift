@@ -10,6 +10,7 @@ import UIKit
 
 
 protocol PreferencesManagerType: NSObject {
+    var wasOnboardingShown: Bool { get set }
     var county: String? { get set }
     var section: Int? { get set }
     var sectionName: String? { get set }
@@ -19,6 +20,7 @@ class PreferencesManager: NSObject, PreferencesManagerType {
     static let shared: PreferencesManagerType = PreferencesManager()
     
     enum SettingKey: String {
+        case wasOnboardingShown = "PreferenceWasOnboardingShown"
         case county = "PreferenceCounty"
         case section = "PreferenceSectionId"
         case sectionName = "PreferenceSectionName"
@@ -45,6 +47,14 @@ class PreferencesManager: NSObject, PreferencesManagerType {
             setValue(newValue, forKey: .sectionName)
         } get {
             return getValue(forKey: .sectionName) as? String
+        }
+    }
+    
+    var wasOnboardingShown: Bool {
+        set {
+            setValue(newValue, forKey: .wasOnboardingShown)
+        } get {
+            return getValue(forKey: .wasOnboardingShown) as? Bool ?? false
         }
     }
     

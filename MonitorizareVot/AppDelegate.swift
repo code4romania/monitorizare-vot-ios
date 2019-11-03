@@ -83,15 +83,28 @@ extension AppDelegate {
     fileprivate func setRootViewController() {
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        // TODO: set the onboarding if necessary
-        
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
         }
         
+        if OnboardingViewModel.shouldShowOnboarding {
+            goToOnboarding()
+        } else {
+            goToLogin()
+        }
+    }
+    
+    func goToLogin() {
         let entryViewController = LoginViewController()
         let navigation = UINavigationController(rootViewController: entryViewController)
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
     }
+    
+    func goToOnboarding() {
+        let entryViewController = OnboardingViewController()
+        window?.rootViewController = entryViewController
+        window?.makeKeyAndVisible()
+    }
+    
 }
