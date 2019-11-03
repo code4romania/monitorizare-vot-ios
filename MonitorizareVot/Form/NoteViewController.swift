@@ -73,8 +73,12 @@ class NoteViewController: MVViewController {
             addChild(attachNote)
         }
         
-        attachNoteController.view.translatesAutoresizingMaskIntoConstraints = false
-        attachNoteController.contentWidth.constant = view.frame.width
+//        attachNoteController.view.translatesAutoresizingMaskIntoConstraints = false
+//        attachNoteController.contentWidth.constant = view.frame.width
+        attachNoteController.view.frame.size.width = historyTableView.frame.size.width
+        attachNoteController.content.frame.size.width = historyTableView.frame.size.width
+        attachNoteController.content.layoutIfNeeded()
+        attachNoteController.view.frame.size.height = attachNoteController.content.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         attachNoteController.view.layoutIfNeeded()
         
         attachNoteController.onAttachmentRequest = { [weak self] in
@@ -84,8 +88,9 @@ class NoteViewController: MVViewController {
             self.present(picker, animated: true, completion: nil)
         }
 
-        historyTableView.tableHeaderView = attachNote.content
         DispatchQueue.main.async {
+            self.historyTableView.tableHeaderView = attachNote.view
+            self.historyTableView.layoutIfNeeded()
             self.historyTableView.reloadData()
         }
     }
@@ -120,6 +125,7 @@ extension NoteViewController: UITableViewDelegate {
         let width = tableView.bounds.width
         let header = DefaultTableHeader(frame: CGRect(x: 0, y: 0, width: width, height: TableSectionHeaderHeight))
         header.titleLabel.text = "Title.NoteHistory".localized
+        header.isHidden = model.notes.count == 0
         return header
     }
     
