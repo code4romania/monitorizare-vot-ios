@@ -88,6 +88,13 @@ class AttachNoteViewModel: NSObject {
             countyCode: pollingStation.countyCode ?? "",
             pollingStationId: Int(pollingStation.sectionId),
             text: text)
+        
+        if let questionId = questionId {
+            MVAnalytics.shared.log(event: .addNoteForQuestion(questionId: questionId, hasAttachment: attachment != nil))
+        } else {
+            MVAnalytics.shared.log(event: .addNote(hasAttachment: attachment != nil))
+        }
+        
         APIManager.shared.upload(note: request) { apiError in
             if let error = apiError {
                 callback(.uploadFailed(reason: error))

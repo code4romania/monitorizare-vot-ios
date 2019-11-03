@@ -30,6 +30,11 @@ class MVViewController: UIViewController {
         configureHeader()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        MVAnalytics.shared.log(event: .screen(name: String(describing: type(of: self))))
+    }
+    
     fileprivate func configureBackButton() {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
@@ -77,6 +82,7 @@ class MVViewController: UIViewController {
 
     @objc func pushGuideViewController() {
         // TODO: extract this into a config
+        MVAnalytics.shared.log(event: .tapGuide)
         if let url = URL(string: "http://monitorizare-vot-ghid.azurewebsites.net/") {
             let safariViewController = SFSafariViewController(url: url)
             self.navigationController?.present(safariViewController, animated: true, completion: nil)
@@ -85,6 +91,7 @@ class MVViewController: UIViewController {
     
     @objc func performCall() {
         // TODO: extract this into a config
+        MVAnalytics.shared.log(event: .tapCall)
         let phoneCallPath = "telprompt://0800080200"
         if let phoneCallURL = NSURL(string: phoneCallPath) {
             UIApplication.shared.openURL(phoneCallURL as URL)
@@ -92,6 +99,7 @@ class MVViewController: UIViewController {
     }
 
     fileprivate func handleChangeSectionButtonAction() {
+        MVAnalytics.shared.log(event: .tapChangeStation(fromScreen: String(describing: type(of: self))))
         let pickerModel = SectionPickerViewModel()
         let picker = SectionPickerViewController(withModel: pickerModel)
         navigationController?.pushViewController(picker, animated: true)

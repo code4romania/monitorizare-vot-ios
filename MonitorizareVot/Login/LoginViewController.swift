@@ -110,6 +110,7 @@ class LoginViewController: MVViewController {
             if let error = error {
                 let alert = UIAlertController.error(withMessage: error.localizedDescription)
                 self?.present(alert, animated: true, completion: nil)
+                MVAnalytics.shared.log(event: .loginFailed(error: error.localizedDescription))
             } else {
                 self?.proceedToNextScreen()
                 self?.askForPushNotificationsPermissions()

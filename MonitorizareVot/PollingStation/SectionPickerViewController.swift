@@ -168,6 +168,7 @@ class SectionPickerViewController: MVViewController {
     }
     
     func proceedToNextScreen() {
+        MVAnalytics.shared.log(event: .county(name: model.countyCode ?? "-"))
         let detailsModel = SectionDetailsViewModel()
         let detailsController = SectionDetailsViewController(withModel: detailsModel)
         navigationController?.setViewControllers([detailsController], animated: true)

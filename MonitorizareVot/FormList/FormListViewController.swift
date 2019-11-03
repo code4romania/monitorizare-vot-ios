@@ -147,6 +147,7 @@ class FormListViewController: MVViewController {
     }
     
     @IBAction func handleSyncButtonAction(_ sender: Any) {
+        MVAnalytics.shared.log(event: .tapManualSync)
         setSyncContainer(hidden: true, animated: true)
         RemoteSyncer.shared.syncUnsyncedData { error in
             if let error = error {
@@ -161,7 +162,6 @@ class FormListViewController: MVViewController {
     fileprivate func continueToForm(withCode code: String) {
         guard let questionsModel = QuestionListViewModel(withFormUsingCode: code) else {
             let message = "Error: can't load question list model for form with code \(code)"
-            print(message)
             let alert = UIAlertController.error(withMessage: message)
             present(alert, animated: true, completion: nil)
             return
