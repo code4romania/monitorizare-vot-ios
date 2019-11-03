@@ -29,20 +29,32 @@
                         <constraint firstAttribute="height" constant="50" id="taa-wi-B17"/>
                     </constraints>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xE0-R0-swH">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uca-AG-xVQ">
                     <rect key="frame" x="0.0" y="94" width="414" height="708"/>
+                    <subviews>
+                        <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xE0-R0-swH">
+                            <rect key="frame" x="0.0" y="16" width="414" height="692"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SgP-jc-8Jj">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="Job-4E-xa5"/>
+                                <outlet property="delegate" destination="-1" id="mCc-Yr-a0c"/>
+                            </connections>
+                        </collectionView>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SgP-jc-8Jj">
-                        <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="Job-4E-xa5"/>
-                        <outlet property="delegate" destination="-1" id="mCc-Yr-a0c"/>
-                    </connections>
-                </collectionView>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="xE0-R0-swH" secondAttribute="bottom" id="AeI-1N-3Fp"/>
+                        <constraint firstAttribute="trailing" secondItem="xE0-R0-swH" secondAttribute="trailing" id="Qb2-iu-aUX"/>
+                        <constraint firstItem="xE0-R0-swH" firstAttribute="leading" secondItem="Uca-AG-xVQ" secondAttribute="leading" id="hex-y9-mX8"/>
+                        <constraint firstItem="xE0-R0-swH" firstAttribute="top" secondItem="Uca-AG-xVQ" secondAttribute="top" constant="16" id="j1C-hO-fnZ"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mge-kA-HfO">
                     <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                     <subviews>
@@ -78,17 +90,17 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="mge-kA-HfO" firstAttribute="top" secondItem="Uca-AG-xVQ" secondAttribute="bottom" id="67Q-FO-yTE"/>
                 <constraint firstItem="scA-db-UeY" firstAttribute="trailing" secondItem="C4B-FI-9Rk" secondAttribute="trailing" id="7OQ-AW-3AW"/>
+                <constraint firstItem="scA-db-UeY" firstAttribute="trailing" secondItem="Uca-AG-xVQ" secondAttribute="trailing" id="7ml-UY-YUE"/>
                 <constraint firstItem="scA-db-UeY" firstAttribute="bottom" secondItem="mge-kA-HfO" secondAttribute="bottom" priority="999" id="ABV-Bl-Zbb"/>
-                <constraint firstItem="mge-kA-HfO" firstAttribute="top" secondItem="xE0-R0-swH" secondAttribute="bottom" id="DLy-ek-WJO"/>
                 <constraint firstItem="scA-db-UeY" firstAttribute="trailing" secondItem="mge-kA-HfO" secondAttribute="trailing" id="EXl-ac-lyc"/>
-                <constraint firstItem="scA-db-UeY" firstAttribute="trailing" secondItem="xE0-R0-swH" secondAttribute="trailing" id="Iyg-GY-YxI"/>
                 <constraint firstItem="C4B-FI-9Rk" firstAttribute="top" secondItem="scA-db-UeY" secondAttribute="top" id="J9p-nG-Oxe"/>
-                <constraint firstItem="xE0-R0-swH" firstAttribute="top" secondItem="C4B-FI-9Rk" secondAttribute="bottom" id="Va6-68-qMm"/>
+                <constraint firstItem="Uca-AG-xVQ" firstAttribute="top" secondItem="C4B-FI-9Rk" secondAttribute="bottom" id="MEC-1v-gfP"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mge-kA-HfO" secondAttribute="bottom" constant="16" id="ZQe-wV-a0q"/>
                 <constraint firstItem="C4B-FI-9Rk" firstAttribute="leading" secondItem="scA-db-UeY" secondAttribute="leading" id="Zvj-E6-zgv"/>
-                <constraint firstItem="xE0-R0-swH" firstAttribute="leading" secondItem="scA-db-UeY" secondAttribute="leading" id="dDz-77-y2D"/>
                 <constraint firstItem="mge-kA-HfO" firstAttribute="leading" secondItem="scA-db-UeY" secondAttribute="leading" id="mdE-B4-dF0"/>
+                <constraint firstItem="Uca-AG-xVQ" firstAttribute="leading" secondItem="scA-db-UeY" secondAttribute="leading" id="qfz-rH-9p9"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="scA-db-UeY"/>
             <point key="canvasLocation" x="139" y="153"/>

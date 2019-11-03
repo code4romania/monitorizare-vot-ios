@@ -37,13 +37,16 @@ class QuestionAnswerViewController: MVViewController {
         configureCollectionView()
         bindToUpdateEvents()
         addContactDetailsToNavBar()
+        view.clipsToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateInterface()
+        DispatchQueue.main.async {
+            self.updateInterface()
+            self.scrollToCurrentIndex()
+        }
         updateTitle()
-        scrollToCurrentIndex()
     }
     
     // MARK: - Config
@@ -51,6 +54,7 @@ class QuestionAnswerViewController: MVViewController {
     fileprivate func configureCollectionView() {
         if #available(iOS 11.0, *) {
             collectionView.contentInsetAdjustmentBehavior = .never
+            collectionView.insetsLayoutMarginsFromSafeArea = false
         }
         collectionView.register(UINib(nibName: "QuestionCollectionCell", bundle: nil),
                                 forCellWithReuseIdentifier: QuestionCollectionCell.reuseIdentifier)
@@ -172,7 +176,9 @@ extension QuestionAnswerViewController: UICollectionViewDataSource {
 
 extension QuestionAnswerViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return collectionView.bounds.size
+        var size = collectionView.bounds.size
+        size.height -= collectionView.contentInset.top - collectionView.contentInset.bottom
+        return size
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
