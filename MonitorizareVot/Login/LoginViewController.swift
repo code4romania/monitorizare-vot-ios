@@ -69,7 +69,12 @@ class LoginViewController: MVViewController {
         guard let info = Bundle.main.infoDictionary else { return }
         let version = info["CFBundleShortVersionString"] ?? "1.0"
         let build = info["CFBundleVersion"] ?? "1"
-        developedByLabel.text = "v\(version)(\(build)) " + "Label_DevelopedBy".localized
+        var versionString = "v\(version)"
+        #if DEBUG
+        versionString += "(\(build))"
+        #endif
+        
+        developedByLabel.text = "\(versionString) " + "Label_DevelopedBy".localized
     }
     
     fileprivate func updateLoginButtonState() {
