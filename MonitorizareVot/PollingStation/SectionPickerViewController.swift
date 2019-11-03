@@ -115,6 +115,7 @@ class SectionPickerViewController: MVViewController {
         stationLabel.text = "Label_StationNumber".localized
         countyButton.placeholder = "Label_SelectOption".localized
         stationButton.placeholder = "Label_SelectOption".localized
+        continueButton.setTitle("Button_Continue".localized, for: .normal)
     }
     
     // MARK: - Actions
