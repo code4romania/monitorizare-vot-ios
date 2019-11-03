@@ -16,6 +16,7 @@ enum ApiURL {
     case form(id: Int)
     case uploadNote
     case uploadAnswer
+    case registerToken
 
     func url() -> URL {
         var uri = ""
@@ -27,6 +28,7 @@ enum ApiURL {
         case .form(let id): uri = "/v1/form/\(id)"
         case .uploadNote: uri = "/v2/note/upload"
         case .uploadAnswer: uri = "/v1/answers"
+        case .registerToken: uri = "/v1/notification/register"
         }
         return fullURL(withURI: uri)
     }

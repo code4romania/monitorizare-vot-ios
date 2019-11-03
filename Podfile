@@ -8,6 +8,7 @@ target 'MonitorizareVot' do
   pod 'SwiftKeychainWrapper'
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
   pod 'SnapKit'
   pod 'ReachabilitySwift'
   pod 'Keyboard+LayoutGuide'
