@@ -77,6 +77,13 @@ class QuestionAnswerViewController: MVViewController {
     func updateTitle() {
         title = "Title.Question".localized + " \(getDisplayedRow()+1)/\(model.questions.count)"
     }
+
+    func updateNavigationButtons() {
+        let currentPage = getDisplayedRow()
+        previousButton.isEnabled = currentPage > 0
+        //nextButton.isEnabled = currentPage < model.questions.count - 1
+        nextButton.setTitle((currentPage < model.questions.count - 1 ? "Next" : "Done").localized, for: .normal)
+    }
     
     func scrollToCurrentIndex() {
         collectionView.scrollToItem(at: IndexPath(row: model.currentQuestionIndex, section: 0),
@@ -131,7 +138,11 @@ class QuestionAnswerViewController: MVViewController {
     
     @IBAction func handleGoNext(_ sender: Any) {
         let currentRow = getDisplayedRow()
-        guard currentRow < model.questions.count - 1 else { return }
+        guard currentRow < model.questions.count - 1 else {
+            // we're done, so let's back out of this screen
+            navigationController?.popViewController(animated: true)
+            return
+        }
         let indexPath = IndexPath(row: currentRow + 1, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
@@ -179,9 +190,7 @@ extension QuestionAnswerViewController: UICollectionViewDelegateFlowLayout {
 
 extension QuestionAnswerViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let currentPage = getDisplayedRow()
-        previousButton.isEnabled = currentPage > 0
-        nextButton.isEnabled = currentPage < model.questions.count - 1
+        updateNavigationButtons()
         updateTitle()
     }
 }
