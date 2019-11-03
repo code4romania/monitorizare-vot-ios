@@ -15,6 +15,8 @@ protocol APIManagerType: NSObject {
     func login(withPhone phone: String,
                pin: String,
                then callback: @escaping (APIError?) -> Void)
+    func sendPushToken(withToken token: String,
+                       then callback: @escaping (APIError?) -> Void)
     func fetchPollingStations(then callback: @escaping ([PollingStationResponse]?, APIError?) -> Void)
     func fetchForms(then callback: @escaping ([FormResponse]?, APIError?) -> Void)
     func fetchForm(withId formId: Int,
@@ -80,6 +82,32 @@ class APIManager: NSObject, APIManagerType {
                 callback(.loginFailed(reason: "No data received"))
             }
         }
+    }
+    
+    func sendPushToken(withToken token: String,
+                       then callback: @escaping (APIError?) -> Void) {
+        let url = ApiURL.registerToken.url()
+        let auth = authorizationHeaders()
+        let headers = requestHeaders(withAuthHeaders: auth)
+
+        let parameters: Parameters = [
+//            "ObserverId": "1",
+            "ChannelName": "Firebase",
+            "Token": token
+        ]
+
+        let urlEncoding = URLEncoding(destination: .queryString, arrayEncoding: .brackets, boolEncoding: .literal)
+        Alamofire
+            .request(url, method: .post, parameters: parameters, encoding: urlEncoding, headers: headers)
+            .response { response in
+                if response.response?.statusCode == 200 {
+                    callback(nil)
+                } else if response.response?.statusCode == 401 {
+                    callback(.unauthorized)
+                } else {
+                    callback(.incorrectFormat(reason: "Unknown reason"))
+                }
+            }
     }
     
     func fetchPollingStations(then callback: @escaping ([PollingStationResponse]?, APIError?) -> Void) {
@@ -174,7 +202,6 @@ class APIManager: NSObject, APIManagerType {
         }
     }
     
-    // TODO: test this
     func upload(note: UploadNoteRequest, then callback: @escaping (APIError?) -> Void) {
         let url = ApiURL.uploadNote.url()
         let auth = authorizationHeaders()

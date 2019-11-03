@@ -9,6 +9,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     var window: UIWindow?
     
+    static var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         CoreData.containerName = "s"
@@ -18,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // preload the reachability manager
         _ = ReachabilityManager.shared
+        
+        // preload the notifications manager
+        _ = NotificationsManager.shared
         
         configureAppearance()
         
@@ -53,6 +60,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         CoreData.saveContext()
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        NotificationsManager.shared.didFailToRegisterForRemoteNotifications(withError: error)
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        NotificationsManager.shared.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken: deviceToken)
     }
 }
 

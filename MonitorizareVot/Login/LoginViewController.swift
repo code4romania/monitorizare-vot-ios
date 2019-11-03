@@ -72,8 +72,12 @@ class LoginViewController: MVViewController {
         developedByLabel.text = "v\(version)(\(build)) " + "Label_DevelopedBy".localized
     }
     
-    fileprivate func updateInterface() {
+    fileprivate func updateLoginButtonState() {
         loginButton.isEnabled = model.isReady
+    }
+    
+    fileprivate func updateInterface() {
+        updateLoginButtonState()
         phoneTextField.text = model.phoneNumber
         codeTextField.text = model.code
         if model.isLoading {
@@ -103,8 +107,14 @@ class LoginViewController: MVViewController {
                 self?.present(alert, animated: true, completion: nil)
             } else {
                 self?.proceedToNextScreen()
+                self?.askForPushNotificationsPermissions()
             }
         }
+    }
+    
+    func askForPushNotificationsPermissions() {
+        // always ask for notifications so that we can detect token changes
+        NotificationsManager.shared.registerForRemoteNotifications()
     }
 
     @IBAction func handleLoginButtonTap(_ sender: Any) {
@@ -146,6 +156,7 @@ extension LoginViewController: UITextFieldDelegate {
         default:
             break
         }
+        updateLoginButtonState()
         return true
     }
 }
