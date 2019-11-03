@@ -1,14 +1,5 @@
 //  Created by Code4Romania
 
-"TextField_Placeholder_PhoneNumber" = "Phone number";
-"TextField_Placeholder_PINNumber" = "Received PIN";
-"TextField_Placeholder_DepartmentNumber" = "Department number";
-
-"TextView_Placeholder_WriteHere" = "Write here ...";
-"TextView_Placeholder_MoreDetails" = "Add more details ...";
-
-"Button_Authenticate" = "Authenticate";
-"Button_Close" = "Close";
 "Button_Continue" = "Continue";
 "Button_ChangeDepartemnt" = "Change";
 "Button_Urban" = "Urban";
@@ -18,8 +9,6 @@
 "Button_ContinueToForms" = "Continue to forms";
 "Button_SyncData" = "Synchronise Data Manually";
 "Button_AddNoteToQuestion" = "Add note to question";
-"Button_EditNote" = "Edit note";
-"Button_NextQuestion" = "Next question";
 "Button_Add" = "Add";
 "Button_Send" = "Send";
 "Button_Delete" = "Delete";
@@ -29,28 +18,11 @@
 "Button_Submit" = "Submit";
 "Button_AddPhotoVideo" = "Add Photo or Video";
 
-"Label_PickDepartment" = "Pick department";
-"Label_PickDepartmentDetails" = "where you are located";
-"Label_County" = "County";
-"Label_Section" = "Department Number";
-"Label_SelectedCounty" = "Choose";
 "Label_CountyLocation" = "In what environment is the department?";
 "Label_CountyPresidentGender" = "The chairman of the department is";
 "Label_CountyArriveTime" = "Arrival time in the section";
 "Label_CountyLeaveTime" = "Time of departure";
-"Label_FormA" = "Saturday Form";
-"Label_FormB" = "Sunday Form";
-"Label_FormC" = "Counting Form";
-"Label_Form" = "Form";
-"Label_FormAAbr" = "SA";
-"Label_FormBAbr" = "SU";
-"Label_FormCAbr" = "C";
 "Label_AddNote" = "Add note";
-"Label_YourMessage" = "Your message";
-"Label_AddPhoto" = "Add photo";
-"Label_Completed" = "Completed";
-"Label_NotCompleted" = "Not completed";
-"Label_DevelopedBy" = "app developed by";
 "Label_Saved" = "Saved locally";
 "Label_Synced" = "Synced";
 
@@ -63,27 +35,10 @@
 "Label_AddNote" = "Add a note";
 "Label_TypeNote" = "Type your note here";
 
-"NavigationBar_DepartmentDetails" = "Department details";
-"NavigationBar_SelectForm" = "Select form";
-
-"AlertTitle_SelectCounty" = "Select county";
-"AlertMessage_SelectCounty" = "Select a county to continue.";
-"AlertTitle_CountyNumber" = "Add department number";
-"AlertMessage_CountyNumber" = "You have to add the department number to continue.";
-"AlertTitle_CountyNumberInvalid" = "Department number is invalid";
-"AlertMessage_CountyNumberInvalid" = "We didn't find any department for given number.";
-"AlertTitle_AccessRestricted" = "Access restricted";
-"AlertTitle_UnknownError" = "Unknown Error";
 "AlertMessage_EnableCameraAccess" = "Please access the settings and give us permissions to access the picture library.";
-"AlertMessage_AddNoteError" = "Could not add this note. Please try again later. If the problem persists, please contact us";
-
-"AlertButton_Understood" = "I understood";
-
-"AlertTitle_ErrorFetchPollingStation" = "Error";
-"AlertMessage_ErrorFetchPollingStation" = "Could not retrieve the polling stations list.";
 
 "Error_Unknown" = "An unknown error occured";
-"LoginError_Unknown" = "Login failed. Unknown reason";
+"LoginError_Unknown" = "Login failed. Unknown reason. Please contact us.";
 
 "Error" = "Error";
 "OK" = "OK";
