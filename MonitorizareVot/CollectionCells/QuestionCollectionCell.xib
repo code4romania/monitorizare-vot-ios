@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="QuestionCollectionCell" customModule="MonitorizareVot" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="QuestionCollectionCell" customModule="MonitorizareVot" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="340" height="504"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -23,7 +23,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYr-rn-Kqo">
                                 <rect key="frame" x="0.0" y="0.0" width="324" height="297.5"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpj-3k-l5W">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpj-3k-l5W">
                                         <rect key="frame" x="16" y="0.0" width="292" height="297.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTj-z5-KTS">
@@ -49,7 +49,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Sectia de votare este accesibila persoanelor cu dizabilitati" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0B3-zJ-iwm">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="940" text="Sectia de votare este accesibila persoanelor cu dizabilitati" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="0B3-zJ-iwm">
                                                         <rect key="frame" x="0.0" y="59.5" width="292" height="86"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                         <nil key="textColor"/>
@@ -67,6 +67,9 @@
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeJ-TG-1ih" customClass="AttachButton" customModule="MonitorizareVot" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="238.5" width="292" height="43"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="43" id="HmX-hm-gDS"/>
+                                                        </constraints>
                                                         <inset key="contentEdgeInsets" minX="0.0" minY="13" maxX="0.0" maxY="13"/>
                                                         <inset key="titleEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="7" maxY="0.0"/>
@@ -102,7 +105,7 @@
                                             <constraint firstItem="jTj-z5-KTS" firstAttribute="leading" secondItem="hpj-3k-l5W" secondAttribute="leading" id="da9-CB-reK"/>
                                             <constraint firstAttribute="bottom" secondItem="jTj-z5-KTS" secondAttribute="bottom" id="fdU-IW-t8r"/>
                                             <constraint firstAttribute="trailing" secondItem="jTj-z5-KTS" secondAttribute="trailing" id="kSm-MT-ymG"/>
-                                            <constraint firstItem="jTj-z5-KTS" firstAttribute="height" secondItem="hpj-3k-l5W" secondAttribute="height" id="p7f-Qy-jqZ"/>
+                                            <constraint firstItem="jTj-z5-KTS" firstAttribute="height" secondItem="hpj-3k-l5W" secondAttribute="height" priority="950" id="p7f-Qy-jqZ"/>
                                         </constraints>
                                         <viewLayoutGuide key="contentLayoutGuide" id="4CI-yB-sWK"/>
                                         <viewLayoutGuide key="frameLayoutGuide" id="Q7p-h0-hgc"/>

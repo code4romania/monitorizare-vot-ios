@@ -23,6 +23,11 @@ class GenericPickerViewController: UIViewController {
     init(withModel model: GenericPickerViewModel) {
         self.model = model
         super.init(nibName: "GenericPickerViewController", bundle: nil)
+        if #available(iOS 13.0, *) {
+            modalPresentationStyle = .automatic
+        } else {
+            modalPresentationStyle = .overCurrentContext
+        }
     }
     
     required init?(coder: NSCoder) {

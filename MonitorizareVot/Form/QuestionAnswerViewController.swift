@@ -37,13 +37,16 @@ class QuestionAnswerViewController: MVViewController {
         configureCollectionView()
         bindToUpdateEvents()
         addContactDetailsToNavBar()
+        view.clipsToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateInterface()
+        DispatchQueue.main.async {
+            self.updateInterface()
+            self.scrollToCurrentIndex()
+        }
         updateTitle()
-        scrollToCurrentIndex()
     }
     
     // MARK: - Config
@@ -51,6 +54,7 @@ class QuestionAnswerViewController: MVViewController {
     fileprivate func configureCollectionView() {
         if #available(iOS 11.0, *) {
             collectionView.contentInsetAdjustmentBehavior = .never
+            collectionView.insetsLayoutMarginsFromSafeArea = false
         }
         collectionView.register(UINib(nibName: "QuestionCollectionCell", bundle: nil),
                                 forCellWithReuseIdentifier: QuestionCollectionCell.reuseIdentifier)
@@ -76,6 +80,13 @@ class QuestionAnswerViewController: MVViewController {
     
     func updateTitle() {
         title = "Title.Question".localized + " \(getDisplayedRow()+1)/\(model.questions.count)"
+    }
+
+    func updateNavigationButtons() {
+        let currentPage = getDisplayedRow()
+        previousButton.isEnabled = currentPage > 0
+        //nextButton.isEnabled = currentPage < model.questions.count - 1
+        nextButton.setTitle((currentPage < model.questions.count - 1 ? "Next" : "Done").localized, for: .normal)
     }
     
     func scrollToCurrentIndex() {
@@ -131,7 +142,11 @@ class QuestionAnswerViewController: MVViewController {
     
     @IBAction func handleGoNext(_ sender: Any) {
         let currentRow = getDisplayedRow()
-        guard currentRow < model.questions.count - 1 else { return }
+        guard currentRow < model.questions.count - 1 else {
+            // we're done, so let's back out of this screen
+            navigationController?.popViewController(animated: true)
+            return
+        }
         let indexPath = IndexPath(row: currentRow + 1, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
@@ -161,7 +176,9 @@ extension QuestionAnswerViewController: UICollectionViewDataSource {
 
 extension QuestionAnswerViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return collectionView.bounds.size
+        var size = collectionView.bounds.size
+        size.height -= collectionView.contentInset.top - collectionView.contentInset.bottom
+        return size
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -179,9 +196,7 @@ extension QuestionAnswerViewController: UICollectionViewDelegateFlowLayout {
 
 extension QuestionAnswerViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let currentPage = getDisplayedRow()
-        previousButton.isEnabled = currentPage > 0
-        nextButton.isEnabled = currentPage < model.questions.count - 1
+        updateNavigationButtons()
         updateTitle()
     }
 }

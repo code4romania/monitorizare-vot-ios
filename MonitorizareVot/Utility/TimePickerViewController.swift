@@ -22,6 +22,11 @@ class TimePickerViewController: UIViewController {
     init(withModel model: TimePickerViewModel) {
         self.model = model
         super.init(nibName: "TimePickerViewController", bundle: nil)
+        if #available(iOS 13.0, *) {
+            modalPresentationStyle = .automatic
+        } else {
+            modalPresentationStyle = .overCurrentContext
+        }
     }
     
     required init?(coder: NSCoder) {

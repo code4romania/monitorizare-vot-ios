@@ -89,7 +89,7 @@ class QuestionAnswerViewModel: NSObject {
                 var model = QuestionAnswerCellModel.AnswerModel(
                     optionId: optionMeta.id,
                     isFreeText: optionMeta.isFreeText,
-                    text: optionMeta.text,
+                    text: optionMeta.text.count > 0 ? optionMeta.text : "Other".localized,
                     isSelected: answer?.selected == true)
                 model.setUserText(answer?.inputText)
                 answerModels.append(model)
