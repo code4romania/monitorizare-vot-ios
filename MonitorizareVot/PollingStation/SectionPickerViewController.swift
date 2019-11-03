@@ -170,6 +170,6 @@ class SectionPickerViewController: MVViewController {
     func proceedToNextScreen() {
         let detailsModel = SectionDetailsViewModel()
         let detailsController = SectionDetailsViewController(withModel: detailsModel)
-        navigationController?.pushViewController(detailsController, animated: true)
+        navigationController?.setViewControllers([detailsController], animated: true)
     }
 }

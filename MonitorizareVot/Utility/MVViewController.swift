@@ -92,8 +92,9 @@ class MVViewController: UIViewController {
     }
 
     fileprivate func handleChangeSectionButtonAction() {
-        // simply take the user back to the section selection screen
-        self.navigationController?.popToRootViewController(animated: true)
+        let pickerModel = SectionPickerViewModel()
+        let picker = SectionPickerViewController(withModel: pickerModel)
+        navigationController?.pushViewController(picker, animated: true)
     }
     
 }
