@@ -16,6 +16,9 @@ class QuestionAnswerViewController: MVViewController {
     @IBOutlet weak var previousButton: ActionButton!
     @IBOutlet weak var nextButton: ActionButton!
     
+    /// we only keep this as a reference so we can send analytics events when the current question actually changes
+    fileprivate var lastViewedQuestionIndex: Int?
+    
     let HorizontalSpace: CGFloat = 8
     let HorizontalSectionInset: CGFloat = 8
     
@@ -46,7 +49,7 @@ class QuestionAnswerViewController: MVViewController {
             self.updateInterface()
             self.scrollToCurrentIndex()
         }
-        updateTitle()
+        updateCurrentQuestionRelatedElements()
     }
     
     // MARK: - Config
@@ -76,6 +79,16 @@ class QuestionAnswerViewController: MVViewController {
     func updateInterface() {
         view.layoutIfNeeded()
         collectionView.reloadData()
+    }
+    
+    func updateCurrentQuestionRelatedElements() {
+        updateTitle()
+        updateNavigationButtons()
+        let currentPage = getDisplayedRow()
+        if currentPage != lastViewedQuestionIndex {
+            MVAnalytics.shared.log(event: .viewQuestion(code: model.questions[currentPage].questionCode))
+            lastViewedQuestionIndex = currentPage
+        }
     }
     
     func updateTitle() {
@@ -196,7 +209,6 @@ extension QuestionAnswerViewController: UICollectionViewDelegateFlowLayout {
 
 extension QuestionAnswerViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        updateNavigationButtons()
-        updateTitle()
+        updateCurrentQuestionRelatedElements()
     }
 }

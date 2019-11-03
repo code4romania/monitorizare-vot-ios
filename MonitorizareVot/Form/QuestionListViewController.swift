@@ -32,6 +32,7 @@ class QuestionListViewController: MVViewController {
         title = model.title
         configureTableView()
         addContactDetailsToNavBar()
+        MVAnalytics.shared.log(event: .viewForm(code: model.formCode))
     }
     
     override func viewWillAppear(_ animated: Bool) {

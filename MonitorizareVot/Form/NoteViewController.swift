@@ -51,6 +51,11 @@ class NoteViewController: MVViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addHeaderIfNecessary()
+        if let questionId = model.questionId {
+            MVAnalytics.shared.log(event: .viewNoteForQuestion(questionId: questionId))
+        } else {
+            MVAnalytics.shared.log(event: .viewNote)
+        }
     }
     
     fileprivate func configureTableView() {
@@ -73,8 +78,6 @@ class NoteViewController: MVViewController {
             addChild(attachNote)
         }
         
-//        attachNoteController.view.translatesAutoresizingMaskIntoConstraints = false
-//        attachNoteController.contentWidth.constant = view.frame.width
         attachNoteController.view.frame.size.width = historyTableView.frame.size.width
         attachNoteController.content.frame.size.width = historyTableView.frame.size.width
         attachNoteController.content.layoutIfNeeded()

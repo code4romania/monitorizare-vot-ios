@@ -62,6 +62,7 @@
 		28C3639523646D480084065C /* DefaultTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C3639423646D480084065C /* DefaultTableHeader.swift */; };
 		28DBDAA2236EDDCA004EAD83 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DBDAA1236EDDCA004EAD83 /* NotificationsManager.swift */; };
 		28DBDAA4236EE26D004EAD83 /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DBDAA3236EE26D004EAD83 /* UIViewController+Helpers.swift */; };
+		28DBDAA6236F33CD004EAD83 /* MVAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DBDAA5236F33CD004EAD83 /* MVAnalytics.swift */; };
 		28E72455233F58010096454D /* SectionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E72453233F58010096454D /* SectionDetailsViewController.swift */; };
 		28E72456233F58010096454D /* SectionDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E72454233F58010096454D /* SectionDetailsViewController.xib */; };
 		28E72458233F58100096454D /* SectionDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E72457233F58100096454D /* SectionDetailsViewModel.swift */; };
@@ -187,6 +188,7 @@
 		28C363962364AB700084065C /* MonitorizareVot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MonitorizareVot.entitlements; sourceTree = "<group>"; };
 		28DBDAA1236EDDCA004EAD83 /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		28DBDAA3236EE26D004EAD83 /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
+		28DBDAA5236F33CD004EAD83 /* MVAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVAnalytics.swift; sourceTree = "<group>"; };
 		28E72453233F58010096454D /* SectionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDetailsViewController.swift; sourceTree = "<group>"; };
 		28E72454233F58010096454D /* SectionDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionDetailsViewController.xib; sourceTree = "<group>"; };
 		28E72457233F58100096454D /* SectionDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				28E72465233F67280096454D /* Configuration.swift */,
 				289E1E78235EF6FC000C92A0 /* ReachabilityManager.swift */,
 				28DBDAA1236EDDCA004EAD83 /* NotificationsManager.swift */,
+				28DBDAA5236F33CD004EAD83 /* MVAnalytics.swift */,
 				271595B92146AB1F00BECC9C /* InfoPlist.strings */,
 			);
 			name = Utils;
@@ -958,6 +961,7 @@
 				281A4B85236CBD3C001AD277 /* SectionPickerViewModel.swift in Sources */,
 				28E7245F233F5E620096454D /* UIImage+Utils.swift in Sources */,
 				28844A52233F775E00DEEA44 /* SectionHUDViewModel.swift in Sources */,
+				28DBDAA6236F33CD004EAD83 /* MVAnalytics.swift in Sources */,
 				28FB66AE236854C900336DBA /* RemoteSyncer.swift in Sources */,
 				28844A50233F6F3B00DEEA44 /* ChooserButton.swift in Sources */,
 				28844A59233F994600DEEA44 /* GenericPickerViewModel.swift in Sources */,

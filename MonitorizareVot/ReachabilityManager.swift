@@ -18,6 +18,7 @@ class ReachabilityManager: NSObject {
             self.isReachable = true
         }
         reachability?.whenUnreachable = { r in
+            MVAnalytics.shared.log(event: .internetDown)
             self.isReachable = false
         }
         do {

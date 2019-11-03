@@ -134,6 +134,8 @@ class QuestionAnswerViewModel: NSObject {
         questions[questionIndex].isSaved = true
         questions[questionIndex].isSynced = false
         
+        MVAnalytics.shared.log(event: .answerQuestion(code: questionData.questionCode))
+        
         RemoteSyncer.shared.syncUnsyncedData { error in
             self.generateModels(usingFormSections: self.sections)
             self.onModelUpdate?()
@@ -161,6 +163,8 @@ class QuestionAnswerViewModel: NSObject {
         questions[questionIndex].isSaved = true
         questions[questionIndex].isSynced = false
         
+        MVAnalytics.shared.log(event: .answerQuestion(code: questionData.questionCode))
+
         RemoteSyncer.shared.syncUnsyncedData { error in
             self.generateModels(usingFormSections: self.sections)
             self.onModelUpdate?()

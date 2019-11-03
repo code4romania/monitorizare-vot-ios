@@ -186,6 +186,7 @@ class SectionDetailsViewController: MVViewController {
                 self.navigationController?.popToRootViewController(animated: true)
             } else {
                 if error == nil {
+                    MVAnalytics.shared.log(event: .sectionEnvironment(type: self.model.medium == .urban ? "urban" : "rural"))
                     let formsModel = FormListViewModel()
                     let formsVC = FormListViewController(withModel: formsModel)
                     self.navigationController?.pushViewController(formsVC, animated: true)
