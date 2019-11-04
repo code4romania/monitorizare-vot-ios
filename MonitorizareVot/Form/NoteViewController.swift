@@ -79,21 +79,14 @@ class NoteViewController: MVViewController {
             addChild(attachNote)
         }
         
-        attachNoteController.view.frame.size.width = historyTableView.frame.size.width
-        attachNoteController.content.frame.size.width = historyTableView.frame.size.width
-        attachNoteController.content.layoutIfNeeded()
-        attachNoteController.view.frame.size.height = attachNoteController.content.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         attachNoteController.view.layoutIfNeeded()
+        historyTableView.tableHeaderView = attachNoteController.content
+        historyTableView.layoutTableHeaderView()
         
         attachNoteController.onAttachmentRequest = { [weak self] in
             self?.showAttachmentOptions()
         }
 
-        DispatchQueue.main.async {
-            self.historyTableView.tableHeaderView = attachNote.view
-            self.historyTableView.layoutIfNeeded()
-            self.historyTableView.reloadData()
-        }
     }
     
     fileprivate func configureSubviews() {
@@ -225,3 +218,4 @@ extension NoteViewController: UIImagePickerControllerDelegate, UINavigationContr
         picker.dismiss(animated: true, completion: nil)
     }
 }
+

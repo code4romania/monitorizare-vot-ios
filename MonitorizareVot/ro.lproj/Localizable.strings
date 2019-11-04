@@ -34,6 +34,7 @@
 
 "Label_AddNote" = "Adaugă o notă";
 "Label_TypeNote" = "Scrie aici nota";
+"Label_EnterStation" = "Introdu numărul secției (ex: 34)";
 
 "Option.Gallery" = "Încarcă din galerie";
 "Option.TakePhoto" = "Fă o fotografie";
@@ -48,6 +49,7 @@
 "OK" = "OK";
 
 "Error.IncorrectFormat" = "Formatul răspunsului este incorect";
+"Error.Server" = "Nu am putut comunica cu serverul";
 "Error.TokenExpired" = "Autentificarea ți-a expirat. Te rog să te autentifici din nou.";
 "Error.DataDownloadFailed" = "Nu am reușit să descărcăm ultimele date. Te rugăm să încerci mai târziu.";
 "Error.SaveNoteFailed" = "Nu am reușit să salvăm nota. Te rugăm să încerci mai târziu.";

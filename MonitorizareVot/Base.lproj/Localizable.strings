@@ -34,6 +34,7 @@
 
 "Label_AddNote" = "Add a note";
 "Label_TypeNote" = "Type your note here";
+"Label_EnterStation" = "Enter station number (i.e. 34)";
 
 "Option.Gallery" = "Load from gallery";
 "Option.TakePhoto" = "Take a photo";
@@ -48,6 +49,7 @@
 "OK" = "OK";
 
 "Error.IncorrectFormat" = "Incorrect response format";
+"Error.Server" = "We could not communicate with the server";
 "Error.TokenExpired" = "Your authentication expired. Please log in again.";
 "Error.DataDownloadFailed" = "We couldn't download the latest data. Please try again later.";
 "Error.SaveNoteFailed" = "We couldn't save your note. Please try again later.";

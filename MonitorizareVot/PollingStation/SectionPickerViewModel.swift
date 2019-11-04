@@ -53,6 +53,11 @@ class SectionPickerViewModel: NSObject {
     
     fileprivate(set) var availableCounties: [PollingStationResponse] = []
     
+    var maximumStationNumber: Int? {
+        guard let selectedCounty = countyCode else { return nil }
+        return getPollingStation(byCounty: selectedCounty)?.limit
+    }
+    
     fileprivate(set) var isDownloading: Bool = false {
         didSet {
             onDownloadStateChanged?()
