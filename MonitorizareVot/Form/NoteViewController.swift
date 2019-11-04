@@ -8,6 +8,7 @@
 
 import UIKit
 import KeyboardLayoutGuide
+import MobileCoreServices
 
 /// This is the main Note screen. It shows the form to add a note, as well as the history of past notes
 class NoteViewController: MVViewController {
@@ -85,10 +86,7 @@ class NoteViewController: MVViewController {
         attachNoteController.view.layoutIfNeeded()
         
         attachNoteController.onAttachmentRequest = { [weak self] in
-            guard let self = self else { return }
-            let picker = UIImagePickerController()
-            picker.delegate = self
-            self.present(picker, animated: true, completion: nil)
+            self?.showAttachmentOptions()
         }
 
         DispatchQueue.main.async {
@@ -100,6 +98,37 @@ class NoteViewController: MVViewController {
     
     fileprivate func configureSubviews() {
         historyTableView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
+    }
+    
+    fileprivate func showAttachmentOptions() {
+        let options = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        options.addAction(UIAlertAction(title: "Option.Gallery".localized, style: .default, handler: { [weak self] action in
+            self?.showGallery()
+        }))
+        options.addAction(UIAlertAction(title: "Option.TakePhoto".localized, style: .default, handler: { [weak self] action in
+            self?.showCamera(withSource: .photo)
+        }))
+        options.addAction(UIAlertAction(title: "Option.RecordVideo".localized, style: .default, handler: { [weak self] action in
+            self?.showCamera(withSource: .video)
+        }))
+        options.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
+        present(options, animated: true, completion: nil)
+    }
+    
+    fileprivate func showGallery() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .photoLibrary
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+    fileprivate func showCamera(withSource source: UIImagePickerController.CameraCaptureMode) {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType = .camera
+        picker.mediaTypes = source == .video ? [kUTTypeMovie as String] : [kUTTypeImage as String]
+        picker.cameraCaptureMode = source
+        self.present(picker, animated: true, completion: nil)
     }
 
 }
@@ -172,10 +201,24 @@ extension NoteViewController: UIImagePickerControllerDelegate, UINavigationContr
                     filename = ("attachment." + extValue).lowercased()
                 }
             }
-            print("chosen image/video: \(filename)")
+            print("chosen image: \(filename)")
             attachNoteController.handleMediaSelection(filename: filename, data: data)
             // add the header again so that it updates the frame
             addHeaderIfNecessary()
+        } else if let movieType = info[.mediaType] as? String,
+            movieType == (kUTTypeMovie as String),
+            let url = info[.mediaURL] as? URL {
+            let lastPath = url.pathComponents.last?.split(separator: "-").last
+            let filename = lastPath?.lowercased() ?? "movie"
+            print("chosen video: \(filename)")
+            do {
+                let data = try Data(contentsOf: url)
+                attachNoteController.handleMediaSelection(filename: filename, data: data)
+                // add the header again so that it updates the frame
+                addHeaderIfNecessary()
+            } catch {
+                print("Error attaching video: \(error)")
+            }
         } else {
             print("not enough info:\n\(info)")
         }

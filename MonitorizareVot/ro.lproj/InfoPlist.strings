@@ -6,5 +6,6 @@
   Copyright © 2019 Code4Ro. All rights reserved.
 */
 
-NSPhotoLibraryUsageDescription = "Avem nevoie de acces la librăria de poze pentru a putea atașa o poză notei.";
-NSCameraUsageDescription = "Avem nevoie de acces la camera foto pentru a putea atașa o poză sau un film notei.";
+NSPhotoLibraryUsageDescription = "Avem nevoie de acces la librăria de poze pentru a putea atașa o poză notelor.";
+NSCameraUsageDescription = "Avem nevoie de acces la camera foto pentru a putea atașa o poză sau un film notelor.";
+NSMicrophoneUsageDescription = "Avem nevoie de acces la microfon pentru a putea înregistra clipurile de atașat notelor.";

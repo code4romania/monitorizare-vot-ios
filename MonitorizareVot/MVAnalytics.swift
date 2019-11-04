@@ -32,7 +32,7 @@ enum MVAnalyticsEvent {
 
     var name: String {
         switch self {
-        case .screen:               return "screen_view"
+        case .screen:               return "screen"
         case .onboardingPage:       return "onboarding_page"
         case .loginFailed:          return "login_failed"
         case .pushNotificationsAllowed: return "push_allowed"

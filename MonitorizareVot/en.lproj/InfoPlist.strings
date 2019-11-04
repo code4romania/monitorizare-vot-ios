@@ -8,3 +8,4 @@
 
 NSPhotoLibraryUsageDescription = "We need access to your photo library to be able to attach a photo or video to the note";
 NSCameraUsageDescription = "We need access to your camera to be able to attach a photo or video to the note";
+NSMicrophoneUsageDescription = "We need access to your microphone when you record videos to attach to notes";

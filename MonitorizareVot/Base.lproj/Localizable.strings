@@ -35,6 +35,10 @@
 "Label_AddNote" = "Add a note";
 "Label_TypeNote" = "Type your note here";
 
+"Option.Gallery" = "Load from gallery";
+"Option.TakePhoto" = "Take a photo";
+"Option.RecordVideo" = "Record a video";
+
 "AlertMessage_EnableCameraAccess" = "Please access the settings and give us permissions to access the picture library.";
 
 "Error_Unknown" = "An unknown error occured";

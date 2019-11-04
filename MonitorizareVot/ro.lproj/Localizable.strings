@@ -35,6 +35,10 @@
 "Label_AddNote" = "Adaugă o notă";
 "Label_TypeNote" = "Scrie aici nota";
 
+"Option.Gallery" = "Încarcă din galerie";
+"Option.TakePhoto" = "Fă o fotografie";
+"Option.RecordVideo" = "Înregistrează un film";
+
 "AlertMessage_EnableCameraAccess" = "Te rugăm să accesezi setările și să ne oferi permisiuni de acces la librăria de poze.";
 
 "Error_Unknown" = "A apărut o eroare necunoscută";
