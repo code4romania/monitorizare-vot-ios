@@ -18,8 +18,9 @@
                 <outlet property="retryButton" destination="kGG-Du-9EQ" id="l6e-qR-zQQ"/>
                 <outlet property="saveLoader" destination="Jtc-TF-aap" id="6wI-wF-TIk"/>
                 <outlet property="scrollView" destination="z12-JM-Ytq" id="xzj-xk-WWW"/>
-                <outlet property="stationButton" destination="HeP-LV-dNF" id="whR-Eh-9Vz"/>
                 <outlet property="stationLabel" destination="aL9-qO-MZd" id="Xco-Dt-58s"/>
+                <outlet property="stationTextContainer" destination="scm-c8-NJD" id="Gz4-9B-Fcv"/>
+                <outlet property="stationTextField" destination="fQT-Im-qcs" id="NDA-vQ-Jn6"/>
                 <outlet property="view" destination="FsS-d9-Dbd" id="jG2-sJ-tHu"/>
             </connections>
         </placeholder>
@@ -42,7 +43,7 @@
                         <action selector="handleRetryDownloadAction:" destination="-1" eventType="touchUpInside" id="Dt5-4G-gbS"/>
                     </connections>
                 </button>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="z12-JM-Ytq">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="z12-JM-Ytq">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggj-PV-g8U">
@@ -109,18 +110,27 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeP-LV-dNF" customClass="DropdownButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scm-c8-NJD">
                                                     <rect key="frame" x="0.0" y="27" width="382" height="50"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter it here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQT-Im-qcs">
+                                                            <rect key="frame" x="16" y="0.0" width="350" height="50"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="-1" id="IKQ-71-fhG"/>
+                                                            </connections>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="UcO-Qp-jQL"/>
+                                                        <constraint firstItem="fQT-Im-qcs" firstAttribute="leading" secondItem="scm-c8-NJD" secondAttribute="leading" constant="16" id="F5x-vA-eqb"/>
+                                                        <constraint firstItem="fQT-Im-qcs" firstAttribute="top" secondItem="scm-c8-NJD" secondAttribute="top" id="Whw-0G-u3a"/>
+                                                        <constraint firstAttribute="trailing" secondItem="fQT-Im-qcs" secondAttribute="trailing" constant="16" id="e6k-PM-kSU"/>
+                                                        <constraint firstAttribute="bottom" secondItem="fQT-Im-qcs" secondAttribute="bottom" id="fBs-2j-dtG"/>
+                                                        <constraint firstAttribute="height" constant="50" id="rTt-00-joY"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="value" value="1"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="handleSelectStationAction:" destination="-1" eventType="touchUpInside" id="n8M-za-7Iq"/>
-                                                    </connections>
-                                                </button>
+                                                </view>
                                             </subviews>
                                         </stackView>
                                     </subviews>

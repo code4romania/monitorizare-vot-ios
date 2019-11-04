@@ -16,7 +16,8 @@ class SectionPickerViewController: MVViewController {
     @IBOutlet weak var countyLabel: UILabel!
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var countyButton: DropdownButton!
-    @IBOutlet weak var stationButton: DropdownButton!
+    @IBOutlet weak var stationTextContainer: UIView!
+    @IBOutlet weak var stationTextField: UITextField!
     @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var retryButton: ActionButton!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -38,6 +39,7 @@ class SectionPickerViewController: MVViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSubviews()
         bindToModelUpdates()
         localize()
         fetchStations()
@@ -51,6 +53,14 @@ class SectionPickerViewController: MVViewController {
     }
 
     // MARK: - Configuration
+    
+    fileprivate func configureSubviews() {
+        stationTextContainer.layer.masksToBounds = true
+        stationTextContainer.layer.cornerRadius = Configuration.buttonCornerRadius
+        stationTextContainer.layer.borderWidth = 1
+        stationTextContainer.layer.borderColor = UIColor.chooserButtonBorder.cgColor
+        stationTextField.textColor = .defaultText
+    }
     
     fileprivate func bindToModelUpdates() {
         model.onDownloadStateChanged = { [weak self] in
@@ -90,7 +100,11 @@ class SectionPickerViewController: MVViewController {
         }
         
         countyButton.value = model.selectedCountyName
-        stationButton.value = model.sectionId != nil ? "\(model.sectionId!)" : nil
+        
+        if !stationTextField.isFirstResponder {
+            stationTextField.text = model.sectionId != nil ? "\(model.sectionId!)" : nil
+        }
+        stationTextField.returnKeyType = model.selectedCountyName != nil ? .done : .next
         
         continueButton.isEnabled = model.canContinue && !model.isSaving
         if model.isSaving {
@@ -114,7 +128,7 @@ class SectionPickerViewController: MVViewController {
         countyLabel.text = "Label_County".localized
         stationLabel.text = "Label_StationNumber".localized
         countyButton.placeholder = "Label_SelectOption".localized
-        stationButton.placeholder = "Label_SelectOption".localized
+        stationTextField.placeholder = "Label_EnterStation".localized
         continueButton.setTitle("Button_Continue".localized, for: .normal)
     }
     
@@ -133,31 +147,15 @@ class SectionPickerViewController: MVViewController {
         present(picker, animated: true, completion: nil)
     }
     
-    @IBAction func handleSelectStationAction(_ sender: Any) {
-        guard let county = model.countyCode else {
-            let alert = UIAlertController.error(withMessage: "Error.SelectCountyFirst".localized)
-            present(alert, animated: true, completion: nil)
-            return
-        }
-        
-        let pickerOptions = model.availableSectionIds(inCounty: county).map { GenericPickerValue(id: $0, displayName: "\($0)") }
-        let pickerModel = GenericPickerViewModel(withValues: pickerOptions)
-        let picker = GenericPickerViewController(withModel: pickerModel)
-        picker.onCompletion = { [weak self] value in
-            if let value = value,
-                let id = value.id as? Int {
-                self?.model.sectionId = id
-            }
-            self?.dismiss(animated: true, completion: nil)
-        }
-        present(picker, animated: true, completion: nil)
-    }
-    
     @IBAction func handleRetryDownloadAction(_ sender: Any) {
         fetchStations()
     }
     
     @IBAction func handleContinueAction(_ sender: Any) {
+        saveAndContinue()
+    }
+    
+    func saveAndContinue() {
         model.persist { [weak self] error in
             if let error = error {
                 let alert = UIAlertController.error(withMessage: error.localizedDescription)
@@ -173,5 +171,39 @@ class SectionPickerViewController: MVViewController {
         let detailsModel = SectionDetailsViewModel()
         let detailsController = SectionDetailsViewController(withModel: detailsModel)
         navigationController?.setViewControllers([detailsController], animated: true)
+    }
+}
+
+extension SectionPickerViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let updated = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) {
+            if let number = Int(updated),
+                let maxStationNumber = model.maximumStationNumber,
+                number <= maxStationNumber {
+                model.sectionId = number
+                return true
+            } else if updated == "" {
+                model.sectionId = nil
+                return true
+            }
+        }
+        return false
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if model.canContinue {
+            saveAndContinue()
+        }
+        return true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        guard model.countyCode != nil else {
+            let alert = UIAlertController.error(withMessage: "Error.SelectCountyFirst".localized)
+            present(alert, animated: true, completion: nil)
+            return false
+        }
+        return true
     }
 }
