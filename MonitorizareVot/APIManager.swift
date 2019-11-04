@@ -36,9 +36,13 @@ enum APIError: Error {
     case loginFailed(reason: String?)
     
     var localizedDescription: String {
+        var isDebug = false
+        #if DEBUG
+        isDebug = true
+        #endif
         switch self {
         case .unauthorized: return "Error.TokenExpired".localized
-        case .incorrectFormat(let reason): return "Error.IncorrectFormat".localized + " (\(reason ?? ""))"
+        case .incorrectFormat(let reason): return "Error.Server".localized + (isDebug ? " (\(reason ?? ""))" : "")
         case .generic(let reason): return reason ?? "Error_Unknown".localized
         case .loginFailed(let reason): return reason ?? "LoginError_Unknown".localized
         }
