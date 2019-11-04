@@ -5,13 +5,16 @@ import Foundation
 extension String {
     var localized: String {
         get {
-            if let customLocale = PreferencesManager.shared.languageLocale,
-                let path = Bundle.main.path(forResource: customLocale, ofType: "lproj") {
-                let bundle = Bundle(path: path)
-                return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
-            } else {
-                return NSLocalizedString(self, comment: "")
+            if var customLocale = PreferencesManager.shared.languageLocale {
+                if customLocale == "en" {
+                    customLocale = "Base"
+                }
+                if let path = Bundle.main.path(forResource: customLocale, ofType: "lproj") {
+                    let bundle = Bundle(path: path)
+                    return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
+                }
             }
+            return NSLocalizedString(self, comment: "")
         }
     }
     
