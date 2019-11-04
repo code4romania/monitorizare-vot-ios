@@ -58,7 +58,7 @@ class FormSetTableCell: UITableViewCell {
         codeLabel.text = "(\(model.code.uppercased()))"
         progressWidthConstraint.constant = -((1-model.progress) * cardContainer.frame.size.width)
         answeredLabel.text = model.answeredOutOfTotalQuestions
-        progressContainer.isHidden = false
+        progressContainer.isHidden = model.progress == 0
         outerCardContainer.layoutIfNeeded()
     }
     

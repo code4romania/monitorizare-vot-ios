@@ -55,6 +55,7 @@
 "Error.SaveNoteFailed" = "Nu am reușit să salvăm nota. Te rugăm să încerci mai târziu.";
 "Error.UploadNoteFailed" = "Nu am reușit să trimitem la server nota. Vom încerca mai târziu.";
 "Error.SelectCountyFirst" = "Te rugăm să alegi județul/sectorul pentru a putea alege secția";
+"Error.IncorrectStationNumber" = "Număr secție incorect. Te rugăm să verifici corectitudinea combinației județ - număr secție";
 
 "Info.DataNotSyncronised" = "Se pare că unele răspunsuri nu au fost sincronizate cu serverul. Apasă butonul acesta pentru a le retrimite";
 
