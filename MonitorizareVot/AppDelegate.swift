@@ -33,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
         
         setRootViewController()
-        
+        window?.makeKeyAndVisible()
+
         return true
     }
     
@@ -96,15 +97,18 @@ extension AppDelegate {
     
     func goToLogin() {
         let entryViewController = LoginViewController()
-        let navigation = UINavigationController(rootViewController: entryViewController)
-        window?.rootViewController = navigation
-        window?.makeKeyAndVisible()
+        if let currentNavigation = window?.rootViewController as? UINavigationController {
+            currentNavigation.setViewControllers([entryViewController], animated: true)
+        } else {
+            let navigation = UINavigationController(rootViewController: entryViewController)
+            window?.rootViewController = navigation
+        }
     }
     
     func goToOnboarding() {
-        let entryViewController = OnboardingViewController()
-        window?.rootViewController = entryViewController
-        window?.makeKeyAndVisible()
+        let entryViewController = OnboardingLanguageViewController()
+        let navigation = UINavigationController(rootViewController: entryViewController)
+        window?.rootViewController = navigation
     }
     
 }

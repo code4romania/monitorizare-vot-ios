@@ -1,7 +1,10 @@
-//  Created by Code4Romania
+/*
+  InfoPlist.strings
+  MonitorizareVot
 
-NSPhotoLibraryUsageDescription = "";
-NSCameraUsageDescription = "Avem nevoie de acces la librăria de poze pentru a putea atașa o poză notei.";
-NSLocationWhenInUseUsageDescription = "";
-NSLocationAlwaysUsageDescription = "";
-NSLocationUsageDescription = "";
+  Created by Cristi Habliuc on 04/11/2019.
+  Copyright © 2019 Code4Ro. All rights reserved.
+*/
+
+NSPhotoLibraryUsageDescription = "Avem nevoie de acces la librăria de poze pentru a putea atașa o poză notei.";
+NSCameraUsageDescription = "Avem nevoie de acces la camera foto pentru a putea atașa o poză sau un film notei.";

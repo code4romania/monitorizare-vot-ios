@@ -81,20 +81,27 @@ class MVViewController: UIViewController {
     // MARK: - Actions
 
     @objc func pushGuideViewController() {
-        // TODO: extract this into a config
         MVAnalytics.shared.log(event: .tapGuide)
-        if let url = URL(string: "http://monitorizare-vot-ghid.azurewebsites.net/") {
+        if let urlString = Bundle.main.infoDictionary?["GUIDE_URL"] as? String,
+            let url = URL(string: urlString) {
             let safariViewController = SFSafariViewController(url: url)
             self.navigationController?.present(safariViewController, animated: true, completion: nil)
+        } else {
+            let error = UIAlertController.error(withMessage: "No guide available")
+            present(error, animated: true, completion: nil)
         }
     }
     
     @objc func performCall() {
-        // TODO: extract this into a config
         MVAnalytics.shared.log(event: .tapCall)
-        let phoneCallPath = "telprompt://0800080200"
-        if let phoneCallURL = NSURL(string: phoneCallPath) {
-            UIApplication.shared.openURL(phoneCallURL as URL)
+        if let phone = Bundle.main.infoDictionary?["SUPPORT_PHONE"] as? String {
+            let phoneCallPath = "telprompt://\(phone)"
+            if let phoneCallURL = NSURL(string: phoneCallPath) {
+                UIApplication.shared.openURL(phoneCallURL as URL)
+            }
+        } else {
+            let error = UIAlertController.error(withMessage: "No phone support available")
+            present(error, animated: true, completion: nil)
         }
     }
 

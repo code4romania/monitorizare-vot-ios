@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		271595B521465EBA00BECC9C /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271595B421465EBA00BECC9C /* StringExtensions.swift */; };
-		271595B72146AB1F00BECC9C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 271595B92146AB1F00BECC9C /* InfoPlist.strings */; };
+		271595B521465EBA00BECC9C /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271595B421465EBA00BECC9C /* String+Localization.swift */; };
 		27EDBD2221465D190060DB8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EDBD2421465D190060DB8A /* Localizable.strings */; };
 		28104130236B5CA500B7422C /* AttachNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2810412E236B5CA500B7422C /* AttachNoteViewController.swift */; };
 		28104131236B5CA500B7422C /* AttachNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2810412F236B5CA500B7422C /* AttachNoteViewController.xib */; };
@@ -68,6 +67,10 @@
 		28DBDAB1236F4DA8004EAD83 /* OnboardingChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DBDAAF236F4DA8004EAD83 /* OnboardingChildViewController.swift */; };
 		28DBDAB2236F4DA8004EAD83 /* OnboardingChildViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28DBDAB0236F4DA8004EAD83 /* OnboardingChildViewController.xib */; };
 		28DBDAB4236F57C7004EAD83 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28DBDAB3236F57C7004EAD83 /* OnboardingViewController.xib */; };
+		28DBDAB723701B10004EAD83 /* OnboardingLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DBDAB523701B10004EAD83 /* OnboardingLanguageViewController.swift */; };
+		28DBDAB823701B10004EAD83 /* OnboardingLanguageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28DBDAB623701B10004EAD83 /* OnboardingLanguageViewController.xib */; };
+		28DBDABB23701DBD004EAD83 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 28DBDABD23701DBD004EAD83 /* InfoPlist.strings */; };
+		28DBDAC023701F3E004EAD83 /* OnboardingLanguageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DBDABF23701F3E004EAD83 /* OnboardingLanguageViewModel.swift */; };
 		28E72455233F58010096454D /* SectionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E72453233F58010096454D /* SectionDetailsViewController.swift */; };
 		28E72456233F58010096454D /* SectionDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28E72454233F58010096454D /* SectionDetailsViewController.xib */; };
 		28E72458233F58100096454D /* SectionDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E72457233F58100096454D /* SectionDetailsViewModel.swift */; };
@@ -93,11 +96,7 @@
 		C79A3041BFF1FED83C00E5F3 /* Pods_MonitorizareVotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */; };
 		E73A5B3F1DDDDF7F00E41490 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A5B3E1DDDDF7F00E41490 /* CALayerExtensions.swift */; };
 		E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74087231DDC90E800D9332F /* AppDelegate.swift */; };
-		E74087261DDC924F00D9332F /* FormsPersistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74087251DDC924F00D9332F /* FormsPersistor.swift */; };
-		E753C4321DE5FA6800B6B7C9 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */; };
-		E7702ED01DF966F200B3E1F2 /* ButtonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7702ECF1DF966F200B3E1F2 /* ButtonHandler.swift */; };
 		E7CC39F31DDDFF760010688D /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */; };
-		E7CC39FE1DDF2C100010688D /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39FD1DDF2C100010688D /* UIViewControllerExtensions.swift */; };
 		E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */; };
 		EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1561DCF24A800349B43 /* Assets.xcassets */; };
 		EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3DC3941DE9DB02006F9D73 /* CoreDataInitialiser.swift */; };
@@ -134,9 +133,7 @@
 
 /* Begin PBXFileReference section */
 		17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		271595B421465EBA00BECC9C /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		271595B82146AB1F00BECC9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		271595BA2146AB2800BECC9C /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		271595B421465EBA00BECC9C /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		27EDBD2621465D290060DB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		27EDBD2821465D480060DB8A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2810412E236B5CA500B7422C /* AttachNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachNoteViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +196,11 @@
 		28DBDAAF236F4DA8004EAD83 /* OnboardingChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingChildViewController.swift; sourceTree = "<group>"; };
 		28DBDAB0236F4DA8004EAD83 /* OnboardingChildViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingChildViewController.xib; sourceTree = "<group>"; };
 		28DBDAB3236F57C7004EAD83 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		28DBDAB523701B10004EAD83 /* OnboardingLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLanguageViewController.swift; sourceTree = "<group>"; };
+		28DBDAB623701B10004EAD83 /* OnboardingLanguageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingLanguageViewController.xib; sourceTree = "<group>"; };
+		28DBDABC23701DBD004EAD83 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		28DBDABE23701DCA004EAD83 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		28DBDABF23701F3E004EAD83 /* OnboardingLanguageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingLanguageViewModel.swift; sourceTree = "<group>"; };
 		28E72453233F58010096454D /* SectionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDetailsViewController.swift; sourceTree = "<group>"; };
 		28E72454233F58010096454D /* SectionDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionDetailsViewController.xib; sourceTree = "<group>"; };
 		28E72457233F58100096454D /* SectionDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -230,11 +232,8 @@
 		DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73A5B3E1DDDDF7F00E41490 /* CALayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
 		E74087231DDC90E800D9332F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E74087251DDC924F00D9332F /* FormsPersistor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormsPersistor.swift; sourceTree = "<group>"; };
 		E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
-		E7702ECF1DF966F200B3E1F2 /* ButtonHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonHandler.swift; sourceTree = "<group>"; };
 		E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
-		E7CC39FD1DDF2C100010688D /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVColors.swift; sourceTree = "<group>"; };
 		EF13D1561DCF24A800349B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF3DC3941DE9DB02006F9D73 /* CoreDataInitialiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInitialiser.swift; sourceTree = "<group>"; };
@@ -305,8 +304,6 @@
 			children = (
 				E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */,
 				E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */,
-				E7CC39FD1DDF2C100010688D /* UIViewControllerExtensions.swift */,
-				271595B421465EBA00BECC9C /* StringExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -315,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				27EDBD2421465D190060DB8A /* Localizable.strings */,
+				28DBDABD23701DBD004EAD83 /* InfoPlist.strings */,
 			);
 			name = Localizations;
 			sourceTree = "<group>";
@@ -325,6 +323,7 @@
 				2810413F236C3A4900B7422C /* Formatters.swift */,
 				28104141236C3FD500B7422C /* Alerts.swift */,
 				28DBDAA3236EE26D004EAD83 /* UIViewController+Helpers.swift */,
+				271595B421465EBA00BECC9C /* String+Localization.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -423,6 +422,9 @@
 				28DBDAB3236F57C7004EAD83 /* OnboardingViewController.xib */,
 				28DBDAAF236F4DA8004EAD83 /* OnboardingChildViewController.swift */,
 				28DBDAB0236F4DA8004EAD83 /* OnboardingChildViewController.xib */,
+				28DBDABF23701F3E004EAD83 /* OnboardingLanguageViewModel.swift */,
+				28DBDAB523701B10004EAD83 /* OnboardingLanguageViewController.swift */,
+				28DBDAB623701B10004EAD83 /* OnboardingLanguageViewController.xib */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -514,15 +516,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E7E1F2BD1DDB57BB00CE52FC /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				E74087251DDC924F00D9332F /* FormsPersistor.swift */,
-				E7702ECF1DF966F200B3E1F2 /* ButtonHandler.swift */,
-			);
-			name = Protocols;
-			sourceTree = "<group>";
-		};
 		E7E1F2C21DDB586100CE52FC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,7 +531,6 @@
 				289E1E78235EF6FC000C92A0 /* ReachabilityManager.swift */,
 				28DBDAA1236EDDCA004EAD83 /* NotificationsManager.swift */,
 				28DBDAA5236F33CD004EAD83 /* MVAnalytics.swift */,
-				271595B92146AB1F00BECC9C /* InfoPlist.strings */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -586,7 +578,6 @@
 				28F280E1223A3D8C002B3E9A /* Config */,
 				27AEF04421465E2F00B5B3EE /* Extensions */,
 				EF4BD3DD1D9E644F0042BEC7 /* AppDelegate */,
-				E7E1F2BD1DDB57BB00CE52FC /* Protocols */,
 				E7E1F2C21DDB586100CE52FC /* Utils */,
 				EF4BD3E21D9E64F30042BEC7 /* CustomViews */,
 				EF4BD3DE1D9E64720042BEC7 /* ViewControllers */,
@@ -827,14 +818,15 @@
 				281A4B8C236D7B85001AD277 /* LoginViewController.xib in Resources */,
 				2810413D236C2EC300B7422C /* NoteHistoryTableCell.xib in Resources */,
 				28E7245D233F59260096454D /* SectionHUDViewController.xib in Resources */,
+				28DBDAB823701B10004EAD83 /* OnboardingLanguageViewController.xib in Resources */,
 				28E72456233F58010096454D /* SectionDetailsViewController.xib in Resources */,
 				27EDBD2221465D190060DB8A /* Localizable.strings in Resources */,
 				28104131236B5CA500B7422C /* AttachNoteViewController.xib in Resources */,
 				28844A57233F94FD00DEEA44 /* GenericPickerViewController.xib in Resources */,
 				28DBDAB2236F4DA8004EAD83 /* OnboardingChildViewController.xib in Resources */,
 				289E1E85235F2674000C92A0 /* FormListViewController.xib in Resources */,
-				271595B72146AB1F00BECC9C /* InfoPlist.strings in Resources */,
 				28844A5D233F9AB700DEEA44 /* TimePickerViewController.xib in Resources */,
+				28DBDABB23701DBD004EAD83 /* InfoPlist.strings in Resources */,
 				289E1E8D235F2ABE000C92A0 /* FormSetTableCell.xib in Resources */,
 				28508623236D9C6000189D94 /* Launch Screen.storyboard in Resources */,
 				286D38672364398C0091B23F /* QuestionListViewController.xib in Resources */,
@@ -983,6 +975,7 @@
 				E7CC39F31DDDFF760010688D /* UINavigationControllerExtensions.swift in Sources */,
 				28104130236B5CA500B7422C /* AttachNoteViewController.swift in Sources */,
 				28E72463233F66210096454D /* ActionButton.swift in Sources */,
+				28DBDAB723701B10004EAD83 /* OnboardingLanguageViewController.swift in Sources */,
 				281A4B85236CBD3C001AD277 /* SectionPickerViewModel.swift in Sources */,
 				28E7245F233F5E620096454D /* UIImage+Utils.swift in Sources */,
 				28844A52233F775E00DEEA44 /* SectionHUDViewModel.swift in Sources */,
@@ -999,7 +992,6 @@
 				289E1E79235EF6FC000C92A0 /* ReachabilityManager.swift in Sources */,
 				2817EA162358CD0A0029AD4C /* APIManager.swift in Sources */,
 				2810413C236C2EC300B7422C /* NoteHistoryTableCell.swift in Sources */,
-				E74087261DDC924F00D9332F /* FormsPersistor.swift in Sources */,
 				28104142236C3FD500B7422C /* Alerts.swift in Sources */,
 				28C3639523646D480084065C /* DefaultTableHeader.swift in Sources */,
 				EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */,
@@ -1013,7 +1005,6 @@
 				28FB66B0236855E400336DBA /* DB.swift in Sources */,
 				28FB66A22366EAAC00336DBA /* QuestionAnswerViewController.swift in Sources */,
 				E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */,
-				E753C4321DE5FA6800B6B7C9 /* UIButtonExtensions.swift in Sources */,
 				289E1E84235F2674000C92A0 /* FormListViewController.swift in Sources */,
 				F553E3BA1DF9D67A000D0902 /* Note+CoreDataProperties.swift in Sources */,
 				F553E3B01DF9C675000D0902 /* NoteContainer.swift in Sources */,
@@ -1029,19 +1020,18 @@
 				28FB66A52366EAC700336DBA /* QuestionAnswerViewModel.swift in Sources */,
 				28DBDAA4236EE26D004EAD83 /* UIViewController+Helpers.swift in Sources */,
 				28FB66A9236706CA00336DBA /* QuestionCollectionCell.swift in Sources */,
+				28DBDAC023701F3E004EAD83 /* OnboardingLanguageViewModel.swift in Sources */,
 				28104136236B5DE000B7422C /* NoteViewController.swift in Sources */,
 				28DBDAA2236EDDCA004EAD83 /* NotificationsManager.swift in Sources */,
-				E7CC39FE1DDF2C100010688D /* UIViewControllerExtensions.swift in Sources */,
 				28844A56233F94FD00DEEA44 /* GenericPickerViewController.swift in Sources */,
 				289E1E9123604F9D000C92A0 /* MVViewController.swift in Sources */,
 				28E72466233F67280096454D /* Configuration.swift in Sources */,
 				28E72455233F58010096454D /* SectionDetailsViewController.swift in Sources */,
 				F553E3BD1DF9D67A000D0902 /* Answer+CoreDataClass.swift in Sources */,
-				E7702ED01DF966F200B3E1F2 /* ButtonHandler.swift in Sources */,
 				28FB66B423699D7400336DBA /* TextEntryViewController.swift in Sources */,
 				F553E3C01DF9D67A000D0902 /* SectionInfo+CoreDataProperties.swift in Sources */,
 				28E7245C233F59260096454D /* SectionHUDViewController.swift in Sources */,
-				271595B521465EBA00BECC9C /* StringExtensions.swift in Sources */,
+				271595B521465EBA00BECC9C /* String+Localization.swift in Sources */,
 				286D3869236439990091B23F /* QuestionListViewModel.swift in Sources */,
 				E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */,
 				28A7DCB6235CC7EB000B00C4 /* ApiModels.swift in Sources */,
@@ -1085,15 +1075,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		271595B92146AB1F00BECC9C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				271595B82146AB1F00BECC9C /* en */,
-				271595BA2146AB2800BECC9C /* ro */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		27EDBD2421465D190060DB8A /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1101,6 +1082,15 @@
 				27EDBD2821465D480060DB8A /* ro */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		28DBDABD23701DBD004EAD83 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28DBDABC23701DBD004EAD83 /* en */,
+				28DBDABE23701DCA004EAD83 /* ro */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
