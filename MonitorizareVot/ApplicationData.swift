@@ -16,7 +16,7 @@ class ApplicationData: NSObject {
     }
     
     func downloadUpdatedForms(then callback: @escaping (Error?) -> Void) {
-        print("Downloading new form summaries")
+        DebugLog("Downloading new form summaries")
         let api = APIManager.shared
         api.fetchForms { (forms, error) in
             if let error = error {
@@ -47,23 +47,23 @@ class ApplicationData: NSObject {
         
         guard formsThatNeedUpdates.count > 0 else {
             // no updates necessary
-            print("No new forms")
+            DebugLog("No new forms")
             callback()
             return
         }
         
-        print("Downloading \(formsThatNeedUpdates.count) new forms")
+        DebugLog("Downloading \(formsThatNeedUpdates.count) new forms")
         var updatedFormCount = 0
         for form in formsThatNeedUpdates {
             api.fetchForm(withId: form.id) { (formSections, error) in
                 updatedFormCount += 1
                 if let sections = formSections, sections.count > 0 {
                     // store this
-                    print("Downloaded new version for form #\(form.id). New version: \(form.version)")
+                    DebugLog("Downloaded new version for form #\(form.id). New version: \(form.version)")
                     LocalStorage.shared.saveForm(sections, withId: form.id)
                 }
                 if updatedFormCount == formsThatNeedUpdates.count {
-                    print("Done downloading new forms.")
+                    DebugLog("Done downloading new forms.")
                     callback()
                 }
             }

@@ -79,7 +79,7 @@ class SectionDetailsViewModel: NSObject {
         }
         
         RemoteSyncer.shared.uploadSectionInfo(section) { error in
-            print("Uploaded section info. Error: \(error?.localizedDescription ?? "None")")
+            DebugLog("Uploaded section info. Error: \(error?.localizedDescription ?? "None")")
             switch error {
             case .noteError(let reason):
                 if case .unauthorized = reason {

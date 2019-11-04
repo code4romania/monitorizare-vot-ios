@@ -201,7 +201,7 @@ extension NoteViewController: UIImagePickerControllerDelegate, UINavigationContr
                     filename = ("attachment." + extValue).lowercased()
                 }
             }
-            print("chosen image: \(filename)")
+            DebugLog("chosen image: \(filename)")
             attachNoteController.handleMediaSelection(filename: filename, data: data)
             // add the header again so that it updates the frame
             addHeaderIfNecessary()
@@ -210,17 +210,17 @@ extension NoteViewController: UIImagePickerControllerDelegate, UINavigationContr
             let url = info[.mediaURL] as? URL {
             let lastPath = url.pathComponents.last?.split(separator: "-").last
             let filename = lastPath?.lowercased() ?? "movie"
-            print("chosen video: \(filename)")
+            DebugLog("chosen video: \(filename)")
             do {
                 let data = try Data(contentsOf: url)
                 attachNoteController.handleMediaSelection(filename: filename, data: data)
                 // add the header again so that it updates the frame
                 addHeaderIfNecessary()
             } catch {
-                print("Error attaching video: \(error)")
+                DebugLog("Error attaching video: \(error)")
             }
         } else {
-            print("not enough info:\n\(info)")
+            DebugLog("not enough info:\n\(info)")
         }
         picker.dismiss(animated: true, completion: nil)
     }

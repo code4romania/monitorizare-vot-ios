@@ -111,7 +111,7 @@ class RemoteSyncer: NSObject {
         }
         var errors: [RemoteSyncerError] = []
         
-        print("Uploading \(totalRequests) notes...")
+        DebugLog("Uploading \(totalRequests) notes...")
         
         for note in notes {
             let uploadRequest = UploadNoteRequest(
@@ -123,9 +123,9 @@ class RemoteSyncer: NSObject {
             APIManager.shared.upload(note: uploadRequest) { error in
                 if let error = error {
                     errors.append(.noteError(reason: error))
-                    print("Failed to uploaded note: \(error.localizedDescription)")
+                    DebugLog("Failed to uploaded note: \(error.localizedDescription)")
                 } else {
-                    print("Uploaded note")
+                    DebugLog("Uploaded note")
                     
                     // also mark it as synced
                     note.synced = true
@@ -134,7 +134,7 @@ class RemoteSyncer: NSObject {
                 
                 passedRequests += 1
                 if passedRequests == totalRequests {
-                    print("Finished upload for \(totalRequests) notes")
+                    DebugLog("Finished upload for \(totalRequests) notes")
                     callback(errors.first)
                 }
             }
@@ -171,13 +171,13 @@ class RemoteSyncer: NSObject {
         }
         
         let request = UploadAnswersRequest(answers: answers)
-        print("Uploading answers for \(answers.count) questions...")
+        DebugLog("Uploading answers for \(answers.count) questions...")
         APIManager.shared.upload(answers: request) { error in
             if let error = error {
-                print("Uploading answers failed: \(error)")
+                DebugLog("Uploading answers failed: \(error)")
                 callback(RemoteSyncerError.questionError(reason: error))
             } else {
-                print("Uploaded answers.")
+                DebugLog("Uploaded answers.")
                 
                 // update the questions sync status
                 self.markQuestionsAsSynced(usingAnswers: answers)
