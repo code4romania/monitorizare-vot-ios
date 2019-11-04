@@ -100,7 +100,7 @@ class LocalStorage: NSObject, LocalStorageType {
             let object = try JSONDecoder().decode(type, from: data)
             return object
         } catch {
-            print("Error loading file at \(fileUrl): \(error.localizedDescription)")
+            DebugLog("Error loading file at \(fileUrl): \(error.localizedDescription)")
             return nil
         }
     }
@@ -111,7 +111,7 @@ class LocalStorage: NSObject, LocalStorageType {
             let data = try JSONEncoder().encode(codable)
             try data.write(to: fileUrl)
         } catch {
-            print("Error saving file to \(fileUrl): \(error.localizedDescription)")
+            DebugLog("Error saving file to \(fileUrl): \(error.localizedDescription)")
         }
     }
     
@@ -120,7 +120,7 @@ class LocalStorage: NSObject, LocalStorageType {
         do {
             try FileManager.default.removeItem(at: fileUrl)
         } catch {
-            print("Error deleting file at \(fileUrl): \(error.localizedDescription)")
+            DebugLog("Error deleting file at \(fileUrl): \(error.localizedDescription)")
         }
     }
     

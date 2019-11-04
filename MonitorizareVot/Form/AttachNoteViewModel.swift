@@ -75,7 +75,7 @@ class AttachNoteViewModel: NSObject {
             let note = try DB.shared.saveNote(withText: text, fileAttachment: attachment?.data, questionId: questionId)
             self.savedNote = note
             onUpdate?()
-            print("Saved note locally")
+            DebugLog("Saved note locally")
         } catch {
             callback(.saveFailed)
             return
@@ -98,9 +98,9 @@ class AttachNoteViewModel: NSObject {
         APIManager.shared.upload(note: request) { apiError in
             if let error = apiError {
                 callback(.uploadFailed(reason: error))
-                print("Note upload failed: \(error.localizedDescription)")
+                DebugLog("Note upload failed: \(error.localizedDescription)")
             } else {
-                print("Uploaded note")
+                DebugLog("Uploaded note")
                 
                 self.savedNote?.synced = true
                 try? CoreData.save()

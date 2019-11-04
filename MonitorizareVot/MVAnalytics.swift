@@ -79,7 +79,7 @@ class MVAnalytics: NSObject {
     func log(event: MVAnalyticsEvent) {
         Analytics.logEvent(event.name, parameters: event.parameters)
         #if DEBUG
-        print("Event: \(event.name). Params: \(event.parameters ?? [:])")
+        DebugLog("Event: \(event.name). Params: \(event.parameters ?? [:])")
         #endif
     }
 }

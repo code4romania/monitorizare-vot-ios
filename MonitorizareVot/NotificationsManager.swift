@@ -52,13 +52,13 @@ class NotificationsManager: NSObject {
             if !authorized {
                 self.registerForRemoteNotifications()
             } else {
-                print("Already authorized for push notifications")
+                DebugLog("Already authorized for push notifications")
             }
         }
     }
     
     func registerForRemoteNotifications() {
-        print("Registering for push notifications")
+        DebugLog("Registering for push notifications")
         let application = UIApplication.shared
         if #available(iOS 10.0, *) {
           // For iOS 10 display notification (sent via APNS)
@@ -89,7 +89,7 @@ class NotificationsManager: NSObject {
     }
     
     func didFailToRegisterForRemoteNotifications(withError error: Error) {
-        print("Unable to register for remote notifications: \(error.localizedDescription)")
+        DebugLog("Unable to register for remote notifications: \(error.localizedDescription)")
     }
     
     func didRegisterForRemoteNotificationsWithDeviceToken(deviceToken: Data) {
@@ -101,9 +101,9 @@ class NotificationsManager: NSObject {
     func uploadTokenToServer(token: String) {
         APIManager.shared.sendPushToken(withToken: token) { error in
             if let error = error {
-                print("Could not send token to server. Error: \(error.localizedDescription)")
+                DebugLog("Could not send token to server. Error: \(error.localizedDescription)")
             } else {
-                print("Sent token to server")
+                DebugLog("Sent token to server")
             }
         }
     }
@@ -123,11 +123,9 @@ extension NotificationsManager: UNUserNotificationCenterDelegate {
     // Messaging.messaging().appDidReceiveMessage(userInfo)
     // Print message ID.
     if let messageID = userInfo[gcmMessageIDKey] {
-        print("Message ID: \(messageID)")
+        DebugLog("Message ID: \(messageID)")
     }
 
-    // Print full message.
-    print(userInfo)
     didReceiveRemoteNotification(userInfo: userInfo)
 
     // Change this to your preferred presentation option
@@ -140,11 +138,9 @@ extension NotificationsManager: UNUserNotificationCenterDelegate {
     let userInfo = response.notification.request.content.userInfo
     // Print message ID.
     if let messageID = userInfo[gcmMessageIDKey] {
-        print("Message ID: \(messageID)")
+        DebugLog("Message ID: \(messageID)")
     }
 
-    // Print full message.
-    print(userInfo)
     didReceiveRemoteNotification(userInfo: userInfo)
 
     completionHandler()
@@ -156,7 +152,7 @@ extension NotificationsManager: UNUserNotificationCenterDelegate {
 extension NotificationsManager: MessagingDelegate {
   // [START refresh_token]
   func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print("Firebase registration token: \(fcmToken)")
+        DebugLog("Firebase registration token: \(fcmToken)")
     
         let dataDict:[String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
@@ -171,7 +167,7 @@ extension NotificationsManager: MessagingDelegate {
   // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
   // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
   func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        print("Received data message: \(remoteMessage.appData)")
+        DebugLog("Received data message: \(remoteMessage.appData)")
   }
   // [END ios_10_data_message]
 }

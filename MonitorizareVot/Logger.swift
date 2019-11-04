@@ -2,13 +2,17 @@
 
 import Foundation
 import Firebase
+import Crashlytics
 
-struct Logger {
-    static func logAuthenticationWithSuccess(success: Bool, response: Any?) -> Void {
-        if (success) {
-            Analytics.logEvent(AnalyticsEventLogin, parameters: nil)
-        } else {
-            Analytics.logEvent("login_failed", parameters: response != nil ? ["response": response!] : nil)
-        }
-    }
+func DebugLog(_ message: String, file: StaticString = #file, function: StaticString = #function, line: Int = #line) {
+    let filename = URL(fileURLWithPath: file.description).lastPathComponent
+    let output = "\(filename):\(line) \(function) $ \(message)"
+
+    #if targetEnvironment(simulator)
+        NSLogv("%@", getVaList([output]))
+    #elseif DEBUG
+        CLSNSLogv("%@", getVaList([output]))
+    #else
+        CLSLogv("%@", getVaList([output]))
+    #endif
 }

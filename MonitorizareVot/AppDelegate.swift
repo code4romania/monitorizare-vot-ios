@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureAppearance()
         
         #if DEBUG
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])
+        DebugLog("\(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0])")
         #endif
         
         setRootViewController()
@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         RemoteSyncer.shared.syncUnsyncedData { error in
-            print("Tried to sync any unsynced data. Error? \(error?.localizedDescription ?? "None")")
+            DebugLog("Tried to sync any unsynced data. Error? \(error?.localizedDescription ?? "None")")
         }
     }
     

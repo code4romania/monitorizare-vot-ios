@@ -99,7 +99,7 @@ class DB: NSObject {
         do {
             try CoreData.save()
         } catch {
-            print("Error: couldn't save synced status locally: \(error)")
+            DebugLog("Error: couldn't save synced status locally: \(error)")
         }
     }
 
