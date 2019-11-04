@@ -68,7 +68,7 @@ class AttachNoteViewController: UIViewController {
         textViewContainer.layer.borderWidth = 1
         textViewContainer.layer.borderColor = UIColor.textViewContainerBorder.cgColor
         textViewContainer.layer.cornerRadius = Configuration.buttonCornerRadius
-        textView.textContainerInset = UIEdgeInsets(top: 13, left: 13, bottom: 13, right: 13)
+        textView.textContainerInset = UIEdgeInsets(top: 13, left: 10, bottom: 13, right: 10)
         textView.contentOffset = .zero
         textView.textColor = .defaultText
     }

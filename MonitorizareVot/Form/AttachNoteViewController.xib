@@ -101,12 +101,13 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zK8-Iq-Ayl" customClass="AttachButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zK8-Iq-Ayl" customClass="AttachButton" customModule="MonitorizareVot" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="267.5" width="350" height="43"/>
                                                     <inset key="contentEdgeInsets" minX="0.0" minY="13" maxX="0.0" maxY="13"/>
                                                     <inset key="titleEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="7" maxY="0.0"/>
                                                     <state key="normal" title="Add Photo or Video" image="icon-camera"/>
+                                                    <state key="highlighted" image="icon-camera"/>
                                                     <connections>
                                                         <action selector="handleAttachAction:" destination="-1" eventType="touchUpInside" id="7Fv-Ww-b4b"/>
                                                     </connections>
