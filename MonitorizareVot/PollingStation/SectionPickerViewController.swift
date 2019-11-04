@@ -156,6 +156,12 @@ class SectionPickerViewController: MVViewController {
     }
     
     func saveAndContinue() {
+        guard model.isSectionNumberCorrect else {
+            let alert = UIAlertController.error(withMessage: "Error.IncorrectStationNumber".localized)
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
         model.persist { [weak self] error in
             if let error = error {
                 let alert = UIAlertController.error(withMessage: error.localizedDescription)
@@ -177,21 +183,21 @@ class SectionPickerViewController: MVViewController {
 extension SectionPickerViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let updated = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) {
-            if let number = Int(updated),
-                let maxStationNumber = model.maximumStationNumber,
-                number <= maxStationNumber {
+            if let number = Int(updated) {
                 model.sectionId = number
-                return true
             } else if updated == "" {
                 model.sectionId = nil
-                return true
+            } else {
+                return false
             }
+            return true
         }
         return false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
         if model.canContinue {
             saveAndContinue()
         }

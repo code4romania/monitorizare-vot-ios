@@ -37,6 +37,10 @@ class SectionPickerViewModel: NSObject {
         return countyCode != nil && sectionId != nil
     }
     
+    var isSectionNumberCorrect: Bool {
+        return sectionId != nil && maximumStationNumber != nil && sectionId! <= maximumStationNumber!
+    }
+    
     var selectedCountyName: String? {
         guard let code = countyCode else { return nil }
         return getPollingStation(byCounty: code)?.name.capitalized
