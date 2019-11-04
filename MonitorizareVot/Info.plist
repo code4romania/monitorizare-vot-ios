@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ALLOWED_LANGUAGES</key>
+	<string>$(ALLOWED_LANGUAGES)</string>
 	<key>API_URL</key>
 	<string>$(API_URL)</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -22,6 +24,8 @@
 	<string>2.0</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>GUIDE_URL</key>
+	<string>$(GUIDE_URL)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -33,6 +37,8 @@
 	<string>$(PRODUCT_NAME) Monitorizare Vot are nevoie de acces la camera foto</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) Monitorizare Vot are nevoie de acces la galeria foto a telefonului</string>
+	<key>SUPPORT_PHONE</key>
+	<string>$(SUPPORT_PHONE)</string>
 	<key>TEST_PHONE</key>
 	<string>$(TEST_PHONE)</string>
 	<key>TEST_PIN</key>

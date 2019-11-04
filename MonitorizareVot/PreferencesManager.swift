@@ -14,6 +14,8 @@ protocol PreferencesManagerType: NSObject {
     var county: String? { get set }
     var section: Int? { get set }
     var sectionName: String? { get set }
+    var languageLocale: String? { get set }
+    var languageName: String? { get set }
 }
 
 class PreferencesManager: NSObject, PreferencesManagerType {
@@ -24,6 +26,8 @@ class PreferencesManager: NSObject, PreferencesManagerType {
         case county = "PreferenceCounty"
         case section = "PreferenceSectionId"
         case sectionName = "PreferenceSectionName"
+        case languageLocale = "PreferenceLanguageLocale"
+        case languageName = "PreferenceLanguageName"
     }
     
     var county: String? {
@@ -55,6 +59,22 @@ class PreferencesManager: NSObject, PreferencesManagerType {
             setValue(newValue, forKey: .wasOnboardingShown)
         } get {
             return getValue(forKey: .wasOnboardingShown) as? Bool ?? false
+        }
+    }
+    
+    var languageLocale: String? {
+        set {
+            setValue(newValue, forKey: .languageLocale)
+        } get {
+            return getValue(forKey: .languageLocale) as? String
+        }
+    }
+    
+    var languageName: String? {
+        set {
+            setValue(newValue, forKey: .languageName)
+        } get {
+            return getValue(forKey: .languageName) as? String
         }
     }
     
