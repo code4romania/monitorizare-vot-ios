@@ -55,6 +55,12 @@ class ApplicationData: NSObject {
         DebugLog("Downloading \(formsThatNeedUpdates.count) new forms")
         var updatedFormCount = 0
         for form in formsThatNeedUpdates {
+            
+            // delete any questions, answers, notes that were answered to the old form
+            if let existing = indexedExistingForms[form.id] {
+                deleteUserData(forForm: form.code, formVersion: existing.version)
+            }
+            
             api.fetchForm(withId: form.id) { (formSections, error) in
                 updatedFormCount += 1
                 if let sections = formSections, sections.count > 0 {
@@ -68,5 +74,10 @@ class ApplicationData: NSObject {
                 }
             }
         }
+    }
+    
+    fileprivate func deleteUserData(forForm formCode: String, formVersion: Int) {
+        let questions = DB.shared.getQuestions(forForm: formCode, formVersion: formVersion)
+        DB.shared.delete(questions: questions)
     }
 }

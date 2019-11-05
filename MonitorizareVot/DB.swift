@@ -38,8 +38,6 @@ class DB: NSObject {
             newSectioInfo.synced = false
             try! CoreData.context.save()
             return newSectioInfo
-            
-            // TODO: sync it!
         }
     }
     
@@ -61,6 +59,37 @@ class DB: NSObject {
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [sectionPredicate, syncedPredicate])
         let unsyncedQuestions = CoreData.fetch(request) as? [Question]
         return unsyncedQuestions ?? []
+    }
+    
+    func getQuestions(forForm formCode: String, formVersion: Int) -> [Question] {
+        guard let section = currentSectionInfo() else { return [] }
+        let request: NSFetchRequest<Question> = Question.fetchRequest()
+        let sectionPredicate = NSPredicate(format: "sectionInfo == %@", section)
+        let formPredicate = NSPredicate(format: "form == %@", formCode)
+        let formVersionPredicate = NSPredicate(format: "formVersion <= %d", Int16(formVersion))
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [sectionPredicate, formPredicate, formVersionPredicate])
+        let matchedQuestions = CoreData.fetch(request) as? [Question]
+        return matchedQuestions ?? []
+    }
+    
+    func delete(questions: [Question]) {
+        let count = questions.count
+        for question in questions {
+            if let answers = question.answers,
+                let all = answers.allObjects as? [Answer] {
+                for answer in all {
+                    CoreData.context.delete(answer)
+                }
+            }
+            let notes = getNotes(attachedToQuestion: Int(question.id))
+            for note in notes {
+                CoreData.context.delete(note)
+            }
+            CoreData.context.delete(question)
+            question.sectionInfo?.removeFromQuestions(question)
+        }
+        DebugLog("Deleted \(count) questions")
+        try? CoreData.save()
     }
     
     func getQuestion(withId id: Int) -> Question? {

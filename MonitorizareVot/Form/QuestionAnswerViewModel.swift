@@ -180,6 +180,7 @@ class QuestionAnswerViewModel: NSObject {
         if question == nil {
             question = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context) as? Question
             question.form = form.code
+            question.formVersion = Int16(form.version)
             question.id = Int16(questionModel.questionId)
             question.synced = false
             question.type = Int16(questionModel.type.rawValue)
