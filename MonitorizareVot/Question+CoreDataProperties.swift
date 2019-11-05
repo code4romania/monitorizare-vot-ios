@@ -18,6 +18,7 @@ extension Question {
 
     @NSManaged public var answered: Bool
     @NSManaged public var form: String?
+    @NSManaged public var formVersion: Int16
     @NSManaged public var id: Int16
     @NSManaged public var synced: Bool
     @NSManaged public var text: String?

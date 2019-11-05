@@ -19,6 +19,7 @@
     <entity name="Question" representedClassName="Question" syncable="YES">
         <attribute name="answered" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="form" optional="YES" attributeType="String"/>
+        <attribute name="formVersion" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="synced" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
@@ -41,7 +42,7 @@
     <elements>
         <element name="Answer" positionX="376" positionY="459" width="128" height="133"/>
         <element name="Note" positionX="198" positionY="288" width="128" height="133"/>
-        <element name="Question" positionX="178" positionY="447" width="128" height="178"/>
+        <element name="Question" positionX="178" positionY="447" width="128" height="193"/>
         <element name="SectionInfo" positionX="-11" positionY="252" width="128" height="178"/>
     </elements>
 </model>
