@@ -85,7 +85,8 @@ class QuestionAnswerViewController: MVViewController {
         updateTitle()
         updateNavigationButtons()
         let currentPage = getDisplayedRow()
-        if currentPage != lastViewedQuestionIndex {
+        if currentPage != lastViewedQuestionIndex
+            && currentPage >= 0 && currentPage < model.questions.count - 1 {
             MVAnalytics.shared.log(event: .viewQuestion(code: model.questions[currentPage].questionCode))
             lastViewedQuestionIndex = currentPage
         }
