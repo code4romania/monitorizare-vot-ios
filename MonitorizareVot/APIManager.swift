@@ -201,7 +201,7 @@ class APIManager: NSObject, APIManagerType {
                 } else if response.response?.statusCode == 401 {
                     callback(.unauthorized)
                 } else {
-                    callback(.incorrectFormat(reason: "Unknown reason"))
+                    callback(.incorrectFormat(reason: "Response code \(response.response?.statusCode ?? -1)"))
                 }
         }
     }
