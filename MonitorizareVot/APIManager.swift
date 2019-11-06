@@ -124,8 +124,8 @@ class APIManager: NSObject, APIManagerType {
                 if statusCode == 200,
                     let data = response.data {
                     do {
-                        let response = try JSONDecoder().decode([PollingStationResponse].self, from: data)
-                        callback(response, nil)
+                        let stations = try JSONDecoder().decode([PollingStationResponse].self, from: data)
+                        callback(stations, nil)
                     } catch {
                         callback(nil, .incorrectFormat(reason: error.localizedDescription))
                     }
