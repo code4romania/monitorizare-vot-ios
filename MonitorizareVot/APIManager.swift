@@ -18,7 +18,7 @@ protocol APIManagerType: NSObject {
     func sendPushToken(withToken token: String,
                        then callback: @escaping (APIError?) -> Void)
     func fetchPollingStations(then callback: @escaping ([PollingStationResponse]?, APIError?) -> Void)
-    func fetchForms(then callback: @escaping ([FormResponse]?, APIError?) -> Void)
+    func fetchForms(diaspora: Bool, then callback: @escaping ([FormResponse]?, APIError?) -> Void)
     func fetchForm(withId formId: Int,
                    then callback: @escaping ([FormSectionResponse]?, APIError?) -> Void)
     func upload(pollingStation: UpdatePollingStationRequest,
@@ -95,7 +95,6 @@ class APIManager: NSObject, APIManagerType {
         let headers = requestHeaders(withAuthHeaders: auth)
 
         let parameters: Parameters = [
-//            "ObserverId": "1",
             "ChannelName": "Firebase",
             "Token": token
         ]
@@ -121,8 +120,8 @@ class APIManager: NSObject, APIManagerType {
         Alamofire
             .request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
             .response { response in
-            
-                if response.response?.statusCode == 200,
+                let statusCode = response.response?.statusCode
+                if statusCode == 200,
                     let data = response.data {
                     do {
                         let response = try JSONDecoder().decode([PollingStationResponse].self, from: data)
@@ -130,7 +129,7 @@ class APIManager: NSObject, APIManagerType {
                     } catch {
                         callback(nil, .incorrectFormat(reason: error.localizedDescription))
                     }
-                } else if response.response?.statusCode == 401 {
+                } else if statusCode == 401 {
                     callback(nil, .unauthorized)
                 } else {
                     callback(nil, .incorrectFormat(reason: "Unknown reason"))
@@ -138,8 +137,17 @@ class APIManager: NSObject, APIManagerType {
         }
     }
     
-    func fetchForms(then callback: @escaping ([FormResponse]?, APIError?) -> Void) {
-        let url = ApiURL.forms.url()
+    func fetchForms(diaspora: Bool, then callback: @escaping ([FormResponse]?, APIError?) -> Void) {
+        var url = ApiURL.forms.url()
+        if diaspora && RemoteConfigManager.shared.value(of: .filterDiasporaForms).boolValue {
+            if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) {
+                urlComponents.queryItems = [URLQueryItem(name: "diaspora", value: "true")]
+                if let newURL = urlComponents.url {
+                    url = newURL
+                }
+            }
+        }
+        
         let headers = authorizationHeaders()
         
         Alamofire

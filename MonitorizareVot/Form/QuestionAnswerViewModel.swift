@@ -65,8 +65,7 @@ class QuestionAnswerViewModel: NSObject {
     }
     
     fileprivate func generateModels(usingFormSections formSections: [FormSectionResponse]) {
-        guard let sectionInfo = DB.shared.currentSectionInfo() else { return }
-        let allQuestions = sections.reduce(into: [QuestionResponse]()) { $0 += $1.questions }
+        let allQuestions = formSections.reduce(into: [QuestionResponse]()) { $0 += $1.questions }
         
         var models: [QuestionAnswerCellModel] = []
         for questionMeta in allQuestions {
