@@ -139,9 +139,9 @@ class APIManager: NSObject, APIManagerType {
     
     func fetchForms(diaspora: Bool, then callback: @escaping ([FormResponse]?, APIError?) -> Void) {
         var url = ApiURL.forms.url()
-        if diaspora && RemoteConfigManager.shared.value(of: .filterDiasporaForms).boolValue {
+        if RemoteConfigManager.shared.value(of: .filterDiasporaForms).boolValue {
             if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) {
-                urlComponents.queryItems = [URLQueryItem(name: "diaspora", value: "true")]
+                urlComponents.queryItems = [URLQueryItem(name: "diaspora", value: "\(diaspora ? "true" : "false")")]
                 if let newURL = urlComponents.url {
                     url = newURL
                 }
