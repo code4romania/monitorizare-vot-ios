@@ -83,21 +83,14 @@ class SectionPickerViewModel: NSObject {
     }
     
     func fetchPollingStations(then callback: @escaping (APIError?) -> Void) {
-        if let stations = LocalStorage.shared.pollingStations,
-        stations.count > 0 {
-            availableCounties = stations
-            isDownloading = false
-            callback(nil)
-        } else {
-            isDownloading = true
-            APIManager.shared.fetchPollingStations { (stations, error) in
-                if let stations = stations {
-                    self.availableCounties = stations
-                    LocalStorage.shared.pollingStations = stations
-                }
-                callback(error)
-                self.isDownloading = false
+        isDownloading = true
+        APIManager.shared.fetchPollingStations { (stations, error) in
+            if let stations = stations {
+                self.availableCounties = stations
+                LocalStorage.shared.pollingStations = stations
             }
+            callback(error)
+            self.isDownloading = false
         }
     }
     

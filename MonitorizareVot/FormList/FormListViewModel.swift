@@ -56,7 +56,8 @@ class FormListViewModel: NSObject {
     fileprivate func convertToViewModels(responses: [FormResponse]?) {
         if let objects = responses {
             forms = objects.map { set in
-                let image = UIImage(named: "icon-formset-\(set.code.lowercased())") ?? UIImage(named: "icon-formset-default")
+                let formCodePrefix = set.code.first != nil ? String(set.code.first!).lowercased() : ""
+                let image = UIImage(named: "icon-formset-\(formCodePrefix)") ?? UIImage(named: "icon-formset-default")
                 let answeredQuestions = DB.shared.getAnsweredQuestions(inFormWithCode: set.code).count
                 let formSections = LocalStorage.shared.loadForm(withId: set.id)
                 let totalQuestions = formSections?.reduce([QuestionResponse](), { $0 + $1.questions }).count ?? 0

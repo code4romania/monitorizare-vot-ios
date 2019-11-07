@@ -95,6 +95,7 @@ struct PollingStationResponse: Codable {
     var name: String
     var code: String
     var limit: Int
+    var diaspora: Bool?
 }
 
 struct FormListResponse: Codable {

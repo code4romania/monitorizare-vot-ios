@@ -17,8 +17,16 @@ class ApplicationData: NSObject {
     
     func downloadUpdatedForms(then callback: @escaping (Error?) -> Void) {
         DebugLog("Downloading new form summaries")
+        
+        // for diaspora we might have different forms, so first check if the user is in diaspora or not
+        var isCountyDiaspora = false
+        if let countyCode = PreferencesManager.shared.county,
+            let stationCounty = LocalStorage.shared.getPollingStationResponse(withCode: countyCode) {
+            isCountyDiaspora = stationCounty.diaspora ?? false
+        }
+        
         let api = APIManager.shared
-        api.fetchForms { (forms, error) in
+        api.fetchForms(diaspora: isCountyDiaspora) { (forms, error) in
             if let error = error {
                 callback(error)
             } else {
