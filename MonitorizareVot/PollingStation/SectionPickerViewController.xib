@@ -147,7 +147,7 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="ggj-PV-g8U" firstAttribute="width" secondItem="z12-JM-Ytq" secondAttribute="width" id="S1Y-Y9-XGT"/>
-                        <constraint firstAttribute="bottom" secondItem="ggj-PV-g8U" secondAttribute="bottom" id="UYv-2N-5JC"/>
+                        <constraint firstAttribute="bottom" secondItem="ggj-PV-g8U" secondAttribute="bottom" constant="10" id="UYv-2N-5JC"/>
                         <constraint firstItem="ggj-PV-g8U" firstAttribute="height" secondItem="z12-JM-Ytq" secondAttribute="height" priority="250" id="aVY-t7-ZkM"/>
                         <constraint firstAttribute="trailing" secondItem="ggj-PV-g8U" secondAttribute="trailing" id="fxh-0z-3zA"/>
                         <constraint firstItem="ggj-PV-g8U" firstAttribute="leading" secondItem="z12-JM-Ytq" secondAttribute="leading" id="ntp-fw-ezP"/>
@@ -185,7 +185,7 @@
                 <constraint firstItem="Jtc-TF-aap" firstAttribute="centerX" secondItem="pCh-K5-Nfk" secondAttribute="centerX" id="Yw0-XY-2eM"/>
                 <constraint firstItem="ovZ-ls-IH3" firstAttribute="trailing" secondItem="z12-JM-Ytq" secondAttribute="trailing" id="bDj-25-KVR"/>
                 <constraint firstItem="z12-JM-Ytq" firstAttribute="leading" secondItem="ovZ-ls-IH3" secondAttribute="leading" id="okP-Oz-C2d"/>
-                <constraint firstItem="ovZ-ls-IH3" firstAttribute="bottom" secondItem="z12-JM-Ytq" secondAttribute="bottom" id="uZu-2f-EBS"/>
+                <constraint firstItem="ovZ-ls-IH3" firstAttribute="bottom" secondItem="z12-JM-Ytq" secondAttribute="bottom" placeholder="YES" id="uZu-2f-EBS"/>
                 <constraint firstItem="z12-JM-Ytq" firstAttribute="top" secondItem="ovZ-ls-IH3" secondAttribute="top" id="vD1-VP-5fQ"/>
                 <constraint firstItem="V6h-g3-mdm" firstAttribute="centerY" secondItem="ovZ-ls-IH3" secondAttribute="centerY" id="wes-PA-ajq"/>
             </constraints>

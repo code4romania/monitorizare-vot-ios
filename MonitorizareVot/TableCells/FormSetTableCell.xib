@@ -46,13 +46,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="193" height="4"/>
                                                 <color key="backgroundColor" red="0.1960784314" green="0.82352941180000006" blue="0.23921568630000001" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" constant="193" id="CuF-5G-c14"/>
                                                     <constraint firstAttribute="height" constant="4" id="OXT-hv-TSd"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="K12-rA-wE3" firstAttribute="width" secondItem="9Ob-Pr-rEc" secondAttribute="width" constant="-150" id="Ri6-xk-tHE"/>
                                             <constraint firstAttribute="bottom" secondItem="K12-rA-wE3" secondAttribute="bottom" id="bns-L9-pAd"/>
                                             <constraint firstAttribute="height" constant="4" id="hVO-Vw-edy"/>
                                             <constraint firstItem="K12-rA-wE3" firstAttribute="top" secondItem="9Ob-Pr-rEc" secondAttribute="top" id="m4w-QU-UH5"/>
@@ -105,7 +105,7 @@
                 <outlet property="iconView" destination="CkW-VM-l68" id="kBe-df-nAj"/>
                 <outlet property="outerCardContainer" destination="ia5-sz-Upg" id="20F-2R-0Sl"/>
                 <outlet property="progressContainer" destination="9Ob-Pr-rEc" id="vwp-aD-R4V"/>
-                <outlet property="progressWidthConstraint" destination="Ri6-xk-tHE" id="9qZ-ME-zf3"/>
+                <outlet property="progressWidthConstraint" destination="CuF-5G-c14" id="gyD-Jh-VyO"/>
                 <outlet property="titleLabel" destination="PjN-r9-iVy" id="vI1-2V-JBi"/>
             </connections>
             <point key="canvasLocation" x="139" y="153"/>

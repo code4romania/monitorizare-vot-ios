@@ -54,7 +54,7 @@ class FormSetTableCell: UITableViewCell {
     func update(withModel model: FormSetCellModel) {
         iconView.image = model.icon
         titleLabel.attributedText = titleText(ofModel: model)
-        progressWidthConstraint.constant = -((1-model.progress) * cardContainer.frame.size.width)
+        progressWidthConstraint.constant = model.progress * cardContainer.frame.size.width
         answeredLabel.text = model.answeredOutOfTotalQuestions
         progressContainer.isHidden = model.progress == 0
         outerCardContainer.layoutIfNeeded()
