@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KeyboardLayoutGuide
 
 class SectionPickerViewController: MVViewController {
     
@@ -60,6 +61,7 @@ class SectionPickerViewController: MVViewController {
         stationTextContainer.layer.borderWidth = 1
         stationTextContainer.layer.borderColor = UIColor.chooserButtonBorder.cgColor
         stationTextField.textColor = .defaultText
+        scrollView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
     }
     
     fileprivate func bindToModelUpdates() {

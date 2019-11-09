@@ -105,6 +105,8 @@ class FormListViewController: MVViewController {
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.register(UINib(nibName: "FormSetTableCell", bundle: nil),
                            forCellReuseIdentifier: FormSetTableCell.reuseIdentifier)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 88
         retryButton.isHidden = true
     }
     

@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         CoreData.containerName = "s"
         
+        if !PreferencesManager.shared.wasAppStartedBefore {
+            handleFirstAppStart()
+        }
+        
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
         
@@ -78,6 +82,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - Appearance
 
 extension AppDelegate {
+    
+    fileprivate func handleFirstAppStart() {
+        DebugLog("App is started for the first time. Handling...")
+        
+        // delete all previous data (this is in case the user has updated from an older version, this way we won't have conflicts)
+        CoreData.clearDatabase()
+    }
+    
     fileprivate func configureAppearance() {
         UINavigationBar.appearance().tintColor = UIColor.navigationBarTint
         UINavigationBar.appearance().backgroundColor = .navigationBarBackground

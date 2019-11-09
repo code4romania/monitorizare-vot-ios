@@ -179,7 +179,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="ogB-MY-iVq" secondAttribute="bottom" constant="50" id="41z-zF-ZcU"/>
+                        <constraint firstAttribute="bottom" secondItem="ogB-MY-iVq" secondAttribute="bottom" priority="990" constant="50" id="41z-zF-ZcU"/>
                         <constraint firstItem="ogB-MY-iVq" firstAttribute="top" secondItem="FX9-mO-rLX" secondAttribute="top" id="Foa-de-7H8"/>
                         <constraint firstItem="ogB-MY-iVq" firstAttribute="leading" secondItem="FX9-mO-rLX" secondAttribute="leading" constant="16" id="G5J-q7-6r0"/>
                         <constraint firstAttribute="trailing" secondItem="ogB-MY-iVq" secondAttribute="trailing" constant="16" id="yVQ-rJ-1Ms"/>
