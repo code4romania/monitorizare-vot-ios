@@ -97,4 +97,24 @@ final class CoreData: NSObject {
             }
         }
     }
+    
+    static func clearDatabase() {
+        var persistentStoreCoordinator = self.persistentStoreCoordinator
+        var url: URL!
+        if #available(iOS 10.0, *) {
+            guard let descriptionURL = persistentContainer.persistentStoreDescriptions.first?.url else { return }
+            url = descriptionURL
+            persistentStoreCoordinator = persistentContainer.persistentStoreCoordinator
+        } else {
+            url = persistentStoreCoordinator.url(for: persistentStoreCoordinator.persistentStores.first!)
+        }
+        
+        do {
+            try persistentStoreCoordinator.destroyPersistentStore(at: url, ofType: NSSQLiteStoreType, options: nil)
+            try persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+            DebugLog("Cleared persistent store.")
+        } catch {
+            DebugLog("Failed to clear persistent store: " + error.localizedDescription)
+        }
+    }
 }

@@ -25,7 +25,6 @@ class FormSetTableCell: UITableViewCell {
     @IBOutlet weak var cardContainer: UIView!
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var codeLabel: UILabel!
     @IBOutlet weak var answeredLabel: UILabel!
     
     @IBOutlet weak var progressContainer: UIView!
@@ -54,18 +53,39 @@ class FormSetTableCell: UITableViewCell {
     
     func update(withModel model: FormSetCellModel) {
         iconView.image = model.icon
-        titleLabel.text = model.title
-        codeLabel.text = "(\(model.code.uppercased()))"
+        titleLabel.attributedText = titleText(ofModel: model)
         progressWidthConstraint.constant = -((1-model.progress) * cardContainer.frame.size.width)
         answeredLabel.text = model.answeredOutOfTotalQuestions
         progressContainer.isHidden = model.progress == 0
         outerCardContainer.layoutIfNeeded()
     }
     
+    func titleText(ofModel model: FormSetCellModel) -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.2
+        
+        let text = NSMutableAttributedString(string: model.title,
+                                             attributes: [
+                                                .font: UIFont.systemFont(ofSize: 18, weight: .bold),
+                                                .foregroundColor: UIColor.formNameText,
+                                                .paragraphStyle: paragraphStyle
+                                             ])
+        
+        let codeText = " (\(model.code.uppercased()))"
+        text.append(NSAttributedString(string: codeText,
+                                       attributes: [
+                                        .font: UIFont.systemFont(ofSize: 18, weight: .regular),
+                                        .foregroundColor: UIColor.formNameText.withAlphaComponent(0.4),
+                                        .paragraphStyle: paragraphStyle
+                                       ]))
+        
+        return text
+    }
+    
     func updateAsNote() {
         iconView.image = UIImage(named: "icon-note-small")
         titleLabel.text = "Label_AddNote".localized
-        codeLabel.text = nil
+        titleLabel.textColor = .formNameText
         answeredLabel.text = nil
         progressContainer.isHidden = true
         outerCardContainer.layoutIfNeeded()

@@ -96,10 +96,8 @@
 		67EE98CB22A296F7006E4762 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EE98CA22A296F7006E4762 /* Logger.swift */; };
 		67EE98CE22A29D87006E4762 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67EE98CD22A29D87006E4762 /* GoogleService-Info.plist */; };
 		C79A3041BFF1FED83C00E5F3 /* Pods_MonitorizareVotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */; };
-		E73A5B3F1DDDDF7F00E41490 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A5B3E1DDDDF7F00E41490 /* CALayerExtensions.swift */; };
 		E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74087231DDC90E800D9332F /* AppDelegate.swift */; };
-		E7CC39F31DDDFF760010688D /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */; };
-		E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */; };
+		E7E8EB4B1DDB7344009EBE01 /* UIColor+Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4A1DDB7344009EBE01 /* UIColor+Presets.swift */; };
 		EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1561DCF24A800349B43 /* Assets.xcassets */; };
 		EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3DC3941DE9DB02006F9D73 /* CoreDataInitialiser.swift */; };
 		EF4BD3921D9D08DE0042BEC7 /* s.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF4BD3901D9D08DE0042BEC7 /* s.xcdatamodeld */; };
@@ -234,11 +232,8 @@
 		7F4B4D98801626552C357D41 /* Pods-MonitorizareVotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		90CF95CA02DCD8E741C5686D /* Pods-MonitorizareVot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot.debug.xcconfig"; sourceTree = "<group>"; };
 		DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E73A5B3E1DDDDF7F00E41490 /* CALayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
 		E74087231DDC90E800D9332F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
-		E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
-		E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVColors.swift; sourceTree = "<group>"; };
+		E7E8EB4A1DDB7344009EBE01 /* UIColor+Presets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Presets.swift"; sourceTree = "<group>"; };
 		EF13D1561DCF24A800349B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF3DC3941DE9DB02006F9D73 /* CoreDataInitialiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataInitialiser.swift; sourceTree = "<group>"; };
 		EF4BD3811D9D08DE0042BEC7 /* MonitorizareVot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonitorizareVot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,15 +296,6 @@
 				F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		27AEF04421465E2F00B5B3EE /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E753C4311DE5FA6800B6B7C9 /* UIButtonExtensions.swift */,
-				E7CC39F21DDDFF760010688D /* UINavigationControllerExtensions.swift */,
-			);
-			name = Extensions;
 			sourceTree = "<group>";
 		};
 		27EDBD15214658CD0060DB8A /* Localizations */ = {
@@ -529,8 +515,7 @@
 				67EE98C922A296B1006E4762 /* Logging */,
 				E7E1F2C51DDB59C800CE52FC /* API */,
 				EFB9AD1B1DEA1039008C1035 /* DBHandlers */,
-				E7E8EB4A1DDB7344009EBE01 /* MVColors.swift */,
-				E73A5B3E1DDDDF7F00E41490 /* CALayerExtensions.swift */,
+				E7E8EB4A1DDB7344009EBE01 /* UIColor+Presets.swift */,
 				28E7245E233F5E620096454D /* UIImage+Utils.swift */,
 				28E72465233F67280096454D /* Configuration.swift */,
 				289E1E78235EF6FC000C92A0 /* ReachabilityManager.swift */,
@@ -582,7 +567,6 @@
 			children = (
 				28C363962364AB700084065C /* MonitorizareVot.entitlements */,
 				28F280E1223A3D8C002B3E9A /* Config */,
-				27AEF04421465E2F00B5B3EE /* Extensions */,
 				EF4BD3DD1D9E644F0042BEC7 /* AppDelegate */,
 				E7E1F2C21DDB586100CE52FC /* Utils */,
 				EF4BD3E21D9E64F30042BEC7 /* CustomViews */,
@@ -996,9 +980,7 @@
 				28C36392236464770084065C /* ApplicationData.swift in Sources */,
 				EF4BD3921D9D08DE0042BEC7 /* s.xcdatamodeld in Sources */,
 				28C3638F2364512E0084065C /* QuestionTableCell.swift in Sources */,
-				E73A5B3F1DDDDF7F00E41490 /* CALayerExtensions.swift in Sources */,
 				281A4B8E236D7B90001AD277 /* LoginViewModel.swift in Sources */,
-				E7CC39F31DDDFF760010688D /* UINavigationControllerExtensions.swift in Sources */,
 				28104130236B5CA500B7422C /* AttachNoteViewController.swift in Sources */,
 				28E72463233F66210096454D /* ActionButton.swift in Sources */,
 				28DBDAB723701B10004EAD83 /* OnboardingLanguageViewController.swift in Sources */,
@@ -1031,7 +1013,7 @@
 				28A4B776237364FE00E6D2A8 /* RemoteConfigManager.swift in Sources */,
 				28FB66B0236855E400336DBA /* DB.swift in Sources */,
 				28FB66A22366EAAC00336DBA /* QuestionAnswerViewController.swift in Sources */,
-				E7E8EB4B1DDB7344009EBE01 /* MVColors.swift in Sources */,
+				E7E8EB4B1DDB7344009EBE01 /* UIColor+Presets.swift in Sources */,
 				289E1E84235F2674000C92A0 /* FormListViewController.swift in Sources */,
 				F553E3BA1DF9D67A000D0902 /* Note+CoreDataProperties.swift in Sources */,
 				F553E3B01DF9C675000D0902 /* NoteContainer.swift in Sources */,
@@ -1246,7 +1228,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MonitorizareVot/MonitorizareVot.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1265,7 +1247,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MonitorizareVot/MonitorizareVot.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

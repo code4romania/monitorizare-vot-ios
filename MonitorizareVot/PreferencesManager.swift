@@ -16,6 +16,7 @@ protocol PreferencesManagerType: NSObject {
     var sectionName: String? { get set }
     var languageLocale: String? { get set }
     var languageName: String? { get set }
+    var wasAppStartedBefore: Bool { get }
 }
 
 class PreferencesManager: NSObject, PreferencesManagerType {
@@ -77,6 +78,8 @@ class PreferencesManager: NSObject, PreferencesManagerType {
             return getValue(forKey: .languageName) as? String
         }
     }
+    
+    var wasAppStartedBefore: Bool { return wasOnboardingShown }
     
     // MARK: - Helpers
     
