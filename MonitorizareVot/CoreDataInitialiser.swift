@@ -52,7 +52,7 @@ final class CoreData: NSObject {
             
             dict[NSUnderlyingErrorKey] = error as NSError
             let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
-            NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
+            DebugLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
             abort()
         }
         
@@ -95,6 +95,26 @@ final class CoreData: NSObject {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+    
+    static func clearDatabase() {
+        var persistentStoreCoordinator = self.persistentStoreCoordinator
+        var url: URL!
+        if #available(iOS 10.0, *) {
+            guard let descriptionURL = persistentContainer.persistentStoreDescriptions.first?.url else { return }
+            url = descriptionURL
+            persistentStoreCoordinator = persistentContainer.persistentStoreCoordinator
+        } else {
+            url = persistentStoreCoordinator.url(for: persistentStoreCoordinator.persistentStores.first!)
+        }
+        
+        do {
+            try persistentStoreCoordinator.destroyPersistentStore(at: url, ofType: NSSQLiteStoreType, options: nil)
+            try persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+            DebugLog("Cleared persistent store.")
+        } catch {
+            DebugLog("Failed to clear persistent store: " + error.localizedDescription)
         }
     }
 }

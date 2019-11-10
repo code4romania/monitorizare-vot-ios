@@ -1,61 +1,87 @@
 //  Created by Code4Romania
 
-"TextField_Placeholder_PhoneNumber" = "Phone number";
-"TextField_Placeholder_PINNumber" = "Received PIN";
-"TextField_Placeholder_DepartmentNumber" = "Department number";
-
-"TextView_Placeholder_WriteHere" = "Write here ...";
-"TextView_Placeholder_MoreDetails" = "Add more details ...";
-
-"Button_Authenticate" = "Authenticate";
-"Button_Close" = "Close";
 "Button_Continue" = "Continue";
-"Button_ChangeDepartemnt" = "Change department";
+"Button_ChangeDepartemnt" = "Change";
 "Button_Urban" = "Urban";
 "Button_Rural" = "Rural";
 "Button_Male" = "Man";
 "Button_Female" = "Woman";
 "Button_ContinueToForms" = "Continue to forms";
-"Button_SyncData" = "Synchronize Data";
+"Button_SyncData" = "Synchronise Data Manually";
 "Button_AddNoteToQuestion" = "Add note to question";
-"Button_EditNote" = "Edit note";
-"Button_NextQuestion" = "Next question";
 "Button_Add" = "Add";
 "Button_Send" = "Send";
 "Button_Delete" = "Delete";
 "Button_Settings" = "Settings";
+"Button_Retry" = "Retry";
+"Button_AddNoteToQuestion" = "Add Note to Current Question";
+"Button_Submit" = "Submit";
+"Button_AddPhotoVideo" = "Add Photo or Video";
 
-"Label_PickDepartment" = "Pick department";
-"Label_PickDepartmentDetails" = "where you are located";
-"Label_County" = "County";
-"Label_SelectedCounty" = "Choose";
-"Label_CountyLocation" = "In what environment is the department?";
-"Label_CountyPresidentGender" = "The chairman of the department is";
-"Label_CountyArriveTime" = "Arrival time in the section";
+"Label_CountyLocation" = "Choose the area of the station";
+"Label_CountyPresidentGender" = "The president of the polling station is:";
+"Label_CountyArriveTime" = "Arrival time";
 "Label_CountyLeaveTime" = "Time of departure";
-"Label_FormA" = "Saturday Form";
-"Label_FormB" = "Sunday Form";
-"Label_FormC" = "Counting Form";
-"Label_FormAAbr" = "SA";
-"Label_FormBAbr" = "SU";
-"Label_FormCAbr" = "C";
 "Label_AddNote" = "Add note";
-"Label_YourMessage" = "Your message";
-"Label_AddPhoto" = "Add photo";
-"Label_Completed" = "Completed";
-"Label_NotCompleted" = "Not completed";
-"Label_DevelopedBy" = "app developed by";
+"Label_Saved" = "Saved locally";
+"Label_Synced" = "Synced";
 
-"NavigationBar_DepartmentDetails" = "Department details";
-"NavigationBar_SelectForm" = "Select form";
+"Label_ChooseStation" = "Choose the polling station you are in";
+"Label_County" = "County / District";
+"Label_StationNumber" = "Polling station number";
+"Label_SelectOption" = "Select an option";
+"Label_DevelopedBy" = "developed by";
 
-"AlertTitle_SelectCounty" = "Select county";
-"AlertMessage_SelectCounty" = "Select a county to continue.";
-"AlertTitle_CountyNumber" = "Add department number";
-"AlertMessage_CountyNumber" = "You have to add the department number to continue.";
-"AlertTitle_CountyNumberInvalid" = "Department number is invalid";
-"AlertMessage_CountyNumberInvalid" = "We didn't find any department for given number.";
-"AlertTitle_AccessRestricted" = "Access restricted";
+"Label_AddNote" = "Add a note";
+"Label_TypeNote" = "Type your note here";
+"Label_EnterStation" = "Enter station number (i.e. 34)";
+
+"Option.Gallery" = "Load from gallery";
+"Option.TakePhoto" = "Take a photo";
+"Option.RecordVideo" = "Record a video";
+
 "AlertMessage_EnableCameraAccess" = "Please access the settings and give us permissions to access the picture library.";
 
-"AlertButton_Understood" = "I understood";
+"Error_Unknown" = "An unknown error occured";
+"LoginError_Unknown" = "Login failed. Unknown reason. Please contact us.";
+
+"Error" = "Error";
+"OK" = "OK";
+
+"Error.IncorrectFormat" = "Incorrect response format";
+"Error.Server" = "We could not communicate with the server";
+"Error.TokenExpired" = "Your authentication expired. Please log in again.";
+"Error.DataDownloadFailed" = "We couldn't download the latest data. Please try again later.";
+"Error.SaveNoteFailed" = "We couldn't save your note. Please try again later.";
+"Error.UploadNoteFailed" = "We couldn't upload your note. We will retry later.";
+"Error.SelectCountyFirst" = "Please select your county / district first.";
+"Error.IncorrectStationNumber" = "Incorrect station number. Please double check the county and provided section number";
+
+"Info.DataNotSyncronised" = "It appears that some of the questions have not been syncronised. Tap the button below to send the answers again";
+
+"Station" = "Station";
+
+"Title.StationDetails" = "Station Details";
+"Title.FormSets" = "All Forms";
+"Title.Question" = "Question";
+"Title.Note" = "Notes";
+"Title.NoteHistory" = "Note History";
+"Title.Section" = "Polling Station Setup";
+"Title.Language" = "Choose your language";
+
+"Next" = "Next";
+"Previous" = "Previous";
+"Done" = "Done";
+"Select" = "Select";
+"Cancel" = "Cancel";
+"Other" = "Other";
+
+"Onboarding.Title.Station" = "Pick your voting station";
+"Onboarding.Title.Forms" = "Fill in the forms";
+"Onboarding.Title.Notes" = "Add notes";
+
+"Onboarding.Text.Station" = "STEP 1:\nMention the voting station you are in, choosing the county and it’s number.\n\nSTEP 2:\nAdd some details (urban/ rural area, details about the section president, your arrival time). Don’t worry, you can edit the information later.";
+"Onboarding.Text.Forms" = "In order to help you detect problems, we provide some forms with the standard rules for a voting station.\nOn each form you can mark wether certain procedures have been followed or not.";
+"Onboarding.Text.Notes" = "Did you notice any problem that does not appear in the form? Use the ‘Add note’ button, write a message and/or attach a picture.";
+
+"Onboarding.Go" = "Go to app";

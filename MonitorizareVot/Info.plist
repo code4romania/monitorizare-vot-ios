@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ALLOWED_LANGUAGES</key>
+	<string>$(ALLOWED_LANGUAGES)</string>
+	<key>API_URL</key>
+	<string>$(API_URL)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>ro</string>
 	<key>CFBundleDisplayName</key>
@@ -17,9 +21,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1.1</string>
+	<string>2.0.3</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>GUIDE_URL</key>
+	<string>$(GUIDE_URL)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -31,10 +37,14 @@
 	<string>$(PRODUCT_NAME) Monitorizare Vot are nevoie de acces la camera foto</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) Monitorizare Vot are nevoie de acces la galeria foto a telefonului</string>
+	<key>SUPPORT_PHONE</key>
+	<string>$(SUPPORT_PHONE)</string>
+	<key>TEST_PHONE</key>
+	<string>$(TEST_PHONE)</string>
+	<key>TEST_PIN</key>
+	<string>$(TEST_PIN)</string>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>Launch Screen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -1,0 +1,24 @@
+//
+//  CustomConfiguration.xcconfig
+//  MonitorizareVot
+//
+//  Created by Cristi Habliuc on 20/04/2019.
+//  Copyright © 2019 Code4Ro. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.MyOtherAppName
+DEVELOPMENT_TEAM = ""
+CODE_SIGN_STYLE = Manual
+API_URL = https:/$()/mv-mobile-prod.azurewebsites.net/api // production
+TEST_PHONE =
+TEST_PIN =
+ALLOWED_LANGUAGES = ro,en // you can override this in your project, but make sure you have correct localization
+SUPPORT_PHONE = 0800080200
+GUIDE_URL = https:/$()/fiecarevot.ro/wp-content/uploads/2019/11/Manual-prezidentiale.pdf
+
+//API_URL = https:/$()/mv-mobile-test.azurewebsites.net/api // dev - use this in your LocalConfiguration.xcconfig
+
+#include? "LocalConfiguration.xcconfig"

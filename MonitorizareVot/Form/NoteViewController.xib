@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NoteViewController" customModule="MonitorizareVot" customModuleProvider="target">
+            <connections>
+                <outlet property="headerContainer" destination="Dfv-ZM-x8O" id="dWn-9H-FOc"/>
+                <outlet property="historyTableView" destination="hwK-yI-Zgp" id="Clf-Sk-Iaw"/>
+                <outlet property="view" destination="P2o-rO-rGt" id="Qv9-hx-8wc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="P2o-rO-rGt">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfv-ZM-x8O">
+                    <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="04g-JK-L0H"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" keyboardDismissMode="onDrag" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwK-yI-Zgp">
+                    <rect key="frame" x="0.0" y="94" width="414" height="802"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="O8e-58-v1w"/>
+                        <outlet property="delegate" destination="-1" id="xEl-Pa-UFN"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Dfv-ZM-x8O" firstAttribute="leading" secondItem="16S-g9-27y" secondAttribute="leading" id="1x1-7W-X2y"/>
+                <constraint firstItem="16S-g9-27y" firstAttribute="trailing" secondItem="hwK-yI-Zgp" secondAttribute="trailing" id="LGO-2t-Xfk"/>
+                <constraint firstItem="hwK-yI-Zgp" firstAttribute="top" secondItem="Dfv-ZM-x8O" secondAttribute="bottom" id="Neu-Zb-pQc"/>
+                <constraint firstItem="16S-g9-27y" firstAttribute="trailing" secondItem="Dfv-ZM-x8O" secondAttribute="trailing" id="TqB-Pd-7A7"/>
+                <constraint firstItem="Dfv-ZM-x8O" firstAttribute="top" secondItem="16S-g9-27y" secondAttribute="top" id="XFg-v2-npL"/>
+                <constraint firstItem="hwK-yI-Zgp" firstAttribute="leading" secondItem="16S-g9-27y" secondAttribute="leading" id="joB-GX-LBF"/>
+                <constraint firstAttribute="bottom" secondItem="hwK-yI-Zgp" secondAttribute="bottom" priority="900" placeholder="YES" id="zv6-ae-lYs"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="16S-g9-27y"/>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+</document>

@@ -1,7 +1,11 @@
-//  Created by Code4Romania
+/* 
+  InfoPlist.strings
+  MonitorizareVot
 
-NSPhotoLibraryUsageDescription = "";
-NSCameraUsageDescription = "We need access to the picture library to attach a picture of the note.";
-NSLocationWhenInUseUsageDescription = "";
-NSLocationAlwaysUsageDescription = "";
-NSLocationUsageDescription = "";
+  Created by Cristi Habliuc on 04/11/2019.
+  Copyright © 2019 Code4Ro. All rights reserved.
+*/
+
+NSPhotoLibraryUsageDescription = "We need access to your photo library to be able to attach a photo or video to the note";
+NSCameraUsageDescription = "We need access to your camera to be able to attach a photo or video to the note";
+NSMicrophoneUsageDescription = "We need access to your microphone when you record videos to attach to notes";
