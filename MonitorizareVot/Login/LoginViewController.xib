@@ -182,21 +182,23 @@
                         <constraint firstAttribute="bottom" secondItem="ogB-MY-iVq" secondAttribute="bottom" priority="990" constant="50" id="41z-zF-ZcU"/>
                         <constraint firstItem="ogB-MY-iVq" firstAttribute="top" secondItem="FX9-mO-rLX" secondAttribute="top" id="Foa-de-7H8"/>
                         <constraint firstItem="ogB-MY-iVq" firstAttribute="leading" secondItem="FX9-mO-rLX" secondAttribute="leading" constant="16" id="G5J-q7-6r0"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="414" id="tFV-V4-Hyn"/>
                         <constraint firstAttribute="trailing" secondItem="ogB-MY-iVq" secondAttribute="trailing" constant="16" id="yVQ-rJ-1Ms"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="FX9-mO-rLX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8V3-le-Hfv"/>
+                <constraint firstItem="FX9-mO-rLX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" priority="999" id="8V3-le-Hfv"/>
                 <constraint firstItem="FX9-mO-rLX" firstAttribute="top" secondItem="MxF-rD-VRJ" secondAttribute="bottom" id="9F3-uZ-v8y"/>
                 <constraint firstAttribute="bottom" secondItem="3Bj-ly-UuC" secondAttribute="bottom" id="OV0-Px-JQd"/>
                 <constraint firstItem="MxF-rD-VRJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OiU-e0-B6n"/>
                 <constraint firstItem="3Bj-ly-UuC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ql2-ER-ZRf"/>
                 <constraint firstItem="3Bj-ly-UuC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="boo-uM-iqq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FX9-mO-rLX" secondAttribute="bottom" priority="990" id="cNt-Fj-4yu"/>
+                <constraint firstItem="FX9-mO-rLX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="mqb-9M-iRg"/>
                 <constraint firstItem="MxF-rD-VRJ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="pZG-6E-GBS"/>
-                <constraint firstItem="FX9-mO-rLX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tTh-zR-ZKa"/>
+                <constraint firstItem="FX9-mO-rLX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" priority="999" id="tTh-zR-ZKa"/>
                 <constraint firstAttribute="trailing" secondItem="3Bj-ly-UuC" secondAttribute="trailing" id="ykV-br-qNk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

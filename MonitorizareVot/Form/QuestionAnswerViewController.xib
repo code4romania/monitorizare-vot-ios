@@ -84,6 +84,7 @@
                         <constraint firstAttribute="height" constant="60" id="7pW-BJ-Uh9"/>
                         <constraint firstItem="FoT-ct-bfz" firstAttribute="top" secondItem="mge-kA-HfO" secondAttribute="top" constant="16" id="YIr-Ne-u9a"/>
                         <constraint firstAttribute="bottom" secondItem="FoT-ct-bfz" secondAttribute="bottom" id="b51-ym-V7m"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="h4G-xY-Eiv"/>
                         <constraint firstAttribute="trailing" secondItem="FoT-ct-bfz" secondAttribute="trailing" constant="16" id="wsG-9c-Rge"/>
                     </constraints>
                 </view>
@@ -92,14 +93,15 @@
             <constraints>
                 <constraint firstItem="mge-kA-HfO" firstAttribute="top" secondItem="Uca-AG-xVQ" secondAttribute="bottom" id="67Q-FO-yTE"/>
                 <constraint firstItem="scA-db-UeY" firstAttribute="trailing" secondItem="C4B-FI-9Rk" secondAttribute="trailing" id="7OQ-AW-3AW"/>
-                <constraint firstItem="scA-db-UeY" firstAttribute="trailing" secondItem="Uca-AG-xVQ" secondAttribute="trailing" id="7ml-UY-YUE"/>
+                <constraint firstItem="scA-db-UeY" firstAttribute="trailing" secondItem="Uca-AG-xVQ" secondAttribute="trailing" priority="999" id="7ml-UY-YUE"/>
+                <constraint firstItem="mge-kA-HfO" firstAttribute="centerX" secondItem="scA-db-UeY" secondAttribute="centerX" id="9tG-gU-jwl"/>
                 <constraint firstItem="scA-db-UeY" firstAttribute="bottom" secondItem="mge-kA-HfO" secondAttribute="bottom" priority="999" id="ABV-Bl-Zbb"/>
-                <constraint firstItem="scA-db-UeY" firstAttribute="trailing" secondItem="mge-kA-HfO" secondAttribute="trailing" id="EXl-ac-lyc"/>
+                <constraint firstItem="scA-db-UeY" firstAttribute="trailing" secondItem="mge-kA-HfO" secondAttribute="trailing" priority="999" id="EXl-ac-lyc"/>
                 <constraint firstItem="C4B-FI-9Rk" firstAttribute="top" secondItem="scA-db-UeY" secondAttribute="top" id="J9p-nG-Oxe"/>
                 <constraint firstItem="Uca-AG-xVQ" firstAttribute="top" secondItem="C4B-FI-9Rk" secondAttribute="bottom" id="MEC-1v-gfP"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="mge-kA-HfO" secondAttribute="bottom" constant="16" id="ZQe-wV-a0q"/>
                 <constraint firstItem="C4B-FI-9Rk" firstAttribute="leading" secondItem="scA-db-UeY" secondAttribute="leading" id="Zvj-E6-zgv"/>
-                <constraint firstItem="mge-kA-HfO" firstAttribute="leading" secondItem="scA-db-UeY" secondAttribute="leading" id="mdE-B4-dF0"/>
+                <constraint firstItem="mge-kA-HfO" firstAttribute="leading" secondItem="scA-db-UeY" secondAttribute="leading" priority="999" id="mdE-B4-dF0"/>
                 <constraint firstItem="Uca-AG-xVQ" firstAttribute="leading" secondItem="scA-db-UeY" secondAttribute="leading" id="qfz-rH-9p9"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="scA-db-UeY"/>

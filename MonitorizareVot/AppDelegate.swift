@@ -103,27 +103,8 @@ extension AppDelegate {
             window?.overrideUserInterfaceStyle = .light
         }
         
-        if OnboardingViewModel.shouldShowOnboarding {
-            goToOnboarding()
-        } else {
-            goToLogin()
-        }
+        AppRouter.shared.showAppEntry()
     }
     
-    func goToLogin() {
-        let entryViewController = LoginViewController()
-        if let currentNavigation = window?.rootViewController as? UINavigationController {
-            currentNavigation.setViewControllers([entryViewController], animated: true)
-        } else {
-            let navigation = UINavigationController(rootViewController: entryViewController)
-            window?.rootViewController = navigation
-        }
-    }
-    
-    func goToOnboarding() {
-        let entryViewController = OnboardingLanguageViewController()
-        let navigation = UINavigationController(rootViewController: entryViewController)
-        window?.rootViewController = navigation
-    }
     
 }

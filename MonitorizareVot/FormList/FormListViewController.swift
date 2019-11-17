@@ -46,6 +46,7 @@ class FormListViewController: MVViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
         model.reload()
         updateInterface()
         DispatchQueue.main.async {
@@ -172,12 +173,11 @@ class FormListViewController: MVViewController {
         
         let questionsVC = QuestionListViewController(withModel: questionsModel)
         navigationController?.pushViewController(questionsVC, animated: true)
+        AppRouter.shared.resetDetailsPane()
     }
     
     fileprivate func continueToNote() {
-        let noteModel = NoteViewModel()
-        let controller = NoteViewController(withModel: noteModel)
-        navigationController?.pushViewController(controller, animated: true)
+        AppRouter.shared.openAddNote()
     }
 }
 

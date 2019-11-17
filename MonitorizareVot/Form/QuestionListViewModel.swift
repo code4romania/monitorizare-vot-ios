@@ -60,4 +60,15 @@ class QuestionListViewModel: NSObject {
         }
     }
     
+    func indexPath(ofQuestionWithId questionId: Int) -> IndexPath? {
+        for (sectionIndex, section) in sections.enumerated() {
+            for (questionIndex, question) in section.questions.enumerated() {
+                if question.id == questionId {
+                    return IndexPath(row: questionIndex, section: sectionIndex)
+                }
+            }
+        }
+        return nil
+    }
+    
 }
