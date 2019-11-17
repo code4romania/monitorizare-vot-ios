@@ -1,4 +1,4 @@
-# Monitorizare Vot - iOS app - Contributing guide
+# Vote Monitor - iOS - Contributing guide
 
 :two_hearts: First off all, thank you for your interest in the project and for taking the time to contribute!
 
