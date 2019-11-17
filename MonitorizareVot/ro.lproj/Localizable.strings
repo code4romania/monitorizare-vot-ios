@@ -35,6 +35,7 @@
 "Label_AddNote" = "Adaugă o notă";
 "Label_TypeNote" = "Scrie aici nota";
 "Label_EnterStation" = "Introdu numărul secției (ex: 34)";
+"Label_Empty" = "Alege o întrebare sau adaugă o notă";
 
 "Option.Gallery" = "Încarcă din galerie";
 "Option.TakePhoto" = "Fă o fotografie";

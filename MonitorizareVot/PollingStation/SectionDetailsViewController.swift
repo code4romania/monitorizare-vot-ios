@@ -192,9 +192,7 @@ class SectionDetailsViewController: MVViewController {
             } else {
                 if error == nil {
                     MVAnalytics.shared.log(event: .sectionEnvironment(type: self.model.medium == .urban ? "urban" : "rural"))
-                    let formsModel = FormListViewModel()
-                    let formsVC = FormListViewController(withModel: formsModel)
-                    self.navigationController?.setViewControllers([formsVC], animated: true)
+                    AppRouter.shared.goToForms(from: self)
                 } else {
                     let alert = UIAlertController(title: "Error".localized,
                                                   message: error?.localizedDescription ?? "An error occured",

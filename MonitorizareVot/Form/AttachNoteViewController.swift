@@ -28,7 +28,7 @@ class AttachNoteViewController: UIViewController {
     @IBOutlet weak var attachButton: AttachButton!
     @IBOutlet weak var submitButton: ActionButton!
     
-    var onAttachmentRequest: (() -> Void)?
+    var onAttachmentRequest: ((_ sourceView: UIView) -> Void)?
     
     // MARK: - Object
     
@@ -105,8 +105,8 @@ class AttachNoteViewController: UIViewController {
         view.layoutIfNeeded()
     }
     
-    @IBAction func handleAttachAction(_ sender: Any) {
-        onAttachmentRequest?()
+    @IBAction func handleAttachAction(_ sender: UIButton) {
+        onAttachmentRequest?(sender)
     }
     
     @IBAction func handleSubmitAction(_ sender: Any) {

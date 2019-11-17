@@ -20,7 +20,10 @@ class TextEntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bottomContainer.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            bottomContainer.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
+        }
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: #selector(handleCloseAction(_:)))
         isModalInPopover = true
     }

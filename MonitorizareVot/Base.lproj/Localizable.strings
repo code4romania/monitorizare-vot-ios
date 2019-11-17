@@ -35,6 +35,7 @@
 "Label_AddNote" = "Add a note";
 "Label_TypeNote" = "Type your note here";
 "Label_EnterStation" = "Enter station number (i.e. 34)";
+"Label_Empty" = "Choose a question or add a note";
 
 "Option.Gallery" = "Load from gallery";
 "Option.TakePhoto" = "Take a photo";
