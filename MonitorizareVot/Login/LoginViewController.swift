@@ -79,6 +79,7 @@ class LoginViewController: MVViewController {
     
     fileprivate func updateLoginButtonState() {
         loginButton.isEnabled = model.isReady
+        loginButton.setTitle(model.buttonTitle, for: .normal)
     }
     
     fileprivate func updateInterface() {
