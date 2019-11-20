@@ -61,6 +61,8 @@ class QuestionListViewController: MVViewController {
     fileprivate func bindToNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleQuestionChanged(_:)),
                                                name: QuestionAnswerViewController.questionChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleQuestionSaved(_:)),
+                                               name: QuestionAnswerViewController.questionSavedNotification, object: nil)
     }
 
     // MARK: - UI
@@ -84,6 +86,10 @@ class QuestionListViewController: MVViewController {
             tableView.reloadData()
             tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
         }
+    }
+
+    @objc func handleQuestionSaved(_ notification: Notification) {
+        tableView.reloadData()
     }
 }
 

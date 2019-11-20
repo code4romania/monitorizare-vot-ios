@@ -12,6 +12,7 @@ class QuestionAnswerViewController: MVViewController {
     
     /// Will post this notification every time the user goes to the next/previous question. You can listen to this in your question list and update as necessary
     static let questionChangedNotification = Notification.Name("QuestionChangedNotification")
+    static let questionSavedNotification = Notification.Name("QuestionSavedNotification")
     static let questionUserInfoKey = "question"
     
     var model: QuestionAnswerViewModel
@@ -81,6 +82,7 @@ class QuestionAnswerViewController: MVViewController {
     
     fileprivate func bindToUpdateEvents() {
         model.onModelUpdate = { [weak self] in
+            NotificationCenter.default.post(name: QuestionAnswerViewController.questionSavedNotification, object: nil)
             self?.updateInterface()
         }
         NotificationCenter.default.addObserver(self, selector: #selector(handleOrientationChange), name: UIDevice.orientationDidChangeNotification, object: nil)
@@ -112,7 +114,6 @@ class QuestionAnswerViewController: MVViewController {
             lastViewedQuestionIndex = currentPage
 
             let question = model.questions[currentPage]
-            DebugLog("question changed to: \(question)")
             NotificationCenter.default.post(name: QuestionAnswerViewController.questionChangedNotification,
                                             object: self,
                                             userInfo: [QuestionAnswerViewController.questionUserInfoKey: question])
@@ -157,11 +158,13 @@ class QuestionAnswerViewController: MVViewController {
             askForText(ofQuestion: question, answerIndex: answerIndex) { text in
                 self.model.updateUserText(ofQuestion: question, answerIndex: answerIndex, userText: text)
                 self.updateInterface()
+                NotificationCenter.default.post(name: QuestionAnswerViewController.questionSavedNotification, object: nil)
             }
         } else {
             // first update the answer selection
             model.updateSelection(ofQuestion: question, answerIndex: answerIndex)
             updateInterface()
+            NotificationCenter.default.post(name: QuestionAnswerViewController.questionSavedNotification, object: nil)
         }
         
     }

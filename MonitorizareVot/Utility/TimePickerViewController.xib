@@ -88,7 +88,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="WeD-so-1q4" firstAttribute="trailing" secondItem="YP7-6a-xZ6" secondAttribute="trailing" priority="999" id="6fW-4z-bvF"/>
-                <constraint firstItem="B0N-ND-2kb" firstAttribute="trailing" secondItem="WeD-so-1q4" secondAttribute="trailing" id="9Ik-4T-b0J"/>
+                <constraint firstItem="B0N-ND-2kb" firstAttribute="trailing" secondItem="WeD-so-1q4" secondAttribute="trailing" priority="999" id="9Ik-4T-b0J"/>
                 <constraint firstItem="B0N-ND-2kb" firstAttribute="top" secondItem="YP7-6a-xZ6" secondAttribute="bottom" id="N9s-Fa-sfO"/>
                 <constraint firstItem="YP7-6a-xZ6" firstAttribute="top" secondItem="WeD-so-1q4" secondAttribute="top" id="SSa-Zb-0jT"/>
                 <constraint firstItem="WeD-so-1q4" firstAttribute="bottom" secondItem="B0N-ND-2kb" secondAttribute="bottom" id="XEt-fe-MaR"/>

@@ -91,6 +91,10 @@ class NoteViewController: MVViewController {
         attachNoteController.onAttachmentRequest = { [weak self] sourceView in
             self?.showAttachmentOptions(from: sourceView)
         }
+        attachNoteController.onNoteSaved = { [weak self] in
+            self?.model.load()
+            self?.historyTableView.reloadData()
+        }
 
     }
     
