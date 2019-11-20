@@ -2,6 +2,20 @@ Whether you're trying to give back to the open source community or collaborating
 
 In an attempt to coallate this information for myself and others, this short tutorial is what I've found to be fairly standard procedure for creating a fork, doing your work, issuing a pull request, and merging that pull request back into the original project.
 
+## TL;DR
+
+Steps (details below):
+1. Create issue if it doesn't exist
+2. Pull the latest `upstream/develop` into your fork
+3. Create feature branch in your fork
+4. Code it up
+5. Commit the changes (can put multiple commits since you'll be basing the PR off the branch)
+6. Push the changes to `origin/develop` (your fork)
+7. Create PR on Code4Romania repo basing `develop` <- `your fork/your feature branch`
+8. Enjoy success
+
+Detailed instructions below.
+
 ## Creating a Fork
 
 Just head over to the GitHub page and click the "Fork" button. It's just that simple. Once you've done that, you can use your favorite git client to clone your repo or just head straight to the command line:
@@ -17,7 +31,7 @@ While this isn't an absolutely necessary step, if you plan on doing anything mor
 
 ```shell
 # Add 'upstream' repo to list of remotes
-git remote add upstream https://github.com/UPSTREAM-USER/ORIGINAL-PROJECT.git
+git remote add upstream https://github.com/code4romania/monitorizare-vot-ios.git
 
 # Verify the new remote named 'upstream'
 git remote -v
@@ -33,17 +47,17 @@ git fetch upstream
 git branch -va
 ```
 
-Now, checkout your own master branch and merge the upstream repo's master branch:
+From this point onward, it's important to know that we use the `develop` branch for work and we only merge in `master` final releases. You can disregard the `master` branch completely for the purpose of contributing to the project. So checkout the `develop` branch and merge the upstream `develop` branch.
 
 ```shell
 # Checkout your master branch and merge upstream
-git checkout master
-git merge upstream/master
+git checkout develop
+git merge upstream/develop
 ```
 
-If there are no unique commits on the local master branch, git will simply perform a fast-forward. However, if you have been making changes on master (in the vast majority of cases you probably shouldn't be - [see the next section](#doing-your-work), you may have to deal with conflicts. When doing so, be careful to respect the changes made upstream.
+If there are no unique commits on the local branch, git will simply perform a fast-forward. However, if you have been making changes on develop (in the vast majority of cases you probably shouldn't be - [see the next section](#doing-your-work), you may have to deal with conflicts. When doing so, be careful to respect the changes made upstream.
 
-Now, your local master branch is up-to-date with everything modified upstream.
+Now, your local develop branch is up-to-date with everything modified upstream.
 
 ## Doing Your Work
 
@@ -54,7 +68,7 @@ To create a new branch and start working on it:
 
 ```shell
 # Checkout the master branch - you want your new branch to come from master
-git checkout master
+git checkout develop
 
 # Create a new branch named newfeature (give your branch its own simple informative name)
 git branch newfeature
@@ -69,22 +83,22 @@ Now, go to town hacking away and making whatever changes you want to.
 
 ### Cleaning Up Your Work
 
-Prior to submitting your pull request, you might want to do a few things to clean up your branch and make it as simple as possible for the original repo's maintainer to test, accept, and merge your work.
+__IMPORTANT:__ Prior to submitting your pull request, you might want to do a few things to clean up your branch and make it as simple as possible for the original repo's maintainer to test, accept, and merge your work.
 
 If any commits have been made to the upstream master branch, you should rebase your development branch so that merging it will be a simple fast-forward that won't require any conflict resolution work.
 
 ```shell
 # Fetch upstream master and merge with your repo's master branch
 git fetch upstream
-git checkout master
-git merge upstream/master
+git checkout develop
+git merge upstream/develop
 
 # If there were any new commits, rebase your development branch
 git checkout newfeature
-git rebase master
+git rebase develop
 ```
 
-Now, it may be desirable to squash some of your smaller commits down into a small number of larger more cohesive commits. You can do this with an interactive rebase:
+_Optionally_ it may be desirable to squash some of your smaller commits down into a small number of larger more cohesive commits. You can do this with an interactive rebase:
 
 ```shell
 # Rebase all commits on your development branch
@@ -94,9 +108,17 @@ git rebase -i master
 
 This will open up a text editor where you can specify which commits to squash.
 
+### TL;DR
+
+Fetch from `upstream/develop` (the main repository's develop), commit and push to `origin/develop` (your fork's develop), then PR into `code4romania/develop` <- `<your_username>/newfeature`.
+Always fetch/merge `upstream/develop` into `origin/newfeature` before submitting the PR. This ensures that the reviewer will be able to merge your PR if approved.
+Also, keep an eye on any changes the reviewer might ask and don't delay their integration very much, otherwise your PR will become stale and it won't be merged anymore if it's too old and obsolete. 
+
 ### Submitting
 
 Once you've committed and pushed all of your changes to GitHub, go to the page for your fork on GitHub, select your development branch, and click the pull request button. If you need to make any adjustments to your pull request, just push the updates to GitHub. Your pull request will automatically track the changes on your development branch and update.
+
+Make sure you're creating the PR so that your `feature` branch will be merged into the upstream's `develop` branch. Again, do not base it on master, but rather the `develop` branch.
 
 ## Accepting and Merging a Pull Request
 
