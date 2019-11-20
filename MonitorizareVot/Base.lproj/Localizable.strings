@@ -33,6 +33,9 @@
 "Label_SelectOption" = "Select an option";
 "Label_DevelopedBy" = "developed by";
 
+"Label_TelephoneTextInput_Placeholder" = "Phone number";
+"Label_CodeTextInput_Placeholder" = "Code";
+
 "Label_AddNote" = "Add a note";
 "Label_TypeNote" = "Type your note here";
 "Label_EnterStation" = "Enter station number (i.e. 34)";

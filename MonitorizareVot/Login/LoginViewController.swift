@@ -27,6 +27,7 @@ class LoginViewController: MVViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
+        setupStaticText()
         bindToUpdates()
     }
     
@@ -34,7 +35,6 @@ class LoginViewController: MVViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
         updateInterface()
-        updateVersionLabel()
     }
     
     fileprivate func bindToUpdates() {
@@ -59,23 +59,7 @@ class LoginViewController: MVViewController {
         codeContainer.layer.borderWidth = 1
     }
     
-    fileprivate func localize() {
-        // TODO: localize
-    }
-    
     // MARK: - UI
-    
-    fileprivate func updateVersionLabel() {
-        guard let info = Bundle.main.infoDictionary else { return }
-        let version = info["CFBundleShortVersionString"] ?? "1.0"
-        let build = info["CFBundleVersion"] ?? "1"
-        var versionString = "v\(version)"
-        #if DEBUG
-        versionString += "(\(build))"
-        #endif
-        
-        developedByLabel.text = "\(versionString) " + "Label_DevelopedBy".localized
-    }
     
     fileprivate func updateLoginButtonState() {
         loginButton.isEnabled = model.isReady
@@ -91,6 +75,25 @@ class LoginViewController: MVViewController {
         } else {
             loader.stopAnimating()
         }
+    }
+    
+    private func setupStaticText() {
+        phoneTextField.placeholder = "Label_TelephoneTextInput_Placeholder".localized
+        codeTextField.placeholder = "Label_CodeTextInput_Placeholder".localized
+        
+        updateVersionLabel()
+    }
+    
+    private func updateVersionLabel() {
+        guard let info = Bundle.main.infoDictionary else { return }
+        let version = info["CFBundleShortVersionString"] ?? "1.0"
+        let build = info["CFBundleVersion"] ?? "1"
+        var versionString = "v\(version)"
+        #if DEBUG
+        versionString += "(\(build))"
+        #endif
+        
+        developedByLabel.text = "\(versionString) " + "Label_DevelopedBy".localized
     }
     
     fileprivate func setVMLogo(visible: Bool, animated: Bool) {
