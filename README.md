@@ -18,6 +18,8 @@ The app also has a web version, available for every citizen who wants to report 
 
 This project is built by amazing volunteers and you can be one of them! Here's a list of ways in [which you can contribute to this project](.github/CONTRIBUTING.MD).
 
+__IMPORTANT:__ Please follow the Code4Romania [WORKFLOW](.github/WORKFLOW.MD)
+
 ## Important, before you start
 
 ### Firebase

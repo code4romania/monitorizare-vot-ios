@@ -40,7 +40,8 @@ To send us a suggestion, just [open an issue](https://github.com/code4romania/mo
 
 :computer: We'd love for you to get your hands dirty and code for the project.
 
-If you are unsure where to begin contributing to the project, you can start by looking through these issues:  
+If you are unsure where to begin contributing to the project, you can start by looking through these issues:
+• [How to contribute](.github/WORKFLOW.MD)
 * [Good first issues](https://github.com/code4romania/monitorizare-vot-ios/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 * [Help wanted](https://github.com/code4romania/monitorizare-vot-ios/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 

@@ -2,6 +2,20 @@ Whether you're trying to give back to the open source community or collaborating
 
 In an attempt to coallate this information for myself and others, this short tutorial is what I've found to be fairly standard procedure for creating a fork, doing your work, issuing a pull request, and merging that pull request back into the original project.
 
+## TL;DR
+
+Steps (details below):
+1. Create issue if it doesn't exist
+2. Pull the latest `upstream/develop` into your fork
+3. Create feature branch in your fork
+4. Code it up
+5. Commit the changes (can put multiple commits since you'll be basing the PR off the branch)
+6. Push the changes to `origin/develop` (your fork)
+7. Create PR on Code4Romania repo basing `develop` <- `your fork/your feature branch`
+8. Enjoy success
+
+Detailed instructions below.
+
 ## Creating a Fork
 
 Just head over to the GitHub page and click the "Fork" button. It's just that simple. Once you've done that, you can use your favorite git client to clone your repo or just head straight to the command line:
