@@ -25,6 +25,10 @@ class NoteViewModel: NSObject {
     init(withQuestionId questionId: Int? = nil) {
         self.questionId = questionId
         super.init()
+        load()
+    }
+    
+    func load() {
         notes = DB.shared.getNotes(attachedToQuestion: questionId).map { model(fromDbObject: $0) }
     }
     
