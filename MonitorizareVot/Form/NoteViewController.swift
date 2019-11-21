@@ -42,10 +42,15 @@ class NoteViewController: MVViewController {
     // MARK: - VC
     
     override func viewDidLoad() {
+        if AppRouter.shared.isPad {
+            shouldDisplayHeaderContainer = false
+        }
         super.viewDidLoad()
         title = "Title.Note".localized
         configureTableView()
-        addContactDetailsToNavBar()
+        if !AppRouter.shared.isPad {
+            addContactDetailsToNavBar()
+        }
         configureSubviews()
     }
     
@@ -83,8 +88,12 @@ class NoteViewController: MVViewController {
         historyTableView.tableHeaderView = attachNoteController.content
         historyTableView.layoutTableHeaderView()
         
-        attachNoteController.onAttachmentRequest = { [weak self] in
-            self?.showAttachmentOptions()
+        attachNoteController.onAttachmentRequest = { [weak self] sourceView in
+            self?.showAttachmentOptions(from: sourceView)
+        }
+        attachNoteController.onNoteSaved = { [weak self] in
+            self?.model.load()
+            self?.historyTableView.reloadData()
         }
 
     }
@@ -93,7 +102,7 @@ class NoteViewController: MVViewController {
         historyTableView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
     }
     
-    fileprivate func showAttachmentOptions() {
+    fileprivate func showAttachmentOptions(from sourceView: UIView) {
         let options = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         options.addAction(UIAlertAction(title: "Option.Gallery".localized, style: .default, handler: { [weak self] action in
             self?.showGallery()
@@ -105,6 +114,9 @@ class NoteViewController: MVViewController {
             self?.showCamera(withSource: .video)
         }))
         options.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
+        options.popoverPresentationController?.sourceRect = sourceView.frame
+        options.popoverPresentationController?.sourceView = sourceView.superview
+        options.view.tintColor = .navigationBarTint
         present(options, animated: true, completion: nil)
     }
     

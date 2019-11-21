@@ -38,15 +38,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLl-KP-O29">
-                                            <rect key="frame" x="360" y="0.0" width="38" height="44"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <rect key="frame" x="355" y="0.0" width="43" height="44"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <state key="normal" title="Done"/>
                                             <connections>
                                                 <action selector="handleDoneButtonTap:" destination="-1" eventType="touchUpInside" id="awz-bS-fie"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpu-uB-2iR">
-                                            <rect key="frame" x="16" y="0.0" width="48" height="44"/>
+                                            <rect key="frame" x="16" y="0.0" width="53" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Cancel"/>
                                             <connections>
                                                 <action selector="handleCancelButtonTap:" destination="-1" eventType="touchUpInside" id="GNn-Td-HmW"/>
@@ -78,6 +79,7 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Cz1-E0-Wwj" secondAttribute="bottom" id="GRe-yU-7rh"/>
                         <constraint firstItem="Cz1-E0-Wwj" firstAttribute="top" secondItem="B0N-ND-2kb" secondAttribute="top" id="NV5-vp-lDo"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="414" id="SNs-9b-EJI"/>
                         <constraint firstAttribute="trailing" secondItem="Cz1-E0-Wwj" secondAttribute="trailing" id="xls-hE-udg"/>
                         <constraint firstItem="Cz1-E0-Wwj" firstAttribute="leading" secondItem="B0N-ND-2kb" secondAttribute="leading" id="zyd-dj-0kB"/>
                     </constraints>
@@ -85,13 +87,14 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="WeD-so-1q4" firstAttribute="trailing" secondItem="YP7-6a-xZ6" secondAttribute="trailing" id="6fW-4z-bvF"/>
-                <constraint firstItem="B0N-ND-2kb" firstAttribute="trailing" secondItem="WeD-so-1q4" secondAttribute="trailing" id="9Ik-4T-b0J"/>
+                <constraint firstItem="WeD-so-1q4" firstAttribute="trailing" secondItem="YP7-6a-xZ6" secondAttribute="trailing" priority="999" id="6fW-4z-bvF"/>
+                <constraint firstItem="B0N-ND-2kb" firstAttribute="trailing" secondItem="WeD-so-1q4" secondAttribute="trailing" priority="999" id="9Ik-4T-b0J"/>
                 <constraint firstItem="B0N-ND-2kb" firstAttribute="top" secondItem="YP7-6a-xZ6" secondAttribute="bottom" id="N9s-Fa-sfO"/>
                 <constraint firstItem="YP7-6a-xZ6" firstAttribute="top" secondItem="WeD-so-1q4" secondAttribute="top" id="SSa-Zb-0jT"/>
                 <constraint firstItem="WeD-so-1q4" firstAttribute="bottom" secondItem="B0N-ND-2kb" secondAttribute="bottom" id="XEt-fe-MaR"/>
                 <constraint firstItem="YP7-6a-xZ6" firstAttribute="leading" secondItem="WeD-so-1q4" secondAttribute="leading" id="d9H-Zz-vGn"/>
-                <constraint firstItem="B0N-ND-2kb" firstAttribute="leading" secondItem="WeD-so-1q4" secondAttribute="leading" id="rUE-jb-M1a"/>
+                <constraint firstItem="B0N-ND-2kb" firstAttribute="centerX" secondItem="WeD-so-1q4" secondAttribute="centerX" id="j8I-dx-3lK"/>
+                <constraint firstItem="B0N-ND-2kb" firstAttribute="leading" secondItem="WeD-so-1q4" secondAttribute="leading" priority="999" id="rUE-jb-M1a"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="WeD-so-1q4"/>
             <point key="canvasLocation" x="139" y="115"/>

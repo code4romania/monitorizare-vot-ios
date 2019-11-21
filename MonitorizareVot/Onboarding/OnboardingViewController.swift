@@ -62,7 +62,7 @@ class OnboardingViewController: UIViewController {
     
     @IBAction func handleProceedAction(_ sender: Any) {
         PreferencesManager.shared.wasOnboardingShown = true
-        AppDelegate.shared.goToLogin()
+        AppRouter.shared.goToLogin()
     }
 }
 

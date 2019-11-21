@@ -38,6 +38,9 @@
 		28735F83226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 28735F82226B19F600B4DB0B /* CustomConfiguration.xcconfig */; };
 		28735F84226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 28735F82226B19F600B4DB0B /* CustomConfiguration.xcconfig */; };
 		28735F85226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 28735F82226B19F600B4DB0B /* CustomConfiguration.xcconfig */; };
+		2879CA372381BA5E00CE4DC7 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879CA362381BA5E00CE4DC7 /* AppRouter.swift */; };
+		2879CA3A2381C04F00CE4DC7 /* EmptyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2879CA382381C04F00CE4DC7 /* EmptyDetailsViewController.swift */; };
+		2879CA3B2381C04F00CE4DC7 /* EmptyDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2879CA392381C04F00CE4DC7 /* EmptyDetailsViewController.xib */; };
 		28844A50233F6F3B00DEEA44 /* ChooserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28844A4F233F6F3B00DEEA44 /* ChooserButton.swift */; };
 		28844A52233F775E00DEEA44 /* SectionHUDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28844A51233F775E00DEEA44 /* SectionHUDViewModel.swift */; };
 		28844A56233F94FD00DEEA44 /* GenericPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28844A54233F94FD00DEEA44 /* GenericPickerViewController.swift */; };
@@ -166,6 +169,9 @@
 		286D38652364398C0091B23F /* QuestionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionListViewController.xib; sourceTree = "<group>"; };
 		286D3868236439990091B23F /* QuestionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListViewModel.swift; sourceTree = "<group>"; };
 		28735F82226B19F600B4DB0B /* CustomConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = CustomConfiguration.xcconfig; sourceTree = "<group>"; };
+		2879CA362381BA5E00CE4DC7 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		2879CA382381C04F00CE4DC7 /* EmptyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDetailsViewController.swift; sourceTree = "<group>"; };
+		2879CA392381C04F00CE4DC7 /* EmptyDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyDetailsViewController.xib; sourceTree = "<group>"; };
 		28844A4F233F6F3B00DEEA44 /* ChooserButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooserButton.swift; sourceTree = "<group>"; };
 		28844A51233F775E00DEEA44 /* SectionHUDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHUDViewModel.swift; sourceTree = "<group>"; };
 		28844A54233F94FD00DEEA44 /* GenericPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericPickerViewController.swift; sourceTree = "<group>"; };
@@ -472,6 +478,8 @@
 				28FB66B223699D7400336DBA /* TextEntryViewController.swift */,
 				28FB66B323699D7400336DBA /* TextEntryViewController.xib */,
 				289E1E9023604F9D000C92A0 /* MVViewController.swift */,
+				2879CA382381C04F00CE4DC7 /* EmptyDetailsViewController.swift */,
+				2879CA392381C04F00CE4DC7 /* EmptyDetailsViewController.xib */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -522,6 +530,7 @@
 				28A4B775237364FE00E6D2A8 /* RemoteConfigManager.swift */,
 				28DBDAA1236EDDCA004EAD83 /* NotificationsManager.swift */,
 				28DBDAA5236F33CD004EAD83 /* MVAnalytics.swift */,
+				2879CA362381BA5E00CE4DC7 /* AppRouter.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -819,6 +828,7 @@
 				28844A5D233F9AB700DEEA44 /* TimePickerViewController.xib in Resources */,
 				28DBDABB23701DBD004EAD83 /* InfoPlist.strings in Resources */,
 				289E1E8D235F2ABE000C92A0 /* FormSetTableCell.xib in Resources */,
+				2879CA3B2381C04F00CE4DC7 /* EmptyDetailsViewController.xib in Resources */,
 				28508623236D9C6000189D94 /* Launch Screen.storyboard in Resources */,
 				286D38672364398C0091B23F /* QuestionListViewController.xib in Resources */,
 				28735F83226B19F600B4DB0B /* CustomConfiguration.xcconfig in Resources */,
@@ -1043,7 +1053,9 @@
 				271595B521465EBA00BECC9C /* String+Localization.swift in Sources */,
 				286D3869236439990091B23F /* QuestionListViewModel.swift in Sources */,
 				E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */,
+				2879CA3A2381C04F00CE4DC7 /* EmptyDetailsViewController.swift in Sources */,
 				28A7DCB6235CC7EB000B00C4 /* ApiModels.swift in Sources */,
+				2879CA372381BA5E00CE4DC7 /* AppRouter.swift in Sources */,
 				28C4343C2370C5C9001E6268 /* UITableView+HeaderAutoLayout.swift in Sources */,
 				67EE98CB22A296F7006E4762 /* Logger.swift in Sources */,
 				F553E3BE1DF9D67A000D0902 /* Answer+CoreDataProperties.swift in Sources */,
@@ -1228,10 +1240,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MonitorizareVot/MonitorizareVot.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1247,10 +1260,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MonitorizareVot/MonitorizareVot.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;

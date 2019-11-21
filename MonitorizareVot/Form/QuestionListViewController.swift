@@ -25,6 +25,10 @@ class QuestionListViewController: MVViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - VC
     
     override func viewDidLoad() {
@@ -33,11 +37,17 @@ class QuestionListViewController: MVViewController {
         configureTableView()
         addContactDetailsToNavBar()
         MVAnalytics.shared.log(event: .viewForm(code: model.formCode))
+        bindToNotifications()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateInterface()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AppRouter.shared.resetDetailsPane()
     }
     
     // MARK: - Config
@@ -46,6 +56,13 @@ class QuestionListViewController: MVViewController {
         tableView.register(UINib(nibName: "QuestionTableCell", bundle: nil), forCellReuseIdentifier: QuestionTableCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
+    }
+    
+    fileprivate func bindToNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleQuestionChanged(_:)),
+                                               name: QuestionAnswerViewController.questionChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleQuestionSaved(_:)),
+                                               name: QuestionAnswerViewController.questionSavedNotification, object: nil)
     }
 
     // MARK: - UI
@@ -59,8 +76,20 @@ class QuestionListViewController: MVViewController {
     fileprivate func openQuestion(_ question: QuestionCellModel) {
         guard let questionAnswer = QuestionAnswerViewModel(withFormUsingCode: model.formCode,
                                                            currentQuestionId: question.questionId) else { return }
-        let controller = QuestionAnswerViewController(withModel: questionAnswer)
-        navigationController?.pushViewController(controller, animated: true)
+        AppRouter.shared.open(questionModel: questionAnswer)
+    }
+    
+    @objc func handleQuestionChanged(_ notification: Notification) {
+        guard let question = notification.userInfo?[QuestionAnswerViewController.questionUserInfoKey] as? QuestionAnswerCellModel else { return }
+        guard let indexPath = model.indexPath(ofQuestionWithId: question.questionId) else { return }
+        if indexPath != tableView.indexPathForSelectedRow {
+            tableView.reloadData()
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+        }
+    }
+
+    @objc func handleQuestionSaved(_ notification: Notification) {
+        tableView.reloadData()
     }
 }
 

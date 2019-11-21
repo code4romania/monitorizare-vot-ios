@@ -79,6 +79,7 @@ class LoginViewController: MVViewController {
     
     fileprivate func updateLoginButtonState() {
         loginButton.isEnabled = model.isReady
+        loginButton.setTitle(model.buttonTitle, for: .normal)
     }
     
     fileprivate func updateInterface() {
@@ -128,9 +129,7 @@ class LoginViewController: MVViewController {
     }
     
     func proceedToNextScreen() {
-        let sectionModel = SectionPickerViewModel()
-        let sectionController = SectionPickerViewController(withModel: sectionModel)
-        navigationController?.setViewControllers([sectionController], animated: true)
+        AppRouter.shared.proceedToAuthenticated()
     }
 }
 

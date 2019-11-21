@@ -1,5 +1,6 @@
 //  Created by Code4Romania
 
+"Button_Login" = "Login";
 "Button_Continue" = "Continuă";
 "Button_ChangeDepartemnt" = "Schimbă";
 "Button_Urban" = "Urban";
@@ -35,6 +36,7 @@
 "Label_AddNote" = "Adaugă o notă";
 "Label_TypeNote" = "Scrie aici nota";
 "Label_EnterStation" = "Introdu numărul secției (ex: 34)";
+"Label_Empty" = "Alege o întrebare sau adaugă o notă";
 
 "Option.Gallery" = "Încarcă din galerie";
 "Option.TakePhoto" = "Fă o fotografie";

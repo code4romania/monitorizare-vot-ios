@@ -44,7 +44,13 @@ class AttachNoteViewModel: NSObject {
     var savedNote: Note?
     
     var canBeSaved: Bool {
-        return text.trimmingCharacters(in: .whitespacesAndNewlines).count > 2
+        return text.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
+    }
+
+    var isSaving: Bool = false {
+        didSet {
+            onUpdate?()
+        }
     }
     
     var isSaved: Bool {
@@ -70,13 +76,21 @@ class AttachNoteViewModel: NSObject {
         super.init()
     }
     
+    fileprivate func reset() {
+        text = ""
+        attachment = nil
+    }
+    
     func saveAndUpload(then callback: @escaping (AttachNoteError?) -> Void) {
+        isSaving = true
+        
         do {
             let note = try DB.shared.saveNote(withText: text, fileAttachment: attachment?.data, questionId: questionId)
             self.savedNote = note
             onUpdate?()
             DebugLog("Saved note locally")
         } catch {
+            isSaving = false
             callback(.saveFailed)
             return
         }
@@ -97,6 +111,7 @@ class AttachNoteViewModel: NSObject {
         
         APIManager.shared.upload(note: request) { apiError in
             if let error = apiError {
+                self.isSaving = false
                 callback(.uploadFailed(reason: error))
                 DebugLog("Note upload failed: \(error.localizedDescription)")
             } else {
@@ -105,6 +120,9 @@ class AttachNoteViewModel: NSObject {
                 self.savedNote?.synced = true
                 try? CoreData.save()
                 
+                self.reset()
+                
+                self.isSaving = false
                 self.onUpdate?()
                 callback(nil)
             }

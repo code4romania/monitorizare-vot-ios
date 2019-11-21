@@ -33,15 +33,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMJ-uJ-NaD">
-                                            <rect key="frame" x="360" y="0.0" width="38" height="44"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <rect key="frame" x="355" y="0.0" width="43" height="44"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <state key="normal" title="Done"/>
                                             <connections>
                                                 <action selector="handleDoneButtonTap:" destination="-1" eventType="touchUpInside" id="rJe-PM-iJa"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPY-C5-tpn">
-                                            <rect key="frame" x="16" y="0.0" width="48" height="44"/>
+                                            <rect key="frame" x="16" y="0.0" width="53" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <state key="normal" title="Cancel"/>
                                             <connections>
                                                 <action selector="handleCancelButtonTap:" destination="-1" eventType="touchUpInside" id="yie-ue-CF7"/>
@@ -73,6 +74,7 @@
                     <color key="backgroundColor" red="0.94509803920000002" green="0.58823529409999997" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="a13-tx-Zg7" firstAttribute="top" secondItem="AHz-x2-DDm" secondAttribute="top" id="6fq-NW-2D0"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="414" id="7JD-cF-cIj"/>
                         <constraint firstAttribute="trailing" secondItem="a13-tx-Zg7" secondAttribute="trailing" id="EsX-Ft-3Mt"/>
                         <constraint firstItem="a13-tx-Zg7" firstAttribute="leading" secondItem="AHz-x2-DDm" secondAttribute="leading" id="pZf-7y-RKf"/>
                         <constraint firstAttribute="bottom" secondItem="a13-tx-Zg7" secondAttribute="bottom" id="zCi-sX-SLO"/>
@@ -89,11 +91,12 @@
             <constraints>
                 <constraint firstItem="AHz-x2-DDm" firstAttribute="top" secondItem="Rai-as-1cQ" secondAttribute="bottom" id="6In-AX-rwu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="AHz-x2-DDm" secondAttribute="bottom" id="UOm-T3-0dB"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AHz-x2-DDm" secondAttribute="trailing" id="ZIq-uN-0fF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AHz-x2-DDm" secondAttribute="trailing" priority="999" id="ZIq-uN-0fF"/>
+                <constraint firstItem="AHz-x2-DDm" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="f5S-GP-uGf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rai-as-1cQ" secondAttribute="trailing" id="k5b-gG-ETS"/>
                 <constraint firstItem="Rai-as-1cQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nwl-yx-cAQ"/>
                 <constraint firstItem="Rai-as-1cQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="rq1-cD-g32"/>
-                <constraint firstItem="AHz-x2-DDm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xdk-Tw-FkM"/>
+                <constraint firstItem="AHz-x2-DDm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" priority="999" id="xdk-Tw-FkM"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="115"/>

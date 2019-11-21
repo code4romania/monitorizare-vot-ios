@@ -34,10 +34,15 @@ class LoginViewModel: NSObject {
         guard let phoneNumber = phoneNumber,
             let code = code,
             phoneNumber.count > 5,
-            code.count > 3 else {
+            code.count > 3,
+            !isLoading else {
             return false
         }
         return true
+    }
+    
+    var buttonTitle: String {
+        isLoading ? "" : "Button_Login".localized
     }
     
     override init() {

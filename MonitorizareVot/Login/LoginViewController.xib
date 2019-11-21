@@ -140,6 +140,10 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JtC-yb-2FH">
                                             <rect key="frame" x="0.0" y="167" width="350" height="52"/>
                                             <subviews>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="K5b-wi-jhG">
+                                                    <rect key="frame" x="165" y="20" width="20" height="20"/>
+                                                    <color key="color" red="0.94509803920000002" green="0.58823529409999997" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                </activityIndicatorView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QbI-GJ-iXY" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="8" width="350" height="44"/>
                                                     <constraints>
@@ -150,10 +154,6 @@
                                                         <action selector="handleLoginButtonTap:" destination="-1" eventType="touchUpInside" id="urU-Us-quk"/>
                                                     </connections>
                                                 </button>
-                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="K5b-wi-jhG">
-                                                    <rect key="frame" x="165" y="20" width="20" height="20"/>
-                                                    <color key="color" red="0.94509803920000002" green="0.58823529409999997" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -182,21 +182,23 @@
                         <constraint firstAttribute="bottom" secondItem="ogB-MY-iVq" secondAttribute="bottom" priority="990" constant="50" id="41z-zF-ZcU"/>
                         <constraint firstItem="ogB-MY-iVq" firstAttribute="top" secondItem="FX9-mO-rLX" secondAttribute="top" id="Foa-de-7H8"/>
                         <constraint firstItem="ogB-MY-iVq" firstAttribute="leading" secondItem="FX9-mO-rLX" secondAttribute="leading" constant="16" id="G5J-q7-6r0"/>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="414" id="tFV-V4-Hyn"/>
                         <constraint firstAttribute="trailing" secondItem="ogB-MY-iVq" secondAttribute="trailing" constant="16" id="yVQ-rJ-1Ms"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="FX9-mO-rLX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8V3-le-Hfv"/>
+                <constraint firstItem="FX9-mO-rLX" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" priority="999" id="8V3-le-Hfv"/>
                 <constraint firstItem="FX9-mO-rLX" firstAttribute="top" secondItem="MxF-rD-VRJ" secondAttribute="bottom" id="9F3-uZ-v8y"/>
                 <constraint firstAttribute="bottom" secondItem="3Bj-ly-UuC" secondAttribute="bottom" id="OV0-Px-JQd"/>
                 <constraint firstItem="MxF-rD-VRJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OiU-e0-B6n"/>
                 <constraint firstItem="3Bj-ly-UuC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ql2-ER-ZRf"/>
                 <constraint firstItem="3Bj-ly-UuC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="boo-uM-iqq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FX9-mO-rLX" secondAttribute="bottom" priority="990" id="cNt-Fj-4yu"/>
+                <constraint firstItem="FX9-mO-rLX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="mqb-9M-iRg"/>
                 <constraint firstItem="MxF-rD-VRJ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="pZG-6E-GBS"/>
-                <constraint firstItem="FX9-mO-rLX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tTh-zR-ZKa"/>
+                <constraint firstItem="FX9-mO-rLX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" priority="999" id="tTh-zR-ZKa"/>
                 <constraint firstAttribute="trailing" secondItem="3Bj-ly-UuC" secondAttribute="trailing" id="ykV-br-qNk"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

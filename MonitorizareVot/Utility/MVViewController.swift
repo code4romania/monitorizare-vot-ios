@@ -20,6 +20,9 @@ class MVViewController: UIViewController {
     
     let TableSectionHeaderHeight: CGFloat = 52
     let TableSectionFooterHeight: CGFloat = 22
+    
+    /// Set this to false in your `viewDidLoad` method before calling super to skip adding the station info header
+    var shouldDisplayHeaderContainer = true
 
     // MARK: - VC
 
@@ -44,6 +47,7 @@ class MVViewController: UIViewController {
     }
     
     fileprivate func configureHeader() {
+        guard shouldDisplayHeaderContainer else { return }
         guard let headerContainer = headerContainer else { return }
         let controller = SectionHUDViewController()
         controller.view.translatesAutoresizingMaskIntoConstraints = true
@@ -107,9 +111,7 @@ class MVViewController: UIViewController {
 
     fileprivate func handleChangeSectionButtonAction() {
         MVAnalytics.shared.log(event: .tapChangeStation(fromScreen: String(describing: type(of: self))))
-        let pickerModel = SectionPickerViewModel()
-        let picker = SectionPickerViewController(withModel: pickerModel)
-        navigationController?.pushViewController(picker, animated: true)
+        AppRouter.shared.goToChooseStation()
     }
     
 }

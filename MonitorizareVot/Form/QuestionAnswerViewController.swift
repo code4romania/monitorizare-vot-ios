@@ -10,6 +10,11 @@ import UIKit
 
 class QuestionAnswerViewController: MVViewController {
     
+    /// Will post this notification every time the user goes to the next/previous question. You can listen to this in your question list and update as necessary
+    static let questionChangedNotification = Notification.Name("QuestionChangedNotification")
+    static let questionSavedNotification = Notification.Name("QuestionSavedNotification")
+    static let questionUserInfoKey = "question"
+    
     var model: QuestionAnswerViewModel
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -18,6 +23,9 @@ class QuestionAnswerViewController: MVViewController {
     
     /// we only keep this as a reference so we can send analytics events when the current question actually changes
     fileprivate var lastViewedQuestionIndex: Int?
+    
+    /// Set this to true before you scroll the collection view but it shouldn't be tracked. Set it back to true once that's complete
+    fileprivate var scrollTrackingIsDisabled = false
     
     let HorizontalSpace: CGFloat = 8
     let HorizontalSectionInset: CGFloat = 8
@@ -33,13 +41,22 @@ class QuestionAnswerViewController: MVViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - VC
     
     override func viewDidLoad() {
+        if AppRouter.shared.isPad {
+            shouldDisplayHeaderContainer = false
+        }
         super.viewDidLoad()
         configureCollectionView()
         bindToUpdateEvents()
-        addContactDetailsToNavBar()
+        if !AppRouter.shared.isPad {
+            addContactDetailsToNavBar()
+        }
         view.clipsToBounds = true
     }
     
@@ -48,8 +65,8 @@ class QuestionAnswerViewController: MVViewController {
         DispatchQueue.main.async {
             self.updateInterface()
             self.scrollToCurrentIndex()
+            self.updateCurrentQuestionRelatedElements()
         }
-        updateCurrentQuestionRelatedElements()
     }
     
     // MARK: - Config
@@ -65,8 +82,10 @@ class QuestionAnswerViewController: MVViewController {
     
     fileprivate func bindToUpdateEvents() {
         model.onModelUpdate = { [weak self] in
+            NotificationCenter.default.post(name: QuestionAnswerViewController.questionSavedNotification, object: nil)
             self?.updateInterface()
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(handleOrientationChange), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     fileprivate func localize() {
@@ -84,28 +103,44 @@ class QuestionAnswerViewController: MVViewController {
     func updateCurrentQuestionRelatedElements() {
         updateTitle()
         updateNavigationButtons()
+    }
+    
+    func handleQuestionChanged() {
+        updateCurrentQuestionRelatedElements()
         let currentPage = getDisplayedRow()
         if currentPage != lastViewedQuestionIndex
-            && currentPage >= 0 && currentPage < model.questions.count - 1 {
+            && currentPage >= 0 && currentPage < model.questions.count {
             MVAnalytics.shared.log(event: .viewQuestion(code: model.questions[currentPage].questionCode))
             lastViewedQuestionIndex = currentPage
+
+            let question = model.questions[currentPage]
+            NotificationCenter.default.post(name: QuestionAnswerViewController.questionChangedNotification,
+                                            object: self,
+                                            userInfo: [QuestionAnswerViewController.questionUserInfoKey: question])
         }
     }
     
     func updateTitle() {
-        title = "Title.Question".localized + " \(getDisplayedRow()+1)/\(model.questions.count)"
+        let row = getDisplayedRow()
+        guard row >= 0 && row < model.questions.count else { return }
+        title = "Title.Question".localized + " \(row+1)/\(model.questions.count)"
     }
 
     func updateNavigationButtons() {
         let currentPage = getDisplayedRow()
         previousButton.isEnabled = currentPage > 0
-        //nextButton.isEnabled = currentPage < model.questions.count - 1
-        nextButton.setTitle((currentPage < model.questions.count - 1 ? "Next" : "Done").localized, for: .normal)
+        if AppRouter.shared.isPad {
+            nextButton.isEnabled = currentPage < model.questions.count - 1
+        } else {
+            nextButton.setTitle((currentPage < model.questions.count - 1 ? "Next" : "Done").localized, for: .normal)
+        }
     }
     
     func scrollToCurrentIndex() {
+        scrollTrackingIsDisabled = true
         collectionView.scrollToItem(at: IndexPath(row: model.currentQuestionIndex, section: 0),
                                     at: .centeredHorizontally, animated: false)
+        scrollTrackingIsDisabled = false
     }
     
     func getDisplayedRow() -> Int {
@@ -123,11 +158,13 @@ class QuestionAnswerViewController: MVViewController {
             askForText(ofQuestion: question, answerIndex: answerIndex) { text in
                 self.model.updateUserText(ofQuestion: question, answerIndex: answerIndex, userText: text)
                 self.updateInterface()
+                NotificationCenter.default.post(name: QuestionAnswerViewController.questionSavedNotification, object: nil)
             }
         } else {
             // first update the answer selection
             model.updateSelection(ofQuestion: question, answerIndex: answerIndex)
             updateInterface()
+            NotificationCenter.default.post(name: QuestionAnswerViewController.questionSavedNotification, object: nil)
         }
         
     }
@@ -144,6 +181,9 @@ class QuestionAnswerViewController: MVViewController {
         textEntry.initialText = question.questionAnswers[answerIndex].userText
         textEntry.onClose = completion
         let navigation = UINavigationController(rootViewController: textEntry)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            navigation.modalPresentationStyle = .formSheet
+        }
         present(navigation, animated: true, completion: nil)
     }
     
@@ -151,6 +191,10 @@ class QuestionAnswerViewController: MVViewController {
         let currentRow = getDisplayedRow()
         guard currentRow > 0 else { return }
         let indexPath = IndexPath(row: currentRow - 1, section: 0)
+        let question = model.questions[indexPath.row]
+        NotificationCenter.default.post(name: QuestionAnswerViewController.questionChangedNotification,
+                                        object: self,
+                                        userInfo: [QuestionAnswerViewController.questionUserInfoKey: question])
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
@@ -162,7 +206,20 @@ class QuestionAnswerViewController: MVViewController {
             return
         }
         let indexPath = IndexPath(row: currentRow + 1, section: 0)
+        let question = model.questions[indexPath.row]
+        NotificationCenter.default.post(name: QuestionAnswerViewController.questionChangedNotification,
+                                        object: self,
+                                        userInfo: [QuestionAnswerViewController.questionUserInfoKey: question])
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    @objc func handleOrientationChange() {
+        collectionView.alpha = 0
+        DispatchQueue.main.async {
+            self.updateInterface()
+            self.scrollToCurrentIndex()
+            self.collectionView.alpha = 1
+        }
     }
 }
 
@@ -210,6 +267,8 @@ extension QuestionAnswerViewController: UICollectionViewDelegateFlowLayout {
 
 extension QuestionAnswerViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        updateCurrentQuestionRelatedElements()
+        if !scrollTrackingIsDisabled {
+            handleQuestionChanged()
+        }
     }
 }

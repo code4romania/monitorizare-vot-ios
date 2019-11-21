@@ -28,7 +28,10 @@ class AttachNoteViewController: UIViewController {
     @IBOutlet weak var attachButton: AttachButton!
     @IBOutlet weak var submitButton: ActionButton!
     
-    var onAttachmentRequest: (() -> Void)?
+    var onAttachmentRequest: ((_ sourceView: UIView) -> Void)?
+    
+    /// Called back when a note was successfully saved (so you can update the interface with the latest data)
+    var onNoteSaved: (() -> Void)?
     
     // MARK: - Object
     
@@ -89,12 +92,15 @@ class AttachNoteViewController: UIViewController {
     // MARK: - UI
     
     fileprivate func updateInterface() {
-        submitButton.isEnabled = model.canBeSaved
+        submitButton.isEnabled = model.canBeSaved && !model.isSaving
         statusIcon.isHidden = !model.isSaved
         statusIcon.image = model.isSynced ? #imageLiteral(resourceName: "icon-check") : #imageLiteral(resourceName: "icon-check-greyed")
         textViewPlaceHolder.isHidden = model.text.count > 0
         attachmentStackView.isHidden = model.attachment == nil
         filenameLabel.text = model.attachment?.filename
+        if !textView.isFirstResponder {
+            textView.text = model.text
+        }
     }
     
     // MARK: - Actions
@@ -105,20 +111,21 @@ class AttachNoteViewController: UIViewController {
         view.layoutIfNeeded()
     }
     
-    @IBAction func handleAttachAction(_ sender: Any) {
-        onAttachmentRequest?()
+    @IBAction func handleAttachAction(_ sender: UIButton) {
+        onAttachmentRequest?(sender)
     }
     
     @IBAction func handleSubmitAction(_ sender: Any) {
-        submitButton.isEnabled = false
+        textView.resignFirstResponder()
         model.saveAndUpload { [weak self] error in
             guard let self = self else { return }
             if let error = error,
                 case AttachNoteError.saveFailed = error {
                 let alert = UIAlertController.error(withMessage: error.localizedDescription)
                 self.present(alert, animated: true, completion: nil)
-                self.submitButton.isEnabled = true
             } else {
+                self.onNoteSaved?()
+                
                 // back out
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.navigationController?.popViewController(animated: true)
