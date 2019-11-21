@@ -67,7 +67,7 @@ class APITests: XCTestCase {
         let knownPin = correctPin
         let waiter = expectation(description: "Form Sets")
         sut?.login(withPhone: knownPhone, pin: knownPin, then: { error in
-            self.sut?.fetchFormSets(then: { (sets, error) in
+            self.sut?.fetchForms(diaspora: false, then: { sets, error in
                 XCTAssertNil(error)
                 XCTAssertNotNil(sets)
                 XCTAssert(sets!.count > 0)
@@ -83,7 +83,7 @@ class APITests: XCTestCase {
         let knownPin = correctPin
         let waiter = expectation(description: "Forms")
         sut?.login(withPhone: knownPhone, pin: knownPin, then: { error in
-            self.sut?.fetchForms(inSet: 1, then: { (forms, error) in
+            self.sut?.fetchForm(withId: 1, then: { (forms, error) in
                 XCTAssertNil(error)
                 XCTAssertNotNil(forms)
                 XCTAssert(forms!.count > 0)
