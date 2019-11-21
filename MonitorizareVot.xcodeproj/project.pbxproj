@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		18914E8F23873400006BE3D1 /* ColorSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18914E8E23873400006BE3D1 /* ColorSchema.swift */; };
 		18914E92238734EF006BE3D1 /* StandardColorSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18914E91238734EF006BE3D1 /* StandardColorSchema.swift */; };
+		18914E9423873FD8006BE3D1 /* DarkModeColorSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18914E9323873FD8006BE3D1 /* DarkModeColorSchema.swift */; };
+		18914E96238741F2006BE3D1 /* ColorSchemaSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18914E95238741F1006BE3D1 /* ColorSchemaSelectionTests.swift */; };
 		271595B521465EBA00BECC9C /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271595B421465EBA00BECC9C /* String+Localization.swift */; };
 		27EDBD2221465D190060DB8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EDBD2421465D190060DB8A /* Localizable.strings */; };
 		28104130236B5CA500B7422C /* AttachNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2810412E236B5CA500B7422C /* AttachNoteViewController.swift */; };
@@ -140,6 +142,8 @@
 		17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18914E8E23873400006BE3D1 /* ColorSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchema.swift; sourceTree = "<group>"; };
 		18914E91238734EF006BE3D1 /* StandardColorSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardColorSchema.swift; sourceTree = "<group>"; };
+		18914E9323873FD8006BE3D1 /* DarkModeColorSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeColorSchema.swift; sourceTree = "<group>"; };
+		18914E95238741F1006BE3D1 /* ColorSchemaSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemaSelectionTests.swift; sourceTree = "<group>"; };
 		271595B421465EBA00BECC9C /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		27EDBD2621465D290060DB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		27EDBD2821465D480060DB8A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -313,6 +317,7 @@
 			children = (
 				18914E8E23873400006BE3D1 /* ColorSchema.swift */,
 				18914E91238734EF006BE3D1 /* StandardColorSchema.swift */,
+				18914E9323873FD8006BE3D1 /* DarkModeColorSchema.swift */,
 			);
 			name = ColorSchemes;
 			sourceTree = "<group>";
@@ -618,6 +623,7 @@
 				EF4BD3A11D9D08DE0042BEC7 /* MonitorizareVotTests.m */,
 				EF4BD3A31D9D08DE0042BEC7 /* Info.plist */,
 				2817EA2B2358FAB60029AD4C /* MonitorizareVotTests-Bridging-Header.h */,
+				18914E95238741F1006BE3D1 /* ColorSchemaSelectionTests.swift */,
 			);
 			path = MonitorizareVotTests;
 			sourceTree = "<group>";
@@ -1034,6 +1040,7 @@
 				28104140236C3A4900B7422C /* Formatters.swift in Sources */,
 				281A4B87236CC625001AD277 /* DropdownButton.swift in Sources */,
 				18914E8F23873400006BE3D1 /* ColorSchema.swift in Sources */,
+				18914E9423873FD8006BE3D1 /* DarkModeColorSchema.swift in Sources */,
 				28E72458233F58100096454D /* SectionDetailsViewModel.swift in Sources */,
 				28104139236B5DEF00B7422C /* NoteViewModel.swift in Sources */,
 				28A4B776237364FE00E6D2A8 /* RemoteConfigManager.swift in Sources */,
@@ -1085,6 +1092,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2817EA2D2358FAB60029AD4C /* APITests.swift in Sources */,
+				18914E96238741F2006BE3D1 /* ColorSchemaSelectionTests.swift in Sources */,
 				EF4BD3A21D9D08DE0042BEC7 /* MonitorizareVotTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,7 +5,14 @@ import UIKit
 extension UIColor {
     
     static var colorSchema: ColorSchema.Type {
-        StandardColorSchema.self
+        // UserInterfaceStyle is available from iOS 12, but dark mode is only available from iOS 13.
+        if #available(iOS 13.0, *) {
+            return UIApplication.shared.keyWindow?.rootViewController?.traitCollection.userInterfaceStyle == .light ?
+                StandardColorSchema.self :
+                DarkModeColorSchema.self
+        } else {
+            return StandardColorSchema.self
+        }
     }
     
     convenience init(hexCode: UInt32) {
