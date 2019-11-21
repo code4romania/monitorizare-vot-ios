@@ -19,14 +19,14 @@ class DefaultTableHeader: UIView {
         backgroundColor = .clear
         
         let container = UIView(frame: CGRect(x: 0, y: 0, width: width, height: frame.height - 10))
-        container.backgroundColor = .tableSectionHeaderBg
+        container.backgroundColor = UIColor.colorSchema.tableSectionHeaderBg
         addSubview(container)
         
         titleLabel = UILabel(frame: container.bounds.inset(by: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)))
         container.addSubview(titleLabel)
 
         titleLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        titleLabel.textColor = UIColor.defaultText.withAlphaComponent(0.3)
+        titleLabel.textColor = UIColor.colorSchema.defaultText.withAlphaComponent(0.3)
     }
     
     required init?(coder: NSCoder) {

@@ -22,15 +22,15 @@ class ChooserButton: UIButton {
     }
     
     fileprivate func setup() {
-        setBackgroundImage(UIImage.from(color: .chooserButtonBackground), for: .normal)
-        setBackgroundImage(UIImage.from(color: .chooserButtonSelectedBackground), for: .selected)
-        setBackgroundImage(UIImage.from(color: UIColor.chooserButtonSelectedBackground.withAlphaComponent(0.5)), for: .highlighted)
-        setBackgroundImage(UIImage.from(color: .chooserButtonSelectedBackground), for: [.selected, .highlighted])
+        setBackgroundImage(UIImage.from(color: UIColor.colorSchema.chooserButtonBackground), for: .normal)
+        setBackgroundImage(UIImage.from(color: UIColor.colorSchema.chooserButtonSelectedBackground), for: .selected)
+        setBackgroundImage(UIImage.from(color: UIColor.colorSchema.chooserButtonSelectedBackground.withAlphaComponent(0.5)), for: .highlighted)
+        setBackgroundImage(UIImage.from(color: UIColor.colorSchema.chooserButtonSelectedBackground), for: [.selected, .highlighted])
         
-        setTitleColor(.defaultText, for: .normal)
-        setTitleColor(.defaultText, for: .selected)
-        setTitleColor(.defaultText, for: .highlighted)
-        setTitleColor(.defaultText, for: [.highlighted, .selected])
+        setTitleColor(UIColor.colorSchema.defaultText, for: .normal)
+        setTitleColor(UIColor.colorSchema.defaultText, for: .selected)
+        setTitleColor(UIColor.colorSchema.defaultText, for: .highlighted)
+        setTitleColor(UIColor.colorSchema.defaultText, for: [.highlighted, .selected])
         
         imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
         titleLabel?.minimumScaleFactor = 0.5
@@ -42,7 +42,7 @@ class ChooserButton: UIButton {
         layer.masksToBounds = true
         layer.cornerRadius = Configuration.buttonCornerRadius
         layer.borderWidth = 1
-        layer.borderColor = UIColor.chooserButtonBorder.cgColor
+        layer.borderColor = UIColor.colorSchema.chooserButtonBorder.cgColor
         
         titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
     }

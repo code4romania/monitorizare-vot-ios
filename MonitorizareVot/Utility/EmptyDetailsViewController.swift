@@ -21,8 +21,8 @@ class EmptyDetailsViewController: MVViewController {
     }
     
     fileprivate func configureView() {
-        view.backgroundColor = .appBackground
-        contentLabel.textColor = UIColor.defaultText.withAlphaComponent(0.4)
+        view.backgroundColor = UIColor.colorSchema.appBackground
+        contentLabel.textColor = UIColor.colorSchema.defaultText.withAlphaComponent(0.4)
         contentLabel.text = "Label_Empty".localized
     }
 

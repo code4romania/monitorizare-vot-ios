@@ -24,15 +24,15 @@ class NoteHistoryTableCell: UITableViewCell {
         selectedBackgroundView?.backgroundColor = .clear
         selectionStyle = .none
         outerContainer.backgroundColor = .clear
-        outerContainer.layer.shadowColor = UIColor.cardShadow.cgColor
+        outerContainer.layer.shadowColor = UIColor.colorSchema.cardShadow.cgColor
         outerContainer.layer.shadowOffset = .zero
         outerContainer.layer.shadowRadius = Configuration.shadowRadius
         outerContainer.layer.shadowOpacity = Configuration.shadowOpacity
         cardContainer.layer.cornerRadius = Configuration.buttonCornerRadius
         cardContainer.layer.masksToBounds = true
-        detailsLabel.textColor = .defaultText
-        dateLabel.textColor = .defaultText
-        cardContainer.backgroundColor = .cardBackground
+        detailsLabel.textColor = UIColor.colorSchema.defaultText
+        dateLabel.textColor = UIColor.colorSchema.defaultText
+        cardContainer.backgroundColor = UIColor.colorSchema.cardBackground
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

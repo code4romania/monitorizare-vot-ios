@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18914E8F23873400006BE3D1 /* ColorSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18914E8E23873400006BE3D1 /* ColorSchema.swift */; };
+		18914E92238734EF006BE3D1 /* StandardColorSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18914E91238734EF006BE3D1 /* StandardColorSchema.swift */; };
 		271595B521465EBA00BECC9C /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271595B421465EBA00BECC9C /* String+Localization.swift */; };
 		27EDBD2221465D190060DB8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EDBD2421465D190060DB8A /* Localizable.strings */; };
 		28104130236B5CA500B7422C /* AttachNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2810412E236B5CA500B7422C /* AttachNoteViewController.swift */; };
@@ -136,6 +138,8 @@
 
 /* Begin PBXFileReference section */
 		17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18914E8E23873400006BE3D1 /* ColorSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchema.swift; sourceTree = "<group>"; };
+		18914E91238734EF006BE3D1 /* StandardColorSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardColorSchema.swift; sourceTree = "<group>"; };
 		271595B421465EBA00BECC9C /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		27EDBD2621465D290060DB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		27EDBD2821465D480060DB8A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -302,6 +306,15 @@
 				F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		18914E9023873418006BE3D1 /* ColorSchemes */ = {
+			isa = PBXGroup;
+			children = (
+				18914E8E23873400006BE3D1 /* ColorSchema.swift */,
+				18914E91238734EF006BE3D1 /* StandardColorSchema.swift */,
+			);
+			name = ColorSchemes;
 			sourceTree = "<group>";
 		};
 		27EDBD15214658CD0060DB8A /* Localizations */ = {
@@ -523,6 +536,7 @@
 				67EE98C922A296B1006E4762 /* Logging */,
 				E7E1F2C51DDB59C800CE52FC /* API */,
 				EFB9AD1B1DEA1039008C1035 /* DBHandlers */,
+				18914E9023873418006BE3D1 /* ColorSchemes */,
 				E7E8EB4A1DDB7344009EBE01 /* UIColor+Presets.swift */,
 				28E7245E233F5E620096454D /* UIImage+Utils.swift */,
 				28E72465233F67280096454D /* Configuration.swift */,
@@ -759,22 +773,22 @@
 				TargetAttributes = {
 					EF4BD3801D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 442AHZGZ2T;
+						DevelopmentTeam = "\"\"";
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					EF4BD39C1D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 442AHZGZ2T;
+						DevelopmentTeam = "\"\"";
 						LastSwiftMigration = 1100;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = EF4BD3801D9D08DE0042BEC7;
 					};
 					EF4BD3A71D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = P2EQL76LN6;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = EF4BD3801D9D08DE0042BEC7;
 					};
 				};
@@ -1012,12 +1026,14 @@
 				2810413C236C2EC300B7422C /* NoteHistoryTableCell.swift in Sources */,
 				28104142236C3FD500B7422C /* Alerts.swift in Sources */,
 				28C3639523646D480084065C /* DefaultTableHeader.swift in Sources */,
+				18914E92238734EF006BE3D1 /* StandardColorSchema.swift in Sources */,
 				EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */,
 				2817EA1C2358F2140029AD4C /* PreferencesManager.swift in Sources */,
 				F553E3BB1DF9D67A000D0902 /* Question+CoreDataClass.swift in Sources */,
 				281A4B82236CBD30001AD277 /* SectionPickerViewController.swift in Sources */,
 				28104140236C3A4900B7422C /* Formatters.swift in Sources */,
 				281A4B87236CC625001AD277 /* DropdownButton.swift in Sources */,
+				18914E8F23873400006BE3D1 /* ColorSchema.swift in Sources */,
 				28E72458233F58100096454D /* SectionDetailsViewModel.swift in Sources */,
 				28104139236B5DEF00B7422C /* NoteViewModel.swift in Sources */,
 				28A4B776237364FE00E6D2A8 /* RemoteConfigManager.swift in Sources */,

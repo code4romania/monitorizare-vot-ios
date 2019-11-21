@@ -22,13 +22,13 @@ class ActionButton: UIButton {
     }
     
     fileprivate func setup() {
-        setBackgroundImage(UIImage.from(color: .actionButtonBackground), for: .normal)
-        setBackgroundImage(UIImage.from(color: .actionButtonBackgroundHighlighted), for: .highlighted)
-        setBackgroundImage(UIImage.from(color: .actionButtonBackgroundDisabled), for: .disabled)
+        setBackgroundImage(UIImage.from(color: UIColor.colorSchema.actionButtonBackground), for: .normal)
+        setBackgroundImage(UIImage.from(color: UIColor.colorSchema.actionButtonBackgroundHighlighted), for: .highlighted)
+        setBackgroundImage(UIImage.from(color: UIColor.colorSchema.actionButtonBackgroundDisabled), for: .disabled)
 
-        setTitleColor(.actionButtonForeground, for: .normal)
-        setTitleColor(.actionButtonForeground, for: .highlighted)
-        setTitleColor(.actionButtonForegroundDisabled, for: .disabled)
+        setTitleColor(UIColor.colorSchema.actionButtonForeground, for: .normal)
+        setTitleColor(UIColor.colorSchema.actionButtonForeground, for: .highlighted)
+        setTitleColor(UIColor.colorSchema.actionButtonForegroundDisabled, for: .disabled)
 
         tintColor = .clear
         

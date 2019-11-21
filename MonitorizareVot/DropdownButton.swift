@@ -28,7 +28,7 @@ class DropdownButton: UIButton {
     fileprivate lazy var label: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .defaultText
+        label.textColor = UIColor.colorSchema.defaultText
         return label
     }()
     
@@ -49,10 +49,10 @@ class DropdownButton: UIButton {
     fileprivate func update() {
         if let value = value,
             value.trimmingCharacters(in: .whitespacesAndNewlines).count > 0 {
-            label.textColor = .defaultText
+            label.textColor = UIColor.colorSchema.defaultText
             label.text = value
         } else {
-            label.textColor = UIColor.defaultText.withAlphaComponent(0.5)
+            label.textColor = UIColor.colorSchema.defaultText.withAlphaComponent(0.5)
             label.text = placeholder
         }
     }
@@ -79,7 +79,7 @@ class DropdownButton: UIButton {
         layer.masksToBounds = true
         layer.cornerRadius = Configuration.buttonCornerRadius
         layer.borderWidth = 1
-        layer.borderColor = UIColor.textViewContainerBorder.cgColor
+        layer.borderColor = UIColor.colorSchema.textViewContainerBorder.cgColor
     }
 
 

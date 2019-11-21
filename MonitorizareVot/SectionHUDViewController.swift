@@ -33,12 +33,12 @@ class SectionHUDViewController: UIViewController {
     // MARK: - UI
     
     fileprivate func configureSubViews() {
-        view.backgroundColor = .headerBackground
+        view.backgroundColor = UIColor.colorSchema.headerBackground
         
-        let lighterTextColor = UIColor.defaultText.withAlphaComponent(0.5)
+        let lighterTextColor = UIColor.colorSchema.defaultText.withAlphaComponent(0.5)
         icon.tintColor = lighterTextColor
         titleLabel.textColor = lighterTextColor
-        changeButton.setTitleColor(.navigationBarBackground, for: .normal)
+        changeButton.setTitleColor(UIColor.colorSchema.navigationBarBackground, for: .normal)
     }
     
     fileprivate func configureTexts() {

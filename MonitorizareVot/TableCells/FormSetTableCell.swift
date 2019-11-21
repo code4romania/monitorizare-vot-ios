@@ -35,7 +35,7 @@ class FormSetTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         clipsToBounds = false
-        outerCardContainer.layer.shadowColor = UIColor.cardShadow.cgColor
+        outerCardContainer.layer.shadowColor = UIColor.colorSchema.cardShadow.cgColor
         outerCardContainer.layer.shadowRadius = Configuration.shadowRadius
         outerCardContainer.layer.shadowOpacity = Configuration.shadowOpacity
         selectedBackgroundView = UIView(frame: .zero)
@@ -48,7 +48,7 @@ class FormSetTableCell: UITableViewCell {
     
     fileprivate func updateSelectionState(selected: Bool) {
         cardContainer.backgroundColor = selected ?
-            UIColor.cardBackgroundSelected : UIColor.cardBackground
+            UIColor.colorSchema.cardBackgroundSelected : UIColor.colorSchema.cardBackground
     }
     
     func update(withModel model: FormSetCellModel) {
@@ -67,7 +67,7 @@ class FormSetTableCell: UITableViewCell {
         let text = NSMutableAttributedString(string: model.title,
                                              attributes: [
                                                 .font: UIFont.systemFont(ofSize: 18, weight: .bold),
-                                                .foregroundColor: UIColor.formNameText,
+                                                .foregroundColor: UIColor.colorSchema.formNameText,
                                                 .paragraphStyle: paragraphStyle
                                              ])
         
@@ -75,7 +75,7 @@ class FormSetTableCell: UITableViewCell {
         text.append(NSAttributedString(string: codeText,
                                        attributes: [
                                         .font: UIFont.systemFont(ofSize: 18, weight: .regular),
-                                        .foregroundColor: UIColor.formNameText.withAlphaComponent(0.4),
+                                        .foregroundColor: UIColor.colorSchema.formNameText.withAlphaComponent(0.4),
                                         .paragraphStyle: paragraphStyle
                                        ]))
         
@@ -85,7 +85,7 @@ class FormSetTableCell: UITableViewCell {
     func updateAsNote() {
         iconView.image = UIImage(named: "icon-note-small")
         titleLabel.text = "Label_AddNote".localized
-        titleLabel.textColor = .formNameText
+        titleLabel.textColor = UIColor.colorSchema.formNameText
         answeredLabel.text = nil
         progressContainer.isHidden = true
         outerCardContainer.layoutIfNeeded()

@@ -37,7 +37,7 @@ class QuestionCollectionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        container.layer.shadowColor = UIColor.cardDarkerShadow.cgColor
+        container.layer.shadowColor = UIColor.colorSchema.cardDarkerShadow.cgColor
         container.layer.shadowRadius = Configuration.shadowRadius
         container.layer.shadowOpacity = 1
         container.layer.shadowOffset = .zero

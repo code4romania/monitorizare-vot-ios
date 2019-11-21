@@ -45,17 +45,17 @@ class LoginViewController: MVViewController {
     
     fileprivate func configureViews() {
         outerCardContainer.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
-        outerCardContainer.layer.shadowColor = UIColor.cardDarkerShadow.cgColor
+        outerCardContainer.layer.shadowColor = UIColor.colorSchema.cardDarkerShadow.cgColor
         outerCardContainer.layer.shadowOffset = .zero
         outerCardContainer.layer.shadowRadius = Configuration.shadowRadius
         outerCardContainer.layer.shadowOpacity = Configuration.shadowOpacity
         cardContainer.layer.cornerRadius = Configuration.buttonCornerRadius
-        cardContainer.backgroundColor = .cardBackground
+        cardContainer.backgroundColor = UIColor.colorSchema.cardBackground
         phoneContainer.layer.cornerRadius = Configuration.buttonCornerRadius
-        phoneContainer.layer.borderColor = UIColor.textViewContainerBorder.cgColor
+        phoneContainer.layer.borderColor = UIColor.colorSchema.textViewContainerBorder.cgColor
         phoneContainer.layer.borderWidth = 1
         codeContainer.layer.cornerRadius = Configuration.buttonCornerRadius
-        codeContainer.layer.borderColor = UIColor.textViewContainerBorder.cgColor
+        codeContainer.layer.borderColor = UIColor.colorSchema.textViewContainerBorder.cgColor
         codeContainer.layer.borderWidth = 1
     }
     

@@ -22,12 +22,12 @@ class AttachButton: UIButton {
     }
     
     fileprivate func setup() {
-        setBackgroundImage(UIImage.from(color: .attachButtonBackground), for: .normal)
-        setBackgroundImage(UIImage.from(color: .attachButtonBackgroundHighlighted), for: .highlighted)
+        setBackgroundImage(UIImage.from(color: UIColor.colorSchema.attachButtonBackground), for: .normal)
+        setBackgroundImage(UIImage.from(color: UIColor.colorSchema.attachButtonBackgroundHighlighted), for: .highlighted)
 
-        setTitleColor(.attachButtonForeground, for: .normal)
-        setTitleColor(.attachButtonForeground, for: .highlighted)
-        setTitleColor(.attachButtonForegroundDisabled, for: .disabled)
+        setTitleColor(UIColor.colorSchema.attachButtonForeground, for: .normal)
+        setTitleColor(UIColor.colorSchema.attachButtonForeground, for: .highlighted)
+        setTitleColor(UIColor.colorSchema.attachButtonForegroundDisabled, for: .disabled)
 
         tintColor = .clear
         

@@ -59,8 +59,8 @@ class SectionPickerViewController: MVViewController {
         stationTextContainer.layer.masksToBounds = true
         stationTextContainer.layer.cornerRadius = Configuration.buttonCornerRadius
         stationTextContainer.layer.borderWidth = 1
-        stationTextContainer.layer.borderColor = UIColor.chooserButtonBorder.cgColor
-        stationTextField.textColor = .defaultText
+        stationTextContainer.layer.borderColor = UIColor.colorSchema.chooserButtonBorder.cgColor
+        stationTextField.textColor = UIColor.colorSchema.defaultText
         scrollView.bottomAnchor.constraint(equalTo: view.keyboardLayoutGuide.topAnchor).isActive = true
     }
     

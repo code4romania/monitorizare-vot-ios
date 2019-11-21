@@ -116,7 +116,7 @@ class NoteViewController: MVViewController {
         options.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
         options.popoverPresentationController?.sourceRect = sourceView.frame
         options.popoverPresentationController?.sourceView = sourceView.superview
-        options.view.tintColor = .navigationBarTint
+        options.view.tintColor = UIColor.colorSchema.navigationBarTint
         present(options, animated: true, completion: nil)
     }
     

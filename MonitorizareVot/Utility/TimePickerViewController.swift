@@ -47,9 +47,9 @@ class TimePickerViewController: UIViewController {
     // MARK: - Config
     
     fileprivate func configureView() {
-        container.backgroundColor = .navigationBarBackground
-        container.tintColor = .navigationBarTint
-        container.layer.shadowColor = UIColor.cardDarkerShadow.cgColor
+        container.backgroundColor = UIColor.colorSchema.navigationBarBackground
+        container.tintColor = UIColor.colorSchema.navigationBarTint
+        container.layer.shadowColor = UIColor.colorSchema.cardDarkerShadow.cgColor
         container.layer.shadowRadius = Configuration.shadowRadius
         container.layer.shadowOffset = .zero
         container.layer.shadowOpacity = Configuration.shadowOpacity

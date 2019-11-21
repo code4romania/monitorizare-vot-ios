@@ -23,11 +23,11 @@ class QuestionTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        normalStateBg.backgroundColor = .cardBackground
+        normalStateBg.backgroundColor = UIColor.colorSchema.cardBackground
         normalStateBg.layer.cornerRadius = 4
-        selectedView.backgroundColor = .cardBackgroundSelected
+        selectedView.backgroundColor = UIColor.colorSchema.cardBackgroundSelected
         selectedView.layer.cornerRadius = 4
-        container.layer.shadowColor = UIColor.cardShadow.cgColor
+        container.layer.shadowColor = UIColor.colorSchema.cardShadow.cgColor
         container.layer.shadowRadius = Configuration.shadowRadius
         container.layer.shadowOpacity = Configuration.shadowOpacity
         selectedBackgroundView = UIView(frame: .zero)

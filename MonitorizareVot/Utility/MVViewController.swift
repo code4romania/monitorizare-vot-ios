@@ -43,7 +43,7 @@ class MVViewController: UIViewController {
     }
     
     fileprivate func configureView() {
-        view.backgroundColor = .appBackground
+        view.backgroundColor = UIColor.colorSchema.appBackground
     }
     
     fileprivate func configureHeader() {

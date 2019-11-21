@@ -91,9 +91,9 @@ extension AppDelegate {
     }
     
     fileprivate func configureAppearance() {
-        UINavigationBar.appearance().tintColor = UIColor.navigationBarTint
-        UINavigationBar.appearance().backgroundColor = .navigationBarBackground
-        UINavigationBar.appearance().barTintColor = .navigationBarBackground
+        UINavigationBar.appearance().tintColor = UIColor.colorSchema.navigationBarTint
+        UINavigationBar.appearance().backgroundColor = UIColor.colorSchema.navigationBarBackground
+        UINavigationBar.appearance().barTintColor = UIColor.colorSchema.navigationBarBackground
     }
     
     fileprivate func setRootViewController() {
