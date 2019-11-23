@@ -13,14 +13,14 @@ class ColorSchemaSelectionTests: XCTestCase {
     
     override func tearDown() {
         if #available(iOS 13.0, *) {
-            UIApplication.shared.keyWindow?.rootViewController?.overrideUserInterfaceStyle = .dark
+            UITraitCollection.current = UITraitCollection(userInterfaceStyle: .dark)
         }
         super.tearDown()
     }
     
     func testLightInterfaceStyle() {
         if #available(iOS 13.0, *) {
-            UIApplication.shared.keyWindow?.rootViewController?.overrideUserInterfaceStyle = .light
+            UITraitCollection.current = UITraitCollection(userInterfaceStyle: .light)
             XCTAssertTrue(UIColor.colorSchema is StandardColorSchema.Type)
         } else {
             XCTFail("Run tests on latest iOS version to ensure compatibility")
@@ -29,7 +29,7 @@ class ColorSchemaSelectionTests: XCTestCase {
     
     func testDarkInterfaceStyle() {
         if #available(iOS 13.0, *) {
-            UIApplication.shared.keyWindow?.rootViewController?.overrideUserInterfaceStyle = .dark
+            UITraitCollection.current = UITraitCollection(userInterfaceStyle: .dark)
             XCTAssertTrue(UIColor.colorSchema is DarkModeColorSchema.Type)
         } else {
             XCTFail("Run tests on latest iOS version to ensure compatibility")
@@ -38,7 +38,7 @@ class ColorSchemaSelectionTests: XCTestCase {
     
     func testUnspecifiedInterfaceStyle() {
         if #available(iOS 13.0, *) {
-            UIApplication.shared.keyWindow?.rootViewController?.overrideUserInterfaceStyle = .unspecified
+            UITraitCollection.current = UITraitCollection(userInterfaceStyle: .unspecified)
             XCTAssertTrue(UIColor.colorSchema is StandardColorSchema.Type)
         } else {
             XCTFail("Run tests on latest iOS version to ensure compatibility")
