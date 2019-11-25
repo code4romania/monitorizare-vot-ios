@@ -16,6 +16,15 @@ class ChooserButton: UIButton {
         setup()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if #available(iOS 13.0, *) {
+            if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+                setup()
+            }
+        }
+    }
+    
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         setup()
@@ -25,12 +34,8 @@ class ChooserButton: UIButton {
         setBackgroundImage(UIImage.from(color: UIColor.colorSchema.chooserButtonBackground), for: .normal)
         setBackgroundImage(UIImage.from(color: UIColor.colorSchema.chooserButtonSelectedBackground), for: .selected)
         setBackgroundImage(UIImage.from(color: UIColor.colorSchema.chooserButtonSelectedBackground.withAlphaComponent(0.5)), for: .highlighted)
-        setBackgroundImage(UIImage.from(color: UIColor.colorSchema.chooserButtonSelectedBackground), for: [.selected, .highlighted])
         
-        setTitleColor(UIColor.colorSchema.defaultText, for: .normal)
-        setTitleColor(UIColor.colorSchema.defaultText, for: .selected)
-        setTitleColor(UIColor.colorSchema.defaultText, for: .highlighted)
-        setTitleColor(UIColor.colorSchema.defaultText, for: [.highlighted, .selected])
+        setTitleColor(UIColor.colorSchema.defaultText, for: [.normal, .highlighted, .selected])
         
         imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
         titleLabel?.minimumScaleFactor = 0.5

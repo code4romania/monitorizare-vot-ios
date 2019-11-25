@@ -41,6 +41,15 @@ class GenericPickerViewController: UIViewController {
         picker.selectRow(model.selectedIndex, inComponent: 0, animated: false)
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if #available(iOS 13.0, *) {
+            if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+                configureView()
+            }
+        }
+    }
+    
     // MARK: - Config
     
     fileprivate func configureView() {

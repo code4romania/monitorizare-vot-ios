@@ -38,6 +38,15 @@ class MVViewController: UIViewController {
         MVAnalytics.shared.log(event: .screen(name: String(describing: type(of: self))))
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if #available(iOS 13.0, *) {
+            if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+                configureView()
+            }
+        }
+    }
+    
     fileprivate func configureBackButton() {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }

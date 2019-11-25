@@ -64,6 +64,15 @@ class NoteViewController: MVViewController {
         }
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if #available(iOS 13.0, *) {
+            if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+                historyTableView.reloadData()
+            }
+        }
+    }
+    
     fileprivate func configureTableView() {
         if #available(iOS 11.0, *) {
             historyTableView.contentInsetAdjustmentBehavior = .never
