@@ -57,6 +57,16 @@ class LoginViewController: MVViewController {
         codeContainer.layer.cornerRadius = Configuration.buttonCornerRadius
         codeContainer.layer.borderColor = UIColor.textViewContainerBorder.cgColor
         codeContainer.layer.borderWidth = 1
+        
+        let toggleButton = UIButton()
+        toggleButton.setImage(UIImage(named: "eye.slash"), for: .selected)
+        toggleButton.setImage(UIImage(named: "eye"), for: .normal)
+        toggleButton.tintColor = .clear
+        toggleButton.isSelected = codeTextField.isSecureTextEntry
+        toggleButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        toggleButton.addTarget(self, action: #selector(toggleCodeInputVisibility(_:)), for: .touchUpInside)
+        codeTextField.rightView = toggleButton
+        codeTextField.rightViewMode = .always
     }
     
     // MARK: - UI
@@ -120,6 +130,11 @@ class LoginViewController: MVViewController {
                 self?.askForPushNotificationsPermissions()
             }
         }
+    }
+    
+    @objc private func toggleCodeInputVisibility(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        codeTextField.isSecureTextEntry = sender.isSelected
     }
     
     func askForPushNotificationsPermissions() {
