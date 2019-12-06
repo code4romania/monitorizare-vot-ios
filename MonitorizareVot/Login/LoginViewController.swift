@@ -59,11 +59,12 @@ class LoginViewController: MVViewController {
         codeContainer.layer.borderWidth = 1
         
         let toggleButton = UIButton()
-        toggleButton.setImage(UIImage(named: "eye.slash"), for: .selected)
-        toggleButton.setImage(UIImage(named: "eye"), for: .normal)
+        toggleButton.setImage(UIImage(named: "eye.slash.fill"), for: .selected)
+        toggleButton.setImage(UIImage(named: "eye.fill"), for: .normal)
         toggleButton.tintColor = .clear
+        toggleButton.alpha = 0.4
         toggleButton.isSelected = codeTextField.isSecureTextEntry
-        toggleButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        toggleButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
         toggleButton.addTarget(self, action: #selector(toggleCodeInputVisibility(_:)), for: .touchUpInside)
         codeTextField.rightView = toggleButton
         codeTextField.rightViewMode = .always
