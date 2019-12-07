@@ -62,6 +62,11 @@ class APIManager: NSObject, APIManagerType {
     }()
     
     func login(withPhone phone: String, pin: String, then callback: @escaping (APIError?) -> Void) {
+        if let errorMessage = checkConnectionError() {
+            callback(.generic(reason: errorMessage))
+            return
+        }
+        
         let url = ApiURL.login.url()
         let udid = AccountManager.shared.udid
         let request = LoginRequest(user: phone, password: pin, uniqueId: udid)
@@ -196,6 +201,11 @@ class APIManager: NSObject, APIManagerType {
     }
     
     func upload(pollingStation: UpdatePollingStationRequest, then callback: @escaping (APIError?) -> Void) {
+        if let errorMessage = checkConnectionError() {
+            callback(.generic(reason: errorMessage))
+            return
+        }
+        
         let url = ApiURL.pollingStation.url()
         let auth = authorizationHeaders()
         let headers = requestHeaders(withAuthHeaders: auth)
@@ -273,6 +283,10 @@ class APIManager: NSObject, APIManagerType {
                     callback(.incorrectFormat(reason: "Unknown reason (code: \(response.response?.statusCode ?? -1))"))
                 }
         }
+    }
+    
+    private func checkConnectionError() -> String? {
+        ReachabilityManager.shared.isReachable ? nil : "Error.InternetConnection".localized
     }
     
 }

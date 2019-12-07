@@ -61,6 +61,7 @@
 "Error.UploadNoteFailed" = "We couldn't upload your note. We will retry later.";
 "Error.SelectCountyFirst" = "Please select your county / district first.";
 "Error.IncorrectStationNumber" = "Incorrect station number. Please double check the county and provided section number";
+"Error.InternetConnection" = "You need an internet connection to continue. Please check your internet connection.";
 
 "Info.DataNotSyncronised" = "It appears that some of the questions have not been syncronised. Tap the button below to send the answers again";
 
