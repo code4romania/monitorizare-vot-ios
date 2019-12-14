@@ -32,9 +32,32 @@ This project uses CocoaPods for its dependency management, so make sure you inst
 
 ## Built With
 
-* Swift
+* Swift 5
+* Core Data
+* Firebase (Remote Config, Analytics, Crashlytics)
+* Alamofire
+* Reachability
 
- Swagger docs for the API are available [here](https://mv-mobile-test.azurewebsites.net/swagger/index.html).
+Swagger docs for the API are available [here](https://mv-mobile-test.azurewebsites.net/swagger/index.html).
+
+## Architecture
+
+* The app is localized, meaning it's easier for any interested party to fork the project and use it in other countries, simply localizing the messages 
+* The UI relies on the MvvM pattern
+* The data is stored in the local Core Data instance and is uploaded to the server using the API described above
+* In case of a faulty internet connection, the data is marked as unsynced (using the `synced` flag on interesting entities and we're automatically retrying when connection is re-established and when the user opening the app; there's also a manual sync function in the forms screen)
+* We rely on Firebase's RemoteConfig for remote settings
+* Most important events are logged using Firebase's Fabric events
+* We monitor crashes using Firebase's Crashlytics
+* The API client uses `Codable` models which are then transformed into Core Data models to be persisted locally
+
+## Localization & Internationalization
+
+The Localization files can be found in the `MonitorizareVot/Localizations` folder. If you want to add a new language, simply add it in Xcode, then copy the `Localizable.strings` and `InfoPlist.strings` files from the `Base`/`en` lproj folders and copy them in the new language's folder.
+
+You should only update the strings on the right side of the `=` (equals sign). Make sure they're enclosed in double quotes (`"`) and that every line ends with a semicolon `;`.
+
+In order to make the new language available (and maybe restrict other ones), make sure you edit the `ALLOWED_LANGUAGES` value in Build Settings (it's a comma separate list of language codes.
 
 ## Repos and projects
 
