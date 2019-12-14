@@ -101,7 +101,7 @@ DEPENDENCIES:
   - SwiftKeychainWrapper
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Crashlytics
     - Fabric
@@ -145,4 +145,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 01ab4b31d7971519a8db1852677f291cc75103b8
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4

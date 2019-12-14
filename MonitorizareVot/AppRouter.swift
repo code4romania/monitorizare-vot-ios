@@ -28,6 +28,29 @@ class AppRouter: NSObject {
         } else {
             goToLogin()
         }
+        
+        RemoteConfigManager.shared.afterLoad {
+            self.checkForNewVersion()
+        }
+    }
+    
+    func checkForNewVersion() {
+        guard RemoteConfigManager.shared.value(of: .checkAppUpdateAvailable).boolValue == true else { return }
+        AppUpdateManager.shared.checkForNewVersion { (isAvailable, response, error) in
+            if let error = error {
+                DebugLog("Can't check for new version: \(error.localizedDescription)")
+            } else {
+                if isAvailable,
+                    let response = response {
+                    DebugLog("New Version available: \(response.version)")
+                    let currentVersion = AppUpdateManager.shared.currentVersion
+                    let newVersion = response.version
+                    self.showNewVersionDialog(currentVersion: currentVersion, newVersion: newVersion)
+                } else {
+                    DebugLog("Already on latest version: \(response?.version ?? "?")")
+                }
+            }
+        }
     }
     
     func goToLogin() {
@@ -102,5 +125,28 @@ class AppRouter: NSObject {
         let controller = EmptyDetailsViewController()
         let navigation = UINavigationController(rootViewController: controller)
         split.showDetailViewController(navigation, sender: nil)
+    }
+    
+    private func showNewVersionDialog(currentVersion: String, newVersion: String) {
+        let alert = UIAlertController(title: "Title.NewVersion".localized,
+                                      message: "AlertMessage_NewVersion".localized,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK".localized,
+                                      style: .default,
+                                      handler:
+        { action in
+            self.openAppUrl()
+            if RemoteConfigManager.shared.value(of: .forceAppUpdate).boolValue == true {
+                self.showNewVersionDialog(currentVersion: currentVersion, newVersion: newVersion)
+            }
+        }))
+        window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    private func openAppUrl() {
+        let url = AppUpdateManager.shared.applicationURL
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
+        }
     }
 }

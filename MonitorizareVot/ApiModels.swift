@@ -164,3 +164,13 @@ struct QuestionOptionResponse: Codable {
     }
 }
 
+struct AppInformationResponse: Decodable {
+    struct ResultResponse: Decodable {
+        var version: String
+        var releaseNotes: String
+    }
+    
+    var resultCount: Int
+    var results: [ResultResponse]
+}
+

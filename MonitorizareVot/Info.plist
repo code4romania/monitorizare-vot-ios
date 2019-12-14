@@ -24,6 +24,8 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>DISABLE_UPDATE_CHECK</key>
+	<string>$(DISABLE_UPDATE_CHECK)</string>
 	<key>GUIDE_URL</key>
 	<string>$(GUIDE_URL)</string>
 	<key>LSRequiresIPhoneOS</key>
