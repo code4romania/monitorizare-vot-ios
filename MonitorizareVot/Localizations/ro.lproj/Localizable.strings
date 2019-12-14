@@ -46,6 +46,7 @@
 "Option.RecordVideo" = "Înregistrează un film";
 
 "AlertMessage_EnableCameraAccess" = "Te rugăm să accesezi setările și să ne oferi permisiuni de acces la librăria de poze.";
+"AlertMessage_NewVersion" = "O nouă versiune a aplicației este disponibilă. Te rugăm să faci update pentru a folosi cele mai recente funcționalități.";
 
 "Error_Unknown" = "A apărut o eroare necunoscută";
 "LoginError_Unknown" = "Nu te-am putut autentifica. Eroare necunoscută. Te rugăm să ne contactezi.";
@@ -74,6 +75,7 @@
 "Title.NoteHistory" = "Istoricul Notelor";
 "Title.Section" = "Configurarea Secției";
 "Title.Language" = "Alege limba";
+"Title.NewVersion" = "Actualizare disponibilă";
 
 "Next" = "Următoarea";
 "Previous" = "Precedenta";

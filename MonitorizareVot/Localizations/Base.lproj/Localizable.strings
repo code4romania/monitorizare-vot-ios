@@ -46,6 +46,7 @@
 "Option.RecordVideo" = "Record a video";
 
 "AlertMessage_EnableCameraAccess" = "Please access the settings and give us permissions to access the picture library.";
+"AlertMessage_NewVersion" = "A new app version is available. Please update the app to use the latest features";
 
 "Error_Unknown" = "An unknown error occured";
 "LoginError_Unknown" = "Login failed. Unknown reason. Please contact us.";
@@ -74,6 +75,7 @@
 "Title.NoteHistory" = "Note History";
 "Title.Section" = "Polling Station Setup";
 "Title.Language" = "Choose your language";
+"Title.NewVersion" = "App Update Available";
 
 "Next" = "Next";
 "Previous" = "Previous";

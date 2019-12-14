@@ -18,6 +18,7 @@ TEST_PIN =
 ALLOWED_LANGUAGES = ro,en // you can override this in your project, but make sure you have correct localization
 SUPPORT_PHONE = 0800080200
 GUIDE_URL = https:/$()/fiecarevot.ro/wp-content/uploads/2019/11/Manual-prezidentiale.pdf
+DISABLE_UPDATE_CHECK = false // override this to force disable the update check
 
 //API_URL = https:/$()/mv-mobile-test.azurewebsites.net/api // dev - use this in your LocalConfiguration.xcconfig
 
