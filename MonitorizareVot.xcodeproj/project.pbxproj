@@ -304,15 +304,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		27EDBD15214658CD0060DB8A /* Localizations */ = {
-			isa = PBXGroup;
-			children = (
-				27EDBD2421465D190060DB8A /* Localizable.strings */,
-				28DBDABD23701DBD004EAD83 /* InfoPlist.strings */,
-			);
-			name = Localizations;
-			sourceTree = "<group>";
-		};
 		2810413E236C3A3700B7422C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +392,15 @@
 				28C4343B2370C5C9001E6268 /* UITableView+HeaderAutoLayout.swift */,
 			);
 			name = Storage;
+			sourceTree = "<group>";
+		};
+		28B3DA7E23A4E3E400BEF6C0 /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				27EDBD2421465D190060DB8A /* Localizable.strings */,
+				28DBDABD23701DBD004EAD83 /* InfoPlist.strings */,
+			);
+			path = Localizations;
 			sourceTree = "<group>";
 		};
 		28C3639323646D300084065C /* TableHeaders */ = {
@@ -582,7 +582,7 @@
 				EF4BD3DE1D9E64720042BEC7 /* ViewControllers */,
 				EF4BD3841D9D08DE0042BEC7 /* Supporting Files */,
 				EF903E361DA25E3800D5BC9C /* Resources */,
-				27EDBD15214658CD0060DB8A /* Localizations */,
+				28B3DA7E23A4E3E400BEF6C0 /* Localizations */,
 				28508622236D9C6000189D94 /* Launch Screen.storyboard */,
 				EF4BD3981D9D08DE0042BEC7 /* Info.plist */,
 				EF4BD3901D9D08DE0042BEC7 /* s.xcdatamodeld */,
