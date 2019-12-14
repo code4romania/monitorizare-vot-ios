@@ -120,7 +120,7 @@
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Label_CodeTextInput_Placeholder" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3QP-yb-17v">
                                                             <rect key="frame" x="46" y="0.0" width="304" height="50"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="go"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="go" secureTextEntry="YES"/>
                                                             <connections>
                                                                 <outlet property="delegate" destination="-1" id="eK5-G6-TPU"/>
                                                             </connections>
