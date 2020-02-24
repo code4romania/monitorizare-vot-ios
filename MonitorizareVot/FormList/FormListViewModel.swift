@@ -55,7 +55,8 @@ class FormListViewModel: NSObject {
     
     fileprivate func convertToViewModels(responses: [FormResponse]?) {
         if let objects = responses {
-            forms = objects.map { set in
+            let sorted = objects.sorted { $0.order ?? 0 < $1.order ?? 0 }
+            forms = sorted.map { set in
                 let formCodePrefix = set.code.first != nil ? String(set.code.first!).lowercased() : ""
                 let image = UIImage(named: "icon-formset-\(formCodePrefix)") ?? UIImage(named: "icon-formset-default")
                 let answeredQuestions = DB.shared.getAnsweredQuestions(inFormWithCode: set.code).count

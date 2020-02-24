@@ -111,12 +111,14 @@ struct FormResponse: Codable {
     var code: String
     var version: Int
     var description: String
+    var order: Int?
     
     enum CodingKeys: String, CodingKey {
         case id
         case code
         case version = "ver"
         case description
+        case order
     }
 }
 

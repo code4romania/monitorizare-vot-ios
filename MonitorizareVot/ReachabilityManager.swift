@@ -12,7 +12,25 @@ import Reachability
 class ReachabilityManager: NSObject {
     static let shared = ReachabilityManager()
     
-    lazy private var reachability: Reachability? = {
+    private var reachability: Reachability?
+    
+    fileprivate(set) var isReachable: Bool = false
+    
+    deinit {
+        reachability?.stopNotifier()
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override init() {
+        super.init()
+        initializeReachability()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleAppForeground(_:)),
+                                               name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleAppBackground(_:)),
+                                               name: UIApplication.didEnterBackgroundNotification, object: nil)
+    }
+    
+    private func initializeReachability() {
         let reachability = try? Reachability()
         reachability?.whenReachable = { r in
             self.isReachable = true
@@ -26,22 +44,7 @@ class ReachabilityManager: NSObject {
         } catch {
             DebugLog("Can't start reachability notifier")
         }
-        return reachability
-    }()
-    
-    fileprivate(set) var isReachable: Bool = false
-    
-    deinit {
-        reachability?.stopNotifier()
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    override init() {
-        super.init()
-        NotificationCenter.default.addObserver(self, selector: #selector(handleAppForeground(_:)),
-                                               name: UIApplication.willEnterForegroundNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleAppBackground(_:)),
-                                               name: UIApplication.didEnterBackgroundNotification, object: nil)
+        self.reachability = reachability
     }
     
     @objc fileprivate func handleAppForeground(_ notification: Notification) {
