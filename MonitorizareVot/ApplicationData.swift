@@ -21,7 +21,7 @@ class ApplicationData: NSObject {
         // for diaspora we might have different forms, so first check if the user is in diaspora or not
         var isCountyDiaspora = false
         if let countyCode = PreferencesManager.shared.county,
-            let stationCounty = LocalStorage.shared.getPollingStationResponse(withCode: countyCode) {
+            let stationCounty = LocalStorage.shared.getCounty(withCode: countyCode) {
             isCountyDiaspora = stationCounty.diaspora ?? false
         }
         

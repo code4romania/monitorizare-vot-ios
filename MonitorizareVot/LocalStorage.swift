@@ -26,10 +26,10 @@ enum LocalFilename {
 
 protocol LocalStorageType: NSObject {
     
-    var pollingStations: [PollingStationResponse]? { set get }
+    var counties: [CountyResponse]? { set get }
     var forms: [FormResponse]? { set get }
 
-    func getPollingStationResponse(withCode code: String) -> PollingStationResponse?
+    func getCounty(withCode code: String) -> CountyResponse?
     func getFormSummary(withCode code: String) -> FormResponse?
     func loadForm(withId formId: Int) -> [FormSectionResponse]?
     func saveForm(_ form: [FormSectionResponse], withId formId: Int)
@@ -46,7 +46,7 @@ class LocalStorage: NSObject, LocalStorageType {
     
     // MARK: - Public
     
-    var pollingStations: [PollingStationResponse]? {
+    var counties: [CountyResponse]? {
         set {
             if let newValue = newValue {
                 save(codable: newValue, withFilename: .pollingStations)
@@ -54,7 +54,7 @@ class LocalStorage: NSObject, LocalStorageType {
                 delete(fileWithName: .pollingStations)
             }
         } get {
-            return load(type: [PollingStationResponse].self, withFilename: .pollingStations)
+            return load(type: [CountyResponse].self, withFilename: .pollingStations)
         }
     }
     
@@ -83,9 +83,9 @@ class LocalStorage: NSObject, LocalStorageType {
         return forms.filter { $0.code == code }.first
     }
     
-    func getPollingStationResponse(withCode code: String) -> PollingStationResponse? {
-        guard let stations = pollingStations else { return nil }
-        return stations.filter { $0.code == code }.first
+    func getCounty(withCode code: String) -> CountyResponse? {
+        guard let counties = counties else { return nil }
+        return counties.filter { $0.code == code }.first
     }
 
     // MARK: - Internal

@@ -90,12 +90,13 @@ struct LoginResponse: Codable {
     }
 }
 
-struct PollingStationResponse: Codable {
+struct CountyResponse: Codable {
     var id: Int
     var name: String
     var code: String
-    var limit: Int
+    var numberOfPollingStations: Int
     var diaspora: Bool?
+    var order: Int
 }
 
 struct FormListResponse: Codable {
