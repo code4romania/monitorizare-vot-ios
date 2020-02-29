@@ -17,7 +17,7 @@ protocol APIManagerType: NSObject {
                then callback: @escaping (APIError?) -> Void)
     func sendPushToken(withToken token: String,
                        then callback: @escaping (APIError?) -> Void)
-    func fetchPollingStations(then callback: @escaping ([PollingStationResponse]?, APIError?) -> Void)
+    func fetchCounties(then callback: @escaping ([CountyResponse]?, APIError?) -> Void)
     func fetchForms(diaspora: Bool, then callback: @escaping ([FormResponse]?, APIError?) -> Void)
     func fetchForm(withId formId: Int,
                    then callback: @escaping ([FormSectionResponse]?, APIError?) -> Void)
@@ -118,7 +118,7 @@ class APIManager: NSObject, APIManagerType {
             }
     }
     
-    func fetchPollingStations(then callback: @escaping ([PollingStationResponse]?, APIError?) -> Void) {
+    func fetchCounties(then callback: @escaping ([CountyResponse]?, APIError?) -> Void) {
         let url = ApiURL.pollingStationList.url()
         let headers = authorizationHeaders()
         
@@ -129,7 +129,7 @@ class APIManager: NSObject, APIManagerType {
                 if statusCode == 200,
                     let data = response.data {
                     do {
-                        let stations = try JSONDecoder().decode([PollingStationResponse].self, from: data)
+                        let stations = try JSONDecoder().decode([CountyResponse].self, from: data)
                         callback(stations, nil)
                     } catch {
                         callback(nil, .incorrectFormat(reason: error.localizedDescription))
