@@ -133,6 +133,7 @@ class QuestionAnswerViewController: MVViewController {
             nextButton.isEnabled = currentPage < model.questions.count - 1
         } else {
             nextButton.setTitle((currentPage < model.questions.count - 1 ? "Next" : "Done").localized, for: .normal)
+            previousButton.setTitle("Previous".localized, for: .normal)
         }
     }
     

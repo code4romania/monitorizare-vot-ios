@@ -93,3 +93,10 @@
 "Onboarding.Text.Notes" = "Ai observat o problemă care nu apare în formular? Folosește butonul de ‘Adaugă notă’, scrie un mesaj și/sau anexează o imagine.";
 
 "Onboarding.Go" = "Spre aplicație";
+
+"Menu.Button.Close" = "Închide";
+"Menu.Button.ChangeStation" = "Schimbă secția de votare";
+"Menu.Button.Guide" = "Ghidul observatorului";
+"Menu.Button.Call" = "Sună la call center";
+"Menu.Button.About" = "Despre aplicație";
+"Menu.Button.Logout" = "Log out";

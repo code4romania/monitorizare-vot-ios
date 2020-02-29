@@ -93,3 +93,10 @@
 "Onboarding.Text.Notes" = "Did you notice any problem that does not appear in the form? Use the ‘Add note’ button, write a message and/or attach a picture.";
 
 "Onboarding.Go" = "Go to app";
+
+"Menu.Button.Close" = "Close";
+"Menu.Button.ChangeStation" = "Change Polling Station";
+"Menu.Button.Guide" = "Observer's Guide";
+"Menu.Button.Call" = "Call the hotline";
+"Menu.Button.About" = "About";
+"Menu.Button.Logout" = "Log out";

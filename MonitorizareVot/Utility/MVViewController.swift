@@ -67,51 +67,26 @@ class MVViewController: UIViewController {
 
     /// Call this method to add contact details to the navigation bar - the right item
     func addContactDetailsToNavBar() {
-        let guideButton = UIButton(type: .custom)
-        guideButton.setImage(UIImage(named:"button-guide"), for: .normal)
-        guideButton.addTarget(self, action: #selector(pushGuideViewController), for: .touchUpInside)
+        let settingsButton = UIButton(type: .custom)
+        let icon = UIImage(named:"icon-menu-settings")?
+            .withRenderingMode(.alwaysTemplate)
+        settingsButton.setImage(icon, for: .normal)
+        settingsButton.tintColor = .defaultText
+        settingsButton.addTarget(self, action: #selector(handleShowSettingsAction), for: .touchUpInside)
 
-        let callButton = UIButton(type: .custom)
-        callButton.setImage(UIImage(named:"button-call"), for: .normal)
-        callButton.addTarget(self, action: #selector(performCall), for: .touchUpInside)
-
-        let stackView = UIStackView(arrangedSubviews: [callButton, guideButton])
-        stackView.axis = .horizontal
-        stackView.spacing = 16
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: stackView)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
     }
     
     // MARK: - Actions
 
-    @objc func pushGuideViewController() {
-        MVAnalytics.shared.log(event: .tapGuide)
-        if let urlString = Bundle.main.infoDictionary?["GUIDE_URL"] as? String,
-            let url = URL(string: urlString) {
-            let safariViewController = SFSafariViewController(url: url)
-            self.navigationController?.present(safariViewController, animated: true, completion: nil)
-        } else {
-            let error = UIAlertController.error(withMessage: "No guide available")
-            present(error, animated: true, completion: nil)
-        }
+    @objc private func handleShowSettingsAction() {
+        let menu = MenuViewController()
+        present(menu, animated: true, completion: nil)
     }
     
-    @objc func performCall() {
-        MVAnalytics.shared.log(event: .tapCall)
-        if let phone = Bundle.main.infoDictionary?["SUPPORT_PHONE"] as? String {
-            let phoneCallPath = "telprompt://\(phone)"
-            if let phoneCallURL = NSURL(string: phoneCallPath) {
-                UIApplication.shared.openURL(phoneCallURL as URL)
-            }
-        } else {
-            let error = UIAlertController.error(withMessage: "No phone support available")
-            present(error, animated: true, completion: nil)
-        }
-    }
-
     fileprivate func handleChangeSectionButtonAction() {
         MVAnalytics.shared.log(event: .tapChangeStation(fromScreen: String(describing: type(of: self))))
         AppRouter.shared.goToChooseStation()
     }
-    
+
 }
