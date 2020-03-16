@@ -1,3 +1,10 @@
+using_bundler = defined? Bundler
+unless using_bundler
+  puts "\nPlease re-run using:".red
+  puts "  bundle exec pod install\n\n"
+  exit(1)
+end
+
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
 
@@ -12,7 +19,6 @@ target 'MonitorizareVot' do
   pod 'Firebase/RemoteConfig'
   pod 'Fabric', '~> 1.10.2'
   pod 'Crashlytics', '~> 3.14.0'
-  pod 'SnapKit'
   pod 'ReachabilitySwift'
   pod 'Keyboard+LayoutGuide'
 
