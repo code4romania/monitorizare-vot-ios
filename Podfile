@@ -12,7 +12,6 @@ target 'MonitorizareVot' do
   pod 'Firebase/RemoteConfig'
   pod 'Fabric', '~> 1.10.2'
   pod 'Crashlytics', '~> 3.14.0'
-  pod 'SnapKit'
   pod 'ReachabilitySwift'
   pod 'Keyboard+LayoutGuide'
 

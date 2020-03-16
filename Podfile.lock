@@ -84,7 +84,6 @@ PODS:
   - nanopb/encode (0.3.901)
   - Protobuf (3.10.0)
   - ReachabilitySwift (5.0.0)
-  - SnapKit (4.2.0)
   - SwiftKeychainWrapper (3.2.0)
 
 DEPENDENCIES:
@@ -97,7 +96,6 @@ DEPENDENCIES:
   - Firebase/RemoteConfig
   - "Keyboard+LayoutGuide"
   - ReachabilitySwift
-  - SnapKit
   - SwiftKeychainWrapper
 
 SPEC REPOS:
@@ -119,7 +117,6 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - ReachabilitySwift
-    - SnapKit
     - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
@@ -140,9 +137,8 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
 
-PODFILE CHECKSUM: 01ab4b31d7971519a8db1852677f291cc75103b8
+PODFILE CHECKSUM: 62d30108992f6c3804b2aef2a4a7134445bc002c
 
 COCOAPODS: 1.9.1
