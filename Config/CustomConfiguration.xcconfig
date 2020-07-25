@@ -12,9 +12,9 @@
 PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.MyOtherAppName
 DEVELOPMENT_TEAM = ""
 CODE_SIGN_STYLE = Manual
-API_URL = https:/$()/mv-mobile-prod.azurewebsites.net/api // production
-TEST_PHONE =
-TEST_PIN =
+API_URL = https:/$()/app-vmon-api-dev.azurewebsites.net/api
+TEST_PHONE = 0722222222
+TEST_PIN = 1234
 ALLOWED_LANGUAGES = ro,en // you can override this in your project, but make sure you have correct localization
 SUPPORT_PHONE = 0800080200
 GUIDE_URL = https:/$()/fiecarevot.ro/wp-content/uploads/2019/11/Manual-prezidentiale.pdf
