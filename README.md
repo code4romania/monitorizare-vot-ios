@@ -38,7 +38,7 @@ This project uses CocoaPods for its dependency management, so make sure you inst
 * Alamofire
 * Reachability
 
-Swagger docs for the API are available [here](https://mv-mobile-test.azurewebsites.net/swagger/index.html).
+Swagger docs for the API are available [here](https://app-vmon-api-dev.azurewebsites.net/swagger/index.html).
 
 ## Architecture
 

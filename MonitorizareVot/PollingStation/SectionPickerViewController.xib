@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -155,8 +155,6 @@
                         <constraint firstItem="ggj-PV-g8U" firstAttribute="leading" secondItem="z12-JM-Ytq" secondAttribute="leading" priority="999" id="ntp-fw-ezP"/>
                         <constraint firstItem="ggj-PV-g8U" firstAttribute="top" secondItem="z12-JM-Ytq" secondAttribute="top" id="qal-Fl-Wrx"/>
                     </constraints>
-                    <viewLayoutGuide key="contentLayoutGuide" id="ODJ-6A-UtQ"/>
-                    <viewLayoutGuide key="frameLayoutGuide" id="L91-s4-SmN"/>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCh-K5-Nfk" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
                     <rect key="frame" x="16" y="802" width="382" height="44"/>
