@@ -54,9 +54,9 @@ class QuestionAnswerViewController: MVViewController {
         super.viewDidLoad()
         configureCollectionView()
         bindToUpdateEvents()
-        if !AppRouter.shared.isPad {
-            addContactDetailsToNavBar()
-        }
+//        if !AppRouter.shared.isPad {
+//            addContactDetailsToNavBar()
+//        }
         view.clipsToBounds = true
     }
     

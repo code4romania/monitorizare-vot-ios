@@ -65,7 +65,7 @@ class SectionDetailsViewController: MVViewController {
         title = "Title.StationDetails".localized
         configureSubviews()
         bindToUpdates()
-        addContactDetailsToNavBar()
+        addMenuButtonToNavBar()
         updateLabelsTexts()
         isLoading = false
     }

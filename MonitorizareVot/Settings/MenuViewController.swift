@@ -56,6 +56,8 @@ class MenuViewController: UIViewController {
             presentGuideViewController()
         case callButton:
             performCall()
+        case aboutButton:
+            showAbout()
         default:
             break
         }
@@ -69,7 +71,7 @@ class MenuViewController: UIViewController {
     
     @objc func presentGuideViewController() {
         MVAnalytics.shared.log(event: .tapGuide)
-        if let urlString = Bundle.main.infoDictionary?["GUIDE_URL"] as? String,
+        if let urlString = RemoteConfigManager.shared.value(of: .observerGuideUrl).stringValue,
             let url = URL(string: urlString) {
             let safariViewController = SFSafariViewController(url: url)
             self.present(safariViewController, animated: true, completion: nil)
@@ -81,7 +83,7 @@ class MenuViewController: UIViewController {
     
     @objc func performCall() {
         MVAnalytics.shared.log(event: .tapCall)
-        if let phone = Bundle.main.infoDictionary?["SUPPORT_PHONE"] as? String {
+        if let phone = RemoteConfigManager.shared.value(of: .callCenterPhone).stringValue {
             let phoneCallPath = "telprompt://\(phone)"
             if let phoneCallURL = NSURL(string: phoneCallPath) {
                 UIApplication.shared.openURL(phoneCallURL as URL)
@@ -101,7 +103,9 @@ class MenuViewController: UIViewController {
     }
     
     fileprivate func showAbout() {
-        
+        let ctl = AboutViewController()
+        let nav = UINavigationController(rootViewController: ctl)
+        present(nav, animated: true, completion: nil)
     }
     
     fileprivate func logout() {

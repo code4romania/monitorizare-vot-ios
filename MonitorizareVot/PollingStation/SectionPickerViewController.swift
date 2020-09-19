@@ -44,7 +44,7 @@ class SectionPickerViewController: MVViewController {
         bindToModelUpdates()
         localize()
         fetchStations()
-        addContactDetailsToNavBar()
+        addMenuButtonToNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {

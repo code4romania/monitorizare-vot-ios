@@ -48,9 +48,9 @@ class NoteViewController: MVViewController {
         super.viewDidLoad()
         title = "Title.Note".localized
         configureTableView()
-        if !AppRouter.shared.isPad {
-            addContactDetailsToNavBar()
-        }
+//        if !AppRouter.shared.isPad {
+//            addContactDetailsToNavBar()
+//        }
         configureSubviews()
     }
     

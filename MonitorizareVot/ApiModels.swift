@@ -22,7 +22,7 @@ struct UpdatePollingStationRequest: Codable {
     var id: Int
     var countyCode: String
     var isUrbanArea: Bool
-    var leaveTime: String
+    var leaveTime: String?
     var arrivalTime: String
     var isPresidentFemale: Bool
     
@@ -113,13 +113,15 @@ struct FormResponse: Codable {
     var version: Int
     var description: String
     var order: Int?
+    var isDiasporaOnly: Bool?
     
     enum CodingKeys: String, CodingKey {
         case id
         case code
-        case version = "ver"
+        case version = "currentVersion"
         case description
         case order
+        case isDiasporaOnly = "diaspora"
     }
 }
 

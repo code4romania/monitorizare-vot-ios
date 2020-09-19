@@ -86,6 +86,7 @@ PODS:
   - ReachabilitySwift (5.0.0)
   - SnapKit (4.2.0)
   - SwiftKeychainWrapper (3.2.0)
+  - SwiftyMarkdown (0.6.2)
 
 DEPENDENCIES:
   - Alamofire
@@ -99,6 +100,7 @@ DEPENDENCIES:
   - ReachabilitySwift
   - SnapKit
   - SwiftKeychainWrapper
+  - SwiftyMarkdown
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -121,6 +123,8 @@ SPEC REPOS:
     - ReachabilitySwift
     - SnapKit
     - SwiftKeychainWrapper
+  trunk:
+    - SwiftyMarkdown
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -142,7 +146,8 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
+  SwiftyMarkdown: 483eeba7f992035910fbb2e40cf1fc8c8249c6ac
 
-PODFILE CHECKSUM: 01ab4b31d7971519a8db1852677f291cc75103b8
+PODFILE CHECKSUM: 23f2155ba3b9314abd75a3710d21f2111714aa69
 
 COCOAPODS: 1.8.4

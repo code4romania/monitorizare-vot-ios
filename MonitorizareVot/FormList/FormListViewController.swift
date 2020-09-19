@@ -40,7 +40,7 @@ class FormListViewController: MVViewController {
         title = "Title.FormSets".localized
         configureSubviews()
         updateLabelsTexts()
-        addContactDetailsToNavBar()
+        addMenuButtonToNavBar()
         bindToUpdates()
     }
 

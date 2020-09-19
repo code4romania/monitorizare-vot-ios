@@ -66,15 +66,15 @@ class MVViewController: UIViewController {
     // MARK: - Public
 
     /// Call this method to add contact details to the navigation bar - the right item
-    func addContactDetailsToNavBar() {
-        let settingsButton = UIButton(type: .custom)
-        let icon = UIImage(named:"icon-menu-settings")?
+    func addMenuButtonToNavBar() {
+        let menuButton = UIButton(type: .custom)
+        let icon = UIImage(named:"icon-menu")?
             .withRenderingMode(.alwaysTemplate)
-        settingsButton.setImage(icon, for: .normal)
-        settingsButton.tintColor = .defaultText
-        settingsButton.addTarget(self, action: #selector(handleShowSettingsAction), for: .touchUpInside)
+        menuButton.setImage(icon, for: .normal)
+        menuButton.tintColor = .defaultText
+        menuButton.addTarget(self, action: #selector(handleShowSettingsAction), for: .touchUpInside)
 
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
     }
     
     // MARK: - Actions
