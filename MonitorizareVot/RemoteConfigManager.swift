@@ -17,6 +17,7 @@ enum RemoteConfigKey: String, CaseIterable {
     case privacyPolicyUrl = "privacy_policy_url"
     case callCenterPhone = "call_center_phone"
     case observerGuideUrl = "observer_guide_url"
+    case contactEmail = "contact_email"
 
     func defaultValue() -> Any {
         switch self {
@@ -26,6 +27,7 @@ enum RemoteConfigKey: String, CaseIterable {
         case .privacyPolicyUrl: return "https://code4.ro/ro/codul-de-conduita/"
         case .callCenterPhone: return "0800080200"
         case .observerGuideUrl: return "https://fiecarevot.ro/wp-content/uploads/2019/11/Manual-prezidentiale.pdf"
+        case .contactEmail: return "contact@code4.ro"
         }
     }
 }

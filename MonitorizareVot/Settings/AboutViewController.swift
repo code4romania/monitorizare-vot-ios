@@ -71,11 +71,11 @@ class AboutViewController: UIViewController {
     }
     
     @IBAction func handleContactUsTap(_ sender: Any) {
-        MVAnalytics.shared.log(event: .tapCall)
-        if let phone = RemoteConfigManager.shared.value(of: .callCenterPhone).stringValue {
-            let phoneCallPath = "telprompt://\(phone)"
-            if let phoneCallURL = NSURL(string: phoneCallPath) {
-                UIApplication.shared.openURL(phoneCallURL as URL)
+        MVAnalytics.shared.log(event: .tapContact)
+        if let email = RemoteConfigManager.shared.value(of: .contactEmail).stringValue {
+            let mailtoPath = "mailto:\(email)"
+            if let mailtoURL = NSURL(string: mailtoPath) {
+                UIApplication.shared.openURL(mailtoURL as URL)
             }
         } else {
             let error = UIAlertController.error(withMessage: "No phone support available")

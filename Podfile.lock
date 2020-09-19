@@ -110,7 +110,7 @@ DEPENDENCIES:
   - Alamofire
   - Firebase/Analytics
   - Firebase/Core
-  - Firebase/Crashlytics (~> 6.31.0)
+  - Firebase/Crashlytics
   - Firebase/Messaging
   - Firebase/RemoteConfig
   - "Keyboard+LayoutGuide"
@@ -142,7 +142,6 @@ SPEC REPOS:
     - ReachabilitySwift
     - SnapKit
     - SwiftKeychainWrapper
-  trunk:
     - SwiftyMarkdown
 
 SPEC CHECKSUMS:
@@ -169,6 +168,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
   SwiftyMarkdown: 483eeba7f992035910fbb2e40cf1fc8c8249c6ac
 
-PODFILE CHECKSUM: 23f2155ba3b9314abd75a3710d21f2111714aa69
+PODFILE CHECKSUM: bec39d0313ebf4830864470dfd97f39683a978cb
 
 COCOAPODS: 1.8.4

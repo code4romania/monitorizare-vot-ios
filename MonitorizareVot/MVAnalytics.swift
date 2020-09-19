@@ -25,6 +25,7 @@ enum MVAnalyticsEvent {
     case addNote(hasAttachment: Bool)
     case addNoteForQuestion(questionId: Int, hasAttachment: Bool)
     case tapCall
+    case tapContact
     case tapGuide
     case internetDown
     case tapChangeStation(fromScreen: String)
@@ -55,6 +56,7 @@ enum MVAnalyticsEvent {
         case .tapManualSync:        return "tap_manual_sync"
         case .tapMenu:              return "tap_menu"
         case .tapAbout:             return "tap_about"
+        case .tapContact:           return "tap_contact"
         }
     }
     
