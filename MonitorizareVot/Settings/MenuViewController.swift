@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-class MenuViewController: UIViewController {
+class MenuViewController: MVViewController {
 
     @IBOutlet private var closeButton: UIButton!
     
@@ -23,7 +23,6 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        internationalize()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,11 +31,15 @@ class MenuViewController: UIViewController {
     }
     
     private func updateInterface() {
-        titleLabel.text = presentingViewController?.title ?? "Menu"
+//        titleLabel.text = presentingViewController?.title ?? "Menu"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Menu.Button.Close".localized, style: .done,
+            target: self, action: #selector(handleCloseButtonTap))
+        internationalize()
     }
     
     private func internationalize() {
-        closeButton.setTitle("Menu.Button.Close".localized, for: .normal)
+//        closeButton.setTitle("Menu.Button.Close".localized, for: .normal)
         changeStationButton.setTitle("Menu.Button.ChangeStation".localized, for: .normal)
         guideButton.setTitle("Menu.Button.Guide".localized, for: .normal)
         callButton.setTitle("Menu.Button.Call".localized, for: .normal)
@@ -44,7 +47,7 @@ class MenuViewController: UIViewController {
         logoutButton.setTitle("Menu.Button.Logout".localized, for: .normal)
     }
 
-    @IBAction func handleCloseButtonTap(_ sender: Any) {
+    @objc private func handleCloseButtonTap() {
         close(then: nil)
     }
     
@@ -58,6 +61,8 @@ class MenuViewController: UIViewController {
             performCall()
         case aboutButton:
             showAbout()
+        case logoutButton:
+            logout()
         default:
             break
         }
@@ -104,12 +109,12 @@ class MenuViewController: UIViewController {
     
     fileprivate func showAbout() {
         let ctl = AboutViewController()
-        let nav = UINavigationController(rootViewController: ctl)
-        present(nav, animated: true, completion: nil)
+        navigationController?.pushViewController(ctl, animated: true)
     }
     
     fileprivate func logout() {
-        
+        AccountManager.shared.accessToken = nil
+        AppRouter.shared.goToLogin()
     }
     
 

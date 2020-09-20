@@ -72,16 +72,15 @@ class MVViewController: UIViewController {
             .withRenderingMode(.alwaysTemplate)
         menuButton.setImage(icon, for: .normal)
         menuButton.tintColor = .defaultText
-        menuButton.addTarget(self, action: #selector(handleShowSettingsAction), for: .touchUpInside)
+        menuButton.addTarget(self, action: #selector(handleShowMenuAction), for: .touchUpInside)
 
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
     }
     
     // MARK: - Actions
 
-    @objc private func handleShowSettingsAction() {
-        let menu = MenuViewController()
-        present(menu, animated: true, completion: nil)
+    @objc private func handleShowMenuAction() {
+        AppRouter.shared.showAppMenu()
     }
     
     fileprivate func handleChangeSectionButtonAction() {

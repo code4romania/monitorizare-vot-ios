@@ -59,10 +59,9 @@ class OnboardingLanguageViewController: UIViewController {
     }
     
     @IBAction func handleNextButtonTap(_ sender: Any) {
-        model.save {
-            let next = OnboardingViewController()
-            navigationController?.setViewControllers([next], animated: true)
-        }
+        model.save()
+        let next = OnboardingViewController()
+        navigationController?.setViewControllers([next], animated: true)
     }
 
 }

@@ -42,14 +42,14 @@ class SectionPickerViewController: MVViewController {
         super.viewDidLoad()
         configureSubviews()
         bindToModelUpdates()
-        localize()
         fetchStations()
-        addMenuButtonToNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        addMenuButtonToNavBar()
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        localize()
         updateInterface()
     }
 
