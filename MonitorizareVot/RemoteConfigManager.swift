@@ -14,12 +14,20 @@ enum RemoteConfigKey: String, CaseIterable {
     case filterDiasporaForms = "filter_diaspora_forms"
     case checkAppUpdateAvailable = "ios_check_update_available"
     case forceAppUpdate = "ios_force_update"
+    case privacyPolicyUrl = "privacy_policy_url"
+    case callCenterPhone = "call_center_phone"
+    case observerGuideUrl = "observer_guide_url"
+    case contactEmail = "contact_email"
 
     func defaultValue() -> Any {
         switch self {
         case .filterDiasporaForms: return true
         case .checkAppUpdateAvailable: return true
         case .forceAppUpdate: return true
+        case .privacyPolicyUrl: return "https://code4.ro/ro/codul-de-conduita/"
+        case .callCenterPhone: return "0800080200"
+        case .observerGuideUrl: return "https://fiecarevot.ro/wp-content/uploads/2019/11/Manual-prezidentiale.pdf"
+        case .contactEmail: return "contact@code4.ro"
         }
     }
 }

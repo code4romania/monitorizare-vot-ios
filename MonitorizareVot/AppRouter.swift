@@ -143,6 +143,14 @@ class AppRouter: NSObject {
         window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
+    func showAppMenu() {
+        let menu = MenuViewController()
+        let nav = MVNavigationViewController(rootViewController: menu)
+        nav.shouldHideBackButtonTitle = true
+        nav.modalPresentationStyle = .fullScreen
+        window?.rootViewController?.present(nav, animated: true, completion: nil)
+    }
+    
     private func openAppUrl() {
         let url = AppUpdateManager.shared.applicationURL
         if UIApplication.shared.canOpenURL(url) {

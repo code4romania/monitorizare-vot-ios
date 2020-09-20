@@ -14,6 +14,7 @@ target 'MonitorizareVot' do
   pod 'SnapKit'
   pod 'ReachabilitySwift'
   pod 'Keyboard+LayoutGuide'
+  pod 'SwiftyMarkdown'
 
   # Pods for MonitorizareVot
 

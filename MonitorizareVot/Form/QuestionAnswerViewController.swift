@@ -54,9 +54,9 @@ class QuestionAnswerViewController: MVViewController {
         super.viewDidLoad()
         configureCollectionView()
         bindToUpdateEvents()
-        if !AppRouter.shared.isPad {
-            addContactDetailsToNavBar()
-        }
+//        if !AppRouter.shared.isPad {
+//            addContactDetailsToNavBar()
+//        }
         view.clipsToBounds = true
     }
     
@@ -133,6 +133,7 @@ class QuestionAnswerViewController: MVViewController {
             nextButton.isEnabled = currentPage < model.questions.count - 1
         } else {
             nextButton.setTitle((currentPage < model.questions.count - 1 ? "Next" : "Done").localized, for: .normal)
+            previousButton.setTitle("Previous".localized, for: .normal)
         }
     }
     

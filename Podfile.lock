@@ -103,19 +103,21 @@ PODS:
   - Protobuf (3.13.0)
   - ReachabilitySwift (5.0.0)
   - SnapKit (4.2.0)
-  - SwiftKeychainWrapper (3.4.0)
+  - SwiftKeychainWrapper (3.2.0)
+  - SwiftyMarkdown (0.6.2)
 
 DEPENDENCIES:
   - Alamofire
   - Firebase/Analytics
   - Firebase/Core
-  - Firebase/Crashlytics (~> 6.31.0)
+  - Firebase/Crashlytics
   - Firebase/Messaging
   - Firebase/RemoteConfig
   - "Keyboard+LayoutGuide"
   - ReachabilitySwift
   - SnapKit
   - SwiftKeychainWrapper
+  - SwiftyMarkdown
 
 SPEC REPOS:
   trunk:
@@ -140,6 +142,7 @@ SPEC REPOS:
     - ReachabilitySwift
     - SnapKit
     - SwiftKeychainWrapper
+    - SwiftyMarkdown
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -162,8 +165,9 @@ SPEC CHECKSUMS:
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
+  SwiftKeychainWrapper: 82c4c02cdc36f9a24f7edfcaab3e336401caa1a1
+  SwiftyMarkdown: 483eeba7f992035910fbb2e40cf1fc8c8249c6ac
 
-PODFILE CHECKSUM: b9c98ab6e43987eb7400442cb9307257d58d63b9
+PODFILE CHECKSUM: bec39d0313ebf4830864470dfd97f39683a978cb
 
 COCOAPODS: 1.8.4

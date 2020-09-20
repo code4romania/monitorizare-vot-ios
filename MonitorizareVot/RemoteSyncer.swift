@@ -80,7 +80,7 @@ class RemoteSyncer: NSObject {
         
         let dateFmt = APIManager.shared.apiDateFormatter
         let arrivalTime = section.arriveTime != nil ? dateFmt.string(from: section.arriveTime!) : ""
-        let leaveTime = section.leaveTime != nil ? dateFmt.string(from: section.leaveTime!) : ""
+        let leaveTime = section.leaveTime != nil ? dateFmt.string(from: section.leaveTime!) : nil
         
         let section = UpdatePollingStationRequest(
             id: stationId,

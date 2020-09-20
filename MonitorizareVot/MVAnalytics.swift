@@ -25,10 +25,13 @@ enum MVAnalyticsEvent {
     case addNote(hasAttachment: Bool)
     case addNoteForQuestion(questionId: Int, hasAttachment: Bool)
     case tapCall
+    case tapContact
     case tapGuide
     case internetDown
     case tapChangeStation(fromScreen: String)
     case tapManualSync
+    case tapMenu
+    case tapAbout
 
     var name: String {
         switch self {
@@ -51,6 +54,9 @@ enum MVAnalyticsEvent {
         case .internetDown:         return "internet_down"
         case .tapChangeStation:     return "tap_change_station"
         case .tapManualSync:        return "tap_manual_sync"
+        case .tapMenu:              return "tap_menu"
+        case .tapAbout:             return "tap_about"
+        case .tapContact:           return "tap_contact"
         }
     }
     
