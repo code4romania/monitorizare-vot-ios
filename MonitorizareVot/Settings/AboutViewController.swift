@@ -28,6 +28,7 @@ class AboutViewController: MVViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        view.layoutIfNeeded()
         updateInterface()
     }
     
