@@ -118,7 +118,7 @@ struct FormResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case code
-        case version = "currentVersion"
+        case version = "ver"
         case description
         case order
         case isDiasporaOnly = "diaspora"

@@ -29,13 +29,20 @@ class AppLanguageManager: NSObject {
             supportedLanguages = languagesInline.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
         } else {
             supportedLanguages = ["en"] // default to english
+        }	
+        
+        if let savedLanguage = PreferencesManager.shared.languageLocale {
+            selectedLanguage = savedLanguage
+        } else {
+            // select the current system language if it's in the list
+            let systemLanguage = Locale.current.identifier
+            if supportedLanguages.contains(systemLanguage) {
+                selectedLanguage = systemLanguage
+                // also save it for later
+                save()
+            }
         }
         
-        // also select the current language if it's in the list
-        let systemLanguage = Locale.current.identifier
-        if supportedLanguages.contains(systemLanguage) {
-            selectedLanguage = systemLanguage
-        }
     }
     
     func languageName(forIdentifier identifier: String) -> String {

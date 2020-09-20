@@ -48,8 +48,8 @@ class AboutViewModel: NSObject {
     }
     
     var selectedLanguageIndex: Int {
+        guard let selectedLanguage = selectedLanguage else { return 0 }
         let manager = AppLanguageManager.shared
-        guard let selectedLanguage = manager.selectedLanguage else { return 0 }
         let languages = manager.supportedLanguages
         return languages.firstIndex(of: selectedLanguage) ?? 0
     }
