@@ -17,6 +17,7 @@ class MenuViewController: MVViewController {
     
     @IBOutlet private var changeStationButton: UIButton!
     @IBOutlet private var guideButton: UIButton!
+    @IBOutlet private var safetyGuideButton: UIButton!
     @IBOutlet private var callButton: UIButton!
     @IBOutlet private var aboutButton: UIButton!
     @IBOutlet private var logoutButton: UIButton!
@@ -42,6 +43,7 @@ class MenuViewController: MVViewController {
 //        closeButton.setTitle("Menu.Button.Close".localized, for: .normal)
         changeStationButton.setTitle("Menu.Button.ChangeStation".localized, for: .normal)
         guideButton.setTitle("Menu.Button.Guide".localized, for: .normal)
+        safetyGuideButton.setTitle("Menu.Button.Safety".localized, for: .normal)
         callButton.setTitle("Menu.Button.Call".localized, for: .normal)
         aboutButton.setTitle("Menu.Button.About".localized, for: .normal)
         logoutButton.setTitle("Menu.Button.Logout".localized, for: .normal)
@@ -57,6 +59,8 @@ class MenuViewController: MVViewController {
             handleChangeSectionButtonAction()
         case guideButton:
             presentGuideViewController()
+        case safetyGuideButton:
+            presentSafetyGuideViewController()
         case callButton:
             performCall()
         case aboutButton:
@@ -82,6 +86,18 @@ class MenuViewController: MVViewController {
             self.present(safariViewController, animated: true, completion: nil)
         } else {
             let error = UIAlertController.error(withMessage: "No guide available")
+            present(error, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func presentSafetyGuideViewController() {
+        MVAnalytics.shared.log(event: .tapSafetyGuide)
+        if let urlString = RemoteConfigManager.shared.value(of: .safetyGuideUrl).stringValue,
+            let url = URL(string: urlString) {
+            let safariViewController = SFSafariViewController(url: url)
+            self.present(safariViewController, animated: true, completion: nil)
+        } else {
+            let error = UIAlertController.error(withMessage: "Safety guide not available right now")
             present(error, animated: true, completion: nil)
         }
     }
