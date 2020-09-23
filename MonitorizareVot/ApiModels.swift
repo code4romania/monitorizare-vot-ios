@@ -22,7 +22,7 @@ struct UpdatePollingStationRequest: Codable {
     var id: Int
     var countyCode: String
     var isUrbanArea: Bool
-    var leaveTime: String
+    var leaveTime: String?
     var arrivalTime: String
     var isPresidentFemale: Bool
     
@@ -90,12 +90,13 @@ struct LoginResponse: Codable {
     }
 }
 
-struct PollingStationResponse: Codable {
+struct CountyResponse: Codable {
     var id: Int
     var name: String
     var code: String
-    var limit: Int
+    var numberOfPollingStations: Int
     var diaspora: Bool?
+    var order: Int
 }
 
 struct FormListResponse: Codable {
@@ -111,12 +112,16 @@ struct FormResponse: Codable {
     var code: String
     var version: Int
     var description: String
+    var order: Int?
+    var isDiasporaOnly: Bool?
     
     enum CodingKeys: String, CodingKey {
         case id
         case code
         case version = "ver"
         case description
+        case order
+        case isDiasporaOnly = "diaspora"
     }
 }
 
@@ -162,5 +167,15 @@ struct QuestionOptionResponse: Codable {
         case text
         case isFreeText
     }
+}
+
+struct AppInformationResponse: Decodable {
+    struct ResultResponse: Decodable {
+        var version: String
+        var releaseNotes: String
+    }
+    
+    var resultCount: Int
+    var results: [ResultResponse]
 }
 

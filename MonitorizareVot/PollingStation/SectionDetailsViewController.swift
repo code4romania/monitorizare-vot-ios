@@ -62,16 +62,15 @@ class SectionDetailsViewController: MVViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Title.StationDetails".localized
         configureSubviews()
         bindToUpdates()
-        addContactDetailsToNavBar()
-        updateLabelsTexts()
+        addMenuButtonToNavBar()
         isLoading = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateLabelsTexts()
         updateInterface()
     }
     
@@ -108,6 +107,8 @@ class SectionDetailsViewController: MVViewController {
     }
     
     fileprivate func updateLabelsTexts() {
+        title = "Title.StationDetails".localized
+
         environmentLabel.text = "Label_CountyLocation".localized
         envUrbanButton.setTitle("Button_Urban".localized, for: .normal)
         envRuralButton.setTitle("Button_Rural".localized, for: .normal)

@@ -33,6 +33,9 @@
 "Label_SelectOption" = "Select an option";
 "Label_DevelopedBy" = "developed by";
 
+"Label_TelephoneTextInput_Placeholder" = "Phone number";
+"Label_CodeTextInput_Placeholder" = "Code";
+
 "Label_AddNote" = "Add a note";
 "Label_TypeNote" = "Type your note here";
 "Label_EnterStation" = "Enter station number (i.e. 34)";
@@ -43,6 +46,7 @@
 "Option.RecordVideo" = "Record a video";
 
 "AlertMessage_EnableCameraAccess" = "Please access the settings and give us permissions to access the picture library.";
+"AlertMessage_NewVersion" = "A new app version is available. Please update the app to use the latest features";
 
 "Error_Unknown" = "An unknown error occured";
 "LoginError_Unknown" = "Login failed. Unknown reason. Please contact us.";
@@ -58,6 +62,7 @@
 "Error.UploadNoteFailed" = "We couldn't upload your note. We will retry later.";
 "Error.SelectCountyFirst" = "Please select your county / district first.";
 "Error.IncorrectStationNumber" = "Incorrect station number. Please double check the county and provided section number";
+"Error.InternetConnection" = "You need an internet connection to continue. Please check your internet connection.";
 
 "Info.DataNotSyncronised" = "It appears that some of the questions have not been syncronised. Tap the button below to send the answers again";
 
@@ -70,6 +75,7 @@
 "Title.NoteHistory" = "Note History";
 "Title.Section" = "Polling Station Setup";
 "Title.Language" = "Choose your language";
+"Title.NewVersion" = "App Update Available";
 
 "Next" = "Next";
 "Previous" = "Previous";
@@ -87,3 +93,17 @@
 "Onboarding.Text.Notes" = "Did you notice any problem that does not appear in the form? Use the ‘Add note’ button, write a message and/or attach a picture.";
 
 "Onboarding.Go" = "Go to app";
+
+"Menu.Button.Close" = "Close";
+"Menu.Button.ChangeStation" = "Change Polling Station";
+"Menu.Button.Guide" = "Observer's Guide";
+"Menu.Button.Call" = "Call the hotline";
+"Menu.Button.About" = "About";
+"Menu.Button.Logout" = "Log out";
+"Menu.Button.ChangeLanguage" = "Change Language";
+"Menu.Button.ContactUs" = "Contact us";
+"Menu.Button.PrivacyPolicy" = "Privacy Policy";
+"Menu.Button.Safety" = "Safety Information";
+
+"Text.About.Title" = "About the application";
+"Text.About.Body" = "Vote Monitor is an application developed by Code for Romania.\n\nIt's the first election monitoring application in Romania and one of the few in the world. It's been used by independent observers starting with the presidential elections in 2016. In Poland it was used in 2018 during the first independently observed elections.\n\nThe applications' code is Open Source. Check it out on GitHub! [Kotlin](https://github.com/code4romania/mon-vot-android-kotlin) or [iOS](https://github.com/code4romania/monitorizare-vot-ios).\n\nCode for Romania is an NGO that develops pro-bono IT solutions with the purpose of solving some of the society's issues. If you want to support our activity, go to [our website](https://code4.ro/ro/), sign up as a volunteer or donate.";

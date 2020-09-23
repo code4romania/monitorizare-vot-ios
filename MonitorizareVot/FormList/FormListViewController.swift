@@ -37,16 +37,15 @@ class FormListViewController: MVViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Title.FormSets".localized
         configureSubviews()
-        updateLabelsTexts()
-        addContactDetailsToNavBar()
+        addMenuButtonToNavBar()
         bindToUpdates()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        updateLabelsTexts()
         model.reload()
         updateInterface()
         DispatchQueue.main.async {
@@ -123,6 +122,7 @@ class FormListViewController: MVViewController {
     }
     
     fileprivate func updateLabelsTexts() {
+        title = "Title.FormSets".localized
         syncDetailsLabel.text = "Info.DataNotSyncronised".localized
         syncButton.setTitle("Button_SyncData".localized, for: .normal)
         retryButton.setTitle("Button_Retry".localized, for: .normal)

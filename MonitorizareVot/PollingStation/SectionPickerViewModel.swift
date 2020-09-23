@@ -43,7 +43,7 @@ class SectionPickerViewModel: NSObject {
     
     var selectedCountyName: String? {
         guard let code = countyCode else { return nil }
-        return getPollingStation(byCounty: code)?.name.capitalized
+        return getCounty(byCountyCode: code)?.name.capitalized
     }
     
     /// Be notified when the API download state has changed
@@ -55,11 +55,11 @@ class SectionPickerViewModel: NSObject {
     /// Be notified whenever the model data changes so you can update the interface with fresh data
     var onStateChanged: (() -> Void)?
     
-    fileprivate(set) var availableCounties: [PollingStationResponse] = []
+    fileprivate(set) var availableCounties: [CountyResponse] = []
     
     var maximumStationNumber: Int? {
         guard let selectedCounty = countyCode else { return nil }
-        return getPollingStation(byCounty: selectedCounty)?.limit
+        return getCounty(byCountyCode: selectedCounty)?.numberOfPollingStations
     }
     
     fileprivate(set) var isDownloading: Bool = false {
@@ -84,25 +84,40 @@ class SectionPickerViewModel: NSObject {
     
     func fetchPollingStations(then callback: @escaping (APIError?) -> Void) {
         isDownloading = true
-        APIManager.shared.fetchPollingStations { (stations, error) in
-            if let stations = stations {
-                self.availableCounties = stations
-                LocalStorage.shared.pollingStations = stations
+        APIManager.shared.fetchCounties { (counties, error) in
+            if let counties = counties {
+                self.availableCounties = self.sorted(counties: counties)
+                LocalStorage.shared.counties = counties
             }
             callback(error)
             self.isDownloading = false
         }
     }
     
+    private func sorted(counties: [CountyResponse]) -> [CountyResponse] {
+        counties.sorted {
+            if $0.diaspora != $1.diaspora {
+                // diaspora comes first
+                return $0.diaspora == true && $1.diaspora != true
+            } else if $0.order != $1.order {
+                // account for the order field
+                return $0.order < $1.order
+            } else {
+                // fallback to alphabetically
+                return $0.name < $1.name
+            }
+        }
+    }
+    
     func availableSectionIds(inCounty county: String) -> [Int] {
-        if let countyData = getPollingStation(byCounty: county) {
-            return Array(1...countyData.limit)
+        if let countyData = getCounty(byCountyCode: county) {
+            return Array(1...countyData.numberOfPollingStations)
         }
         return []
     }
     
-    fileprivate func getPollingStation(byCounty county: String) -> PollingStationResponse? {
-        return availableCounties.filter { $0.code == county }.first
+    fileprivate func getCounty(byCountyCode code: String) -> CountyResponse? {
+        return availableCounties.filter { $0.code == code }.first
     }
     
     func persist(then callback: @escaping (SectionPickerViewModelError?) -> Void) {

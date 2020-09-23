@@ -33,6 +33,9 @@
 "Label_SelectOption" = "Alege o opțiune";
 "Label_DevelopedBy" = "dezvoltat de";
 
+"Label_TelephoneTextInput_Placeholder" = "Numar de telefon";
+"Label_CodeTextInput_Placeholder" = "Cod";
+
 "Label_AddNote" = "Adaugă o notă";
 "Label_TypeNote" = "Scrie aici nota";
 "Label_EnterStation" = "Introdu numărul secției (ex: 34)";
@@ -43,6 +46,7 @@
 "Option.RecordVideo" = "Înregistrează un film";
 
 "AlertMessage_EnableCameraAccess" = "Te rugăm să accesezi setările și să ne oferi permisiuni de acces la librăria de poze.";
+"AlertMessage_NewVersion" = "O nouă versiune a aplicației este disponibilă. Te rugăm să faci update pentru a folosi cele mai recente funcționalități.";
 
 "Error_Unknown" = "A apărut o eroare necunoscută";
 "LoginError_Unknown" = "Nu te-am putut autentifica. Eroare necunoscută. Te rugăm să ne contactezi.";
@@ -58,6 +62,7 @@
 "Error.UploadNoteFailed" = "Nu am reușit să trimitem la server nota. Vom încerca mai târziu.";
 "Error.SelectCountyFirst" = "Te rugăm să alegi județul/sectorul pentru a putea alege secția";
 "Error.IncorrectStationNumber" = "Număr secție incorect. Te rugăm să verifici corectitudinea combinației județ - număr secție";
+"Error.InternetConnection" = "Ai nevoie de o conexiune la internet pentru a te conecta!";
 
 "Info.DataNotSyncronised" = "Se pare că unele răspunsuri nu au fost sincronizate cu serverul. Apasă butonul acesta pentru a le retrimite";
 
@@ -70,6 +75,7 @@
 "Title.NoteHistory" = "Istoricul Notelor";
 "Title.Section" = "Configurarea Secției";
 "Title.Language" = "Alege limba";
+"Title.NewVersion" = "Actualizare disponibilă";
 
 "Next" = "Următoarea";
 "Previous" = "Precedenta";
@@ -87,3 +93,18 @@
 "Onboarding.Text.Notes" = "Ai observat o problemă care nu apare în formular? Folosește butonul de ‘Adaugă notă’, scrie un mesaj și/sau anexează o imagine.";
 
 "Onboarding.Go" = "Spre aplicație";
+
+"Menu.Button.Close" = "Închide";
+"Menu.Button.ChangeStation" = "Schimbă secția de votare";
+"Menu.Button.Guide" = "Ghidul observatorului";
+"Menu.Button.Call" = "Sună la call center";
+"Menu.Button.About" = "Despre aplicație";
+"Menu.Button.Logout" = "Log out";
+"Menu.Button.ChangeLanguage" = "Schimbă limba";
+"Menu.Button.ContactUs" = "Contactează-ne";
+"Menu.Button.PrivacyPolicy" = "Politica de confidențialitate";
+"Menu.Button.Safety" = "Siguranța la vot";
+
+"Text.About.Title" = "Despre aplicație";
+"Text.About.Body" = "Monitorizare Vot este o aplicație realizată de Code for Romania.\n\nEste prima aplicație de monitorizare a alegerilor din România, și una dintre puținele din lume. A fost folosită, de către observatori, începând cu alegerile prezidențiale din 2016. În Polonia a fost folosită, în 2018, la primele lor alegeri observate independent.\n\nSursele de cod ale aplicației sunt deschise. Aruncă o privire pe GitHub! [Kotlin](https://github.com/code4romania/mon-vot-android-kotlin) sau [iOS](https://github.com/code4romania/monitorizare-vot-ios).\n\nCode for Romania este un ONG care dezvoltă pro-bono soluţii IT cu scopul de a rezolva probleme ale societăţii. Dacă vrei să sprijini activitatea noastră, intră pe [site-ul nostru](https://code4.ro/ro/), înscrie-te ca voluntar sau donează.";
+

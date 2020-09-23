@@ -31,6 +31,10 @@
 		281A4B8B236D7B85001AD277 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A4B89236D7B85001AD277 /* LoginViewController.swift */; };
 		281A4B8C236D7B85001AD277 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 281A4B8A236D7B85001AD277 /* LoginViewController.xib */; };
 		281A4B8E236D7B90001AD277 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A4B8D236D7B90001AD277 /* LoginViewModel.swift */; };
+		28236E2425166D330062CF63 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28236E2225166D330062CF63 /* AboutViewController.swift */; };
+		28236E2525166D330062CF63 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28236E2325166D330062CF63 /* AboutViewController.xib */; };
+		285028DF240A8B5F006A0D01 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285028DD240A8B5F006A0D01 /* MenuViewController.swift */; };
+		285028E0240A8B5F006A0D01 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285028DE240A8B5F006A0D01 /* MenuViewController.xib */; };
 		28508623236D9C6000189D94 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28508622236D9C6000189D94 /* Launch Screen.storyboard */; };
 		286D38662364398C0091B23F /* QuestionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D38642364398C0091B23F /* QuestionListViewController.swift */; };
 		286D38672364398C0091B23F /* QuestionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 286D38652364398C0091B23F /* QuestionListViewController.xib */; };
@@ -59,6 +63,10 @@
 		28A4B776237364FE00E6D2A8 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4B775237364FE00E6D2A8 /* RemoteConfigManager.swift */; };
 		28A7DCB6235CC7EB000B00C4 /* ApiModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7DCB5235CC7EB000B00C4 /* ApiModels.swift */; };
 		28A7DCB9235DBDEB000B00C4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7DCB8235DBDEB000B00C4 /* LocalStorage.swift */; };
+		28B3DA8023A4F50E00BEF6C0 /* AppUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3DA7F23A4F50E00BEF6C0 /* AppUpdateManager.swift */; };
+		28B8BCA92517468800959FC1 /* AppLanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8BCA82517468800959FC1 /* AppLanguageManager.swift */; };
+		28B8BCAE2517489000959FC1 /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8BCAD2517489000959FC1 /* AboutViewModel.swift */; };
+		28B8BCB32517512E00959FC1 /* MVNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B8BCB22517512E00959FC1 /* MVNavigationViewController.swift */; };
 		28C3638F2364512E0084065C /* QuestionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C3638D2364512E0084065C /* QuestionTableCell.swift */; };
 		28C363902364512E0084065C /* QuestionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28C3638E2364512E0084065C /* QuestionTableCell.xib */; };
 		28C36392236464770084065C /* ApplicationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C36391236464770084065C /* ApplicationData.swift */; };
@@ -164,6 +172,10 @@
 		281A4B89236D7B85001AD277 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		281A4B8A236D7B85001AD277 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		281A4B8D236D7B90001AD277 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		28236E2225166D330062CF63 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		28236E2325166D330062CF63 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		285028DD240A8B5F006A0D01 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		285028DE240A8B5F006A0D01 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		28508622236D9C6000189D94 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		286D38642364398C0091B23F /* QuestionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListViewController.swift; sourceTree = "<group>"; };
 		286D38652364398C0091B23F /* QuestionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionListViewController.xib; sourceTree = "<group>"; };
@@ -190,6 +202,10 @@
 		28A4B775237364FE00E6D2A8 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		28A7DCB5235CC7EB000B00C4 /* ApiModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModels.swift; sourceTree = "<group>"; };
 		28A7DCB8235DBDEB000B00C4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		28B3DA7F23A4F50E00BEF6C0 /* AppUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateManager.swift; sourceTree = "<group>"; };
+		28B8BCA82517468800959FC1 /* AppLanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguageManager.swift; sourceTree = "<group>"; };
+		28B8BCAD2517489000959FC1 /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
+		28B8BCB22517512E00959FC1 /* MVNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVNavigationViewController.swift; sourceTree = "<group>"; };
 		28C3638D2364512E0084065C /* QuestionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableCell.swift; sourceTree = "<group>"; };
 		28C3638E2364512E0084065C /* QuestionTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionTableCell.xib; sourceTree = "<group>"; };
 		28C36391236464770084065C /* ApplicationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationData.swift; sourceTree = "<group>"; };
@@ -304,15 +320,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		27EDBD15214658CD0060DB8A /* Localizations */ = {
-			isa = PBXGroup;
-			children = (
-				27EDBD2421465D190060DB8A /* Localizable.strings */,
-				28DBDABD23701DBD004EAD83 /* InfoPlist.strings */,
-			);
-			name = Localizations;
-			sourceTree = "<group>";
-		};
 		2810413E236C3A3700B7422C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +348,18 @@
 				281A4B8A236D7B85001AD277 /* LoginViewController.xib */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		285028DC240A8B48006A0D01 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				285028DD240A8B5F006A0D01 /* MenuViewController.swift */,
+				285028DE240A8B5F006A0D01 /* MenuViewController.xib */,
+				28B8BCAD2517489000959FC1 /* AboutViewModel.swift */,
+				28236E2225166D330062CF63 /* AboutViewController.swift */,
+				28236E2325166D330062CF63 /* AboutViewController.xib */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		286D3863236439680091B23F /* Form */ = {
@@ -401,6 +420,15 @@
 				28C4343B2370C5C9001E6268 /* UITableView+HeaderAutoLayout.swift */,
 			);
 			name = Storage;
+			sourceTree = "<group>";
+		};
+		28B3DA7E23A4E3E400BEF6C0 /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				27EDBD2421465D190060DB8A /* Localizable.strings */,
+				28DBDABD23701DBD004EAD83 /* InfoPlist.strings */,
+			);
+			path = Localizations;
 			sourceTree = "<group>";
 		};
 		28C3639323646D300084065C /* TableHeaders */ = {
@@ -478,6 +506,7 @@
 				28FB66B223699D7400336DBA /* TextEntryViewController.swift */,
 				28FB66B323699D7400336DBA /* TextEntryViewController.xib */,
 				289E1E9023604F9D000C92A0 /* MVViewController.swift */,
+				28B8BCB22517512E00959FC1 /* MVNavigationViewController.swift */,
 				2879CA382381C04F00CE4DC7 /* EmptyDetailsViewController.swift */,
 				2879CA392381C04F00CE4DC7 /* EmptyDetailsViewController.xib */,
 			);
@@ -529,6 +558,7 @@
 				289E1E78235EF6FC000C92A0 /* ReachabilityManager.swift */,
 				28A4B775237364FE00E6D2A8 /* RemoteConfigManager.swift */,
 				28DBDAA1236EDDCA004EAD83 /* NotificationsManager.swift */,
+				28B8BCA82517468800959FC1 /* AppLanguageManager.swift */,
 				28DBDAA5236F33CD004EAD83 /* MVAnalytics.swift */,
 				2879CA362381BA5E00CE4DC7 /* AppRouter.swift */,
 			);
@@ -539,6 +569,7 @@
 			isa = PBXGroup;
 			children = (
 				2817EA152358CD0A0029AD4C /* APIManager.swift */,
+				28B3DA7F23A4F50E00BEF6C0 /* AppUpdateManager.swift */,
 				2817EA172358CF5F0029AD4C /* ApiURL.swift */,
 				28A7DCB5235CC7EB000B00C4 /* ApiModels.swift */,
 				2817EA192358DF330029AD4C /* AccountManager.swift */,
@@ -582,7 +613,7 @@
 				EF4BD3DE1D9E64720042BEC7 /* ViewControllers */,
 				EF4BD3841D9D08DE0042BEC7 /* Supporting Files */,
 				EF903E361DA25E3800D5BC9C /* Resources */,
-				27EDBD15214658CD0060DB8A /* Localizations */,
+				28B3DA7E23A4E3E400BEF6C0 /* Localizations */,
 				28508622236D9C6000189D94 /* Launch Screen.storyboard */,
 				EF4BD3981D9D08DE0042BEC7 /* Info.plist */,
 				EF4BD3901D9D08DE0042BEC7 /* s.xcdatamodeld */,
@@ -628,6 +659,7 @@
 		EF4BD3DE1D9E64720042BEC7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				285028DC240A8B48006A0D01 /* Settings */,
 				28DBDAA8236F4A7B004EAD83 /* Onboarding */,
 				281A4B88236D7B64001AD277 /* Login */,
 				28FB66B723699D8500336DBA /* Utility */,
@@ -823,11 +855,13 @@
 				27EDBD2221465D190060DB8A /* Localizable.strings in Resources */,
 				28104131236B5CA500B7422C /* AttachNoteViewController.xib in Resources */,
 				28844A57233F94FD00DEEA44 /* GenericPickerViewController.xib in Resources */,
+				285028E0240A8B5F006A0D01 /* MenuViewController.xib in Resources */,
 				28DBDAB2236F4DA8004EAD83 /* OnboardingChildViewController.xib in Resources */,
 				289E1E85235F2674000C92A0 /* FormListViewController.xib in Resources */,
 				28844A5D233F9AB700DEEA44 /* TimePickerViewController.xib in Resources */,
 				28DBDABB23701DBD004EAD83 /* InfoPlist.strings in Resources */,
 				289E1E8D235F2ABE000C92A0 /* FormSetTableCell.xib in Resources */,
+				28236E2525166D330062CF63 /* AboutViewController.xib in Resources */,
 				2879CA3B2381C04F00CE4DC7 /* EmptyDetailsViewController.xib in Resources */,
 				28508623236D9C6000189D94 /* Launch Screen.storyboard in Resources */,
 				286D38672364398C0091B23F /* QuestionListViewController.xib in Resources */,
@@ -864,6 +898,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 			);
 			name = "Fabric Script";
 			outputFileListPaths = (
@@ -872,7 +907,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		4A1AB3AFB208747115F13B4C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -884,10 +919,12 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Keyboard+LayoutGuide/KeyboardLayoutGuide.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyMarkdown/SwiftyMarkdown.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -895,10 +932,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyboardLayoutGuide.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyMarkdown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1008,9 +1047,12 @@
 				289E1E8C235F2ABE000C92A0 /* FormSetTableCell.swift in Sources */,
 				28104133236B5CB400B7422C /* AttachNoteViewModel.swift in Sources */,
 				289E1E79235EF6FC000C92A0 /* ReachabilityManager.swift in Sources */,
+				28B8BCA92517468800959FC1 /* AppLanguageManager.swift in Sources */,
 				2817EA162358CD0A0029AD4C /* APIManager.swift in Sources */,
 				2810413C236C2EC300B7422C /* NoteHistoryTableCell.swift in Sources */,
 				28104142236C3FD500B7422C /* Alerts.swift in Sources */,
+				28236E2425166D330062CF63 /* AboutViewController.swift in Sources */,
+				28B8BCB32517512E00959FC1 /* MVNavigationViewController.swift in Sources */,
 				28C3639523646D480084065C /* DefaultTableHeader.swift in Sources */,
 				EF3DC3951DE9DB02006F9D73 /* CoreDataInitialiser.swift in Sources */,
 				2817EA1C2358F2140029AD4C /* PreferencesManager.swift in Sources */,
@@ -1040,9 +1082,11 @@
 				28DBDAA4236EE26D004EAD83 /* UIViewController+Helpers.swift in Sources */,
 				28FB66A9236706CA00336DBA /* QuestionCollectionCell.swift in Sources */,
 				28DBDAC023701F3E004EAD83 /* OnboardingLanguageViewModel.swift in Sources */,
+				28B8BCAE2517489000959FC1 /* AboutViewModel.swift in Sources */,
 				28104136236B5DE000B7422C /* NoteViewController.swift in Sources */,
 				28DBDAA2236EDDCA004EAD83 /* NotificationsManager.swift in Sources */,
 				28844A56233F94FD00DEEA44 /* GenericPickerViewController.swift in Sources */,
+				28B3DA8023A4F50E00BEF6C0 /* AppUpdateManager.swift in Sources */,
 				289E1E9123604F9D000C92A0 /* MVViewController.swift in Sources */,
 				28E72466233F67280096454D /* Configuration.swift in Sources */,
 				28E72455233F58010096454D /* SectionDetailsViewController.swift in Sources */,
@@ -1052,6 +1096,7 @@
 				28E7245C233F59260096454D /* SectionHUDViewController.swift in Sources */,
 				271595B521465EBA00BECC9C /* String+Localization.swift in Sources */,
 				286D3869236439990091B23F /* QuestionListViewModel.swift in Sources */,
+				285028DF240A8B5F006A0D01 /* MenuViewController.swift in Sources */,
 				E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */,
 				2879CA3A2381C04F00CE4DC7 /* EmptyDetailsViewController.swift in Sources */,
 				28A7DCB6235CC7EB000B00C4 /* ApiModels.swift in Sources */,
@@ -1240,11 +1285,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MonitorizareVot/MonitorizareVot.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1260,11 +1305,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MonitorizareVot/MonitorizareVot.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.1;
+				MARKETING_VERSION = 2.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;

@@ -27,6 +27,7 @@ class LoginViewController: MVViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViews()
+        setupStaticText()
         bindToUpdates()
     }
     
@@ -34,7 +35,6 @@ class LoginViewController: MVViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
         updateInterface()
-        updateVersionLabel()
     }
     
     fileprivate func bindToUpdates() {
@@ -57,25 +57,20 @@ class LoginViewController: MVViewController {
         codeContainer.layer.cornerRadius = Configuration.buttonCornerRadius
         codeContainer.layer.borderColor = UIColor.textViewContainerBorder.cgColor
         codeContainer.layer.borderWidth = 1
-    }
-    
-    fileprivate func localize() {
-        // TODO: localize
+        
+        let toggleButton = UIButton()
+        toggleButton.setImage(UIImage(named: "eye.slash.fill"), for: .selected)
+        toggleButton.setImage(UIImage(named: "eye.fill"), for: .normal)
+        toggleButton.tintColor = .clear
+        toggleButton.alpha = 0.4
+        toggleButton.isSelected = codeTextField.isSecureTextEntry
+        toggleButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        toggleButton.addTarget(self, action: #selector(toggleCodeInputVisibility(_:)), for: .touchUpInside)
+        codeTextField.rightView = toggleButton
+        codeTextField.rightViewMode = .always
     }
     
     // MARK: - UI
-    
-    fileprivate func updateVersionLabel() {
-        guard let info = Bundle.main.infoDictionary else { return }
-        let version = info["CFBundleShortVersionString"] ?? "1.0"
-        let build = info["CFBundleVersion"] ?? "1"
-        var versionString = "v\(version)"
-        #if DEBUG
-        versionString += "(\(build))"
-        #endif
-        
-        developedByLabel.text = "\(versionString) " + "Label_DevelopedBy".localized
-    }
     
     fileprivate func updateLoginButtonState() {
         loginButton.isEnabled = model.isReady
@@ -91,6 +86,25 @@ class LoginViewController: MVViewController {
         } else {
             loader.stopAnimating()
         }
+    }
+    
+    private func setupStaticText() {
+        phoneTextField.placeholder = "Label_TelephoneTextInput_Placeholder".localized
+        codeTextField.placeholder = "Label_CodeTextInput_Placeholder".localized
+        
+        updateVersionLabel()
+    }
+    
+    private func updateVersionLabel() {
+        guard let info = Bundle.main.infoDictionary else { return }
+        let version = info["CFBundleShortVersionString"] ?? "1.0"
+        let build = info["CFBundleVersion"] ?? "1"
+        var versionString = "v\(version)"
+        #if DEBUG
+        versionString += "(\(build))"
+        #endif
+        
+        developedByLabel.text = "\(versionString) " + "Label_DevelopedBy".localized
     }
     
     fileprivate func setVMLogo(visible: Bool, animated: Bool) {
@@ -117,6 +131,11 @@ class LoginViewController: MVViewController {
                 self?.askForPushNotificationsPermissions()
             }
         }
+    }
+    
+    @objc private func toggleCodeInputVisibility(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        codeTextField.isSecureTextEntry = sender.isSelected
     }
     
     func askForPushNotificationsPermissions() {

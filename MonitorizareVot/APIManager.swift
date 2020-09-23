@@ -17,7 +17,7 @@ protocol APIManagerType: NSObject {
                then callback: @escaping (APIError?) -> Void)
     func sendPushToken(withToken token: String,
                        then callback: @escaping (APIError?) -> Void)
-    func fetchPollingStations(then callback: @escaping ([PollingStationResponse]?, APIError?) -> Void)
+    func fetchCounties(then callback: @escaping ([CountyResponse]?, APIError?) -> Void)
     func fetchForms(diaspora: Bool, then callback: @escaping ([FormResponse]?, APIError?) -> Void)
     func fetchForm(withId formId: Int,
                    then callback: @escaping ([FormSectionResponse]?, APIError?) -> Void)
@@ -55,13 +55,18 @@ class APIManager: NSObject, APIManagerType {
     /// Use this to format dates to and from the API
     lazy var apiDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SZ"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         formatter.timeZone = TimeZone(abbreviation: "UTC")
         formatter.locale = Locale(identifier: "en_US_POSIX")
         return formatter
     }()
     
     func login(withPhone phone: String, pin: String, then callback: @escaping (APIError?) -> Void) {
+        if let errorMessage = checkConnectionError() {
+            callback(.generic(reason: errorMessage))
+            return
+        }
+        
         let url = ApiURL.login.url()
         let udid = AccountManager.shared.udid
         let request = LoginRequest(user: phone, password: pin, uniqueId: udid)
@@ -113,7 +118,7 @@ class APIManager: NSObject, APIManagerType {
             }
     }
     
-    func fetchPollingStations(then callback: @escaping ([PollingStationResponse]?, APIError?) -> Void) {
+    func fetchCounties(then callback: @escaping ([CountyResponse]?, APIError?) -> Void) {
         let url = ApiURL.pollingStationList.url()
         let headers = authorizationHeaders()
         
@@ -124,7 +129,7 @@ class APIManager: NSObject, APIManagerType {
                 if statusCode == 200,
                     let data = response.data {
                     do {
-                        let stations = try JSONDecoder().decode([PollingStationResponse].self, from: data)
+                        let stations = try JSONDecoder().decode([CountyResponse].self, from: data)
                         callback(stations, nil)
                     } catch {
                         callback(nil, .incorrectFormat(reason: error.localizedDescription))
@@ -196,6 +201,11 @@ class APIManager: NSObject, APIManagerType {
     }
     
     func upload(pollingStation: UpdatePollingStationRequest, then callback: @escaping (APIError?) -> Void) {
+        if let errorMessage = checkConnectionError() {
+            callback(.generic(reason: errorMessage))
+            return
+        }
+        
         let url = ApiURL.pollingStation.url()
         let auth = authorizationHeaders()
         let headers = requestHeaders(withAuthHeaders: auth)
@@ -273,6 +283,10 @@ class APIManager: NSObject, APIManagerType {
                     callback(.incorrectFormat(reason: "Unknown reason (code: \(response.response?.statusCode ?? -1))"))
                 }
         }
+    }
+    
+    private func checkConnectionError() -> String? {
+        ReachabilityManager.shared.isReachable ? nil : "Error.InternetConnection".localized
     }
     
 }
