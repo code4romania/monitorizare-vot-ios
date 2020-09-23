@@ -77,7 +77,14 @@ class AboutViewController: MVViewController {
     
     @IBAction func handlePolicyTap(_ sender: Any) {
         if let url = model.privacyPolicyUrl {
-            let safariViewController = SFSafariViewController(url: url)
+            var safariViewController: SFSafariViewController
+            if #available(iOS 11.0, *) {
+                let safariConfig = SFSafariViewController.Configuration()
+                safariConfig.entersReaderIfAvailable = true
+                safariViewController = SFSafariViewController(url: url, configuration: safariConfig)
+            } else {
+                safariViewController = SFSafariViewController(url: url)
+            }
             self.present(safariViewController, animated: true, completion: nil)
         } else {
             let error = UIAlertController.error(withMessage: "No policy available")
