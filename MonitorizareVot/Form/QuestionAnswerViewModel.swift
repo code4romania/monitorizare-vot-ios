@@ -109,7 +109,7 @@ class QuestionAnswerViewModel: NSObject {
         self.questions = models
     }
     
-    fileprivate func setCurrentIndex(withQuestionId questionId: Int) {
+    func setCurrentIndex(withQuestionId questionId: Int) {
         currentQuestionIndex = questions.firstIndex(where: { $0.questionId == questionId }) ?? 0
     }
     

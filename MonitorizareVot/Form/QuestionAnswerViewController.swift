@@ -110,10 +110,11 @@ class QuestionAnswerViewController: MVViewController {
         let currentPage = getDisplayedRow()
         if currentPage != lastViewedQuestionIndex
             && currentPage >= 0 && currentPage < model.questions.count {
-            MVAnalytics.shared.log(event: .viewQuestion(code: model.questions[currentPage].questionCode))
-            lastViewedQuestionIndex = currentPage
-
             let question = model.questions[currentPage]
+            MVAnalytics.shared.log(event: .viewQuestion(code: question.questionCode))
+            lastViewedQuestionIndex = currentPage
+            model.setCurrentIndex(withQuestionId: question.questionId)
+
             NotificationCenter.default.post(name: QuestionAnswerViewController.questionChangedNotification,
                                             object: self,
                                             userInfo: [QuestionAnswerViewController.questionUserInfoKey: question])
