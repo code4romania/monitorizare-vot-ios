@@ -158,14 +158,10 @@ class QuestionAnswerViewController: MVViewController {
             && !question.questionAnswers[answerIndex].isSelected {
             askForText(ofQuestion: question, answerIndex: answerIndex) { text in
                 self.model.updateUserText(ofQuestion: question, answerIndex: answerIndex, userText: text)
-                self.updateInterface()
-                NotificationCenter.default.post(name: QuestionAnswerViewController.questionSavedNotification, object: nil)
             }
         } else {
             // first update the answer selection
             model.updateSelection(ofQuestion: question, answerIndex: answerIndex)
-            updateInterface()
-            NotificationCenter.default.post(name: QuestionAnswerViewController.questionSavedNotification, object: nil)
         }
         
     }
