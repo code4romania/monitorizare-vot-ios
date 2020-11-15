@@ -109,7 +109,7 @@ class QuestionAnswerViewModel: NSObject {
         self.questions = models
     }
     
-    fileprivate func setCurrentIndex(withQuestionId questionId: Int) {
+    func setCurrentIndex(withQuestionId questionId: Int) {
         currentQuestionIndex = questions.firstIndex(where: { $0.questionId == questionId }) ?? 0
     }
     
@@ -132,12 +132,21 @@ class QuestionAnswerViewModel: NSObject {
         save(withModel: questions[questionIndex])
         questions[questionIndex].isSaved = true
         questions[questionIndex].isSynced = false
-        
+
+        // issue a model update event for the saved state
+        onModelUpdate?()
+
         MVAnalytics.shared.log(event: .answerQuestion(code: questionData.questionCode))
         
-        RemoteSyncer.shared.syncUnsyncedData { error in
-            self.generateModels(usingFormSections: self.sections)
-            self.onModelUpdate?()
+        RemoteSyncer.shared.syncUnsyncedData { [weak self] error in
+            guard let self = self else { return }
+            if let error = error {
+                DebugLog("Error while uploading answer: \(error.localizedDescription)")
+            } else {
+                self.generateModels(usingFormSections: self.sections)
+                // now issue a model update event for the uploaded state
+                self.onModelUpdate?()
+            }
         }
     }
     
