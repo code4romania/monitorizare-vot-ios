@@ -7,15 +7,12 @@
 //
 
 import UIKit
+import SnapKit
 
 class FormListViewController: MVViewController {
     
     var model: FormListViewModel
     
-    @IBOutlet weak var syncingSpinner: UIActivityIndicatorView!
-    @IBOutlet weak var syncDetailsLabel: UILabel!
-    @IBOutlet weak var syncButton: ActionButton!
-    @IBOutlet weak var syncContainerHeightZero: NSLayoutConstraint!
     @IBOutlet weak var syncContainer: UIView!
     
     @IBOutlet weak var retryButton: ActionButton!
@@ -37,6 +34,7 @@ class FormListViewController: MVViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureChildren()
         configureSubviews()
         addMenuButtonToNavBar()
         bindToUpdates()
@@ -49,7 +47,6 @@ class FormListViewController: MVViewController {
         model.reload()
         updateInterface()
         DispatchQueue.main.async {
-            self.configureSyncContainer()
             if self.model.forms.isEmpty {
                 // only show the spinner and hide the table view if there are no forms
                 self.tableView.isHidden = true
@@ -93,11 +90,6 @@ class FormListViewController: MVViewController {
             self.tableView.isUserInteractionEnabled = !self.model.isDownloadingData
             self.syncContainer.alpha = self.model.isDownloadingData ? 0 : 1
         }
-        model.onSyncingStateChanged = { [weak self] in
-            guard let self = self else { return }
-            self.model.isSynchronising ? self.syncingSpinner.startAnimating() : self.syncingSpinner.stopAnimating()
-            self.tableView.alpha = self.model.isSynchronising ? 0.3 : 1
-        }
     }
 
     fileprivate func configureSubviews() {
@@ -110,11 +102,16 @@ class FormListViewController: MVViewController {
         retryButton.isHidden = true
     }
     
-    fileprivate func configureSyncContainer() {
-        let needsSync = DB.shared.needsSync
-        setSyncContainer(hidden: !needsSync)
+    private func configureChildren() {
+        let syncStatus = SyncStatusViewController()
+        addChild(syncStatus)
+        syncStatus.didMove(toParent: self)
+        syncContainer.addSubview(syncStatus.view)
+        syncStatus.view.snp.makeConstraints { make in
+            make.edges.equalTo(self.syncContainer)
+        }
     }
-
+    
     // MARK: - UI
     
     fileprivate func updateInterface() {
@@ -123,22 +120,9 @@ class FormListViewController: MVViewController {
     
     fileprivate func updateLabelsTexts() {
         title = "Title.FormSets".localized
-        syncDetailsLabel.text = "Info.DataNotSyncronised".localized
-        syncButton.setTitle("Button_SyncData".localized, for: .normal)
         retryButton.setTitle("Button_Retry".localized, for: .normal)
     }
     
-    fileprivate func setSyncContainer(hidden: Bool, animated: Bool) {
-        UIView.animate(withDuration: animated ? 0.3 : 0) {
-            self.setSyncContainer(hidden: hidden)
-        }
-    }
-
-    fileprivate func setSyncContainer(hidden: Bool) {
-        syncContainerHeightZero.isActive = hidden
-        view.layoutIfNeeded()
-    }
-
     // MARK: - Logic
     
     // MARK: - Actions
@@ -148,19 +132,6 @@ class FormListViewController: MVViewController {
         downloadingSpinner.startAnimating()
         tableView.isHidden = true
         model.downloadFreshData()
-    }
-    
-    @IBAction func handleSyncButtonAction(_ sender: Any) {
-        MVAnalytics.shared.log(event: .tapManualSync)
-        setSyncContainer(hidden: true, animated: true)
-        RemoteSyncer.shared.syncUnsyncedData { error in
-            if let error = error {
-                let alert = UIAlertController.error(withMessage: error.localizedDescription)
-                self.present(alert, animated: true) {
-                    self.setSyncContainer(hidden: false, animated: true)
-                }
-            }
-        }
     }
     
     fileprivate func continueToForm(withCode code: String) {

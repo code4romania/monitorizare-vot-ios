@@ -8,7 +8,7 @@
 "Button_Male" = "Bărbat";
 "Button_Female" = "Femeie";
 "Button_ContinueToForms" = "Continuă către formulare";
-"Button_SyncData" = "Sincronizare Date";
+"Button_SyncData" = "Sincronizează datele manual";
 "Button_AddNoteToQuestion" = "Adaugă o notă întrebării";
 "Button_Add" = "Adaugă";
 "Button_Send" = "Trimite";
@@ -50,6 +50,8 @@
 
 "Error_Unknown" = "A apărut o eroare necunoscută";
 "LoginError_Unknown" = "Nu te-am putut autentifica. Eroare necunoscută. Te rugăm să ne contactezi.";
+"Error.StationSaveFailed" = "Nu am putut sincroniza informatiile despre sectie.";
+"Error.AnswerSaveFailed" = "Nu am putut sincroniza raspunsul la intrebare/intrebari.";
 
 "Error" = "Eroare";
 "OK" = "OK";
@@ -64,7 +66,8 @@
 "Error.IncorrectStationNumber" = "Număr secție incorect. Te rugăm să verifici corectitudinea combinației județ - număr secție";
 "Error.InternetConnection" = "Ai nevoie de o conexiune la internet pentru a te conecta!";
 
-"Info.DataNotSyncronised" = "Se pare că unele răspunsuri nu au fost sincronizate cu serverul. Apasă butonul acesta pentru a le retrimite";
+"Info.DataNotSyncronised" = "Unele răspunsuri sau note nu au fost sincronizate. Apasă butonul pentru a trimite răspunsurile din nou.";
+"Info.DataSyncronised" = "Toate răspunsurile și notele au fost sincronizate cu succes.";
 
 "Station" = "Secția";
 

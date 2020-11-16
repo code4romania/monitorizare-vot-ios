@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SyncStatusViewController" customModule="MonitorizareVot" customModuleProvider="target">
+            <connections>
+                <outlet property="iconView" destination="Zkd-A4-ghL" id="eHs-Pt-YHl"/>
+                <outlet property="syncButton" destination="JWD-NT-zzG" id="jfh-3g-xIP"/>
+                <outlet property="syncButtonContainer" destination="Odk-p2-IVv" id="QP4-2U-ynZ"/>
+                <outlet property="syncSpinner" destination="28j-8O-dLz" id="M4k-1O-0WA"/>
+                <outlet property="textLabel" destination="0uU-go-XZw" id="BfG-95-7HL"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cqi-lE-vZU" userLabel="Background">
+                    <rect key="frame" x="0.0" y="44" width="414" height="918"/>
+                    <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="a2d-SS-j9h">
+                    <rect key="frame" x="16" y="56" width="382" height="114"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="FV8-vS-I0J">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="54"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g20-tT-FCi">
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="54"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="icon-notice-saved" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-A4-ghL">
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Zkd-A4-ghL" secondAttribute="bottom" priority="750" id="Hf1-B5-ho3"/>
+                                        <constraint firstItem="Zkd-A4-ghL" firstAttribute="top" secondItem="g20-tT-FCi" secondAttribute="top" id="IzW-2c-W6c"/>
+                                        <constraint firstAttribute="trailing" secondItem="Zkd-A4-ghL" secondAttribute="trailing" id="QTd-Hg-C8y"/>
+                                        <constraint firstItem="Zkd-A4-ghL" firstAttribute="leading" secondItem="g20-tT-FCi" secondAttribute="leading" id="dIh-iU-UX5"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Zkd-A4-ghL" secondAttribute="bottom" id="dc2-vH-ybc"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Some answers are saved locally but are not uploaded. Tap the button below to send the answers again" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uU-go-XZw">
+                                    <rect key="frame" x="46" y="0.0" width="336" height="54"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odk-p2-IVv">
+                            <rect key="frame" x="0.0" y="70" width="382" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-NT-zzG" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="ta5-6l-1sB"/>
+                                    </constraints>
+                                    <state key="normal" title="Synchronise Data Manually"/>
+                                    <connections>
+                                        <action selector="handleSyncButtonTap:" destination="-1" eventType="touchUpInside" id="dc2-Dr-rI4"/>
+                                    </connections>
+                                </button>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="28j-8O-dLz">
+                                    <rect key="frame" x="181" y="12" width="20" height="20"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="28j-8O-dLz" firstAttribute="centerY" secondItem="Odk-p2-IVv" secondAttribute="centerY" id="LB5-oD-uiJ"/>
+                                <constraint firstAttribute="trailing" secondItem="JWD-NT-zzG" secondAttribute="trailing" id="SuJ-yc-47V"/>
+                                <constraint firstItem="28j-8O-dLz" firstAttribute="centerX" secondItem="Odk-p2-IVv" secondAttribute="centerX" id="T0d-r8-Xlf"/>
+                                <constraint firstItem="JWD-NT-zzG" firstAttribute="top" secondItem="Odk-p2-IVv" secondAttribute="top" id="bXh-1o-rID"/>
+                                <constraint firstItem="JWD-NT-zzG" firstAttribute="leading" secondItem="Odk-p2-IVv" secondAttribute="leading" id="dnL-d7-orX"/>
+                                <constraint firstAttribute="bottom" secondItem="JWD-NT-zzG" secondAttribute="bottom" id="kbF-PF-8gE"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="a2d-SS-j9h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="28C-c2-HB4"/>
+                <constraint firstAttribute="trailing" secondItem="a2d-SS-j9h" secondAttribute="trailing" constant="16" id="54Y-fd-9yG"/>
+                <constraint firstItem="Cqi-lE-vZU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="8mI-QE-1BS"/>
+                <constraint firstItem="a2d-SS-j9h" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="LCu-yR-lD2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="a2d-SS-j9h" secondAttribute="bottom" priority="999" constant="12" id="b2p-0e-4g2"/>
+                <constraint firstItem="Cqi-lE-vZU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mNe-FO-T0R"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cqi-lE-vZU" secondAttribute="trailing" id="re1-HE-AHW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Cqi-lE-vZU" secondAttribute="bottom" constant="-100" id="uvV-pl-cAv"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="66"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="JWD-NT-zzG">
+            <size key="intrinsicContentSize" width="183" height="17"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="icon-notice-saved" width="30" height="30"/>
+    </resources>
+</document>

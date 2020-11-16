@@ -13,7 +13,20 @@ class DB: NSObject {
     static let shared = DB()
     
     var needsSync: Bool {
-        return getUnsyncedNotes().count + getUnsyncedQuestions().count > 0
+        let unsyncedQuestions = getAllUnsyncedQuestions()
+        let unsyncedNotes = getAllUnsyncedNotes()
+        #if DEBUG
+        // if debug mode, log how many sections have unsynced questions so we can test across all visited stations
+        let sections = unsyncedQuestions.reduce(into: [SectionInfo]()) { (result, question) in
+            if let info = question.sectionInfo {
+                result.append(info)
+            }
+        }
+        let set = NSSet(array: sections)
+        DebugLog("Found \(unsyncedQuestions.count) unsynced questions in \(set.count) distinct polling stations.")
+        #endif
+        return unsyncedNotes.count
+            + unsyncedQuestions.count > 0
     }
     
     func currentSectionInfo() -> SectionInfo? {
@@ -41,8 +54,17 @@ class DB: NSObject {
         }
     }
     
-    func getUnsyncedNotes() -> [Note] {
-        guard let section = currentSectionInfo() else { return [] }
+    /// - Returns: the list of unsynced notes across all visited stations
+    func getAllUnsyncedNotes() -> [Note] {
+        let request: NSFetchRequest<Note> = Note.fetchRequest()
+        request.predicate = NSPredicate(format: "synced == false")
+        let unsyncedNotes = CoreData.fetch(request) as? [Note]
+        return unsyncedNotes ?? []
+    }
+    
+    /// - Parameter section: the section
+    /// - Returns: the list of unsynced notes in the specified section
+    func getUnsyncedNotes(inSection section: SectionInfo) -> [Note] {
         let request: NSFetchRequest<Note> = Note.fetchRequest()
         let sectionPredicate = NSPredicate(format: "sectionInfo == %@", section)
         let syncedPredicate = NSPredicate(format: "synced == false")
@@ -51,8 +73,17 @@ class DB: NSObject {
         return unsyncedNotes ?? []
     }
     
-    func getUnsyncedQuestions() -> [Question] {
-        guard let section = currentSectionInfo() else { return [] }
+    /// - Returns: the list of unsynced questions across all stations
+    func getAllUnsyncedQuestions() -> [Question] {
+        let request: NSFetchRequest<Question> = Question.fetchRequest()
+        request.predicate = NSPredicate(format: "synced == false")
+        let unsyncedQuestions = CoreData.fetch(request) as? [Question]
+        return unsyncedQuestions ?? []
+    }
+    
+    /// - Parameter section: the section
+    /// - Returns: the list of unsynced answers in the specified section
+    func getUnsyncedQuestions(inSection section: SectionInfo) -> [Question] {
         let request: NSFetchRequest<Question> = Question.fetchRequest()
         let sectionPredicate = NSPredicate(format: "sectionInfo == %@", section)
         let syncedPredicate = NSPredicate(format: "synced == false")
@@ -92,8 +123,7 @@ class DB: NSObject {
         try? CoreData.save()
     }
     
-    func getQuestion(withId id: Int) -> Question? {
-        guard let section = currentSectionInfo() else { return nil }
+    func getQuestion(withId id: Int, inSection section: SectionInfo) -> Question? {
         let request: NSFetchRequest<Question> = Question.fetchRequest()
         let sectionPredicate = NSPredicate(format: "sectionInfo == %@", section)
         let idPredicate = NSPredicate(format: "id == %d", id)
@@ -114,24 +144,6 @@ class DB: NSObject {
         return unsyncedQuestions ?? []
     }
     
-    func setQuestionsSynced(withIds ids: [Int16]) {
-        guard let section = currentSectionInfo() else { return }
-        let request: NSFetchRequest<Question> = Question.fetchRequest()
-        let sectionPredicate = NSPredicate(format: "sectionInfo == %@", section)
-        let formPredicate = NSPredicate(format: "id IN %@", ids)
-        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [sectionPredicate, formPredicate])
-        let unsyncedQuestions = CoreData.fetch(request) as? [Question] ?? []
-        for question in unsyncedQuestions {
-            question.synced = true
-        }
-        
-        do {
-            try CoreData.save()
-        } catch {
-            DebugLog("Error: couldn't save synced status locally: \(error)")
-        }
-    }
-
     /// Returns the list of all saved notes in this section. Optionally you can pass the questionId to return
     /// only the notes attached to that question. If nil, it will return all notes that aren't attached to any question
     /// - Parameter questionId: the question id
