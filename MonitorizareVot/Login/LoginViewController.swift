@@ -29,6 +29,12 @@ class LoginViewController: MVViewController {
         configureViews()
         setupStaticText()
         bindToUpdates()
+
+        /// whether we're starting the app or just kicked to login screen,
+        /// if the reset date has changed in RemoteConfig, reset the database.
+        RemoteConfigManager.shared.afterLoad {
+            MigrationManager.shared.migrateIfNecessary()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

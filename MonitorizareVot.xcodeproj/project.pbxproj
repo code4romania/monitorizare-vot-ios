@@ -36,6 +36,11 @@
 		285028DF240A8B5F006A0D01 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285028DD240A8B5F006A0D01 /* MenuViewController.swift */; };
 		285028E0240A8B5F006A0D01 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285028DE240A8B5F006A0D01 /* MenuViewController.xib */; };
 		28508623236D9C6000189D94 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28508622236D9C6000189D94 /* Launch Screen.storyboard */; };
+		2859C2AB2562724E0049259A /* SyncStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859C2A92562724E0049259A /* SyncStatusViewController.swift */; };
+		2859C2AC2562724E0049259A /* SyncStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2859C2AA2562724E0049259A /* SyncStatusViewController.xib */; };
+		2859C2B125627E890049259A /* SyncStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859C2B025627E890049259A /* SyncStatusViewModel.swift */; };
+		2859C2D325628B480049259A /* UIImage+Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859C2D225628B480049259A /* UIImage+Presets.swift */; };
+		2859C2D82562B3BD0049259A /* MigrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2859C2D72562B3BC0049259A /* MigrationManager.swift */; };
 		286D38662364398C0091B23F /* QuestionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D38642364398C0091B23F /* QuestionListViewController.swift */; };
 		286D38672364398C0091B23F /* QuestionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 286D38652364398C0091B23F /* QuestionListViewController.xib */; };
 		286D3869236439990091B23F /* QuestionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286D3868236439990091B23F /* QuestionListViewModel.swift */; };
@@ -177,6 +182,11 @@
 		285028DD240A8B5F006A0D01 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		285028DE240A8B5F006A0D01 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		28508622236D9C6000189D94 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		2859C2A92562724E0049259A /* SyncStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatusViewController.swift; sourceTree = "<group>"; };
+		2859C2AA2562724E0049259A /* SyncStatusViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyncStatusViewController.xib; sourceTree = "<group>"; };
+		2859C2B025627E890049259A /* SyncStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncStatusViewModel.swift; sourceTree = "<group>"; };
+		2859C2D225628B480049259A /* UIImage+Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Presets.swift"; sourceTree = "<group>"; };
+		2859C2D72562B3BC0049259A /* MigrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationManager.swift; sourceTree = "<group>"; };
 		286D38642364398C0091B23F /* QuestionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListViewController.swift; sourceTree = "<group>"; };
 		286D38652364398C0091B23F /* QuestionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionListViewController.xib; sourceTree = "<group>"; };
 		286D3868236439990091B23F /* QuestionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListViewModel.swift; sourceTree = "<group>"; };
@@ -509,6 +519,9 @@
 				28B8BCB22517512E00959FC1 /* MVNavigationViewController.swift */,
 				2879CA382381C04F00CE4DC7 /* EmptyDetailsViewController.swift */,
 				2879CA392381C04F00CE4DC7 /* EmptyDetailsViewController.xib */,
+				2859C2B025627E890049259A /* SyncStatusViewModel.swift */,
+				2859C2A92562724E0049259A /* SyncStatusViewController.swift */,
+				2859C2AA2562724E0049259A /* SyncStatusViewController.xib */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -553,6 +566,7 @@
 				E7E1F2C51DDB59C800CE52FC /* API */,
 				EFB9AD1B1DEA1039008C1035 /* DBHandlers */,
 				E7E8EB4A1DDB7344009EBE01 /* UIColor+Presets.swift */,
+				2859C2D225628B480049259A /* UIImage+Presets.swift */,
 				28E7245E233F5E620096454D /* UIImage+Utils.swift */,
 				28E72465233F67280096454D /* Configuration.swift */,
 				289E1E78235EF6FC000C92A0 /* ReachabilityManager.swift */,
@@ -561,6 +575,7 @@
 				28B8BCA82517468800959FC1 /* AppLanguageManager.swift */,
 				28DBDAA5236F33CD004EAD83 /* MVAnalytics.swift */,
 				2879CA362381BA5E00CE4DC7 /* AppRouter.swift */,
+				2859C2D72562B3BC0049259A /* MigrationManager.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -849,6 +864,7 @@
 				EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */,
 				281A4B8C236D7B85001AD277 /* LoginViewController.xib in Resources */,
 				2810413D236C2EC300B7422C /* NoteHistoryTableCell.xib in Resources */,
+				2859C2AC2562724E0049259A /* SyncStatusViewController.xib in Resources */,
 				28E7245D233F59260096454D /* SectionHUDViewController.xib in Resources */,
 				28DBDAB823701B10004EAD83 /* OnboardingLanguageViewController.xib in Resources */,
 				28E72456233F58010096454D /* SectionDetailsViewController.xib in Resources */,
@@ -920,6 +936,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Keyboard+LayoutGuide/KeyboardLayoutGuide.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -933,6 +950,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyboardLayoutGuide.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -1027,6 +1045,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28C36392236464770084065C /* ApplicationData.swift in Sources */,
+				2859C2B125627E890049259A /* SyncStatusViewModel.swift in Sources */,
 				EF4BD3921D9D08DE0042BEC7 /* s.xcdatamodeld in Sources */,
 				28C3638F2364512E0084065C /* QuestionTableCell.swift in Sources */,
 				281A4B8E236D7B90001AD277 /* LoginViewModel.swift in Sources */,
@@ -1036,6 +1055,7 @@
 				281A4B85236CBD3C001AD277 /* SectionPickerViewModel.swift in Sources */,
 				28E7245F233F5E620096454D /* UIImage+Utils.swift in Sources */,
 				28844A52233F775E00DEEA44 /* SectionHUDViewModel.swift in Sources */,
+				2859C2AB2562724E0049259A /* SyncStatusViewController.swift in Sources */,
 				28DBDAA6236F33CD004EAD83 /* MVAnalytics.swift in Sources */,
 				28FB66AE236854C900336DBA /* RemoteSyncer.swift in Sources */,
 				28844A50233F6F3B00DEEA44 /* ChooserButton.swift in Sources */,
@@ -1068,6 +1088,7 @@
 				E7E8EB4B1DDB7344009EBE01 /* UIColor+Presets.swift in Sources */,
 				289E1E84235F2674000C92A0 /* FormListViewController.swift in Sources */,
 				F553E3BA1DF9D67A000D0902 /* Note+CoreDataProperties.swift in Sources */,
+				2859C2D325628B480049259A /* UIImage+Presets.swift in Sources */,
 				F553E3B01DF9C675000D0902 /* NoteContainer.swift in Sources */,
 				289E1E87235F2A77000C92A0 /* FormListViewModel.swift in Sources */,
 				F553E3B91DF9D67A000D0902 /* Note+CoreDataClass.swift in Sources */,
@@ -1105,6 +1126,7 @@
 				67EE98CB22A296F7006E4762 /* Logger.swift in Sources */,
 				F553E3BE1DF9D67A000D0902 /* Answer+CoreDataProperties.swift in Sources */,
 				281A4B8B236D7B85001AD277 /* LoginViewController.swift in Sources */,
+				2859C2D82562B3BD0049259A /* MigrationManager.swift in Sources */,
 				28844A5C233F9AB700DEEA44 /* TimePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,6 +15,7 @@ target 'MonitorizareVot' do
   pod 'ReachabilitySwift'
   pod 'Keyboard+LayoutGuide'
   pod 'SwiftyMarkdown'
+  pod 'PromisesSwift'
 
   # Pods for MonitorizareVot
 

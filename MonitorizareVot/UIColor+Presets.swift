@@ -13,6 +13,7 @@ extension UIColor {
     static var appBackground = UIColor(hexCode: 0xFAFAFA)
     static var headerBackground = UIColor(hexCode: 0xFFFFFF)
     static var defaultText = UIColor(hexCode: 0x333E48)
+    static var bottomNoticeBackground = UIColor(hexCode: 0xEAEAEA)
 
     static var formNameText = UIColor.black
 

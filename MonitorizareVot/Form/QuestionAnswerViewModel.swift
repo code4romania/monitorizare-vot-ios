@@ -65,11 +65,14 @@ class QuestionAnswerViewModel: NSObject {
     }
     
     fileprivate func generateModels(usingFormSections formSections: [FormSectionResponse]) {
+        guard let currentSection = DB.shared.currentSectionInfo() else {
+            return
+        }
         let allQuestions = formSections.reduce(into: [QuestionResponse]()) { $0 += $1.questions }
         
         var models: [QuestionAnswerCellModel] = []
         for questionMeta in allQuestions {
-            let answered = DB.shared.getQuestion(withId: questionMeta.id)
+            let answered = DB.shared.getQuestion(withId: questionMeta.id, inSection: currentSection)
             let options = questionMeta.options
 
             let acceptsMultipleAnswers = [
@@ -184,7 +187,13 @@ class QuestionAnswerViewModel: NSObject {
     }
     
     func save(withModel questionModel: QuestionAnswerCellModel) {
-        var question: Question! = DB.shared.getQuestion(withId: questionModel.questionId)
+        guard let currentSection = DB.shared.currentSectionInfo() else {
+            return
+        }
+        var question: Question! = DB.shared.getQuestion(
+            withId: questionModel.questionId,
+            inSection: currentSection
+        )
         if question == nil {
             question = NSEntityDescription.insertNewObject(forEntityName: "Question", into: CoreData.context) as? Question
             question.form = form.code

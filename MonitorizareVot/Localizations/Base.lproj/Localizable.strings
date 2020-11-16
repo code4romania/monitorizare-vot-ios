@@ -8,7 +8,7 @@
 "Button_Male" = "Man";
 "Button_Female" = "Woman";
 "Button_ContinueToForms" = "Continue to forms";
-"Button_SyncData" = "Synchronise Data Manually";
+"Button_SyncData" = "Synchronise data manually";
 "Button_AddNoteToQuestion" = "Add note to question";
 "Button_Add" = "Add";
 "Button_Send" = "Send";
@@ -50,6 +50,8 @@
 
 "Error_Unknown" = "An unknown error occured";
 "LoginError_Unknown" = "Login failed. Unknown reason. Please contact us.";
+"Error.StationSaveFailed" = "Can't save station data.";
+"Error.AnswerSaveFailed" = "Can't save answer to question.";
 
 "Error" = "Error";
 "OK" = "OK";
@@ -64,7 +66,8 @@
 "Error.IncorrectStationNumber" = "Incorrect station number. Please double check the county and provided section number";
 "Error.InternetConnection" = "You need an internet connection to continue. Please check your internet connection.";
 
-"Info.DataNotSyncronised" = "It appears that some of the questions have not been syncronised. Tap the button below to send the answers again";
+"Info.DataNotSyncronised" = "It appears that some of the answers or notes have not been synchronised. Tap the button below to send the answers again";
+"Info.DataSyncronised" = "All the answers and notes were synchronized successfully.";
 
 "Station" = "Station";
 

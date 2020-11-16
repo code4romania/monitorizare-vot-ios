@@ -19,6 +19,7 @@ enum RemoteConfigKey: String, CaseIterable {
     case observerGuideUrl = "observer_guide_url"
     case safetyGuideUrl = "safety_guide_url"
     case contactEmail = "contact_email"
+    case roundStartTime = "round_start_time"
 
     func defaultValue() -> Any {
         switch self {
@@ -30,6 +31,7 @@ enum RemoteConfigKey: String, CaseIterable {
         case .observerGuideUrl: return "https://fiecarevot.ro/wp-content/uploads/2019/11/Manual-prezidentiale.pdf"
         case .safetyGuideUrl: return ""
         case .contactEmail: return "contact@code4.ro"
+        case .roundStartTime: return ""
         }
     }
 }
@@ -72,9 +74,11 @@ class RemoteConfigManager: NSObject {
             self.isLoading = false
             if status == .success {
                 DebugLog("RemoteConfig loaded.")
-                self.config.activateFetched()
-                self.isLoaded = true
-                self.runWaitingBlocks()
+                self.config.activate { [weak self] (success, error) in
+                    DebugLog("RemoteConfig activated.")
+                    self?.isLoaded = true
+                    self?.runWaitingBlocks()
+                }
             } else {
                 DebugLog("RemoteConfig not loaded. " + (error?.localizedDescription ?? "") + ". Sticking with local config")
                 self.isLoaded = false

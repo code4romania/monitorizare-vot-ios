@@ -17,6 +17,8 @@ protocol PreferencesManagerType: NSObject {
     var languageLocale: String? { get set }
     var languageName: String? { get set }
     var wasAppStartedBefore: Bool { get }
+    /// When the database was last reset (UTC timestamp)
+    var lastDatabaseResetTimestamp: TimeInterval? { get set }
 }
 
 class PreferencesManager: NSObject, PreferencesManagerType {
@@ -29,6 +31,7 @@ class PreferencesManager: NSObject, PreferencesManagerType {
         case sectionName = "PreferenceSectionName"
         case languageLocale = "PreferenceLanguageLocale"
         case languageName = "PreferenceLanguageName"
+        case lastDatabaseResetTimestamp = "PreferenceLastDatabaseResetTimestamp"
     }
     
     var county: String? {
@@ -80,6 +83,14 @@ class PreferencesManager: NSObject, PreferencesManagerType {
     }
     
     var wasAppStartedBefore: Bool { return wasOnboardingShown }
+    
+    var lastDatabaseResetTimestamp: TimeInterval? {
+        set {
+            setValue(newValue, forKey: .lastDatabaseResetTimestamp)
+        } get {
+            return getValue(forKey: .lastDatabaseResetTimestamp) as? TimeInterval
+        }
+    }
     
     // MARK: - Helpers
     
