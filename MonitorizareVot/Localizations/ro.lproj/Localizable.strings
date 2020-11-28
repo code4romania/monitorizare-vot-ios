@@ -52,6 +52,7 @@
 "LoginError_Unknown" = "Nu te-am putut autentifica. Eroare necunoscută. Te rugăm să ne contactezi.";
 "Error.StationSaveFailed" = "Nu am putut sincroniza informatiile despre sectie.";
 "Error.AnswerSaveFailed" = "Nu am putut sincroniza raspunsul la intrebare/intrebari.";
+"Error.FormDownloadFailed" = "Formularele nu au putut fi descărcate. Te rugăm să verifici conexiunea la internet și să apeși pe butonul de mai jos pentru a încerca din nou.";
 
 "Error" = "Eroare";
 "OK" = "OK";

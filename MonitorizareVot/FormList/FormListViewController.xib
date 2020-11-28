@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FormListViewController" customModule="MonitorizareVot" customModuleProvider="target">
             <connections>
                 <outlet property="downloadingSpinner" destination="cM5-3h-3Lv" id="T24-wD-PJQ"/>
+                <outlet property="errorContainer" destination="uxt-Ou-57J" id="4hp-qj-zZs"/>
+                <outlet property="errorLabel" destination="1Du-bg-5UB" id="Zlh-Zg-cDZ"/>
                 <outlet property="headerContainer" destination="gVA-9J-3GR" id="9Sa-ux-mvY"/>
                 <outlet property="retryButton" destination="08L-24-Ci0" id="X7g-vm-O9m"/>
                 <outlet property="syncContainer" destination="76d-9E-Vdl" id="JSy-Uu-rNJ"/>
@@ -38,20 +40,62 @@
                         <outlet property="delegate" destination="-1" id="nJP-me-zrc"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxt-Ou-57J" userLabel="Error Container">
+                    <rect key="frame" x="0.0" y="317.5" width="414" height="271.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="tcs-2j-Sd6">
+                            <rect key="frame" x="16" y="16" width="382" height="239.5"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" image="icon-download-failed" translatesAutoresizingMaskIntoConstraints="NO" id="wdy-hT-Mar">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="100"/>
+                                </imageView>
+                                <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="75Q-MC-3H7">
+                                    <rect key="frame" x="0.0" y="115" width="382" height="65.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="We could not download the forms. Please check your internet connection and tap the button below to try again" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Du-bg-5UB">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="57.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <color key="textColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="1Du-bg-5UB" firstAttribute="top" secondItem="75Q-MC-3H7" secondAttribute="top" id="3qj-88-fUS"/>
+                                        <constraint firstItem="1Du-bg-5UB" firstAttribute="leading" secondItem="75Q-MC-3H7" secondAttribute="leading" id="4Lf-ba-dUo"/>
+                                        <constraint firstAttribute="bottom" secondItem="1Du-bg-5UB" secondAttribute="bottom" constant="8" id="dGi-gb-29K"/>
+                                        <constraint firstAttribute="trailing" secondItem="1Du-bg-5UB" secondAttribute="trailing" id="pOl-7g-4dV"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08L-24-Ci0" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="195.5" width="382" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="AhR-0G-5GA"/>
+                                    </constraints>
+                                    <state key="normal" title="Retry"/>
+                                    <connections>
+                                        <action selector="handleRetryButtonAction:" destination="-1" eventType="touchUpInside" id="ds3-fS-JoW"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="414" id="ego-he-9pK"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="tcs-2j-Sd6" secondAttribute="trailing" priority="990" constant="16" id="3Gb-cz-Lwz"/>
+                        <constraint firstAttribute="bottom" secondItem="tcs-2j-Sd6" secondAttribute="bottom" constant="16" id="5qq-fX-2HH"/>
+                        <constraint firstItem="tcs-2j-Sd6" firstAttribute="top" secondItem="uxt-Ou-57J" secondAttribute="top" constant="16" id="6tu-8t-NBo"/>
+                        <constraint firstItem="tcs-2j-Sd6" firstAttribute="centerX" secondItem="uxt-Ou-57J" secondAttribute="centerX" id="bpW-z9-7l4"/>
+                        <constraint firstItem="tcs-2j-Sd6" firstAttribute="leading" secondItem="uxt-Ou-57J" secondAttribute="leading" priority="990" constant="16" id="n1d-Me-CS4"/>
+                    </constraints>
+                </view>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cM5-3h-3Lv">
                     <rect key="frame" x="197" y="458" width="20" height="20"/>
                     <color key="color" red="0.94509803920000002" green="0.58823529409999997" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08L-24-Ci0" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
-                    <rect key="frame" x="16" y="446" width="382" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="AhR-0G-5GA"/>
-                    </constraints>
-                    <state key="normal" title="Download Data"/>
-                    <connections>
-                        <action selector="handleRetryButtonAction:" destination="-1" eventType="touchUpInside" id="ds3-fS-JoW"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76d-9E-Vdl">
                     <rect key="frame" x="0.0" y="842" width="414" height="20"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,25 +111,28 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="su5-eT-6Rp" secondAttribute="trailing" id="6pp-pg-rSL"/>
                 <constraint firstItem="cM5-3h-3Lv" firstAttribute="centerY" secondItem="su5-eT-6Rp" secondAttribute="centerY" id="CgP-DG-Xbi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="76d-9E-Vdl" secondAttribute="trailing" id="Ea4-ig-wV2"/>
-                <constraint firstItem="08L-24-Ci0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="KdR-ZF-jPT"/>
+                <constraint firstItem="uxt-Ou-57J" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Hm9-Yg-mS5"/>
                 <constraint firstItem="su5-eT-6Rp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LEn-Cz-LZ3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="76d-9E-Vdl" secondAttribute="bottom" priority="999" id="NN6-la-U4a"/>
                 <constraint firstItem="cM5-3h-3Lv" firstAttribute="centerX" secondItem="su5-eT-6Rp" secondAttribute="centerX" id="SXk-4M-Uhj"/>
                 <constraint firstItem="su5-eT-6Rp" firstAttribute="top" secondItem="gVA-9J-3GR" secondAttribute="bottom" id="TYm-Xl-6fv"/>
                 <constraint firstItem="gVA-9J-3GR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="X6c-7b-iVu"/>
-                <constraint firstItem="08L-24-Ci0" firstAttribute="centerY" secondItem="su5-eT-6Rp" secondAttribute="centerY" id="Yjb-HR-e3l"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uxt-Ou-57J" secondAttribute="trailing" id="ZLC-B6-Da3"/>
                 <constraint firstItem="76d-9E-Vdl" firstAttribute="top" secondItem="su5-eT-6Rp" secondAttribute="bottom" id="ecz-P1-H5Z"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="76d-9E-Vdl" secondAttribute="bottom" constant="16" id="gH0-0B-Pil"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gVA-9J-3GR" secondAttribute="trailing" id="ggS-pl-cYq"/>
+                <constraint firstItem="uxt-Ou-57J" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="pC8-MC-xYU"/>
                 <constraint firstItem="gVA-9J-3GR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="plH-lY-3T7"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="08L-24-Ci0" secondAttribute="trailing" constant="16" id="zp6-FK-G9i"/>
             </constraints>
             <point key="canvasLocation" x="139" y="153"/>
         </view>
     </objects>
     <designables>
         <designable name="08L-24-Ci0">
-            <size key="intrinsicContentSize" width="102" height="17"/>
+            <size key="intrinsicContentSize" width="37" height="17"/>
         </designable>
     </designables>
+    <resources>
+        <image name="icon-download-failed" width="100" height="100"/>
+    </resources>
 </document>

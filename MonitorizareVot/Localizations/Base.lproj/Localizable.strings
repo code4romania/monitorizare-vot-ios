@@ -52,6 +52,7 @@
 "LoginError_Unknown" = "Login failed. Unknown reason. Please contact us.";
 "Error.StationSaveFailed" = "Can't save station data.";
 "Error.AnswerSaveFailed" = "Can't save answer to question.";
+"Error.FormDownloadFailed" = "We could not download the forms. Please check your internet connection and tap the button below to try again.";
 
 "Error" = "Error";
 "OK" = "OK";
