@@ -15,9 +15,12 @@ class FormListViewController: MVViewController {
     
     @IBOutlet weak var syncContainer: UIView!
     
-    @IBOutlet weak var retryButton: ActionButton!
     @IBOutlet weak var downloadingSpinner: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet var errorContainer: UIView!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var retryButton: ActionButton!
     
     // MARK: - Object
     
@@ -52,7 +55,7 @@ class FormListViewController: MVViewController {
                 self.tableView.isHidden = true
                 self.downloadingSpinner.startAnimating()
             }
-            self.retryButton.isHidden = true
+            self.errorContainer.isHidden = true
             self.model.downloadFreshData()
         }
     }
@@ -63,25 +66,32 @@ class FormListViewController: MVViewController {
         model.onDownloadComplete = { [weak self] error in
             guard let self = self else { return }
             self.downloadingSpinner.stopAnimating()
-            if self.model.forms.isEmpty {
-                // only treat this as a failure if we have no forms yet.
-                // otherwise, leave the older versions
-                if let _ = error {
-                    let alert = UIAlertController(title: "Error".localized,
-                                                  message: "Error.DataDownloadFailed".localized,
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                    self.retryButton.isHidden = false
-                    self.tableView.isHidden = true
-                } else {
-                    self.updateInterface()
-                }
+            
+            // if there's an error, show the error container
+            if let _ = error {
+                self.errorContainer.isHidden = false
+                self.tableView.isHidden = true
+                self.syncContainer.alpha = 0
             } else {
-                self.tableView.isHidden = false
-                self.retryButton.isHidden = true
+                self.syncContainer.alpha = 1
                 self.updateInterface()
             }
+            
+            // alternate way - only show if there's no info loaded
+//            if self.model.forms.isEmpty {
+//                // only treat this as a failure if we have no forms yet.
+//                // otherwise, leave the older versions
+//                if let _ = error {
+//                    self.errorContainer.isHidden = false
+//                    self.tableView.isHidden = true
+//                } else {
+//                    self.updateInterface()
+//                }
+//            } else {
+//                self.tableView.isHidden = false
+//                self.errorContainer.isHidden = true
+//                self.updateInterface()
+//            }
         }
         model.onDownloadingStateChanged = { [weak self] in
             guard let self = self else { return }
@@ -99,7 +109,7 @@ class FormListViewController: MVViewController {
                            forCellReuseIdentifier: FormSetTableCell.reuseIdentifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 88
-        retryButton.isHidden = true
+        errorContainer.isHidden = true
     }
     
     private func configureChildren() {
@@ -121,6 +131,7 @@ class FormListViewController: MVViewController {
     fileprivate func updateLabelsTexts() {
         title = "Title.FormSets".localized
         retryButton.setTitle("Button_Retry".localized, for: .normal)
+        errorLabel.text = "Error.FormDownloadFailed".localized
     }
     
     // MARK: - Logic
@@ -128,7 +139,7 @@ class FormListViewController: MVViewController {
     // MARK: - Actions
     
     @IBAction func handleRetryButtonAction(_ sender: Any) {
-        retryButton.isHidden = true
+        errorContainer.isHidden = true
         downloadingSpinner.startAnimating()
         tableView.isHidden = true
         model.downloadFreshData()
