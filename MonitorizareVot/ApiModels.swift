@@ -146,6 +146,7 @@ struct QuestionResponse: Codable {
     var code: String
     var questionType: QuestionType
     var text: String
+    var orderNumber: Int?
     var options: [QuestionOptionResponse]
     
     enum CodingKeys: String, CodingKey {
@@ -154,6 +155,7 @@ struct QuestionResponse: Codable {
         case questionType
         case text
         case options = "optionsToQuestions"
+        case orderNumber
     }
 }
 

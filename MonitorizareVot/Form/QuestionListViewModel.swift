@@ -48,7 +48,11 @@ class QuestionListViewModel: NSObject {
         let storedQuestions = sectionInfo.questions?.allObjects as? [Question] ?? []
         let mappedQuestions = storedQuestions.reduce(into: [Int: Question]()) { $0[Int($1.id)] = $1 }
         
-        return sections[section].questions.map { questionResponse -> QuestionCellModel in
+        return sections[section].questions
+            .sorted(by: { (q1, q2) -> Bool in
+                return (q1.orderNumber ?? 0) < (q2.orderNumber ?? 0)
+            })
+            .map { questionResponse -> QuestionCellModel in
             let stored = mappedQuestions[questionResponse.id]
             return QuestionCellModel(
                 questionId: questionResponse.id,
