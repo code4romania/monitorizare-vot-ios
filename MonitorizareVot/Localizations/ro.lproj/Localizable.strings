@@ -18,6 +18,7 @@
 "Button_AddNoteToQuestion" = "Adaugă o notă întrebării";
 "Button_Submit" = "Trimite";
 "Button_AddPhotoVideo" = "Adaugă o poză sau video";
+"Button_SelectFromHistory" = "Alege din secțiile vizitate";
 
 "Label_CountyLocation" = "În ce mediu se află secția?";
 "Label_CountyPresidentGender" = "Președintele secției este";
@@ -80,6 +81,7 @@
 "Title.Section" = "Configurarea Secției";
 "Title.Language" = "Alege limba";
 "Title.NewVersion" = "Actualizare disponibilă";
+"Title.StationHistory" = "Secții de vot vizitate";
 
 "Next" = "Următoarea";
 "Previous" = "Precedenta";
@@ -100,6 +102,7 @@
 
 "Menu.Button.Close" = "Închide";
 "Menu.Button.ChangeStation" = "Schimbă secția de votare";
+"Menu.Button.StationHistory" = "Secțiile de vot vizitate";
 "Menu.Button.Guide" = "Ghidul observatorului";
 "Menu.Button.Call" = "Sună la call center";
 "Menu.Button.About" = "Despre aplicație";
@@ -111,4 +114,5 @@
 
 "Text.About.Title" = "Despre aplicație";
 "Text.About.Body" = "Monitorizare Vot este o aplicație realizată de Code for Romania.\n\nEste prima aplicație de monitorizare a alegerilor din România, și una dintre puținele din lume. A fost folosită, de către observatori, începând cu alegerile prezidențiale din 2016. În Polonia a fost folosită, în 2018, la primele lor alegeri observate independent.\n\nSursele de cod ale aplicației sunt deschise. Aruncă o privire pe GitHub! [Kotlin](https://github.com/code4romania/mon-vot-android-kotlin) sau [iOS](https://github.com/code4romania/monitorizare-vot-ios).\n\nCode for Romania este un ONG care dezvoltă pro-bono soluţii IT cu scopul de a rezolva probleme ale societăţii. Dacă vrei să sprijini activitatea noastră, intră pe [site-ul nostru](https://code4.ro/ro/), înscrie-te ca voluntar sau donează.";
+"Text.StationHistory.Info" = "Aici găsești secțiile pe care le-ai vizitat deja. Apasă pe o secție să verifici sau să editezi răspunsuri.";
 

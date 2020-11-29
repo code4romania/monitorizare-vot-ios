@@ -46,6 +46,10 @@ class SectionPickerViewModel: NSObject {
         return getCounty(byCountyCode: code)?.name.capitalized
     }
     
+    var hasVisitedAnyStations: Bool {
+        DB.shared.getVisitedSections().count > 0
+    }
+    
     /// Be notified when the API download state has changed
     var onDownloadStateChanged: (() -> Void)?
     
@@ -74,10 +78,15 @@ class SectionPickerViewModel: NSObject {
         }
     }
     
-    override init() {
-        if let currentSection = DB.shared.currentSectionInfo() {
-            countyCode = currentSection.countyCode
-            sectionId = Int(currentSection.sectionId)
+    init(sectionId: String? = nil, countyCode: String? = nil) {
+        if let sectionId = sectionId {
+            self.countyCode = countyCode
+            self.sectionId = Int(sectionId)
+        } else {
+            if let currentSection = DB.shared.currentSectionInfo() {
+                self.countyCode = currentSection.countyCode
+                self.sectionId = Int(currentSection.sectionId)
+            }
         }
         super.init()
     }
@@ -126,12 +135,13 @@ class SectionPickerViewModel: NSObject {
             callback(.genericError(reason: "Invalid section data provided"))
             return
         }
-        let _ = DB.shared.sectionInfo(for: county, sectionId: sectionId)
+        let station = DB.shared.sectionInfo(for: county, sectionId: sectionId)
         PreferencesManager.shared.county = county
         PreferencesManager.shared.section = sectionId
-        if let countyName = selectedCountyName {
-            PreferencesManager.shared.sectionName = "Station".localized + " \(sectionId) \(countyName)"
-        }
+        PreferencesManager.shared.sectionName = station.sectionFullName
+//        if let countyName = selectedCountyName {
+//            PreferencesManager.shared.sectionName = "Station".localized + " \(sectionId) \(countyName)"
+//        }
         callback(nil)
     }
     

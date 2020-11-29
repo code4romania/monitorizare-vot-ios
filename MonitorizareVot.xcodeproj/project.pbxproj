@@ -66,6 +66,11 @@
 		289E1E8D235F2ABE000C92A0 /* FormSetTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 289E1E8B235F2ABE000C92A0 /* FormSetTableCell.xib */; };
 		289E1E9123604F9D000C92A0 /* MVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289E1E9023604F9D000C92A0 /* MVViewController.swift */; };
 		28A4B776237364FE00E6D2A8 /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A4B775237364FE00E6D2A8 /* RemoteConfigManager.swift */; };
+		28A54E592573A57C00634347 /* StationHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A54E572573A57C00634347 /* StationHistoryViewController.swift */; };
+		28A54E5A2573A57C00634347 /* StationHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28A54E582573A57C00634347 /* StationHistoryViewController.xib */; };
+		28A54E5F2573A58C00634347 /* StationHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A54E5E2573A58C00634347 /* StationHistoryViewModel.swift */; };
+		28A54E652573AE0200634347 /* StationInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A54E632573AE0200634347 /* StationInfoTableCell.swift */; };
+		28A54E662573AE0200634347 /* StationInfoTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28A54E642573AE0200634347 /* StationInfoTableCell.xib */; };
 		28A7DCB6235CC7EB000B00C4 /* ApiModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7DCB5235CC7EB000B00C4 /* ApiModels.swift */; };
 		28A7DCB9235DBDEB000B00C4 /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A7DCB8235DBDEB000B00C4 /* LocalStorage.swift */; };
 		28B3DA8023A4F50E00BEF6C0 /* AppUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B3DA7F23A4F50E00BEF6C0 /* AppUpdateManager.swift */; };
@@ -210,6 +215,11 @@
 		289E1E8B235F2ABE000C92A0 /* FormSetTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FormSetTableCell.xib; sourceTree = "<group>"; };
 		289E1E9023604F9D000C92A0 /* MVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVViewController.swift; sourceTree = "<group>"; };
 		28A4B775237364FE00E6D2A8 /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
+		28A54E572573A57C00634347 /* StationHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationHistoryViewController.swift; sourceTree = "<group>"; };
+		28A54E582573A57C00634347 /* StationHistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationHistoryViewController.xib; sourceTree = "<group>"; };
+		28A54E5E2573A58C00634347 /* StationHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationHistoryViewModel.swift; sourceTree = "<group>"; };
+		28A54E632573AE0200634347 /* StationInfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoTableCell.swift; sourceTree = "<group>"; };
+		28A54E642573AE0200634347 /* StationInfoTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationInfoTableCell.xib; sourceTree = "<group>"; };
 		28A7DCB5235CC7EB000B00C4 /* ApiModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModels.swift; sourceTree = "<group>"; };
 		28A7DCB8235DBDEB000B00C4 /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		28B3DA7F23A4F50E00BEF6C0 /* AppUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateManager.swift; sourceTree = "<group>"; };
@@ -418,6 +428,8 @@
 				28C3638E2364512E0084065C /* QuestionTableCell.xib */,
 				2810413A236C2EC300B7422C /* NoteHistoryTableCell.swift */,
 				2810413B236C2EC300B7422C /* NoteHistoryTableCell.xib */,
+				28A54E632573AE0200634347 /* StationInfoTableCell.swift */,
+				28A54E642573AE0200634347 /* StationInfoTableCell.xib */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -535,6 +547,9 @@
 				28E72457233F58100096454D /* SectionDetailsViewModel.swift */,
 				28E72453233F58010096454D /* SectionDetailsViewController.swift */,
 				28E72454233F58010096454D /* SectionDetailsViewController.xib */,
+				28A54E5E2573A58C00634347 /* StationHistoryViewModel.swift */,
+				28A54E572573A57C00634347 /* StationHistoryViewController.swift */,
+				28A54E582573A57C00634347 /* StationHistoryViewController.xib */,
 			);
 			path = PollingStation;
 			sourceTree = "<group>";
@@ -868,12 +883,14 @@
 				28E7245D233F59260096454D /* SectionHUDViewController.xib in Resources */,
 				28DBDAB823701B10004EAD83 /* OnboardingLanguageViewController.xib in Resources */,
 				28E72456233F58010096454D /* SectionDetailsViewController.xib in Resources */,
+				28A54E5A2573A57C00634347 /* StationHistoryViewController.xib in Resources */,
 				27EDBD2221465D190060DB8A /* Localizable.strings in Resources */,
 				28104131236B5CA500B7422C /* AttachNoteViewController.xib in Resources */,
 				28844A57233F94FD00DEEA44 /* GenericPickerViewController.xib in Resources */,
 				285028E0240A8B5F006A0D01 /* MenuViewController.xib in Resources */,
 				28DBDAB2236F4DA8004EAD83 /* OnboardingChildViewController.xib in Resources */,
 				289E1E85235F2674000C92A0 /* FormListViewController.xib in Resources */,
+				28A54E662573AE0200634347 /* StationInfoTableCell.xib in Resources */,
 				28844A5D233F9AB700DEEA44 /* TimePickerViewController.xib in Resources */,
 				28DBDABB23701DBD004EAD83 /* InfoPlist.strings in Resources */,
 				289E1E8D235F2ABE000C92A0 /* FormSetTableCell.xib in Resources */,
@@ -1068,7 +1085,9 @@
 				28104133236B5CB400B7422C /* AttachNoteViewModel.swift in Sources */,
 				289E1E79235EF6FC000C92A0 /* ReachabilityManager.swift in Sources */,
 				28B8BCA92517468800959FC1 /* AppLanguageManager.swift in Sources */,
+				28A54E5F2573A58C00634347 /* StationHistoryViewModel.swift in Sources */,
 				2817EA162358CD0A0029AD4C /* APIManager.swift in Sources */,
+				28A54E592573A57C00634347 /* StationHistoryViewController.swift in Sources */,
 				2810413C236C2EC300B7422C /* NoteHistoryTableCell.swift in Sources */,
 				28104142236C3FD500B7422C /* Alerts.swift in Sources */,
 				28236E2425166D330062CF63 /* AboutViewController.swift in Sources */,
@@ -1122,6 +1141,7 @@
 				2879CA3A2381C04F00CE4DC7 /* EmptyDetailsViewController.swift in Sources */,
 				28A7DCB6235CC7EB000B00C4 /* ApiModels.swift in Sources */,
 				2879CA372381BA5E00CE4DC7 /* AppRouter.swift in Sources */,
+				28A54E652573AE0200634347 /* StationInfoTableCell.swift in Sources */,
 				28C4343C2370C5C9001E6268 /* UITableView+HeaderAutoLayout.swift in Sources */,
 				67EE98CB22A296F7006E4762 /* Logger.swift in Sources */,
 				F553E3BE1DF9D67A000D0902 /* Answer+CoreDataProperties.swift in Sources */,
@@ -1307,11 +1327,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MonitorizareVot/MonitorizareVot.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1327,11 +1347,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MonitorizareVot/MonitorizareVot.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;

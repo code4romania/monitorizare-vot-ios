@@ -30,6 +30,8 @@ enum MVAnalyticsEvent {
     case tapSafetyGuide
     case internetDown
     case tapChangeStation(fromScreen: String)
+    case tapStationHistory(fromScreen: String)
+    case pickedStationFromHistory
     case tapManualSync
     case tapMenu
     case tapAbout
@@ -55,6 +57,8 @@ enum MVAnalyticsEvent {
         case .tapSafetyGuide:       return "tap_safety_guide"
         case .internetDown:         return "internet_down"
         case .tapChangeStation:     return "tap_change_station"
+        case .tapStationHistory:    return "tap_station_history"
+        case .pickedStationFromHistory: return "picked_station_from_history"
         case .tapManualSync:        return "tap_manual_sync"
         case .tapMenu:              return "tap_menu"
         case .tapAbout:             return "tap_about"
@@ -76,6 +80,7 @@ enum MVAnalyticsEvent {
         case .addNote(let hasAttachment): return ["has_attachment": hasAttachment]
         case .addNoteForQuestion(let id, let hasAttachment): return ["questionId": id, "has_attachment": hasAttachment]
         case .tapChangeStation(let screen): return ["from_screen": screen]
+        case .tapStationHistory(let screen): return ["from_screen": screen]
         default: return nil
         }
     }

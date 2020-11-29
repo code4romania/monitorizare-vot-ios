@@ -16,11 +16,16 @@ class MenuViewController: MVViewController {
     @IBOutlet private var titleLabel: UILabel!
     
     @IBOutlet private var changeStationButton: UIButton!
+    @IBOutlet private var stationHistoryButton: UIButton!
     @IBOutlet private var guideButton: UIButton!
     @IBOutlet private var safetyGuideButton: UIButton!
     @IBOutlet private var callButton: UIButton!
     @IBOutlet private var aboutButton: UIButton!
     @IBOutlet private var logoutButton: UIButton!
+    
+    var hasVisitedAnyStations: Bool {
+        DB.shared.getVisitedSections().count > 0
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +45,9 @@ class MenuViewController: MVViewController {
     }
     
     private func internationalize() {
-//        closeButton.setTitle("Menu.Button.Close".localized, for: .normal)
         changeStationButton.setTitle("Menu.Button.ChangeStation".localized, for: .normal)
+        stationHistoryButton.setTitle("Menu.Button.StationHistory".localized, for: .normal)
+        stationHistoryButton.isHidden = !hasVisitedAnyStations
         guideButton.setTitle("Menu.Button.Guide".localized, for: .normal)
         safetyGuideButton.setTitle("Menu.Button.Safety".localized, for: .normal)
         callButton.setTitle("Menu.Button.Call".localized, for: .normal)
@@ -57,6 +63,8 @@ class MenuViewController: MVViewController {
         switch sender {
         case changeStationButton:
             handleChangeSectionButtonAction()
+        case stationHistoryButton:
+            handleGoToSectionHistoryButtonAction()
         case guideButton:
             presentGuideViewController()
         case safetyGuideButton:
@@ -120,6 +128,14 @@ class MenuViewController: MVViewController {
             guard let self = self else { return }
             MVAnalytics.shared.log(event: .tapChangeStation(fromScreen: String(describing: type(of: self))))
             AppRouter.shared.goToChooseStation()
+        }
+    }
+    
+    fileprivate func handleGoToSectionHistoryButtonAction() {
+        close { [weak self] in
+            guard let self = self else { return }
+            MVAnalytics.shared.log(event: .tapStationHistory(fromScreen: String(describing: type(of: self))))
+            AppRouter.shared.goToStationHistory()
         }
     }
     
