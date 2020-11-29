@@ -3,7 +3,7 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,6 +17,7 @@
                 <outlet property="guideButton" destination="XIC-bH-fSh" id="dT8-y1-CJG"/>
                 <outlet property="logoutButton" destination="uj4-Ll-qEA" id="uk4-E8-ngb"/>
                 <outlet property="safetyGuideButton" destination="2aA-cD-rHH" id="Iqp-4t-pPm"/>
+                <outlet property="stationHistoryButton" destination="cee-f2-K4V" id="Ogv-yq-1li"/>
                 <outlet property="titleLabel" destination="C4X-EU-Tfa" id="oaF-HK-YtZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -61,7 +62,7 @@
                                     <rect key="frame" x="16" y="20" width="343" height="504"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HAw-U5-Ep1">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="312"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="368"/>
                                             <subviews>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKJ-V3-Kmh">
                                                     <rect key="frame" x="0.0" y="-32" width="343" height="32"/>
@@ -111,15 +112,33 @@
                                                         <action selector="handleMenuButtonTap:" destination="-1" eventType="touchUpInside" id="lpS-8N-abv"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cee-f2-K4V">
+                                                    <rect key="frame" x="0.0" y="56" width="343" height="52"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="52" id="5Qy-eX-0zj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <inset key="contentEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="titleEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="My visited stations" image="icon-menu-stations">
+                                                        <color key="titleColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <state key="highlighted" backgroundImage="bg-menu-item-selected">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="handleMenuButtonTap:" destination="-1" eventType="touchUpInside" id="3FU-uV-BR4"/>
+                                                    </connections>
+                                                </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jx0-QP-FcQ">
-                                                    <rect key="frame" x="0.0" y="56" width="343" height="32"/>
+                                                    <rect key="frame" x="0.0" y="112" width="343" height="32"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="Nfz-PG-q9P"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIC-bH-fSh">
-                                                    <rect key="frame" x="0.0" y="92" width="343" height="52"/>
+                                                    <rect key="frame" x="0.0" y="148" width="343" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="52" id="qxy-Jy-0L1"/>
                                                     </constraints>
@@ -137,7 +156,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2aA-cD-rHH">
-                                                    <rect key="frame" x="0.0" y="148" width="343" height="52"/>
+                                                    <rect key="frame" x="0.0" y="204" width="343" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="52" id="YFu-DM-Jz3"/>
                                                     </constraints>
@@ -155,7 +174,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apo-Bx-YWZ">
-                                                    <rect key="frame" x="0.0" y="204" width="343" height="52"/>
+                                                    <rect key="frame" x="0.0" y="260" width="343" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="52" id="64L-b7-1cz"/>
                                                     </constraints>
@@ -173,7 +192,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgH-W5-sUV">
-                                                    <rect key="frame" x="0.0" y="260" width="343" height="52"/>
+                                                    <rect key="frame" x="0.0" y="316" width="343" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="52" id="3Ts-ig-REs"/>
                                                     </constraints>
@@ -193,7 +212,7 @@
                                             </subviews>
                                         </stackView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26t-qT-zRj">
-                                            <rect key="frame" x="0.0" y="312" width="343" height="140"/>
+                                            <rect key="frame" x="0.0" y="368" width="343" height="84"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uj4-Ll-qEA">
@@ -247,6 +266,7 @@
         <image name="icon-menu-guide" width="16" height="16"/>
         <image name="icon-menu-logout" width="16" height="16"/>
         <image name="icon-menu-station" width="12" height="16"/>
+        <image name="icon-menu-stations" width="20" height="20"/>
         <image name="icon-menu-title" width="16.666666030883789" height="14.666666984558105"/>
         <image name="logo-vote-monitor" width="426" height="240"/>
         <systemColor name="systemBackgroundColor">

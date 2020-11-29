@@ -10,6 +10,6 @@ import UIKit
 
 enum Configuration {
     static let buttonCornerRadius: CGFloat = 4
-    static let shadowRadius: CGFloat = 12
+    static let shadowRadius: CGFloat = 10
     static let shadowOpacity: Float = 1
 }

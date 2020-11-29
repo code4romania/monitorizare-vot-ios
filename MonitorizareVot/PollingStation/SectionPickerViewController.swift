@@ -23,8 +23,10 @@ class SectionPickerViewController: MVViewController {
     @IBOutlet weak var retryButton: ActionButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var continueButton: ActionButton!
+    @IBOutlet weak var selectFromHistoryButton: UIButton!
     @IBOutlet weak var saveLoader: UIActivityIndicatorView!
-
+    @IBOutlet weak var buttonContainer: UIStackView!
+    
     // MARK: - Object
     
     init(withModel model: SectionPickerViewModel) {
@@ -111,11 +113,13 @@ class SectionPickerViewController: MVViewController {
         continueButton.isEnabled = model.canContinue && !model.isSaving
         if model.isSaving {
             saveLoader.startAnimating()
-            continueButton.isHidden = true
+            buttonContainer.isHidden = true
         } else {
             saveLoader.stopAnimating()
-            continueButton.isHidden = false
+            buttonContainer.isHidden = false
         }
+        
+        selectFromHistoryButton.isHidden = !model.hasVisitedAnyStations
         
         if model.isSaving || model.isDownloading {
             view.isUserInteractionEnabled = false
@@ -132,6 +136,7 @@ class SectionPickerViewController: MVViewController {
         countyButton.placeholder = "Label_SelectOption".localized
         stationTextField.placeholder = "Label_EnterStation".localized
         continueButton.setTitle("Button_Continue".localized, for: .normal)
+        selectFromHistoryButton.setTitle("Button_SelectFromHistory".localized, for: .normal)
     }
     
     // MARK: - Actions
@@ -157,6 +162,10 @@ class SectionPickerViewController: MVViewController {
         saveAndContinue()
     }
     
+    @IBAction func handleSelectFromHistoryAction(_ sender: Any) {
+        showStationHistory()
+    }
+    
     func saveAndContinue() {
         guard model.isSectionNumberCorrect else {
             let alert = UIAlertController.error(withMessage: "Error.IncorrectStationNumber".localized)
@@ -179,6 +188,11 @@ class SectionPickerViewController: MVViewController {
         let detailsModel = SectionDetailsViewModel()
         let detailsController = SectionDetailsViewController(withModel: detailsModel)
         navigationController?.setViewControllers([detailsController], animated: true)
+    }
+    
+    private func showStationHistory() {
+        MVAnalytics.shared.log(event: .tapStationHistory(fromScreen: "\(String(describing: Self.self))"))
+        AppRouter.shared.goToStationHistory()
     }
 }
 

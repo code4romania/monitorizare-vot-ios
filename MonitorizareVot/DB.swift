@@ -171,4 +171,12 @@ class DB: NSObject {
         return note
     }
     
+    func getVisitedSections() -> [SectionInfo] {
+        let request: NSFetchRequest<SectionInfo> = SectionInfo.fetchRequest()
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "arriveTime", ascending: true)
+        ]
+        return (try? CoreData.context.fetch(request)) ?? []
+    }
+    
 }

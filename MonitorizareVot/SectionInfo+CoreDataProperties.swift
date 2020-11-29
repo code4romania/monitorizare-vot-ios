@@ -71,3 +71,12 @@ extension SectionInfo {
     @NSManaged public func removeFromQuestions(_ values: NSSet)
 
 }
+
+extension SectionInfo {
+    var sectionFullName: String? {
+        guard let counties = LocalStorage.shared.counties,
+              let countyCode = self.countyCode,
+              let county = counties.first(where: { $0.code == countyCode }) else { return nil }
+        return "Station".localized + " \(sectionId) \(county.name)"
+    }
+}

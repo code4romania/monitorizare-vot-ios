@@ -68,8 +68,8 @@ class AppRouter: NSObject {
         guard splitViewController == nil else { return }
     }
     
-    func goToChooseStation() {
-        let sectionModel = SectionPickerViewModel()
+    func goToChooseStation(stationId: String? = nil, countyCode: String? = nil) {
+        let sectionModel = SectionPickerViewModel(sectionId: stationId, countyCode: countyCode)
         let sectionController = SectionPickerViewController(withModel: sectionModel)
         if isPad && splitViewController == nil {
             AppDelegate.shared.window?.rootViewController = UISplitViewController()
@@ -81,6 +81,12 @@ class AppRouter: NSObject {
             AppDelegate.shared.window?.rootViewController = UINavigationController()
         }
         navigationController?.setViewControllers([sectionController], animated: true)
+        resetDetailsPane()
+    }
+    
+    func goToStationHistory() {
+        let vc = StationHistoryViewController()
+        navigationController?.pushViewController(vc, animated: true)
         resetDetailsPane()
     }
     

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SectionPickerViewController" customModule="MonitorizareVot" customModuleProvider="target">
             <connections>
+                <outlet property="buttonContainer" destination="oYF-uo-nty" id="uWZ-rg-hmj"/>
                 <outlet property="chooseLabel" destination="Ttd-Hr-MEf" id="kzT-pr-imb"/>
                 <outlet property="continueButton" destination="pCh-K5-Nfk" id="3d6-eN-kKJ"/>
                 <outlet property="countyButton" destination="8nu-tL-nlc" id="daB-Wi-yQL"/>
@@ -18,6 +19,7 @@
                 <outlet property="retryButton" destination="kGG-Du-9EQ" id="l6e-qR-zQQ"/>
                 <outlet property="saveLoader" destination="Jtc-TF-aap" id="6wI-wF-TIk"/>
                 <outlet property="scrollView" destination="z12-JM-Ytq" id="xzj-xk-WWW"/>
+                <outlet property="selectFromHistoryButton" destination="CtC-6F-tBz" id="LsX-rJ-wXg"/>
                 <outlet property="stationLabel" destination="aL9-qO-MZd" id="Xco-Dt-58s"/>
                 <outlet property="stationTextContainer" destination="scm-c8-NJD" id="Gz4-9B-Fcv"/>
                 <outlet property="stationTextField" destination="fQT-Im-qcs" id="NDA-vQ-Jn6"/>
@@ -33,7 +35,7 @@
                     <rect key="frame" x="197" y="443" width="20" height="20"/>
                     <color key="color" red="0.94509803920000002" green="0.58823529409999997" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGG-Du-9EQ" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGG-Du-9EQ" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
                     <rect key="frame" x="16" y="431" width="382" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="ffW-a6-hqL"/>
@@ -87,7 +89,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nu-tL-nlc" customClass="DropdownButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nu-tL-nlc" customClass="DropdownButton" customModule="MonitorizareVot" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="27" width="382" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="isq-vX-x0Q"/>
@@ -156,45 +158,70 @@
                         <constraint firstItem="ggj-PV-g8U" firstAttribute="top" secondItem="z12-JM-Ytq" secondAttribute="top" id="qal-Fl-Wrx"/>
                     </constraints>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCh-K5-Nfk" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
-                    <rect key="frame" x="16" y="802" width="382" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="382" id="402-Om-qYI"/>
-                        <constraint firstAttribute="height" constant="44" id="zx2-gI-8UI"/>
-                    </constraints>
-                    <state key="normal" title="Continue"/>
-                    <connections>
-                        <action selector="handleContinueAction:" destination="-1" eventType="touchUpInside" id="PkP-m9-Jvf"/>
-                    </connections>
-                </button>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Jtc-TF-aap">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oYF-uo-nty">
+                    <rect key="frame" x="16" y="769" width="382" height="93"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCh-K5-Nfk" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="382" id="402-Om-qYI"/>
+                                <constraint firstAttribute="height" constant="44" id="zx2-gI-8UI"/>
+                            </constraints>
+                            <state key="normal" title="Continue"/>
+                            <connections>
+                                <action selector="handleContinueAction:" destination="-1" eventType="touchUpInside" id="PkP-m9-Jvf"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtC-6F-tBz">
+                            <rect key="frame" x="0.0" y="49" width="382" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Ynf-os-jFu"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                            <state key="normal" title="Select from visited stations">
+                                <color key="titleColor" red="0.50588235294117645" green="0.090196078431372548" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="handleSelectFromHistoryAction:" destination="-1" eventType="touchUpInside" id="8WK-4s-Gm6"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Jtc-TF-aap">
                     <rect key="frame" x="197" y="814" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="color" red="0.94509803920000002" green="0.58823529409999997" blue="0.23137254900000001" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="ovZ-ls-IH3"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="pCh-K5-Nfk" firstAttribute="centerX" secondItem="ovZ-ls-IH3" secondAttribute="centerX" id="0VC-Gk-GUf"/>
-                <constraint firstItem="ovZ-ls-IH3" firstAttribute="trailing" secondItem="pCh-K5-Nfk" secondAttribute="trailing" priority="999" constant="16" id="7JE-cx-izQ"/>
-                <constraint firstItem="kGG-Du-9EQ" firstAttribute="trailing" secondItem="pCh-K5-Nfk" secondAttribute="trailing" id="8Oi-Xy-GFB"/>
-                <constraint firstItem="Jtc-TF-aap" firstAttribute="centerY" secondItem="pCh-K5-Nfk" secondAttribute="centerY" id="AGg-DI-gLa"/>
-                <constraint firstItem="pCh-K5-Nfk" firstAttribute="leading" secondItem="ovZ-ls-IH3" secondAttribute="leading" priority="999" constant="16" id="Hrq-S3-43l"/>
+                <constraint firstItem="ovZ-ls-IH3" firstAttribute="trailing" secondItem="oYF-uo-nty" secondAttribute="trailing" constant="16" id="Hwv-gH-eD1"/>
                 <constraint firstItem="V6h-g3-mdm" firstAttribute="centerX" secondItem="ovZ-ls-IH3" secondAttribute="centerX" id="JOl-h3-Roi"/>
-                <constraint firstItem="kGG-Du-9EQ" firstAttribute="leading" secondItem="pCh-K5-Nfk" secondAttribute="leading" id="N5J-K9-cHn"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oYF-uo-nty" secondAttribute="bottom" constant="16" id="Jy0-KN-tK4"/>
+                <constraint firstItem="oYF-uo-nty" firstAttribute="leading" secondItem="ovZ-ls-IH3" secondAttribute="leading" constant="16" id="N87-Dg-dBI"/>
                 <constraint firstItem="kGG-Du-9EQ" firstAttribute="centerY" secondItem="V6h-g3-mdm" secondAttribute="centerY" id="Psx-Ut-NZl"/>
-                <constraint firstItem="ovZ-ls-IH3" firstAttribute="bottom" secondItem="pCh-K5-Nfk" secondAttribute="bottom" priority="999" constant="16" id="RBk-Vq-de7"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pCh-K5-Nfk" secondAttribute="bottom" constant="16" id="SF3-V0-22G"/>
-                <constraint firstItem="Jtc-TF-aap" firstAttribute="centerX" secondItem="pCh-K5-Nfk" secondAttribute="centerX" id="Yw0-XY-2eM"/>
                 <constraint firstItem="ovZ-ls-IH3" firstAttribute="trailing" secondItem="z12-JM-Ytq" secondAttribute="trailing" id="bDj-25-KVR"/>
+                <constraint firstItem="ovZ-ls-IH3" firstAttribute="bottom" secondItem="oYF-uo-nty" secondAttribute="bottom" priority="990" id="fdr-gM-MWh"/>
                 <constraint firstItem="z12-JM-Ytq" firstAttribute="leading" secondItem="ovZ-ls-IH3" secondAttribute="leading" id="okP-Oz-C2d"/>
                 <constraint firstItem="ovZ-ls-IH3" firstAttribute="bottom" secondItem="z12-JM-Ytq" secondAttribute="bottom" placeholder="YES" id="uZu-2f-EBS"/>
                 <constraint firstItem="z12-JM-Ytq" firstAttribute="top" secondItem="ovZ-ls-IH3" secondAttribute="top" id="vD1-VP-5fQ"/>
                 <constraint firstItem="V6h-g3-mdm" firstAttribute="centerY" secondItem="ovZ-ls-IH3" secondAttribute="centerY" id="wes-PA-ajq"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="ovZ-ls-IH3"/>
             <point key="canvasLocation" x="139" y="153"/>
         </view>
     </objects>
+    <designables>
+        <designable name="8nu-tL-nlc">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="kGG-Du-9EQ">
+            <size key="intrinsicContentSize" width="102" height="17"/>
+        </designable>
+        <designable name="pCh-K5-Nfk">
+            <size key="intrinsicContentSize" width="61" height="17"/>
+        </designable>
+    </designables>
     <resources>
         <image name="icon-polling-station" width="42" height="56"/>
     </resources>

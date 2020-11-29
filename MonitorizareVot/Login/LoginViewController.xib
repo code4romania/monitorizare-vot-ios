@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -208,7 +208,7 @@
     </objects>
     <designables>
         <designable name="QbI-GJ-iXY">
-            <size key="intrinsicContentSize" width="44" height="34"/>
+            <size key="intrinsicContentSize" width="37" height="17"/>
         </designable>
     </designables>
     <resources>
