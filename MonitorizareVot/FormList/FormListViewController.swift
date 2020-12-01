@@ -73,6 +73,7 @@ class FormListViewController: MVViewController {
                 self.tableView.isHidden = true
                 self.syncContainer.alpha = 0
             } else {
+                self.tableView.isHidden = false
                 self.syncContainer.alpha = 1
                 self.updateInterface()
             }

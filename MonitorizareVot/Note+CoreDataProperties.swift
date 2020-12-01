@@ -17,10 +17,28 @@ extension Note {
     }
 
     @NSManaged public var body: String?
-    @NSManaged public var file: NSData?
     @NSManaged public var questionID: Int16
     @NSManaged public var synced: Bool
     @NSManaged public var sectionInfo: SectionInfo?
     @NSManaged public var date: Date?
+
+    @NSManaged public var attachments: NSOrderedSet?
+
+}
+
+// MARK: Generated accessors for attachments
+extension Note {
+
+    @objc(addAttachmentsObject:)
+    @NSManaged public func addToAttachments(_ value: NoteAttachment)
+
+    @objc(removeAttachmentsObject:)
+    @NSManaged public func removeFromAttachments(_ value: NoteAttachment)
+
+    @objc(addAttachments:)
+    @NSManaged public func addToAttachments(_ values: NSOrderedSet)
+
+    @objc(removeAttachments:)
+    @NSManaged public func removeFromAttachments(_ values: NSOrderedSet)
 
 }

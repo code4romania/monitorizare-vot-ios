@@ -95,6 +95,9 @@ class NoteViewController: MVViewController {
             self?.model.load()
             self?.historyTableView.reloadData()
         }
+        attachNoteController.onInterfaceUpdate = { [weak self] in
+            self?.historyTableView.layoutTableHeaderView()
+        }
 
     }
     
@@ -192,18 +195,19 @@ extension NoteViewController: UIImagePickerControllerDelegate, UINavigationContr
         if let image = imageData as? UIImage,
             let data = image.jpegData(compressionQuality: 0.9) {
             var filename = "attachment"
+            let ext = ".jpeg"
             if #available(iOS 11.0, *) {
                 if let url = info[.imageURL] as? URL,
                     let lastPath = url.pathComponents.last?.split(separator: "-").last {
-                    filename = lastPath.lowercased()
+                    var name = lastPath.lowercased().split(separator: ".")
+                    name.removeLast()
+                    filename = name.joined() + ext
                 }
             } else {
                 if let url = info[.referenceURL] as? URL,
                     let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
-                    let queryItems = components.queryItems,
-                    let ext = queryItems.first(where: { $0.name == "ext" }),
-                    let extValue = ext.value {
-                    filename = ("attachment." + extValue).lowercased()
+                    let queryItems = components.queryItems {
+                    filename = ("attachment" + ext).lowercased()
                 }
             }
             DebugLog("chosen image: \(filename)")

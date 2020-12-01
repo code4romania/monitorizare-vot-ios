@@ -26,7 +26,7 @@ enum ApiURL {
         case .pollingStation: uri = "/v1/polling-station"
         case .forms: uri = "/v1/form"
         case .form(let id): uri = "/v1/form/\(id)"
-        case .uploadNote: uri = "/v2/note/upload"
+        case .uploadNote: uri = "/v2/note"
         case .uploadAnswer: uri = "/v1/answers"
         case .registerToken: uri = "/v1/notification/register"
         }

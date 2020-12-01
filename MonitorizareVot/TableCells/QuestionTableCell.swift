@@ -23,6 +23,8 @@ class QuestionTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        clipsToBounds = false
+        contentView.clipsToBounds = false
         normalStateBg.backgroundColor = .cardBackground
         normalStateBg.layer.cornerRadius = 4
         selectedView.backgroundColor = .cardBackgroundSelected
