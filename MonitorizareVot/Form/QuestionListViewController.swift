@@ -56,6 +56,7 @@ class QuestionListViewController: MVViewController {
         tableView.register(UINib(nibName: "QuestionTableCell", bundle: nil), forCellReuseIdentifier: QuestionTableCell.identifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
+        view.bringSubviewToFront(headerContainer)
     }
     
     fileprivate func bindToNotifications() {
