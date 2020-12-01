@@ -158,17 +158,32 @@ class DB: NSObject {
         return notes ?? []
     }
     
-    func saveNote(withText text: String, fileAttachment: Data?, questionId: Int?) throws -> Note {
+    func saveNote(withText text: String, attachments: [NoteAttachment], questionId: Int?) throws -> Note {
         let noteEntityDescription = NSEntityDescription.entity(forEntityName: "Note", in: CoreData.context)
         let note = Note(entity: noteEntityDescription!, insertInto: CoreData.context)
         note.body = text
         note.date = Date()
         note.questionID = Int16(questionId ?? -1)
-        note.file = fileAttachment as NSData?
+        note.addToAttachments(NSOrderedSet(array: attachments))
         note.synced = false
         note.sectionInfo = currentSectionInfo()
         try CoreData.save()
         return note
+    }
+    
+    func saveNoteAttachment(withLocalFilename filename: String, data: Data) throws -> NoteAttachment {
+        let entityDescription = NSEntityDescription.entity(forEntityName: "NoteAttachment", in: CoreData.context)
+        let note = NoteAttachment(entity: entityDescription!, insertInto: CoreData.context)
+        note.data = data
+        note.localFilename = filename
+        note.pickDate = Date()
+        try CoreData.save()
+        return note
+    }
+    
+    func deleteNoteAttachment(_ attachment: NoteAttachment) {
+        CoreData.context.delete(attachment)
+        try? CoreData.save()
     }
     
     func getVisitedSections() -> [SectionInfo] {

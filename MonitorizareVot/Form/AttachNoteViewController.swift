@@ -28,10 +28,17 @@ class AttachNoteViewController: UIViewController {
     @IBOutlet weak var attachButton: AttachButton!
     @IBOutlet weak var submitButton: ActionButton!
     
+    @IBOutlet var attachmentsTableView: UITableView!
+    @IBOutlet var attachmentsTableHeight: NSLayoutConstraint!
+    
     var onAttachmentRequest: ((_ sourceView: UIView) -> Void)?
     
     /// Called back when a note was successfully saved (so you can update the interface with the latest data)
     var onNoteSaved: (() -> Void)?
+    
+    /// Called when the interface was updated. The frame might have changed  so you should
+    /// probably do a layout pass
+    var onInterfaceUpdate: (() -> Void)?
     
     // MARK: - Object
     
@@ -74,6 +81,14 @@ class AttachNoteViewController: UIViewController {
         textView.textContainerInset = UIEdgeInsets(top: 13, left: 10, bottom: 13, right: 10)
         textView.contentOffset = .zero
         textView.textColor = .defaultText
+        
+        
+        attachmentsTableView.register(
+            UINib(
+                nibName: "NoteAttachmentTableCell",
+                bundle: nil),
+            forCellReuseIdentifier: NoteAttachmentTableCell.reuseIdentifier
+        )
     }
     
     fileprivate func localize() {
@@ -96,17 +111,29 @@ class AttachNoteViewController: UIViewController {
         statusIcon.isHidden = !model.isSaved
         statusIcon.image = model.isSynced ? #imageLiteral(resourceName: "icon-check") : #imageLiteral(resourceName: "icon-check-greyed")
         textViewPlaceHolder.isHidden = model.text.count > 0
-        attachmentStackView.isHidden = model.attachment == nil
-        filenameLabel.text = model.attachment?.filename
+        
         if !textView.isFirstResponder {
             textView.text = model.text
         }
+        
+        attachmentsTableView.reloadData()
+        attachmentsTableHeight.constant = attachmentsTableView.contentSize.height
+        view.layoutIfNeeded()
+        
+        onInterfaceUpdate?()
     }
     
     // MARK: - Actions
     
     func handleMediaSelection(filename: String, data: Data) {
-        model.attachment = NoteAttachment(filename: filename, data: data)
+        do {
+            try model.addAttachment(filename: filename, data: data)
+        } catch {
+            // TODO: localize error
+            let alert = UIAlertController.error(withMessage: error.localizedDescription)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         updateInterface()
         view.layoutIfNeeded()
     }
@@ -136,6 +163,28 @@ class AttachNoteViewController: UIViewController {
     
 }
 
+extension AttachNoteViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.attachments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: NoteAttachmentTableCell.reuseIdentifier, for: indexPath) as! NoteAttachmentTableCell
+        let attachment = model.attachments[indexPath.row]
+        cell.update(with: attachment)
+        cell.onDelete = { [weak self] in
+            guard let self = self else { return }
+            self.model.removeAttachment(at: indexPath.row)
+            self.updateInterface()
+        }
+        return cell
+    }
+}
 
 extension AttachNoteViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -145,4 +194,8 @@ extension AttachNoteViewController: UITextViewDelegate {
     }
 }
 
-
+extension NoteAttachmentTableCell {
+    func update(with model: NoteAttachmentViewModel) {
+        nameLabel.text = model.filename
+    }
+}

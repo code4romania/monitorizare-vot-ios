@@ -227,7 +227,8 @@ class APIManager: NSObject, APIManagerType {
     func upload(note: UploadNoteRequest, then callback: @escaping (APIError?) -> Void) {
         let url = ApiURL.uploadNote.url()
         let auth = authorizationHeaders()
-        let headers = requestHeaders(withAuthHeaders: auth)
+        let headers = auth
+//        headers["Content-Type"] = "multipart/form-data"
 
         var parameters: [String: String] = [
             "CountyCode": note.countyCode,
@@ -238,20 +239,24 @@ class APIManager: NSObject, APIManagerType {
             parameters["QuestionId"] = String(questionId)
         }
 
-        let threshold = SessionManager.multipartFormDataEncodingMemoryThreshold
+        let threshold = UInt64(0) //SessionManager.multipartFormDataEncodingMemoryThreshold
         
         Alamofire
             .upload(multipartFormData: { (multipart) in
+                for attachment in note.attachments {
+                    guard let data = attachment.data else { continue }
+                    let filename = attachment.localFilename ?? "filename"
+                    let mimeType = filename.mimeType()
+                    multipart.append(data, withName: "Files", fileName: filename, mimeType: mimeType)
+                }
                 for (key, param) in parameters {
                     multipart.append(param.data(using: String.Encoding.utf8)!, withName: key)
-                }
-                if let imageData = note.imageData {
-                    multipart.append(imageData, withName: "file", fileName: "newImage.jpg", mimeType: "image/jpeg")
                 }
             }, usingThreshold: threshold, to: url, method: .post, headers: headers, encodingCompletion: { result in
                 switch result {
                 case .success(request: let request, streamingFromDisk: _, streamFileURL: _):
                     request.response { response in
+//                        print(" data = \(String(data: response.data ?? Data(), encoding: .utf8) ?? "no data")")     // server data
                         if response.response?.statusCode == 200 {
                             callback(nil)
                         } else if response.response?.statusCode == 401 {

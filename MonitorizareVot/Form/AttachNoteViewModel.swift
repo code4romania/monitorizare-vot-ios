@@ -20,10 +20,9 @@ enum AttachNoteError: Error {
     }
 }
 
-/// Any attachment that was added to this note
-struct NoteAttachment {
+///// Any attachment that was added to this note
+struct NoteAttachmentViewModel {
     var filename: String
-    var data: Data
 }
 
 class AttachNoteViewModel: NSObject {
@@ -34,10 +33,11 @@ class AttachNoteViewModel: NSObject {
             onUpdate?()
         }
     }
-    var attachment: NoteAttachment? {
-        didSet {
-            onUpdate?()
-        }
+    
+    private var savedAttachments: [NoteAttachment] = []
+    
+    var attachments: [NoteAttachmentViewModel] {
+        savedAttachments.map { NoteAttachmentViewModel(filename: $0.localFilename ?? "File") }
     }
     
     /// This is only present if the note has been saved or already exists
@@ -78,14 +78,28 @@ class AttachNoteViewModel: NSObject {
     
     fileprivate func reset() {
         text = ""
-        attachment = nil
+        savedAttachments = []
+    }
+    
+    func addAttachment(filename: String, data: Data) throws {
+        let attachment = try DB.shared.saveNoteAttachment(
+            withLocalFilename: filename, data: data
+        )
+        savedAttachments.append(attachment)
+    }
+    
+    func removeAttachment(at index: Int)  {
+        let attachment = savedAttachments[index]
+        DB.shared.deleteNoteAttachment(attachment)
+        savedAttachments.remove(at: index)
     }
     
     func saveAndUpload(then callback: @escaping (AttachNoteError?) -> Void) {
         isSaving = true
         
         do {
-            let note = try DB.shared.saveNote(withText: text, fileAttachment: attachment?.data, questionId: questionId)
+            // TODO: account for multiple attachments
+            let note = try DB.shared.saveNote(withText: text, attachments: savedAttachments, questionId: questionId)
             self.savedNote = note
             onUpdate?()
             DebugLog("Saved note locally")
@@ -97,16 +111,16 @@ class AttachNoteViewModel: NSObject {
         
         let pollingStation = DB.shared.currentSectionInfo()!
         let request = UploadNoteRequest(
-            imageData: attachment?.data,
             questionId: questionId,
             countyCode: pollingStation.countyCode ?? "",
             pollingStationId: Int(pollingStation.sectionId),
-            text: text)
+            text: text,
+            attachments: savedAttachments)
         
         if let questionId = questionId {
-            MVAnalytics.shared.log(event: .addNoteForQuestion(questionId: questionId, hasAttachment: attachment != nil))
+            MVAnalytics.shared.log(event: .addNoteForQuestion(questionId: questionId, hasAttachment: attachments.count > 0))
         } else {
-            MVAnalytics.shared.log(event: .addNote(hasAttachment: attachment != nil))
+            MVAnalytics.shared.log(event: .addNote(hasAttachment: attachments.count > 0))
         }
         
         APIManager.shared.upload(note: request) { apiError in

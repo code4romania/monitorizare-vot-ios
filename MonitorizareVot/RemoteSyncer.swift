@@ -115,27 +115,28 @@ class RemoteSyncer: NSObject {
         for note in notes {
             let station = note.sectionInfo
             // TODO: we should guard against nil section info, the request will fail anyway
-            let uploadRequest = UploadNoteRequest(
-                imageData: note.file as Data?,
-                questionId: note.questionID != -1 ? Int(note.questionID) : nil,
-                countyCode: station?.countyCode ?? "",
-                pollingStationId: Int(station?.sectionId ?? 0),
-                text: note.body ?? "")
-            group.enter()
-            APIManager.shared.upload(note: uploadRequest) { error in
-                if let error = error {
-                    errors.append(.noteError(reason: error))
-                    DebugLog("Failed to uploaded note: \(error.localizedDescription)")
-                } else {
-                    DebugLog("Uploaded note")
-                    
-                    // also mark it as synced
-                    note.synced = true
-                    try? CoreData.save()
-                }
-                
-                group.leave()
-            }
+            // TODO: acccount for multiple attachments
+//            let uploadRequest = UploadNoteRequest(
+//                imageData: note.file as Data?,
+//                questionId: note.questionID != -1 ? Int(note.questionID) : nil,
+//                countyCode: station?.countyCode ?? "",
+//                pollingStationId: Int(station?.sectionId ?? 0),
+//                text: note.body ?? "")
+//            group.enter()
+//            APIManager.shared.upload(note: uploadRequest) { error in
+//                if let error = error {
+//                    errors.append(.noteError(reason: error))
+//                    DebugLog("Failed to uploaded note: \(error.localizedDescription)")
+//                } else {
+//                    DebugLog("Uploaded note")
+//                    
+//                    // also mark it as synced
+//                    note.synced = true
+//                    try? CoreData.save()
+//                }
+//                
+//                group.leave()
+//            }
         }
         
         group.notify(queue: .main) {

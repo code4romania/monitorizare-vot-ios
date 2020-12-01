@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G103" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Answer" representedClassName="Answer" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="inputAvailable" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -11,10 +11,16 @@
     <entity name="Note" representedClassName="Note" versionHashModifier="1" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="file" optional="YES" attributeType="Binary"/>
         <attribute name="questionID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="synced" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="attachments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="NoteAttachment" inverseName="parentNote" inverseEntity="NoteAttachment"/>
         <relationship name="sectionInfo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SectionInfo" inverseName="notes" inverseEntity="SectionInfo"/>
+    </entity>
+    <entity name="NoteAttachment" representedClassName="NoteAttachment" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Binary"/>
+        <attribute name="localFilename" optional="YES" attributeType="String"/>
+        <attribute name="pickDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="parentNote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="attachments" inverseEntity="Note"/>
     </entity>
     <entity name="Question" representedClassName="Question" syncable="YES">
         <attribute name="answered" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -44,5 +50,6 @@
         <element name="Note" positionX="198" positionY="288" width="128" height="133"/>
         <element name="Question" positionX="178" positionY="447" width="128" height="193"/>
         <element name="SectionInfo" positionX="-11" positionY="252" width="128" height="178"/>
+        <element name="NoteAttachment" positionX="180" positionY="405" width="128" height="103"/>
     </elements>
 </model>

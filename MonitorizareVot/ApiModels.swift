@@ -36,12 +36,14 @@ struct UpdatePollingStationRequest: Codable {
     }
 }
 
-struct UploadNoteRequest: Codable {
-    var imageData: Data?
+/// will not be encoded, but used to extract the data and add it as multipart to the request
+struct UploadNoteRequest {
     var questionId: Int?
     var countyCode: String
     var pollingStationId: Int?
     var text: String
+
+    var attachments: [NoteAttachment]
 }
 
 struct UploadAnswersRequest: Codable {
