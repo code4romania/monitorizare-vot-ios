@@ -8,7 +8,7 @@
         <attribute name="text" optional="YES" attributeType="String"/>
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answers" inverseEntity="Question"/>
     </entity>
-    <entity name="Note" representedClassName="Note" versionHashModifier="1" syncable="YES">
+    <entity name="Note" representedClassName="Note" versionHashModifier="2" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="file" optional="YES" attributeType="Binary"/>

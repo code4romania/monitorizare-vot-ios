@@ -44,7 +44,8 @@ final class CoreData: NSObject {
         let url = applicationDocumentsDirectory.appendingPathComponent(containerName! + ".sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
-            let options = [ NSMigratePersistentStoresAutomaticallyOption: true ]
+            let options = [ NSMigratePersistentStoresAutomaticallyOption: true,
+                            NSInferMappingModelAutomaticallyOption: true]
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
         } catch {
             var dict = [String: AnyObject]()
