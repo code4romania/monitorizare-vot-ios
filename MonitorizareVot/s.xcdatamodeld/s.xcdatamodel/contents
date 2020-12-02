@@ -8,7 +8,7 @@
         <attribute name="text" optional="YES" attributeType="String"/>
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answers" inverseEntity="Question"/>
     </entity>
-    <entity name="Note" representedClassName="Note" versionHashModifier="1" syncable="YES">
+    <entity name="Note" representedClassName="Note" versionHashModifier="2" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="questionID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -48,8 +48,8 @@
     <elements>
         <element name="Answer" positionX="376" positionY="459" width="128" height="133"/>
         <element name="Note" positionX="198" positionY="288" width="128" height="133"/>
+        <element name="NoteAttachment" positionX="180" positionY="405" width="128" height="103"/>
         <element name="Question" positionX="178" positionY="447" width="128" height="193"/>
         <element name="SectionInfo" positionX="-11" positionY="252" width="128" height="178"/>
-        <element name="NoteAttachment" positionX="180" positionY="405" width="128" height="103"/>
     </elements>
 </model>
