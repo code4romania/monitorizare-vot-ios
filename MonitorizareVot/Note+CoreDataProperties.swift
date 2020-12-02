@@ -18,6 +18,7 @@ extension Note {
 
     @NSManaged public var body: String?
     @NSManaged public var questionID: Int16
+    @NSManaged public var file: NSData?
     @NSManaged public var synced: Bool
     @NSManaged public var sectionInfo: SectionInfo?
     @NSManaged public var date: Date?
