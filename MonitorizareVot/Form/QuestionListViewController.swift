@@ -35,13 +35,13 @@ class QuestionListViewController: MVViewController {
         super.viewDidLoad()
         title = model.title
         configureTableView()
-//        addContactDetailsToNavBar()
         MVAnalytics.shared.log(event: .viewForm(code: model.formCode))
         bindToNotifications()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        model.refresh()
         updateInterface()
     }
     
@@ -90,7 +90,8 @@ class QuestionListViewController: MVViewController {
     }
 
     @objc func handleQuestionSaved(_ notification: Notification) {
-        tableView.reloadData()
+        model.refresh()
+        updateInterface()
     }
 }
 

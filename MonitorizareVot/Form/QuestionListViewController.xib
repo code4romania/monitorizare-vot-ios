@@ -37,7 +37,7 @@
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="lKx-tB-IML"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.96470588235294119" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="pdi-he-7Op" firstAttribute="top" secondItem="qro-GP-O0x" secondAttribute="bottom" id="Hcf-9N-l1c"/>
                 <constraint firstItem="lKx-tB-IML" firstAttribute="trailing" secondItem="pdi-he-7Op" secondAttribute="trailing" id="I5v-DO-Uan"/>
