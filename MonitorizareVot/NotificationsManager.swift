@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseMessaging
 
 
 class NotificationsManager: NSObject {

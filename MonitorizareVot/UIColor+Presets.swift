@@ -10,7 +10,7 @@ extension UIColor {
     
     // Important: We need to make these checks until we have the minimum deployment set to iOS 11
 
-    static var appBackground = UIColor(hexCode: 0xFAFAFA)
+    static var appBackground = UIColor(hexCode: 0xF6F5F5)
     static var headerBackground = UIColor(hexCode: 0xFFFFFF)
     static var defaultText = UIColor(hexCode: 0x333E48)
     static var bottomNoticeBackground = UIColor(hexCode: 0xEAEAEA)

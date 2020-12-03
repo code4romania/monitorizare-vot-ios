@@ -34,11 +34,11 @@ class FormSetTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        clipsToBounds = false
-        contentView.clipsToBounds = false
-        outerCardContainer.layer.shadowColor = UIColor.cardShadow.cgColor
-        outerCardContainer.layer.shadowRadius = Configuration.shadowRadius
-        outerCardContainer.layer.shadowOpacity = Configuration.shadowOpacity
+//        clipsToBounds = false
+//        contentView.clipsToBounds = false
+//        outerCardContainer.layer.shadowColor = UIColor.cardShadow.cgColor
+//        outerCardContainer.layer.shadowRadius = Configuration.shadowRadius
+//        outerCardContainer.layer.shadowOpacity = Configuration.shadowOpacity
         selectedBackgroundView = UIView(frame: .zero)
         selectedBackgroundView?.backgroundColor = .clear
     }

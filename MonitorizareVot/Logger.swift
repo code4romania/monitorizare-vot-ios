@@ -1,7 +1,7 @@
 //  Created by Code4Romania
 
 import Foundation
-import Firebase
+import FirebaseCrashlytics
 
 func DebugLog(_ message: String, file: StaticString = #file, function: StaticString = #function, line: Int = #line) {
     let filename = URL(fileURLWithPath: file.description).lastPathComponent

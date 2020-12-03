@@ -34,6 +34,7 @@ protocol LocalStorageType: NSObject {
     func loadForm(withId formId: Int) -> [FormSectionResponse]?
     func saveForm(_ form: [FormSectionResponse], withId formId: Int)
     
+    func deleteAllData()
 }
 
 /// This class is used as an entry point for storing data that is overwritten from server.
@@ -88,6 +89,17 @@ class LocalStorage: NSObject, LocalStorageType {
         return counties.filter { $0.code == code }.first
     }
 
+    /// Call this to delete all local data. This can be useful on db clear for example
+    func deleteAllData() {
+        let url = URL(fileURLWithPath: containerDirectory)
+        do {
+            try FileManager.default.removeItem(at: url)
+            DebugLog("Deleted all local app data.")
+        } catch {
+            DebugLog("Error: could not delete app data: \(error.localizedDescription)")
+        }
+    }
+    
     // MARK: - Internal
     
     fileprivate override init() {
@@ -96,7 +108,40 @@ class LocalStorage: NSObject, LocalStorageType {
     
     fileprivate var containerDirectory: String {
         let paths = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
-        return paths.first!
+        let path = paths.first!.appending("/app_data")
+        return path
+    }
+    
+    private func ensureContainerDirectoryExists() -> Bool {
+        let fm = FileManager.default
+        var isDirectory: ObjCBool = ObjCBool(false)
+        var shouldCreateDirectory = false
+        if fm.fileExists(atPath: containerDirectory, isDirectory: &isDirectory) {
+            if isDirectory.boolValue {
+                return true
+            } else {
+                deleteAllData()
+                shouldCreateDirectory = true
+            }
+        } else {
+            shouldCreateDirectory = true
+        }
+        
+        if shouldCreateDirectory {
+            do {
+                try fm.createDirectory(
+                    atPath: containerDirectory,
+                    withIntermediateDirectories: false,
+                    attributes: nil
+                )
+                DebugLog("Created local app data directory at \(containerDirectory)")
+            } catch {
+                DebugLog("Error: Could not create app data directory: \(error.localizedDescription)")
+                return false
+            }
+        }
+        
+        return true
     }
 
     fileprivate func load<T>(type: T.Type, withFilename filename: LocalFilename) -> T? where T: Decodable {
@@ -112,6 +157,7 @@ class LocalStorage: NSObject, LocalStorageType {
     }
     
     fileprivate func save<T>(codable: T, withFilename filename: LocalFilename) where T: Encodable {
+        guard ensureContainerDirectoryExists() else { return }
         let fileUrl = URL(fileURLWithPath: containerDirectory).appendingPathComponent(filename.fullName)
         do {
             let data = try JSONEncoder().encode(codable)
@@ -122,6 +168,7 @@ class LocalStorage: NSObject, LocalStorageType {
     }
     
     fileprivate func delete(fileWithName filename: LocalFilename) {
+        guard ensureContainerDirectoryExists() else { return }
         let fileUrl = URL(fileURLWithPath: containerDirectory).appendingPathComponent(filename.fullName)
         do {
             try FileManager.default.removeItem(at: fileUrl)

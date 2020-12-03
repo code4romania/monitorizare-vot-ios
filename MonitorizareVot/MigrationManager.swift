@@ -33,6 +33,7 @@ class MigrationManager: NSObject {
                 let specifiedDate = Date(timeIntervalSince1970: specified)
                 DebugLog("Clearing existing database. The round started on \(specifiedDate), last reset happened on \(lastReset?.description ?? "--").")
                 CoreData.clearDatabase()
+                LocalStorage.shared.deleteAllData()
                 PreferencesManager.shared.lastDatabaseResetTimestamp = Date().timeIntervalSince1970
             } else {
                 DebugLog("No database reset necessary. Last reset happened on \(lastReset?.description ?? "--")")

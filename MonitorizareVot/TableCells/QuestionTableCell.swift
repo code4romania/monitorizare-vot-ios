@@ -23,15 +23,16 @@ class QuestionTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        clipsToBounds = false
-        contentView.clipsToBounds = false
+//        clipsToBounds = false
+//        contentView.clipsToBounds = false
         normalStateBg.backgroundColor = .cardBackground
         normalStateBg.layer.cornerRadius = 4
         selectedView.backgroundColor = .cardBackgroundSelected
         selectedView.layer.cornerRadius = 4
-        container.layer.shadowColor = UIColor.cardShadow.cgColor
-        container.layer.shadowRadius = Configuration.shadowRadius
-        container.layer.shadowOpacity = Configuration.shadowOpacity
+//        container.layer.shadowColor = UIColor.cardShadow.cgColor
+//        container.layer.shadowRadius = Configuration.shadowRadius
+//        container.layer.shadowOpacity = Configuration.shadowOpacity
+//        container.layer.shadowOffset = .zero
         selectedBackgroundView = UIView(frame: .zero)
         selectedBackgroundView?.backgroundColor = .clear
     }

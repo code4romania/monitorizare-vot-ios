@@ -28,6 +28,7 @@ enum MVAnalyticsEvent {
     case tapContact
     case tapGuide
     case tapSafetyGuide
+    case tapFeedback
     case internetDown
     case tapChangeStation(fromScreen: String)
     case tapStationHistory(fromScreen: String)
@@ -54,6 +55,7 @@ enum MVAnalyticsEvent {
         case .addNoteForQuestion:   return "note_question_add"
         case .tapCall:              return "tap_call"
         case .tapGuide:             return "tap_guide"
+        case .tapFeedback:          return "tap_feedback"
         case .tapSafetyGuide:       return "tap_safety_guide"
         case .internetDown:         return "internet_down"
         case .tapChangeStation:     return "tap_change_station"

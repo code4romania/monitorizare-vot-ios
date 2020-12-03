@@ -20,6 +20,7 @@ struct QuestionCellModel {
 class QuestionListViewModel: NSObject {
     fileprivate var form: FormResponse
     fileprivate var sections: [FormSectionResponse]
+    private var answersBySection: [[QuestionCellModel]] = []
     
     var title: String {
         return form.description
@@ -41,7 +42,18 @@ class QuestionListViewModel: NSObject {
         super.init()
     }
     
+    func refresh() {
+        answersBySection.removeAll()
+        for section in 0..<sections.count {
+            answersBySection.append(fetchQuestions(inSection: section))
+        }
+    }
+
     func questions(inSection section: Int) -> [QuestionCellModel] {
+        return answersBySection[section]
+    }
+    
+    func fetchQuestions(inSection section: Int) -> [QuestionCellModel] {
         guard sections.count > section else { return [] }
         guard let sectionInfo = DB.shared.currentSectionInfo() else { return [] }
         

@@ -19,6 +19,7 @@ class MenuViewController: MVViewController {
     @IBOutlet private var stationHistoryButton: UIButton!
     @IBOutlet private var guideButton: UIButton!
     @IBOutlet private var safetyGuideButton: UIButton!
+    @IBOutlet private var feedbackButton: UIButton!
     @IBOutlet private var callButton: UIButton!
     @IBOutlet private var aboutButton: UIButton!
     @IBOutlet private var logoutButton: UIButton!
@@ -27,6 +28,26 @@ class MenuViewController: MVViewController {
         DB.shared.getVisitedSections().count > 0
     }
     
+    var safetyGuideUrl: URL? {
+        if let urlString = RemoteConfigManager.shared.value(of: .safetyGuideUrl).stringValue,
+           !urlString.isEmpty {
+            return URL(string: urlString)
+        }
+        return nil
+    }
+    
+    var shouldShowSafetyGuide: Bool { safetyGuideUrl != nil }
+    
+    var observerFeedbackUrl: URL? {
+        if let urlString = RemoteConfigManager.shared.value(of: .observerFeedbackUrl).stringValue,
+           !urlString.isEmpty {
+            return URL(string: urlString)
+        }
+        return nil
+    }
+    
+    var shouldShowObserverFeedback: Bool { observerFeedbackUrl != nil }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -34,10 +55,10 @@ class MenuViewController: MVViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateInterface()
+        view.backgroundColor = .white
     }
     
     private func updateInterface() {
-//        titleLabel.text = presentingViewController?.title ?? "Menu"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Menu.Button.Close".localized, style: .done,
             target: self, action: #selector(handleCloseButtonTap))
@@ -50,6 +71,9 @@ class MenuViewController: MVViewController {
         stationHistoryButton.isHidden = !hasVisitedAnyStations
         guideButton.setTitle("Menu.Button.Guide".localized, for: .normal)
         safetyGuideButton.setTitle("Menu.Button.Safety".localized, for: .normal)
+        safetyGuideButton.isHidden = !shouldShowSafetyGuide
+        feedbackButton.setTitle("Menu.Button.Feedback".localized, for: .normal)
+        feedbackButton.isHidden = !shouldShowObserverFeedback
         callButton.setTitle("Menu.Button.Call".localized, for: .normal)
         aboutButton.setTitle("Menu.Button.About".localized, for: .normal)
         logoutButton.setTitle("Menu.Button.Logout".localized, for: .normal)
@@ -69,6 +93,8 @@ class MenuViewController: MVViewController {
             presentGuideViewController()
         case safetyGuideButton:
             presentSafetyGuideViewController()
+        case feedbackButton:
+            presentObserverFeedbackViewController()
         case callButton:
             performCall()
         case aboutButton:
@@ -100,12 +126,22 @@ class MenuViewController: MVViewController {
     
     @objc func presentSafetyGuideViewController() {
         MVAnalytics.shared.log(event: .tapSafetyGuide)
-        if let urlString = RemoteConfigManager.shared.value(of: .safetyGuideUrl).stringValue,
-            let url = URL(string: urlString) {
+        if let url = safetyGuideUrl {
             let safariViewController = SFSafariViewController(url: url)
             self.present(safariViewController, animated: true, completion: nil)
         } else {
             let error = UIAlertController.error(withMessage: "Safety guide not available right now")
+            present(error, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func presentObserverFeedbackViewController() {
+        MVAnalytics.shared.log(event: .tapFeedback)
+        if let url = observerFeedbackUrl {
+            let safariViewController = SFSafariViewController(url: url)
+            self.present(safariViewController, animated: true, completion: nil)
+        } else {
+            let error = UIAlertController.error(withMessage: "Observer Feedback not available right now")
             present(error, animated: true, completion: nil)
         }
     }

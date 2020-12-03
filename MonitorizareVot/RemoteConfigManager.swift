@@ -18,6 +18,7 @@ enum RemoteConfigKey: String, CaseIterable {
     case callCenterPhone = "call_center_phone"
     case observerGuideUrl = "observer_guide_url"
     case safetyGuideUrl = "safety_guide_url"
+    case observerFeedbackUrl = "observer_feedback_url"
     case contactEmail = "contact_email"
     case roundStartTime = "round_start_time"
 
@@ -30,6 +31,7 @@ enum RemoteConfigKey: String, CaseIterable {
         case .callCenterPhone: return "0800080200"
         case .observerGuideUrl: return "https://fiecarevot.ro/wp-content/uploads/2019/11/Manual-prezidentiale.pdf"
         case .safetyGuideUrl: return ""
+        case .observerFeedbackUrl: return ""
         case .contactEmail: return "contact@code4.ro"
         case .roundStartTime: return ""
         }
