@@ -77,7 +77,7 @@ class DropdownButton: UIButton {
         tintColor = .clear
         
         layer.masksToBounds = true
-        layer.cornerRadius = Configuration.buttonCornerRadius
+        layer.cornerRadius = UIConfiguration.buttonCornerRadius
         layer.borderWidth = 1
         layer.borderColor = UIColor.textViewContainerBorder.cgColor
     }

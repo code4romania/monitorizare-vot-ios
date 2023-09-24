@@ -33,7 +33,7 @@ class ActionButton: UIButton {
         tintColor = .clear
         
         layer.masksToBounds = true
-        layer.cornerRadius = Configuration.buttonCornerRadius
+        layer.cornerRadius = UIConfiguration.buttonCornerRadius
     
         titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
     }
