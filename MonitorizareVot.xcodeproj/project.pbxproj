@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		271595B521465EBA00BECC9C /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271595B421465EBA00BECC9C /* String+Localization.swift */; };
 		27EDBD2221465D190060DB8A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EDBD2421465D190060DB8A /* Localizable.strings */; };
+		280AA6152AC08F94007598BB /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280AA6142AC08F94007598BB /* Reachability.swift */; };
 		28104130236B5CA500B7422C /* AttachNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2810412E236B5CA500B7422C /* AttachNoteViewController.swift */; };
 		28104131236B5CA500B7422C /* AttachNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2810412F236B5CA500B7422C /* AttachNoteViewController.xib */; };
 		28104133236B5CB400B7422C /* AttachNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28104132236B5CB400B7422C /* AttachNoteViewModel.swift */; };
@@ -162,6 +163,7 @@
 		271595B421465EBA00BECC9C /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		27EDBD2621465D290060DB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		27EDBD2821465D480060DB8A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		280AA6142AC08F94007598BB /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2810412E236B5CA500B7422C /* AttachNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachNoteViewController.swift; sourceTree = "<group>"; };
 		2810412F236B5CA500B7422C /* AttachNoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttachNoteViewController.xib; sourceTree = "<group>"; };
 		28104132236B5CB400B7422C /* AttachNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachNoteViewModel.swift; sourceTree = "<group>"; };
@@ -603,6 +605,7 @@
 				28DBDAA5236F33CD004EAD83 /* MVAnalytics.swift */,
 				2879CA362381BA5E00CE4DC7 /* AppRouter.swift */,
 				2859C2D72562B3BC0049259A /* MigrationManager.swift */,
+				280AA6142AC08F94007598BB /* Reachability.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -794,7 +797,6 @@
 				EF4BD3991D9D08DE0042BEC7 /* Sources */,
 				EF4BD39A1D9D08DE0042BEC7 /* Frameworks */,
 				EF4BD39B1D9D08DE0042BEC7 /* Resources */,
-				DB3ECF7275E17AEDF1D2EFE7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -837,22 +839,22 @@
 				TargetAttributes = {
 					EF4BD3801D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 442AHZGZ2T;
+						DevelopmentTeam = "\"\"";
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					EF4BD39C1D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 442AHZGZ2T;
+						DevelopmentTeam = "\"\"";
 						LastSwiftMigration = 1100;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = EF4BD3801D9D08DE0042BEC7;
 					};
 					EF4BD3A71D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = P2EQL76LN6;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = EF4BD3801D9D08DE0042BEC7;
 					};
 				};
@@ -985,12 +987,20 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseABTesting/FirebaseABTesting.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreExtension/FirebaseCoreExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreInternal/FirebaseCoreInternal.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCrashlytics/FirebaseCrashlytics.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseMessaging/FirebaseMessaging.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseRemoteConfig/FirebaseRemoteConfig.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseSessions/FirebaseSessions.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Keyboard+LayoutGuide/KeyboardLayoutGuide.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyMarkdown/SwiftyMarkdown.framework",
@@ -999,12 +1009,20 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseABTesting.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreInternal.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCrashlytics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseMessaging.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseRemoteConfig.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseSessions.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyboardLayoutGuide.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyMarkdown.framework",
@@ -1013,26 +1031,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DB3ECF7275E17AEDF1D2EFE7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E0BFE4299848365AAD3B668F /* [CP] Check Pods Manifest.lock */ = {
@@ -1134,6 +1132,7 @@
 				2817EA1C2358F2140029AD4C /* PreferencesManager.swift in Sources */,
 				F553E3BB1DF9D67A000D0902 /* Question+CoreDataClass.swift in Sources */,
 				281A4B82236CBD30001AD277 /* SectionPickerViewController.swift in Sources */,
+				280AA6152AC08F94007598BB /* Reachability.swift in Sources */,
 				28104140236C3A4900B7422C /* Formatters.swift in Sources */,
 				281A4B87236CC625001AD277 /* DropdownButton.swift in Sources */,
 				28E72458233F58100096454D /* SectionDetailsViewModel.swift in Sources */,
@@ -1295,7 +1294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1349,7 +1348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1368,7 +1367,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 17;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.4.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1388,7 +1386,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 17;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.4.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";

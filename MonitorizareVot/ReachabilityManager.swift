@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Reachability
 
 class ReachabilityManager: NSObject {
     static let shared = ReachabilityManager()

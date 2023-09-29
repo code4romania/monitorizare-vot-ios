@@ -47,10 +47,10 @@ class GenericPickerViewController: UIViewController {
         container.backgroundColor = .navigationBarBackground
         container.tintColor = .navigationBarTint
         container.layer.shadowColor = UIColor.cardDarkerShadow.cgColor
-        container.layer.shadowRadius = Configuration.shadowRadius
+        container.layer.shadowRadius = UIConfiguration.shadowRadius
         container.layer.shadowOffset = .zero
-        container.layer.shadowOpacity = Configuration.shadowOpacity
-        container.layer.cornerRadius = Configuration.buttonCornerRadius
+        container.layer.shadowOpacity = UIConfiguration.shadowOpacity
+        container.layer.cornerRadius = UIConfiguration.buttonCornerRadius
     }
     
     fileprivate func configureTexts() {

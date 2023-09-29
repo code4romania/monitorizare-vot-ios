@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Configuration {
+enum UIConfiguration {
     static let buttonCornerRadius: CGFloat = 4
     static let shadowRadius: CGFloat = 4
     static let shadowOpacity: Float = 0.2

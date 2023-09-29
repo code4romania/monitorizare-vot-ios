@@ -151,9 +151,13 @@ extension NotificationsManager: UNUserNotificationCenterDelegate {
 
 extension NotificationsManager: MessagingDelegate {
   // [START refresh_token]
-  func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        DebugLog("Firebase registration token: \(fcmToken)")
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        guard let fcmToken else {
+            DebugLog("No token received.")
+            return
+        }
     
+        DebugLog("Firebase registration token: \(fcmToken)")
         let dataDict:[String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         
@@ -163,11 +167,4 @@ extension NotificationsManager: MessagingDelegate {
   }
   
     // [END refresh_token]
-  // [START ios_10_data_message]
-  // Receive data messages on iOS 10+ directly from FCM (bypassing APNs) when the app is in the foreground.
-  // To enable direct data messages, you can set Messaging.messaging().shouldEstablishDirectChannel to true.
-  func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        DebugLog("Received data message: \(remoteMessage.appData)")
-  }
-  // [END ios_10_data_message]
 }

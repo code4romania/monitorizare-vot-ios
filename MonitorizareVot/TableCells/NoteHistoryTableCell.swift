@@ -26,9 +26,9 @@ class NoteHistoryTableCell: UITableViewCell {
         outerContainer.backgroundColor = .clear
         outerContainer.layer.shadowColor = UIColor.cardShadow.cgColor
         outerContainer.layer.shadowOffset = .zero
-        outerContainer.layer.shadowRadius = Configuration.shadowRadius
-        outerContainer.layer.shadowOpacity = Configuration.shadowOpacity
-        cardContainer.layer.cornerRadius = Configuration.buttonCornerRadius
+        outerContainer.layer.shadowRadius = UIConfiguration.shadowRadius
+        outerContainer.layer.shadowOpacity = UIConfiguration.shadowOpacity
+        cardContainer.layer.cornerRadius = UIConfiguration.buttonCornerRadius
         cardContainer.layer.masksToBounds = true
         detailsLabel.textColor = .defaultText
         dateLabel.textColor = .defaultText

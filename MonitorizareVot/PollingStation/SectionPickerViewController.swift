@@ -59,7 +59,7 @@ class SectionPickerViewController: MVViewController {
     
     fileprivate func configureSubviews() {
         stationTextContainer.layer.masksToBounds = true
-        stationTextContainer.layer.cornerRadius = Configuration.buttonCornerRadius
+        stationTextContainer.layer.cornerRadius = UIConfiguration.buttonCornerRadius
         stationTextContainer.layer.borderWidth = 1
         stationTextContainer.layer.borderColor = UIColor.chooserButtonBorder.cgColor
         stationTextField.textColor = .defaultText

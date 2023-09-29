@@ -69,15 +69,15 @@ class AttachNoteViewController: UIViewController {
     
     fileprivate func configureAppearance() {
         cardContainer.layer.masksToBounds = true
-        cardContainer.layer.cornerRadius = Configuration.buttonCornerRadius
+        cardContainer.layer.cornerRadius = UIConfiguration.buttonCornerRadius
         outerContainer.layer.shadowColor = UIColor.cardDarkerShadow.cgColor
         outerContainer.layer.shadowOffset = .zero
-        outerContainer.layer.shadowRadius = Configuration.shadowRadius
-        outerContainer.layer.shadowOpacity = Configuration.shadowOpacity
+        outerContainer.layer.shadowRadius = UIConfiguration.shadowRadius
+        outerContainer.layer.shadowOpacity = UIConfiguration.shadowOpacity
         titleLabel.textColor = .defaultText
         textViewContainer.layer.borderWidth = 1
         textViewContainer.layer.borderColor = UIColor.textViewContainerBorder.cgColor
-        textViewContainer.layer.cornerRadius = Configuration.buttonCornerRadius
+        textViewContainer.layer.cornerRadius = UIConfiguration.buttonCornerRadius
         textView.textContainerInset = UIEdgeInsets(top: 13, left: 10, bottom: 13, right: 10)
         textView.contentOffset = .zero
         textView.textColor = .defaultText

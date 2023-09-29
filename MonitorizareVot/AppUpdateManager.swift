@@ -70,8 +70,8 @@ class AppUpdateManager: NSObject {
             fatalError("Invalid check url: \(urlString)")
         }
         
-        Alamofire
-            .request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: [:])
+        AF
+            .request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
             .response { response in
                 if response.response?.statusCode == 200,
                     let data = response.data {

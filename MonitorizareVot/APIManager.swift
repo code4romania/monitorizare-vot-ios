@@ -72,7 +72,7 @@ class APIManager: NSObject, APIManagerType {
         let request = LoginRequest(user: phone, password: pin, uniqueId: udid)
         let parameters = encodableToParamaters(request)
         
-        Alamofire
+        AF
             .request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
             .response { response in
             if let data = response.data {
@@ -105,8 +105,8 @@ class APIManager: NSObject, APIManagerType {
         ]
 
         let urlEncoding = URLEncoding(destination: .queryString, arrayEncoding: .brackets, boolEncoding: .literal)
-        Alamofire
-            .request(url, method: .post, parameters: parameters, encoding: urlEncoding, headers: headers)
+        AF
+            .request(url, method: .post, parameters: parameters, encoding: urlEncoding, headers: HTTPHeaders(headers))
             .response { response in
                 if response.response?.statusCode == 200 {
                     callback(nil)
@@ -122,8 +122,8 @@ class APIManager: NSObject, APIManagerType {
         let url = ApiURL.pollingStationList.url()
         let headers = authorizationHeaders()
         
-        Alamofire
-            .request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+        AF
+            .request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HTTPHeaders(headers))
             .response { response in
                 let statusCode = response.response?.statusCode
                 if statusCode == 200,
@@ -155,8 +155,8 @@ class APIManager: NSObject, APIManagerType {
         
         let headers = authorizationHeaders()
         
-        Alamofire
-            .request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+        AF
+            .request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HTTPHeaders(headers))
             .response { response in
             
                 if response.response?.statusCode == 200,
@@ -180,8 +180,8 @@ class APIManager: NSObject, APIManagerType {
         let url = ApiURL.form(id: formId).url()
         let headers = authorizationHeaders()
         
-        Alamofire
-            .request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+        AF
+            .request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HTTPHeaders(headers))
             .response { response in
             
                 if response.response?.statusCode == 200,
@@ -211,8 +211,8 @@ class APIManager: NSObject, APIManagerType {
         let headers = requestHeaders(withAuthHeaders: auth)
         let body = try! JSONEncoder().encode(pollingStation)
         
-        Alamofire
-            .upload(body, to: url, method: .post, headers: headers)
+        AF
+            .upload(body, to: url, method: .post, headers: HTTPHeaders(headers))
             .response { response in
                 if response.response?.statusCode == 200 {
                     callback(nil)
@@ -241,7 +241,7 @@ class APIManager: NSObject, APIManagerType {
 
         let threshold = UInt64(0) //SessionManager.multipartFormDataEncodingMemoryThreshold
         
-        Alamofire
+        let upload = AF
             .upload(multipartFormData: { (multipart) in
                 for attachment in note.attachments {
                     guard let data = attachment.data else { continue }
@@ -252,23 +252,21 @@ class APIManager: NSObject, APIManagerType {
                 for (key, param) in parameters {
                     multipart.append(param.data(using: String.Encoding.utf8)!, withName: key)
                 }
-            }, usingThreshold: threshold, to: url, method: .post, headers: headers, encodingCompletion: { result in
-                switch result {
-                case .success(request: let request, streamingFromDisk: _, streamFileURL: _):
-                    request.response { response in
-//                        print(" data = \(String(data: response.data ?? Data(), encoding: .utf8) ?? "no data")")     // server data
-                        if response.response?.statusCode == 200 {
-                            callback(nil)
-                        } else if response.response?.statusCode == 401 {
-                            callback(.unauthorized)
-                        } else {
-                            callback(.incorrectFormat(reason: "Unknown reason"))
-                        }
+            }, to: url, usingThreshold: threshold, method: .post, headers: HTTPHeaders(headers))
+            .response(completionHandler: { response in
+                switch response.result {
+                case .success:
+                    if response.response?.statusCode == 200 {
+                        callback(nil)
+                    } else if response.response?.statusCode == 401 {
+                        callback(.unauthorized)
+                    } else {
+                        callback(.incorrectFormat(reason: "Unknown reason"))
                     }
                 case .failure(let error):
                     callback(.generic(reason: error.localizedDescription))
                 }
-        })
+            })
     }
     
     func upload(answers: UploadAnswersRequest, then callback: @escaping (APIError?) -> Void) {
@@ -277,8 +275,8 @@ class APIManager: NSObject, APIManagerType {
         let headers = requestHeaders(withAuthHeaders: auth)
         let body = try! JSONEncoder().encode(answers)
         
-        Alamofire
-            .upload(body, to: url, method: .post, headers: headers)
+        AF
+            .upload(body, to: url, method: .post, headers: HTTPHeaders(headers))
             .response { response in
                 if response.response?.statusCode == 200 {
                     callback(nil)

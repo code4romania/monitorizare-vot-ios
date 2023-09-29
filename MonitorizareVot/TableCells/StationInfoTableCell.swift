@@ -21,8 +21,8 @@ class StationInfoTableCell: UITableViewCell {
         clipsToBounds = false
         contentView.clipsToBounds = false
         outerCardContainer.layer.shadowColor = UIColor.cardShadow.cgColor
-        outerCardContainer.layer.shadowRadius = Configuration.shadowRadius
-        outerCardContainer.layer.shadowOpacity = Configuration.shadowOpacity
+        outerCardContainer.layer.shadowRadius = UIConfiguration.shadowRadius
+        outerCardContainer.layer.shadowOpacity = UIConfiguration.shadowOpacity
         selectedBackgroundView = UIView(frame: .zero)
         selectedBackgroundView?.backgroundColor = .clear
     }
