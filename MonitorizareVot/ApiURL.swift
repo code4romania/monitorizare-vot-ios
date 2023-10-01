@@ -23,7 +23,7 @@ enum ApiURL {
         switch self {
         case .login: uri = "/v1/access/authorize"
         case .pollingStationList: uri = "/v1/county"
-        case .pollingStation: uri = "/v1/polling-station"
+        case .pollingStation: uri = "/v2/polling-station-info"
         case .forms: uri = "/v1/form"
         case .form(let id): uri = "/v1/form/\(id)"
         case .uploadNote: uri = "/v2/note"
