@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,37 +12,48 @@
             <connections>
                 <outlet property="arrivalButton" destination="3be-Lm-TrN" id="dvw-qW-9wk"/>
                 <outlet property="arrivalTimeLabel" destination="w0S-XY-yXh" id="MOy-9b-ETW"/>
-                <outlet property="chairmanGenderLabel" destination="4dE-8z-gJY" id="SFB-w1-UPS"/>
+                <outlet property="chairmanPresentLabel" destination="AXx-wu-Zex" id="otj-Os-y6V"/>
+                <outlet property="chairmanPresentNoButton" destination="wAE-q3-w9y" id="ckh-rY-pSg"/>
+                <outlet property="chairmanPresentYesButton" destination="qjm-49-XNL" id="SuF-2r-hYG"/>
                 <outlet property="continueButton" destination="Sz4-w9-Ic1" id="mAM-eA-eyq"/>
                 <outlet property="departureButton" destination="VV8-As-ymM" id="CRO-l7-PqW"/>
                 <outlet property="departureTimeLabel" destination="rnR-gR-9is" id="zHP-0u-lPO"/>
-                <outlet property="envRuralButton" destination="TYz-1p-rfp" id="1qW-il-r7S"/>
-                <outlet property="envUrbanButton" destination="szE-Wy-RRp" id="Pkt-Hs-bzs"/>
-                <outlet property="environmentLabel" destination="pEH-R0-Vz0" id="cSO-8O-qn1"/>
-                <outlet property="genderManButton" destination="gfT-Tl-Hi9" id="dUA-s1-qeG"/>
-                <outlet property="genderWomanButton" destination="YXw-mU-Vln" id="pdo-Fi-mgp"/>
                 <outlet property="headerContainer" destination="Mgl-sZ-OfO" id="f2a-eN-jPJ"/>
+                <outlet property="lowestNoMembersField" destination="fTP-Og-b3w" id="y5k-vh-8VA"/>
+                <outlet property="lowestNoMembersLabel" destination="IET-pL-j6Q" id="KUE-Ra-nfa"/>
+                <outlet property="numberOfMembersField" destination="ehK-WQ-n3m" id="K3k-ZH-7X5"/>
+                <outlet property="numberOfMembersLabel" destination="VA5-iS-MxJ" id="POU-aA-t1W"/>
+                <outlet property="numberOfVotersField" destination="WYV-OS-jEP" id="c7P-N9-blE"/>
+                <outlet property="numberOfVotersLabel" destination="guM-j8-GeB" id="7rC-vz-uN3"/>
+                <outlet property="numberOfWomenField" destination="LHd-5K-X58" id="SJF-Ub-JUa"/>
+                <outlet property="numberOfWomenLabel" destination="jaW-9b-F3i" id="10w-LB-Xkd"/>
+                <outlet property="onlyOneLabel" destination="c9p-lv-Bsp" id="cUt-Fu-nwS"/>
+                <outlet property="onlyOneNoButton" destination="X8J-L4-mF9" id="FE8-L4-Cyx"/>
+                <outlet property="onlyOneYesButton" destination="e4f-OG-Z85" id="3BA-Zv-0vp"/>
+                <outlet property="sizeAdequateLabel" destination="4dE-8z-gJY" id="LJl-Gr-3Xo"/>
+                <outlet property="sizeAdequateNoButton" destination="YXw-mU-Vln" id="ndG-lU-1br"/>
+                <outlet property="sizeAdequateYesButton" destination="gfT-Tl-Hi9" id="fuc-E2-WS9"/>
                 <outlet property="spinner" destination="4WK-wq-tjt" id="jcf-oU-4R0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgl-sZ-OfO">
-                    <rect key="frame" x="0.0" y="44" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="50"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="cLR-bd-Pf1"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83O-ur-ab7">
-                    <rect key="frame" x="0.0" y="718" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="758" width="393" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sz4-w9-Ic1" customClass="ActionButton" customModule="MonitorizareVot" customModuleProvider="target">
-                            <rect key="frame" x="16" y="16" width="343" height="44"/>
+                            <rect key="frame" x="16" y="16" width="361" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="dDV-uM-Hgx"/>
                             </constraints>
@@ -52,7 +63,7 @@
                             </connections>
                         </button>
                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4WK-wq-tjt">
-                            <rect key="frame" x="177.66666666666666" y="28" width="20" height="20"/>
+                            <rect key="frame" x="186.66666666666666" y="28" width="20" height="20"/>
                         </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,138 +76,344 @@
                         <constraint firstAttribute="trailing" secondItem="Sz4-w9-Ic1" secondAttribute="trailing" constant="16" id="zDN-1s-Ozy"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Wcj-Ie-VZf">
-                    <rect key="frame" x="16" y="126" width="343" height="298"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fix-1x-h6b">
+                    <rect key="frame" x="0.0" y="109" width="393" height="649"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="n1U-CS-5fh">
-                            <rect key="frame" x="0.0" y="0.0" width="343" height="78"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kf2-xI-bFw">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1010"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In what environment is the department?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEH-R0-Vz0">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="18"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                    <color key="textColor" red="0.20000000000000001" green="0.24313725490196078" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yzd-YU-FRB">
-                                    <rect key="frame" x="0.0" y="34" width="343" height="44"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Wcj-Ie-VZf">
+                                    <rect key="frame" x="16" y="32" width="361" height="962"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szE-Wy-RRp" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="44"/>
-                                            <state key="normal" title="Urban"/>
-                                            <connections>
-                                                <action selector="handleEnvironmentButtonTap:" destination="-1" eventType="touchUpInside" id="nke-eY-xXk"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYz-1p-rfp" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
-                                            <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="44"/>
-                                            <state key="normal" title="Rural"/>
-                                            <connections>
-                                                <action selector="handleEnvironmentButtonTap:" destination="-1" eventType="touchUpInside" id="iql-rF-4XT"/>
-                                            </connections>
-                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="18w-X8-dCn">
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="78"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9jh-qd-GTg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="18"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0S-XY-yXh">
+                                                            <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time of departure" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnR-gR-9is">
+                                                            <rect key="frame" x="180.66666666666663" y="0.0" width="180.33333333333337" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="uwu-V8-oGD">
+                                                    <rect key="frame" x="0.0" y="34" width="361" height="44"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3be-Lm-TrN" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="44"/>
+                                                            <state key="normal" title="Set"/>
+                                                            <connections>
+                                                                <action selector="handleTimeButtonTap:" destination="-1" eventType="touchUpInside" id="ov8-gC-Hpp"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VV8-As-ymM" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                                            <rect key="frame" x="188.66666666666663" y="0.0" width="172.33333333333337" height="44"/>
+                                                            <state key="normal" title="21:36"/>
+                                                            <connections>
+                                                                <action selector="handleTimeButtonTap:" destination="-1" eventType="touchUpInside" id="0pf-db-IwO"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="o13-NR-aM8"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hxP-Dv-akl">
+                                            <rect key="frame" x="0.0" y="110" width="361" height="102"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The number of voters in the electoral roll in a given commission" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guM-j8-GeB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="UBB-FT-Ypb">
+                                                    <rect key="frame" x="0.0" y="52" width="361" height="50"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncs-3j-xSX" customClass="TextContainer" customModule="MonitorizareVot" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter it here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WYV-OS-jEP">
+                                                                    <rect key="frame" x="16" y="0.0" width="329" height="50"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="WYV-OS-jEP" firstAttribute="top" secondItem="ncs-3j-xSX" secondAttribute="top" id="63g-Fb-4hL"/>
+                                                                <constraint firstAttribute="bottom" secondItem="WYV-OS-jEP" secondAttribute="bottom" id="C6m-Sm-cme"/>
+                                                                <constraint firstAttribute="height" constant="50" id="ExS-v9-DF8"/>
+                                                                <constraint firstItem="WYV-OS-jEP" firstAttribute="leading" secondItem="ncs-3j-xSX" secondAttribute="leading" constant="16" id="GFL-9D-XX1"/>
+                                                                <constraint firstAttribute="trailing" secondItem="WYV-OS-jEP" secondAttribute="trailing" constant="16" id="a4P-qf-fl2"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Tpn-vV-V7h">
+                                            <rect key="frame" x="0.0" y="244" width="361" height="84"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of committee members" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VA5-iS-MxJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="s8q-zt-hOy">
+                                                    <rect key="frame" x="0.0" y="34" width="361" height="50"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPp-19-NTx" customClass="TextContainer" customModule="MonitorizareVot" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter it here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ehK-WQ-n3m">
+                                                                    <rect key="frame" x="16" y="0.0" width="329" height="50"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="ehK-WQ-n3m" firstAttribute="leading" secondItem="kPp-19-NTx" secondAttribute="leading" constant="16" id="26a-TN-6Tb"/>
+                                                                <constraint firstItem="ehK-WQ-n3m" firstAttribute="top" secondItem="kPp-19-NTx" secondAttribute="top" id="RbU-cv-UGv"/>
+                                                                <constraint firstAttribute="bottom" secondItem="ehK-WQ-n3m" secondAttribute="bottom" id="Xs6-08-zsE"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ehK-WQ-n3m" secondAttribute="trailing" constant="16" id="bbB-gA-tLO"/>
+                                                                <constraint firstAttribute="height" constant="50" id="tAK-JR-oJD"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Y8R-5g-KRp">
+                                            <rect key="frame" x="0.0" y="360" width="361" height="84"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of women on the committee" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaW-9b-F3i">
+                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vov-SH-3D8">
+                                                    <rect key="frame" x="0.0" y="34" width="361" height="50"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELG-Oy-Jdt" customClass="TextContainer" customModule="MonitorizareVot" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter it here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHd-5K-X58">
+                                                                    <rect key="frame" x="16" y="0.0" width="329" height="50"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="LHd-5K-X58" secondAttribute="bottom" id="CLq-jD-oSB"/>
+                                                                <constraint firstItem="LHd-5K-X58" firstAttribute="leading" secondItem="ELG-Oy-Jdt" secondAttribute="leading" constant="16" id="Ebb-6O-YIb"/>
+                                                                <constraint firstItem="LHd-5K-X58" firstAttribute="top" secondItem="ELG-Oy-Jdt" secondAttribute="top" id="bbo-5P-Hes"/>
+                                                                <constraint firstAttribute="height" constant="50" id="hAM-jv-EFh"/>
+                                                                <constraint firstAttribute="trailing" secondItem="LHd-5K-X58" secondAttribute="trailing" constant="16" id="z0M-7J-THU"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wDl-2f-9Wv">
+                                            <rect key="frame" x="0.0" y="476" width="361" height="102"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lowest number of committee members present (at time of observation)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IET-pL-j6Q">
+                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="eqQ-hm-RuB">
+                                                    <rect key="frame" x="0.0" y="52" width="361" height="50"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwI-je-9aA" customClass="TextContainer" customModule="MonitorizareVot" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter it here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTP-Og-b3w">
+                                                                    <rect key="frame" x="16" y="0.0" width="329" height="50"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="fTP-Og-b3w" secondAttribute="trailing" constant="16" id="PDX-n4-O6w"/>
+                                                                <constraint firstAttribute="height" constant="50" id="SDg-YX-dVX"/>
+                                                                <constraint firstItem="fTP-Og-b3w" firstAttribute="top" secondItem="zwI-je-9aA" secondAttribute="top" id="aks-As-9pk"/>
+                                                                <constraint firstAttribute="bottom" secondItem="fTP-Og-b3w" secondAttribute="bottom" id="cUg-ed-wzG"/>
+                                                                <constraint firstItem="fTP-Og-b3w" firstAttribute="leading" secondItem="zwI-je-9aA" secondAttribute="leading" constant="16" id="xc9-Gc-uB4"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="oJt-M9-0ci">
+                                            <rect key="frame" x="0.0" y="610" width="361" height="96"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Was the Chairman or Deputy Chairman of the committee always present?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXx-wu-Zex">
+                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Xor-yK-zwc">
+                                                    <rect key="frame" x="0.0" y="52" width="361" height="44"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAE-q3-w9y" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="44"/>
+                                                            <state key="normal" title="No"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjm-49-XNL" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                                            <rect key="frame" x="188.66666666666663" y="0.0" width="172.33333333333337" height="44"/>
+                                                            <state key="normal" title="Yes"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="aax-ux-iyY"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mme-fm-1Uq">
+                                            <rect key="frame" x="0.0" y="738" width="361" height="96"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is there only one polling station (electoral commission) in the room?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9p-lv-Bsp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CKN-i4-b5T">
+                                                    <rect key="frame" x="0.0" y="52" width="361" height="44"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8J-L4-mF9" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="44"/>
+                                                            <state key="normal" title="No"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4f-OG-Z85" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                                            <rect key="frame" x="188.66666666666663" y="0.0" width="172.33333333333337" height="44"/>
+                                                            <state key="normal" title="Yes"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="5D6-IH-lMw"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gRK-DY-B2t">
+                                            <rect key="frame" x="0.0" y="866" width="361" height="96"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Was the size of the polling station adequate to the needs of the voting day?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dE-8z-gJY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="361" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3q3-hS-yGn">
+                                                    <rect key="frame" x="0.0" y="52" width="361" height="44"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXw-mU-Vln" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="44"/>
+                                                            <state key="normal" title="No"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfT-Tl-Hi9" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
+                                                            <rect key="frame" x="188.66666666666663" y="0.0" width="172.33333333333337" height="44"/>
+                                                            <state key="normal" title="Yes"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="dqh-Jg-b8E"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="qN8-gs-060"/>
-                                    </constraints>
                                 </stackView>
                             </subviews>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gRK-DY-B2t">
-                            <rect key="frame" x="0.0" y="110" width="343" height="78"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The chairman of the department is " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dE-8z-gJY">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="18"/>
-                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                    <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3q3-hS-yGn">
-                                    <rect key="frame" x="0.0" y="34" width="343" height="44"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXw-mU-Vln" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="44"/>
-                                            <state key="normal" title="Woman"/>
-                                            <connections>
-                                                <action selector="handleGenderButtonTap:" destination="-1" eventType="touchUpInside" id="T5l-kX-Jra"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfT-Tl-Hi9" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
-                                            <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="44"/>
-                                            <state key="normal" title="Man"/>
-                                            <connections>
-                                                <action selector="handleGenderButtonTap:" destination="-1" eventType="touchUpInside" id="RLl-D6-2iY"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="dqh-Jg-b8E"/>
-                                    </constraints>
-                                </stackView>
-                            </subviews>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="18w-X8-dCn">
-                            <rect key="frame" x="0.0" y="220" width="343" height="78"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9jh-qd-GTg">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="18"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0S-XY-yXh">
-                                            <rect key="frame" x="0.0" y="0.0" width="171.66666666666666" height="18"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                            <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time of departure" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnR-gR-9is">
-                                            <rect key="frame" x="171.66666666666663" y="0.0" width="171.33333333333337" height="18"/>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                            <color key="textColor" red="0.20000000000000001" green="0.24313725489999999" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="uwu-V8-oGD">
-                                    <rect key="frame" x="0.0" y="34" width="343" height="44"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3be-Lm-TrN" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="44"/>
-                                            <state key="normal" title="Set"/>
-                                            <connections>
-                                                <action selector="handleTimeButtonTap:" destination="-1" eventType="touchUpInside" id="ov8-gC-Hpp"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VV8-As-ymM" customClass="ChooserButton" customModule="MonitorizareVot" customModuleProvider="target">
-                                            <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="44"/>
-                                            <state key="normal" title="21:36"/>
-                                            <connections>
-                                                <action selector="handleTimeButtonTap:" destination="-1" eventType="touchUpInside" id="0pf-db-IwO"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="o13-NR-aM8"/>
-                                    </constraints>
-                                </stackView>
-                            </subviews>
-                        </stackView>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="Wcj-Ie-VZf" secondAttribute="bottom" constant="16" id="DnA-aq-faA"/>
+                                <constraint firstAttribute="trailing" secondItem="Wcj-Ie-VZf" secondAttribute="trailing" constant="16" id="Vmb-vm-eHY"/>
+                                <constraint firstItem="Wcj-Ie-VZf" firstAttribute="top" secondItem="kf2-xI-bFw" secondAttribute="top" constant="32" id="YFR-df-Ta7"/>
+                                <constraint firstItem="Wcj-Ie-VZf" firstAttribute="leading" secondItem="kf2-xI-bFw" secondAttribute="leading" constant="16" id="uf5-FT-J5q"/>
+                            </constraints>
+                        </view>
                     </subviews>
-                </stackView>
+                    <constraints>
+                        <constraint firstItem="kf2-xI-bFw" firstAttribute="trailing" secondItem="Rbg-PY-run" secondAttribute="trailing" id="0TZ-zc-aTT"/>
+                        <constraint firstItem="kf2-xI-bFw" firstAttribute="bottom" secondItem="Rbg-PY-run" secondAttribute="bottom" id="Hg8-cW-GhP"/>
+                        <constraint firstItem="kf2-xI-bFw" firstAttribute="width" secondItem="fix-1x-h6b" secondAttribute="width" id="Nde-YE-kkf"/>
+                        <constraint firstItem="kf2-xI-bFw" firstAttribute="top" secondItem="Rbg-PY-run" secondAttribute="top" id="l81-QE-pUP"/>
+                        <constraint firstItem="kf2-xI-bFw" firstAttribute="leading" secondItem="Rbg-PY-run" secondAttribute="leading" id="mwi-My-Swv"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="Rbg-PY-run"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="VBv-8y-Lga"/>
+                </scrollView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="83O-ur-ab7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Wcj-Ie-VZf" secondAttribute="bottom" id="4KE-en-tDe"/>
+                <constraint firstItem="83O-ur-ab7" firstAttribute="top" secondItem="fix-1x-h6b" secondAttribute="bottom" id="9Yv-ff-EZw"/>
                 <constraint firstItem="Mgl-sZ-OfO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Akd-k4-gja"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="83O-ur-ab7" secondAttribute="trailing" id="KUd-pu-5EV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="83O-ur-ab7" secondAttribute="bottom" priority="999" id="M5b-pl-nqG"/>
+                <constraint firstItem="fix-1x-h6b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MVE-S3-fRd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fix-1x-h6b" secondAttribute="trailing" id="PdD-qb-vgE"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="83O-ur-ab7" secondAttribute="bottom" constant="16" id="XWm-JM-oeM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Mgl-sZ-OfO" secondAttribute="trailing" id="Xbz-d9-1Pk"/>
-                <constraint firstItem="Wcj-Ie-VZf" firstAttribute="top" secondItem="Mgl-sZ-OfO" secondAttribute="bottom" constant="32" id="pA4-Pa-Z5W"/>
                 <constraint firstItem="Mgl-sZ-OfO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qYl-iv-2fb"/>
+                <constraint firstItem="fix-1x-h6b" firstAttribute="top" secondItem="Mgl-sZ-OfO" secondAttribute="bottom" id="tLh-Cq-fui"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="83O-ur-ab7" secondAttribute="leading" id="tbd-3S-lf4"/>
-                <constraint firstItem="Wcj-Ie-VZf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="u1u-Eh-jMC"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Wcj-Ie-VZf" secondAttribute="trailing" constant="16" id="wrV-vx-rT3"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+            <point key="canvasLocation" x="-159" y="127"/>
         </view>
     </objects>
+    <designables>
+        <designable name="3be-Lm-TrN">
+            <size key="intrinsicContentSize" width="33" height="17"/>
+        </designable>
+        <designable name="Sz4-w9-Ic1">
+            <size key="intrinsicContentSize" width="121" height="17"/>
+        </designable>
+        <designable name="VV8-As-ymM">
+            <size key="intrinsicContentSize" width="48" height="17"/>
+        </designable>
+        <designable name="X8J-L4-mF9">
+            <size key="intrinsicContentSize" width="29" height="17"/>
+        </designable>
+        <designable name="YXw-mU-Vln">
+            <size key="intrinsicContentSize" width="29" height="17"/>
+        </designable>
+        <designable name="e4f-OG-Z85">
+            <size key="intrinsicContentSize" width="34" height="17"/>
+        </designable>
+        <designable name="gfT-Tl-Hi9">
+            <size key="intrinsicContentSize" width="34" height="17"/>
+        </designable>
+        <designable name="qjm-49-XNL">
+            <size key="intrinsicContentSize" width="34" height="17"/>
+        </designable>
+        <designable name="wAE-q3-w9y">
+            <size key="intrinsicContentSize" width="29" height="17"/>
+        </designable>
+    </designables>
 </document>

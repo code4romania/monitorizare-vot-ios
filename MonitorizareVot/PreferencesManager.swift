@@ -11,7 +11,9 @@ import UIKit
 
 protocol PreferencesManagerType: NSObject {
     var wasOnboardingShown: Bool { get set }
-    var county: String? { get set }
+    var province: ProvinceResponse? { get set }
+    var county: CountyResponse? { get set }
+    var municipality: MunicipalityResponse? { get set }
     var section: Int? { get set }
     var sectionName: String? { get set }
     var languageLocale: String? { get set }
@@ -26,7 +28,9 @@ class PreferencesManager: NSObject, PreferencesManagerType {
     
     enum SettingKey: String {
         case wasOnboardingShown = "PreferenceWasOnboardingShown"
-        case county = "PreferenceCounty"
+        case province = "PreferenceProvinceObj"
+        case county = "PreferenceCountyObj"
+        case municipality = "PreferenceMunicipalityObj"
         case section = "PreferenceSectionId"
         case sectionName = "PreferenceSectionName"
         case languageLocale = "PreferenceLanguageLocale"
@@ -34,14 +38,30 @@ class PreferencesManager: NSObject, PreferencesManagerType {
         case lastDatabaseResetTimestamp = "PreferenceLastDatabaseResetTimestamp"
     }
     
-    var county: String? {
+    var province: ProvinceResponse? {
         set {
-            setValue(newValue, forKey: .county)
+            setCodable(newValue, forKey: .province)
         } get {
-            return getValue(forKey: .county) as? String
+            return getCodable(forKey: .province)
         }
     }
-
+    
+    var county: CountyResponse? {
+        set {
+            setCodable(newValue, forKey: .county)
+        } get {
+            return getCodable(forKey: .county)
+        }
+    }
+    
+    var municipality: MunicipalityResponse? {
+        set {
+            setCodable(newValue, forKey: .municipality)
+        } get {
+            return getCodable(forKey: .municipality)
+        }
+    }
+    
     var section: Int? {
         set {
             setValue(newValue, forKey: .section)
@@ -102,8 +122,25 @@ class PreferencesManager: NSObject, PreferencesManagerType {
         }
         UserDefaults.standard.synchronize()
     }
-
+    
+    fileprivate func setCodable(_ value: Encodable?, forKey key: SettingKey) {
+        if let value = value {
+            let data = try! JSONEncoder().encode(value)
+            UserDefaults.standard.set(data, forKey: key.rawValue)
+        } else {
+            UserDefaults.standard.removeObject(forKey: key.rawValue)
+        }
+        UserDefaults.standard.synchronize()
+    }
+    
     fileprivate func getValue(forKey key: SettingKey) -> Any? {
         return UserDefaults.standard.object(forKey: key.rawValue)
+    }
+    
+    fileprivate func getCodable<T: Decodable>(forKey key: SettingKey) -> T? {
+        guard let data = UserDefaults.standard.object(forKey: key.rawValue) as? Data else {
+            return nil
+        }
+        return try! JSONDecoder().decode(T.self, from: data)
     }
 }

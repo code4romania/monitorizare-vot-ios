@@ -88,10 +88,10 @@ class StationHistoryViewController: MVViewController {
     
     // MARK: - Actions
     
-    fileprivate func continueToStation(_ model: StationHistoryViewModel.StationRowModel) {
+    fileprivate func continueToStation(_ model: VisitedStationModel) {
         DebugLog("Station picked from history: \(model)")
         MVAnalytics.shared.log(event: .pickedStationFromHistory)
-        AppRouter.shared.goToChooseStation(stationId: model.stationId, countyCode: model.stationCountyCode)
+        AppRouter.shared.goToChooseStation(visitedStation: model)
     }
     
 }

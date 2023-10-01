@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftKeychainWrapper
+import FirebaseMessaging
 
 protocol APIManagerType: NSObject {
     var apiDateFormatter: DateFormatter { get }
@@ -17,7 +18,9 @@ protocol APIManagerType: NSObject {
                then callback: @escaping (APIError?) -> Void)
     func sendPushToken(withToken token: String,
                        then callback: @escaping (APIError?) -> Void)
-    func fetchCounties(then callback: @escaping ([CountyResponse]?, APIError?) -> Void)
+    func fetchProvinces(then callback: @escaping ([ProvinceResponse]?, APIError?) -> Void)
+    func fetchCounties(for provinceCode: String, then callback: @escaping ([CountyResponse]?, APIError?) -> Void)
+    func fetchMunicipalities(for countyCode: String, then callback: @escaping ([MunicipalityResponse]?, APIError?) -> Void)
     func fetchForms(diaspora: Bool, then callback: @escaping ([FormResponse]?, APIError?) -> Void)
     func fetchForm(withId formId: Int,
                    then callback: @escaping ([FormSectionResponse]?, APIError?) -> Void)
@@ -70,10 +73,8 @@ class APIManager: NSObject, APIManagerType {
         let url = ApiURL.login.url()
         let udid = AccountManager.shared.udid
         let request = LoginRequest(user: phone, password: pin, uniqueId: udid)
-        let parameters = encodableToParamaters(request)
         
-        AF
-            .request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil)
+        AF.request(url, method: .post, parameters: request, encoder: JSONParameterEncoder())
             .response { response in
             if let data = response.data {
                 do {
@@ -118,10 +119,11 @@ class APIManager: NSObject, APIManagerType {
             }
     }
     
-    func fetchCounties(then callback: @escaping ([CountyResponse]?, APIError?) -> Void) {
-        let url = ApiURL.pollingStationList.url()
+    func fetchProvinces(then callback: @escaping ([ProvinceResponse]?, APIError?) -> Void) {
+        let url = ApiURL.provinces.url()
         let headers = authorizationHeaders()
         
+        // TODO: refactor these to avoid code dupe
         AF
             .request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HTTPHeaders(headers))
             .response { response in
@@ -129,8 +131,8 @@ class APIManager: NSObject, APIManagerType {
                 if statusCode == 200,
                     let data = response.data {
                     do {
-                        let stations = try JSONDecoder().decode([CountyResponse].self, from: data)
-                        callback(stations, nil)
+                        let results = try JSONDecoder().decode([ProvinceResponse].self, from: data)
+                        callback(results, nil)
                     } catch {
                         callback(nil, .incorrectFormat(reason: error.localizedDescription))
                     }
@@ -142,6 +144,56 @@ class APIManager: NSObject, APIManagerType {
         }
     }
     
+    func fetchCounties(for provinceCode: String, then callback: @escaping ([CountyResponse]?, APIError?) -> Void) {
+        let url = ApiURL.counties(provinceCode: provinceCode).url()
+        let headers = authorizationHeaders()
+        
+        // TODO: refactor these to avoid code dupe
+        AF
+            .request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HTTPHeaders(headers))
+            .response { response in
+                let statusCode = response.response?.statusCode
+                if statusCode == 200,
+                    let data = response.data {
+                    do {
+                        let results = try JSONDecoder().decode([CountyResponse].self, from: data)
+                        callback(results, nil)
+                    } catch {
+                        callback(nil, .incorrectFormat(reason: error.localizedDescription))
+                    }
+                } else if statusCode == 401 {
+                    callback(nil, .unauthorized)
+                } else {
+                    callback(nil, .incorrectFormat(reason: "Unknown reason"))
+                }
+        }
+    }
+    
+    func fetchMunicipalities(for countyCode: String, then callback: @escaping ([MunicipalityResponse]?, APIError?) -> Void) {
+        let url = ApiURL.municipalities(countyCode: countyCode).url()
+        let headers = authorizationHeaders()
+        
+        // TODO: refactor these to avoid code dupe
+        AF
+            .request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: HTTPHeaders(headers))
+            .response { response in
+                let statusCode = response.response?.statusCode
+                if statusCode == 200,
+                    let data = response.data {
+                    do {
+                        let results = try JSONDecoder().decode([MunicipalityResponse].self, from: data)
+                        callback(results, nil)
+                    } catch {
+                        callback(nil, .incorrectFormat(reason: error.localizedDescription))
+                    }
+                } else if statusCode == 401 {
+                    callback(nil, .unauthorized)
+                } else {
+                    callback(nil, .incorrectFormat(reason: "Unknown reason"))
+                }
+        }
+    }
+
     func fetchForms(diaspora: Bool, then callback: @escaping ([FormResponse]?, APIError?) -> Void) {
         var url = ApiURL.forms.url()
         if RemoteConfigManager.shared.value(of: .filterDiasporaForms).boolValue {
@@ -232,6 +284,7 @@ class APIManager: NSObject, APIManagerType {
 
         var parameters: [String: String] = [
             "CountyCode": note.countyCode,
+            "MunicipalityCode": note.municipalityCode,
             "PollingStationNumber": String(note.pollingStationId ?? -1),
             "Text": note.text
         ]
@@ -241,7 +294,7 @@ class APIManager: NSObject, APIManagerType {
 
         let threshold = UInt64(0) //SessionManager.multipartFormDataEncodingMemoryThreshold
         
-        let upload = AF
+        AF
             .upload(multipartFormData: { (multipart) in
                 for attachment in note.attachments {
                     guard let data = attachment.data else { continue }

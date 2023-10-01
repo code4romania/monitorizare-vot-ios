@@ -36,7 +36,7 @@ class StationInfoTableCell: UITableViewCell {
             UIColor.cardBackgroundSelected : UIColor.cardBackground
     }
     
-    func update(with model: StationHistoryViewModel.StationRowModel) {
+    func update(with model: VisitedStationModel) {
         nameLabel.text = model.name
     }
     
