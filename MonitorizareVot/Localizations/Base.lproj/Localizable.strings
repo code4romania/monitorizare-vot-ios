@@ -20,8 +20,6 @@
 "Button_AddPhotoVideo" = "Add Photo or Video";
 "Button_SelectFromHistory" = "Select from visited stations";
 
-"Label_CountyLocation" = "Choose the area of the station";
-"Label_CountyPresidentGender" = "The president of the polling station is:";
 "Label_CountyArriveTime" = "Arrival time";
 "Label_CountyLeaveTime" = "Time of departure";
 "Label_AddNote" = "Add note";
@@ -29,13 +27,23 @@
 "Label_Synced" = "Synced";
 
 "Label_ChooseStation" = "Choose the polling station you are in";
+"Label_Province" = "Province";
 "Label_County" = "County / District";
+"Label_Municipality" = "Municipality";
 "Label_StationNumber" = "Polling station number";
 "Label_SelectOption" = "Select an option";
 "Label_DevelopedBy" = "developed by";
 
 "Label_TelephoneTextInput_Placeholder" = "Phone number";
 "Label_CodeTextInput_Placeholder" = "Code";
+
+"Label_CountyVotersCount" = "The number of voters in the electoral roll in a given commission"
+"Label_CountyMembersCount" = "Number of committee members"
+"Label_CountyWomenCount" = "Number of women on the committee"
+"Label_CountyLowestMemberCount" = "Lowest number of committee members present (at time of observation)"
+"Label_CountyChairmanPresent" = "Was the Chairman or Deputy Chairman of the committee always present?"
+"Label_CountyOnlyOneStation" = "Is there only one polling station (electoral commission) in the room?"
+"Label_CountySizeAdequate" = "Was the size of the polling station adequate to the needs of the voting day?"
 
 "Label_AddNote" = "Add a note";
 "Label_TypeNote" = "Type your note here";

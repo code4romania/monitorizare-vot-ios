@@ -134,9 +134,9 @@ class SectionPickerViewController: MVViewController {
             scrollView.isHidden = !hasData
         }
         
-        provinceButton.value = model.selectedProvince?.name.capitalized
-        countyButton.value = model.selectedCounty?.name.capitalized
-        municipalityButton.value = model.selectedMunicipality?.name.capitalized
+        provinceButton.value = model.selectedProvince?.name
+        countyButton.value = model.selectedCounty?.name
+        municipalityButton.value = model.selectedMunicipality?.name
 
         if !stationTextField.isFirstResponder {
             stationTextField.text = model.sectionId != nil ? "\(model.sectionId!)" : nil
@@ -183,14 +183,14 @@ class SectionPickerViewController: MVViewController {
         var select: ((_ id: Int) -> Void)?
         switch sender {
         case provinceButton:
-            options = model.provinces.enumerated().map { GenericPickerValue(id: $0.offset, displayName: $0.element.name.capitalized) }
+            options = model.provinces.enumerated().map { GenericPickerValue(id: $0.offset, displayName: $0.element.name) }
             select = {
                 self.model.selectedProvince = self.model.provinces[$0]
                 self.fetchCountiesInCurrentProvince()
             }
         case countyButton:
             guard let counties = model.currentCounties else { return }
-            options = counties.enumerated().map { GenericPickerValue(id: $0.offset, displayName: $0.element.name.capitalized) }
+            options = counties.enumerated().map { GenericPickerValue(id: $0.offset, displayName: $0.element.name) }
             select = {
                 guard let counties = self.model.currentCounties else { return }
                 self.model.selectedCounty = counties[$0]
@@ -198,7 +198,7 @@ class SectionPickerViewController: MVViewController {
             }
         case municipalityButton:
             guard let municipalities = model.currentMunicipalities else { return }
-            options = municipalities.enumerated().map { GenericPickerValue(id: $0.offset, displayName: $0.element.name.capitalized) }
+            options = municipalities.enumerated().map { GenericPickerValue(id: $0.offset, displayName: $0.element.name) }
             select = {
                 guard let municipalities = self.model.currentMunicipalities else { return }
                 self.model.selectedMunicipality = municipalities[$0]

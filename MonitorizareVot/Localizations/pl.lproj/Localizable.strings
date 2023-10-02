@@ -1,0 +1,121 @@
+//  Created by Code4Romania
+
+"Button_Login" = "Logowanie";
+"Button_Continue" = "Kontynuuj";
+"Button_ChangeDepartemnt" = "Zmień";
+"Button_ContinueToForms" = "Kontynuuj do formularzy";
+"Button_SyncData" = "Wymuś synchronizację danych";
+"Button_AddNoteToQuestion" = "Dodaj notatkę do pytania";
+"Button_Add" = "Dodaj";
+"Button_Send" = "Wyślij";
+"Button_Delete" = "Usuń";
+"Button_Settings" = "Ustawienia";
+"Button_Retry" = "Powtórz";
+"Button_AddNoteToQuestion" = "Dodaj notatkę do bieżącego pytania";
+"Button_Submit" = "Wyślij";
+"Button_AddPhotoVideo" = "Dodaj zdjęcie lub wideo";
+"Button_SelectFromHistory" = "Wybierz z odwiedzonych lokali";
+
+"Label_CountyArriveTime" = "Godzina przybycia";
+"Label_CountyLeaveTime" = "Godzina wyjścia";
+"Label_AddNote" = "Dodaj notatkę";
+"Label_Saved" = "Zapisane lokalnie";
+"Label_Synced" = "Zsynchronizowane";
+
+"Label_ChooseStation" = "Wybierz lokal wyborczy";
+"Label_Province" = "Województwo";
+"Label_County" = "Powiat";
+"Label_Municipality" = "Gmina";
+"Label_StationNumber" = "Numer obwodu";
+"Label_SelectOption" = "Wybierz opcję";
+"Label_DevelopedBy" = "stworzone przez";
+
+"Label_TelephoneTextInput_Placeholder" = "Numer telefonu";
+"Label_CodeTextInput_Placeholder" = "Kod";
+
+"Label_CountyVotersCount" = "Liczba wyborców w spisie wyborców w danej komisji"
+"Label_CountyMembersCount" = "Liczba członków komisji"
+"Label_CountyWomenCount" = "Liczba kobiet w składzie komisji"
+"Label_CountyLowestMemberCount" = "Najmniejsza liczba obecnych członków komisji (w czasie obserwacji)"
+"Label_CountyChairmanPresent" = "Czy zawsze obecny był Przewodniczący/ca lub Z-ca Przewodniczącego/ej komisji?"
+"Label_CountyOnlyOneStation" = "Czy w pomieszczeniu jest tylko jeden lokal wyborczy (komisja wyborcza)?"
+"Label_CountySizeAdequate" = "Czy wielkość lokalu wyborczego była adekwatna do potrzeb dnia glosowania?"
+
+"Label_AddNote" = "Dodaj notkę";
+"Label_TypeNote" = "Wpisz tutaj swoją notatkę";
+"Label_EnterStation" = "Wpisz numer lokalu (np. 34)";
+"Label_Empty" = "Wybierz pytanie lub dodaj notatkę";
+
+"Option.Gallery" = "Załaduj z galerii";
+"Option.TakePhoto" = "Wybierz zdjęcie";
+"Option.RecordVideo" = "Nagraj wideo";
+
+"AlertMessage_EnableCameraAccess" = "Otwórz ustawienia i nadaj uoprawnienia do biblioteki zdjęć.";
+"AlertMessage_NewVersion" = "Nowa wersja aplikacji jest dostpna. Zaktualizuj aplikację, by móc korzystać z najnowszych opcji.";
+
+"Error_Unknown" = "Nieznany błąd";
+"LoginError_Unknown" = "Logowanie nieudane. Nieznany powód. Skontaktuj się proszę z nami.";
+"Error.StationSaveFailed" = "Nie można zapisać danych z lokalu.";
+"Error.AnswerSaveFailed" = "Nie można zapisać odpowiedzi na pytanie.";
+"Error.FormDownloadFailed" = "Nie możemy pobrać formularzy. Sprawdź jakość połączenia i naciśnij przycisk, by spróbować ponownie.";
+
+"Error" = "Błąd";
+"OK" = "OK";
+
+"Error.IncorrectFormat" = "Zły format odpowiedzi";
+"Error.Server" = "Nie mogliśmy się połączyć się z serwerem.";
+"Error.TokenExpired" = "Uwierzytelnienie wygasło. Zaloguj się ponownie.";
+"Error.DataDownloadFailed" = "Nie mogliśmy pobrać najnowszych danych. Spróbuj ponownie później.";
+"Error.SaveNoteFailed" = "Nie mogliśmy zapisać notatki. Spróbuj ponownie później.";
+"Error.UploadNoteFailed" = "Nie mogliśmy wgrać notatki. Spróbujemy ponownie poźniej.";
+"Error.SelectCountyFirst" = "Wybierz najpierw gminę.";
+"Error.IncorrectStationNumber" = "Błędny numer lokalu. Sprawdź gminę i podany numer lokalu.";
+"Error.InternetConnection" = "Potrzebujesz łączności z Internetem. Sprawdź jakoś połączenia.";
+
+"Info.DataNotSyncronised" = "Niektórych odpowiedzi lub notatek nie udało się zsynchronizować. Naciśnij przycisk, by wysłać je ponownie.";
+"Info.DataSyncronised" = "Wszystkie odpowiedzi i notatki zsynchronizowane.";
+
+"Station" = "Lokal";
+
+"Title.StationDetails" = "Szczegóły lokalu";
+"Title.FormSets" = "Wszystkie formularze";
+"Title.Question" = "Pytanie";
+"Title.Note" = "Notatki";
+"Title.NoteHistory" = "Historia notatek";
+"Title.Section" = "Konfiguracja lokalu wyborczego";
+"Title.Language" = "Wybeirz język";
+"Title.NewVersion" = "Aktualizacja aplikacji dostepna";
+"Title.StationHistory" = "Moje odwiedzone lokale";
+
+"Next" = "Nastepne";
+"Previous" = "Poprzednie";
+"Done" = "Zrobione";
+"Select" = "Wybierz";
+"Cancel" = "Analuj";
+"Other" = "Inne";
+
+"Onboarding.Title.Station" = "Wybierz lokal";
+"Onboarding.Title.Forms" = "Wypełnij formularz";
+"Onboarding.Title.Notes" = "Dodaj notatki";
+
+"Onboarding.Text.Station" = "Krok 1:\nOkreśl, w którym lokalu jesteś wybierając gminę i nr obwodu.\nKrok 2Wybierz rodzaj obwodu (obszar miejski, wiejski,szczegóły dotyczące przewodniczącego, czas przybycia). Nie martw się - informacje można potem edytować.";
+"Onboarding.Text.Forms" = "W celu wykrycia problemów, przygotowaliśmy formularze ze ustandaryzowanymi zasadami obowiązującymi w lokalu. \nW każdym formularzu pojawią się pytania czy poszczególne procedury zostały wypełnione, czy też nie.";
+
+"Onboarding.Go" = "Przejdź do aplikacji";
+
+"Menu.Button.Close" = "Zamknij";
+"Menu.Button.ChangeStation" = "Zmień lokal";
+"Menu.Button.StationHistory" = "Moje odwiedzona lokale";
+"Menu.Button.Guide" = "Kompendium obserwatora";
+"Menu.Button.Call" = "Zadzwoń na infolinię";
+"Menu.Button.About" = "O nas";
+"Menu.Button.Logout" = "Wyloguj";
+"Menu.Button.ChangeLanguage" = "Zmień język";
+"Menu.Button.ContactUs" = "Skontakuj się z nami";
+"Menu.Button.PrivacyPolicy" = "Polityka prywatności";
+"Menu.Button.Safety" = "Informacje o bezpieczeństwie";
+"Menu.Button.Feedback" = "Uwagi";
+
+"Text.About.Title" = "O aplikacji";
+"Text.About.Body" = "Vote Monitor to aplikacja utworzona przez Code For Romania.\nTo jedna z niewielu aplikacji służących obserwacji wyborów na świecie. Została wykorzystana w obserwacji wyborów prezydenckich w Rumunii w 2016 i podczas pierwszej społecznej obserwacji w Polsce w 2018.\n\nKod źródłowy aplikacji jest otwarty. Sprawdź go na GitHubie! [Kotlin](https://github.com/code4romania/mon-vot-android-kotlin) or [iOS](https://github.com/code4romania/monitorizare-vot-ios).\n\nCode for Romania jest niezależnym NGO tworzącym aplikację pro-bono w celu rozwiązywania problemów społecznych. jeśli chcesz wesprzeć nasze działania, odwiedź [naszą stronę](https://code4.ro/ro/), zgłoś się jako wolontariusz lub wpłać datek.";
+"Text.StationHistory.Info" = "To lista lokali, które odwiedziłeś. Wybierz, który chcesz zobaczyć lub edytować odpowiedzi.";
