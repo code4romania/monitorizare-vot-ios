@@ -58,12 +58,12 @@ class SectionPickerViewModel: NSObject {
     
     var isSectionNumberCorrect: Bool {
         guard let sectionId, let selectedMunicipality else { return false }
-        return sectionId >= 0 && sectionId <= selectedMunicipality.numberOfPollingStations
+        return sectionId >= 0
     }
     
     var selectedCountyName: String? {
         guard let selectedCounty else { return nil }
-        return selectedCounty.name.capitalized
+        return selectedCounty.name
     }
     
     var hasVisitedAnyStations: Bool {

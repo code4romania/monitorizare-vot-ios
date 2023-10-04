@@ -1,0 +1,11 @@
+/*
+  InfoPlist.strings
+  MonitorizareVot
+
+  Created by Cristi Habliuc on 04/11/2019.
+  Copyright © 2019 Code4Ro. All rights reserved.
+*/
+
+NSPhotoLibraryUsageDescription = "Konieczny jest dostęp do biblioteki zdjęć, by móc dodawać zdjęcia i wideo do notatek";
+NSCameraUsageDescription = "Konieczny jest dostęp do aparatu, by móc dodawać zdjęcia i wideo do notatek";
+NSMicrophoneUsageDescription = "Konieczny jest dostęp do mikrofonu, by móc je dodawać wideo do notatek";

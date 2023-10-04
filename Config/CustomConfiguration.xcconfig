@@ -15,7 +15,7 @@ CODE_SIGN_STYLE = Manual
 API_URL = https:/$()/localhost:53413/api
 TEST_PHONE = 0722222222
 TEST_PIN = 1234
-ALLOWED_LANGUAGES = ro,en // you can override this in your project, but make sure you have correct localization
+ALLOWED_LANGUAGES = ro,en,pl // you can override this in your project, but make sure you have correct localization
 DISABLE_UPDATE_CHECK = false // override this to force disable the update check
 
 #include? "LocalConfiguration.xcconfig"

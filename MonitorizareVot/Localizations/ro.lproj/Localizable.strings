@@ -3,10 +3,6 @@
 "Button_Login" = "Login";
 "Button_Continue" = "Continuă";
 "Button_ChangeDepartemnt" = "Schimbă";
-"Button_Urban" = "Urban";
-"Button_Rural" = "Rural";
-"Button_Male" = "Bărbat";
-"Button_Female" = "Femeie";
 "Button_ContinueToForms" = "Continuă către formulare";
 "Button_SyncData" = "Sincronizează datele manual";
 "Button_AddNoteToQuestion" = "Adaugă o notă întrebării";
@@ -20,8 +16,6 @@
 "Button_AddPhotoVideo" = "Adaugă o poză sau video";
 "Button_SelectFromHistory" = "Alege din secțiile vizitate";
 
-"Label_CountyLocation" = "În ce mediu se află secția?";
-"Label_CountyPresidentGender" = "Președintele secției este";
 "Label_CountyArriveTime" = "Ora sosirii în secție";
 "Label_CountyLeaveTime" = "Ora plecării din secție";
 "Label_AddNote" = "Adaugă notă";
@@ -29,13 +23,24 @@
 "Label_Synced" = "Sincronizat";
 
 "Label_ChooseStation" = "Alege secția în care te afli";
+"Label_Province" = "Provincia";
 "Label_County" = "Județ / Sector";
+"Label_Municipality" = "Municipalitate";
 "Label_StationNumber" = "Numărul secției";
 "Label_SelectOption" = "Alege o opțiune";
 "Label_DevelopedBy" = "dezvoltat de";
 
 "Label_TelephoneTextInput_Placeholder" = "Numar de telefon";
 "Label_CodeTextInput_Placeholder" = "Cod";
+
+"Label_CountyVotersCount" = "Numărul de alegători în lista electorală într-o anumită comisie"
+"Label_CountyMembersCount" = "Numărul de membri ai comitetului"
+"Label_CountyWomenCount" = "Numărul de femei din comitet"
+"Label_CountyLowestMemberCount" = "Cel mai mic număr de membri ai comisiei prezenți (la momentul observării)"
+"Label_CountyChairmanPresent" = "Președintele sau vicepreședintele comisiei a fost întotdeauna prezent?"
+"Label_CountyOnlyOneStation" = "Există o singură secție de votare (comisie electorală) în sală"
+"Label_CountySizeAdequate" = "Dimensiunea secției de votare a fost adecvată nevoilor zilei de votare?"
+
 
 "Label_AddNote" = "Adaugă o notă";
 "Label_TypeNote" = "Scrie aici nota";
@@ -94,7 +99,7 @@
 "Onboarding.Title.Forms" = "Completează formularele";
 "Onboarding.Title.Notes" = "Adaugă note";
 
-"Onboarding.Text.Station" = "PASUL 1:\nDefinește secția de votare în care te afli, alegând județul și numărul acesteia.\n\nPASUL 2:\nAdaugă câteva detalii (mediul urban/rural, detalii despre președintele de secție, ora sosirii). Nu-ți face griji, poți să modifici informațiile mai târziu.";
+"Onboarding.Text.Station" = "PASUL 1:\nDefinește secția de votare în care te afli, alegând județul și numărul acesteia.\n\nPASUL 2:\nAdaugă detalii despre sectia de votare. Nu-ți face griji, poți să modifici informațiile mai târziu.";
 "Onboarding.Text.Forms" = "Pentru a detecta problemele, îți punem la dispoziție câteva formulare cu regulile standard ale unei secții de votare.\n\nÎn fiecare formular poți semnala dacă anumite proceduri au fost urmate sau nu.";
 "Onboarding.Text.Notes" = "Ai observat o problemă care nu apare în formular? Folosește butonul de ‘Adaugă notă’, scrie un mesaj și/sau anexează o imagine.";
 

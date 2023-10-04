@@ -75,8 +75,10 @@ extension SectionInfo {
 
 extension SectionInfo {
     var sectionFullName: String? {
-        guard let countyName = self.countyName,
+        guard let provinceName = self.provinceName,
+              let countyName = self.countyName,
               let municipalityName = self.municipalityName else { return nil }
-        return "Station".localized + " \(sectionId) \(municipalityName.capitalized), \(countyName.capitalized)"
+
+        return "Station".localized + " \(sectionId) \(municipalityName), \(countyName), \(provinceName)"
     }
 }
