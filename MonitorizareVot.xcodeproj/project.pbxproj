@@ -34,6 +34,7 @@
 		281A4B8E236D7B90001AD277 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281A4B8D236D7B90001AD277 /* LoginViewModel.swift */; };
 		28236E2425166D330062CF63 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28236E2225166D330062CF63 /* AboutViewController.swift */; };
 		28236E2525166D330062CF63 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28236E2325166D330062CF63 /* AboutViewController.xib */; };
+		2839F99B2AC771EA00DF724F /* TextContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2839F99A2AC771EA00DF724F /* TextContainer.swift */; };
 		285028DF240A8B5F006A0D01 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285028DD240A8B5F006A0D01 /* MenuViewController.swift */; };
 		285028E0240A8B5F006A0D01 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 285028DE240A8B5F006A0D01 /* MenuViewController.xib */; };
 		28508623236D9C6000189D94 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28508622236D9C6000189D94 /* Launch Screen.storyboard */; };
@@ -191,6 +192,7 @@
 		281A4B8D236D7B90001AD277 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		28236E2225166D330062CF63 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		28236E2325166D330062CF63 /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
+		2839F99A2AC771EA00DF724F /* TextContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContainer.swift; sourceTree = "<group>"; };
 		285028DD240A8B5F006A0D01 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		285028DE240A8B5F006A0D01 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		28508622236D9C6000189D94 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -507,6 +509,7 @@
 				28844A4F233F6F3B00DEEA44 /* ChooserButton.swift */,
 				28FB66AB23670B3500336DBA /* AttachButton.swift */,
 				281A4B86236CC625001AD277 /* DropdownButton.swift */,
+				2839F99A2AC771EA00DF724F /* TextContainer.swift */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -839,9 +842,9 @@
 				TargetAttributes = {
 					EF4BD3801D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = "\"\"";
+						DevelopmentTeam = 442AHZGZ2T;
 						LastSwiftMigration = 0810;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					EF4BD39C1D9D08DE0042BEC7 = {
 						CreatedOnToolsVersion = 8.0;
@@ -1141,6 +1144,7 @@
 				28FB66B0236855E400336DBA /* DB.swift in Sources */,
 				28FB66A22366EAAC00336DBA /* QuestionAnswerViewController.swift in Sources */,
 				E7E8EB4B1DDB7344009EBE01 /* UIColor+Presets.swift in Sources */,
+				2839F99B2AC771EA00DF724F /* TextContainer.swift in Sources */,
 				289E1E84235F2674000C92A0 /* FormListViewController.swift in Sources */,
 				F553E3BA1DF9D67A000D0902 /* Note+CoreDataProperties.swift in Sources */,
 				2859C2D325628B480049259A /* UIImage+Presets.swift in Sources */,
@@ -1294,7 +1298,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1348,7 +1352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1364,12 +1368,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MonitorizareVot/MonitorizareVot.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 17;
+				DEVELOPMENT_TEAM = 442AHZGZ2T;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.4.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1383,12 +1390,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MonitorizareVot/MonitorizareVot.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 17;
+				DEVELOPMENT_TEAM = 442AHZGZ2T;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 2.4.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 			};

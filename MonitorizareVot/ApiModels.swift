@@ -21,18 +21,28 @@ struct LoginRequest: Codable {
 struct UpdatePollingStationRequest: Codable {
     var id: Int
     var countyCode: String
-    var isUrbanArea: Bool
-    var leaveTime: String?
+    var municipalityCode: String
     var arrivalTime: String
-    var isPresidentFemale: Bool
+    var numberOfVotersOnTheList: Int
+    var numberOfCommissionMembers: Int
+    var numberOfFemaleMembers: Int
+    var minPresentMembers: Int
+    var chairmanPresence: Bool
+    var singlePollingStationOrCommission: Bool
+    var adequatePollingStationSize: Bool
     
     enum CodingKeys: String, CodingKey {
-        case id = "idPollingStation"
+        case id = "pollingStationNumber"
         case countyCode
-        case isUrbanArea = "urbanArea"
-        case leaveTime = "observerLeaveTime"
+        case municipalityCode
         case arrivalTime = "observerArrivalTime"
-        case isPresidentFemale = "isPollingStationPresidentFemale"
+        case numberOfVotersOnTheList
+        case numberOfCommissionMembers
+        case numberOfFemaleMembers
+        case minPresentMembers
+        case chairmanPresence
+        case singlePollingStationOrCommission
+        case adequatePollingStationSize
     }
 }
 
@@ -40,10 +50,20 @@ struct UpdatePollingStationRequest: Codable {
 struct UploadNoteRequest {
     var questionId: Int?
     var countyCode: String
+    var municipalityCode: String
     var pollingStationId: Int?
     var text: String
 
     var attachments: [NoteAttachment]
+    
+    enum CodingKeys: String, CodingKey {
+        case questionId
+        case countyCode
+        case municipalityCode
+        case pollingStationId = "pollingStationNumber"
+        case text
+        case attachments = "files"
+    }
 }
 
 struct UploadAnswersRequest: Codable {
@@ -53,12 +73,14 @@ struct UploadAnswersRequest: Codable {
 struct AnswerRequest: Codable {
     var questionId: Int
     var countyCode: String
+    var municipalityCode: String
     var pollingStationId: Int
     var options: [AnswerOptionRequest]
     
     enum CodingKeys: String, CodingKey {
         case questionId
         case countyCode
+        case municipalityCode
         case pollingStationId = "pollingStationNumber"
         case options
     }
@@ -92,13 +114,62 @@ struct LoginResponse: Codable {
     }
 }
 
-struct CountyResponse: Codable {
+protocol Sortable {
+    var order: Int { get }
+    var name: String { get }
+}
+
+struct ProvinceResponse: Codable, Sortable, Equatable {
     var id: Int
     var name: String
     var code: String
-    var numberOfPollingStations: Int
+    var order: Int
+    
+    static func ==(lhs: Self, rhs: Self) -> Bool {
+        lhs.code == rhs.code
+    }
+    
+    static func basic(name: String?, code: String?) -> ProvinceResponse? {
+        guard let name, let code else { return nil }
+        return Self.init(id: 0, name: name, code: code, order: 0)
+    }
+}
+
+struct CountyResponse: Codable, Sortable, Equatable {
+    var id: Int
+    var name: String
+    var code: String
+    var provinceCode: String
     var diaspora: Bool?
     var order: Int
+    
+    static func ==(lhs: Self, rhs: Self) -> Bool {
+        lhs.code == rhs.code
+    }
+    
+    static func basic(name: String?, code: String?) -> CountyResponse? {
+        guard let name, let code else { return nil }
+        return Self.init(id: 0, name: name, code: code, provinceCode: "", diaspora: nil, order: 0)
+    }
+}
+
+struct MunicipalityResponse: Codable, Sortable, Equatable {
+    var id: Int
+    var name: String
+    var code: String
+    var countyCode: String
+    var numberOfPollingStations: Int
+    var order: Int
+    
+    static func ==(lhs: Self, rhs: Self) -> Bool {
+        lhs.code == rhs.code
+    }
+    
+    static func basic(name: String?, code: String?) -> MunicipalityResponse? {
+        // TODO: the number of polling stations is mocked
+        guard let name, let code else { return nil }
+        return Self.init(id: 0, name: name, code: code, countyCode: "", numberOfPollingStations: 1000, order: 0)
+    }
 }
 
 struct FormListResponse: Codable {
@@ -116,14 +187,16 @@ struct FormResponse: Codable {
     var description: String
     var order: Int?
     var isDiasporaOnly: Bool?
+    var draft: Bool
     
     enum CodingKeys: String, CodingKey {
         case id
         case code
-        case version = "ver"
+        case version = "currentVersion"
         case description
         case order
         case isDiasporaOnly = "diaspora"
+        case draft
     }
 }
 
@@ -132,6 +205,7 @@ struct FormSectionResponse: Codable {
     var uniqueId: String
     var code: String
     var description: String
+    var orderNumber: Int
     var questions: [QuestionResponse]
 }
 
@@ -165,11 +239,13 @@ struct QuestionOptionResponse: Codable {
     var id: Int
     var text: String
     var isFreeText: Bool
+    var order: Int
     
     enum CodingKeys: String, CodingKey {
-        case id = "idOption"
+        case id = "optionId"
         case text
         case isFreeText
+        case order = "orderNumber"
     }
 }
 

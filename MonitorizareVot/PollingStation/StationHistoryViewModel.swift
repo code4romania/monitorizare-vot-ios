@@ -8,20 +8,31 @@
 
 import UIKit
 
+struct VisitedStationModel {
+    var name: String
+    var stationId: String
+    var countyCode: String
+    var countyName: String
+    var provinceCode: String
+    var provinceName: String
+    var municipalityCode: String
+    var municipalityName: String
+}
+
 class StationHistoryViewModel: NSObject {
     
-    struct StationRowModel {
-        var name: String
-        var stationId: String
-        var stationCountyCode: String
-    }
-    
-    lazy var visitedStations: [StationRowModel] = {
+    lazy var visitedStations: [VisitedStationModel] = {
         let sectionInfos = DB.shared.getVisitedSections()
         return sectionInfos.map {
-            return StationRowModel(name: $0.sectionFullName ?? "",
-                            stationId: "\($0.sectionId)",
-                            stationCountyCode: $0.countyCode ?? "")
+            return VisitedStationModel(
+                name: $0.sectionFullName ?? "",
+                stationId: "\($0.sectionId)",
+                countyCode: $0.countyCode ?? "",
+                countyName: $0.countyName ?? "",
+                provinceCode: $0.provinceCode ?? "",
+                provinceName: $0.provinceName ?? "",
+                municipalityCode: $0.municipalityCode ?? "",
+                municipalityName: $0.municipalityName ?? "")
         }
     }()
 }

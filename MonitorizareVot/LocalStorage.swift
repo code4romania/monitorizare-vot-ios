@@ -9,14 +9,14 @@
 import UIKit
 
 enum LocalFilename {
-    case pollingStations
+    case provinces
     case forms
     case form(id: Int)
     
     var fullName: String {
         var name: String
         switch self {
-        case .pollingStations:  name = "polling-stations"
+        case .provinces:        name = "provinces"
         case .forms:            name = "forms"
         case .form(let id):     name = "form-details-\(id)"
         }
@@ -26,10 +26,10 @@ enum LocalFilename {
 
 protocol LocalStorageType: NSObject {
     
-    var counties: [CountyResponse]? { set get }
+    var provinces: [ProvinceResponse]? { set get }
     var forms: [FormResponse]? { set get }
 
-    func getCounty(withCode code: String) -> CountyResponse?
+    func getProvince(withCode code: String) -> ProvinceResponse?
     func getFormSummary(withCode code: String) -> FormResponse?
     func loadForm(withId formId: Int) -> [FormSectionResponse]?
     func saveForm(_ form: [FormSectionResponse], withId formId: Int)
@@ -47,15 +47,15 @@ class LocalStorage: NSObject, LocalStorageType {
     
     // MARK: - Public
     
-    var counties: [CountyResponse]? {
+    var provinces: [ProvinceResponse]? {
         set {
             if let newValue = newValue {
-                save(codable: newValue, withFilename: .pollingStations)
+                save(codable: newValue, withFilename: .provinces)
             } else {
-                delete(fileWithName: .pollingStations)
+                delete(fileWithName: .provinces)
             }
         } get {
-            return load(type: [CountyResponse].self, withFilename: .pollingStations)
+            return load(type: [ProvinceResponse].self, withFilename: .provinces)
         }
     }
     
@@ -84,9 +84,9 @@ class LocalStorage: NSObject, LocalStorageType {
         return forms.filter { $0.code == code }.first
     }
     
-    func getCounty(withCode code: String) -> CountyResponse? {
-        guard let counties = counties else { return nil }
-        return counties.filter { $0.code == code }.first
+    func getProvince(withCode code: String) -> ProvinceResponse? {
+        guard let provinces else { return nil }
+        return provinces.filter { $0.code == code }.first
     }
 
     /// Call this to delete all local data. This can be useful on db clear for example

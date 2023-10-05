@@ -13,65 +13,120 @@ class SectionDetailsViewModel: NSObject {
     var onUpdate: (() -> Void)?
     
     var isReady: Bool {
-        return medium != nil && gender != nil && arrivalTime != nil
+        return arrivalTime != nil
+        && isValid(int: numberOfVotersOnTheList)
+        && isValid(int: numberOfCommissionMembers)
+        && isValid(int: numberOfFemaleMembers)
+        && isValid(int: minPresentMembers)
+        && isValid(bool: chairmanPresence)
+        && isValid(bool: singlePollingStationOrCommission)
+        && isValid(bool: adequatePollingStationSize)
     }
     
-    var medium: SectionInfo.Medium? {
-        didSet {
-            if let medium = medium {
-                DB.shared.currentSectionInfo()?.medium = medium.rawValue
-                try! CoreData.save()
-            }
-            onUpdate?()
-        }
+    private func isValid(int: Int?) -> Bool {
+        int != nil && int! >= 0 && int! <= Int(Int64.max)
     }
     
-    var gender: SectionInfo.Genre? {
-       didSet {
-           if let gender = gender {
-               DB.shared.currentSectionInfo()?.presidentGender = gender.rawValue
-               try! CoreData.save()
-           }
-           onUpdate?()
-       }
+    private func isValid(bool: Bool?) -> Bool {
+        bool != nil
     }
     
     var arrivalTime: Date? {
         didSet {
-            if let time = arrivalTime {
-                DB.shared.currentSectionInfo()?.arriveTime = time
-                DB.shared.currentSectionInfo()?.synced = false
-                try! CoreData.save()
-            }
             onUpdate?()
         }
     }
     
     var leaveTime: Date? {
         didSet {
-            if let time = leaveTime {
-                DB.shared.currentSectionInfo()?.leaveTime = time
-                DB.shared.currentSectionInfo()?.synced = false
-                try! CoreData.save()
-            }
+            onUpdate?()
+        }
+    }
+    
+    var numberOfVotersOnTheList: Int? {
+        didSet {
+            onUpdate?()
+        }
+    }
+    
+    var numberOfCommissionMembers: Int? {
+        didSet {
+            onUpdate?()
+        }
+    }
+    
+    var numberOfFemaleMembers: Int? {
+        didSet {
+            onUpdate?()
+        }
+    }
+    
+    var minPresentMembers: Int? {
+        didSet {
+            onUpdate?()
+        }
+    }
+    
+    var chairmanPresence: Bool? {
+        didSet {
+            onUpdate?()
+        }
+    }
+    
+    var singlePollingStationOrCommission: Bool? {
+        didSet {
+            onUpdate?()
+        }
+    }
+    
+    var adequatePollingStationSize: Bool? {
+        didSet {
             onUpdate?()
         }
     }
     
     override init() {
         let sectionInfo = DB.shared.currentSectionInfo()
-        if let medium = sectionInfo?.medium {
-            self.medium = SectionInfo.Medium(rawValue: medium)
+        if let sectionInfo {
+            self.arrivalTime = sectionInfo.arriveTime
+            self.leaveTime = sectionInfo.leaveTime
+            self.numberOfVotersOnTheList = Int(sectionInfo.numberOfVotersOnTheList)
+            self.numberOfCommissionMembers = Int(sectionInfo.numberOfCommissionMembers)
+            self.numberOfFemaleMembers = Int(sectionInfo.numberOfFemaleMembers)
+            self.minPresentMembers = Int(sectionInfo.minPresentMembers)
+            self.chairmanPresence = sectionInfo.chairmanPresence
+            self.singlePollingStationOrCommission = sectionInfo.singlePollingStationOrCommission
+            self.adequatePollingStationSize = sectionInfo.adequatePollingStationSize
         }
-        if let gender = sectionInfo?.presidentGender {
-            self.gender = SectionInfo.Genre(rawValue: gender)
-        }
-        self.arrivalTime = sectionInfo?.arriveTime
-        self.leaveTime = sectionInfo?.leaveTime
         super.init()
     }
     
+    private func saveLocally() {
+        let sectionInfo = DB.shared.currentSectionInfo()
+        if sectionInfo == nil { return }
+        
+        if let time = arrivalTime {
+            sectionInfo?.arriveTime = time
+        }
+        if let time = leaveTime {
+            sectionInfo?.leaveTime = time
+        }
+        sectionInfo?.numberOfVotersOnTheList = Int64(numberOfVotersOnTheList ?? 0)
+        sectionInfo?.numberOfCommissionMembers = Int64(numberOfCommissionMembers ?? 0)
+        sectionInfo?.numberOfFemaleMembers = Int64(numberOfFemaleMembers ?? 0)
+        sectionInfo?.minPresentMembers = Int64(minPresentMembers ?? 0)
+        sectionInfo?.chairmanPresence = chairmanPresence ?? false
+        sectionInfo?.singlePollingStationOrCommission = singlePollingStationOrCommission ?? false
+        sectionInfo?.adequatePollingStationSize = adequatePollingStationSize ?? false
+
+        sectionInfo?.synced = false
+        try! CoreData.save()
+    }
+    
     func persist(then callback: @escaping (_ error: RemoteSyncerError?, _ tokenExpired: Bool) -> Void) {
+        
+        saveLocally()
+        
         guard let section = DB.shared.currentSectionInfo(),
             !section.synced else {
             callback(nil, false)

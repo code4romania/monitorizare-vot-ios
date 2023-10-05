@@ -68,8 +68,21 @@ class AppRouter: NSObject {
         guard splitViewController == nil else { return }
     }
     
-    func goToChooseStation(stationId: String? = nil, countyCode: String? = nil) {
-        let sectionModel = SectionPickerViewModel(sectionId: stationId, countyCode: countyCode)
+    func goToChooseStation(visitedStation: VisitedStationModel? = nil) {
+        
+        var sectionModel: SectionPickerViewModel!
+        
+        if let station = visitedStation {
+            sectionModel = SectionPickerViewModel(
+                sectionId: station.stationId,
+                province: .basic(name: station.provinceName, code: station.provinceCode),
+                county: .basic(name: station.countyName, code: station.countyCode),
+                municipality: .basic(name: station.municipalityName, code: station.municipalityCode)
+            )
+        } else {
+            sectionModel = SectionPickerViewModel()
+        }
+        
         let sectionController = SectionPickerViewController(withModel: sectionModel)
         if isPad && splitViewController == nil {
             AppDelegate.shared.window?.rootViewController = UISplitViewController()

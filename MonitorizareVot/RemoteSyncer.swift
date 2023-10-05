@@ -69,10 +69,9 @@ class RemoteSyncer: NSObject {
     }
     
     func uploadSectionInfo(_ section: SectionInfo, then callback: @escaping (RemoteSyncerError?) -> Void) {
-        let stationId = Int(section.sectionId)
+        let sectionNumber = Int(section.sectionId)
         guard let county = section.countyCode,
-            let medium = SectionInfo.Medium(rawValue: section.medium ?? ""),
-            let presidentGenre = SectionInfo.Genre(rawValue: section.presidentGender ?? "") else {
+              let municipality = section.municipalityCode else {
                 callback(.invalidStationData)
                 return
         }
@@ -81,15 +80,21 @@ class RemoteSyncer: NSObject {
         let arrivalTime = section.arriveTime != nil ? dateFmt.string(from: section.arriveTime!) : ""
         let leaveTime = section.leaveTime != nil ? dateFmt.string(from: section.leaveTime!) : nil
         
-        let section = UpdatePollingStationRequest(
-            id: stationId,
+        let stationRequest = UpdatePollingStationRequest(
+            id: sectionNumber,
             countyCode: county,
-            isUrbanArea: medium == .urban,
-            leaveTime: leaveTime,
+            municipalityCode: municipality,
             arrivalTime: arrivalTime,
-            isPresidentFemale: presidentGenre == .woman)
+            numberOfVotersOnTheList: Int(section.numberOfVotersOnTheList),
+            numberOfCommissionMembers: Int(section.numberOfCommissionMembers),
+            numberOfFemaleMembers: Int(section.numberOfFemaleMembers),
+            minPresentMembers: Int(section.minPresentMembers),
+            chairmanPresence: section.chairmanPresence,
+            singlePollingStationOrCommission: section.singlePollingStationOrCommission,
+            adequatePollingStationSize: section.adequatePollingStationSize
+        )
         
-        APIManager.shared.upload(pollingStation: section) { error in
+        APIManager.shared.upload(pollingStation: stationRequest) { error in
             if let error = error {
                 callback(.stationError(reason: error))
             } else {
@@ -162,6 +167,7 @@ class RemoteSyncer: NSObject {
             let question = AnswerRequest(
                 questionId: Int(question.id),
                 countyCode: station?.countyCode ?? "",
+                municipalityCode: station?.municipalityCode ?? "",
                 pollingStationId: Int(station?.sectionId ?? 0),
                 options: answerRequests)
             answers.append(question)
@@ -199,8 +205,15 @@ class RemoteSyncer: NSObject {
     
     fileprivate func markQuestionsAsSynced(usingAnswers answers: [AnswerRequest]) {
         do {
+            // new
+            let section = DB.shared.currentSectionInfo()
+            assert(section != nil, "No current section!")
+            guard let section else { return }
+            
             for answer in answers {
-                let section = DB.shared.sectionInfo(for: answer.countyCode, sectionId: answer.pollingStationId)
+                // old
+//                let section = DB.shared.sectionInfo(for: answer.countyCode, sectionId: answer.pollingStationId)
+                
                 let question = DB.shared.getQuestion(withId: answer.questionId, inSection: section)
                 question?.synced = true
             }

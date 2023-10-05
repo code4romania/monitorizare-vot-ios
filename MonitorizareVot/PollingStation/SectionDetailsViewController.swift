@@ -14,17 +14,28 @@ class SectionDetailsViewController: MVViewController {
 
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    @IBOutlet weak var environmentLabel: UILabel!
-    @IBOutlet weak var chairmanGenderLabel: UILabel!
     @IBOutlet weak var arrivalTimeLabel: UILabel!
     @IBOutlet weak var departureTimeLabel: UILabel!
+    @IBOutlet weak var numberOfVotersLabel: UILabel!
+    @IBOutlet weak var numberOfMembersLabel: UILabel!
+    @IBOutlet weak var numberOfWomenLabel: UILabel!
+    @IBOutlet weak var lowestNoMembersLabel: UILabel!
+    @IBOutlet weak var chairmanPresentLabel: UILabel!
+    @IBOutlet weak var onlyOneLabel: UILabel!
+    @IBOutlet weak var sizeAdequateLabel: UILabel!
     
-    @IBOutlet weak var envUrbanButton: UIButton!
-    @IBOutlet weak var envRuralButton: UIButton!
-    @IBOutlet weak var genderWomanButton: UIButton!
-    @IBOutlet weak var genderManButton: UIButton!
     @IBOutlet weak var arrivalButton: UIButton!
     @IBOutlet weak var departureButton: UIButton!
+    @IBOutlet weak var numberOfVotersField: UITextField!
+    @IBOutlet weak var numberOfMembersField: UITextField!
+    @IBOutlet weak var numberOfWomenField: UITextField!
+    @IBOutlet weak var lowestNoMembersField: UITextField!
+    @IBOutlet weak var chairmanPresentNoButton: ChooserButton!
+    @IBOutlet weak var chairmanPresentYesButton: ChooserButton!
+    @IBOutlet weak var onlyOneNoButton: ChooserButton!
+    @IBOutlet weak var onlyOneYesButton: ChooserButton!
+    @IBOutlet weak var sizeAdequateNoButton: ChooserButton!
+    @IBOutlet weak var sizeAdequateYesButton: ChooserButton!
     
     @IBOutlet weak var continueButton: UIButton!
     
@@ -65,6 +76,7 @@ class SectionDetailsViewController: MVViewController {
         configureSubviews()
         bindToUpdates()
         addMenuButtonToNavBar()
+        initializeValuesFromModel()
         isLoading = false
     }
     
@@ -83,6 +95,27 @@ class SectionDetailsViewController: MVViewController {
     }
 
     fileprivate func configureSubviews() {
+        let optionButtons: [UIButton] = [
+            chairmanPresentNoButton,
+            chairmanPresentYesButton,
+            onlyOneNoButton,
+            onlyOneYesButton,
+            sizeAdequateNoButton,
+            sizeAdequateYesButton
+        ]
+        optionButtons.forEach { button in
+            button.addTarget(self, action: #selector(handleOptionButtonTap), for: .touchUpInside)
+        }
+        
+        let textFields: [UITextField] = [
+            numberOfVotersField,
+            numberOfMembersField,
+            numberOfWomenField,
+            lowestNoMembersField
+        ]
+        textFields.forEach { textField in
+            textField.delegate = self
+        }
     }
     
     
@@ -96,54 +129,45 @@ class SectionDetailsViewController: MVViewController {
         }
     }
     
+    fileprivate func initializeValuesFromModel() {
+        numberOfVotersField.text = "\(model.numberOfVotersOnTheList ?? 0)"
+        numberOfMembersField.text = "\(model.numberOfCommissionMembers ?? 0)"
+        numberOfWomenField.text = "\(model.numberOfFemaleMembers ?? 0)"
+        lowestNoMembersField.text = "\(model.minPresentMembers ?? 0)"
+3    }
+    
     fileprivate func updateInterface() {
-        envUrbanButton.isSelected = model.medium == .urban
-        envRuralButton.isSelected = model.medium == .rural
-        genderWomanButton.isSelected = model.gender == .woman
-        genderManButton.isSelected = model.gender == .man
         arrivalButton.setTitle(formattedTime(fromDate: model.arrivalTime), for: .normal)
         departureButton.setTitle(formattedTime(fromDate: model.leaveTime), for: .normal)
+
+        chairmanPresentNoButton.isSelected = model.chairmanPresence == false
+        chairmanPresentYesButton.isSelected = model.chairmanPresence == true
+        onlyOneNoButton.isSelected = model.singlePollingStationOrCommission == false
+        onlyOneYesButton.isSelected = model.singlePollingStationOrCommission == true
+        sizeAdequateNoButton.isSelected = model.adequatePollingStationSize == false
+        sizeAdequateYesButton.isSelected = model.adequatePollingStationSize == true
+        
         continueButton.isEnabled = model.isReady
     }
     
     fileprivate func updateLabelsTexts() {
         title = "Title.StationDetails".localized
 
-        environmentLabel.text = "Label_CountyLocation".localized
-        envUrbanButton.setTitle("Button_Urban".localized, for: .normal)
-        envRuralButton.setTitle("Button_Rural".localized, for: .normal)
-        
-        chairmanGenderLabel.text = "Label_CountyPresidentGender".localized
-        genderWomanButton.setTitle("Button_Female".localized, for: .normal)
-        genderManButton.setTitle("Button_Male".localized, for: .normal)
-        
         arrivalTimeLabel.text = "Label_CountyArriveTime".localized
         departureTimeLabel.text = "Label_CountyLeaveTime".localized
+        
+        numberOfVotersLabel.text = "Label_CountyVotersCount".localized
+        numberOfMembersLabel.text = "Label_CountyMembersCount".localized
+        numberOfWomenLabel.text = "Label_CountyWomenCount".localized
+        lowestNoMembersLabel.text = "Label_CountyLowestMemberCount".localized
+        chairmanPresentLabel.text = "Label_CountyChairmanPresent".localized
+        onlyOneLabel.text = "Label_CountyOnlyOneStation".localized
+        sizeAdequateLabel.text = "Label_CountySizeAdequate".localized
         
         continueButton.setTitle("Button_ContinueToForms".localized, for: .normal)
     }
     
     // MARK: - Actions
-    
-    @IBAction func handleEnvironmentButtonTap(_ sender: UIButton) {
-        var medium: SectionInfo.Medium!
-        switch sender {
-        case envUrbanButton: medium = .urban
-        case envRuralButton: medium = .rural
-        default: break
-        }
-        model.medium = medium
-    }
-    
-    @IBAction func handleGenderButtonTap(_ sender: UIButton) {
-        var gender: SectionInfo.Genre!
-        switch sender {
-        case genderWomanButton: gender = .woman
-        case genderManButton: gender = .man
-        default: break
-        }
-        model.gender = gender
-    }
     
     @IBAction func handleTimeButtonTap(_ sender: UIButton) {
         let isArrivalTime = sender == arrivalButton
@@ -192,7 +216,6 @@ class SectionDetailsViewController: MVViewController {
                 self.navigationController?.popToRootViewController(animated: true)
             } else {
                 if error == nil {
-                    MVAnalytics.shared.log(event: .sectionEnvironment(type: self.model.medium == .urban ? "urban" : "rural"))
                     AppRouter.shared.goToForms(from: self)
                 } else {
                     let alert = UIAlertController(title: "Error".localized,
@@ -204,5 +227,49 @@ class SectionDetailsViewController: MVViewController {
             }
         }
 
+    }
+    
+    @objc func handleOptionButtonTap(_ sender: UIButton) {
+        switch sender {
+        case chairmanPresentNoButton:
+            model.chairmanPresence = false
+        case chairmanPresentYesButton:
+            model.chairmanPresence = true
+        case onlyOneNoButton:
+            model.singlePollingStationOrCommission = false
+        case onlyOneYesButton:
+            model.singlePollingStationOrCommission = true
+        case sizeAdequateNoButton:
+            model.adequatePollingStationSize = false
+        case sizeAdequateYesButton:
+            model.adequatePollingStationSize = true
+        default:
+            break
+        }
+    }
+}
+
+extension SectionDetailsViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let replaced = (textField.text as? NSString)?.replacingCharacters(in: range, with: string) else { return false }
+        
+        if replaced.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty { return true }
+        
+        let numberValue = Int(replaced)
+        
+        switch textField {
+        case numberOfVotersField:
+            model.numberOfVotersOnTheList = numberValue
+        case numberOfMembersField:
+            model.numberOfCommissionMembers = numberValue
+        case numberOfWomenField:
+            model.numberOfFemaleMembers = numberValue
+        case lowestNoMembersField:
+            model.minPresentMembers = numberValue
+        default:
+            break
+        }
+        
+        return true
     }
 }

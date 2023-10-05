@@ -113,6 +113,7 @@ class AttachNoteViewModel: NSObject {
         let request = UploadNoteRequest(
             questionId: questionId,
             countyCode: pollingStation.countyCode ?? "",
+            municipalityCode: pollingStation.municipalityCode ?? "",
             pollingStationId: Int(pollingStation.sectionId),
             text: text,
             attachments: savedAttachments)

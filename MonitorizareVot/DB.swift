@@ -30,28 +30,58 @@ class DB: NSObject {
     }
     
     func currentSectionInfo() -> SectionInfo? {
-        guard let county = PreferencesManager.shared.county,
-            let stationId = PreferencesManager.shared.section else { return nil }
-        return sectionInfo(for: county, sectionId: stationId)
+        let prefs = PreferencesManager.shared
+        guard let provinceCode = prefs.province?.code,
+              let countyCode = prefs.county?.code,
+              let municipalityCode = prefs.municipality?.code,
+              let stationId = prefs.section else { return nil }
+        return getSectionInfo(
+            provinceCode: provinceCode,
+            countyCode: countyCode,
+            municipalityCode: municipalityCode,
+            sectionId: stationId
+        )
     }
     
-    func sectionInfo(for county: String, sectionId: Int) -> SectionInfo {
+    func getSectionInfo(
+        provinceCode: String,
+        countyCode: String,
+        municipalityCode: String,
+        sectionId: Int) -> SectionInfo?
+    {
         let request: NSFetchRequest<SectionInfo> = SectionInfo.fetchRequest()
         request.fetchLimit = 1
-        request.predicate = NSPredicate(format: "countyCode == %@ && sectionId == %d", county, Int16(sectionId))
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [
+            NSPredicate(format: "provinceCode == %@", provinceCode),
+            NSPredicate(format: "countyCode == %@", countyCode),
+            NSPredicate(format: "municipalityCode == %@", municipalityCode),
+            NSPredicate(format: "sectionId == %d", Int64(sectionId))
+        ])
         let sections = try? CoreData.context.fetch(request)
-        if let sectionInfo = sections?.first {
-            return sectionInfo
-        } else {
-            // create it
-            let sectionInfoEntityDescription = NSEntityDescription.entity(forEntityName: "SectionInfo", in: CoreData.context)
-            let newSectioInfo = SectionInfo(entity: sectionInfoEntityDescription!, insertInto: CoreData.context)
-            newSectioInfo.countyCode = county
-            newSectioInfo.sectionId = Int16(sectionId)
-            newSectioInfo.synced = false
-            try! CoreData.context.save()
-            return newSectioInfo
-        }
+        return sections?.first
+    }
+    
+    func createSectionInfo(
+        provinceCode: String,
+        provinceName: String,
+        countyCode: String,
+        countyName: String,
+        municipalityCode: String,
+        municipalityName: String,
+        sectionId: Int) -> SectionInfo
+    {
+        let sectionInfoEntityDescription = NSEntityDescription.entity(forEntityName: "SectionInfo", in: CoreData.context)
+        let newSectioInfo = SectionInfo(entity: sectionInfoEntityDescription!, insertInto: CoreData.context)
+        newSectioInfo.provinceCode = provinceCode
+        newSectioInfo.provinceName = provinceName
+        newSectioInfo.countyCode = countyCode
+        newSectioInfo.countyName = countyName
+        newSectioInfo.municipalityCode = municipalityCode
+        newSectioInfo.municipalityName = municipalityName
+        newSectioInfo.sectionId = Int64(sectionId)
+        newSectioInfo.synced = false
+        try! CoreData.context.save()
+        return newSectioInfo
     }
     
     /// - Returns: the list of unsynced notes across all visited stations

@@ -20,30 +20,50 @@ enum SectionPickerViewModelError: Error {
 
 class SectionPickerViewModel: NSObject {
     
-    var countyCode: String? {
+    var selectedProvince: ProvinceResponse? {
         didSet {
-            sectionId = nil
+            if selectedProvince != oldValue {
+                selectedCounty = nil
+                selectedMunicipality = nil
+                sectionId = nil
+            }
             onStateChanged?()
         }
     }
-    
-    var sectionId: Int? {
+    var selectedCounty: CountyResponse? {
         didSet {
+            if selectedCounty != oldValue {
+                selectedMunicipality = nil
+                sectionId = nil
+            }
             onStateChanged?()
         }
     }
+    var selectedMunicipality: MunicipalityResponse? {
+        didSet {
+            if selectedMunicipality != oldValue {
+                sectionId = nil
+            }
+            onStateChanged?()
+        }
+    }
+    var sectionId: Int?
     
     var canContinue: Bool {
-        return countyCode != nil && sectionId != nil
+        return selectedProvince != nil
+        && selectedCounty != nil
+        && selectedMunicipality != nil
+        && isSectionNumberCorrect
     }
     
     var isSectionNumberCorrect: Bool {
-        return sectionId != nil && maximumStationNumber != nil && sectionId! <= maximumStationNumber!
+        guard let sectionId, let selectedMunicipality else { return false }
+        return sectionId >= 0
     }
     
     var selectedCountyName: String? {
-        guard let code = countyCode else { return nil }
-        return getCounty(byCountyCode: code)?.name.capitalized
+        guard let selectedCounty else { return nil }
+        return selectedCounty.name
     }
     
     var hasVisitedAnyStations: Bool {
@@ -58,12 +78,21 @@ class SectionPickerViewModel: NSObject {
     
     /// Be notified whenever the model data changes so you can update the interface with fresh data
     var onStateChanged: (() -> Void)?
+
+    private(set) var provinces: [ProvinceResponse] = []
+
+    private var countiesByProvince: [String: [CountyResponse]] = [:]
+
+    private var municipalitiesByCounty: [String: [MunicipalityResponse]] = [:]
     
-    fileprivate(set) var availableCounties: [CountyResponse] = []
+    var currentCounties: [CountyResponse]? { 
+        guard let selectedProvince else { return nil }
+        return countiesByProvince[selectedProvince.code]
+    }
     
-    var maximumStationNumber: Int? {
-        guard let selectedCounty = countyCode else { return nil }
-        return getCounty(byCountyCode: selectedCounty)?.numberOfPollingStations
+    var currentMunicipalities: [MunicipalityResponse]? {
+        guard let selectedCounty else { return nil }
+        return municipalitiesByCounty[selectedCounty.code]
     }
     
     fileprivate(set) var isDownloading: Bool = false {
@@ -78,70 +107,112 @@ class SectionPickerViewModel: NSObject {
         }
     }
     
-    init(sectionId: String? = nil, countyCode: String? = nil) {
+    init(sectionId: String? = nil,
+         province: ProvinceResponse? = nil,
+         county: CountyResponse? = nil,
+         municipality: MunicipalityResponse? = nil) {
         if let sectionId = sectionId {
-            self.countyCode = countyCode
+            self.selectedProvince = province
+            self.selectedCounty = county
+            self.selectedMunicipality = municipality
             self.sectionId = Int(sectionId)
         } else {
             if let currentSection = DB.shared.currentSectionInfo() {
-                self.countyCode = currentSection.countyCode
+                self.selectedProvince = .basic(name: currentSection.provinceName,
+                                             code: currentSection.provinceCode)
+                self.selectedCounty = .basic(name: currentSection.countyName,
+                                             code: currentSection.countyCode)
+                self.selectedMunicipality = .basic(name: currentSection.municipalityName,
+                                             code: currentSection.municipalityCode)
                 self.sectionId = Int(currentSection.sectionId)
             }
         }
         super.init()
     }
     
-    func fetchPollingStations(then callback: @escaping (APIError?) -> Void) {
+    func fetchProvinces(then callback: @escaping (APIError?) -> Void) {
         isDownloading = true
-        APIManager.shared.fetchCounties { (counties, error) in
-            if let counties = counties {
-                self.availableCounties = self.sorted(counties: counties)
-                LocalStorage.shared.counties = counties
+        APIManager.shared.fetchProvinces { (provinces, error) in
+            if let provinces = provinces {
+                self.provinces = self.sorted(provinces)
+                LocalStorage.shared.provinces = provinces
             }
             callback(error)
             self.isDownloading = false
         }
     }
     
-    private func sorted(counties: [CountyResponse]) -> [CountyResponse] {
-        counties.sorted {
-            if $0.diaspora != $1.diaspora {
-                // diaspora comes first
-                return $0.diaspora == true && $1.diaspora != true
-            } else if $0.order != $1.order {
+    func fetchCounties(in province: String, then callback: @escaping (APIError?) -> Void) {
+        isDownloading = true
+        APIManager.shared.fetchCounties(for: province) { (counties, error) in
+            if let counties = counties {
+                self.countiesByProvince[province] = self.sorted(counties)
+            }
+            callback(error)
+            self.isDownloading = false
+        }
+    }
+    
+    func fetchMunicipalities(in county: String, then callback: @escaping (APIError?) -> Void) {
+        isDownloading = true
+        APIManager.shared.fetchMunicipalities(for: county) { (municipalities, error) in
+            if let municipalities {
+                self.municipalitiesByCounty[county] = self.sorted(municipalities)
+            }
+            callback(error)
+            self.isDownloading = false
+        }
+    }
+    
+    private func sorted<T: Sortable>(_ sortables: [T]) -> [T] {
+        sortables.sorted(by: { s1, s2 in
+            if s1.order != s2.order {
                 // account for the order field
-                return $0.order < $1.order
+                return s1.order < s2.order
             } else {
                 // fallback to alphabetically
-                return $0.name < $1.name
+                return s1.name < s2.name
             }
-        }
-    }
-    
-    func availableSectionIds(inCounty county: String) -> [Int] {
-        if let countyData = getCounty(byCountyCode: county) {
-            return Array(1...countyData.numberOfPollingStations)
-        }
-        return []
-    }
-    
-    fileprivate func getCounty(byCountyCode code: String) -> CountyResponse? {
-        return availableCounties.filter { $0.code == code }.first
+        })
     }
     
     func persist(then callback: @escaping (SectionPickerViewModelError?) -> Void) {
-        guard let county = countyCode,
-            let sectionId = sectionId else {
+        guard let province = selectedProvince,
+              let county = selectedCounty,
+              let municipality = selectedMunicipality,
+              let sectionId = sectionId else {
             callback(.genericError(reason: "Invalid section data provided"))
             return
         }
-        let station = DB.shared.sectionInfo(for: county, sectionId: sectionId)
+        
+        var section = DB.shared.getSectionInfo(
+            provinceCode: province.code,
+            countyCode: county.code,
+            municipalityCode: municipality.code,
+            sectionId: sectionId
+        )
+        if section == nil {
+            // create it
+            section = DB.shared.createSectionInfo(
+                provinceCode: province.code,
+                provinceName: province.name,
+                countyCode: county.code,
+                countyName: county.name,
+                municipalityCode: municipality.code,
+                municipalityName: municipality.name,
+                sectionId: sectionId
+            )
+        }
+        
+        guard let section else {
+            callback(.genericError(reason: "Polling station data could not be fetched or created"))
+            return
+        }
+        PreferencesManager.shared.province = province
         PreferencesManager.shared.county = county
+        PreferencesManager.shared.municipality = municipality
         PreferencesManager.shared.section = sectionId
-        PreferencesManager.shared.sectionName = station.sectionFullName
-//        if let countyName = selectedCountyName {
-//            PreferencesManager.shared.sectionName = "Station".localized + " \(sectionId) \(countyName)"
-//        }
+        PreferencesManager.shared.sectionName = section.sectionFullName
         callback(nil)
     }
     

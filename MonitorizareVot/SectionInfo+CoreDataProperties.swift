@@ -12,28 +12,29 @@ import CoreData
 
 extension SectionInfo {
     
-    enum Medium: String {
-        case urban
-        case rural
-    }
-    
-    enum Genre: String {
-        case woman
-        case man
-    }
-
     @nonobjc public class func fetchRequest() -> NSFetchRequest<SectionInfo> {
         return NSFetchRequest<SectionInfo>(entityName: "SectionInfo");
     }
 
+    @NSManaged public var provinceCode: String?
+    @NSManaged public var provinceName: String?
     @NSManaged public var countyCode: String?
-    @NSManaged public var sectionId: Int16
-    @NSManaged public var presidentGender: String?
-    @NSManaged public var medium: String?
+    @NSManaged public var countyName: String?
+    @NSManaged public var municipalityCode: String?
+    @NSManaged public var municipalityName: String?
+    @NSManaged public var sectionId: Int64
     @NSManaged public var synced: Bool
+    
     @NSManaged public var leaveTime: Date?
     @NSManaged public var arriveTime: Date?
-
+    @NSManaged public var numberOfVotersOnTheList: Int64
+    @NSManaged public var numberOfCommissionMembers: Int64
+    @NSManaged public var numberOfFemaleMembers: Int64
+    @NSManaged public var minPresentMembers: Int64
+    @NSManaged public var chairmanPresence: Bool
+    @NSManaged public var singlePollingStationOrCommission: Bool
+    @NSManaged public var adequatePollingStationSize: Bool
+    
     @NSManaged public var notes: NSSet?
     @NSManaged public var questions: NSSet?
 }
@@ -74,9 +75,10 @@ extension SectionInfo {
 
 extension SectionInfo {
     var sectionFullName: String? {
-        guard let counties = LocalStorage.shared.counties,
-              let countyCode = self.countyCode,
-              let county = counties.first(where: { $0.code == countyCode }) else { return nil }
-        return "Station".localized + " \(sectionId) \(county.name)"
+        guard let provinceName = self.provinceName,
+              let countyName = self.countyName,
+              let municipalityName = self.municipalityName else { return nil }
+
+        return "Station".localized + " \(sectionId) \(municipalityName), \(countyName), \(provinceName)"
     }
 }
