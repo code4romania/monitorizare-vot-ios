@@ -30,17 +30,16 @@
 "Label_SelectOption" = "Alege o opțiune";
 "Label_DevelopedBy" = "dezvoltat de";
 
-"Label_TelephoneTextInput_Placeholder" = "Numar de telefon";
+"Label_TelephoneTextInput_Placeholder" = "Număr de telefon";
 "Label_CodeTextInput_Placeholder" = "Cod";
 
-"Label_CountyVotersCount" = "Numărul de alegători în lista electorală într-o anumită comisie"
-"Label_CountyMembersCount" = "Numărul de membri ai comitetului"
-"Label_CountyWomenCount" = "Numărul de femei din comitet"
-"Label_CountyLowestMemberCount" = "Cel mai mic număr de membri ai comisiei prezenți (la momentul observării)"
-"Label_CountyChairmanPresent" = "Președintele sau vicepreședintele comisiei a fost întotdeauna prezent?"
-"Label_CountyOnlyOneStation" = "Există o singură secție de votare (comisie electorală) în sală"
-"Label_CountySizeAdequate" = "Dimensiunea secției de votare a fost adecvată nevoilor zilei de votare?"
-
+"Label_CountyVotersCount" = "Numărul de alegători în lista electorală într-o anumită comisie";
+"Label_CountyMembersCount" = "Numărul de membri ai comitetului";
+"Label_CountyWomenCount" = "Numărul de femei din comitet";
+"Label_CountyLowestMemberCount" = "Cel mai mic număr de membri ai comisiei prezenți (la momentul observării)";
+"Label_CountyChairmanPresent" = "Președintele sau vicepreședintele comisiei a fost întotdeauna prezent?";
+"Label_CountyOnlyOneStation" = "Există o singură secție de votare (comisie electorală) în sală";
+"Label_CountySizeAdequate" = "Dimensiunea secției de votare a fost adecvată nevoilor zilei de votare?";
 
 "Label_AddNote" = "Adaugă o notă";
 "Label_TypeNote" = "Scrie aici nota";
@@ -56,8 +55,8 @@
 
 "Error_Unknown" = "A apărut o eroare necunoscută";
 "LoginError_Unknown" = "Nu te-am putut autentifica. Eroare necunoscută. Te rugăm să ne contactezi.";
-"Error.StationSaveFailed" = "Nu am putut sincroniza informatiile despre sectie.";
-"Error.AnswerSaveFailed" = "Nu am putut sincroniza raspunsul la intrebare/intrebari.";
+"Error.StationSaveFailed" = "Nu am putut sincroniza informațiile despre secție.";
+"Error.AnswerSaveFailed" = "Nu am putut sincroniza răspunsul la întrebare/întrebări.";
 "Error.FormDownloadFailed" = "Formularele nu au putut fi descărcate. Te rugăm să verifici conexiunea la internet și să apeși pe butonul de mai jos pentru a încerca din nou.";
 
 "Error" = "Eroare";
@@ -99,7 +98,7 @@
 "Onboarding.Title.Forms" = "Completează formularele";
 "Onboarding.Title.Notes" = "Adaugă note";
 
-"Onboarding.Text.Station" = "PASUL 1:\nDefinește secția de votare în care te afli, alegând județul și numărul acesteia.\n\nPASUL 2:\nAdaugă detalii despre sectia de votare. Nu-ți face griji, poți să modifici informațiile mai târziu.";
+"Onboarding.Text.Station" = "PASUL 1:\nDefinește secția de votare în care te afli, alegând județul și numărul acesteia.\n\nPASUL 2:\nAdaugă detalii despre secția de votare. Nu-ți face griji, poți să modifici informațiile mai târziu.";
 "Onboarding.Text.Forms" = "Pentru a detecta problemele, îți punem la dispoziție câteva formulare cu regulile standard ale unei secții de votare.\n\nÎn fiecare formular poți semnala dacă anumite proceduri au fost urmate sau nu.";
 "Onboarding.Text.Notes" = "Ai observat o problemă care nu apare în formular? Folosește butonul de ‘Adaugă notă’, scrie un mesaj și/sau anexează o imagine.";
 

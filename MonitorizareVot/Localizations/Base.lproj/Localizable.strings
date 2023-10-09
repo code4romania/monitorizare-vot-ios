@@ -37,13 +37,13 @@
 "Label_TelephoneTextInput_Placeholder" = "Phone number";
 "Label_CodeTextInput_Placeholder" = "Code";
 
-"Label_CountyVotersCount" = "The number of voters in the electoral roll in a given commission"
-"Label_CountyMembersCount" = "Number of committee members"
-"Label_CountyWomenCount" = "Number of women on the committee"
-"Label_CountyLowestMemberCount" = "Lowest number of committee members present (at time of observation)"
-"Label_CountyChairmanPresent" = "Was the Chairman or Deputy Chairman of the committee always present?"
-"Label_CountyOnlyOneStation" = "Is there only one polling station (electoral commission) in the room?"
-"Label_CountySizeAdequate" = "Was the size of the polling station adequate to the needs of the voting day?"
+"Label_CountyVotersCount" = "The number of voters in the electoral roll in a given commission";
+"Label_CountyMembersCount" = "Number of committee members";
+"Label_CountyWomenCount" = "Number of women on the committee";
+"Label_CountyLowestMemberCount" = "Lowest number of committee members present (at time of observation)";
+"Label_CountyChairmanPresent" = "Was the Chairman or Deputy Chairman of the committee always present?";
+"Label_CountyOnlyOneStation" = "Is there only one polling station (electoral commission) in the room?";
+"Label_CountySizeAdequate" = "Was the size of the polling station adequate to the needs of the voting day?";
 
 "Label_AddNote" = "Add a note";
 "Label_TypeNote" = "Type your note here";
@@ -57,7 +57,7 @@
 "AlertMessage_EnableCameraAccess" = "Please access the settings and give us permissions to access the picture library.";
 "AlertMessage_NewVersion" = "A new app version is available. Please update the app to use the latest features";
 
-"Error_Unknown" = "An unknown error occured";
+"Error_Unknown" = "An unknown error occurred";
 "LoginError_Unknown" = "Login failed. Unknown reason. Please contact us.";
 "Error.StationSaveFailed" = "Can't save station data.";
 "Error.AnswerSaveFailed" = "Can't save answer to question.";
