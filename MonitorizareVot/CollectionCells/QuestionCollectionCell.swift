@@ -55,7 +55,7 @@ class QuestionCollectionCell: UICollectionViewCell {
         
         for answer in model.questionAnswers {
             let button = ChooserButton(type: .custom)
-            button.heightAnchor.constraint(equalToConstant: 44).isActive = true
+            button.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
             button.setContentCompressionResistancePriority(.required, for: .vertical)
             button.setContentHuggingPriority(.required, for: .vertical)
             button.setTitle(answer.text, for: .normal)

@@ -76,7 +76,7 @@
                         <constraint firstAttribute="trailing" secondItem="Sz4-w9-Ic1" secondAttribute="trailing" constant="16" id="zDN-1s-Ozy"/>
                     </constraints>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fix-1x-h6b">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" keyboardDismissMode="onDrag" id="fix-1x-h6b">
                     <rect key="frame" x="0.0" y="109" width="393" height="649"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kf2-xI-bFw">
