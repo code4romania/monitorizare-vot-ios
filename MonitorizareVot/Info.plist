@@ -7,7 +7,7 @@
 	<key>API_URL</key>
 	<string>$(API_URL)</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>ro</string>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>Vote monitor</string>
 	<key>CFBundleExecutable</key>
