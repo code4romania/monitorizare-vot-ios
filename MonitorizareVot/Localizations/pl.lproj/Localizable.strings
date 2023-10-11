@@ -33,13 +33,13 @@
 "Label_TelephoneTextInput_Placeholder" = "Numer telefonu";
 "Label_CodeTextInput_Placeholder" = "Kod";
 
-"Label_CountyVotersCount" = "Liczba wyborców w spisie wyborców w danej komisji"
-"Label_CountyMembersCount" = "Liczba członków komisji"
-"Label_CountyWomenCount" = "Liczba kobiet w składzie komisji"
-"Label_CountyLowestMemberCount" = "Najmniejsza liczba obecnych członków komisji (w czasie obserwacji)"
-"Label_CountyChairmanPresent" = "Czy zawsze obecny był Przewodniczący/ca lub Z-ca Przewodniczącego/ej komisji?"
-"Label_CountyOnlyOneStation" = "Czy w pomieszczeniu jest tylko jeden lokal wyborczy (komisja wyborcza)?"
-"Label_CountySizeAdequate" = "Czy wielkość lokalu wyborczego była adekwatna do potrzeb dnia glosowania?"
+"Label_CountyVotersCount" = "Liczba wyborców w spisie wyborców w danej komisji";
+"Label_CountyMembersCount" = "Liczba członków komisji";
+"Label_CountyWomenCount" = "Liczba kobiet w składzie komisji";
+"Label_CountyLowestMemberCount" = "Najmniejsza liczba obecnych członków komisji (w czasie obserwacji)";
+"Label_CountyChairmanPresent" = "Czy zawsze obecny był Przewodniczący/ca lub Z-ca Przewodniczącego/ej komisji?";
+"Label_CountyOnlyOneStation" = "Czy w pomieszczeniu jest tylko jeden lokal wyborczy (komisja wyborcza)?";
+"Label_CountySizeAdequate" = "Czy wielkość lokalu wyborczego była adekwatna do potrzeb dnia glosowania?";
 
 "Label_AddNote" = "Dodaj notkę";
 "Label_TypeNote" = "Wpisz tutaj swoją notatkę";
@@ -100,6 +100,7 @@
 
 "Onboarding.Text.Station" = "Krok 1:\nOkreśl, w którym lokalu jesteś wybierając gminę i nr obwodu.\nKrok 2Wybierz rodzaj obwodu (obszar miejski, wiejski,szczegóły dotyczące przewodniczącego, czas przybycia). Nie martw się - informacje można potem edytować.";
 "Onboarding.Text.Forms" = "W celu wykrycia problemów, przygotowaliśmy formularze ze ustandaryzowanymi zasadami obowiązującymi w lokalu. \nW każdym formularzu pojawią się pytania czy poszczególne procedury zostały wypełnione, czy też nie.";
+"Onboarding.Text.Notes" = "Odnotowałeś problem, którego nie ma w formularzu? Użyj przycisk „Dodaj notatkę”, napisz wiadomość i/lub dodaj zdjęcie.";
 
 "Onboarding.Go" = "Przejdź do aplikacji";
 
@@ -111,7 +112,7 @@
 "Menu.Button.About" = "O nas";
 "Menu.Button.Logout" = "Wyloguj";
 "Menu.Button.ChangeLanguage" = "Zmień język";
-"Menu.Button.ContactUs" = "Skontakuj się z nami";
+"Menu.Button.ContactUs" = "Skontaktuj się z nami";
 "Menu.Button.PrivacyPolicy" = "Polityka prywatności";
 "Menu.Button.Safety" = "Informacje o bezpieczeństwie";
 "Menu.Button.Feedback" = "Uwagi";
