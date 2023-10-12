@@ -41,6 +41,9 @@
 "Label_CountyOnlyOneStation" = "Czy w pomieszczeniu jest tylko jeden lokal wyborczy (komisja wyborcza)?";
 "Label_CountySizeAdequate" = "Czy wielkość lokalu wyborczego była adekwatna do potrzeb dnia glosowania?";
 
+"Label_Yes" = "Tak";
+"Label_No" = "Nie";
+
 "Label_AddNote" = "Dodaj notkę";
 "Label_TypeNote" = "Wpisz tutaj swoją notatkę";
 "Label_EnterStation" = "Wpisz numer lokalu (np. 34)";

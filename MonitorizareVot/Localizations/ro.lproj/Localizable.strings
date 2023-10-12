@@ -41,6 +41,9 @@
 "Label_CountyOnlyOneStation" = "Există o singură secție de votare (comisie electorală) în sală";
 "Label_CountySizeAdequate" = "Dimensiunea secției de votare a fost adecvată nevoilor zilei de votare?";
 
+"Label_Yes" = "Da";
+"Label_No" = "Nu";
+
 "Label_AddNote" = "Adaugă o notă";
 "Label_TypeNote" = "Scrie aici nota";
 "Label_EnterStation" = "Introdu numărul secției (ex: 34)";

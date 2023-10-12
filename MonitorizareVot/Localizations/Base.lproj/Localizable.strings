@@ -45,6 +45,9 @@
 "Label_CountyOnlyOneStation" = "Is there only one polling station (electoral commission) in the room?";
 "Label_CountySizeAdequate" = "Was the size of the polling station adequate to the needs of the voting day?";
 
+"Label_Yes" = "Yes";
+"Label_No" = "No";
+
 "Label_AddNote" = "Add a note";
 "Label_TypeNote" = "Type your note here";
 "Label_EnterStation" = "Enter station number (i.e. 34)";

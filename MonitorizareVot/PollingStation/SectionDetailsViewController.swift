@@ -30,10 +30,13 @@ class SectionDetailsViewController: MVViewController {
     @IBOutlet weak var numberOfMembersField: UITextField!
     @IBOutlet weak var numberOfWomenField: UITextField!
     @IBOutlet weak var lowestNoMembersField: UITextField!
+
     @IBOutlet weak var chairmanPresentNoButton: ChooserButton!
     @IBOutlet weak var chairmanPresentYesButton: ChooserButton!
+
     @IBOutlet weak var onlyOneNoButton: ChooserButton!
     @IBOutlet weak var onlyOneYesButton: ChooserButton!
+
     @IBOutlet weak var sizeAdequateNoButton: ChooserButton!
     @IBOutlet weak var sizeAdequateYesButton: ChooserButton!
     
@@ -163,6 +166,15 @@ class SectionDetailsViewController: MVViewController {
         chairmanPresentLabel.text = "Label_CountyChairmanPresent".localized
         onlyOneLabel.text = "Label_CountyOnlyOneStation".localized
         sizeAdequateLabel.text = "Label_CountySizeAdequate".localized
+
+        chairmanPresentNoButton.setTitle("Label_No".localized, for: .normal)
+        chairmanPresentYesButton.setTitle("Label_Yes".localized, for: .normal)
+
+        onlyOneNoButton.setTitle("Label_No".localized, for: .normal)
+        onlyOneYesButton.setTitle("Label_Yes".localized, for: .normal)
+        
+        sizeAdequateNoButton.setTitle("Label_No".localized, for: .normal)
+        sizeAdequateYesButton.setTitle("Label_Yes".localized, for: .normal)
         
         continueButton.setTitle("Button_ContinueToForms".localized, for: .normal)
     }
