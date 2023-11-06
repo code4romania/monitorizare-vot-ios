@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -119,11 +119,21 @@
 		28FB66B0236855E400336DBA /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB66AF236855E400336DBA /* DB.swift */; };
 		28FB66B423699D7400336DBA /* TextEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FB66B223699D7400336DBA /* TextEntryViewController.swift */; };
 		28FB66B523699D7400336DBA /* TextEntryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28FB66B323699D7400336DBA /* TextEntryViewController.xib */; };
-		55A0F006987479F41A76966C /* Pods_MonitorizareVot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */; };
-		64726B5FB8079F4FDA2D91E0 /* Pods_MonitorizareVotUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */; };
+		62E0A8282AF92C6400CBA6CD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 62E0A8272AF92C6400CBA6CD /* FirebaseAuth */; };
+		62E0A82B2AF92DB600CBA6CD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 62E0A82A2AF92DB600CBA6CD /* SnapKit */; };
+		62E0A82D2AF92DB600CBA6CD /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 62E0A82C2AF92DB600CBA6CD /* SnapKit-Dynamic */; };
+		62E0A8302AF92E7500CBA6CD /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 62E0A82F2AF92E7500CBA6CD /* SwiftKeychainWrapper */; };
+		62E0A8332AF92F2E00CBA6CD /* KeyboardLayoutGuide in Frameworks */ = {isa = PBXBuildFile; productRef = 62E0A8322AF92F2E00CBA6CD /* KeyboardLayoutGuide */; };
+		62E0A8362AF92FCF00CBA6CD /* SwiftyMarkdown in Frameworks */ = {isa = PBXBuildFile; productRef = 62E0A8352AF92FCF00CBA6CD /* SwiftyMarkdown */; };
+		62F2BD992AF4F29E002AFA2E /* Promises in Frameworks */ = {isa = PBXBuildFile; productRef = 62F2BD982AF4F29E002AFA2E /* Promises */; };
+		62F2BD9C2AF4F658002AFA2E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 62F2BD9B2AF4F658002AFA2E /* Alamofire */; };
+		62F2BD9F2AF50660002AFA2E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 62F2BD9E2AF50660002AFA2E /* FirebaseAnalytics */; };
+		62F2BDA12AF50660002AFA2E /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 62F2BDA02AF50660002AFA2E /* FirebaseCrashlytics */; };
+		62F2BDA32AF50660002AFA2E /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = 62F2BDA22AF50660002AFA2E /* FirebaseInstallations */; };
+		62F2BDA52AF50660002AFA2E /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 62F2BDA42AF50660002AFA2E /* FirebaseMessaging */; };
+		62F2BDA72AF50660002AFA2E /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 62F2BDA62AF50660002AFA2E /* FirebaseRemoteConfig */; };
 		67EE98CB22A296F7006E4762 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EE98CA22A296F7006E4762 /* Logger.swift */; };
 		67EE98CE22A29D87006E4762 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67EE98CD22A29D87006E4762 /* GoogleService-Info.plist */; };
-		C79A3041BFF1FED83C00E5F3 /* Pods_MonitorizareVotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */; };
 		E74087241DDC90E800D9332F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74087231DDC90E800D9332F /* AppDelegate.swift */; };
 		E7E8EB4B1DDB7344009EBE01 /* UIColor+Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8EB4A1DDB7344009EBE01 /* UIColor+Presets.swift */; };
 		EF13D1571DCF24A800349B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF13D1561DCF24A800349B43 /* Assets.xcassets */; };
@@ -160,7 +170,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		271595B421465EBA00BECC9C /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		27EDBD2621465D290060DB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		27EDBD2821465D480060DB8A /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -279,17 +288,10 @@
 		28FB66AF236855E400336DBA /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		28FB66B223699D7400336DBA /* TextEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryViewController.swift; sourceTree = "<group>"; };
 		28FB66B323699D7400336DBA /* TextEntryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextEntryViewController.xib; sourceTree = "<group>"; };
-		2C95EF7A92703E67898E5413 /* Pods-MonitorizareVotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests.release.xcconfig"; sourceTree = "<group>"; };
-		3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6141F9F392CCD91B6DE2B780 /* Pods-MonitorizareVot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVot.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot.release.xcconfig"; sourceTree = "<group>"; };
-		626B7494E0E905A8AEF30B00 /* Pods-MonitorizareVotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotTests/Pods-MonitorizareVotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		67EE98CA22A296F7006E4762 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		67EE98CD22A29D87006E4762 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7F4B4D98801626552C357D41 /* Pods-MonitorizareVotUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		90CF95CA02DCD8E741C5686D /* Pods-MonitorizareVot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot.debug.xcconfig"; sourceTree = "<group>"; };
 		BBA5BAB32AD6EA0100F2D5CF /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BBA5BAB42AD6EA0200F2D5CF /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MonitorizareVotUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74087231DDC90E800D9332F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E8EB4A1DDB7344009EBE01 /* UIColor+Presets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Presets.swift"; sourceTree = "<group>"; };
 		EF13D1561DCF24A800349B43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -303,7 +305,6 @@
 		EF4BD3A81D9D08DE0042BEC7 /* MonitorizareVotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitorizareVotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4BD3AC1D9D08DE0042BEC7 /* MonitorizareVotUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MonitorizareVotUITests.m; sourceTree = "<group>"; };
 		EF4BD3AE1D9D08DE0042BEC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MonitorizareVotUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MonitorizareVotUITests/Pods-MonitorizareVotUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F553E3AF1DF9C675000D0902 /* NoteContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteContainer.swift; sourceTree = "<group>"; };
 		F553E3B11DF9D67A000D0902 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F553E3B21DF9D67A000D0902 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -320,7 +321,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55A0F006987479F41A76966C /* Pods_MonitorizareVot.framework in Frameworks */,
+				62F2BD9C2AF4F658002AFA2E /* Alamofire in Frameworks */,
+				62E0A8332AF92F2E00CBA6CD /* KeyboardLayoutGuide in Frameworks */,
+				62F2BD992AF4F29E002AFA2E /* Promises in Frameworks */,
+				62E0A8302AF92E7500CBA6CD /* SwiftKeychainWrapper in Frameworks */,
+				62F2BDA52AF50660002AFA2E /* FirebaseMessaging in Frameworks */,
+				62E0A8362AF92FCF00CBA6CD /* SwiftyMarkdown in Frameworks */,
+				62F2BDA12AF50660002AFA2E /* FirebaseCrashlytics in Frameworks */,
+				62E0A8282AF92C6400CBA6CD /* FirebaseAuth in Frameworks */,
+				62F2BDA32AF50660002AFA2E /* FirebaseInstallations in Frameworks */,
+				62F2BD9F2AF50660002AFA2E /* FirebaseAnalytics in Frameworks */,
+				62F2BDA72AF50660002AFA2E /* FirebaseRemoteConfig in Frameworks */,
+				62E0A82D2AF92DB600CBA6CD /* SnapKit-Dynamic in Frameworks */,
+				62E0A82B2AF92DB600CBA6CD /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +341,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C79A3041BFF1FED83C00E5F3 /* Pods_MonitorizareVotTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,26 +348,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64726B5FB8079F4FDA2D91E0 /* Pods_MonitorizareVotUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0EFC16FC3E4279B722E76656 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				90CF95CA02DCD8E741C5686D /* Pods-MonitorizareVot.debug.xcconfig */,
-				6141F9F392CCD91B6DE2B780 /* Pods-MonitorizareVot.release.xcconfig */,
-				626B7494E0E905A8AEF30B00 /* Pods-MonitorizareVotTests.debug.xcconfig */,
-				2C95EF7A92703E67898E5413 /* Pods-MonitorizareVotTests.release.xcconfig */,
-				7F4B4D98801626552C357D41 /* Pods-MonitorizareVotUITests.debug.xcconfig */,
-				F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		2810413E236C3A3700B7422C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,16 +579,6 @@
 			name = Logging;
 			sourceTree = "<group>";
 		};
-		73D320017882699B296EB213 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				17220BEAAF40F0C9F0CE43ED /* Pods_MonitorizareVot.framework */,
-				3827A6E40E14823BEBEB13D9 /* Pods_MonitorizareVotTests.framework */,
-				DB2E1514E94213D72327CF3C /* Pods_MonitorizareVotUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		E7E1F2C21DDB586100CE52FC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,8 +625,6 @@
 				EF4BD3AB1D9D08DE0042BEC7 /* MonitorizareVotUITests */,
 				2817EA222358FA8E0029AD4C /* APITests */,
 				EF4BD3821D9D08DE0042BEC7 /* Products */,
-				0EFC16FC3E4279B722E76656 /* Pods */,
-				73D320017882699B296EB213 /* Frameworks */,
 				289E1E77235EF607000C92A0 /* Recovered References */,
 			);
 			sourceTree = "<group>";
@@ -777,19 +763,31 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF4BD3B11D9D08DE0042BEC7 /* Build configuration list for PBXNativeTarget "MonitorizareVot" */;
 			buildPhases = (
-				EDB2BAFC529132A9DFC6BA45 /* [CP] Check Pods Manifest.lock */,
 				EF4BD37D1D9D08DE0042BEC7 /* Sources */,
 				EF4BD37E1D9D08DE0042BEC7 /* Frameworks */,
 				EF4BD37F1D9D08DE0042BEC7 /* Resources */,
-				4A1AB3AFB208747115F13B4C /* [CP] Embed Pods Frameworks */,
 				28C4343A23703CEB001E6268 /* Fabric Script */,
-				28F896B22577B88300CC180C /* Dsyms */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MonitorizareVot;
+			packageProductDependencies = (
+				62F2BD982AF4F29E002AFA2E /* Promises */,
+				62F2BD9B2AF4F658002AFA2E /* Alamofire */,
+				62F2BD9E2AF50660002AFA2E /* FirebaseAnalytics */,
+				62F2BDA02AF50660002AFA2E /* FirebaseCrashlytics */,
+				62F2BDA22AF50660002AFA2E /* FirebaseInstallations */,
+				62F2BDA42AF50660002AFA2E /* FirebaseMessaging */,
+				62F2BDA62AF50660002AFA2E /* FirebaseRemoteConfig */,
+				62E0A8272AF92C6400CBA6CD /* FirebaseAuth */,
+				62E0A82A2AF92DB600CBA6CD /* SnapKit */,
+				62E0A82C2AF92DB600CBA6CD /* SnapKit-Dynamic */,
+				62E0A82F2AF92E7500CBA6CD /* SwiftKeychainWrapper */,
+				62E0A8322AF92F2E00CBA6CD /* KeyboardLayoutGuide */,
+				62E0A8352AF92FCF00CBA6CD /* SwiftyMarkdown */,
+			);
 			productName = MonitorizareVot;
 			productReference = EF4BD3811D9D08DE0042BEC7 /* MonitorizareVot.app */;
 			productType = "com.apple.product-type.application";
@@ -798,7 +796,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF4BD3B41D9D08DE0042BEC7 /* Build configuration list for PBXNativeTarget "MonitorizareVotTests" */;
 			buildPhases = (
-				F4AFE020C500785E48EB747C /* [CP] Check Pods Manifest.lock */,
 				EF4BD3991D9D08DE0042BEC7 /* Sources */,
 				EF4BD39A1D9D08DE0042BEC7 /* Frameworks */,
 				EF4BD39B1D9D08DE0042BEC7 /* Resources */,
@@ -817,7 +814,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF4BD3B71D9D08DE0042BEC7 /* Build configuration list for PBXNativeTarget "MonitorizareVotUITests" */;
 			buildPhases = (
-				E0BFE4299848365AAD3B668F /* [CP] Check Pods Manifest.lock */,
 				EF4BD3A41D9D08DE0042BEC7 /* Sources */,
 				EF4BD3A51D9D08DE0042BEC7 /* Frameworks */,
 				EF4BD3A61D9D08DE0042BEC7 /* Resources */,
@@ -875,6 +871,15 @@
 				pl,
 			);
 			mainGroup = EF4BD3781D9D08DE0042BEC7;
+			packageReferences = (
+				62F2BD972AF4F29E002AFA2E /* XCRemoteSwiftPackageReference "promises.git" */,
+				62F2BD9A2AF4F657002AFA2E /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				62F2BD9D2AF50660002AFA2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */,
+				62E0A8292AF92DB600CBA6CD /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				62E0A82E2AF92E7500CBA6CD /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper.git" */,
+				62E0A8312AF92F2E00CBA6CD /* XCRemoteSwiftPackageReference "KeyboardLayoutGuide.git" */,
+				62E0A8342AF92FCF00CBA6CD /* XCRemoteSwiftPackageReference "SwiftyMarkdown.git" */,
+			);
 			productRefGroup = EF4BD3821D9D08DE0042BEC7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -953,8 +958,6 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 			);
 			name = "Fabric Script";
 			outputFileListPaths = (
@@ -963,133 +966,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
-		};
-		28F896B22577B88300CC180C /* Dsyms */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Dsyms;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\" -p ios \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n";
-		};
-		4A1AB3AFB208747115F13B4C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseABTesting/FirebaseABTesting.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCoreExtension/FirebaseCoreExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCoreInternal/FirebaseCoreInternal.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCrashlytics/FirebaseCrashlytics.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseMessaging/FirebaseMessaging.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseRemoteConfig/FirebaseRemoteConfig.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseSessions/FirebaseSessions.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Keyboard+LayoutGuide/KeyboardLayoutGuide.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyMarkdown/SwiftyMarkdown.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseABTesting.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreInternal.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCrashlytics.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseMessaging.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseRemoteConfig.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseSessions.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyboardLayoutGuide.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyMarkdown.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MonitorizareVot/Pods-MonitorizareVot-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E0BFE4299848365AAD3B668F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MonitorizareVotUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EDB2BAFC529132A9DFC6BA45 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MonitorizareVot-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F4AFE020C500785E48EB747C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MonitorizareVotTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "\"${BUILD_DIR%Build/*}SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1358,7 +1235,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1366,7 +1244,6 @@
 		};
 		EF4BD3B21D9D08DE0042BEC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90CF95CA02DCD8E741C5686D /* Pods-MonitorizareVot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1376,7 +1253,10 @@
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = MJ6DRRM33G;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 2.4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1388,7 +1268,6 @@
 		};
 		EF4BD3B31D9D08DE0042BEC7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6141F9F392CCD91B6DE2B780 /* Pods-MonitorizareVot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1398,7 +1277,10 @@
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = MJ6DRRM33G;
 				INFOPLIST_FILE = MonitorizareVot/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 2.4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1409,12 +1291,15 @@
 		};
 		EF4BD3B51D9D08DE0042BEC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 626B7494E0E905A8AEF30B00 /* Pods-MonitorizareVotTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MonitorizareVotTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MonitorizareVotTests/MonitorizareVotTests-Bridging-Header.h";
@@ -1426,12 +1311,15 @@
 		};
 		EF4BD3B61D9D08DE0042BEC7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C95EF7A92703E67898E5413 /* Pods-MonitorizareVotTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MonitorizareVotTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MonitorizareVotTests/MonitorizareVotTests-Bridging-Header.h";
@@ -1442,11 +1330,14 @@
 		};
 		EF4BD3B81D9D08DE0042BEC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F4B4D98801626552C357D41 /* Pods-MonitorizareVotUITests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = P2EQL76LN6;
 				INFOPLIST_FILE = MonitorizareVotUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1456,11 +1347,14 @@
 		};
 		EF4BD3B91D9D08DE0042BEC7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0644FE9EC6A7ABF8A6EE0DC /* Pods-MonitorizareVotUITests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = P2EQL76LN6;
 				INFOPLIST_FILE = MonitorizareVotUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = code4ro.MonitorizareVotUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1508,6 +1402,133 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		62E0A8292AF92DB600CBA6CD /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+		62E0A82E2AF92E7500CBA6CD /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+		62E0A8312AF92F2E00CBA6CD /* XCRemoteSwiftPackageReference "KeyboardLayoutGuide.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/freshOS/KeyboardLayoutGuide.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.0;
+			};
+		};
+		62E0A8342AF92FCF00CBA6CD /* XCRemoteSwiftPackageReference "SwiftyMarkdown.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimonFairbairn/SwiftyMarkdown.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.4;
+			};
+		};
+		62F2BD972AF4F29E002AFA2E /* XCRemoteSwiftPackageReference "promises.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/promises.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.1;
+			};
+		};
+		62F2BD9A2AF4F657002AFA2E /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+		62F2BD9D2AF50660002AFA2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.17.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		62E0A8272AF92C6400CBA6CD /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F2BD9D2AF50660002AFA2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			productName = FirebaseAuth;
+		};
+		62E0A82A2AF92DB600CBA6CD /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62E0A8292AF92DB600CBA6CD /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			productName = SnapKit;
+		};
+		62E0A82C2AF92DB600CBA6CD /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62E0A8292AF92DB600CBA6CD /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			productName = "SnapKit-Dynamic";
+		};
+		62E0A82F2AF92E7500CBA6CD /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62E0A82E2AF92E7500CBA6CD /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper.git" */;
+			productName = SwiftKeychainWrapper;
+		};
+		62E0A8322AF92F2E00CBA6CD /* KeyboardLayoutGuide */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62E0A8312AF92F2E00CBA6CD /* XCRemoteSwiftPackageReference "KeyboardLayoutGuide.git" */;
+			productName = KeyboardLayoutGuide;
+		};
+		62E0A8352AF92FCF00CBA6CD /* SwiftyMarkdown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62E0A8342AF92FCF00CBA6CD /* XCRemoteSwiftPackageReference "SwiftyMarkdown.git" */;
+			productName = SwiftyMarkdown;
+		};
+		62F2BD982AF4F29E002AFA2E /* Promises */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F2BD972AF4F29E002AFA2E /* XCRemoteSwiftPackageReference "promises.git" */;
+			productName = Promises;
+		};
+		62F2BD9B2AF4F658002AFA2E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F2BD9A2AF4F657002AFA2E /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			productName = Alamofire;
+		};
+		62F2BD9E2AF50660002AFA2E /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F2BD9D2AF50660002AFA2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			productName = FirebaseAnalytics;
+		};
+		62F2BDA02AF50660002AFA2E /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F2BD9D2AF50660002AFA2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			productName = FirebaseCrashlytics;
+		};
+		62F2BDA22AF50660002AFA2E /* FirebaseInstallations */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F2BD9D2AF50660002AFA2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			productName = FirebaseInstallations;
+		};
+		62F2BDA42AF50660002AFA2E /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F2BD9D2AF50660002AFA2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			productName = FirebaseMessaging;
+		};
+		62F2BDA62AF50660002AFA2E /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62F2BD9D2AF50660002AFA2E /* XCRemoteSwiftPackageReference "firebase-ios-sdk.git" */;
+			productName = FirebaseRemoteConfig;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EF4BD3901D9D08DE0042BEC7 /* s.xcdatamodeld */ = {
