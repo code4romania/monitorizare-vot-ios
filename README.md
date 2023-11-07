@@ -26,10 +26,6 @@ __IMPORTANT:__ Please follow the Code4Romania [WORKFLOW](.github/WORKFLOW.MD)
 
 This project uses Firebase for event and usage tracking and Crashlytics for crash reports. So before you start work on it, you'll need to go to your Firebase console and create an app for this project, then download its `GoogleService-Info.plist` file and copy it to the `Config` folder.
 
-### CocoaPods
-
-This project uses CocoaPods for its dependency management, so make sure you install it if you didn't already, then run a `pod install` before you build the project.
-
 ## Built With
 
 * Swift 5
